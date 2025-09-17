@@ -155,7 +155,7 @@ main,
 .hero,
 .hero-section,
 [class*="hero"] {
-    padding-top: 100px;
+    padding-top: 0 !important;
 }
 
 section {
@@ -256,7 +256,7 @@ section {
     main,
     .hero,
     .hero-section {
-        padding-top: 80px;
+        padding-top: 0 !important;
     }
 }
 
