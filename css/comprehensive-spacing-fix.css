@@ -1,0 +1,402 @@
+/* ===================================
+   COMPREHENSIVE SPACING & POLISH FIX
+   Addresses all spacing, overflow, and responsiveness issues
+   =================================== */
+
+/* ===================================
+   1. HEADER & HERO OVERLAP FIX
+   =================================== */
+
+/* Fix hero starting position to account for header */
+.hero, .hero-modern, [class*="hero"] {
+    margin-top: 140px !important; /* Account for fixed header height + spacing */
+    padding-top: 60px !important; /* Add proper top spacing */
+}
+
+/* Responsive header spacing adjustments */
+@media (max-width: 1024px) {
+    .hero, .hero-modern, [class*="hero"] {
+        margin-top: 120px !important;
+        padding-top: 40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero, .hero-modern, [class*="hero"] {
+        margin-top: 110px !important;
+        padding-top: 30px !important;
+    }
+}
+
+/* ===================================
+   2. EXCESSIVE PADDING FIXES
+   =================================== */
+
+/* Fix results section excessive bottom padding */
+#results {
+    padding-bottom: 80px !important; /* Reduced from 160px */
+}
+
+/* Fix CTA section excessive bottom padding */
+#cta {
+    padding-bottom: 80px !important; /* Reduced from 160px */
+}
+
+/* Standardize section padding */
+.section {
+    padding: 80px 0 !important;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 60px 0 !important;
+    }
+
+    #results {
+        padding-bottom: 60px !important;
+    }
+
+    #cta {
+        padding-bottom: 60px !important;
+    }
+}
+
+/* ===================================
+   3. HORIZONTAL OVERFLOW FIXES
+   =================================== */
+
+/* Prevent horizontal overflow on body and html */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+}
+
+/* Fix container widths to prevent overflow */
+.container {
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix specific section containers */
+.hero-content,
+.results-grid,
+.services-grid,
+.process-steps,
+.pricing-grid,
+.faq-container,
+.contact-form {
+    max-width: 100% !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+}
+
+/* Fix hero content grid */
+.hero-content {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+}
+
+@media (min-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1.1fr 0.9fr !important;
+        gap: 60px !important;
+    }
+}
+
+/* ===================================
+   4. RESPONSIVE SECTION HEIGHT OPTIMIZATION
+   =================================== */
+
+/* Optimize hero section heights */
+.hero, .hero-modern {
+    min-height: auto !important;
+    max-height: none !important;
+}
+
+/* Add breathing room but prevent excessive heights */
+@media (min-width: 768px) {
+    .hero, .hero-modern {
+        min-height: 60vh !important;
+        max-height: 100vh !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero, .hero-modern {
+        min-height: auto !important;
+        padding-top: 20px !important;
+        padding-bottom: 40px !important;
+    }
+}
+
+/* ===================================
+   5. TRUST SIGNALS BAR POSITIONING
+   =================================== */
+
+/* Fix trust signals bar negative margin */
+.trust-signals-bar {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* ===================================
+   6. GRID AND LAYOUT IMPROVEMENTS
+   =================================== */
+
+/* Improve grid layouts to prevent overflow */
+.results-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+}
+
+.services-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 30px !important;
+}
+
+.pricing-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+}
+
+/* Mobile-first grid adjustments */
+@media (max-width: 768px) {
+    .results-grid,
+    .services-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .results-grid,
+    .services-grid,
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .pricing-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+/* ===================================
+   7. TYPOGRAPHY AND SPACING POLISH
+   =================================== */
+
+/* Improve text hierarchy and spacing */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+}
+
+p {
+    margin-bottom: 1.5rem !important;
+    line-height: 1.7 !important;
+}
+
+/* Improve button spacing */
+.btn {
+    margin-bottom: 1rem !important;
+}
+
+.btn + .btn {
+    margin-left: 1rem !important;
+}
+
+@media (max-width: 768px) {
+    .btn + .btn {
+        margin-left: 0 !important;
+        margin-top: 1rem !important;
+    }
+}
+
+/* ===================================
+   8. CARD AND COMPONENT SPACING
+   =================================== */
+
+/* Improve card spacing */
+.result-card,
+.service-card,
+.pricing-card,
+.testimonial-card {
+    margin-bottom: 30px !important;
+    padding: 30px !important;
+}
+
+@media (max-width: 768px) {
+    .result-card,
+    .service-card,
+    .pricing-card,
+    .testimonial-card {
+        margin-bottom: 20px !important;
+        padding: 20px !important;
+    }
+}
+
+/* ===================================
+   9. FOOTER OPTIMIZATION
+   =================================== */
+
+/* Optimize footer height and spacing */
+footer {
+    padding: 60px 0 40px !important;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 0 30px !important;
+    }
+}
+
+/* ===================================
+   10. NAVIGATION POLISH
+   =================================== */
+
+/* Ensure navbar doesn't cause layout shifts */
+.premium-nav {
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 968px) {
+    .mobile-nav {
+        max-width: 100vw !important;
+        overflow-x: hidden !important;
+    }
+}
+
+/* ===================================
+   11. ANIMATION AND PERFORMANCE POLISH
+   =================================== */
+
+/* Smooth transitions for better UX */
+* {
+    scroll-behavior: smooth !important;
+}
+
+/* Optimize animations */
+.hero-content,
+.result-card,
+.service-card {
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+}
+
+/* ===================================
+   12. ACCESSIBILITY AND UX IMPROVEMENTS
+   =================================== */
+
+/* Improve focus states */
+a:focus,
+button:focus,
+.btn:focus {
+    outline: 2px solid var(--pp-primary) !important;
+    outline-offset: 2px !important;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 48px !important;
+        padding: 12px 24px !important;
+    }
+
+    .nav-links a {
+        min-height: 48px !important;
+        padding: 12px 16px !important;
+    }
+}
+
+/* ===================================
+   13. PERFORMANCE OPTIMIZATIONS
+   =================================== */
+
+/* Optimize image loading and rendering */
+img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    image-rendering: -webkit-optimize-contrast !important;
+}
+
+/* Optimize fonts and text rendering */
+body {
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Optimize transforms and animations */
+.hero-content,
+.result-card,
+.service-card,
+.pricing-card {
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+}
+
+/* Optimize scrolling performance */
+* {
+    -webkit-overflow-scrolling: touch !important;
+}
+
+/* ===================================
+   14. FINAL POLISH AND CLEANUP
+   =================================== */
+
+/* Ensure consistent box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box !important;
+}
+
+/* Remove any remaining overflow issues */
+.hero,
+.section,
+main {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Ensure proper stacking context */
+.hero {
+    z-index: 1 !important;
+}
+
+header {
+    z-index: 1000 !important;
+}
+
+.mobile-nav {
+    z-index: 9999 !important;
+}
+
+/* Final spacing consistency check */
+section:not(:last-child) {
+    margin-bottom: 0 !important;
+}
+
+/* Optimize for different screen densities */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero,
+    .section {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+    }
+}
