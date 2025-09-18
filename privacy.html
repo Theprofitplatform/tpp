@@ -69,10 +69,10 @@
     <link rel="preload" href="css/critical.css" as="style">
     <link rel="preload" href="css/style.min.css" as="style">
 
-    <!-- Universal Navigation Styles -->
-    <link rel="stylesheet" href="css/universal-nav.css">
-
-    <!-- Navigation Fix CSS -->
+    <!-- Consolidated Navigation Styles -->
+    <link rel="stylesheet" href="css/navigation.css" media="all">
+    <link rel="stylesheet" href="css/layout.css" media="all">
+    <link rel="stylesheet" href="css/loading-states.css" media="all">
 
     <!-- Fallback for preload -->
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
@@ -88,6 +88,7 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.min.css" media="all">
+
 
     <!-- Enhanced Structured Data for Legal Document -->
     <script type="application/ld+json">
@@ -590,9 +591,9 @@
                             </a>
                         </li>
                         <li role="none">
-                            <a href="blog/blog.html" class="nav-item premium-nav-item" role="menuitem">
-                                <i class="fas fa-blog nav-icon" aria-hidden="true"></i>
-                                <span>Blog</span>
+                            <a href="portfolio.html" class="nav-item premium-nav-item" role="menuitem">
+                                <i class="fas fa-briefcase nav-icon" aria-hidden="true"></i>
+                                <span>Portfolio</span>
                                 <div class="nav-pill-bg"></div>
                             </a>
                         </li>
@@ -639,7 +640,7 @@
          aria-labelledby="mobile-nav-title"
          aria-hidden="true">
         <div class="mobile-nav-header">
-            <div class="mobile-logo">
+            <div class="mobile-nav-logo">
                 <picture>
                     <source srcset="images/optimized/logo.webp" type="image/webp">
                     <img src="images/optimized/logo.png"
@@ -650,6 +651,9 @@
                          loading="lazy"
                          decoding="async">
                 </picture>
+                <div class="mobile-nav-tagline">
+                    <span>Sydney Digital Marketing</span>
+                </div>
             </div>
             <button class="mobile-nav-close"
                     id="mobileNavClose"
@@ -658,48 +662,81 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <nav aria-label="Mobile navigation">
+
+        <nav class="mobile-nav-links" aria-label="Mobile navigation">
             <h2 id="mobile-nav-title" class="sr-only">Navigation Menu</h2>
-            <div class="mobile-nav-links" role="list">
-                <a href="index.html" role="listitem">
-                    <span aria-hidden="true">🏠</span> Home
+            <div role="list">
+                <a href="index.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                    </div>
+                    <span>Home</span>
                 </a>
-                <a href="services.html" role="listitem">
-                    <span aria-hidden="true">🎯</span> Services
+                <a href="services.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-rocket" aria-hidden="true"></i>
+                    </div>
+                    <span>Services</span>
                 </a>
-                <a href="seo.html" role="listitem" class="mobile-sub-item">
-                    <span aria-hidden="true">📍</span> SEO & Local Search
+                <div class="mobile-nav-submenu">
+                    <a href="seo.html" class="mobile-nav-link mobile-sub-item" role="listitem">
+                        <div class="mobile-nav-icon">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </div>
+                        <span>SEO & Local Search</span>
+                    </a>
+                    <a href="web-design.html" class="mobile-nav-link mobile-sub-item" role="listitem">
+                        <div class="mobile-nav-icon">
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                        </div>
+                        <span>Web Design</span>
+                    </a>
+                    <a href="google-ads.html" class="mobile-nav-link mobile-sub-item" role="listitem">
+                        <div class="mobile-nav-icon">
+                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                        </div>
+                        <span>Google & Meta Ads</span>
+                    </a>
+                </div>
+                <a href="pricing.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+                    </div>
+                    <span>Pricing</span>
                 </a>
-                <a href="web-design.html" role="listitem" class="mobile-sub-item">
-                    <span aria-hidden="true">🎨</span> Web Design
+                <a href="about.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                    </div>
+                    <span>About Us</span>
                 </a>
-                <a href="google-ads.html" role="listitem" class="mobile-sub-item">
-                    <span aria-hidden="true">📢</span> Google & Meta Ads
+                <a href="portfolio.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-briefcase" aria-hidden="true"></i>
+                    </div>
+                    <span>Portfolio</span>
                 </a>
-                <a href="pricing.html" role="listitem">
-                    <span aria-hidden="true">💰</span> Pricing
-                </a>
-                <a href="about.html" role="listitem">
-                    <span aria-hidden="true">👥</span> About Us
-                </a>
-                <a href="blog/blog.html" role="listitem">
-                    <span aria-hidden="true">📝</span> Blog
-                </a>
-                <a href="contact.html" role="listitem">
-                    <span aria-hidden="true">📞</span> Contact
+                <a href="contact.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <span>Contact</span>
                 </a>
             </div>
         </nav>
+
         <div class="mobile-nav-cta">
             <a href="tel:+61487286451"
-               class="phone-number"
+               class="mobile-cta-btn phone-number"
                aria-label="Call us at 0487 286 451">
-                0487 286 451
+                <i class="fas fa-phone" aria-hidden="true"></i>
+                <span>0487 286 451</span>
             </a>
             <a href="contact.html"
-               class="btn btn-primary"
-               aria-label="Get Free Chat - Contact us">
-                Let's Chat
+               class="mobile-cta-btn primary"
+               aria-label="Get started with free consultation">
+                <i class="fas fa-rocket" aria-hidden="true"></i>
+                <span>Get Started</span>
             </a>
         </div>
     </div>
