@@ -83,7 +83,8 @@
     
     <!-- Critical CSS inline for faster rendering -->
     <link rel="stylesheet" href="css/critical.min.css">
-    
+    <link rel="stylesheet" href="css/loading-states.css">
+
     <!-- External Resources - Load asynchronously -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
@@ -95,13 +96,10 @@
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.min.css" media="all">
 
-    <!-- Optimized CSS Fixes - Load after main stylesheet -->
-    <link rel="stylesheet" href="css/optimized-fixes.css" media="all">
-    <link rel="stylesheet" href="css/mobile-navigation.css" media="all">
-    <link rel="stylesheet" href="css/performance-optimizations.css" media="all">
+    <!-- Consolidated Navigation & Layout Styles -->
+    <link rel="stylesheet" href="css/navigation.css" media="all">
+    <link rel="stylesheet" href="css/layout.css" media="all">
 
-    <!-- Navigation Bar Fix - Critical positioning fix -->
-    <link rel="stylesheet" href="css/navbar-fix.css" media="all">
 
     <!-- Enhanced Structured Data for Local SEO -->
     <script type="application/ld+json">
@@ -310,7 +308,7 @@
         <div class="progress-bar" id="progressBar"></div>
     </div>
 
-    <!-- Header -->
+    <!-- Header Navigation -->
     <header id="header" role="banner" class="premium-nav">
         <div class="progress-indicator"></div>
         <div class="nav-floating-container">
@@ -330,7 +328,6 @@
                         </picture>
                         <div class="logo-tagline">
                             <span></span>
-                            
                         </div>
                     </div>
                     <div class="logo-accent"></div>
@@ -345,49 +342,57 @@
                                 <div class="nav-pill-bg"></div>
                             </a>
                         </li>
-                        <li role="none" class="nav-dropdown">
-                            <a href="services.html" class="nav-item premium-nav-item" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        <li class="nav-dropdown premium-dropdown" role="none">
+                            <a href="services.html"
+                               class="nav-item premium-nav-item"
+                               role="menuitem"
+                               aria-expanded="false"
+                               aria-haspopup="true"
+                               aria-controls="services-dropdown">
                                 <i class="fas fa-rocket nav-icon" aria-hidden="true"></i>
                                 <span>Services</span>
                                 <i class="fas fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
                                 <div class="nav-pill-bg"></div>
                             </a>
-                            <div class="dropdown-menu" role="menu">
-                                <a href="seo.html" class="dropdown-item" role="menuitem">
-                                    <i class="fas fa-search"></i>
-                                    <div>
-                                        <strong>SEO & Local Search</strong>
-                                        <span>Rank higher on Google</span>
-                                    </div>
-                                </a>
-                                <a href="web-design.html" class="dropdown-item" role="menuitem">
-                                    <i class="fas fa-paint-brush"></i>
-                                    <div>
-                                        <strong>Web Design</strong>
-                                        <span>Modern, responsive websites</span>
-                                    </div>
-                                </a>
-                                <a href="google-ads.html" class="dropdown-item" role="menuitem">
-                                    <i class="fas fa-bullhorn"></i>
-                                    <div>
-                                        <strong>Google Ads</strong>
-                                        <span>Drive targeted traffic</span>
-                                    </div>
-                                </a>
-                                <a href="social-media.html" class="dropdown-item" role="menuitem">
-                                    <i class="fas fa-share-alt"></i>
-                                    <div>
-                                        <strong>Social Media</strong>
-                                        <span>Engage your audience</span>
-                                    </div>
-                                </a>
-                                <a href="services.html" class="dropdown-item view-all" role="menuitem">
-                                    <i class="fas fa-arrow-right"></i>
-                                    <div>
-                                        <strong>View All Services</strong>
-                                        <span>Complete service overview</span>
-                                    </div>
-                                </a>
+                            <div class="dropdown-menu mega-dropdown" role="menu" id="services-dropdown" aria-label="Services submenu">
+                                <div class="mega-dropdown-content">
+                                    <a href="seo.html" class="dropdown-item mega-item" role="menuitem">
+                                        <div class="mega-item-icon">
+                                            <i class="fas fa-search" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="mega-item-content">
+                                            <strong>SEO Services</strong>
+                                            <span>Dominate Google search results</span>
+                                        </div>
+                                        <div class="mega-item-arrow">
+                                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                    <a href="web-design.html" class="dropdown-item mega-item" role="menuitem">
+                                        <div class="mega-item-icon">
+                                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="mega-item-content">
+                                            <strong>Website Design</strong>
+                                            <span>Convert visitors to customers</span>
+                                        </div>
+                                        <div class="mega-item-arrow">
+                                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                    <a href="google-ads.html" class="dropdown-item mega-item" role="menuitem">
+                                        <div class="mega-item-icon">
+                                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="mega-item-content">
+                                            <strong>Google Ads</strong>
+                                            <span>Instant traffic and leads</span>
+                                        </div>
+                                        <div class="mega-item-arrow">
+                                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </li>
                         <li role="none">
@@ -405,7 +410,7 @@
                             </a>
                         </li>
                         <li role="none">
-                            <a href="blog/index.html" class="nav-item premium-nav-item" role="menuitem">
+                            <a href="blog/blog.html" class="nav-item premium-nav-item" role="menuitem">
                                 <i class="fas fa-blog nav-icon" aria-hidden="true"></i>
                                 <span>Blog</span>
                                 <div class="nav-pill-bg"></div>
@@ -420,7 +425,7 @@
                         </li>
                     </ul>
                 </nav>
-                
+
                 <div class="nav-cta">
                     <a href="contact.html" class="btn btn-primary premium-cta-btn" aria-label="Get Free Chat - Contact us">
                         <i class="fas fa-comments premium-cta-icon" aria-hidden="true"></i>
@@ -428,11 +433,11 @@
                         <div class="premium-cta-glow"></div>
                     </a>
                 </div>
-                
-                <button class="menu-toggle" 
-                        id="menuToggle" 
-                        aria-label="Open mobile menu" 
-                        aria-expanded="false" 
+
+                <button class="menu-toggle"
+                        id="menuToggle"
+                        aria-label="Open mobile menu"
+                        aria-expanded="false"
                         aria-controls="mobileNav"
                         type="button">
                     <span></span>
@@ -447,14 +452,14 @@
     <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
 
     <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav" 
-         id="mobileNav" 
-         role="dialog" 
-         aria-modal="true" 
+    <div class="mobile-nav"
+         id="mobileNav"
+         role="dialog"
+         aria-modal="true"
          aria-labelledby="mobile-nav-title"
          aria-hidden="true">
         <div class="mobile-nav-header">
-            <div class="mobile-logo">
+            <div class="mobile-nav-logo">
                 <picture>
                     <source srcset="images/optimized/logo.webp" type="image/webp">
                     <img src="images/optimized/logo.png"
@@ -465,59 +470,92 @@
                          loading="lazy"
                          decoding="async">
                 </picture>
+                <div class="mobile-nav-tagline">
+                    <span>Sydney Digital Marketing</span>
+                </div>
             </div>
-            <button class="mobile-nav-close" 
-                    id="mobileNavClose" 
+            <button class="mobile-nav-close"
+                    id="mobileNavClose"
                     aria-label="Close mobile menu"
                     type="button">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <nav aria-label="Mobile navigation">
+
+        <nav class="mobile-nav-links" aria-label="Mobile navigation">
             <h2 id="mobile-nav-title" class="sr-only">Navigation Menu</h2>
-            <div class="mobile-nav-links" role="list">
-                <a href="index.html" role="listitem" aria-current="page">
-                    <span aria-hidden="true">🏠</span> Home
+            <div role="list">
+                <a href="index.html" class="mobile-nav-link active" role="listitem" aria-current="page">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                    </div>
+                    <span>Home</span>
                 </a>
-                <a href="services.html" role="listitem">
-                    <span aria-hidden="true">🎯</span> Services
+                <a href="services.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-rocket" aria-hidden="true"></i>
+                    </div>
+                    <span>Services</span>
                 </a>
-                <a href="seo.html" role="listitem" class="mobile-sub-item">
-                    <span aria-hidden="true">📍</span> SEO & Local Search
+                <div class="mobile-nav-submenu">
+                    <a href="seo.html" class="mobile-nav-link mobile-sub-item" role="listitem">
+                        <div class="mobile-nav-icon">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                        </div>
+                        <span>SEO & Local Search</span>
+                    </a>
+                    <a href="web-design.html" class="mobile-nav-link mobile-sub-item" role="listitem">
+                        <div class="mobile-nav-icon">
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
+                        </div>
+                        <span>Web Design</span>
+                    </a>
+                    <a href="google-ads.html" class="mobile-nav-link mobile-sub-item" role="listitem">
+                        <div class="mobile-nav-icon">
+                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
+                        </div>
+                        <span>Google & Meta Ads</span>
+                    </a>
+                </div>
+                <a href="pricing.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+                    </div>
+                    <span>Pricing</span>
                 </a>
-                <a href="web-design.html" role="listitem" class="mobile-sub-item">
-                    <span aria-hidden="true">🎨</span> Web Design
+                <a href="about.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-users" aria-hidden="true"></i>
+                    </div>
+                    <span>About Us</span>
                 </a>
-                <a href="google-ads.html" role="listitem" class="mobile-sub-item">
-                    <span aria-hidden="true">📢</span> Google & Meta Ads
+                <a href="blog/blog.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-blog" aria-hidden="true"></i>
+                    </div>
+                    <span>Blog</span>
                 </a>
-                <a href="pricing.html" role="listitem">
-                    <span aria-hidden="true">💰</span> Pricing
-                </a>
-                <a href="about.html" role="listitem">
-                    <span aria-hidden="true">👥</span> About Us
-                </a>
-                <a href="portfolio.html" role="listitem">
-                    <span aria-hidden="true">📈</span> Portfolio
-                </a>
-                <a href="blog/index.html" role="listitem">
-                    <span aria-hidden="true">📝</span> Blog
-                </a>
-                <a href="contact.html" role="listitem">
-                    <span aria-hidden="true">📞</span> Contact
+                <a href="contact.html" class="mobile-nav-link" role="listitem">
+                    <div class="mobile-nav-icon">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                    </div>
+                    <span>Contact</span>
                 </a>
             </div>
         </nav>
+
         <div class="mobile-nav-cta">
-            <a href="tel:+61487286451" 
-               class="phone-number" 
+            <a href="tel:+61487286451"
+               class="mobile-cta-btn phone-number"
                aria-label="Call us at 0487 286 451">
-                0487 286 451
+                <i class="fas fa-phone mobile-cta-icon" aria-hidden="true"></i>
+                <span>0487 286 451</span>
             </a>
-            <a href="contact.html" 
-               class="btn btn-primary"
+            <a href="contact.html"
+               class="mobile-cta-btn"
                aria-label="Get Free Chat - Contact us">
-                Let's Chat
+                <i class="fas fa-comments mobile-cta-icon" aria-hidden="true"></i>
+                <span>Let's Chat</span>
             </a>
         </div>
     </div>
@@ -1953,132 +1991,41 @@
     
     <!-- External JavaScript -->
     <!-- Optimized Script Loading -->
-    <script src="js/combined.min.js" defer></script>
+    <script src="js/consolidated.js" defer></script>
 
-    <!-- Mobile Navigation JavaScript -->
-    <script src="js/mobile-nav.js" defer></script>
-
-    <!-- Lazy Loading for Images -->
-    <script>
-        // Native lazy loading fallback and optimization
-        if ('loading' in HTMLImageElement.prototype) {
-            const images = document.querySelectorAll('img[loading="lazy"]');
-            images.forEach(img => {
-                img.src = img.src;
-            });
-        } else {
-            // Fallback for browsers that don't support lazy loading
-            const script = document.createElement('script');
-            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-            document.body.appendChild(script);
-        }
-        
-        // Optimize web vitals
-        if ('PerformanceObserver' in window) {
-            const po = new PerformanceObserver((list) => {
-                for (const entry of list.getEntries()) {
-                    console.log('LCP:', entry.startTime);
-                }
-            });
-            po.observe({type: 'largest-contentful-paint', buffered: true});
-        }
-    </script>
-    
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/sw.js')
                     .then(function(registration) {
-                        console.log('ServiceWorker registration successful: ', registration.scope);
+                        console.log('Service Worker registered successfully:', registration.scope);
                     })
                     .catch(function(error) {
-                        console.log('ServiceWorker registration failed: ', error);
+                        console.log('Service Worker registration failed:', error);
                     });
             });
         }
     </script>
 
-    <!-- Enhanced Hero Interactions -->
-    <script>
-        // Counter Animation
-        const counterElements = document.querySelectorAll('.counter');
-        const animateCounters = () => {
-            counterElements.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const duration = 2000;
-                const increment = target / (duration / 16);
-                let current = 0;
-                
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current);
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                
-                updateCounter();
-            });
-        };
 
-        // Trigger counter animation on page load
-        window.addEventListener('load', () => {
-            setTimeout(animateCounters, 500);
-        });
+    <!-- All functionality now handled by consolidated.js including:
+         - Lazy loading for images and content
+         - Service Worker registration
+         - Performance monitoring
+         - Loading states
+         - Counter animations
+         - All interactive features
+    -->
 
-        // AOS-like animation trigger
-        const animateElements = document.querySelectorAll('[data-aos]');
-        window.addEventListener('load', () => {
-            animateElements.forEach(element => {
-                element.classList.add('aos-animate');
-            });
-        });
-
-        // Parallax effect for floating elements
-        const floatingElements = document.querySelectorAll('.floating-orb, .floating-metric');
-        
-        if (window.matchMedia('(min-width: 1024px)').matches) {
-            window.addEventListener('mousemove', (e) => {
-                const mouseX = e.clientX / window.innerWidth;
-                const mouseY = e.clientY / window.innerHeight;
-                
-                floatingElements.forEach((element, index) => {
-                    const speed = (index + 1) * 0.01;
-                    const x = (mouseX - 0.5) * speed * 100;
-                    const y = (mouseY - 0.5) * speed * 100;
-                    
-                    element.style.transform = `translate(${x}px, ${y}px)`;
-                });
-            });
-        }
-
-        // Smooth scroll to contact form when clicking CTAs
-        document.querySelectorAll('.cta-primary-modern, .btn-exit-primary').forEach(button => {
-            if (button.href && button.href.includes('#contact')) {
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    document.getElementById('contact').scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                });
-            }
-        });
-
-        // Add subtle hover effect to stat cards
-        const statCards = document.querySelectorAll('.stat-card-modern');
-        statCards.forEach(card => {
-            card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-4px) scale(1.02)';
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    </script>
+    <!-- All interactive functionality now handled by consolidated.js including:
+         - Counter animations with Intersection Observer
+         - AOS-like animation triggers
+         - Parallax effects for floating elements
+         - Smooth scroll navigation
+         - Card hover effects
+         - All performance optimizations
+    -->
     
     <!-- Modern Hero Section Styles -->
     <style>
