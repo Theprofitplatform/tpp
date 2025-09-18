@@ -1,0 +1,68 @@
+# Robots.txt for The Profit Platform
+# https://theprofitplatform.com.au/
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow access to admin and private directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+Disallow: /scripts/
+Disallow: /node_modules/
+Disallow: /.claude-flow/
+Disallow: /tests/
+
+# Disallow access to specific file types
+Disallow: /*.json$
+Disallow: /*.md$
+Disallow: /*.log$
+Disallow: /*.sh$
+
+# Allow specific important files
+Allow: /manifest.json
+Allow: /sitemap.xml
+
+# Crawl-delay for responsible crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://theprofitplatform.com.au/sitemap.xml
+
+# Google Bot specific rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing Bot specific rules
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Allow Google Ads Bot for quality score
+User-agent: AdsBot-Google
+Allow: /
+
+# Allow Google Mobile Bot
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Allow Google Image Bot
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.gif$
+Allow: /*.webp$
