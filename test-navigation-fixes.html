@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Fixes Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/modern-theme-variables.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/navigation-dropdown-fix.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .test-content {
+            margin-top: 120px;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .test-results {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .test-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+
+        .test-item.warning {
+            border-left-color: #ffc107;
+        }
+
+        .test-item.error {
+            border-left-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dynamic Navigation Loader -->
+    <script src="js/components/navigation-inline.js" defer></script>
+
+    <!-- Navigation will be dynamically loaded here -->
+
+    <div class="test-content">
+        <h1>Navigation Fixes Test Page</h1>
+        <p>This page tests the following navigation fixes:</p>
+
+        <div class="test-results">
+            <div class="test-item">
+                <h3>✅ Dropdown Menu Delay</h3>
+                <p>The Services dropdown now has a 300ms delay before closing, giving you time to move your mouse to the dropdown menu items.</p>
+            </div>
+
+            <div class="test-item">
+                <h3>✅ Invisible Bridge</h3>
+                <p>An invisible "bridge" area connects the trigger and dropdown menu, maintaining the hover state while moving between them.</p>
+            </div>
+
+            <div class="test-item">
+                <h3>✅ Smart Positioning</h3>
+                <p>Dropdown menus now automatically adjust their position to stay within the viewport on smaller screens.</p>
+            </div>
+
+            <div class="test-item">
+                <h3>✅ Contact/CTA Flickering Fix</h3>
+                <p>Added proper spacing and isolation between the Contact link and Let's Chat button to prevent hover state conflicts.</p>
+            </div>
+
+            <div class="test-item">
+                <h3>✅ Consistent Navigation</h3>
+                <p>All pages use the same navigation-inline.js component for consistency.</p>
+            </div>
+        </div>
+
+        <h2>Testing Instructions:</h2>
+        <ol>
+            <li><strong>Dropdown Test:</strong> Hover over "Services" and move your mouse to one of the dropdown items. The menu should stay open.</li>
+            <li><strong>Contact Test:</strong> Hover over "Contact" and observe the "Let's Chat" button - it should not flicker.</li>
+            <li><strong>Mobile Test:</strong> Resize your browser to mobile width and test the hamburger menu.</li>
+            <li><strong>Page Navigation:</strong> Click through to different pages (About, Pricing) and verify the navbar looks consistent.</li>
+        </ol>
+    </div>
+
+    <script>
+        // Test script to verify navigation functionality
+        window.addEventListener('load', function() {
+            console.log('Navigation Test Page Loaded');
+
+            // Check if navigation is loaded
+            setTimeout(() => {
+                const nav = document.querySelector('.premium-nav');
+                const dropdown = document.querySelector('.nav-dropdown');
+                const contactLink = document.querySelector('[data-page="contact"]');
+                const ctaButton = document.querySelector('.premium-cta-btn');
+
+                if (nav) {
+                    console.log('✅ Navigation loaded successfully');
+                } else {
+                    console.error('❌ Navigation failed to load');
+                }
+
+                if (dropdown) {
+                    console.log('✅ Dropdown menu found');
+                } else {
+                    console.error('❌ Dropdown menu not found');
+                }
+
+                if (contactLink && ctaButton) {
+                    console.log('✅ Contact link and CTA button found');
+
+                    // Check for spacing
+                    const contactRect = contactLink.getBoundingClientRect();
+                    const ctaRect = ctaButton.getBoundingClientRect();
+                    const distance = ctaRect.left - contactRect.right;
+
+                    if (distance > 10) {
+                        console.log(`✅ Proper spacing between Contact and CTA: ${distance}px`);
+                    } else {
+                        console.warn(`⚠️ Spacing might be too tight: ${distance}px`);
+                    }
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

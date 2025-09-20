@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Debug Test</title>
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Navigation Styles -->
+    <link rel="stylesheet" href="css/modern-theme-variables.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/navigation-dropdown-fix.css">
+    <link rel="stylesheet" href="css/modern-theme-components.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding-top: 150px;
+        }
+
+        .debug-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .debug-output {
+            background: #000;
+            color: #0f0;
+            padding: 20px;
+            font-family: monospace;
+            border-radius: 5px;
+            margin-top: 20px;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .test-button {
+            background: #2c86f9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .test-button:hover {
+            background: #1e6ee8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Component -->
+    <script src="js/components/navigation-inline.js"></script>
+
+    <div class="debug-section">
+        <h1>Dropdown Menu Debug Test</h1>
+
+        <div>
+            <button class="test-button" onclick="testDropdown()">Test Dropdown Click</button>
+            <button class="test-button" onclick="checkDropdownElements()">Check Elements</button>
+            <button class="test-button" onclick="forceShowDropdown()">Force Show Dropdown</button>
+            <button class="test-button" onclick="checkEventListeners()">Check Event Listeners</button>
+            <button class="test-button" onclick="clearConsole()">Clear Output</button>
+        </div>
+
+        <div id="debugOutput" class="debug-output">Debug output will appear here...</div>
+    </div>
+
+    <script>
+        const output = document.getElementById('debugOutput');
+
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const color = type === 'error' ? 'red' : type === 'success' ? '#0f0' : '#0ff';
+            output.innerHTML += `<span style="color: ${color}">[${timestamp}] ${message}</span>\n`;
+            output.scrollTop = output.scrollHeight;
+            console.log(message);
+        }
+
+        function clearConsole() {
+            output.innerHTML = 'Console cleared.\n';
+        }
+
+        function checkDropdownElements() {
+            log('=== Checking Dropdown Elements ===', 'info');
+
+            // Check for nav dropdown
+            const navDropdown = document.querySelector('.nav-dropdown');
+            if (navDropdown) {
+                log('✓ Found .nav-dropdown element', 'success');
+
+                // Check for trigger
+                const trigger = navDropdown.querySelector('.nav-item');
+                if (trigger) {
+                    log('✓ Found trigger (.nav-item)', 'success');
+                    log(`  Trigger text: ${trigger.textContent.trim()}`, 'info');
+                } else {
+                    log('✗ No trigger found', 'error');
+                }
+
+                // Check for dropdown menu
+                const menu = navDropdown.querySelector('.dropdown-menu, .mega-dropdown');
+                if (menu) {
+                    log('✓ Found dropdown menu', 'success');
+                    log(`  Menu classes: ${menu.className}`, 'info');
+
+                    // Check computed styles
+                    const styles = window.getComputedStyle(menu);
+                    log(`  Display: ${styles.display}`, 'info');
+                    log(`  Opacity: ${styles.opacity}`, 'info');
+                    log(`  Visibility: ${styles.visibility}`, 'info');
+                    log(`  Z-index: ${styles.zIndex}`, 'info');
+                    log(`  Position: ${styles.position}`, 'info');
+                } else {
+                    log('✗ No dropdown menu found', 'error');
+                }
+            } else {
+                log('✗ No .nav-dropdown element found', 'error');
+            }
+        }
+
+        function testDropdown() {
+            log('=== Testing Dropdown Click ===', 'info');
+
+            const navDropdown = document.querySelector('.nav-dropdown');
+            if (!navDropdown) {
+                log('✗ No dropdown found', 'error');
+                return;
+            }
+
+            const trigger = navDropdown.querySelector('.nav-item');
+            if (!trigger) {
+                log('✗ No trigger found', 'error');
+                return;
+            }
+
+            log('Simulating click on Services dropdown...', 'info');
+
+            // Create and dispatch click event
+            const clickEvent = new MouseEvent('click', {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            });
+
+            trigger.dispatchEvent(clickEvent);
+
+            // Check if dropdown opened
+            setTimeout(() => {
+                const menu = navDropdown.querySelector('.dropdown-menu, .mega-dropdown');
+                if (menu) {
+                    const styles = window.getComputedStyle(menu);
+                    if (styles.display !== 'none' && styles.opacity === '1') {
+                        log('✓ Dropdown opened successfully!', 'success');
+                    } else {
+                        log('✗ Dropdown did not open properly', 'error');
+                        log(`  Display: ${styles.display}, Opacity: ${styles.opacity}`, 'info');
+                    }
+                }
+
+                // Check for active class
+                if (navDropdown.classList.contains('active')) {
+                    log('✓ Active class added to dropdown', 'success');
+                } else {
+                    log('✗ Active class not added', 'error');
+                }
+            }, 100);
+        }
+
+        function forceShowDropdown() {
+            log('=== Force Showing Dropdown ===', 'info');
+
+            const menu = document.querySelector('.dropdown-menu, .mega-dropdown');
+            if (menu) {
+                menu.style.display = 'block !important';
+                menu.style.opacity = '1 !important';
+                menu.style.visibility = 'visible !important';
+                menu.style.pointerEvents = 'auto !important';
+
+                // Force override with setAttribute
+                menu.setAttribute('style', `
+                    display: block !important;
+                    opacity: 1 !important;
+                    visibility: visible !important;
+                    pointer-events: auto !important;
+                    position: absolute !important;
+                    z-index: 9999 !important;
+                    background: white !important;
+                    border: 2px solid red !important;
+                    padding: 20px !important;
+                `);
+
+                log('✓ Forced dropdown to show', 'success');
+
+                // Check actual visibility
+                const rect = menu.getBoundingClientRect();
+                log(`  Position: top=${rect.top}, left=${rect.left}`, 'info');
+                log(`  Size: ${rect.width}x${rect.height}`, 'info');
+
+                if (rect.width > 0 && rect.height > 0) {
+                    log('✓ Dropdown is visible with dimensions', 'success');
+                } else {
+                    log('✗ Dropdown has no dimensions', 'error');
+                }
+            } else {
+                log('✗ No dropdown menu found in DOM', 'error');
+            }
+        }
+
+        function checkEventListeners() {
+            log('=== Checking Event Listeners ===', 'info');
+
+            const navDropdown = document.querySelector('.nav-dropdown');
+            if (!navDropdown) {
+                log('✗ No dropdown found', 'error');
+                return;
+            }
+
+            const trigger = navDropdown.querySelector('.nav-item');
+            if (!trigger) {
+                log('✗ No trigger found', 'error');
+                return;
+            }
+
+            // Try to access event listeners (this is limited in browsers)
+            log('Adding test event listener...', 'info');
+
+            let listenerFired = false;
+            trigger.addEventListener('click', (e) => {
+                listenerFired = true;
+                log('✓ Test listener fired!', 'success');
+                log(`  Event type: ${e.type}`, 'info');
+                log(`  Target: ${e.target.tagName}.${e.target.className}`, 'info');
+                log(`  Default prevented: ${e.defaultPrevented}`, 'info');
+            }, true);
+
+            // Trigger a click
+            trigger.click();
+
+            setTimeout(() => {
+                if (!listenerFired) {
+                    log('✗ Event listener did not fire', 'error');
+                }
+            }, 100);
+        }
+
+        // Initial check on page load
+        window.addEventListener('load', () => {
+            log('=== Page Loaded ===', 'info');
+            checkDropdownElements();
+
+            // Check if InlineNavigation initialized
+            if (typeof InlineNavigation !== 'undefined') {
+                log('✓ InlineNavigation class is defined', 'success');
+            } else {
+                log('✗ InlineNavigation class not found', 'error');
+            }
+        });
+
+        // Monitor for errors
+        window.addEventListener('error', (e) => {
+            log(`JavaScript Error: ${e.message}`, 'error');
+            log(`  File: ${e.filename}`, 'error');
+            log(`  Line: ${e.lineno}, Column: ${e.colno}`, 'error');
+        });
+    </script>
+</body>
+</html>
