@@ -3,6 +3,79 @@
    All navbar, dropdown, and mobile nav styles
    =================================== */
 
+/* BODY RESET - Remove top gap */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Remove any top spacing from the first element */
+body > :first-child {
+    margin-top: 0 !important;
+}
+
+/* Ensure navigation container has no top spacing */
+.navigation-component {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ANTI-GAP UTILITY - Force no gaps anywhere */
+.no-gap-top {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Apply to common elements that might cause gaps */
+body, html, #header, .scroll-progress, .premium-nav {
+    margin-top: 0 !important;
+}
+
+/* Page-specific gap fixes */
+body.loading {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Hero sections that might push content down */
+.hero, .about-hero, .pricing-hero, .web-design-hero, .google-ads-hero {
+    margin-top: 0 !important;
+}
+
+/* Main content containers */
+main, #main-content {
+    margin-top: 0 !important;
+}
+
+/* SCROLL PROGRESS BAR - Position at very top */
+.scroll-progress {
+    position: fixed !important;
+    top: 0px !important;
+    left: 0px !important;
+    width: 100% !important;
+    height: 3px !important;
+    background: rgba(44, 134, 249, 0.05) !important;
+    z-index: 9999 !important;
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.scroll-progress .progress-bar {
+    height: 100% !important;
+    background: linear-gradient(90deg, #2c86f9, #60a5fa, #2c86f9) !important;
+    background-size: 200% 100% !important;
+    animation: shimmer 2s linear infinite !important;
+    width: 0% !important;
+    transition: width 0.1s ease !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
 /* === PREMIUM NAVIGATION BASE === */
 .premium-nav {
     position: fixed !important;
@@ -18,14 +91,18 @@
     z-index: 1000 !important;
     box-sizing: border-box !important;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    border-radius: 20px !important;
+    border-radius: 24px !important;
     contain: layout style !important;
     overflow: visible !important;
-    background: rgba(255, 255, 255, 0.98) !important;
-    backdrop-filter: blur(20px) saturate(180%) !important;
-    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(30px) saturate(200%) brightness(1.05) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(200%) brightness(1.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 80px rgba(44, 134, 249, 0.08),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.8) !important;
 }
 
 /* CONSOLIDATED FIXES - Integration from fix files */
@@ -39,12 +116,14 @@ header.premium-nav .container {
     padding: 0 20px !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
+    position: relative !important;
 }
 
 /* Logo positioning - keep it on the left */
 .logo.premium-logo {
     flex-shrink: 0 !important;
-    margin-right: 30px !important;
+    margin-right: 20px !important;
 }
 
 /* Navigation links centered properly */
@@ -55,11 +134,13 @@ header.premium-nav .container {
     align-items: center !important;
     padding: 0 !important;
     margin: 0 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
 }
 
 .nav-links.premium-nav-links {
     display: flex !important;
-    gap: 8px !important;
+    gap: 4px !important;
     align-items: center !important;
     justify-content: center !important;
     padding: 0 !important;
@@ -69,12 +150,12 @@ header.premium-nav .container {
 /* CTA button positioning - keep it on the right */
 .nav-cta {
     flex-shrink: 0 !important;
-    margin-left: 30px !important;
+    margin-left: auto !important;
 }
 
 /* Better spacing for nav items */
 .nav-item.premium-nav-item {
-    padding: 12px 20px !important;
+    padding: 12px 16px !important;
     white-space: nowrap !important;
 }
 
@@ -464,32 +545,35 @@ header.premium-nav .container {
 
     .premium-nav .container,
     header.premium-nav .container {
-        padding: 0 40px !important;
-    }
-
-    .nav-links.premium-nav-links {
+        padding: 0 25px !important;
         gap: 15px !important;
     }
 
-    .nav-item.premium-nav-item {
-        padding: 10px 15px !important;
-    }
-}
-
-@media (max-width: 1200px) {
-    .premium-nav .container,
-    header.premium-nav .container {
-        gap: 20px !important;
-        padding: 0 30px !important;
-    }
-
     .nav-links.premium-nav-links {
-        gap: 10px !important;
+        gap: 2px !important;
     }
 
     .nav-item.premium-nav-item {
         padding: 10px 12px !important;
         font-size: 0.9rem !important;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .premium-nav .container,
+    header.premium-nav .container {
+        gap: 10px !important;
+        padding: 0 20px !important;
+    }
+
+    .nav-links.premium-nav-links {
+        gap: 2px !important;
+    }
+
+    .nav-item.premium-nav-item {
+        padding: 10px 8px !important;
+        font-size: 0.85rem !important;
     }
 }
 

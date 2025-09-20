@@ -901,19 +901,19 @@ header.scrolled .logo-img {
     flex-shrink: 0;
     width: 50px;
     height: 50px;
-    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 1.4rem;
-    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.25);
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.25);
     transition: all 0.3s ease;
 }
 
 .trust-signal-item:hover .trust-icon {
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.35);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.35);
     transform: rotate(-5deg) scale(1.05);
 }
 
@@ -5604,7 +5604,7 @@ footer {
    BLUE SEPARATOR BAR - SUCCESS STORIES
    ========================= */
 .blue-separator-bar {
-    background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
     padding: 2.5rem 0;
     margin: 3rem 0 4rem 0;
     position: relative;

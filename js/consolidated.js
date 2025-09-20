@@ -933,6 +933,8 @@ class WebsiteManager {
             this.managers.pricingToggle = new PricingToggleManager();
             this.managers.formEnhancements = new FormEnhancementManager();
             this.managers.performance = new PerformanceManager();
+            this.managers.faq = new FAQManager();
+            this.managers.contactForm = new ContactFormManager();
 
             console.log('Website managers initialized successfully:', Object.keys(this.managers));
         } catch (error) {
@@ -943,6 +945,512 @@ class WebsiteManager {
     // Public API for accessing managers
     getManager(name) {
         return this.managers[name];
+    }
+}
+
+// ================================
+// FAQ MANAGEMENT SYSTEM
+// ================================
+
+class FAQManager {
+    constructor() {
+        this.visibleFaqs = 6;
+        this.allFaqs = [];
+        this.filteredFaqs = [];
+        this.init();
+    }
+
+    init() {
+        // Check if FAQ elements exist
+        const faqSection = document.querySelector('.faq');
+        if (!faqSection) {
+            console.log('FAQ section not found, skipping initialization');
+            return;
+        }
+
+        console.log('Initializing FAQ functionality...');
+
+        try {
+            this.initializeFAQs();
+            this.initializeSearch();
+            this.initializeFilters();
+            this.initializeAccordion();
+            this.initializeShowMore();
+            console.log('FAQ initialization completed successfully');
+        } catch (error) {
+            console.error('Error initializing FAQ:', error);
+            this.initializeBasicAccordion();
+        }
+    }
+
+    initializeFAQs() {
+        this.allFaqs = Array.from(document.querySelectorAll('.faq-item'));
+        this.filteredFaqs = [...this.allFaqs];
+
+        // Hide FAQs beyond the initial visible count
+        this.updateFAQVisibility();
+        this.updateSearchCount();
+    }
+
+    updateFAQVisibility() {
+        let visibleCount = 0;
+
+        this.allFaqs.forEach((faq) => {
+            const isInFiltered = this.filteredFaqs.includes(faq);
+            const shouldShow = isInFiltered && visibleCount < this.visibleFaqs;
+
+            if (shouldShow) {
+                visibleCount++;
+            }
+
+            faq.style.display = shouldShow ? 'block' : 'none';
+
+            if (!shouldShow) {
+                // Close expanded FAQs when hiding
+                const question = faq.querySelector('.faq-question');
+                const answer = faq.querySelector('.faq-answer');
+                if (question) question.classList.remove('active');
+                if (answer) answer.classList.remove('active');
+            }
+        });
+
+        // Update "Show More" button
+        const showMoreBtn = document.getElementById('showMoreFaqs');
+        if (showMoreBtn) {
+            const hiddenCount = this.filteredFaqs.length - Math.min(this.visibleFaqs, this.filteredFaqs.length);
+
+            if (hiddenCount > 0) {
+                showMoreBtn.style.display = 'block';
+                showMoreBtn.innerHTML = `<i class="fas fa-chevron-down"></i> Show ${hiddenCount} More Questions`;
+            } else {
+                showMoreBtn.style.display = 'none';
+            }
+        }
+    }
+
+    updateSearchCount() {
+        const countEl = document.getElementById('searchCount');
+        if (countEl) {
+            const visibleCount = Math.min(this.visibleFaqs, this.filteredFaqs.length);
+            const totalCount = this.allFaqs.length;
+
+            if (this.filteredFaqs.length < this.allFaqs.length) {
+                countEl.textContent = `${visibleCount} of ${this.filteredFaqs.length} questions`;
+            } else {
+                countEl.textContent = `${visibleCount} of ${totalCount} questions`;
+            }
+        }
+    }
+
+    initializeSearch() {
+        const searchInput = document.getElementById('faqSearch');
+        if (!searchInput) {
+            console.log('FAQ search input not found');
+            return;
+        }
+
+        const debouncedSearch = debounce((searchTerm) => {
+            if (searchTerm === '') {
+                this.filteredFaqs = [...this.allFaqs];
+            } else {
+                this.filteredFaqs = this.allFaqs.filter(faq => {
+                    const question = faq.querySelector('.faq-question span')?.textContent.toLowerCase() || '';
+                    const answer = faq.querySelector('.faq-answer')?.textContent.toLowerCase() || '';
+                    return question.includes(searchTerm) || answer.includes(searchTerm);
+                });
+            }
+
+            // Reset visible count when searching
+            this.visibleFaqs = searchTerm === '' ? 6 : Math.max(6, this.filteredFaqs.length);
+            this.updateFAQVisibility();
+            this.updateSearchCount();
+        }, 300);
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            debouncedSearch(searchTerm);
+        });
+
+        console.log('FAQ search functionality initialized');
+    }
+
+    initializeFilters() {
+        const filterButtons = document.querySelectorAll('.faq-filter');
+
+        if (filterButtons.length === 0) {
+            console.log('FAQ filter buttons not found');
+            return;
+        }
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                try {
+                    // Update active filter
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    const category = button.dataset.category;
+
+                    if (category === 'all') {
+                        this.filteredFaqs = [...this.allFaqs];
+                    } else {
+                        this.filteredFaqs = this.allFaqs.filter(faq =>
+                            faq.dataset.category === category
+                        );
+                    }
+
+                    // Reset search
+                    const searchInput = document.getElementById('faqSearch');
+                    if (searchInput) searchInput.value = '';
+
+                    // Show more FAQs when filtering to specific category
+                    this.visibleFaqs = category === 'all' ? 6 : Math.max(6, this.filteredFaqs.length);
+                    this.updateFAQVisibility();
+                    this.updateSearchCount();
+                } catch (error) {
+                    console.error('Error filtering FAQs:', error);
+                }
+            });
+        });
+
+        console.log('FAQ filter functionality initialized');
+    }
+
+    initializeAccordion() {
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('.faq-toggle') || question.querySelector('.faq-icon');
+
+                // Toggle current item
+                const isActive = question.classList.contains('active');
+
+                // Close other items first
+                document.querySelectorAll('.faq-question').forEach(otherQuestion => {
+                    if (otherQuestion !== question) {
+                        otherQuestion.classList.remove('active');
+                        const otherAnswer = otherQuestion.nextElementSibling;
+                        if (otherAnswer) otherAnswer.classList.remove('active');
+                    }
+                });
+
+                // Toggle current item
+                if (!isActive) {
+                    question.classList.add('active');
+                    if (answer) answer.classList.add('active');
+                } else {
+                    question.classList.remove('active');
+                    if (answer) answer.classList.remove('active');
+                }
+            });
+        });
+
+        console.log('FAQ accordion functionality initialized');
+    }
+
+    initializeShowMore() {
+        const showMoreBtn = document.getElementById('showMoreFaqs');
+
+        if (!showMoreBtn) {
+            console.log('FAQ show more button not found');
+            return;
+        }
+
+        showMoreBtn.addEventListener('click', () => {
+            try {
+                const remainingFaqs = this.filteredFaqs.length - this.visibleFaqs;
+                const newlyVisible = Math.min(6, remainingFaqs);
+                this.visibleFaqs += newlyVisible;
+
+                this.updateFAQVisibility();
+
+                // Smooth scroll to first newly visible FAQ
+                const scrollIndex = this.visibleFaqs - newlyVisible;
+                const firstNewFaq = this.filteredFaqs[scrollIndex];
+                if (firstNewFaq) {
+                    setTimeout(() => {
+                        firstNewFaq.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }, 100);
+                }
+            } catch (error) {
+                console.error('Error showing more FAQs:', error);
+            }
+        });
+
+        console.log('FAQ show more functionality initialized');
+    }
+
+    initializeBasicAccordion() {
+        console.log('Initializing basic FAQ accordion...');
+
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = question.classList.contains('active');
+
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    if (q !== question) {
+                        q.classList.remove('active');
+                        const a = q.nextElementSibling;
+                        if (a) a.classList.remove('active');
+                    }
+                });
+
+                // Toggle current FAQ
+                if (!isActive) {
+                    question.classList.add('active');
+                    if (answer) answer.classList.add('active');
+                } else {
+                    question.classList.remove('active');
+                    if (answer) answer.classList.remove('active');
+                }
+            });
+        });
+    }
+}
+
+// ================================
+// CONTACT FORM MANAGEMENT
+// ================================
+
+class ContactFormManager {
+    constructor() {
+        this.form = document.getElementById('contactForm');
+        this.submitButton = null;
+        this.originalButtonText = '';
+        this.init();
+    }
+
+    init() {
+        if (!this.form) {
+            console.log('Contact form not found, skipping initialization');
+            return;
+        }
+
+        console.log('Initializing contact form functionality...');
+
+        this.submitButton = this.form.querySelector('button[type="submit"]');
+        if (this.submitButton) {
+            this.originalButtonText = this.submitButton.innerHTML;
+        }
+
+        this.setupFormHandling();
+        this.setupValidation();
+        this.checkForSuccessMessage();
+
+        console.log('Contact form initialization completed');
+    }
+
+    setupFormHandling() {
+        this.form.addEventListener('submit', (e) => {
+            // Check honeypot field for spam protection
+            const honeypot = this.form.querySelector('input[name="website"]');
+            if (honeypot && honeypot.value !== '') {
+                e.preventDefault();
+                console.log('Spam detected, form submission blocked');
+                return false;
+            }
+
+            // Validate form
+            if (!this.validateForm()) {
+                e.preventDefault();
+                return false;
+            }
+
+            // Show loading state
+            this.setLoadingState(true);
+
+            // Track form submission (if analytics available)
+            this.trackFormSubmission();
+
+            // Let the form submit naturally to Formspree
+            return true;
+        });
+    }
+
+    validateForm() {
+        let isValid = true;
+        const requiredFields = this.form.querySelectorAll('[required]');
+
+        // Clear previous errors
+        const errorMessages = this.form.querySelectorAll('.error-message');
+        errorMessages.forEach(error => {
+            error.textContent = '';
+            error.style.display = 'none';
+        });
+
+        const formGroups = this.form.querySelectorAll('.form-group');
+        formGroups.forEach(group => group.classList.remove('error'));
+
+        // Validate each required field
+        requiredFields.forEach(field => {
+            if (!this.validateField(field)) {
+                isValid = false;
+            }
+        });
+
+        // Scroll to first error if validation failed
+        if (!isValid) {
+            const firstError = this.form.querySelector('.form-group.error');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const firstInput = firstError.querySelector('input, textarea, select');
+                if (firstInput) firstInput.focus();
+            }
+        }
+
+        return isValid;
+    }
+
+    validateField(field) {
+        const value = field.value.trim();
+        const fieldName = field.name;
+        const formGroup = field.closest('.form-group');
+        const errorElement = formGroup?.querySelector('.error-message');
+
+        if (!value) {
+            this.showFieldError(formGroup, errorElement, `${this.getFieldLabel(fieldName)} is required`);
+            return false;
+        }
+
+        // Email validation
+        if (field.type === 'email') {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(value)) {
+                this.showFieldError(formGroup, errorElement, 'Please enter a valid email address');
+                return false;
+            }
+        }
+
+        // Phone validation (basic)
+        if (field.type === 'tel' || fieldName === 'phone') {
+            const phoneRegex = /^[\+]?[0-9\s\-\(\)]{8,}$/;
+            if (!phoneRegex.test(value)) {
+                this.showFieldError(formGroup, errorElement, 'Please enter a valid phone number');
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    showFieldError(formGroup, errorElement, message) {
+        if (formGroup) formGroup.classList.add('error');
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+    }
+
+    getFieldLabel(fieldName) {
+        const labels = {
+            firstName: 'First Name',
+            lastName: 'Last Name',
+            email: 'Email Address',
+            phone: 'Phone Number',
+            businessName: 'Business Name',
+            message: 'Message',
+            serviceInterest: 'Service Interest',
+            budget: 'Budget',
+            timeline: 'Timeline',
+            consent: 'Consent'
+        };
+        return labels[fieldName] || fieldName.charAt(0).toUpperCase() + fieldName.slice(1);
+    }
+
+    setupValidation() {
+        // Real-time validation on input
+        const inputs = this.form.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('blur', () => {
+                if (input.hasAttribute('required')) {
+                    this.validateField(input);
+                }
+            });
+
+            input.addEventListener('input', () => {
+                // Clear error state on input
+                const formGroup = input.closest('.form-group');
+                if (formGroup && formGroup.classList.contains('error')) {
+                    formGroup.classList.remove('error');
+                    const errorElement = formGroup.querySelector('.error-message');
+                    if (errorElement) {
+                        errorElement.style.display = 'none';
+                    }
+                }
+            });
+        });
+    }
+
+    setLoadingState(loading) {
+        if (!this.submitButton) return;
+
+        if (loading) {
+            this.submitButton.disabled = true;
+            this.submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        } else {
+            this.submitButton.disabled = false;
+            this.submitButton.innerHTML = this.originalButtonText;
+        }
+    }
+
+    checkForSuccessMessage() {
+        // Check URL for success parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === '1') {
+            this.showSuccessMessage();
+            // Clean URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
+
+    showSuccessMessage() {
+        const statusElement = document.getElementById('formStatus');
+        if (statusElement) {
+            statusElement.innerHTML = `
+                <div class="success-message" style="
+                    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+                    border: 2px solid #10b981;
+                    border-radius: 12px;
+                    padding: 20px;
+                    margin: 20px 0;
+                    text-align: center;
+                    color: #065f46;
+                ">
+                    <i class="fas fa-check-circle" style="font-size: 24px; color: #10b981; margin-bottom: 10px;"></i>
+                    <h4 style="margin: 0 0 10px 0; color: #065f46;">Thank you for your submission!</h4>
+                    <p style="margin: 0; font-size: 14px;">We'll get back to you within 24 hours with your free marketing audit.</p>
+                </div>
+            `;
+
+            // Scroll to success message
+            statusElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    trackFormSubmission() {
+        // Google Analytics tracking (if available)
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit', {
+                'event_category': 'Contact',
+                'event_label': 'Homepage Contact Form',
+                'value': 1
+            });
+
+            gtag('event', 'generate_lead', {
+                'currency': 'AUD',
+                'value': 997
+            });
+        }
+
+        // Facebook Pixel tracking (if available)
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead');
+        }
     }
 }
 

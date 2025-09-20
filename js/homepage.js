@@ -230,7 +230,7 @@ function initializeHeader() {
 function initializeEnhancedFAQ() {
     let allFaqs = [];
     let filteredFaqs = [];
-    let visibleFaqs = 8;
+    let visibleFaqs = 6;
     
     // Initialize FAQ data structure
     function initializeFAQs() {
@@ -261,7 +261,7 @@ function initializeEnhancedFAQ() {
                     });
                 }
                 
-                visibleFaqs = Math.min(8, filteredFaqs.length);
+                visibleFaqs = Math.min(6, filteredFaqs.length);
                 updateFAQVisibility();
                 
                 // Show search results count
@@ -287,7 +287,7 @@ function initializeEnhancedFAQ() {
                     filteredFaqs = allFaqs.filter(faq => faq.dataset.category === filter);
                 }
                 
-                visibleFaqs = Math.min(8, filteredFaqs.length);
+                visibleFaqs = Math.min(6, filteredFaqs.length);
                 updateFAQVisibility();
                 updateSearchResults();
             });

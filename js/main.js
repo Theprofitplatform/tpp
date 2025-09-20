@@ -387,16 +387,24 @@ function initializeFAQs() {
 }
 
 function updateFAQVisibility() {
-    allFaqs.forEach((faq, index) => {
-        const shouldShow = filteredFaqs.includes(faq) && index < visibleFaqs;
+    let visibleCount = 0;
+
+    allFaqs.forEach((faq) => {
+        const isInFiltered = filteredFaqs.includes(faq);
+        const shouldShow = isInFiltered && visibleCount < visibleFaqs;
+
+        if (shouldShow) {
+            visibleCount++;
+        }
+
         faq.style.display = shouldShow ? 'block' : 'none';
-        
+
         if (!shouldShow) {
             // Close expanded FAQs when hiding
             const question = faq.querySelector('.faq-question');
             const answer = faq.querySelector('.faq-answer');
-            question.classList.remove('active');
-            answer.classList.remove('active');
+            if (question) question.classList.remove('active');
+            if (answer) answer.classList.remove('active');
         }
     });
 
