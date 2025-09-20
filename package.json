@@ -9,7 +9,10 @@
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "agents:start": "node agent-coordinator.js start",
+    "agents:status": "node agent-coordinator.js status",
+    "agents:task": "node agent-coordinator.js task"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +22,7 @@
     "playwright": "^1.55.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.0",
     "jest": "^30.1.3",
     "jest-environment-jsdom": "^30.1.2",
     "jsdom": "^27.0.0"

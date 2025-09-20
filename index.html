@@ -97,8 +97,16 @@
     <link rel="stylesheet" href="css/style.min.css" media="all">
 
     <!-- Consolidated Navigation & Layout Styles -->
+    <link rel="stylesheet" href="css/modern-theme-variables.css" media="all">
     <link rel="stylesheet" href="css/navigation.css" media="all">
+    <link rel="stylesheet" href="css/skip-links-fix.css" media="all">
+    <link rel="stylesheet" href="css/navigation-dropdown-fix.css" media="all">
+    <link rel="stylesheet" href="css/main-content-spacing.css" media="all">
+    <link rel="stylesheet" href="css/modern-theme-components.css" media="all">
     <link rel="stylesheet" href="css/layout.css" media="all">
+    <link rel="stylesheet" href="css/navigation-glass-enhanced.css" media="all">
+    <link rel="stylesheet" href="css/hero-content-spacing.css" media="all">
+    <link rel="stylesheet" href="css/trust-signals-enhanced.css" media="all">
 
 
     <!-- Enhanced Structured Data for Local SEO -->
@@ -298,268 +306,10 @@
 
 </head>
 <body>
-    <!-- Skip Links for Accessibility -->
-    <a class="skip-link sr-only-focusable" href="#main-content">Skip to main content</a>
-    <a class="skip-link sr-only-focusable" href="#primary-navigation">Skip to navigation</a>
-    <a class="skip-link sr-only-focusable" href="#contact">Skip to contact</a>
+    <!-- Dynamic Navigation Loader -->
+    <script src="js/components/navigation-inline.js" defer></script>
 
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-        <div class="progress-bar" id="progressBar"></div>
-    </div>
-
-    <!-- Header Navigation -->
-    <header id="header" role="banner" class="premium-nav">
-        <div class="progress-indicator"></div>
-        <div class="nav-floating-container">
-            <div class="container">
-                <a href="index.html" class="logo premium-logo" aria-label="The Profit Platform - Home">
-                    <div class="logo-content">
-                        <picture>
-                            <source srcset="images/optimized/logo.webp" type="image/webp">
-                            <img src="images/optimized/logo.png"
-                                 alt="The Profit Platform Logo"
-                                 class="logo-img"
-                                 width="150"
-                                 height="50"
-                                 loading="eager"
-                                 fetchpriority="high"
-                                 decoding="async">
-                        </picture>
-                        <div class="logo-tagline">
-                            <span></span>
-                        </div>
-                    </div>
-                    <div class="logo-accent"></div>
-                </a>
-
-                <nav id="primary-navigation" role="navigation" aria-label="Main navigation">
-                    <ul class="nav-links premium-nav-links" role="menubar">
-                        <li role="none">
-                            <a href="index.html" class="nav-item premium-nav-item active" role="menuitem" aria-current="page">
-                                <i class="fas fa-home nav-icon" aria-hidden="true"></i>
-                                <span>Home</span>
-                                <div class="nav-pill-bg"></div>
-                            </a>
-                        </li>
-                        <li class="nav-dropdown premium-dropdown" role="none">
-                            <a href="services.html"
-                               class="nav-item premium-nav-item"
-                               role="menuitem"
-                               aria-expanded="false"
-                               aria-haspopup="true"
-                               aria-controls="services-dropdown">
-                                <i class="fas fa-rocket nav-icon" aria-hidden="true"></i>
-                                <span>Services</span>
-                                <i class="fas fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
-                                <div class="nav-pill-bg"></div>
-                            </a>
-                            <div class="dropdown-menu mega-dropdown" role="menu" id="services-dropdown" aria-label="Services submenu">
-                                <div class="mega-dropdown-content">
-                                    <a href="seo.html" class="dropdown-item mega-item" role="menuitem">
-                                        <div class="mega-item-icon">
-                                            <i class="fas fa-search" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="mega-item-content">
-                                            <strong>SEO Services</strong>
-                                            <span>Dominate Google search results</span>
-                                        </div>
-                                        <div class="mega-item-arrow">
-                                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                        </div>
-                                    </a>
-                                    <a href="web-design.html" class="dropdown-item mega-item" role="menuitem">
-                                        <div class="mega-item-icon">
-                                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="mega-item-content">
-                                            <strong>Website Design</strong>
-                                            <span>Convert visitors to customers</span>
-                                        </div>
-                                        <div class="mega-item-arrow">
-                                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                        </div>
-                                    </a>
-                                    <a href="google-ads.html" class="dropdown-item mega-item" role="menuitem">
-                                        <div class="mega-item-icon">
-                                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="mega-item-content">
-                                            <strong>Google Ads</strong>
-                                            <span>Instant traffic and leads</span>
-                                        </div>
-                                        <div class="mega-item-arrow">
-                                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li role="none">
-                            <a href="pricing.html" class="nav-item premium-nav-item" role="menuitem">
-                                <i class="fas fa-dollar-sign nav-icon" aria-hidden="true"></i>
-                                <span>Pricing</span>
-                                <div class="nav-pill-bg"></div>
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="about.html" class="nav-item premium-nav-item" role="menuitem">
-                                <i class="fas fa-users nav-icon" aria-hidden="true"></i>
-                                <span>About</span>
-                                <div class="nav-pill-bg"></div>
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="blog/blog.html" class="nav-item premium-nav-item" role="menuitem">
-                                <i class="fas fa-blog nav-icon" aria-hidden="true"></i>
-                                <span>Blog</span>
-                                <div class="nav-pill-bg"></div>
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="contact.html" class="nav-item premium-nav-item" role="menuitem">
-                                <i class="fas fa-envelope nav-icon" aria-hidden="true"></i>
-                                <span>Contact</span>
-                                <div class="nav-pill-bg"></div>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div class="nav-cta">
-                    <a href="contact.html" class="btn btn-primary premium-cta-btn" aria-label="Get Free Chat - Contact us">
-                        <i class="fas fa-comments premium-cta-icon" aria-hidden="true"></i>
-                        <span>Let's Chat</span>
-                        <div class="premium-cta-glow"></div>
-                    </a>
-                </div>
-
-                <button class="menu-toggle"
-                        id="menuToggle"
-                        aria-label="Open mobile menu"
-                        aria-expanded="false"
-                        aria-controls="mobileNav"
-                        type="button">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation Overlay -->
-    <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
-
-    <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav"
-         id="mobileNav"
-         role="dialog"
-         aria-modal="true"
-         aria-labelledby="mobile-nav-title"
-         aria-hidden="true">
-        <div class="mobile-nav-header">
-            <div class="mobile-nav-logo">
-                <picture>
-                    <source srcset="images/optimized/logo.webp" type="image/webp">
-                    <img src="images/optimized/logo.png"
-                         alt="The Profit Platform Logo"
-                         class="logo-img"
-                         width="120"
-                         height="40"
-                         loading="lazy"
-                         decoding="async">
-                </picture>
-                <div class="mobile-nav-tagline">
-                    <span>Sydney Digital Marketing</span>
-                </div>
-            </div>
-            <button class="mobile-nav-close"
-                    id="mobileNavClose"
-                    aria-label="Close mobile menu"
-                    type="button">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-
-        <nav class="mobile-nav-links" aria-label="Mobile navigation">
-            <h2 id="mobile-nav-title" class="sr-only">Navigation Menu</h2>
-            <div role="list">
-                <a href="index.html" class="mobile-nav-link active" role="listitem" aria-current="page">
-                    <div class="mobile-nav-icon">
-                        <i class="fas fa-home" aria-hidden="true"></i>
-                    </div>
-                    <span>Home</span>
-                </a>
-                <a href="services.html" class="mobile-nav-link" role="listitem">
-                    <div class="mobile-nav-icon">
-                        <i class="fas fa-rocket" aria-hidden="true"></i>
-                    </div>
-                    <span>Services</span>
-                </a>
-                <div class="mobile-nav-submenu">
-                    <a href="seo.html" class="mobile-nav-link mobile-sub-item" role="listitem">
-                        <div class="mobile-nav-icon">
-                            <i class="fas fa-search" aria-hidden="true"></i>
-                        </div>
-                        <span>SEO & Local Search</span>
-                    </a>
-                    <a href="web-design.html" class="mobile-nav-link mobile-sub-item" role="listitem">
-                        <div class="mobile-nav-icon">
-                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
-                        </div>
-                        <span>Web Design</span>
-                    </a>
-                    <a href="google-ads.html" class="mobile-nav-link mobile-sub-item" role="listitem">
-                        <div class="mobile-nav-icon">
-                            <i class="fas fa-bullhorn" aria-hidden="true"></i>
-                        </div>
-                        <span>Google & Meta Ads</span>
-                    </a>
-                </div>
-                <a href="pricing.html" class="mobile-nav-link" role="listitem">
-                    <div class="mobile-nav-icon">
-                        <i class="fas fa-dollar-sign" aria-hidden="true"></i>
-                    </div>
-                    <span>Pricing</span>
-                </a>
-                <a href="about.html" class="mobile-nav-link" role="listitem">
-                    <div class="mobile-nav-icon">
-                        <i class="fas fa-users" aria-hidden="true"></i>
-                    </div>
-                    <span>About Us</span>
-                </a>
-                <a href="blog/blog.html" class="mobile-nav-link" role="listitem">
-                    <div class="mobile-nav-icon">
-                        <i class="fas fa-blog" aria-hidden="true"></i>
-                    </div>
-                    <span>Blog</span>
-                </a>
-                <a href="contact.html" class="mobile-nav-link" role="listitem">
-                    <div class="mobile-nav-icon">
-                        <i class="fas fa-envelope" aria-hidden="true"></i>
-                    </div>
-                    <span>Contact</span>
-                </a>
-            </div>
-        </nav>
-
-        <div class="mobile-nav-cta">
-            <a href="tel:+61487286451"
-               class="mobile-cta-btn phone-number"
-               aria-label="Call us at 0487 286 451">
-                <i class="fas fa-phone mobile-cta-icon" aria-hidden="true"></i>
-                <span>0487 286 451</span>
-            </a>
-            <a href="contact.html"
-               class="mobile-cta-btn"
-               aria-label="Get Free Chat - Contact us">
-                <i class="fas fa-comments mobile-cta-icon" aria-hidden="true"></i>
-                <span>Let's Chat</span>
-            </a>
-        </div>
-    </div>
-
+    <!-- Navigation will be dynamically loaded here -->
     <!-- Main Content -->
     <main id="main-content" role="main">
         <!-- Enhanced Hero Section -->
@@ -741,176 +491,6 @@
                 </div>
             </div>
         </section>
-
-        <style>
-        /* Trust Signals Bar - Horizontal Layout */
-        .trust-signals-bar {
-            background: linear-gradient(135deg, #f8f9ff 0%, #fff 100%);
-            padding: 20px 0;
-            border-top: 1px solid rgba(107, 70, 193, 0.1);
-            border-bottom: 1px solid rgba(107, 70, 193, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .trust-signals-bar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .trust-signals-grid {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 30px;
-            flex-wrap: nowrap;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .trust-signal-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex: 1;
-            justify-content: center;
-            padding: 10px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .trust-signal-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 20px rgba(107, 70, 193, 0.15);
-        }
-
-        .trust-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            color: white;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .trust-text {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1a202c;
-            white-space: nowrap;
-        }
-
-        .trust-rating {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .stars {
-            display: flex;
-            gap: 2px;
-            color: #FFD700;
-            font-size: 16px;
-        }
-
-        .rating-text {
-            font-size: 13px;
-            font-weight: 600;
-            color: #1a202c;
-            white-space: nowrap;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .trust-signals-grid {
-                flex-wrap: wrap;
-                gap: 15px;
-            }
-
-            .trust-signal-item {
-                flex: 1 1 calc(100% - 30px);
-                min-width: 250px;
-                padding: 15px;
-            }
-
-            .trust-text, .rating-text {
-                font-size: 13px;
-            }
-
-            .trust-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
-            }
-
-            .stars {
-                font-size: 14px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .trust-signals-bar {
-                padding: 15px 0;
-            }
-
-            .trust-signals-grid {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .trust-signal-item {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        /* Animation on scroll */
-        .trust-signal-item {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .trust-signal-item:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .trust-signal-item:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .trust-signal-item:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        </style>
 
         <!-- Success Stories Section -->
         <section class="results section animate-on-scroll" id="results" aria-labelledby="results-title">
@@ -1699,13 +1279,20 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm" 
-                          action="#" 
-                          method="POST" 
-                          role="form" 
+                    <form id="contactForm"
+                          action="https://formspree.io/f/meoqjgzn"
+                          method="POST"
+                          role="form"
                           aria-labelledby="contact-form-title"
                           novalidate>
                         <h3 id="contact-form-title" class="sr-only">Contact Form</h3>
+
+                        <!-- Honeypot field for spam protection -->
+                        <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;">
+
+                        <!-- Hidden Formspree fields -->
+                        <input type="hidden" name="_subject" value="New Contact Form Submission from The Profit Platform">
+                        <input type="hidden" name="_next" value="https://theprofitplatform.com.au/index.html?success=1">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="firstName">
