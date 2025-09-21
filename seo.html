@@ -82,6 +82,7 @@
 
     <!-- Consolidated Navigation Styles -->
     <link rel="stylesheet" href="css/navigation.css" media="all">
+    <link rel="stylesheet" href="css/navigation-dropdown-fix.css" media="all">
     <link rel="stylesheet" href="css/layout.css" media="all">
     <link rel="stylesheet" href="css/navigation-glass-enhanced.css" media="all">
     <link rel="stylesheet" href="css/hero-content-spacing.css" media="all">
@@ -99,6 +100,7 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="css/style.min.css" media="all">
+    <link rel="stylesheet" href="css/animations-grid-enhanced.css" media="all">
 
     <!-- SEO Page Styles -->
     <style>
@@ -321,15 +323,21 @@
         /* SEO Services Grid */
         .seo-services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
             padding: 100px 0;
+        }
+
+        @media (max-width: 1400px) {
+            .seo-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .seo-service-card {
             background: white;
             border-radius: 20px;
-            padding: 40px;
+            padding: 30px 25px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -746,10 +754,38 @@
         }
 
         .case-studies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            display: flex;
+            gap: 30px;
             margin-bottom: 60px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+
+        /* Desktop - all items in one line */
+        @media (min-width: 1200px) {
+            .case-studies-grid {
+                justify-content: space-between;
+                overflow-x: visible;
+            }
+        }
+
+        /* Tablet and Mobile */
+        @media (max-width: 1199px) {
+            .case-studies-grid {
+                overflow-x: scroll;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-grid {
+                flex-direction: column;
+                overflow-x: visible;
+                gap: 20px;
+            }
+            .case-study-card {
+                min-width: 100%;
+            }
         }
 
         .case-study-card {
@@ -758,6 +794,8 @@
             padding: 40px;
             border: 2px solid #e2e8f0;
             transition: all 0.3s ease;
+            flex: 1;
+            min-width: 350px;
         }
 
         .case-study-card:hover {
@@ -1206,7 +1244,8 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.9);
+            color: #1f2937;
+            font-weight: 600;
         }
 
         .contact-benefits .benefit-item i {
@@ -1899,7 +1938,7 @@
         },
         "sameAs": [
             "https://www.linkedin.com/company/the-profit-platform",
-            "https://www.facebook.com/theprofitplatform"
+            "https://www.facebook.com/profile.php?id=61574707582255"
         ]
     }
     </script>
@@ -1937,6 +1976,22 @@
                     <p class="hero-subtitle">
                         Transform your Sydney business with proven SEO strategies that deliver real results. Get found by customers actively searching for your services and watch your revenue grow.
                     </p>
+
+                    <!-- Conversion Elements: Trust & Urgency -->
+                    <div class="conversion-elements" style="margin: 2rem 0; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; align-items: center;">
+                        <div class="conversion-badge" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(16, 185, 129, 0.1); color: #059669; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <i class="fas fa-trophy" style="color: #059669;"></i>
+                            7+ Years SEO Expert
+                        </div>
+                        <div class="conversion-badge" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(99, 102, 241, 0.1); color: #4f46e5; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(99, 102, 241, 0.3);">
+                            <i class="fas fa-users" style="color: #4f46e5;"></i>
+                            500+ Ranked Websites
+                        </div>
+                        <div class="conversion-badge" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(239, 68, 68, 0.1); color: #dc2626; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(239, 68, 68, 0.3);">
+                            <i class="fas fa-bolt" style="color: #dc2626;"></i>
+                            Results in 90 Days
+                        </div>
+                    </div>
 
                     <div class="hero-stats">
                         <div class="stat-item">
@@ -2235,490 +2290,7 @@
             </div>
         </section>
 
-        <!-- Why SEO Matters - Ultra Revolutionary Design 2.0 -->
-        <section class="why-seo-matters" id="why-seo-matters">
-            <!-- Animated Particle Background -->
-            <div class="particle-container">
-                <div class="particle" style="--i:1;">SEO</div>
-                <div class="particle" style="--i:2;">Traffic</div>
-                <div class="particle" style="--i:3;">Rankings</div>
-                <div class="particle" style="--i:4;">Revenue</div>
-                <div class="particle" style="--i:5;">Growth</div>
-                <div class="particle" style="--i:6;">Leads</div>
-                <div class="particle" style="--i:7;">Sales</div>
-                <div class="particle" style="--i:8;">Success</div>
-            </div>
 
-            <!-- 3D Floating Elements -->
-            <div class="floating-elements">
-                <div class="float-element" style="--delay: 0s;">
-                    <i class="fas fa-search"></i>
-                </div>
-                <div class="float-element" style="--delay: 3s;">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <div class="float-element" style="--delay: 6s;">
-                    <i class="fas fa-dollar-sign"></i>
-                </div>
-            </div>
-
-            <div class="container">
-                <!-- Ultra Enhanced Header with Live Counter -->
-                <div class="section-header">
-                    <div class="section-badge pulse-glow" data-aos="zoom-in">
-                        <i class="fas fa-crown animated-icon"></i>
-                        <span>Data-Driven Results</span>
-                        <div class="badge-shine"></div>
-                    </div>
-
-                    <h2 class="section-title" data-aos="fade-up">
-                        Why <span class="gradient-text animated-gradient">SEO Matters</span> for
-                        <br><span class="typing-text" id="typed-location">Sydney Businesses</span>
-                    </h2>
-
-                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                        In Sydney's competitive market, <strong class="highlight-pulse">93% of online experiences begin with search engines</strong>.
-                        <br>Don't let your competitors capture <span class="underline-animation">your customers</span>.
-                    </p>
-
-                    <!-- Live Revenue Loss Counter -->
-                    <div class="revenue-counter-box" data-aos="fade-up" data-aos-delay="200">
-                        <div class="counter-inner">
-                            <div class="counter-label">Sydney Businesses Are Losing</div>
-                            <div class="counter-value">
-                                $<span id="revenue-counter" data-target="487293">0</span>
-                            </div>
-                            <div class="counter-sublabel">Today Without Proper SEO</div>
-                            <div class="counter-progress">
-                                <div class="progress-fill"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enhanced Live Statistics Bar with Animations -->
-                <div class="live-stats-bar glass-effect" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="stats-title">Real-Time SEO Impact</div>
-                    <div class="stat-ticker">
-                        <div class="ticker-item" data-aos="flip-left" data-aos-delay="400">
-                            <div class="ticker-icon"><i class="fas fa-globe"></i></div>
-                            <span class="ticker-value counter" data-target="3500000000">0</span>
-                            <span class="ticker-label">Daily Google Searches</span>
-                            <div class="ticker-sparkline">
-                                <svg viewBox="0 0 50 20">
-                                    <path d="M0,10 L10,8 L20,12 L30,6 L40,9 L50,5" stroke="#3b82f6" fill="none" stroke-width="2"/>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="ticker-item" data-aos="flip-left" data-aos-delay="500">
-                            <div class="ticker-icon"><i class="fas fa-percentage"></i></div>
-                            <span class="ticker-value"><span class="counter" data-target="93">0</span>%</span>
-                            <span class="ticker-label">Start with Search</span>
-                            <div class="ticker-progress">
-                                <div class="progress-bar" style="--progress: 93%;"></div>
-                            </div>
-                        </div>
-                        <div class="ticker-item" data-aos="flip-left" data-aos-delay="600">
-                            <div class="ticker-icon"><i class="fas fa-arrow-up"></i></div>
-                            <span class="ticker-value"><span class="counter" data-target="75">0</span>%</span>
-                            <span class="ticker-label">Never Go Past Page 1</span>
-                            <div class="ticker-progress">
-                                <div class="progress-bar" style="--progress: 75%;"></div>
-                            </div>
-                        </div>
-                        <div class="ticker-item" data-aos="flip-left" data-aos-delay="700">
-                            <div class="ticker-icon"><i class="fas fa-chart-line"></i></div>
-                            <span class="ticker-value"><span class="counter" data-target="522">0</span>%</span>
-                            <span class="ticker-label">Average ROI from SEO</span>
-                            <div class="ticker-sparkline">
-                                <svg viewBox="0 0 50 20">
-                                    <path d="M0,18 L10,15 L20,10 L30,8 L40,5 L50,2" stroke="#10b981" fill="none" stroke-width="2"/>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 3D Interactive Benefits Cards -->
-                <div class="benefits-section">
-                    <h3 class="benefits-title" data-aos="fade-up">Transform Your Business with SEO</h3>
-                    <div class="benefits-3d-grid">
-                        <!-- 3D Flip Card 1: ROI Calculator -->
-                        <div class="benefit-3d-card" data-aos="fade-right" data-aos-delay="100">
-                            <div class="card-3d-wrapper">
-                                <div class="card-front">
-                                    <div class="card-shine"></div>
-                                    <div class="card-icon-3d">
-                                        <i class="fas fa-chart-line"></i>
-                                    </div>
-                                    <h3 class="card-title">Revenue Growth</h3>
-                                    <div class="card-value">522%</div>
-                                    <p class="card-subtitle">Average ROI</p>
-                                    <div class="hover-indicator">
-                                        <i class="fas fa-hand-pointer"></i> Hover for details
-                                    </div>
-                                </div>
-                                <div class="card-back">
-                                    <h4>ROI Calculator</h4>
-                                    <div class="interactive-calculator">
-                                        <label>Monthly Investment:</label>
-                                        <input type="range" id="roi-slider" min="1000" max="10000" value="3000">
-                                        <div class="roi-display">
-                                            <span class="roi-input">$<span id="roi-input-val">3000</span></span>
-                                            <i class="fas fa-arrow-right"></i>
-                                            <span class="roi-output">$<span id="roi-output-val">15,660</span></span>
-                                        </div>
-                                        <small>Expected return in 12 months</small>
-                                    </div>
-                                    <button class="card-cta-btn">Calculate Your ROI</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 3D Flip Card 2: Traffic Growth -->
-                        <div class="benefit-3d-card" data-aos="fade-up" data-aos-delay="200">
-                            <div class="card-3d-wrapper">
-                                <div class="card-front">
-                                    <div class="card-shine"></div>
-                                    <div class="card-icon-3d">
-                                        <i class="fas fa-users"></i>
-                                    </div>
-                                    <h3 class="card-title">Organic Traffic</h3>
-                                    <div class="card-value">385%</div>
-                                    <p class="card-subtitle">Average Growth</p>
-                                    <div class="hover-indicator">
-                                        <i class="fas fa-hand-pointer"></i> Hover for details
-                                    </div>
-                                </div>
-                                <div class="card-back">
-                                    <h4>Traffic Timeline</h4>
-                                    <div class="timeline-chart">
-                                        <div class="timeline-item">
-                                            <span class="timeline-month">Month 1</span>
-                                            <div class="timeline-bar" style="--height: 20%;"></div>
-                                            <span class="timeline-value">+20%</span>
-                                        </div>
-                                        <div class="timeline-item">
-                                            <span class="timeline-month">Month 3</span>
-                                            <div class="timeline-bar" style="--height: 45%;"></div>
-                                            <span class="timeline-value">+85%</span>
-                                        </div>
-                                        <div class="timeline-item">
-                                            <span class="timeline-month">Month 6</span>
-                                            <div class="timeline-bar" style="--height: 75%;"></div>
-                                            <span class="timeline-value">+287%</span>
-                                        </div>
-                                        <div class="timeline-item">
-                                            <span class="timeline-month">Month 12</span>
-                                            <div class="timeline-bar" style="--height: 95%;"></div>
-                                            <span class="timeline-value">+385%</span>
-                                        </div>
-                                    </div>
-                                    <button class="card-cta-btn">View Case Studies</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 3D Flip Card 3: Local Domination -->
-                        <div class="benefit-3d-card" data-aos="fade-up" data-aos-delay="300">
-                            <div class="card-3d-wrapper">
-                                <div class="card-front">
-                                    <div class="card-shine"></div>
-                                    <div class="card-icon-3d">
-                                        <i class="fas fa-map-marker-alt"></i>
-                                    </div>
-                                    <h3 class="card-title">Local Dominance</h3>
-                                    <div class="card-value">46%</div>
-                                    <p class="card-subtitle">Local Search Intent</p>
-                                    <div class="hover-indicator">
-                                        <i class="fas fa-hand-pointer"></i> Hover for details
-                                    </div>
-                                </div>
-                                <div class="card-back">
-                                    <h4>Sydney Coverage</h4>
-                                    <div class="location-map">
-                                        <div class="map-pins">
-                                            <div class="pin active" style="--x: 50%; --y: 50%;">CBD</div>
-                                            <div class="pin active" style="--x: 60%; --y: 40%;">North Shore</div>
-                                            <div class="pin active" style="--x: 70%; --y: 55%;">Eastern</div>
-                                            <div class="pin active" style="--x: 40%; --y: 60%;">Inner West</div>
-                                            <div class="pin" style="--x: 30%; --y: 70%;">Western</div>
-                                        </div>
-                                    </div>
-                                    <div class="coverage-stats">
-                                        <span><i class="fas fa-check"></i> 15+ Sydney Suburbs</span>
-                                        <span><i class="fas fa-check"></i> 3-Pack Rankings</span>
-                                    </div>
-                                    <button class="card-cta-btn">Check Your Area</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 3D Flip Card 4: Conversions -->
-                        <div class="benefit-3d-card" data-aos="fade-left" data-aos-delay="400">
-                            <div class="card-3d-wrapper">
-                                <div class="card-front">
-                                    <div class="card-shine"></div>
-                                    <div class="card-icon-3d">
-                                        <i class="fas fa-bullseye"></i>
-                                    </div>
-                                    <h3 class="card-title">Conversions</h3>
-                                    <div class="card-value">14.6%</div>
-                                    <p class="card-subtitle">Conversion Rate</p>
-                                    <div class="hover-indicator">
-                                        <i class="fas fa-hand-pointer"></i> Hover for details
-                                    </div>
-                                </div>
-                                <div class="card-back">
-                                    <h4>Lead Quality</h4>
-                                    <div class="comparison-bars">
-                                        <div class="bar-item">
-                                            <span class="bar-label">SEO Leads</span>
-                                            <div class="bar-container">
-                                                <div class="bar-fill seo" style="--width: 95%;">14.6%</div>
-                                            </div>
-                                        </div>
-                                        <div class="bar-item">
-                                            <span class="bar-label">PPC Ads</span>
-                                            <div class="bar-container">
-                                                <div class="bar-fill ppc" style="--width: 35%;">3.7%</div>
-                                            </div>
-                                        </div>
-                                        <div class="bar-item">
-                                            <span class="bar-label">Social Media</span>
-                                            <div class="bar-container">
-                                                <div class="bar-fill social" style="--width: 18%;">1.8%</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="card-cta-btn">Get Quality Leads</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Interactive Before/After Slider -->
-                <div class="comparison-section" data-aos="fade-up">
-                    <h3 class="comparison-title">The Real Cost of <span class="gradient-text">Not Having SEO</span></h3>
-
-                    <!-- Interactive Slider -->
-                    <div class="before-after-slider">
-                        <div class="slider-container">
-                            <div class="slider-side before-side">
-                                <div class="side-content">
-                                    <h4><i class="fas fa-times-circle"></i> Without SEO</h4>
-                                    <div class="impact-metrics">
-                                        <div class="metric-item negative">
-                                            <i class="fas fa-eye-slash"></i>
-                                            <span class="metric-value">93%</span>
-                                            <span class="metric-label">Invisible Online</span>
-                                        </div>
-                                        <div class="metric-item negative">
-                                            <i class="fas fa-chart-down"></i>
-                                            <span class="metric-value">-5</span>
-                                            <span class="metric-label">Lost Leads Daily</span>
-                                        </div>
-                                        <div class="metric-item negative">
-                                            <i class="fas fa-money-bill-wave"></i>
-                                            <span class="metric-value">$5k+</span>
-                                            <span class="metric-label">Monthly Ad Spend</span>
-                                        </div>
-                                    </div>
-                                    <div class="revenue-impact negative">
-                                        <span class="impact-label">Annual Impact:</span>
-                                        <span class="impact-value">-$180,000</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="slider-handle">
-                                <div class="handle-icon">
-                                    <i class="fas fa-arrows-alt-h"></i>
-                                </div>
-                                <span class="handle-text">DRAG</span>
-                            </div>
-
-                            <div class="slider-side after-side">
-                                <div class="side-content">
-                                    <h4><i class="fas fa-check-circle"></i> With Our SEO</h4>
-                                    <div class="impact-metrics">
-                                        <div class="metric-item positive">
-                                            <i class="fas fa-trophy"></i>
-                                            <span class="metric-value">Page 1</span>
-                                            <span class="metric-label">Rankings in 90 Days</span>
-                                        </div>
-                                        <div class="metric-item positive">
-                                            <i class="fas fa-chart-up"></i>
-                                            <span class="metric-value">+100</span>
-                                            <span class="metric-label">Monthly Leads</span>
-                                        </div>
-                                        <div class="metric-item positive">
-                                            <i class="fas fa-piggy-bank"></i>
-                                            <span class="metric-value">-70%</span>
-                                            <span class="metric-label">Ad Dependency</span>
-                                        </div>
-                                    </div>
-                                    <div class="revenue-impact positive">
-                                        <span class="impact-label">Annual Impact:</span>
-                                        <span class="impact-value">+$420,000</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Carousel -->
-                <div class="testimonials-section" data-aos="fade-up">
-                    <h3 class="testimonials-title">Success Stories from <span class="gradient-text">Sydney Businesses</span></h3>
-
-                    <div class="testimonial-carousel">
-                        <div class="testimonial-track" id="testimonial-track">
-                            <!-- Testimonial 1 -->
-                            <div class="testimonial-card active">
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <p class="testimonial-text">
-                                    "Our traffic increased by 450% in just 6 months. The ROI has been absolutely incredible. We're now the top result for all our main keywords in Sydney."
-                                </p>
-                                <div class="testimonial-author">
-                                    <img src="https://ui-avatars.com/api/?name=John+Smith&background=3b82f6&color=fff" alt="John Smith">
-                                    <div class="author-info">
-                                        <h5>John Smith</h5>
-                                        <p>CEO, TechStart Sydney</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-results">
-                                    <span class="result-badge"><i class="fas fa-arrow-up"></i> 450% Traffic</span>
-                                    <span class="result-badge"><i class="fas fa-dollar-sign"></i> $2.1M Revenue</span>
-                                </div>
-                            </div>
-
-                            <!-- Testimonial 2 -->
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <p class="testimonial-text">
-                                    "We went from page 5 to position #1 in Google. Our phone hasn't stopped ringing. Best investment we've made for our business growth."
-                                </p>
-                                <div class="testimonial-author">
-                                    <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=a855f7&color=fff" alt="Sarah Chen">
-                                    <div class="author-info">
-                                        <h5>Sarah Chen</h5>
-                                        <p>Director, Legal Solutions NSW</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-results">
-                                    <span class="result-badge"><i class="fas fa-phone"></i> 200+ Calls/Month</span>
-                                    <span class="result-badge"><i class="fas fa-trophy"></i> #1 Rankings</span>
-                                </div>
-                            </div>
-
-                            <!-- Testimonial 3 -->
-                            <div class="testimonial-card">
-                                <div class="testimonial-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <p class="testimonial-text">
-                                    "Cut our Google Ads spend by 80% while getting 3x more qualified leads. The team's expertise in local SEO is unmatched."
-                                </p>
-                                <div class="testimonial-author">
-                                    <img src="https://ui-avatars.com/api/?name=Mike+Wilson&background=10b981&color=fff" alt="Mike Wilson">
-                                    <div class="author-info">
-                                        <h5>Mike Wilson</h5>
-                                        <p>Owner, Sydney Home Services</p>
-                                    </div>
-                                </div>
-                                <div class="testimonial-results">
-                                    <span class="result-badge"><i class="fas fa-cut"></i> -80% Ad Spend</span>
-                                    <span class="result-badge"><i class="fas fa-users"></i> 3x More Leads</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Carousel Controls -->
-                        <div class="carousel-controls">
-                            <button class="carousel-btn prev" id="prev-testimonial">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <div class="carousel-dots">
-                                <span class="dot active" data-index="0"></span>
-                                <span class="dot" data-index="1"></span>
-                                <span class="dot" data-index="2"></span>
-                            </div>
-                            <button class="carousel-btn next" id="next-testimonial">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Enhanced Call to Action with Urgency -->
-                <div class="cta-section" data-aos="zoom-in">
-                    <div class="cta-background-pulse"></div>
-                    <h3 class="cta-title">
-                        Ready to <span class="gradient-text">Dominate Google?</span>
-                    </h3>
-                    <p class="cta-subtitle">
-                        Join 200+ Sydney businesses already ranking on page 1
-                    </p>
-
-                    <!-- Urgency Indicators -->
-                    <div class="urgency-bar">
-                        <div class="urgency-item">
-                            <i class="fas fa-fire animated-fire"></i>
-                            <span>Limited Spots: <strong>Only 3 left this month</strong></span>
-                        </div>
-                        <div class="urgency-item">
-                            <i class="fas fa-clock animated-tick"></i>
-                            <span>Offer expires in: <strong id="countdown-timer">23:59:47</strong></span>
-                        </div>
-                    </div>
-
-                    <div class="cta-buttons">
-                        <a href="#contact" class="cta-primary glow-effect">
-                            <span class="btn-content">
-                                <i class="fas fa-rocket"></i>
-                                Get Your Free SEO Audit
-                            </span>
-                            <span class="btn-value">Worth $997</span>
-                            <div class="btn-shine"></div>
-                        </a>
-                        <a href="tel:0487286451" class="cta-secondary pulse-border">
-                            <i class="fas fa-phone"></i>
-                            <span>Call Now: 0487 286 451</span>
-                        </a>
-                    </div>
-
-                    <div class="trust-indicators">
-                        <span class="trust-item">
-                            <i class="fas fa-shield-alt"></i> 100% Confidential
-                        </span>
-                        <span class="trust-item">
-                            <i class="fas fa-ban"></i> No Spam Guarantee
-                        </span>
-                        <span class="trust-item">
-                            <i class="fas fa-clock"></i> Results in 90 Days
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Process Section -->
         <section class="process section animate-on-scroll" id="process">
@@ -3284,7 +2856,7 @@
                     <p>We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.</p>
 
                     <div class="social-links" role="list" aria-label="Social media links">
-                        <a href="https://facebook.com/theprofitplatform"
+                        <a href="https://www.facebook.com/profile.php?id=61574707582255"
                            class="social-icon"
                            target="_blank"
                            rel="noopener noreferrer"
@@ -3292,7 +2864,7 @@
                            role="listitem">
                             <i class="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
-                        <a href="https://instagram.com/theprofitplatform"
+                        <a href="https://www.instagram.com/theprofitplatformau"
                            class="social-icon"
                            target="_blank"
                            rel="noopener noreferrer"
@@ -3544,6 +3116,9 @@
             document.body.classList.remove('loading');
         });
     </script>
+
+    <!-- Ultra SEO Section JavaScript -->
+    <script src="js/seo-ultra.js"></script>
 
     <!-- Performance monitoring -->
     <script>

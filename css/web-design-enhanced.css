@@ -169,7 +169,7 @@ header.scrolled {
    ============================================ */
 .web-design-hero {
     background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 50%, #3b82f6 100%);
-    padding: 120px 0 80px 0 !important; /* Reduced excessive padding */
+    padding: 80px 0 60px 0 !important; /* Fixed excessive top padding */
     position: relative;
     overflow: hidden;
     min-height: calc(100vh - 80px); /* Account for fixed header */
@@ -1011,7 +1011,7 @@ footer::before {
    ============================================ */
 @media (max-width: 768px) {
     .web-design-hero {
-        padding: calc(var(--wd-space-3xl) + 60px) var(--wd-space-md) var(--wd-space-3xl) var(--wd-space-md) !important;
+        padding: 60px var(--wd-space-md) var(--wd-space-2xl) var(--wd-space-md) !important;
     }
 
     .hero-title {

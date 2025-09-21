@@ -187,12 +187,6 @@
                         </div>
                         <span>Home</span>
                     </a>
-                    <a href="services.html" class="mobile-nav-link" role="listitem" data-page="services">
-                        <div class="mobile-nav-icon">
-                            <i class="fas fa-rocket" aria-hidden="true"></i>
-                        </div>
-                        <span>Services</span>
-                    </a>
                     <div class="mobile-nav-submenu">
                         <a href="seo.html" class="mobile-nav-link mobile-sub-item" role="listitem" data-page="seo">
                             <div class="mobile-nav-icon">
