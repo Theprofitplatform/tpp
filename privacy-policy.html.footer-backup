@@ -763,116 +763,53 @@
     </main>
 
     <!-- Footer -->
-    <footer role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>The Profit Platform</h3>
-                    <p>We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.</p>
-                    
-                    <div class="social-links" role="list" aria-label="Social media links">
-                        <a href="https://facebook.com/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Follow us on Facebook"
-                           role="listitem">
-                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://instagram.com/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Follow us on Instagram"
-                           role="listitem">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://linkedin.com/company/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Connect with us on LinkedIn"
-                           role="listitem">
-                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://twitter.com/profitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Follow us on Twitter"
-                           role="listitem">
-                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://youtube.com/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Subscribe to our YouTube channel"
-                           role="listitem">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                        </a>
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column footer-about">
+                        <div class="footer-logo">
+                            <img src="https://theprofitplatform.com.au/wp-content/uploads/2025/08/cropped-The-Profit-Platform-Logo-1.png" 
+                                 alt="The Profit Platform">
+                        </div>
+                        <p>Sydney's results-driven digital marketing agency. Get 3x more customers with proven SEO, Google Ads & web design strategies.</p>
+                        <p class="footer-tagline">🇦🇺 Proudly Australian owned and operated</p>
                     </div>
-                    
-                    <div class="contact-info-footer">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <a href="tel:0487286451">0487 286 451</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:avi@theprofitplatform.com.au">avi@theprofitplatform.com.au</a>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Sydney, NSW, Australia</span>
-                        </div>
+                    <div class="footer-column">
+                        <h4>📞 Contact</h4>
+                        <ul class="footer-links">
+                            <li><a href="tel:0487286451">📱 0487 286 451</a></li>
+                            <li><a href="mailto:avi@theprofitplatform.com.au">✉️ avi@theprofitplatform.com.au</a></li>
+                            <li><span>📍 Sydney, NSW</span></li>
+                            <li><span>⏰ Mon-Fri: 9am-6pm AEST</span></li>
+                        </ul>
                     </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="seo.html"><i class="fas fa-search"></i> SEO & Local Search</a></li>
-                        <li><a href="google-ads.html"><i class="fas fa-bullhorn"></i> Google Ads Management</a></li>
-                        <li><a href="google-ads.html"><i class="fas fa-share-alt"></i> Social Media Advertising</a></li>
-                        <li><a href="web-design.html"><i class="fas fa-laptop-code"></i> Website Design</a></li>
-                        <li><a href="services.html#conversion"><i class="fas fa-chart-line"></i> Conversion Optimization</a></li>
-                        <li><a href="services.html#analytics"><i class="fas fa-analytics"></i> Analytics & Reporting</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-                        <li><a href="portfolio.html"><i class="fas fa-chart-bar"></i> Case Studies</a></li>
-                        <li><a href="blog/index.html"><i class="fas fa-blog"></i> Blog</a></li>
-                        <li><a href="about.html#careers"><i class="fas fa-briefcase"></i> Careers</a></li>
-                        <li><a href="about.html#partners"><i class="fas fa-handshake"></i> Partners</a></li>
-                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="contact.html"><i class="fas fa-search-plus"></i> Free Marketing Audit</a></li>
-                        <li><a href="blog/seo-guide.html"><i class="fas fa-book"></i> Free SEO Guide</a></li>
-                        <li><a href="blog/google-ads-guide.html"><i class="fas fa-graduation-cap"></i> Google Ads Guide</a></li>
-                        <li><a href="/local-seo-checklist"><i class="fas fa-list-check"></i> Local SEO Checklist</a></li>
-                        <li><a href="/webinars"><i class="fas fa-video"></i> Free Webinars</a></li>
-                        <li><a href="/tools"><i class="fas fa-tools"></i> Free Tools</a></li>
-                    </ul>
+                    <div class="footer-column">
+                        <h4>🏢 Company</h4>
+                        <ul class="footer-links">
+                            <li><a href="/">Success Stories</a></li>
+                            <li><a href="services.html">Our Services</a></li>
+                            <li><a href="pricing.html">Transparent Pricing</a></li>
+                            <li><a href="/">Frequently Asked Questions</a></li>
+                            <li><a href="/">How We Work</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>⚖️ Legal</h4>
+                        <ul class="footer-links">
+                            <li><a href="privacy-policy.html" class="active">Privacy Policy</a></li>
+                            <li><a href="terms-of-service.html">Terms of Service</a></li>
+                            <li><span>ABN: 123 456 789</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 The Profit Platform. All rights reserved.</p>
-                <ul class="footer-links-bottom">
-                    <li><a href="/privacy-policy">Privacy Policy</a></li>
-                    <li><a href="/terms-of-service">Terms of Service</a></li>
-                    <li><a href="/sitemap">Sitemap</a></li>
-                </ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 The Profit Platform. All rights reserved. | Privacy Policy compliant with Australian Privacy Act and GDPR.</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -1776,10 +1713,9 @@
 
         /* Footer styles */
         footer {
-            background: rgb(15, 23, 42);
-            color: white;
+            background: var(--pp-black);
+            color: var(--pp-gray-300);
             margin-top: 60px;
-            padding: 80px 0 30px;
         }
 
         .footer-main {

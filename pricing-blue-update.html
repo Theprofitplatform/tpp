@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Page - Blue Theme Update Complete</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #e6f2ff 0%, #f0f7ff 50%, #ffffff 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .title {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 12px 24px;
+            border-radius: 100px;
+            color: #1e40af;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .updates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .update-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .update-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+        }
+
+        .update-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .update-title {
+            color: #1e293b;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .update-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .preview-section {
+            background: white;
+            border-radius: 25px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.1);
+        }
+
+        .preview-title {
+            color: #1e293b;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .icon-showcase {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: linear-gradient(135deg, #f0f7ff, #e6f2ff);
+            border-radius: 15px;
+        }
+
+        .showcase-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .icon-label {
+            color: #64748b;
+            font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.125rem;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4);
+        }
+
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .color-swatch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .swatch {
+            width: 80px;
+            height: 80px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .swatch-label {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">🎨 Blue Theme Update Complete</h1>
+            <p class="subtitle">Your pricing page now features a modern blue color scheme</p>
+            <div class="success-badge">
+                ✅ All Updates Successfully Applied
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2 class="preview-title">New Blue Color Palette</h2>
+            <div class="color-palette">
+                <div class="color-swatch">
+                    <div class="swatch" style="background: #1e40af;"></div>
+                    <span class="swatch-label">#1e40af</span>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch" style="background: #2563eb;"></div>
+                    <span class="swatch-label">#2563eb</span>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch" style="background: #3b82f6;"></div>
+                    <span class="swatch-label">#3b82f6</span>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch" style="background: #0ea5e9;"></div>
+                    <span class="swatch-label">#0ea5e9</span>
+                </div>
+                <div class="color-swatch">
+                    <div class="swatch" style="background: linear-gradient(135deg, #e6f2ff, #f0f7ff);"></div>
+                    <span class="swatch-label">Backgrounds</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="updates-grid">
+            <div class="update-card">
+                <div class="update-icon">🎨</div>
+                <h3 class="update-title">Hero Background</h3>
+                <p class="update-description">Updated to blue gradient mesh with floating blue orbs and enhanced blue tones throughout</p>
+            </div>
+
+            <div class="update-card">
+                <div class="update-icon">💳</div>
+                <h3 class="update-title">Pricing Cards</h3>
+                <p class="update-description">Card icons now feature blue gradients with enhanced shadows and blue accents</p>
+            </div>
+
+            <div class="update-card">
+                <div class="update-icon">✨</div>
+                <h3 class="update-title">Feature Icons</h3>
+                <p class="update-description">All feature checkmarks updated to blue with subtle box shadows</p>
+            </div>
+
+            <div class="update-card">
+                <div class="update-icon">🎯</div>
+                <h3 class="update-title">CTAs & Buttons</h3>
+                <p class="update-description">Call-to-action buttons now use deeper blue gradients for better contrast</p>
+            </div>
+
+            <div class="update-card">
+                <div class="update-icon">🛡️</div>
+                <h3 class="update-title">Trust Badges</h3>
+                <p class="update-description">Updated with modern blue SVG icons and blue text for consistency</p>
+            </div>
+
+            <div class="update-card">
+                <div class="update-icon">📊</div>
+                <h3 class="update-title">Value Props</h3>
+                <p class="update-description">Value proposition cards now feature blue borders and backgrounds</p>
+            </div>
+        </div>
+
+        <div class="preview-section">
+            <h2 class="preview-title">Updated Icon Showcase</h2>
+            <div class="icon-showcase">
+                <div class="showcase-icon">
+                    <div class="icon-box">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                            <path d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.8675 18 18 14.8675 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18ZM19.4853 18.0711L22.3137 20.8995L20.8995 22.3137L18.0711 19.4853L19.4853 18.0711Z"/>
+                        </svg>
+                    </div>
+                    <span class="icon-label">SEO</span>
+                </div>
+
+                <div class="showcase-icon">
+                    <div class="icon-box" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                            <path d="M15.673 3.913a3.121 3.121 0 1 1 4.414 4.414l-5.937 5.937a5 5 0 0 1-2.828 1.415l-2.18.31a1 1 0 0 1-1.132-1.13l.311-2.18A5 5 0 0 1 9.736 9.85zm3 1.414a1.12 1.12 0 0 0-1.586 0l-5.937 5.937a3 3 0 0 0-.849 1.697l-.123.86.86-.122a3 3 0 0 0 1.698-.849l5.937-5.937a1.12 1.12 0 0 0 0-1.586"/>
+                        </svg>
+                    </div>
+                    <span class="icon-label">Google Ads</span>
+                </div>
+
+                <div class="showcase-icon">
+                    <div class="icon-box" style="background: linear-gradient(135deg, #0ea5e9, #0284c7);">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                            <path d="M7 17H2C1.44772 17 1 16.5523 1 16V2C1 1.44772 1.44772 1 2 1H16C16.5523 1 17 1.44772 17 2V7H16V3H3V14H7V17Z"/>
+                            <path d="M22 9H9C8.44772 9 8 9.44772 8 10V22C8 22.5523 8.44772 23 9 23H22C22.5523 23 23 22.5523 23 22V10C23 9.44772 22.5523 9 22 9ZM10 21V11H21V21H10Z"/>
+                        </svg>
+                    </div>
+                    <span class="icon-label">Web Design</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <a href="pricing.html" class="cta-button">
+                View Updated Pricing Page
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+            </a>
+
+            <p style="margin-top: 20px; color: #64748b;">
+                Open directly: <code style="background: #e6f2ff; padding: 5px 10px; border-radius: 5px; color: #1e40af;">file:///C:/Users/abhis/projects/tpp/website/pricing.html</code>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

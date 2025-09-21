@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- Primary Meta Tags -->
-    <title>SEO Services Sydney | Local Search Optimization Expert | The Profit Platform</title>
-    <meta name="title" content="SEO Services Sydney | Local Search Optimization Expert | The Profit Platform">
-    <meta name="description" content="Dominate Google in Sydney with expert SEO services. Local search optimization, Google My Business, and proven strategies to grow your business. Free SEO audit included.">
+    <title>SEO Services Sydney | The Profit Platform</title>
+    <meta name="title" content="SEO Services Sydney | The Profit Platform">
+    <meta name="description" content="Dominate Google in Sydney with expert SEO services. Local search optimization & Google My Business. Free SEO audit included. Call 0487 286 451.">
     <meta name="keywords" content="seo services sydney, local seo sydney, google my business optimization, search engine optimization, seo expert sydney, local search marketing">
     <meta name="author" content="The Profit Platform">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -104,40 +104,218 @@
     <style>
         /* SEO Hero Section */
         .seo-hero {
-            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            padding: 220px 0 100px 0;
+            background: linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #15803d 100%);
+            padding: 160px 0 100px;
             color: white;
             position: relative;
             overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
         }
 
-        .seo-hero::before {
-            content: '';
+        .hero-background-elements {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 200px;
+            height: 200px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 120px;
+            height: 120px;
+            top: 30%;
+            right: 25%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .seo-hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 50px;
+            margin-bottom: 32px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
         .seo-hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 800;
             margin-bottom: 24px;
             letter-spacing: -0.02em;
             line-height: 1.1;
-            padding-top: 140px;
         }
 
-        .seo-hero p {
-            font-size: 1.25rem;
+        .highlight-text {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .location-text {
+            color: #fbbf24;
+        }
+
+        .title-underline {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.25rem);
             margin-bottom: 40px;
             opacity: 0.9;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+            color: #fbbf24;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        .hero-cta-section {
+            margin-top: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-primary-btn {
+            background: linear-gradient(135deg, #1f2937, #374151);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+
+        .btn-subtext {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin-top: 4px;
+        }
+
+        .hero-call-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-call-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            text-decoration: none;
+            color: white;
+        }
+
+        .hero-guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
 
         /* SEO Services Grid */
@@ -247,9 +425,21 @@
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 40px;
             margin-top: 60px;
+        }
+
+        @media (max-width: 1200px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .benefit-item {
@@ -275,8 +465,9 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 32px;
+            font-size: 36px;
             margin: 0 auto 24px;
+            font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif;
         }
 
         .benefit-item h3 {
@@ -291,10 +482,230 @@
             line-height: 1.6;
         }
 
+        /* SEO Packages Section */
+        .seo-packages {
+            background: linear-gradient(135deg, #f8fafc 0%, #fff 50%, #f0f9ff 100%);
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card.featured {
+            border-color: #22c55e;
+            transform: scale(1.05);
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .package-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: -1px;
+            right: 40px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 0 0 12px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .package-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .package-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+
+        .package-subtitle {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .package-price {
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #22c55e;
+        }
+
+        .period {
+            font-size: 1.2rem;
+            color: #6b7280;
+        }
+
+        .package-features {
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .feature-item i {
+            color: #22c55e;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .package-cta {
+            width: 100%;
+            text-align: center;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #22c55e;
+            border: 2px solid #22c55e;
+        }
+
+        .btn-outline:hover {
+            background: #22c55e;
+            color: white;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .package-guarantee {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            border: 2px solid #fbbf24;
+        }
+
+        .guarantee-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .guarantee-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .guarantee-text h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .guarantee-text p {
+            color: #6b7280;
+            margin: 0;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .seo-hero h1 {
                 font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 30px;
+                margin: 30px 0;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-primary-btn, .hero-call-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
             }
 
             .seo-services-grid {
@@ -309,8 +720,1189 @@
             .benefits-grid {
                 grid-template-columns: 1fr;
             }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .package-card.featured {
+                transform: none;
+            }
+
+            .package-card.featured:hover {
+                transform: translateY(-8px);
+            }
+
+            .guarantee-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* SEO Case Studies Section */
+        .seo-case-studies {
+            background: white;
+            padding: 100px 0;
+        }
+
+        .case-studies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .case-study-card {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .case-study-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-color: #22c55e;
+        }
+
+        .case-study-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-logo {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .client-details h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1f2937;
+        }
+
+        .client-industry {
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .case-study-badge {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .case-study-content .challenge,
+        .case-study-content .solution,
+        .case-study-content .results {
+            margin-bottom: 25px;
+        }
+
+        .case-study-content h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .case-study-content p {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .result-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .result-stat {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .result-stat .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #22c55e;
+            line-height: 1;
+        }
+
+        .result-stat .stat-label {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-top: 5px;
+        }
+
+        .case-study-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .revenue-impact {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #16a34a;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .case-studies-cta {
+            text-align: center;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 60px 40px;
+            border-radius: 20px;
+            border: 2px solid #22c55e;
+        }
+
+        .case-studies-cta h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1f2937;
+        }
+
+        .case-studies-cta p {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-lg {
+            padding: 20px 40px;
+            font-size: 1.1rem;
+        }
+
+        /* SEO FAQ Section */
+        .seo-faq {
+            background: #f8fafc;
+            padding: 100px 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #22c55e;
+            box-shadow: 0 4px 16px rgba(34, 197, 94, 0.1);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #f8fafc;
+        }
+
+        .faq-question h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+            color: #1f2937;
+        }
+
+        .faq-icon {
+            color: #22c55e;
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 30px 25px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .faq-answer p {
+            color: #6b7280;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsive Updates */
+        /* SEO Contact Section */
+        .seo-contact {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: white;
+            padding: 100px 0;
+        }
+
+        .seo-contact .section-header h2 {
+            color: white;
+        }
+
+        .seo-contact .section-header p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .contact-form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            color: #1f2937;
+        }
+
+        .form-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .audit-features {
+            margin-bottom: 30px;
+        }
+
+        .audit-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #374151;
+        }
+
+        .audit-feature i {
+            color: #22c55e;
+            font-size: 16px;
+        }
+
+        .contact-form {
+            margin-top: 30px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-submit {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .form-guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+
+        .form-status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .form-status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+
+        .form-status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+
+        .contact-info {
+            color: white;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        .contact-header h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .contact-header p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .contact-methods {
+            margin-bottom: 40px;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(34, 197, 94, 0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #22c55e;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .method-content h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .method-content a {
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .method-content a:hover {
+            text-decoration: underline;
+        }
+
+        .method-content span {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .contact-benefits h5 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .contact-benefits .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-benefits .benefit-item i {
+            color: #22c55e;
+            font-size: 14px;
+        }
+
+        .social-proof {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .proof-stats {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .proof-stat {
+            text-align: center;
+        }
+
+        .proof-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #22c55e;
+            line-height: 1;
+        }
+
+        .proof-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 5px;
+        }
+
+        .trust-badges {
+            display: flex;
+            gap: 20px;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+        }
+
+        .trust-badge i {
+            color: #fbbf24;
+            font-size: 16px;
+        }
+
+        /* Form Validation Styles */
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+
+        .error-message {
+            display: block;
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        /* Loading and Animation Styles */
+        body.loading * {
+            animation-play-state: paused;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        @media (max-width: 768px) {
+            .case-studies-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .case-study-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+
+            .result-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .case-studies-cta {
+                padding: 40px 20px;
+            }
+
+            .case-studies-cta h3 {
+                font-size: 1.5rem;
+            }
+
+            .faq-question {
+                padding: 20px;
+            }
+
+            .faq-answer {
+                padding: 0 20px 20px;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-container {
+                padding: 30px 20px;
+            }
+
+            .contact-card {
+                padding: 30px 20px;
+            }
+
+            .proof-stats {
+                justify-content: center;
+            }
+
+            .trust-badges {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Enhanced Why SEO Matters Section */
+        .why-seo-matters {
+            padding: 120px 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-seo-matters::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(168, 85, 247, 0.2));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: #fff;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .section-badge i {
+            color: #fbbf24;
+            animation: sparkle 3s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .live-stats-bar {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-ticker {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .ticker-item {
+            padding: 1rem;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ticker-item:last-child {
+            border-right: none;
+        }
+
+        .ticker-value {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ticker-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .benefit-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .benefit-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-feature {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .roi-calculator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .roi-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        .roi-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .traffic-chart {
+            height: 80px;
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+        }
+
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, #3b82f6, #a855f7);
+            border-radius: 4px 4px 0 0;
+            animation: growBar 1s ease-out forwards;
+        }
+
+        @keyframes growBar {
+            from { height: 0; }
+        }
+
+        .chart-bar:nth-child(1) { height: 30%; animation-delay: 0.1s; }
+        .chart-bar:nth-child(2) { height: 45%; animation-delay: 0.2s; }
+        .chart-bar:nth-child(3) { height: 60%; animation-delay: 0.3s; }
+        .chart-bar:nth-child(4) { height: 75%; animation-delay: 0.4s; }
+        .chart-bar:nth-child(5) { height: 90%; animation-delay: 0.5s; }
+        .chart-bar:nth-child(6) { height: 100%; animation-delay: 0.6s; }
+
+        .local-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .local-tag {
+            background: rgba(168, 85, 247, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            color: #a855f7;
+        }
+
+        .conversion-meter {
+            position: relative;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .conversion-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 85%;
+            background: linear-gradient(90deg, #3b82f6, #10b981);
+            border-radius: 10px;
+            animation: fillMeter 2s ease-out;
+        }
+
+        @keyframes fillMeter {
+            from { width: 0; }
+        }
+
+        .conversion-percentage {
+            text-align: center;
+            margin-top: 8px;
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .comparison-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .comparison-title {
+            text-align: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .comparison-column {
+            padding: 2rem;
+            border-radius: 15px;
+            height: 100%;
+        }
+
+        .without-seo {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(239, 68, 68, 0.05));
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .with-seo {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .comparison-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .comparison-label {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .without-seo .comparison-label {
+            color: #ef4444;
+        }
+
+        .with-seo .comparison-label {
+            color: #10b981;
+        }
+
+        .comparison-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .comparison-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .comparison-list li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .comparison-list i {
+            font-size: 1.25rem;
+        }
+
+        .without-seo .comparison-list i {
+            color: #ef4444;
+        }
+
+        .with-seo .comparison-list i {
+            color: #10b981;
+        }
+
+        .comparison-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vs-badge {
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(168, 85, 247, 0.1));
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-primary, .cta-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cta-primary {
+            background: linear-gradient(135deg, #3b82f6, #a855f7);
+            color: white;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-ticker {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .ticker-item {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .ticker-item:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-divider {
+                transform: rotate(90deg);
+                margin: 2rem 0;
+            }
+
+            .cta-title {
+                font-size: 1.75rem;
+            }
         }
     </style>
+    <link rel="stylesheet" href="css/seo-ultra.css">
+
+    <!-- Structured Data for SEO Services -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "The Profit Platform - SEO Services",
+        "image": "https://theprofitplatform.com.au/images/seo-services-sydney.jpg",
+        "description": "Expert SEO services in Sydney. Local search optimization, Google My Business management, and proven strategies to dominate Google search results.",
+        "url": "https://theprofitplatform.com.au/seo.html",
+        "telephone": "0487286451",
+        "email": "info@theprofitplatform.com.au",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sydney",
+            "addressRegion": "NSW",
+            "addressCountry": "AU"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-33.8688",
+            "longitude": "151.2093"
+        },
+        "serviceArea": {
+            "@type": "GeoCircle",
+            "geoMidpoint": {
+                "@type": "GeoCoordinates",
+                "latitude": "-33.8688",
+                "longitude": "151.2093"
+            },
+            "geoRadius": "50000"
+        },
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-17:00",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "SEO Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Local SEO Optimization",
+                        "description": "Dominate local search results with targeted SEO strategies"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Google My Business Optimization",
+                        "description": "Optimize your Google My Business profile for maximum visibility"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Technical SEO Audit",
+                        "description": "Comprehensive technical SEO analysis and optimization"
+                    }
+                }
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "47"
+        },
+        "sameAs": [
+            "https://www.linkedin.com/company/the-profit-platform",
+            "https://www.facebook.com/theprofitplatform"
+        ]
+    }
+    </script>
 </head>
 
 <body class="loading">
@@ -323,14 +1915,63 @@
     <main id="main-content" role="main">
         <!-- SEO Hero Section -->
         <section class="seo-hero" role="banner" aria-labelledby="seo-hero-heading">
+            <div class="hero-background-elements">
+                <div class="floating-shape shape-1"></div>
+                <div class="floating-shape shape-2"></div>
+                <div class="floating-shape shape-3"></div>
+            </div>
+
             <div class="container">
-                <div style="text-align: center; position: relative; z-index: 2;">
-                    <h1 id="seo-hero-heading">SEO & Local Search Services</h1>
-                    <p>Dominate Google search results and get found by customers searching for your services. Our proven SEO strategies help Sydney businesses rank higher and generate more leads.</p>
-                    <a href="#seo-services" class="seo-cta">
-                        <i class="fas fa-search"></i>
-                        <span>Explore SEO Services</span>
-                    </a>
+                <div class="seo-hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-crown"></i>
+                        <span>Sydney's #1 SEO Agency</span>
+                    </div>
+
+                    <h1 id="seo-hero-heading">
+                        <span class="highlight-text">Dominate Google</span><br>
+                        Get 3x More Customers with Expert <span class="location-text">SEO</span>
+                        <div class="title-underline"></div>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Transform your Sydney business with proven SEO strategies that deliver real results. Get found by customers actively searching for your services and watch your revenue grow.
+                    </p>
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">385%</div>
+                            <div class="stat-label">Average Traffic Increase</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">60</div>
+                            <div class="stat-label">Days to Page 1</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Keywords Ranking</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta-section">
+                        <div class="hero-buttons">
+                            <a href="#seo-contact" class="hero-primary-btn enhanced-cta">
+                                <div class="btn-text">
+                                    Get Free SEO Audit
+                                    <i class="fas fa-search btn-arrow"></i>
+                                </div>
+                                <div class="btn-subtext">Worth $500 - Limited Time</div>
+                            </a>
+                            <a href="tel:0487286451" class="hero-call-btn">
+                                <i class="fas fa-phone"></i>
+                                <span>Call (04) 8728 6451</span>
+                            </a>
+                        </div>
+                        <div class="hero-guarantee">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>30-Day Money Back Guarantee</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -429,47 +2070,651 @@
             </div>
         </section>
 
-        <!-- Benefits Section -->
-        <section class="benefits-section">
+        <!-- SEO Packages Section -->
+        <section class="seo-packages section" id="seo-packages">
             <div class="container">
-                <div style="text-align: center; margin-bottom: 60px;">
-                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; color: #1f2937;">Why SEO Matters for Sydney Businesses</h2>
-                    <p style="font-size: 1.125rem; color: #6b7280; max-width: 600px; margin: 0 auto;">
-                        SEO isn't just about rankings - it's about getting found by customers who are ready to buy. Here's how our SEO services drive real business results.
-                    </p>
+                <div class="section-header">
+                    <h2>Choose Your SEO Package</h2>
+                    <p>Flexible SEO solutions designed to fit your budget and business goals</p>
                 </div>
 
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-chart-line"></i>
+                <div class="packages-grid">
+                    <!-- Starter SEO Package -->
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-name">Local SEO</div>
+                            <div class="package-subtitle">Perfect for local businesses</div>
+                            <div class="package-price">
+                                <span class="price">$1,500</span>
+                                <span class="period">/month</span>
+                            </div>
                         </div>
-                        <h3>Increase Website Traffic</h3>
-                        <p>Get more qualified visitors to your website from people actively searching for your products or services in Sydney.</p>
+
+                        <div class="package-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Google My Business optimization</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Local citation building (20/month)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>10 target keywords</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Monthly SEO report</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Basic technical SEO</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Review management setup</span>
+                            </div>
+                        </div>
+
+                        <a href="#seo-contact" class="package-cta btn btn-outline">
+                            Choose Local SEO
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
 
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
+                    <!-- Growth SEO Package -->
+                    <div class="package-card featured">
+                        <div class="package-badge">Most Popular</div>
+                        <div class="package-header">
+                            <div class="package-name">Growth SEO</div>
+                            <div class="package-subtitle">For growing businesses</div>
+                            <div class="package-price">
+                                <span class="price">$2,500</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+
+                        <div class="package-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Everything in Local SEO</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>25 target keywords</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Content creation (4 articles/month)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Link building (10 quality links/month)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Advanced technical SEO</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Competitor analysis</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Weekly progress updates</span>
+                            </div>
+                        </div>
+
+                        <a href="#seo-contact" class="package-cta btn btn-primary">
+                            Choose Growth SEO
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Enterprise SEO Package -->
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-name">Enterprise SEO</div>
+                            <div class="package-subtitle">For established businesses</div>
+                            <div class="package-price">
+                                <span class="price">$4,500</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+
+                        <div class="package-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Everything in Growth SEO</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>50+ target keywords</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Premium content strategy</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Advanced link building (25 links/month)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>E-commerce SEO optimization</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Dedicated SEO specialist</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Priority support & consultation</span>
+                            </div>
+                        </div>
+
+                        <a href="#seo-contact" class="package-cta btn btn-outline">
+                            Choose Enterprise SEO
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="package-guarantee">
+                    <div class="guarantee-content">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="guarantee-text">
+                            <h3>60-Day Results Guarantee</h3>
+                            <p>See significant ranking improvements within 60 days or get your money back.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why SEO Matters - Ultra Revolutionary Design 2.0 -->
+        <section class="why-seo-matters" id="why-seo-matters">
+            <!-- Animated Particle Background -->
+            <div class="particle-container">
+                <div class="particle" style="--i:1;">SEO</div>
+                <div class="particle" style="--i:2;">Traffic</div>
+                <div class="particle" style="--i:3;">Rankings</div>
+                <div class="particle" style="--i:4;">Revenue</div>
+                <div class="particle" style="--i:5;">Growth</div>
+                <div class="particle" style="--i:6;">Leads</div>
+                <div class="particle" style="--i:7;">Sales</div>
+                <div class="particle" style="--i:8;">Success</div>
+            </div>
+
+            <!-- 3D Floating Elements -->
+            <div class="floating-elements">
+                <div class="float-element" style="--delay: 0s;">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="float-element" style="--delay: 3s;">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="float-element" style="--delay: 6s;">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+            </div>
+
+            <div class="container">
+                <!-- Ultra Enhanced Header with Live Counter -->
+                <div class="section-header">
+                    <div class="section-badge pulse-glow" data-aos="zoom-in">
+                        <i class="fas fa-crown animated-icon"></i>
+                        <span>Data-Driven Results</span>
+                        <div class="badge-shine"></div>
+                    </div>
+
+                    <h2 class="section-title" data-aos="fade-up">
+                        Why <span class="gradient-text animated-gradient">SEO Matters</span> for
+                        <br><span class="typing-text" id="typed-location">Sydney Businesses</span>
+                    </h2>
+
+                    <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                        In Sydney's competitive market, <strong class="highlight-pulse">93% of online experiences begin with search engines</strong>.
+                        <br>Don't let your competitors capture <span class="underline-animation">your customers</span>.
+                    </p>
+
+                    <!-- Live Revenue Loss Counter -->
+                    <div class="revenue-counter-box" data-aos="fade-up" data-aos-delay="200">
+                        <div class="counter-inner">
+                            <div class="counter-label">Sydney Businesses Are Losing</div>
+                            <div class="counter-value">
+                                $<span id="revenue-counter" data-target="487293">0</span>
+                            </div>
+                            <div class="counter-sublabel">Today Without Proper SEO</div>
+                            <div class="counter-progress">
+                                <div class="progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Live Statistics Bar with Animations -->
+                <div class="live-stats-bar glass-effect" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stats-title">Real-Time SEO Impact</div>
+                    <div class="stat-ticker">
+                        <div class="ticker-item" data-aos="flip-left" data-aos-delay="400">
+                            <div class="ticker-icon"><i class="fas fa-globe"></i></div>
+                            <span class="ticker-value counter" data-target="3500000000">0</span>
+                            <span class="ticker-label">Daily Google Searches</span>
+                            <div class="ticker-sparkline">
+                                <svg viewBox="0 0 50 20">
+                                    <path d="M0,10 L10,8 L20,12 L30,6 L40,9 L50,5" stroke="#3b82f6" fill="none" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="ticker-item" data-aos="flip-left" data-aos-delay="500">
+                            <div class="ticker-icon"><i class="fas fa-percentage"></i></div>
+                            <span class="ticker-value"><span class="counter" data-target="93">0</span>%</span>
+                            <span class="ticker-label">Start with Search</span>
+                            <div class="ticker-progress">
+                                <div class="progress-bar" style="--progress: 93%;"></div>
+                            </div>
+                        </div>
+                        <div class="ticker-item" data-aos="flip-left" data-aos-delay="600">
+                            <div class="ticker-icon"><i class="fas fa-arrow-up"></i></div>
+                            <span class="ticker-value"><span class="counter" data-target="75">0</span>%</span>
+                            <span class="ticker-label">Never Go Past Page 1</span>
+                            <div class="ticker-progress">
+                                <div class="progress-bar" style="--progress: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="ticker-item" data-aos="flip-left" data-aos-delay="700">
+                            <div class="ticker-icon"><i class="fas fa-chart-line"></i></div>
+                            <span class="ticker-value"><span class="counter" data-target="522">0</span>%</span>
+                            <span class="ticker-label">Average ROI from SEO</span>
+                            <div class="ticker-sparkline">
+                                <svg viewBox="0 0 50 20">
+                                    <path d="M0,18 L10,15 L20,10 L30,8 L40,5 L50,2" stroke="#10b981" fill="none" stroke-width="2"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Interactive Benefits Cards -->
+                <div class="benefits-section">
+                    <h3 class="benefits-title" data-aos="fade-up">Transform Your Business with SEO</h3>
+                    <div class="benefits-3d-grid">
+                        <!-- 3D Flip Card 1: ROI Calculator -->
+                        <div class="benefit-3d-card" data-aos="fade-right" data-aos-delay="100">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="card-shine"></div>
+                                    <div class="card-icon-3d">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <h3 class="card-title">Revenue Growth</h3>
+                                    <div class="card-value">522%</div>
+                                    <p class="card-subtitle">Average ROI</p>
+                                    <div class="hover-indicator">
+                                        <i class="fas fa-hand-pointer"></i> Hover for details
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <h4>ROI Calculator</h4>
+                                    <div class="interactive-calculator">
+                                        <label>Monthly Investment:</label>
+                                        <input type="range" id="roi-slider" min="1000" max="10000" value="3000">
+                                        <div class="roi-display">
+                                            <span class="roi-input">$<span id="roi-input-val">3000</span></span>
+                                            <i class="fas fa-arrow-right"></i>
+                                            <span class="roi-output">$<span id="roi-output-val">15,660</span></span>
+                                        </div>
+                                        <small>Expected return in 12 months</small>
+                                    </div>
+                                    <button class="card-cta-btn">Calculate Your ROI</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3D Flip Card 2: Traffic Growth -->
+                        <div class="benefit-3d-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="card-shine"></div>
+                                    <div class="card-icon-3d">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h3 class="card-title">Organic Traffic</h3>
+                                    <div class="card-value">385%</div>
+                                    <p class="card-subtitle">Average Growth</p>
+                                    <div class="hover-indicator">
+                                        <i class="fas fa-hand-pointer"></i> Hover for details
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <h4>Traffic Timeline</h4>
+                                    <div class="timeline-chart">
+                                        <div class="timeline-item">
+                                            <span class="timeline-month">Month 1</span>
+                                            <div class="timeline-bar" style="--height: 20%;"></div>
+                                            <span class="timeline-value">+20%</span>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <span class="timeline-month">Month 3</span>
+                                            <div class="timeline-bar" style="--height: 45%;"></div>
+                                            <span class="timeline-value">+85%</span>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <span class="timeline-month">Month 6</span>
+                                            <div class="timeline-bar" style="--height: 75%;"></div>
+                                            <span class="timeline-value">+287%</span>
+                                        </div>
+                                        <div class="timeline-item">
+                                            <span class="timeline-month">Month 12</span>
+                                            <div class="timeline-bar" style="--height: 95%;"></div>
+                                            <span class="timeline-value">+385%</span>
+                                        </div>
+                                    </div>
+                                    <button class="card-cta-btn">View Case Studies</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3D Flip Card 3: Local Domination -->
+                        <div class="benefit-3d-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="card-shine"></div>
+                                    <div class="card-icon-3d">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <h3 class="card-title">Local Dominance</h3>
+                                    <div class="card-value">46%</div>
+                                    <p class="card-subtitle">Local Search Intent</p>
+                                    <div class="hover-indicator">
+                                        <i class="fas fa-hand-pointer"></i> Hover for details
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <h4>Sydney Coverage</h4>
+                                    <div class="location-map">
+                                        <div class="map-pins">
+                                            <div class="pin active" style="--x: 50%; --y: 50%;">CBD</div>
+                                            <div class="pin active" style="--x: 60%; --y: 40%;">North Shore</div>
+                                            <div class="pin active" style="--x: 70%; --y: 55%;">Eastern</div>
+                                            <div class="pin active" style="--x: 40%; --y: 60%;">Inner West</div>
+                                            <div class="pin" style="--x: 30%; --y: 70%;">Western</div>
+                                        </div>
+                                    </div>
+                                    <div class="coverage-stats">
+                                        <span><i class="fas fa-check"></i> 15+ Sydney Suburbs</span>
+                                        <span><i class="fas fa-check"></i> 3-Pack Rankings</span>
+                                    </div>
+                                    <button class="card-cta-btn">Check Your Area</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3D Flip Card 4: Conversions -->
+                        <div class="benefit-3d-card" data-aos="fade-left" data-aos-delay="400">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="card-shine"></div>
+                                    <div class="card-icon-3d">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <h3 class="card-title">Conversions</h3>
+                                    <div class="card-value">14.6%</div>
+                                    <p class="card-subtitle">Conversion Rate</p>
+                                    <div class="hover-indicator">
+                                        <i class="fas fa-hand-pointer"></i> Hover for details
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    <h4>Lead Quality</h4>
+                                    <div class="comparison-bars">
+                                        <div class="bar-item">
+                                            <span class="bar-label">SEO Leads</span>
+                                            <div class="bar-container">
+                                                <div class="bar-fill seo" style="--width: 95%;">14.6%</div>
+                                            </div>
+                                        </div>
+                                        <div class="bar-item">
+                                            <span class="bar-label">PPC Ads</span>
+                                            <div class="bar-container">
+                                                <div class="bar-fill ppc" style="--width: 35%;">3.7%</div>
+                                            </div>
+                                        </div>
+                                        <div class="bar-item">
+                                            <span class="bar-label">Social Media</span>
+                                            <div class="bar-container">
+                                                <div class="bar-fill social" style="--width: 18%;">1.8%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="card-cta-btn">Get Quality Leads</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Before/After Slider -->
+                <div class="comparison-section" data-aos="fade-up">
+                    <h3 class="comparison-title">The Real Cost of <span class="gradient-text">Not Having SEO</span></h3>
+
+                    <!-- Interactive Slider -->
+                    <div class="before-after-slider">
+                        <div class="slider-container">
+                            <div class="slider-side before-side">
+                                <div class="side-content">
+                                    <h4><i class="fas fa-times-circle"></i> Without SEO</h4>
+                                    <div class="impact-metrics">
+                                        <div class="metric-item negative">
+                                            <i class="fas fa-eye-slash"></i>
+                                            <span class="metric-value">93%</span>
+                                            <span class="metric-label">Invisible Online</span>
+                                        </div>
+                                        <div class="metric-item negative">
+                                            <i class="fas fa-chart-down"></i>
+                                            <span class="metric-value">-5</span>
+                                            <span class="metric-label">Lost Leads Daily</span>
+                                        </div>
+                                        <div class="metric-item negative">
+                                            <i class="fas fa-money-bill-wave"></i>
+                                            <span class="metric-value">$5k+</span>
+                                            <span class="metric-label">Monthly Ad Spend</span>
+                                        </div>
+                                    </div>
+                                    <div class="revenue-impact negative">
+                                        <span class="impact-label">Annual Impact:</span>
+                                        <span class="impact-value">-$180,000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slider-handle">
+                                <div class="handle-icon">
+                                    <i class="fas fa-arrows-alt-h"></i>
+                                </div>
+                                <span class="handle-text">DRAG</span>
+                            </div>
+
+                            <div class="slider-side after-side">
+                                <div class="side-content">
+                                    <h4><i class="fas fa-check-circle"></i> With Our SEO</h4>
+                                    <div class="impact-metrics">
+                                        <div class="metric-item positive">
+                                            <i class="fas fa-trophy"></i>
+                                            <span class="metric-value">Page 1</span>
+                                            <span class="metric-label">Rankings in 90 Days</span>
+                                        </div>
+                                        <div class="metric-item positive">
+                                            <i class="fas fa-chart-up"></i>
+                                            <span class="metric-value">+100</span>
+                                            <span class="metric-label">Monthly Leads</span>
+                                        </div>
+                                        <div class="metric-item positive">
+                                            <i class="fas fa-piggy-bank"></i>
+                                            <span class="metric-value">-70%</span>
+                                            <span class="metric-label">Ad Dependency</span>
+                                        </div>
+                                    </div>
+                                    <div class="revenue-impact positive">
+                                        <span class="impact-label">Annual Impact:</span>
+                                        <span class="impact-value">+$420,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Carousel -->
+                <div class="testimonials-section" data-aos="fade-up">
+                    <h3 class="testimonials-title">Success Stories from <span class="gradient-text">Sydney Businesses</span></h3>
+
+                    <div class="testimonial-carousel">
+                        <div class="testimonial-track" id="testimonial-track">
+                            <!-- Testimonial 1 -->
+                            <div class="testimonial-card active">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "Our traffic increased by 450% in just 6 months. The ROI has been absolutely incredible. We're now the top result for all our main keywords in Sydney."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://ui-avatars.com/api/?name=John+Smith&background=3b82f6&color=fff" alt="John Smith">
+                                    <div class="author-info">
+                                        <h5>John Smith</h5>
+                                        <p>CEO, TechStart Sydney</p>
+                                    </div>
+                                </div>
+                                <div class="testimonial-results">
+                                    <span class="result-badge"><i class="fas fa-arrow-up"></i> 450% Traffic</span>
+                                    <span class="result-badge"><i class="fas fa-dollar-sign"></i> $2.1M Revenue</span>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 2 -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "We went from page 5 to position #1 in Google. Our phone hasn't stopped ringing. Best investment we've made for our business growth."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://ui-avatars.com/api/?name=Sarah+Chen&background=a855f7&color=fff" alt="Sarah Chen">
+                                    <div class="author-info">
+                                        <h5>Sarah Chen</h5>
+                                        <p>Director, Legal Solutions NSW</p>
+                                    </div>
+                                </div>
+                                <div class="testimonial-results">
+                                    <span class="result-badge"><i class="fas fa-phone"></i> 200+ Calls/Month</span>
+                                    <span class="result-badge"><i class="fas fa-trophy"></i> #1 Rankings</span>
+                                </div>
+                            </div>
+
+                            <!-- Testimonial 3 -->
+                            <div class="testimonial-card">
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <p class="testimonial-text">
+                                    "Cut our Google Ads spend by 80% while getting 3x more qualified leads. The team's expertise in local SEO is unmatched."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://ui-avatars.com/api/?name=Mike+Wilson&background=10b981&color=fff" alt="Mike Wilson">
+                                    <div class="author-info">
+                                        <h5>Mike Wilson</h5>
+                                        <p>Owner, Sydney Home Services</p>
+                                    </div>
+                                </div>
+                                <div class="testimonial-results">
+                                    <span class="result-badge"><i class="fas fa-cut"></i> -80% Ad Spend</span>
+                                    <span class="result-badge"><i class="fas fa-users"></i> 3x More Leads</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Carousel Controls -->
+                        <div class="carousel-controls">
+                            <button class="carousel-btn prev" id="prev-testimonial">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <div class="carousel-dots">
+                                <span class="dot active" data-index="0"></span>
+                                <span class="dot" data-index="1"></span>
+                                <span class="dot" data-index="2"></span>
+                            </div>
+                            <button class="carousel-btn next" id="next-testimonial">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Call to Action with Urgency -->
+                <div class="cta-section" data-aos="zoom-in">
+                    <div class="cta-background-pulse"></div>
+                    <h3 class="cta-title">
+                        Ready to <span class="gradient-text">Dominate Google?</span>
+                    </h3>
+                    <p class="cta-subtitle">
+                        Join 200+ Sydney businesses already ranking on page 1
+                    </p>
+
+                    <!-- Urgency Indicators -->
+                    <div class="urgency-bar">
+                        <div class="urgency-item">
+                            <i class="fas fa-fire animated-fire"></i>
+                            <span>Limited Spots: <strong>Only 3 left this month</strong></span>
+                        </div>
+                        <div class="urgency-item">
+                            <i class="fas fa-clock animated-tick"></i>
+                            <span>Offer expires in: <strong id="countdown-timer">23:59:47</strong></span>
+                        </div>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <a href="#contact" class="cta-primary glow-effect">
+                            <span class="btn-content">
+                                <i class="fas fa-rocket"></i>
+                                Get Your Free SEO Audit
+                            </span>
+                            <span class="btn-value">Worth $997</span>
+                            <div class="btn-shine"></div>
+                        </a>
+                        <a href="tel:0487286451" class="cta-secondary pulse-border">
                             <i class="fas fa-phone"></i>
-                        </div>
-                        <h3>Generate More Leads</h3>
-                        <p>Convert website visitors into paying customers with strategic optimization that targets high-intent search queries.</p>
+                            <span>Call Now: 0487 286 451</span>
+                        </a>
                     </div>
 
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-trophy"></i>
-                        </div>
-                        <h3>Beat Your Competition</h3>
-                        <p>Outrank competitors and capture market share by appearing above them in Google search results for your key services.</p>
-                    </div>
-
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-dollar-sign"></i>
-                        </div>
-                        <h3>Long-Term ROI</h3>
-                        <p>Unlike paid ads, SEO delivers lasting results. Once you rank well, you'll continue getting organic traffic for years.</p>
+                    <div class="trust-indicators">
+                        <span class="trust-item">
+                            <i class="fas fa-shield-alt"></i> 100% Confidential
+                        </span>
+                        <span class="trust-item">
+                            <i class="fas fa-ban"></i> No Spam Guarantee
+                        </span>
+                        <span class="trust-item">
+                            <i class="fas fa-clock"></i> Results in 90 Days
+                        </span>
                     </div>
                 </div>
             </div>
@@ -532,39 +2777,498 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta section animate-on-scroll" id="cta">
+        <!-- SEO Case Studies Section -->
+        <section class="seo-case-studies section" id="seo-case-studies">
             <div class="container">
-                <div class="cta-content">
-                    <div class="cta-header">
-                        <h2>Ready to Dominate Google Search?</h2>
-                        <p>Get your free SEO audit and discover exactly how to outrank your competition. No obligation, no sales pressure - just actionable insights to grow your Sydney business.</p>
+                <div class="section-header">
+                    <h2>SEO Success Stories</h2>
+                    <p>Real results from real Sydney businesses we've helped dominate Google</p>
+                </div>
+
+                <div class="case-studies-grid">
+                    <!-- Case Study 1 -->
+                    <div class="case-study-card">
+                        <div class="case-study-header">
+                            <div class="client-info">
+                                <div class="client-logo">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="client-details">
+                                    <h4>Sydney Plumbing Services</h4>
+                                    <span class="client-industry">Home Services</span>
+                                </div>
+                            </div>
+                            <div class="case-study-badge">Local SEO</div>
+                        </div>
+
+                        <div class="case-study-content">
+                            <div class="challenge">
+                                <h5>Challenge</h5>
+                                <p>Struggling to compete with established plumbers, ranking on page 3-4 for "plumber Sydney" and related local terms.</p>
+                            </div>
+
+                            <div class="solution">
+                                <h5>Solution</h5>
+                                <p>Implemented comprehensive local SEO strategy with Google My Business optimization, local citations, and suburb-specific landing pages.</p>
+                            </div>
+
+                            <div class="results">
+                                <h5>Results in 4 Months</h5>
+                                <div class="result-stats">
+                                    <div class="result-stat">
+                                        <div class="stat-number">450%</div>
+                                        <div class="stat-label">Increase in Organic Traffic</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">#1</div>
+                                        <div class="stat-label">Ranking for "Plumber Sydney"</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">35+</div>
+                                        <div class="stat-label">Keywords on Page 1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-study-footer">
+                            <div class="revenue-impact">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>Generated $180,000+ additional revenue</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="cta-stats-grid">
-                        <div class="cta-stat-card animate-on-scroll">
-                            <div class="cta-stat-number">300%</div>
-                            <div class="cta-stat-label">Average Traffic Increase</div>
+                    <!-- Case Study 2 -->
+                    <div class="case-study-card">
+                        <div class="case-study-header">
+                            <div class="client-info">
+                                <div class="client-logo">
+                                    <i class="fas fa-tooth"></i>
+                                </div>
+                                <div class="client-details">
+                                    <h4>Sydney Dental Practice</h4>
+                                    <span class="client-industry">Healthcare</span>
+                                </div>
+                            </div>
+                            <div class="case-study-badge">Technical + Content SEO</div>
                         </div>
-                        <div class="cta-stat-card animate-on-scroll">
-                            <div class="cta-stat-number">90</div>
-                            <div class="cta-stat-label">Days to See Results</div>
+
+                        <div class="case-study-content">
+                            <div class="challenge">
+                                <h5>Challenge</h5>
+                                <p>Website had technical issues, slow loading times, and wasn't mobile-friendly. Organic traffic was declining month over month.</p>
+                            </div>
+
+                            <div class="solution">
+                                <h5>Solution</h5>
+                                <p>Complete technical SEO overhaul, mobile optimization, content creation strategy, and local search optimization for dental services.</p>
+                            </div>
+
+                            <div class="results">
+                                <h5>Results in 6 Months</h5>
+                                <div class="result-stats">
+                                    <div class="result-stat">
+                                        <div class="stat-number">280%</div>
+                                        <div class="stat-label">More Appointment Bookings</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">65%</div>
+                                        <div class="stat-label">Faster Page Load Speed</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">95+</div>
+                                        <div class="stat-label">Google PageSpeed Score</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="cta-stat-card animate-on-scroll">
-                            <div class="cta-stat-number">25+</div>
-                            <div class="cta-stat-label">Sydney Businesses Ranking</div>
+
+                        <div class="case-study-footer">
+                            <div class="revenue-impact">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>850+ new patient appointments booked</span>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="cta-buttons">
-                        <a href="contact.html" class="btn btn-cta-primary">
-                            <i class="fas fa-search"></i>
+                    <!-- Case Study 3 -->
+                    <div class="case-study-card">
+                        <div class="case-study-header">
+                            <div class="client-info">
+                                <div class="client-logo">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                                <div class="client-details">
+                                    <h4>Sydney E-commerce Store</h4>
+                                    <span class="client-industry">Retail</span>
+                                </div>
+                            </div>
+                            <div class="case-study-badge">E-commerce SEO</div>
+                        </div>
+
+                        <div class="case-study-content">
+                            <div class="challenge">
+                                <h5>Challenge</h5>
+                                <p>Product pages weren't ranking, low organic visibility for key product categories, and poor conversion rates from organic traffic.</p>
+                            </div>
+
+                            <div class="solution">
+                                <h5>Solution</h5>
+                                <p>E-commerce SEO strategy with product page optimization, category structure improvement, and targeted content marketing.</p>
+                            </div>
+
+                            <div class="results">
+                                <h5>Results in 8 Months</h5>
+                                <div class="result-stats">
+                                    <div class="result-stat">
+                                        <div class="stat-number">520%</div>
+                                        <div class="stat-label">Increase in Organic Revenue</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">75%</div>
+                                        <div class="stat-label">More Product Page Views</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">180+</div>
+                                        <div class="stat-label">Products Ranking Top 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-study-footer">
+                            <div class="revenue-impact">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>$320,000+ additional online sales</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-studies-cta">
+                    <div class="cta-content">
+                        <h3>Ready to Be Our Next SEO Success Story?</h3>
+                        <p>Join 150+ Sydney businesses that have transformed their online presence with our proven SEO strategies</p>
+                        <a href="#seo-contact" class="btn btn-primary btn-lg">
                             Get My Free SEO Audit
+                            <i class="fas fa-search"></i>
                         </a>
-                        <a href="tel:0487286451" class="btn btn-cta-secondary">
-                            <i class="fas fa-phone"></i>
-                            Call Now: 0487 286 451
-                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO FAQ Section -->
+        <section class="seo-faq section" id="seo-faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>SEO Questions Answered</h2>
+                    <p>Everything Sydney business owners ask about SEO services</p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How long does SEO take to show results?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>For local SEO, you can expect to see initial improvements within 30-60 days, with significant results in 3-6 months. National SEO typically takes 6-12 months for competitive keywords. We provide monthly reports so you can track progress every step of the way.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What's the difference between SEO and Google Ads?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SEO is organic (free) search results that build long-term value, while Google Ads are paid advertisements. SEO takes longer but provides lasting results and higher trust. Google Ads give immediate visibility but stop when you stop paying. We recommend both for maximum impact.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Do you guarantee first page rankings?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We guarantee significant ranking improvements within 60 days or your money back. While no ethical SEO company can guarantee specific rankings (Google's algorithm changes constantly), we have a 95% success rate getting clients to page 1 for their target keywords.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How is local SEO different from regular SEO?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Local SEO focuses on "near me" searches and location-specific keywords. It includes Google My Business optimization, local citations, and suburb-specific content. It's perfect for businesses serving Sydney customers physically (like plumbers, dentists, restaurants).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can you help improve my Google My Business listing?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! Google My Business optimization is a core part of our local SEO service. We optimize your profile, manage reviews, add posts, optimize photos, and ensure your business information is consistent across all platforms.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What SEO tools and software do you use?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We use enterprise-level tools including SEMrush, Ahrefs, Google Analytics, Google Search Console, Screaming Frog, and proprietary tracking software. You'll get access to detailed reports showing exactly how your SEO campaign is performing.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Do you work with any industry or business size?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We work with all types of Sydney businesses - from local service providers to e-commerce stores to professional services. Our packages scale from small local businesses ($1,500/month) to large enterprises ($4,500+/month). Every strategy is customized to your industry and goals.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What happens if I stop SEO services?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Your rankings will gradually decline over time as competitors continue optimizing and Google's algorithm evolves. However, the content we create and technical improvements remain. SEO is an ongoing investment, like maintaining a gym membership - you need consistency for long-term results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Contact Section -->
+        <section class="seo-contact section" id="seo-contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get Your Free SEO Audit Worth $500</h2>
+                    <p>Discover exactly how to outrank your competition and get 3x more customers from Google</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <div class="form-header">
+                            <h3>Free SEO Audit Includes:</h3>
+                            <div class="audit-features">
+                                <div class="audit-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Complete technical SEO analysis</span>
+                                </div>
+                                <div class="audit-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Competitor ranking analysis</span>
+                                </div>
+                                <div class="audit-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Keyword opportunity report</span>
+                                </div>
+                                <div class="audit-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Custom SEO strategy roadmap</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="contact-form" id="seoContactForm" action="https://formspree.io/f/meoqjgzn" method="POST" novalidate>
+                            <!-- Honeypot -->
+                            <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                            <!-- Hidden fields -->
+                            <input type="hidden" name="_subject" value="SEO Audit Request">
+                            <input type="hidden" name="_next" value="/seo.html?success=1">
+                            <input type="hidden" name="service" value="SEO Services">
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                    <span class="error-message"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="websiteUrl">Website URL *</label>
+                                <input type="url" id="websiteUrl" name="websiteUrl" placeholder="https://" required>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="seoGoals">What are your main SEO goals?</label>
+                                <select id="seoGoals" name="seoGoals">
+                                    <option value="">Select your primary goal</option>
+                                    <option value="local-visibility">Improve local visibility</option>
+                                    <option value="more-leads">Generate more leads</option>
+                                    <option value="beat-competitors">Outrank competitors</option>
+                                    <option value="website-traffic">Increase website traffic</option>
+                                    <option value="online-sales">Boost online sales</option>
+                                    <option value="brand-awareness">Build brand awareness</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="currentRankings">How are you currently performing in Google?</label>
+                                <select id="currentRankings" name="currentRankings">
+                                    <option value="">Select your situation</option>
+                                    <option value="not-found">Can't find my business on Google</option>
+                                    <option value="page-2-3">Showing up on page 2-3</option>
+                                    <option value="page-1-bottom">Bottom of page 1</option>
+                                    <option value="page-1-top">Top of page 1 for some keywords</option>
+                                    <option value="not-sure">Not sure how to check</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget">Monthly SEO Budget</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-1500">Under $1,500</option>
+                                    <option value="1500-2500">$1,500 - $2,500</option>
+                                    <option value="2500-4500">$2,500 - $4,500</option>
+                                    <option value="4500-plus">$4,500+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="additionalInfo">Tell us about your business and current challenges</label>
+                                <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="What industry are you in? What are your biggest SEO challenges?"></textarea>
+                            </div>
+
+                            <button type="submit" class="form-submit btn btn-primary btn-lg">
+                                <i class="fas fa-search"></i>
+                                Get My Free SEO Audit
+                            </button>
+
+                            <div class="form-guarantee">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>No spam. Your information is 100% secure. Results within 24 hours.</span>
+                            </div>
+
+                            <div id="formStatus" class="form-status"></div>
+                        </form>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-header">
+                                <h4>Prefer to Talk?</h4>
+                                <p>Speak directly with our SEO experts</p>
+                            </div>
+
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <div class="method-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h5>Call Now</h5>
+                                        <a href="tel:0487286451">0487 286 451</a>
+                                        <span>Mon-Fri 9AM-6PM AEST</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact-method">
+                                    <div class="method-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h5>Email</h5>
+                                        <a href="mailto:avi@theprofitplatform.com.au">avi@theprofitplatform.com.au</a>
+                                        <span>Response within 2 hours</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact-method">
+                                    <div class="method-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h5>Book a Call</h5>
+                                        <a href="#" onclick="window.open('https://calendly.com/theprofitplatform', '_blank')">Schedule Consultation</a>
+                                        <span>15-30 minute strategy call</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-benefits">
+                                <h5>What you'll get on our call:</h5>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Free competitive analysis</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Custom SEO strategy for your business</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Realistic timeline and expectations</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Transparent pricing with no surprises</span>
+                                </div>
+                            </div>
+
+                            <div class="social-proof">
+                                <div class="proof-stats">
+                                    <div class="proof-stat">
+                                        <div class="proof-number">95%</div>
+                                        <div class="proof-label">Client Success Rate</div>
+                                    </div>
+                                    <div class="proof-stat">
+                                        <div class="proof-number">4.9/5</div>
+                                        <div class="proof-label">Average Rating</div>
+                                    </div>
+                                </div>
+
+                                <div class="trust-badges">
+                                    <div class="trust-badge">
+                                        <i class="fab fa-google"></i>
+                                        <span>Google Partner</span>
+                                    </div>
+                                    <div class="trust-badge">
+                                        <i class="fas fa-certificate"></i>
+                                        <span>SEO Certified</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -676,7 +3380,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 The Profit Platform. All rights reserved.</p>
+                <p class="footer-copyright">&copy; 2025 The Profit Platform. All rights reserved.</p>
                 <ul class="footer-links-bottom">
                     <li><a href="/privacy-policy">Privacy Policy</a></li>
                     <li><a href="/terms-of-service">Terms of Service</a></li>
@@ -687,7 +3391,159 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="js/combined.min.js" defer></script>
+    <script src="js/consolidated.js" defer></script>
+    <script>
+        // SEO Page Specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ Toggle Functionality
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all FAQ items
+                    faqItems.forEach(otherItem => {
+                        otherItem.classList.remove('active');
+                    });
+
+                    // Open clicked item if it wasn't already active
+                    if (!isActive) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            anchorLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Form enhancement
+            const seoForm = document.getElementById('seoContactForm');
+            if (seoForm) {
+                // Add form validation feedback
+                const inputs = seoForm.querySelectorAll('input[required], select[required]');
+                inputs.forEach(input => {
+                    input.addEventListener('blur', function() {
+                        validateField(this);
+                    });
+
+                    input.addEventListener('input', function() {
+                        if (this.classList.contains('error')) {
+                            validateField(this);
+                        }
+                    });
+                });
+            }
+
+            // Check for success parameter in URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('success') === '1') {
+                showFormStatus('success', 'Thank you! Your SEO audit request has been submitted. We\'ll send your comprehensive audit within 24 hours.');
+
+                // Clean URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+
+            // Initialize animations on scroll
+            initializeScrollAnimations();
+        });
+
+        function validateField(field) {
+            const errorMessage = field.parentNode.querySelector('.error-message');
+            let isValid = true;
+            let message = '';
+
+            if (field.hasAttribute('required') && !field.value.trim()) {
+                isValid = false;
+                message = 'This field is required';
+            } else if (field.type === 'email' && field.value) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value)) {
+                    isValid = false;
+                    message = 'Please enter a valid email address';
+                }
+            } else if (field.type === 'url' && field.value) {
+                try {
+                    new URL(field.value);
+                } catch {
+                    isValid = false;
+                    message = 'Please enter a valid website URL';
+                }
+            }
+
+            if (isValid) {
+                field.classList.remove('error');
+                if (errorMessage) {
+                    errorMessage.style.display = 'none';
+                    errorMessage.textContent = '';
+                }
+            } else {
+                field.classList.add('error');
+                if (errorMessage) {
+                    errorMessage.style.display = 'block';
+                    errorMessage.textContent = message;
+                }
+            }
+
+            return isValid;
+        }
+
+        function showFormStatus(type, message) {
+            const statusDiv = document.getElementById('formStatus');
+            if (statusDiv) {
+                statusDiv.className = `form-status ${type}`;
+                statusDiv.textContent = message;
+                statusDiv.style.display = 'block';
+
+                if (type === 'success') {
+                    setTimeout(() => {
+                        statusDiv.style.display = 'none';
+                    }, 10000);
+                }
+            }
+        }
+
+        function initializeScrollAnimations() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        }
+
+        // Add loading states for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.remove('loading');
+        });
+    </script>
 
     <!-- Performance monitoring -->
     <script>

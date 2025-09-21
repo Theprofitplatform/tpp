@@ -156,6 +156,32 @@
         0 25px 50px rgba(0, 0, 0, 0.15),
         0 10px 20px rgba(44, 134, 249, 0.1),
         0 0 60px rgba(44, 134, 249, 0.05) !important;
+
+    /* Ensure proper visibility behavior */
+    position: fixed !important;
+    z-index: 10000 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+/* Desktop hover support for glass dropdowns */
+@media (min-width: 969px) {
+    .nav-dropdown:hover .dropdown-menu,
+    .nav-dropdown:hover .mega-dropdown {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+}
+
+/* Active state for glass dropdowns */
+.nav-dropdown.active .dropdown-menu,
+.nav-dropdown.active .mega-dropdown {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
 }
 
 /* Enhanced CTA button glass effect */

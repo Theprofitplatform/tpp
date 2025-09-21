@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Marketing Services Sydney | The Profit Platform</title>
-    <meta name="description" content="Expert SEO, Google Ads & web design in Sydney. Get 3x more leads with proven digital marketing strategies. Free consultation available.">
+    <title>Digital Marketing Services Sydney | SEO, Google Ads & Web Design - The Profit Platform</title>
+    <meta name="description" content="Comprehensive digital marketing services in Sydney. Expert SEO, Google Ads management, web design, social media marketing, and analytics. Get 3x more leads with proven strategies.">
     
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1408,50 +1408,50 @@
                 <div class="footer-column">
                     <h3>The Profit Platform</h3>
                     <p>We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.</p>
-                    
+
                     <div class="social-links" role="list" aria-label="Social media links">
-                        <a href="https://facebook.com/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
+                        <a href="https://facebook.com/theprofitplatform"
+                           class="social-icon"
+                           target="_blank"
                            rel="noopener noreferrer"
                            aria-label="Follow us on Facebook"
                            role="listitem">
                             <i class="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
-                        <a href="https://instagram.com/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
+                        <a href="https://instagram.com/theprofitplatform"
+                           class="social-icon"
+                           target="_blank"
                            rel="noopener noreferrer"
                            aria-label="Follow us on Instagram"
                            role="listitem">
                             <i class="fab fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href="https://linkedin.com/company/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
+                        <a href="https://linkedin.com/company/theprofitplatform"
+                           class="social-icon"
+                           target="_blank"
                            rel="noopener noreferrer"
                            aria-label="Connect with us on LinkedIn"
                            role="listitem">
                             <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                         </a>
-                        <a href="https://twitter.com/profitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
+                        <a href="https://twitter.com/profitplatform"
+                           class="social-icon"
+                           target="_blank"
                            rel="noopener noreferrer"
                            aria-label="Follow us on Twitter"
                            role="listitem">
                             <i class="fab fa-twitter" aria-hidden="true"></i>
                         </a>
-                        <a href="https://youtube.com/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
+                        <a href="https://youtube.com/theprofitplatform"
+                           class="social-icon"
+                           target="_blank"
                            rel="noopener noreferrer"
                            aria-label="Subscribe to our YouTube channel"
                            role="listitem">
                             <i class="fab fa-youtube" aria-hidden="true"></i>
                         </a>
                     </div>
-                    
+
                     <div class="contact-info-footer">
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
@@ -1467,7 +1467,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul class="footer-links">
@@ -1479,7 +1479,7 @@
                         <li><a href="services.html#analytics"><i class="fas fa-analytics"></i> Analytics & Reporting</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul class="footer-links">
@@ -1491,7 +1491,7 @@
                         <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul class="footer-links">
@@ -1504,7 +1504,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2024 The Profit Platform. All rights reserved.</p>
                 <ul class="footer-links-bottom">

@@ -2,6 +2,159 @@
 
 /* Note: Core variables are now loaded from modern-theme-variables.css */
 
+/* ========================= GLOBAL UI IMPROVEMENTS ========================= */
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+/* Enhanced Footer Styling */
+footer {
+    background: rgb(15, 23, 42);
+    color: white;
+    margin-top: 100px;
+    padding: 80px 0 30px; /* Match homepage padding */
+    position: relative;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05);
+}
+
+footer .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+footer .footer-column h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+footer .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footer-links li {
+    margin-bottom: 12px;
+}
+
+footer .footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+footer .footer-links a:hover {
+    color: var(--pp-primary);
+    transform: translateX(5px);
+}
+
+footer .footer-links a i {
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+footer .social-links {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+footer .social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+footer .social-icon:hover {
+    background: var(--pp-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(44, 134, 249, 0.4);
+}
+
+footer .contact-info-footer {
+    margin-top: 20px;
+}
+
+footer .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+footer .contact-item i {
+    color: var(--pp-primary);
+    width: 20px;
+}
+
+footer .contact-item a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer .contact-item a:hover {
+    color: var(--pp-primary);
+}
+
+footer .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .footer-bottom p {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+footer .footer-links-bottom {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer .footer-links-bottom a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer .footer-links-bottom a:hover {
+    color: var(--pp-primary);
+}
+
+@media (max-width: 768px) {
+    footer .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ========================= SERVICES-SPECIFIC VARIABLES ========================= */
 :root {
     /* Service Colors */
@@ -33,6 +186,11 @@
 .services-hero {
     position: relative;
     overflow: hidden;
+    padding-top: 120px !important;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
 }
 
 .services-hero::before {
@@ -42,8 +200,9 @@
     right: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(44, 134, 249, 0.05) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(44, 134, 249, 0.08) 0%, transparent 70%);
     animation: heroFloat 20s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .hero-background-elements {
@@ -54,15 +213,17 @@
     height: 100%;
     overflow: hidden;
     z-index: 1;
+    pointer-events: none;
 }
 
 .floating-shape {
     position: absolute;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(44, 134, 249, 0.1), rgba(44, 134, 249, 0.05));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    animation: float 6s ease-in-out infinite;
+    background: linear-gradient(135deg, rgba(44, 134, 249, 0.15), rgba(44, 134, 249, 0.05));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: float 8s ease-in-out infinite;
+    box-shadow: 0 8px 32px rgba(44, 134, 249, 0.1);
 }
 
 .floating-shape.shape-1 {
