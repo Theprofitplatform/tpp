@@ -1030,7 +1030,7 @@ header.scrolled .logo-img {
    HERO SECTION 
    ========================= */
 .hero {
-    padding: 0 0 20px;
+    padding: 80px 0 40px;
     background: 
         /* Modern mesh gradient with multiple layers */
         radial-gradient(ellipse 80% 50% at 20% 40%, rgba(120, 119, 198, 0.12) 0%, transparent 50%),
@@ -1108,8 +1108,8 @@ header.scrolled .logo-img {
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+    display: flex;
+    flex-direction: column;
     gap: 80px;
     align-items: center;
     position: relative;
@@ -4320,7 +4320,7 @@ footer {
     }
 
     .hero-content {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         gap: 30px;
         text-align: left;
         padding: 0 15px;

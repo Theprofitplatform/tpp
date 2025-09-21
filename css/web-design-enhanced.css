@@ -169,12 +169,14 @@ header.scrolled {
    ============================================ */
 .web-design-hero {
     background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 50%, #3b82f6 100%);
-    padding: 80px 0 60px 0 !important; /* Fixed excessive top padding */
+    padding: 80px 0 40px 0 !important; /* Optimized for viewport fit */
     position: relative;
     overflow: hidden;
-    min-height: calc(100vh - 80px); /* Account for fixed header */
+    height: 100vh; /* Full viewport height */
+    max-height: 100vh;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 
 /* Animated Mesh Background */
@@ -268,11 +270,143 @@ header.scrolled {
 }
 
 /* Hero Content */
-.hero-content {
+.web-design-hero-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
     position: relative;
     z-index: 2;
+}
+
+.web-design-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.web-design-hero .highlight-text {
+    background: linear-gradient(90deg, #7c3aed, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.web-design-hero .location-text {
+    color: #fbbf24;
+}
+
+.web-design-hero .title-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #7c3aed, #3b82f6);
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+.web-design-hero .hero-subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    margin-bottom: 40px;
+    opacity: 0.9;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.web-design-hero .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.web-design-hero .stat-item {
     text-align: center;
-    animation: fadeInUp 1s ease-out;
+}
+
+.web-design-hero .stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.web-design-hero .stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.web-design-hero .hero-cta-section {
+    margin-top: 3rem;
+}
+
+.web-design-hero .hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.web-design-hero .hero-primary-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+}
+
+.web-design-hero .hero-primary-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
+}
+
+.web-design-hero .btn-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.web-design-hero .btn-subtext {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+}
+
+.web-design-hero .hero-call-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.web-design-hero .hero-call-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .hero-title {
