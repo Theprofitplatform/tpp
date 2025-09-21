@@ -9,9 +9,9 @@
 
     // Navigation HTML template (embedded for reliability)
     const getNavigationHTML = (imagePath) => `
-        <!-- Skip Links for Accessibility -->
-        <a class="skip-link sr-only-focusable" href="#main-content">Skip to main content</a>
-        <a class="skip-link sr-only-focusable" href="#primary-navigation">Skip to navigation</a>
+        <!-- Skip Links for Accessibility (Hidden by default) -->
+        <a class="skip-link sr-only-focusable" href="#main-content" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">Skip to main content</a>
+        <a class="skip-link sr-only-focusable" href="#primary-navigation" style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">Skip to navigation</a>
 
         <!-- Scroll Progress Indicator -->
         <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">

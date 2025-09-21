@@ -7,8 +7,8 @@
 
     <!-- Primary Meta Tags -->
     <title>Web Design Sydney | The Profit Platform</title>
-    <meta name="title" content="Web Design Sydney | The Profit Platform">
-    <meta name="description" content="Premium web design in Sydney. Custom websites, e-commerce solutions & conversion-focused designs. Award-winning designers. Free consultation.">
+    <meta name="title" content="Premium Web Design Services Sydney | Custom Websites That Convert | The Profit Platform">
+    <meta name="description" content="Transform your business with premium web design services. Custom websites, e-commerce solutions, and conversion-focused designs that drive results. Award-winning Sydney web designers.">
     <meta name="keywords" content="web design sydney, custom websites, responsive design, e-commerce, UI/UX design, website development, conversion optimization, sydney web design">
     <meta name="author" content="The Profit Platform">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -70,7 +70,6 @@
 
     <!-- Consolidated Navigation Styles -->
     <link rel="stylesheet" href="css/navigation.css" media="all">
-    <link rel="stylesheet" href="css/navigation-dropdown-fix.css" media="all">
     <link rel="stylesheet" href="css/layout.css" media="all">
     <link rel="stylesheet" href="css/navigation-glass-enhanced.css" media="all">
     <link rel="stylesheet" href="css/hero-content-spacing.css" media="all">
@@ -367,117 +366,6 @@
             </div>
         </section>
 
-        <!-- Portfolio Section -->
-        <section class="portfolio-section animate-on-scroll">
-            <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Our Web Design Portfolio</h2>
-                    <p class="section-subtitle">
-                        See how we've transformed businesses with stunning, conversion-focused websites
-                    </p>
-                </div>
-
-                <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/sydney-restaurant-website.jpg"
-                                 alt="Sydney Restaurant Website Design"
-                                 loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info">
-                                    <h3>Sydney Restaurant</h3>
-                                    <p>300% increase in online bookings</p>
-                                    <a href="#" class="portfolio-link">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-details">
-                            <h4>Fine Dining Restaurant</h4>
-                            <p>Custom booking system & menu showcase</p>
-                            <div class="portfolio-stats">
-                                <span class="stat">+300% Bookings</span>
-                                <span class="stat">95% Mobile Score</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/legal-firm-website.jpg"
-                                 alt="Legal Firm Website Design"
-                                 loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info">
-                                    <h3>Legal Firm</h3>
-                                    <p>500% increase in consultation requests</p>
-                                    <a href="#" class="portfolio-link">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-details">
-                            <h4>Professional Legal Services</h4>
-                            <p>Lead generation & consultation booking</p>
-                            <div class="portfolio-stats">
-                                <span class="stat">+500% Leads</span>
-                                <span class="stat">2.1s Load Time</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/ecommerce-store.jpg"
-                                 alt="E-commerce Store Website Design"
-                                 loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info">
-                                    <h3>Fashion E-commerce</h3>
-                                    <p>250% increase in online sales</p>
-                                    <a href="#" class="portfolio-link">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-details">
-                            <h4>Fashion Retail Store</h4>
-                            <p>Advanced e-commerce with AI recommendations</p>
-                            <div class="portfolio-stats">
-                                <span class="stat">+250% Sales</span>
-                                <span class="stat">4.2% Conversion</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/medical-practice.jpg"
-                                 alt="Medical Practice Website Design"
-                                 loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info">
-                                    <h3>Medical Practice</h3>
-                                    <p>400% increase in new patients</p>
-                                    <a href="#" class="portfolio-link">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-details">
-                            <h4>Healthcare Practice</h4>
-                            <p>Online appointments & patient portal</p>
-                            <div class="portfolio-stats">
-                                <span class="stat">+400% Patients</span>
-                                <span class="stat">HIPAA Compliant</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portfolio-cta text-center">
-                    <p class="portfolio-cta-text">Ready to see similar results for your business?</p>
-                    <a href="contact.html" class="btn-web-design">Start Your Project</a>
-                </div>
-            </div>
-        </section>
-
         <!-- CTA Section -->
         <section class="cta-section web-design-cta">
             <div class="container">
@@ -504,116 +392,83 @@
     </main>
 
     <!-- Footer -->
-    <footer role="contentinfo">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>The Profit Platform</h3>
-                    <p>We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.</p>
-                    
-                    <div class="social-links" role="list" aria-label="Social media links">
-                        <a href="https://facebook.com/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Follow us on Facebook"
-                           role="listitem">
-                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://instagram.com/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Follow us on Instagram"
-                           role="listitem">
-                            <i class="fab fa-instagram" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://linkedin.com/company/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Connect with us on LinkedIn"
-                           role="listitem">
-                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://twitter.com/profitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Follow us on Twitter"
-                           role="listitem">
-                            <i class="fab fa-twitter" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://youtube.com/theprofitplatform" 
-                           class="social-icon" 
-                           target="_blank" 
-                           rel="noopener noreferrer"
-                           aria-label="Subscribe to our YouTube channel"
-                           role="listitem">
-                            <i class="fab fa-youtube" aria-hidden="true"></i>
-                        </a>
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <img src="images/logo.png" alt="The Profit Platform" class="footer-logo">
+                        <p class="footer-tagline">
+                            Transforming Sydney businesses through strategic digital marketing and proven growth systems.
+                        </p>
+                        <div class="footer-contact">
+                            <a href="tel:0487286451" class="footer-phone">
+                                📞 0487 286 451
+                            </a>
+                            <a href="mailto:hello@theprofitplatform.com.au" class="footer-email">
+                                ✉️ hello@theprofitplatform.com.au
+                            </a>
+                        </div>
                     </div>
-                    
-                    <div class="contact-info-footer">
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <a href="tel:0487286451">0487 286 451</a>
+
+                    <div class="footer-links">
+                        <div class="footer-column">
+                            <h4 class="footer-title">Services</h4>
+                            <ul class="footer-list">
+                                <li><a href="seo.html">SEO Optimization</a></li>
+                                <li><a href="google-ads.html">Google Ads Management</a></li>
+                                <li><a href="web-design.html">Web Design & Development</a></li>
+                                <li><a href="services.html">Business Consulting</a></li>
+                            </ul>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:avi@theprofitplatform.com.au">avi@theprofitplatform.com.au</a>
+
+                        <div class="footer-column">
+                            <h4 class="footer-title">Company</h4>
+                            <ul class="footer-list">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="portfolio.html">Portfolio</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Sydney, NSW, Australia</span>
+
+                        <div class="footer-column">
+                            <h4 class="footer-title">Resources</h4>
+                            <ul class="footer-list">
+                                <li><a href="terms.html">Terms of Service</a></li>
+                                <li><a href="privacy.html">Privacy Policy</a></li>
+                                <li><a href="disclaimer.html">Disclaimer</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footer-column">
+                            <h4 class="footer-title">Get Started</h4>
+                            <p class="footer-cta-text">Ready to accelerate your business growth?</p>
+                            <a href="contact.html" class="footer-cta-btn">
+                                Get Free Consultation
+                            </a>
                         </div>
                     </div>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="seo.html"><i class="fas fa-search"></i> SEO & Local Search</a></li>
-                        <li><a href="google-ads.html"><i class="fas fa-bullhorn"></i> Google Ads Management</a></li>
-                        <li><a href="google-ads.html"><i class="fas fa-share-alt"></i> Social Media Advertising</a></li>
-                        <li><a href="web-design.html"><i class="fas fa-laptop-code"></i> Website Design</a></li>
-                        <li><a href="services.html#conversion"><i class="fas fa-chart-line"></i> Conversion Optimization</a></li>
-                        <li><a href="services.html#analytics"><i class="fas fa-analytics"></i> Analytics & Reporting</a></li>
-                    </ul>
+
+                <div class="footer-bottom">
+                    <p class="footer-copyright">
+                        © 2024 The Profit Platform. All rights reserved.
+                        <span class="footer-location">Proudly serving Sydney, Australia</span>
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul class="footer-links">
-                        <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
-                        <li><a href="portfolio.html"><i class="fas fa-chart-bar"></i> Case Studies</a></li>
-                        <li><a href="blog/index.html"><i class="fas fa-blog"></i> Blog</a></li>
-                        <li><a href="about.html#careers"><i class="fas fa-briefcase"></i> Careers</a></li>
-                        <li><a href="about.html#partners"><i class="fas fa-handshake"></i> Partners</a></li>
-                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul class="footer-links">
-                        <li><a href="contact.html"><i class="fas fa-search-plus"></i> Free Marketing Audit</a></li>
-                        <li><a href="blog/seo-guide.html"><i class="fas fa-book"></i> Free SEO Guide</a></li>
-                        <li><a href="blog/google-ads-guide.html"><i class="fas fa-graduation-cap"></i> Google Ads Guide</a></li>
-                        <li><a href="/local-seo-checklist"><i class="fas fa-list-check"></i> Local SEO Checklist</a></li>
-                        <li><a href="/webinars"><i class="fas fa-video"></i> Free Webinars</a></li>
-                        <li><a href="/tools"><i class="fas fa-tools"></i> Free Tools</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 The Profit Platform. All rights reserved.</p>
-                <ul class="footer-links-bottom">
-                    <li><a href="/privacy-policy">Privacy Policy</a></li>
-                    <li><a href="/terms-of-service">Terms of Service</a></li>
-                    <li><a href="/sitemap">Sitemap</a></li>
-                </ul>
             </div>
         </div>
     </footer>
