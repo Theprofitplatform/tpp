@@ -26,7 +26,7 @@
                     <!-- Logo -->
                     <a href="index.html" class="logo premium-logo" aria-label="The Profit Platform - Home">
                         <div class="logo-content">
-                            <img src="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png"
+                            <img src="images/logo.png"
                                  alt="The Profit Platform Logo"
                                  class="logo-img"
                                  width="150"
