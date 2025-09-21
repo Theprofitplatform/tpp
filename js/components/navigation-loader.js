@@ -10,7 +10,6 @@
     // Configuration
     const config = {
         navigationScriptPath: 'js/components/navigation.js',
-        mobileNavScriptPath: 'js/components/mobile-nav.js',
         templatePath: 'templates/navigation.html',
         loadTimeout: 5000, // 5 seconds
         retryAttempts: 1, // Reduced for faster testing
@@ -21,8 +20,7 @@
     let navigationInstance = null;
     let loadAttempts = 0;
     let scriptsLoaded = {
-        navigation: false,
-        mobileNav: false
+        navigation: false
     };
 
     /**
@@ -111,15 +109,6 @@
             // Load navigation component first
             await loadScript(config.navigationScriptPath);
             scriptsLoaded.navigation = true;
-
-            // Check if mobile nav script exists and load it
-            try {
-                await loadScript(config.mobileNavScriptPath);
-                scriptsLoaded.mobileNav = true;
-                debug('Mobile navigation script loaded');
-            } catch (err) {
-                debug('Mobile navigation script not found or failed to load, continuing without it');
-            }
 
             debug('All navigation scripts loaded successfully');
             return true;
@@ -299,7 +288,6 @@
                     <nav id="primary-navigation" role="navigation" aria-label="Main navigation">
                         <ul class="nav-links premium-nav-links" role="menubar">
                             <li><a href="index.html" class="nav-item premium-nav-item" data-page="home">Home</a></li>
-                            <li><a href="services.html" class="nav-item premium-nav-item" data-page="services">Services</a></li>
                             <li><a href="pricing.html" class="nav-item premium-nav-item" data-page="pricing">Pricing</a></li>
                             <li><a href="about.html" class="nav-item premium-nav-item" data-page="about">About</a></li>
                             <li><a href="portfolio.html" class="nav-item premium-nav-item" data-page="portfolio">Portfolio</a></li>
@@ -324,7 +312,6 @@
                 </div>
                 <nav class="mobile-nav-links">
                     <a href="index.html" class="mobile-nav-link" data-page="home">Home</a>
-                    <a href="services.html" class="mobile-nav-link" data-page="services">Services</a>
                     <a href="pricing.html" class="mobile-nav-link" data-page="pricing">Pricing</a>
                     <a href="about.html" class="mobile-nav-link" data-page="about">About</a>
                     <a href="portfolio.html" class="mobile-nav-link" data-page="portfolio">Portfolio</a>

@@ -80,6 +80,9 @@
     <!-- CSS -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/web-design-enhanced.css" rel="stylesheet">
+    <link href="css/animations-grid-enhanced.css" rel="stylesheet">
+    <link href="css/web-design-alignment-fix.css" rel="stylesheet">
+    <link href="css/web-design-cta-simple.css?v=2" rel="stylesheet">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -137,6 +140,9 @@
     <!-- Dynamic Navigation Loader -->
     <script src="js/components/navigation-inline.js" defer></script>
 
+    <!-- FAQ Accordion Script -->
+    <script src="js/faq-accordion.js" defer></script>
+
 
     <!-- Navigation will be dynamically loaded here -->
     <!-- Main Content -->
@@ -158,6 +164,23 @@
                         Transform your business with custom web design that drives results.
                         Responsive, conversion-focused websites that engage your audience and grow your revenue.
                     </p>
+
+                    <!-- Conversion Elements: Trust & Urgency -->
+                    <div class="conversion-elements" style="margin: 2rem 0; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; align-items: center;">
+                        <div class="conversion-badge" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(16, 185, 129, 0.1); color: #059669; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(16, 185, 129, 0.3);">
+                            <i class="fas fa-award" style="color: #059669;"></i>
+                            8+ Years Experience
+                        </div>
+                        <div class="conversion-badge" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(59, 130, 246, 0.1); color: #1d4ed8; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(59, 130, 246, 0.3);">
+                            <i class="fas fa-users" style="color: #1d4ed8;"></i>
+                            300+ Happy Clients
+                        </div>
+                        <div class="conversion-badge" style="display: flex; align-items: center; gap: 0.5rem; background: rgba(245, 158, 11, 0.1); color: #d97706; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(245, 158, 11, 0.3);">
+                            <i class="fas fa-clock" style="color: #d97706;"></i>
+                            Limited Time: 20% Off
+                        </div>
+                    </div>
+
                     <div class="hero-actions">
                         <a href="contact.html" class="btn-web-design">
                             Get Free Design Consultation
@@ -367,137 +390,353 @@
             </div>
         </section>
 
-        <!-- Portfolio Section -->
-        <section class="portfolio-section animate-on-scroll">
+
+        <!-- FAQ Section -->
+        <section class="faq-section" style="padding: 100px 0; background: white;">
             <div class="container">
-                <div class="section-header text-center">
-                    <h2 class="section-title">Our Web Design Portfolio</h2>
-                    <p class="section-subtitle">
-                        See how we've transformed businesses with stunning, conversion-focused websites
+                <div class="section-header text-center" style="margin-bottom: 60px;">
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; color: #1f2937;">
+                        Frequently Asked Questions
+                    </h2>
+                    <p style="font-size: 1.25rem; color: #6b7280; max-width: 600px; margin: 0 auto;">
+                        Get answers to common questions about our web design services
                     </p>
                 </div>
 
-                <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/sydney-restaurant-website.jpg"
-                                 alt="Sydney Restaurant Website Design"
-                                 loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info">
-                                    <h3>Sydney Restaurant</h3>
-                                    <p>300% increase in online bookings</p>
-                                    <a href="#" class="portfolio-link">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-details">
-                            <h4>Fine Dining Restaurant</h4>
-                            <p>Custom booking system & menu showcase</p>
-                            <div class="portfolio-stats">
-                                <span class="stat">+300% Bookings</span>
-                                <span class="stat">95% Mobile Score</span>
-                            </div>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <!-- FAQ Item 1 -->
+                    <div class="faq-item" style="border: 1px solid #e5e7eb; border-radius: 16px; margin-bottom: 20px; overflow: hidden;">
+                        <button class="faq-question" style="width: 100%; padding: 30px; background: #f9fafb; border: none; text-align: left; font-size: 1.25rem; font-weight: 600; color: #1f2937; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                            How long does it take to design and build a website?
+                            <i class="fas fa-chevron-down" style="color: #6b7280; transition: transform 0.3s ease;"></i>
+                        </button>
+                        <div class="faq-answer" style="padding: 0 30px 30px; color: #4b5563; line-height: 1.6; font-size: 1rem;">
+                            Typically, a custom website takes 4-8 weeks from initial consultation to launch. This includes design mockups, development, content integration, testing, and optimization. E-commerce sites or complex functionality may require 8-12 weeks. We provide detailed timelines during our initial consultation.
                         </div>
                     </div>
 
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/legal-firm-website.jpg"
-                                 alt="Legal Firm Website Design"
-                                 loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info">
-                                    <h3>Legal Firm</h3>
-                                    <p>500% increase in consultation requests</p>
-                                    <a href="#" class="portfolio-link">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-details">
-                            <h4>Professional Legal Services</h4>
-                            <p>Lead generation & consultation booking</p>
-                            <div class="portfolio-stats">
-                                <span class="stat">+500% Leads</span>
-                                <span class="stat">2.1s Load Time</span>
-                            </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="faq-item" style="border: 1px solid #e5e7eb; border-radius: 16px; margin-bottom: 20px; overflow: hidden;">
+                        <button class="faq-question" style="width: 100%; padding: 30px; background: #f9fafb; border: none; text-align: left; font-size: 1.25rem; font-weight: 600; color: #1f2937; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                            What's included in your web design service?
+                            <i class="fas fa-chevron-down" style="color: #6b7280; transition: transform 0.3s ease;"></i>
+                        </button>
+                        <div class="faq-answer" style="padding: 0 30px 30px; color: #4b5563; line-height: 1.6; font-size: 1rem;">
+                            Our comprehensive service includes custom design, responsive development, SEO optimization, content management system, contact forms, Google Analytics setup, SSL certificate, mobile optimization, speed optimization, and 3 months of support and maintenance.
                         </div>
                     </div>
 
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/ecommerce-store.jpg"
-                                 alt="E-commerce Store Website Design"
-                                 loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info">
-                                    <h3>Fashion E-commerce</h3>
-                                    <p>250% increase in online sales</p>
-                                    <a href="#" class="portfolio-link">View Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="portfolio-details">
-                            <h4>Fashion Retail Store</h4>
-                            <p>Advanced e-commerce with AI recommendations</p>
-                            <div class="portfolio-stats">
-                                <span class="stat">+250% Sales</span>
-                                <span class="stat">4.2% Conversion</span>
-                            </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="faq-item" style="border: 1px solid #e5e7eb; border-radius: 16px; margin-bottom: 20px; overflow: hidden;">
+                        <button class="faq-question" style="width: 100%; padding: 30px; background: #f9fafb; border: none; text-align: left; font-size: 1.25rem; font-weight: 600; color: #1f2937; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                            Will my website be mobile-friendly and responsive?
+                            <i class="fas fa-chevron-down" style="color: #6b7280; transition: transform 0.3s ease;"></i>
+                        </button>
+                        <div class="faq-answer" style="padding: 0 30px 30px; color: #4b5563; line-height: 1.6; font-size: 1rem;">
+                            Absolutely! All our websites are built mobile-first and fully responsive. We ensure your site looks perfect and functions flawlessly on all devices - desktop, tablet, and mobile. We test on multiple devices and browsers before launch.
                         </div>
                     </div>
 
-                    <div class="portfolio-item">
-                        <div class="portfolio-image">
-                            <img src="images/portfolio/medical-practice.jpg"
-                                 alt="Medical Practice Website Design"
-                                 loading="lazy">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-info">
-                                    <h3>Medical Practice</h3>
-                                    <p>400% increase in new patients</p>
-                                    <a href="#" class="portfolio-link">View Case Study</a>
-                                </div>
-                            </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="faq-item" style="border: 1px solid #e5e7eb; border-radius: 16px; margin-bottom: 20px; overflow: hidden;">
+                        <button class="faq-question" style="width: 100%; padding: 30px; background: #f9fafb; border: none; text-align: left; font-size: 1.25rem; font-weight: 600; color: #1f2937; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                            Can I update my website content myself?
+                            <i class="fas fa-chevron-down" style="color: #6b7280; transition: transform 0.3s ease;"></i>
+                        </button>
+                        <div class="faq-answer" style="padding: 0 30px 30px; color: #4b5563; line-height: 1.6; font-size: 1rem;">
+                            Yes! We build all websites with user-friendly content management systems. You'll be able to easily update text, images, blog posts, and more. We provide training and documentation to help you manage your site confidently.
                         </div>
-                        <div class="portfolio-details">
-                            <h4>Healthcare Practice</h4>
-                            <p>Online appointments & patient portal</p>
-                            <div class="portfolio-stats">
-                                <span class="stat">+400% Patients</span>
-                                <span class="stat">HIPAA Compliant</span>
-                            </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="faq-item" style="border: 1px solid #e5e7eb; border-radius: 16px; margin-bottom: 20px; overflow: hidden;">
+                        <button class="faq-question" style="width: 100%; padding: 30px; background: #f9fafb; border: none; text-align: left; font-size: 1.25rem; font-weight: 600; color: #1f2937; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                            Do you provide ongoing support and maintenance?
+                            <i class="fas fa-chevron-down" style="color: #6b7280; transition: transform 0.3s ease;"></i>
+                        </button>
+                        <div class="faq-answer" style="padding: 0 30px 30px; color: #4b5563; line-height: 1.6; font-size: 1rem;">
+                            We include 3 months of free support and maintenance with every website. After that, we offer affordable monthly maintenance plans that include security updates, backups, performance monitoring, and priority support.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="faq-item" style="border: 1px solid #e5e7eb; border-radius: 16px; margin-bottom: 20px; overflow: hidden;">
+                        <button class="faq-question" style="width: 100%; padding: 30px; background: #f9fafb; border: none; text-align: left; font-size: 1.25rem; font-weight: 600; color: #1f2937; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                            What if I'm not happy with the design?
+                            <i class="fas fa-chevron-down" style="color: #6b7280; transition: transform 0.3s ease;"></i>
+                        </button>
+                        <div class="faq-answer" style="padding: 0 30px 30px; color: #4b5563; line-height: 1.6; font-size: 1rem;">
+                            We work closely with you throughout the design process with multiple revision rounds included. We don't move forward without your approval. Plus, we offer a 30-day satisfaction guarantee - if you're not completely happy, we'll work to make it right or provide a refund.
                         </div>
                     </div>
                 </div>
 
-                <div class="portfolio-cta text-center">
-                    <p class="portfolio-cta-text">Ready to see similar results for your business?</p>
-                    <a href="contact.html" class="btn-web-design">Start Your Project</a>
+                <div class="text-center" style="margin-top: 60px;">
+                    <p style="font-size: 1.1rem; color: #4b5563; margin-bottom: 30px;">
+                        Still have questions? We're here to help!
+                    </p>
+                    <a href="contact.html" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #2c86f9, #1e6ee8); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: transform 0.3s ease;">
+                        <i class="fas fa-comments"></i>
+                        Get Free Consultation
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section class="cta-section web-design-cta">
+        <!-- Pricing Section -->
+        <section class="pricing-section" style="padding: 100px 0; background: #f9fafb;">
             <div class="container">
-                <div class="cta-content text-center">
-                    <h2 class="cta-title">Ready to Transform Your Online Presence?</h2>
-                    <p class="cta-subtitle">
-                        Get a free web design consultation and discover how a professional website can grow your business
+                <div class="section-header text-center" style="margin-bottom: 60px;">
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; color: #1f2937;">
+                        Web Design Packages
+                    </h2>
+                    <p style="font-size: 1.25rem; color: #6b7280; max-width: 600px; margin: 0 auto;">
+                        Transparent pricing for professional websites that convert visitors into customers
                     </p>
-                    <div class="cta-actions">
-                        <a href="contact.html" class="btn-web-design">
-                            Get Free Design Consultation
-                            <span class="btn-arrow">→</span>
-                        </a>
-                        <a href="tel:0487286451" class="phone-cta">
-                            📞 Call Now: 0487 286 451
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto;">
+                    <!-- Starter Package -->
+                    <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; border: 2px solid #e5e7eb; transition: transform 0.3s ease;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1f2937; margin-bottom: 10px;">
+                                Starter Website
+                            </h3>
+                            <p style="color: #6b7280; margin-bottom: 20px;">Perfect for small businesses & startups</p>
+                            <div style="margin-bottom: 20px;">
+                                <span style="font-size: 3rem; font-weight: 800; color: #2c86f9;">$2,995</span>
+                                <span style="color: #6b7280; font-size: 1rem;">one-time</span>
+                            </div>
+                            <p style="color: #16a34a; font-weight: 600; background: #f0fdf4; padding: 8px 16px; border-radius: 6px; display: inline-block;">
+                                Most Popular Choice
+                            </p>
+                        </div>
+
+                        <ul style="margin-bottom: 30px; padding: 0; list-style: none;">
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Up to 5 custom pages</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Mobile-responsive design</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">SEO optimization</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Contact form integration</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Google Analytics setup</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">1 month free hosting</span>
+                            </li>
+                        </ul>
+
+                        <a href="contact.html" style="display: block; text-align: center; background: linear-gradient(135deg, #2c86f9, #1e6ee8); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease;">
+                            Get Started
                         </a>
                     </div>
-                    <p class="cta-guarantee">
-                        Free consultation • Custom design • 30-day money-back guarantee
+
+                    <!-- Professional Package -->
+                    <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); position: relative; border: 2px solid #2c86f9; transform: scale(1.05); transition: transform 0.3s ease;">
+                        <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #2c86f9, #1e6ee8); color: white; padding: 8px 24px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                            RECOMMENDED
+                        </div>
+
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1f2937; margin-bottom: 10px;">
+                                Professional Website
+                            </h3>
+                            <p style="color: #6b7280; margin-bottom: 20px;">Ideal for established businesses</p>
+                            <div style="margin-bottom: 20px;">
+                                <span style="font-size: 3rem; font-weight: 800; color: #2c86f9;">$4,995</span>
+                                <span style="color: #6b7280; font-size: 1rem;">one-time</span>
+                            </div>
+                        </div>
+
+                        <ul style="margin-bottom: 30px; padding: 0; list-style: none;">
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Up to 10 custom pages</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Premium mobile-responsive design</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Advanced SEO optimization</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">CMS integration (WordPress)</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Blog setup & training</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Social media integration</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">3 months free hosting</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Performance optimization</span>
+                            </li>
+                        </ul>
+
+                        <a href="contact.html" style="display: block; text-align: center; background: linear-gradient(135deg, #2c86f9, #1e6ee8); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease;">
+                            Get Started
+                        </a>
+                    </div>
+
+                    <!-- E-commerce Package -->
+                    <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; border: 2px solid #e5e7eb; transition: transform 0.3s ease;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <h3 style="font-size: 1.5rem; font-weight: 700; color: #1f2937; margin-bottom: 10px;">
+                                E-commerce Store
+                            </h3>
+                            <p style="color: #6b7280; margin-bottom: 20px;">Complete online store solution</p>
+                            <div style="margin-bottom: 20px;">
+                                <span style="font-size: 3rem; font-weight: 800; color: #2c86f9;">$7,995</span>
+                                <span style="color: #6b7280; font-size: 1rem;">one-time</span>
+                            </div>
+                        </div>
+
+                        <ul style="margin-bottom: 30px; padding: 0; list-style: none;">
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Unlimited pages</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Full e-commerce functionality</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Payment gateway integration</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Product catalog setup</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Inventory management</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Order management system</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">6 months free hosting</span>
+                            </li>
+                            <li style="display: flex; align-items: center; margin-bottom: 12px;">
+                                <i class="fas fa-check" style="color: #16a34a; margin-right: 12px; width: 16px;"></i>
+                                <span style="color: #4b5563;">Training & support</span>
+                            </li>
+                        </ul>
+
+                        <a href="contact.html" style="display: block; text-align: center; background: linear-gradient(135deg, #2c86f9, #1e6ee8); color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease;">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-center" style="margin-top: 60px;">
+                    <p style="font-size: 1.1rem; color: #4b5563; margin-bottom: 30px;">
+                        All packages include a 30-day money-back guarantee and lifetime support
                     </p>
+                    <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 30px;">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-shield-alt" style="color: #16a34a; font-size: 1.2rem;"></i>
+                            <span style="color: #4b5563; font-weight: 500;">100% Money Back Guarantee</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-clock" style="color: #2c86f9; font-size: 1.2rem;"></i>
+                            <span style="color: #4b5563; font-weight: 500;">2-3 Week Delivery</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-tools" style="color: #dc2626; font-size: 1.2rem;"></i>
+                            <span style="color: #4b5563; font-weight: 500;">Lifetime Support</span>
+                        </div>
+                    </div>
+                    <p style="color: #6b7280; font-size: 0.95rem; margin-bottom: 20px;">
+                        Need something custom? <a href="contact.html" style="color: #2c86f9; font-weight: 600;">Contact us</a> for a personalized quote.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simple & Elegant CTA Section -->
+        <section class="cta-section web-design-cta simple-cta">
+            <div class="container">
+                <div class="cta-content">
+                    <!-- Main Heading -->
+                    <h2 class="cta-title">
+                        Ready to Transform Your Online Presence?
+                    </h2>
+
+                    <!-- Simple Subtitle -->
+                    <p class="cta-subtitle">
+                        Join 300+ businesses that grew their revenue with our stunning web designs
+                    </p>
+
+                    <!-- Trust Indicators -->
+                    <div class="trust-indicators">
+                        <div class="trust-item">
+                            <i class="fas fa-trophy"></i>
+                            <span>8+ Years Experience</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-star"></i>
+                            <span>4.9 Star Rating</span>
+                        </div>
+                        <div class="trust-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>30-Day Guarantee</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Actions -->
+                    <div class="cta-actions">
+                        <a href="contact.html" class="btn-primary">
+                            Get Free Design Consultation
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="tel:0487286451" class="btn-secondary">
+                            <i class="fas fa-phone"></i>
+                            Call 0487 286 451
+                        </a>
+                    </div>
+
+                    <!-- Simple Benefits -->
+                    <div class="cta-benefits">
+                        <div class="benefit-check">
+                            <i class="fas fa-check"></i>
+                            <span>Free Consultation</span>
+                        </div>
+                        <div class="benefit-check">
+                            <i class="fas fa-check"></i>
+                            <span>Custom Design</span>
+                        </div>
+                        <div class="benefit-check">
+                            <i class="fas fa-check"></i>
+                            <span>No Lock-in Contracts</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -512,7 +751,7 @@
                     <p>We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.</p>
                     
                     <div class="social-links" role="list" aria-label="Social media links">
-                        <a href="https://facebook.com/theprofitplatform" 
+                        <a href="https://www.facebook.com/profile.php?id=61574707582255" 
                            class="social-icon" 
                            target="_blank" 
                            rel="noopener noreferrer"
@@ -520,7 +759,7 @@
                            role="listitem">
                             <i class="fab fa-facebook-f" aria-hidden="true"></i>
                         </a>
-                        <a href="https://instagram.com/theprofitplatform" 
+                        <a href="https://www.instagram.com/theprofitplatformau" 
                            class="social-icon" 
                            target="_blank" 
                            rel="noopener noreferrer"
