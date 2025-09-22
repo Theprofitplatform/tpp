@@ -1,0 +1,57 @@
+<footer role="contentinfo">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>{{companyName}}</h3>
+                <p>{{description}}</p>
+
+                <div class="social-links" role="list" aria-label="Social media links">
+                    {{socialLinks}}
+                </div>
+
+                <div class="contact-info-footer">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:{{phoneRaw}}">{{phone}}</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:{{email}}">{{email}}</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>{{location}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    {{serviceLinks}}
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    {{companyLinks}}
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    {{resourceLinks}}
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; {{currentYear}} {{companyName}}. All rights reserved.</p>
+            <ul class="footer-links-bottom">
+                {{legalLinks}}
+            </ul>
+        </div>
+    </div>
+</footer>
