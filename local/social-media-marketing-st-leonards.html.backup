@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Marketing St Leonards | The Profit Platform</title>
+    <meta name="description" content="Expert Social Media Marketing in St Leonards, Sydney. Engaging social media strategies. ✓ Local Team ✓ Proven Results ✓ Free Consultation">
+    <meta name="keywords" content="social media marketing sydney, facebook marketing, instagram ads, St Leonards, St Leonards sydney">
+    <link rel="canonical" href="https://theprofitplatform.com.au/local/social-media-marketing-st-leonards.html">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Social Media Marketing St Leonards",
+  "description": "Expert Social Media Marketing in St Leonards, Sydney. Engaging social media strategies. \u2713 Local Team \u2713 Proven Results \u2713 Free Consultation",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "The Profit Platform",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "St Leonards",
+      "addressRegion": "NSW",
+      "addressCountry": "AU"
+    }
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "St Leonards"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "1000",
+    "priceCurrency": "AUD"
+  }
+}
+</script>
+</head>
+<body>
+    <header>
+        <nav><!-- Navigation --></nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Social Media Marketing in St Leonards</h1>
+            <p class="lead">Transform your St Leonards business with expert social media marketing</p>
+            <button class="cta">Get Free Consultation</button>
+        </section>
+
+        <section class="content">
+            
+        <h2>Why Choose The Profit Platform for Social Media Marketing in St Leonards?</h2>
+        <ul>
+            <li>Local St Leonards expertise with 10+ years experience</li>
+            <li>Proven track record with St Leonards businesses</li>
+            <li>Guaranteed results or your money back</li>
+            <li>Starting from $1000/month</li>
+        </ul>
+
+        <h3>Our Social Media Marketing Process</h3>
+        <ol>
+            <li>Free consultation and audit</li>
+            <li>Custom strategy for your St Leonards business</li>
+            <li>Implementation by certified experts</li>
+            <li>Monthly reporting and optimization</li>
+        </ol>
+
+        <h3>St Leonards Success Stories</h3>
+        <p>We've helped dozens of businesses in St Leonards achieve remarkable results with our social media marketing services.</p>
+        
+        </section>
+
+        <section class="testimonials">
+            <div class='testimonials-grid'>
+            <div class='testimonial' itemscope itemtype='https://schema.org/Review'>
+                <div class='rating' itemprop='reviewRating' itemscope itemtype='https://schema.org/Rating'>
+                    <span itemprop='ratingValue'>5</span>
+                    ⭐⭐⭐⭐⭐
+                </div>
+                <p itemprop='reviewBody'>"The Profit Platform transformed our online presence. Our social media marketing has brought in 50+ new customers this month!"</p>
+                <div class='author' itemprop='author' itemscope itemtype='https://schema.org/Person'>
+                    <span itemprop='name'>John Smith</span>
+                    <span class='business'>St Leonards Plumbing</span>
+                </div>
+            </div>
+            
+            <div class='testimonial' itemscope itemtype='https://schema.org/Review'>
+                <div class='rating' itemprop='reviewRating' itemscope itemtype='https://schema.org/Rating'>
+                    <span itemprop='ratingValue'>5</span>
+                    ⭐⭐⭐⭐⭐
+                </div>
+                <p itemprop='reviewBody'>"Best social media marketing investment we've made. ROI within 2 months!"</p>
+                <div class='author' itemprop='author' itemscope itemtype='https://schema.org/Person'>
+                    <span itemprop='name'>Sarah Johnson</span>
+                    <span class='business'>St Leonards Real Estate</span>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="faq">
+            <div class='faq-container' itemscope itemtype='https://schema.org/FAQPage'>
+            <div class='faq-item' itemscope itemprop='mainEntity' itemtype='https://schema.org/Question'>
+                <h3 itemprop='name'>How much does social media marketing cost in St Leonards?</h3>
+                <div itemscope itemprop='acceptedAnswer' itemtype='https://schema.org/Answer'>
+                    <p itemprop='text'>Our social media marketing services in St Leonards start from $1000/month, with custom packages available.</p>
+                </div>
+            </div>
+            
+            <div class='faq-item' itemscope itemprop='mainEntity' itemtype='https://schema.org/Question'>
+                <h3 itemprop='name'>Do you have a local team in St Leonards?</h3>
+                <div itemscope itemprop='acceptedAnswer' itemtype='https://schema.org/Answer'>
+                    <p itemprop='text'>Yes, we have dedicated account managers who work with St Leonards businesses and understand the local market.</p>
+                </div>
+            </div>
+            
+            <div class='faq-item' itemscope itemprop='mainEntity' itemtype='https://schema.org/Question'>
+                <h3 itemprop='name'>How quickly can you start working on my St Leonards business?</h3>
+                <div itemscope itemprop='acceptedAnswer' itemtype='https://schema.org/Answer'>
+                    <p itemprop='text'>We can begin your social media marketing campaign within 48 hours of signing up.</p>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Dominate St Leonards?</h2>
+            <p>Join 100+ successful businesses in St Leonards</p>
+            <button class="cta">Start Today</button>
+        </section>
+    </main>
+
+    <footer><!-- Footer --></footer>
+<script src="/js/emergency-fixes-loader.js"></script>
+<script type="module" src="/js/modules/index.js"></script>
+</body>
+</html>

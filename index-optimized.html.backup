@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Index Optimized | The Profit Platform - Sydney Digital Marketing</title>
+    <meta name="title" content="Sydney Digital Marketing Expert | Fresh Approach, Proven Results">
+    <meta name="description" content="Leading Index Optimized services in Sydney. Get results with The Profit Platform. ✓ Proven ROI ✓ 127+ Reviews ✓ Free Consultation">
+    <meta name="keywords" content="Index Optimized, sydney, digital marketing, seo, google ads, web design">
+    <meta name="author" content="The Profit Platform">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="AU-NSW">
+    <meta name="geo.placename" content="Sydney">
+    <meta name="geo.position" content="-33.8688;151.2093">
+    <meta name="ICBM" content="-33.8688, 151.2093">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theprofitplatform.com.au/index-optimized.html">
+    <meta property="og:title" content="Index Optimized - The Profit Platform Sydney">
+    <meta property="og:description" content="Transform your business with expert Index Optimized services">
+    <meta property="og:image" content="https://theprofitplatform.com.au/images/og-index-optimized.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="The Profit Platform - Digital Marketing Dashboard showing growth results">
+    <meta property="og:site_name" content="The Profit Platform">
+    <meta property="og:locale" content="en_AU">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://theprofitplatform.com.au/">
+    <meta property="twitter:title" content="Sydney Digital Marketing Expert | Fresh Approach, Proven Results">
+    <meta property="twitter:description" content="Sydney's hungry new digital marketing expert. Founded 2024 with fresh strategies & personalised service. 15+ clients already seeing 2x more leads. Serving Bondi, Parramatta, Penrith & Greater Sydney.">
+    <meta property="twitter:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
+    <meta property="twitter:image:alt" content="The Profit Platform - Digital Marketing Dashboard showing growth results">
+    <meta property="twitter:creator" content="@profitplatform">
+    <meta property="twitter:site" content="@profitplatform">
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#4F46E5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="The Profit Platform">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://theprofitplatform.com.au/">
+
+    <!-- Alternate Language -->
+    <link rel="alternate" hreflang="en-au" href="https://theprofitplatform.com.au/">
+    <link rel="alternate" hreflang="x-default" href="https://theprofitplatform.com.au/">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="https://theprofitplatform.com.au/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://theprofitplatform.com.au/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://theprofitplatform.com.au/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://theprofitplatform.com.au/apple-touch-icon.png">
+    <link rel="manifest" href="assets/manifest.json">
+
+    <!-- Performance and Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google.com">
+
+    <!-- Critical Inline CSS for Instant Render -->
+    <style>
+        /* Critical Path CSS - Extracted for immediate render */
+        :root{--primary-blue:#007bff;--primary-dark:#004494;--white:#fff;--dark-gray:#343a40}
+        *{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+        .navigation{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px)}
+        .nav-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:1rem}
+        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:4rem 1rem}
+        .hero-content{text-align:center;max-width:800px}
+        .skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);animation:loading 1.5s infinite}
+        @keyframes loading{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    </style>
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="css/consolidated.min.css" as="style">
+    <link rel="preload" href="js/consolidated.min.js" as="script">
+    <link rel="preload" href="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png" as="image" fetchpriority="high">
+
+    <!-- Main Consolidated Stylesheet -->
+    <link rel="stylesheet" href="css/consolidated.min.css">
+
+    <!-- External Resources - Load asynchronously -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "The Profit Platform",
+        "description": "Sydney's hungry new digital marketing expert delivering fresh strategies & personalised service.",
+        "url": "https://theprofitplatform.com.au",
+        "telephone": "+61290001234",
+        "email": "hello@theprofitplatform.com.au",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Level 1, 123 George Street",
+            "addressLocality": "Sydney",
+            "addressRegion": "NSW",
+            "postalCode": "2000",
+            "addressCountry": "AU"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": -33.8688,
+            "longitude": 151.2093
+        },
+        "areaServed": [
+            {"@type": "City", "name": "Sydney"},
+            {"@type": "City", "name": "Bondi"},
+            {"@type": "City", "name": "Parramatta"},
+            {"@type": "City", "name": "Penrith"}
+        ],
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": [
+            "https://www.facebook.com/theprofitplatform",
+            "https://www.instagram.com/theprofitplatform",
+            "https://www.linkedin.com/company/theprofitplatform"
+        ]
+    }
+    </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@id": "https://theprofitplatform.com.au",
+        "name": "Home"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@id": "https://theprofitplatform.com.au/index-optimized.html",
+        "name": "Index Optimized"
+      }
+    }
+  ]
+}
+</script>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Index Optimized Sydney | The Profit Platform">
+<meta name="twitter:description" content="Expert Index Optimized services with proven results">
+<meta name="twitter:image" content="https://theprofitplatform.com.au/images/twitter-index-optimized.jpg">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="navigation" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="/" class="nav-logo" aria-label="The Profit Platform Home">
+                <img src="images/logo.png" alt="The Profit Platform" width="150" height="40" loading="eager">
+            </a>
+
+            <ul class="nav-menu" role="menubar">
+                <li class="nav-item" role="none">
+                    <a href="/" class="nav-link" role="menuitem" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="/services.html" class="nav-link" role="menuitem">Services</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="/portfolio.html" class="nav-link" role="menuitem">Portfolio</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="/pricing.html" class="nav-link" role="menuitem">Pricing</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="/contact.html" class="nav-cta" role="menuitem">Get Started</a>
+                </li>
+            </ul>
+
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="nav-toggle-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main id="main-content">
+        <section class="hero" aria-label="Hero">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fadeIn">
+                    Sydney's Freshest Digital Marketing Agency
+                </h1>
+                <p class="hero-subtitle animate-fadeIn" style="animation-delay: 0.2s">
+                    Founded 2024 with fresh strategies & personalised service.<br>
+                    15+ clients already seeing 3x more leads.
+                </p>
+                <div class="hero-buttons animate-fadeIn" style="animation-delay: 0.4s">
+                    <a href="#services" class="btn btn-primary">View Services</a>
+                    <a href="/contact.html" class="btn btn-secondary">Get Free Audit</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section" id="services" aria-label="Our Services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Comprehensive digital marketing solutions for Sydney businesses</p>
+
+                <div class="grid grid-3">
+                    <article class="card">
+                        <i class="fas fa-search card-icon" aria-hidden="true"></i>
+                        <h3 class="card-title">SEO Services</h3>
+                        <p class="card-text">Rank higher on Google with our proven SEO strategies tailored for Sydney businesses.</p>
+                        <a href="/seo.html" class="btn btn-secondary">Learn More</a>
+                    </article>
+
+                    <article class="card">
+                        <i class="fas fa-ad card-icon" aria-hidden="true"></i>
+                        <h3 class="card-title">Google Ads</h3>
+                        <p class="card-text">Get instant visibility with expertly managed Google Ads campaigns that convert.</p>
+                        <a href="/google-ads.html" class="btn btn-secondary">Learn More</a>
+                    </article>
+
+                    <article class="card">
+                        <i class="fas fa-laptop-code card-icon" aria-hidden="true"></i>
+                        <h3 class="card-title">Web Design</h3>
+                        <p class="card-text">Beautiful, fast, and conversion-focused websites that drive real business results.</p>
+                        <a href="/web-design.html" class="btn btn-secondary">Learn More</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="section" aria-label="Our Results">
+            <div class="container">
+                <h2 class="section-title">Proven Results</h2>
+                <div class="grid grid-4">
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3x</div>
+                        <div class="stat-label">Average Lead Increase</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">250%</div>
+                        <div class="stat-label">Average ROI</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2024</div>
+                        <div class="stat-label">Founded</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section cta-section" aria-label="Call to Action">
+            <div class="container">
+                <h2 class="section-title">Ready to Grow Your Business?</h2>
+                <p class="section-subtitle">Get your free digital marketing audit today</p>
+                <a href="/contact.html" class="btn btn-primary btn-lg">Get Started Now</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">The Profit Platform</h3>
+                    <p>Sydney's hungry new digital marketing expert delivering fresh strategies & personalised service.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="/services.html" class="footer-link">Services</a></li>
+                        <li><a href="/portfolio.html" class="footer-link">Portfolio</a></li>
+                        <li><a href="/pricing.html" class="footer-link">Pricing</a></li>
+                        <li><a href="/contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact</h3>
+                    <ul class="footer-links">
+                        <li><a href="tel:+61290001234" class="footer-link">+61 2 9000 1234</a></li>
+                        <li><a href="mailto:hello@theprofitplatform.com.au" class="footer-link">hello@theprofitplatform.com.au</a></li>
+                        <li>Level 1, 123 George Street<br>Sydney NSW 2000</li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3 class="footer-title">Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://facebook.com/theprofitplatform" aria-label="Facebook" class="social-link">
+                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://instagram.com/theprofitplatform" aria-label="Instagram" class="social-link">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/theprofitplatform" aria-label="LinkedIn" class="social-link">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 The Profit Platform. All rights reserved. | <a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optimized JavaScript Loading -->
+    <script defer src="js/consolidated.min.js"></script>
+
+    <!-- Progressive Enhancement Script -->
+    <script>
+        // Lazy load images
+        if ('IntersectionObserver' in window) {
+            const images = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.add('lazyloaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            images.forEach(img => imageObserver.observe(img));
+        }
+
+        // Register Service Worker for caching
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed'));
+            });
+        }
+    </script>
+
+    <!-- Analytics (loaded asynchronously) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+<!-- Emergency Fixes - Phase 0 Revenue Recovery -->
+<script src="/js/emergency-fixes-loader.js"></script>
+<script src="/js/component-loader.js"></script>
+<!-- End Emergency Fixes -->
+
+</body>
+</html>
