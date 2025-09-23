@@ -1,217 +1,217 @@
 /* ===================================
- ENHANCED TRUST SIGNALS BAR
- Modern glassmorphic design with blue theme
- =================================== */
+   ENHANCED TRUST SIGNALS BAR
+   Modern glassmorphic design with blue theme
+   =================================== */
 
-
+/* Remove any default margin issues */
 .trust-signals-bar {
- background: linear-gradient(
- 135deg,
- rgba(44, 134, 249, 0.03) 0%,
- rgba(30, 95, 200, 0.02) 25%,
- rgba(96, 165, 250, 0.03) 50%,
- rgba(44, 134, 249, 0.02) 75%,
- rgba(255, 255, 255, 0.98) 100%
- ) !important;
- border: none !important;
- margin-top: 0 !important;
- overflow: visible !important;
- padding: 2.5rem 0 !important;
- position: relative !important;
- backdrop-filter: blur(10px) !important;
- -webkit-backdrop-filter: blur(10px) !important;
- box-shadow:
- 0 -1px 0 rgba(44, 134, 249, 0.08),
- 0 1px 0 rgba(44, 134, 249, 0.08),
- 0 10px 40px rgba(44, 134, 249, 0.03) !important;
+    background: linear-gradient(
+        135deg,
+        rgba(44, 134, 249, 0.03) 0%,
+        rgba(30, 95, 200, 0.02) 25%,
+        rgba(96, 165, 250, 0.03) 50%,
+        rgba(44, 134, 249, 0.02) 75%,
+        rgba(255, 255, 255, 0.98) 100%
+    ) !important;
+    border: none !important;
+    margin-top: 0 !important;
+    overflow: visible !important;
+    padding: 2.5rem 0 !important;
+    position: relative !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow:
+        0 -1px 0 rgba(44, 134, 249, 0.08),
+        0 1px 0 rgba(44, 134, 249, 0.08),
+        0 10px 40px rgba(44, 134, 249, 0.03) !important;
 }
 
-
+/* Animated gradient background */
 .trust-signals-bar::before {
- content: "" !important;
- position: absolute !important;
- top: 0 !important;
- left: -100% !important;
- right: -100% !important;
- bottom: 0 !important;
- background: linear-gradient(
- 90deg,
- transparent,
- rgba(44, 134, 249, 0.05),
- rgba(96, 165, 250, 0.08),
- rgba(44, 134, 249, 0.05),
- transparent
- ) !important;
- animation: trustWave 15s linear infinite !important;
- pointer-events: none !important;
- z-index: 0 !important;
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    right: -100% !important;
+    bottom: 0 !important;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(44, 134, 249, 0.05),
+        rgba(96, 165, 250, 0.08),
+        rgba(44, 134, 249, 0.05),
+        transparent
+    ) !important;
+    animation: trustWave 15s linear infinite !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
 }
 
 @keyframes trustWave {
- 0% { transform: translateX(-50%); }
- 100% { transform: translateX(50%); }
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(50%); }
 }
 
-
+/* Subtle pattern overlay */
 .trust-signals-bar::after {
- content: "" !important;
- position: absolute !important;
- top: 0 !important;
- left: 0 !important;
- right: 0 !important;
- bottom: 0 !important;
- background-image:
- radial-gradient(circle at 25% 50%, rgba(44, 134, 249, 0.04) 0%, transparent 25%),
- radial-gradient(circle at 75% 50%, rgba(96, 165, 250, 0.04) 0%, transparent 25%),
- radial-gradient(circle at 50% 50%, rgba(30, 95, 200, 0.03) 0%, transparent 50%) !important;
- pointer-events: none !important;
- z-index: 0 !important;
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-image:
+        radial-gradient(circle at 25% 50%, rgba(44, 134, 249, 0.04) 0%, transparent 25%),
+        radial-gradient(circle at 75% 50%, rgba(96, 165, 250, 0.04) 0%, transparent 25%),
+        radial-gradient(circle at 50% 50%, rgba(30, 95, 200, 0.03) 0%, transparent 50%) !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
 }
 
-
+/* Enhanced grid container */
 .trust-signals-grid {
- position: relative !important;
- z-index: 1 !important;
- align-items: center !important;
- display: flex !important;
- flex-wrap: wrap !important;
- gap: 3rem !important;
- justify-content: center !important;
- margin: 0 auto !important;
- max-width: 1100px !important;
- padding: 0 2rem !important;
+    position: relative !important;
+    z-index: 1 !important;
+    align-items: center !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 3rem !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    max-width: 1100px !important;
+    padding: 0 2rem !important;
 }
 
-
+/* Modern trust signal items */
 .trust-signal-item {
- align-items: center !important;
- display: flex !important;
- gap: 1.2rem !important;
- padding: 1rem 1.5rem !important;
- position: relative !important;
- transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
- background: rgba(255, 255, 255, 0.6) !important;
- backdrop-filter: blur(10px) !important;
- -webkit-backdrop-filter: blur(10px) !important;
- border-radius: 16px !important;
- border: 1px solid rgba(44, 134, 249, 0.1) !important;
- box-shadow:
- 0 4px 12px rgba(44, 134, 249, 0.05),
- inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    align-items: center !important;
+    display: flex !important;
+    gap: 1.2rem !important;
+    padding: 1rem 1.5rem !important;
+    position: relative !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(44, 134, 249, 0.1) !important;
+    box-shadow:
+        0 4px 12px rgba(44, 134, 249, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
 }
 
 .trust-signal-item:hover {
- transform: translateY(-4px) scale(1.02) !important;
- background: rgba(255, 255, 255, 0.9) !important;
- border-color: rgba(44, 134, 249, 0.2) !important;
- box-shadow:
- 0 12px 32px rgba(44, 134, 249, 0.15),
- 0 0 0 1px rgba(44, 134, 249, 0.1),
- inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+    transform: translateY(-4px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(44, 134, 249, 0.2) !important;
+    box-shadow:
+        0 12px 32px rgba(44, 134, 249, 0.15),
+        0 0 0 1px rgba(44, 134, 249, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
 
-
+/* Enhanced icon with blue gradient */
 .trust-signal-item .trust-icon {
- align-items: center !important;
- background: linear-gradient(
- 135deg,
- #2c86f9 0%,
- #60a5fa 50%,
- #1e6ee8 100%
- ) !important;
- border-radius: 16px !important;
- box-shadow:
- 0 6px 20px rgba(44, 134, 249, 0.3),
- inset 0 1px 0 rgba(255, 255, 255, 0.3),
- inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
- color: #fff !important;
- display: flex !important;
- flex-shrink: 0 !important;
- font-size: 1.3rem !important;
- height: 54px !important;
- justify-content: center !important;
- position: relative !important;
- transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
- width: 54px !important;
- overflow: hidden !important;
+    align-items: center !important;
+    background: linear-gradient(
+        135deg,
+        #2c86f9 0%,
+        #60a5fa 50%,
+        #1e6ee8 100%
+    ) !important;
+    border-radius: 16px !important;
+    box-shadow:
+        0 6px 20px rgba(44, 134, 249, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1) !important;
+    color: #fff !important;
+    display: flex !important;
+    flex-shrink: 0 !important;
+    font-size: 1.3rem !important;
+    height: 54px !important;
+    justify-content: center !important;
+    position: relative !important;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) !important;
+    width: 54px !important;
+    overflow: hidden !important;
 }
 
-
+/* Icon shine effect */
 .trust-signal-item .trust-icon::before {
- content: "" !important;
- position: absolute !important;
- top: 0 !important;
- left: -100% !important;
- width: 100% !important;
- height: 100% !important;
- background: linear-gradient(
- 90deg,
- transparent,
- rgba(255, 255, 255, 0.3),
- transparent
- ) !important;
- transition: left 0.5s ease !important;
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    ) !important;
+    transition: left 0.5s ease !important;
 }
 
 .trust-signal-item:hover .trust-icon::before {
- left: 100% !important;
+    left: 100% !important;
 }
 
 .trust-signal-item:hover .trust-icon {
- transform: rotate(-8deg) scale(1.1) !important;
- box-shadow:
- 0 10px 30px rgba(44, 134, 249, 0.4),
- inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+    transform: rotate(-8deg) scale(1.1) !important;
+    box-shadow:
+        0 10px 30px rgba(44, 134, 249, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
 }
 
-
+/* Enhanced text styling */
 .trust-signal-item .trust-text {
- color: #1e293b !important;
- font-size: 1.05rem !important;
- font-weight: 600 !important;
- letter-spacing: -0.02em !important;
- line-height: 1.3 !important;
- text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+    color: #1e293b !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.3 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
 }
 
-
+/* Enhanced rating section */
 .trust-rating {
- align-items: center !important;
- display: flex !important;
- gap: 1rem !important;
- padding: 1rem 1.5rem !important;
- background: rgba(255, 255, 255, 0.6) !important;
- backdrop-filter: blur(10px) !important;
- -webkit-backdrop-filter: blur(10px) !important;
- border-radius: 16px !important;
- border: 1px solid rgba(44, 134, 249, 0.1) !important;
- box-shadow:
- 0 4px 12px rgba(44, 134, 249, 0.05),
- inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
- transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    align-items: center !important;
+    display: flex !important;
+    gap: 1rem !important;
+    padding: 1rem 1.5rem !important;
+    background: rgba(255, 255, 255, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 16px !important;
+    border: 1px solid rgba(44, 134, 249, 0.1) !important;
+    box-shadow:
+        0 4px 12px rgba(44, 134, 249, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .trust-rating:hover {
- transform: translateY(-4px) scale(1.02) !important;
- background: rgba(255, 255, 255, 0.9) !important;
- border-color: rgba(44, 134, 249, 0.2) !important;
- box-shadow:
- 0 12px 32px rgba(44, 134, 249, 0.15),
- 0 0 0 1px rgba(44, 134, 249, 0.1),
- inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+    transform: translateY(-4px) scale(1.02) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: rgba(44, 134, 249, 0.2) !important;
+    box-shadow:
+        0 12px 32px rgba(44, 134, 249, 0.15),
+        0 0 0 1px rgba(44, 134, 249, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
 
-
+/* Animated stars */
 .trust-rating .stars {
- color: #fbbf24 !important;
- display: flex !important;
- font-size: 1.3rem !important;
- gap: 3px !important;
- filter: drop-shadow(0 2px 4px rgba(251, 191, 36, 0.3)) !important;
+    color: #fbbf24 !important;
+    display: flex !important;
+    font-size: 1.3rem !important;
+    gap: 3px !important;
+    filter: drop-shadow(0 2px 4px rgba(251, 191, 36, 0.3)) !important;
 }
 
 .trust-rating .stars i {
- animation: starPulse 2s ease-in-out infinite !important;
+    animation: starPulse 2s ease-in-out infinite !important;
 }
 
 .trust-rating .stars i:nth-child(1) { animation-delay: 0s !important; }
@@ -221,29 +221,29 @@
 .trust-rating .stars i:nth-child(5) { animation-delay: 0.8s !important; }
 
 @keyframes starPulse {
- 0%, 100% { transform: scale(1); }
- 50% { transform: scale(1.1); }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .trust-rating .rating-text {
- color: #1e293b !important;
- font-size: 1.1rem !important;
- font-weight: 700 !important;
- letter-spacing: -0.02em !important;
- background: linear-gradient(
- 135deg,
- #2c86f9,
- #1e6ee8
- ) !important;
- -webkit-background-clip: text !important;
- -webkit-text-fill-color: transparent !important;
- background-clip: text !important;
+    color: #1e293b !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    background: linear-gradient(
+        135deg,
+        #2c86f9,
+        #1e6ee8
+    ) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
 }
 
-
+/* Add floating animation to items */
 @keyframes floatItem {
- 0%, 100% { transform: translateY(0); }
- 50% { transform: translateY(-3px); }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
 }
 
 .trust-signal-item:nth-child(1) { animation: floatItem 4s ease-in-out 0s infinite; }
@@ -251,120 +251,120 @@
 .trust-signal-item:nth-child(3) { animation: floatItem 4s ease-in-out 2s infinite; }
 .trust-signal-item:nth-child(4) { animation: floatItem 4s ease-in-out 3s infinite; }
 
-
+/* Responsive Design */
 @media (max-width: 768px) {
- .trust-signals-bar {
- padding: 2rem 0 !important;
- }
+    .trust-signals-bar {
+        padding: 2rem 0 !important;
+    }
 
- .trust-signals-grid {
- display: grid !important;
- gap: 1.2rem !important;
- grid-template-columns: repeat(2, 1fr) !important;
- max-width: 100% !important;
- padding: 0 1rem !important;
- }
+    .trust-signals-grid {
+        display: grid !important;
+        gap: 1.2rem !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+    }
 
- .trust-signal-item {
- flex-direction: column !important;
- padding: 1.5rem 1rem !important;
- text-align: center !important;
- }
+    .trust-signal-item {
+        flex-direction: column !important;
+        padding: 1.5rem 1rem !important;
+        text-align: center !important;
+    }
 
- .trust-signal-item .trust-icon {
- height: 50px !important;
- width: 50px !important;
- margin-bottom: 0.75rem !important;
- }
+    .trust-signal-item .trust-icon {
+        height: 50px !important;
+        width: 50px !important;
+        margin-bottom: 0.75rem !important;
+    }
 
- .trust-signal-item .trust-text {
- font-size: 0.95rem !important;
- text-align: center !important;
- }
+    .trust-signal-item .trust-text {
+        font-size: 0.95rem !important;
+        text-align: center !important;
+    }
 
- .trust-rating {
- flex-direction: column !important;
- gap: 0.75rem !important;
- padding: 1.2rem !important;
- }
+    .trust-rating {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+        padding: 1.2rem !important;
+    }
 
- .trust-rating .stars {
- font-size: 1.2rem !important;
- }
+    .trust-rating .stars {
+        font-size: 1.2rem !important;
+    }
 
- .trust-rating .rating-text {
- font-size: 1rem !important;
- }
+    .trust-rating .rating-text {
+        font-size: 1rem !important;
+    }
 }
 
 @media (max-width: 480px) {
- .trust-signals-grid {
- gap: 1rem !important;
- grid-template-columns: 1fr !important;
- }
+    .trust-signals-grid {
+        gap: 1rem !important;
+        grid-template-columns: 1fr !important;
+    }
 
- .trust-signal-item {
- flex-direction: row !important;
- justify-content: flex-start !important;
- text-align: left !important;
- padding: 1.2rem !important;
- }
+    .trust-signal-item {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        padding: 1.2rem !important;
+    }
 
- .trust-signal-item .trust-icon {
- font-size: 1.1rem !important;
- height: 46px !important;
- width: 46px !important;
- margin-bottom: 0 !important;
- margin-right: 1rem !important;
- }
+    .trust-signal-item .trust-icon {
+        font-size: 1.1rem !important;
+        height: 46px !important;
+        width: 46px !important;
+        margin-bottom: 0 !important;
+        margin-right: 1rem !important;
+    }
 
- .trust-signal-item .trust-text {
- font-size: 0.9rem !important;
- text-align: left !important;
- }
+    .trust-signal-item .trust-text {
+        font-size: 0.9rem !important;
+        text-align: left !important;
+    }
 
- .trust-rating {
- flex-direction: row !important;
- justify-content: center !important;
- }
+    .trust-rating {
+        flex-direction: row !important;
+        justify-content: center !important;
+    }
 }
 
-
+/* Special hover effect for entire bar */
 .trust-signals-bar:hover::before {
- animation-duration: 8s !important;
+    animation-duration: 8s !important;
 }
 
-
+/* Pulse animation for important items */
 @keyframes pulse {
- 0%, 100% {
- box-shadow:
- 0 4px 12px rgba(44, 134, 249, 0.05),
- inset 0 1px 0 rgba(255, 255, 255, 0.8);
- }
- 50% {
- box-shadow:
- 0 8px 24px rgba(44, 134, 249, 0.15),
- 0 0 0 3px rgba(44, 134, 249, 0.05),
- inset 0 1px 0 rgba(255, 255, 255, 0.8);
- }
+    0%, 100% {
+        box-shadow:
+            0 4px 12px rgba(44, 134, 249, 0.05),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        box-shadow:
+            0 8px 24px rgba(44, 134, 249, 0.15),
+            0 0 0 3px rgba(44, 134, 249, 0.05),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
 }
 
 .trust-signal-item:first-child {
- animation: pulse 3s ease-in-out infinite !important;
+    animation: pulse 3s ease-in-out infinite !important;
 }
 
-
+/* Add counter animation for numbers */
 @property --num {
- syntax: '<integer>';
- inherits: false;
- initial-value: 0;
+    syntax: '<integer>';
+    inherits: false;
+    initial-value: 0;
 }
 
 .trust-signal-item .trust-text strong {
- animation: counter 2s ease-out forwards !important;
- counter-reset: num var(--num) !important;
+    animation: counter 2s ease-out forwards !important;
+    counter-reset: num var(--num) !important;
 }
 
 .trust-signal-item .trust-text strong::after {
- content: counter(num) !important;
+    content: counter(num) !important;
 }

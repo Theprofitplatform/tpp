@@ -8,7 +8,7 @@ class TrackingImplementation {
     constructor() {
         this.config = {
             ga4: {
-                id: 'G-XXXXXXXXXX', // Replace with actual GA4 ID
+                id: 'G-FB947JWCFT', // Production GA4 ID
                 enabled: true
             },
             facebook: {
@@ -16,7 +16,7 @@ class TrackingImplementation {
                 enabled: true
             },
             hotjar: {
-                hjid: 'XXXXXXX', // Replace with actual Hotjar ID
+                hjid: '6526316', // Production Hotjar Site ID
                 hjsv: 6,
                 enabled: true
             },
