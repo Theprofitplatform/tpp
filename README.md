@@ -1,4 +1,6 @@
-# Astro Starter Kit: Minimal
+# TPP Astro Site - The Profit Platform
+
+🚀 **Cloudflare Pages Deployment**: Automatic deployment configured and active!
 
 ```sh
 npm create astro@latest -- --template minimal
