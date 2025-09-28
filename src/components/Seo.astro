@@ -1,0 +1,255 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  ogUrl?: string;
+  twitterTitle?: string;
+  twitterDescription?: string;
+  twitterImage?: string;
+  keywords?: string;
+  noindex?: boolean;
+}
+
+const {
+  title = "Index | The Profit Platform - Sydney Digital Marketing",
+  description = "Leading Index services in Sydney. Get results with The Profit Platform. ✓ Proven ROI ✓ 127+ Reviews ✓ Free Consultation",
+  canonical = "https://theprofitplatform.com.au/",
+  ogTitle = "Index - The Profit Platform Sydney",
+  ogDescription = "Transform your business with expert Index services",
+  ogImage = "https://theprofitplatform.com.au/images/og-index.jpg",
+  ogUrl = "https://theprofitplatform.com.au/index.html",
+  twitterTitle = "Sydney Digital Marketing Expert | Fresh Approach, Proven Results",
+  twitterDescription = "Sydney's hungry new digital marketing expert. Founded 2024 with fresh strategies & personalised service. 15+ clients already seeing 2x more leads. Serving Bondi, Parramatta, Penrith & Greater Sydney.",
+  twitterImage = "https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png",
+  keywords = "Index, sydney, digital marketing, seo, google ads, web design",
+  noindex = false
+} = Astro.props;
+---
+
+<!-- Basic Meta Tags -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>{title}</title>
+<meta name="title" content="Sydney Digital Marketing Expert | Fresh Approach, Proven Results" />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content="The Profit Platform" />
+<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+<meta name="language" content="English" />
+
+<!-- Geo Tags -->
+<meta name="geo.region" content="AU-NSW" />
+<meta name="geo.placename" content="Sydney" />
+<meta name="geo.position" content="-33.8688;151.2093" />
+<meta name="ICBM" content="-33.8688, 151.2093" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={ogUrl} />
+<meta property="og:title" content={ogTitle} />
+<meta property="og:description" content={ogDescription} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="The Profit Platform - Digital Marketing Dashboard showing growth results" />
+<meta property="og:site_name" content="The Profit Platform" />
+<meta property="og:locale" content="en_AU" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://theprofitplatform.com.au/" />
+<meta property="twitter:title" content={twitterTitle} />
+<meta property="twitter:description" content={twitterDescription} />
+<meta property="twitter:image" content={twitterImage} />
+<meta property="twitter:image:alt" content="The Profit Platform - Digital Marketing Dashboard showing growth results" />
+<meta property="twitter:creator" content="@profitplatform" />
+<meta property="twitter:site" content="@profitplatform" />
+
+<!-- Mobile -->
+<meta name="theme-color" content="#4F46E5" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="The Profit Platform" />
+<meta name="format-detection" content="telephone=yes" />
+<meta name="msapplication-tap-highlight" content="no" />
+
+<!-- Canonical -->
+<link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="en-au" href="https://theprofitplatform.com.au/" />
+<link rel="alternate" hreflang="x-default" href="https://theprofitplatform.com.au/" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="https://theprofitplatform.com.au/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://theprofitplatform.com.au/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://theprofitplatform.com.au/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://theprofitplatform.com.au/apple-touch-icon.png" />
+<link rel="manifest" href="/assets/manifest.json" />
+
+<!-- DNS Prefetch -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+<link rel="dns-prefetch" href="https://www.google-analytics.com" />
+<link rel="dns-prefetch" href="https://www.google.com" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+<!-- Font Loading -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" onload="this.onload=null,this.rel='stylesheet'" />
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+</noscript>
+
+<!-- Critical CSS -->
+<link rel="preload" as="style" href="/css/critical.min.css" />
+<link rel="stylesheet" href="/css/critical.min.css" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://theprofitplatform.com.au/#organization",
+      "name": "The Profit Platform",
+      "alternateName": "TPP",
+      "description": "Sydney digital marketing specialist helping small businesses grow online through affordable SEO, Google Ads, and web design services.",
+      "url": "https://theprofitplatform.com.au",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61574707582255",
+        "https://www.instagram.com/theprofitplatformau",
+        "https://linkedin.com/company/theprofitplatform",
+        "https://twitter.com/profitplatform",
+        "https://youtube.com/theprofitplatform"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+        "width": "300",
+        "height": "100"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+61487286451",
+        "contactType": "customer service",
+        "areaServed": "AU",
+        "availableLanguage": "English"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sydney",
+        "addressRegion": "NSW",
+        "addressCountry": "AU",
+        "postalCode": "2000"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-33.8688",
+        "longitude": "151.2093"
+      },
+      "foundingDate": "2019",
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": "15"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "15",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://theprofitplatform.com.au/#business",
+      "name": "The Profit Platform",
+      "image": "https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png",
+      "telephone": "+61487286451",
+      "email": "avi@theprofitplatform.com.au",
+      "url": "https://theprofitplatform.com.au",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sydney",
+        "addressRegion": "NSW",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-33.8688",
+        "longitude": "151.2093"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "$990-$3990",
+      "paymentAccepted": "Cash, Credit Card, Bank Transfer",
+      "currenciesAccepted": "AUD",
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "-33.8688",
+          "longitude": "151.2093"
+        },
+        "geoRadius": "50000"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://theprofitplatform.com.au/#website",
+      "url": "https://theprofitplatform.com.au",
+      "name": "The Profit Platform",
+      "description": "Sydney digital marketing specialist helping small businesses grow online. Affordable SEO, Google Ads & web design. Personal service, no lock-ins.",
+      "publisher": {
+        "@id": "https://theprofitplatform.com.au/#organization"
+      },
+      "inLanguage": "en-AU",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://theprofitplatform.com.au/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://theprofitplatform.com.au/#webpage",
+      "url": "https://theprofitplatform.com.au",
+      "name": "Digital Marketing Agency Sydney | Get 3x More Leads - The Profit Platform",
+      "description": "Sydney digital marketing specialist helping small businesses grow online. Affordable SEO, Google Ads & web design. Personal service, no lock-ins.",
+      "isPartOf": {
+        "@id": "https://theprofitplatform.com.au/#website"
+      },
+      "about": {
+        "@id": "https://theprofitplatform.com.au/#organization"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png"
+      },
+      "datePublished": "2024-01-01T00:00:00+11:00",
+      "dateModified": "2024-12-31T23:59:59+11:00",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://theprofitplatform.com.au"
+          }
+        ]
+      }
+    }
+  ]
+})} />
