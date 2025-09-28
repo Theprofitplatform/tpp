@@ -8,7 +8,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "start": "node ./dist/server/entry.mjs",
-    "pm2:start": "pm2 start ecosystem.config.js --env production",
+    "pm2:start": "pm2 start ecosystem.config.cjs --env production",
     "pm2:stop": "pm2 stop tpp-astro",
     "pm2:restart": "pm2 restart tpp-astro",
     "pm2:delete": "pm2 delete tpp-astro",
@@ -16,6 +16,7 @@
     "pm2:status": "pm2 status"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12.6.9",
     "@astrojs/node": "9.4.4",
     "astro": "^5.14.1"
   }

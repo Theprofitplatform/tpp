@@ -1,0 +1,11 @@
+name = "tpp-astro"
+compatibility_date = "2024-09-28"
+
+[env.production]
+name = "tpp-astro-production"
+
+[site]
+bucket = "./dist"
+
+[[pages_build_output_dir]]
+value = "dist"
