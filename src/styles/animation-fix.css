@@ -2,14 +2,14 @@
 
 /* Reset conflicting animation styles */
 .animate-on-scroll {
-  opacity: 0 !important;
-  transform: translateY(20px) !important;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animate-on-scroll.animated {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Services section specific fixes */
