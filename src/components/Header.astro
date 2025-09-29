@@ -5,7 +5,7 @@
     <a href="/" class="logo">
       <img src="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png" alt="The Profit Platform Logo" />
     </a>
-    <nav>
+    <nav id="primary-nav" hidden aria-hidden="true">
       <ul class="nav-menu">
         <li><a href="/">Home</a></li>
         <li><a href="/services">Services</a></li>
@@ -14,21 +14,7 @@
       </ul>
     </nav>
     <a href="/contact" class="cta-button">Get Free Consultation</a>
-    <button id="nav-toggle" class="nav-toggle">☰</button>
+    <button id="nav-toggle" class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
   </div>
 </header>
 
-<script is:inline>
-// Simple navigation toggle
-document.addEventListener('DOMContentLoaded', function() {
-  const navToggle = document.getElementById('nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', function() {
-      navMenu.classList.toggle('active');
-      navToggle.classList.toggle('active');
-    });
-  }
-});
-</script>
