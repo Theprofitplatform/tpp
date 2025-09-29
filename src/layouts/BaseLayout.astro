@@ -1,211 +1,33 @@
 ---
-import Seo from '../components/Seo.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-
+// BaseLayout.astro - Ready for future componentization (optional)
 export interface Props {
   title?: string;
-  description?: string;
-  canonical?: string;
-  ogTitle?: string;
-  ogDescription?: string;
-  ogImage?: string;
-  ogUrl?: string;
-  twitterTitle?: string;
-  twitterDescription?: string;
-  twitterImage?: string;
-  keywords?: string;
-  noindex?: boolean;
-  bodyClass?: string;
 }
 
-const {
-  title,
-  description,
-  canonical,
-  ogTitle,
-  ogDescription,
-  ogImage,
-  ogUrl,
-  twitterTitle,
-  twitterDescription,
-  twitterImage,
-  keywords,
-  noindex,
-  bodyClass = ''
-} = Astro.props;
+const { title } = Astro.props;
 ---
-
 <!DOCTYPE html>
-<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+<html lang="en">
 <head>
-  <Seo
-    title={title}
-    description={description}
-    canonical={canonical}
-    ogTitle={ogTitle}
-    ogDescription={ogDescription}
-    ogImage={ogImage}
-    ogUrl={ogUrl}
-    twitterTitle={twitterTitle}
-    twitterDescription={twitterDescription}
-    twitterImage={twitterImage}
-    keywords={keywords}
-    noindex={noindex}
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title || "The Profit Platform - Sydney Digital Marketing"}</title>
 
-  <!-- Critical CSS -->
-  <link rel="stylesheet" href="/css/combined.min.css" media="all" />
-  <link rel="stylesheet" href="/css/style.min.css" media="all" />
+  <!-- Production-ready CSS -->
+  <link rel="stylesheet" href="/css/critical.min.css">
+  <link rel="stylesheet" href="/css/style.min.css">
 
-  <!-- External Libraries -->
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all" onload="this.onload=null,this.rel='stylesheet'" />
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="all" onload="this.onload=null,this.rel='stylesheet'" />
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  </noscript>
-
-  <!-- Preload critical resources -->
-  <link rel="preload" as="script" href="/js/combined.min.js" />
-  <link rel="preload" as="image" fetchpriority="high" href="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png" />
-  <link rel="preload" as="image" fetchpriority="high" href="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png" />
-
-  <!-- Font styling for fallback -->
-  <style>
-    @font-face {
-      font-family: 'Inter';
-      src: url('/fonts/Inter-Regular.woff2') format('woff2'),
-           url('/fonts/Inter-Regular.woff') format('woff');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Inter';
-      src: url('/fonts/Inter-Medium.woff2') format('woff2'),
-           url('/fonts/Inter-Medium.woff') format('woff');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Inter';
-      src: url('/fonts/Inter-SemiBold.woff2') format('woff2'),
-           url('/fonts/Inter-SemiBold.woff') format('woff');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    @font-face {
-      font-family: 'Inter';
-      src: url('/fonts/Inter-Bold.woff2') format('woff2'),
-           url('/fonts/Inter-Bold.woff') format('woff');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-
-    /* System font stack fallback */
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-                   'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
-                   'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    }
-
-    /* Loading indicators */
-    .loading-spinner {
-      display: none;
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(0,0,0,0.1);
-      border-top-color: #667eea;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
-    .loading-spinner.active {
-      display: block;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .skeleton {
-      background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-    }
-
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* Progressive enhancement */
-    .js-enhanced { display: none; }
-    .no-js .js-enhanced { display: block; }
-  </style>
+  <!-- External resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body class={`bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen ${bodyClass}`}>
-  <Header />
+<body>
+  <slot />
 
-  <main id="main-content" role="main">
-    <slot />
-  </main>
-
-  <Footer />
-
-  <!-- Scripts -->
-  <script>
-    // Remove no-js class
-    document.documentElement.classList.remove('no-js');
-    document.documentElement.classList.add('js');
-
-    // Set body margins/padding to 0
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
-    document.documentElement.style.margin = '0';
-    document.documentElement.style.padding = '0';
-
-    // Fix scroll progress
-    const scrollProgress = document.querySelector('.scroll-progress');
-    if (scrollProgress) {
-      scrollProgress.style.margin = '0';
-      scrollProgress.style.padding = '0';
-      scrollProgress.style.top = '0';
-    }
-
-    // Fix main content margins
-    ['main', '#main-content', '.hero', '.about-hero', '.pricing-hero', '.web-design-hero', '.google-ads-hero'].forEach(selector => {
-      const element = document.querySelector(selector);
-      if (element) {
-        element.style.marginTop = '0';
-        element.style.paddingTop = '0';
-      }
-    });
-  </script>
-
-  <!-- Load combined scripts -->
-  <script src="/js/combined.min.js" defer></script>
-
-  <!-- AOS Animation Library -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      if (typeof AOS !== 'undefined') {
-        AOS.init({
-          duration: 1000,
-          once: true,
-          offset: 100
-        });
-      }
-    });
-  </script>
+  <!-- Production-ready JS -->
+  <script is:inline src="/js/combined.min.js" defer></script>
+  <script is:inline src="/js/main.js" defer></script>
 </body>
 </html>
