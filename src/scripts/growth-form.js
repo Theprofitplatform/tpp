@@ -67,6 +67,16 @@ class GrowthForm {
     this.errorSummary = document.getElementById('error-summary');
     this.errorList = document.getElementById('error-list');
 
+    // CRITICAL FIX: Ensure Step 1 is visible by default
+    if (this.step1) {
+      this.step1.classList.add('active');
+      this.step1.style.display = 'block';
+    }
+    if (this.step2) {
+      this.step2.classList.remove('active');
+      this.step2.style.display = 'none';
+    }
+
     // Set up event listeners
     this.setupStepNavigation();
     this.setupValidation();
@@ -163,9 +173,26 @@ class GrowthForm {
     // Update current step
     this.currentStep = stepNumber;
 
-    // Update step visibility
-    this.step1?.classList.toggle('active', stepNumber === 1);
-    this.step2?.classList.toggle('active', stepNumber === 2);
+    // CRITICAL FIX: Update step visibility with explicit display control
+    if (this.step1) {
+      if (stepNumber === 1) {
+        this.step1.classList.add('active');
+        this.step1.style.display = 'block';
+      } else {
+        this.step1.classList.remove('active');
+        this.step1.style.display = 'none';
+      }
+    }
+
+    if (this.step2) {
+      if (stepNumber === 2) {
+        this.step2.classList.add('active');
+        this.step2.style.display = 'block';
+      } else {
+        this.step2.classList.remove('active');
+        this.step2.style.display = 'none';
+      }
+    }
 
     // Update stepper
     this.updateStepper();
@@ -175,14 +202,14 @@ class GrowthForm {
 
     // Focus management
     if (stepNumber === 2) {
-      const step2Title = document.getElementById('step2-title');
+      const step2Title = document.getElementById('step-2-title');
       if (step2Title) {
-        step2Title.focus();
+        setTimeout(() => step2Title.focus(), 100);
       }
     } else {
-      const step1Title = document.getElementById('step1-title');
+      const step1Title = document.getElementById('step-1-title');
       if (step1Title) {
-        step1Title.focus();
+        setTimeout(() => step1Title.focus(), 100);
       }
     }
 
