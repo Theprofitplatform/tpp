@@ -10,6 +10,7 @@
     padding: 80px 0;
     background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 50%, #f8fafc 100%);
     overflow: hidden;
+    isolation: isolate; /* Create stacking context */
 }
 
 /* Subtle animated background */
@@ -19,12 +20,14 @@
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.4;
+    opacity: 0.15; /* Reduced opacity for subtle background */
     background-image:
         radial-gradient(circle at 20% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 40% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
     animation: float 20s ease-in-out infinite;
+    z-index: 0; /* Behind content */
+    pointer-events: none; /* Allow clicking through */
 }
 
 @keyframes float {
@@ -39,6 +42,8 @@
     margin-bottom: 50px;
     opacity: 0;
     animation: fadeInUp 0.8s forwards;
+    position: relative;
+    z-index: 2; /* Above background */
 }
 
 .trust-title h2 {
@@ -46,12 +51,14 @@
     font-weight: 800;
     color: #1e293b;
     margin-bottom: 10px;
+    user-select: text; /* Allow text selection */
 }
 
 .trust-subtitle {
-    color: var(--text-medium);
+    color: var(--text-medium, #64748b);
     font-size: 1.125rem;
     font-weight: 500;
+    user-select: text; /* Allow text selection */
 }
 
 /* Metrics Grid */
@@ -60,22 +67,26 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 24px;
     margin-bottom: 40px;
+    position: relative;
+    z-index: 2; /* Above background */
 }
 
 /* Metric Cards */
 .metric-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98); /* More opaque background */
     backdrop-filter: blur(10px);
     border-radius: var(--radius-lg, 16px);
     padding: 28px;
     position: relative;
-    border: 1px solid rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.15);
     box-shadow:
-        0 4px 6px -1px rgba(0, 0, 0, 0.05),
-        0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        0 4px 6px -1px rgba(0, 0, 0, 0.08),
+        0 2px 4px -1px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
     opacity: 0;
     animation: fadeInUp 0.8s forwards;
+    z-index: 2;
+    user-select: text; /* Allow text selection */
 }
 
 .metric-card:nth-child(1) { animation-delay: 0.1s; }
@@ -170,16 +181,18 @@
 }
 
 .metric-label {
-    color: var(--text-dark);
+    color: var(--text-dark, #1e293b);
     font-size: 1.125rem;
     font-weight: 600;
     margin-bottom: 4px;
+    user-select: text; /* Allow text selection */
 }
 
 .metric-sublabel {
-    color: var(--text-medium);
+    color: var(--text-medium, #64748b);
     font-size: 0.875rem;
     font-weight: 500;
+    user-select: text; /* Allow text selection */
 }
 
 /* Growth Indicator */
@@ -200,14 +213,17 @@
 
 /* Reviews Section */
 .reviews-section {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.85); /* More opaque */
     backdrop-filter: blur(10px);
     border-radius: var(--radius-lg, 16px);
     padding: 24px;
     margin-bottom: 40px;
-    border: 1px solid rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.15);
     opacity: 0;
     animation: fadeInUp 0.8s 0.5s forwards;
+    position: relative;
+    z-index: 2;
+    user-select: text; /* Allow text selection */
 }
 
 .reviews-grid {
@@ -300,6 +316,8 @@
     text-align: center;
     opacity: 0;
     animation: fadeInUp 0.8s 0.7s forwards;
+    position: relative;
+    z-index: 2;
 }
 
 .logos-title {
