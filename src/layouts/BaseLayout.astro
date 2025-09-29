@@ -1,5 +1,5 @@
 ---
-// BaseLayout.astro - Ready for future componentization (optional)
+// BaseLayout.astro - Hard fix with exact production structure + improvements
 export interface Props {
   title?: string;
 }
@@ -7,27 +7,292 @@ export interface Props {
 const { title } = Astro.props;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title || "The Profit Platform - Sydney Digital Marketing"}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <!-- Production-ready CSS -->
-  <link rel="stylesheet" href="/css/critical.min.css">
-  <link rel="stylesheet" href="/css/style.min.css">
+<!-- SEO Meta Tags -->
+<!-- Primary Meta Tags -->
+<title>The Profit Platform — Sydney Digital Marketing Expert</title>
+<meta name="title" content="Sydney Digital Marketing Expert | Fresh Approach, Proven Results">
+<meta name="description" content="Leading digital marketing services in Sydney. Get results with The Profit Platform. ✓ Proven ROI ✓ 127+ Reviews ✓ Free Consultation">
+<meta name="keywords" content="digital marketing, sydney, seo, google ads, web design">
+<meta name="author" content="The Profit Platform">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="language" content="English">
+<meta name="geo.region" content="AU-NSW">
+<meta name="geo.placename" content="Sydney">
+<meta name="geo.position" content="-33.8688;151.2093">
+<meta name="ICBM" content="-33.8688, 151.2093">
 
-  <!-- External resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theprofitplatform.com.au/">
+<meta property="og:title" content="The Profit Platform — Sydney Digital Marketing Expert">
+<meta property="og:description" content="Transform your business with expert digital marketing services">
+<meta property="og:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Profit Platform - Digital Marketing Dashboard showing growth results">
+<meta property="og:site_name" content="The Profit Platform">
+<meta property="og:locale" content="en_AU">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://theprofitplatform.com.au/">
+<meta property="twitter:title" content="Sydney Digital Marketing Expert | Fresh Approach, Proven Results">
+<meta property="twitter:description" content="Sydney's hungry new digital marketing expert. Founded 2024 with fresh strategies & personalised service. 15+ clients already seeing 2x more leads. Serving Bondi, Parramatta, Penrith & Greater Sydney.">
+<meta property="twitter:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
+<meta property="twitter:image:alt" content="The Profit Platform - Digital Marketing Dashboard showing growth results">
+<meta property="twitter:creator" content="@profitplatform">
+<meta property="twitter:site" content="@profitplatform">
+
+<!-- Additional Meta Tags -->
+<meta name="theme-color" content="#4F46E5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="The Profit Platform">
+<meta name="format-detection" content="telephone=yes">
+<meta name="msapplication-tap-highlight" content="no">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://theprofitplatform.com.au/">
+
+<!-- Alternate Language -->
+<link rel="alternate" hreflang="en-au" href="https://theprofitplatform.com.au/">
+<link rel="alternate" hreflang="x-default" href="https://theprofitplatform.com.au/">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="https://theprofitplatform.com.au/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://theprofitplatform.com.au/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://theprofitplatform.com.au/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://theprofitplatform.com.au/apple-touch-icon.png">
+<link rel="manifest" href="assets/manifest.json">
+
+<!-- Performance and Resource Hints -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google.com">
+
+<!-- Preload Critical Resources -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/critical.min.css" as="style">
+<link rel="preload" href="/css/style.min.css" as="style">
+<link rel="preload" href="/js/vendor.js" as="script">
+<link rel="preload" href="/js/plugins.js" as="script">
+<link rel="preload" href="/js/main.js" as="script">
+<link rel="preload" href="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png" as="image" fetchpriority="high">
+<link rel="preload" href="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png" as="image" fetchpriority="high">
+
+<!-- Fallback for preload -->
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+
+<!-- Critical CSS inline for faster rendering -->
+<link rel="stylesheet" href="/css/critical.min.css">
+<link rel="stylesheet" href="/css/loading-states.css">
+
+<!-- External Resources - Load asynchronously -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
+<noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</noscript>
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="/css/style.min.css" media="all">
+<!-- Consolidated Navigation & Layout Styles -->
+<link rel="stylesheet" href="/css/modern-theme-variables.css" media="all">
+<link rel="stylesheet" href="/css/navigation.css" media="all">
+<link rel="stylesheet" href="/css/skip-links-fix.css" media="all">
+<link rel="stylesheet" href="/css/main-content-spacing.css" media="all">
+<link rel="stylesheet" href="/css/modern-theme-components.css" media="all">
+<link rel="stylesheet" href="/css/dropdown-fix.css" media="all">
+<link rel="stylesheet" href="/css/layout.css" media="all">
+<link rel="stylesheet" href="/css/navigation-glass-enhanced.css" media="all">
+<link rel="stylesheet" href="/css/hero-content-spacing.css" media="all">
+<link rel="stylesheet" href="/css/hero-modern.css" media="all">
+<link rel="stylesheet" href="/css/trust-signals-enhanced.css" media="all">
+<link rel="stylesheet" href="/css/trust-signals-homepage-theme.css" media="all">
+<!-- Bundled CSS for Performance -->
+<link rel="stylesheet" href="/css/bundled.min.css" media="all">
+
+<!-- Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FB947JWCFT');
+</script>
+
+<!-- Hotjar Tracking Code -->
+<script>
+(function(h,o,t,j,a,r){
+h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+h._hjSettings={hjid:6526316,hjsv:6};
+a=o.getElementsByTagName('head')[0];
+r=o.createElement('script');r.async=1;
+r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
 </head>
 
 <body>
-  <slot />
+<slot />
 
-  <!-- Production-ready JS -->
-  <script is:inline src="/js/combined.min.js" defer></script>
-  <script is:inline src="/js/main.js" defer></script>
+<!-- External Scripts in specific order -->
+<script is:inline src="/js/vendor.js"></script>
+<script is:inline src="/js/plugins.js"></script>
+<script is:inline src="/js/main.js"></script>
+
+<!-- Critical initialization script - must run last -->
+<script is:inline>
+// Counter animation functionality
+document.addEventListener("DOMContentLoaded",()=>{
+    const c=document.querySelectorAll(".counter"),
+    a=200,
+    i=t=>{
+        const e=parseInt(t.getAttribute("data-target")||"0"),
+        n=e/a;
+        let o=0;
+        const s=()=>{
+            o+=n,o<e?(t.textContent=Math.ceil(o).toString(),requestAnimationFrame(s)):t.textContent=e.toString()
+        };
+        s()
+    },
+    u={threshold:.5,rootMargin:"0px"},
+    r=new IntersectionObserver(t=>{
+        t.forEach(e=>{
+            if(e.isIntersecting){
+                const n=e.target;
+                i(n),r.unobserve(n)
+            }
+        })
+    },u);
+    c.forEach(t=>{r.observe(t)})
+});
+
+// Navigation toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('nav-toggle');
+    const primaryNav = document.getElementById('primary-nav');
+
+    if (menuToggle && primaryNav) {
+        menuToggle.addEventListener('click', function() {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+
+            // Toggle ARIA states
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            primaryNav.hidden = isExpanded;
+            primaryNav.setAttribute('aria-hidden', isExpanded);
+        });
+    }
+
+    // Handle mobile navigation if present
+    const mobileToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileOverlay = document.getElementById('mobileNavOverlay');
+    const mobileClose = document.getElementById('mobileNavClose');
+
+    function toggleMobileNav(show) {
+        if (mobileNav && mobileOverlay && mobileToggle) {
+            if (show) {
+                mobileNav.setAttribute('aria-hidden', 'false');
+                mobileOverlay.setAttribute('aria-hidden', 'false');
+                mobileToggle.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileNav.setAttribute('aria-hidden', 'true');
+                mobileOverlay.setAttribute('aria-hidden', 'true');
+                mobileToggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        }
+    }
+
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+            toggleMobileNav(!isExpanded);
+        });
+    }
+
+    if (mobileClose) {
+        mobileClose.addEventListener('click', () => toggleMobileNav(false));
+    }
+
+    if (mobileOverlay) {
+        mobileOverlay.addEventListener('click', () => toggleMobileNav(false));
+    }
+});
+</script>
+
+<!-- Structured Data - LocalBusiness -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "The Profit Platform",
+  "url": "https://theprofitplatform.com.au/",
+  "telephone": "+61487286451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sydney",
+    "addressRegion": "NSW",
+    "addressCountry": "AU"
+  },
+  "areaServed": "Greater Sydney",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61574707582255",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://www.instagram.com/theprofitplatformau"
+  ]
+}
+</script>
+
+<!-- Structured Data - FAQ -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is your pricing structured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer Starter ($990/mo), Professional ($1,990/mo), Enterprise ($3,990/mo) with all plans including dedicated account management, monthly reporting, and no lock-in contracts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas of Sydney do you service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All of Greater Sydney including CBD, Eastern Suburbs, North Shore, Inner West, Western and Southern Sydney."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most clients see improvements within 3-6 months for SEO, while Google Ads can generate leads immediately after setup."
+      }
+    }
+  ]
+}
+</script>
+
 </body>
 </html>
