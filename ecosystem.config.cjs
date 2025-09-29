@@ -56,7 +56,7 @@ module.exports = {
       user: 'avi',
       host: '31.97.222.218',
       ref: 'origin/main',
-      repo: 'git@github.com:Theprofitplatform/tpp-astro.git',
+      repo: 'git@github.com:Theprofitplatform/tpp.git',
       path: '/home/avi/projects/tpp-astro',
       'pre-deploy': 'git pull origin main',
       'post-deploy': 'npm ci && npm run build && pm2 reload ecosystem.config.cjs --env production',
