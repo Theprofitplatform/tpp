@@ -1,0 +1,31 @@
+# The Profit Platform Robots.txt
+# Last updated: 2025-09-22
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+Crawl-delay: 1
+
+# Googlebot specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Sitemap location
+Sitemap: https://theprofitplatform.com.au/sitemap.xml
+
+# Rich snippets
+User-agent: Googlebot-Image
+Allow: /images/
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
