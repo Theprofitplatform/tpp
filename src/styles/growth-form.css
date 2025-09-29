@@ -66,6 +66,15 @@
   /* Section-level styles */
   padding: var(--gf-space-2xl) 0;
   background: linear-gradient(135deg, var(--gf-gray-50) 0%, var(--gf-gray-100) 100%);
+  /* CRITICAL FIX: Remove extra white space above section */
+  margin-top: 0;
+  position: relative;
+}
+
+/* CRITICAL FIX: Remove any inherited spacing that creates white band */
+.growth-journey-section::before {
+  margin-top: 0;
+  padding-top: 0;
 }
 
 /* Layout Components */
@@ -132,6 +141,12 @@
   color: var(--gf-gray-700);
   margin-bottom: var(--gf-space-sm);
   font-size: var(--gf-text-base);
+  /* CRITICAL FIX: Prevent label truncation */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .gf-form-input {
@@ -453,10 +468,92 @@
   to { transform: rotate(360deg); }
 }
 
+/* CRITICAL FIX: Add stepper-specific styles to prevent truncation */
+.stepper {
+  margin-bottom: var(--gf-space-xl);
+  width: 100%;
+}
+
+.stepper-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  list-style: none;
+  margin: 0 0 var(--gf-space-lg) 0;
+  padding: 0;
+  position: relative;
+  /* CRITICAL FIX: Prevent text truncation */
+  overflow: visible;
+}
+
+.stepper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  /* CRITICAL FIX: Set minimum width to prevent truncation */
+  min-width: 120px;
+  position: relative;
+  /* CRITICAL FIX: Allow content to wrap instead of truncating */
+  overflow: visible;
+  word-wrap: break-word;
+}
+
+.stepper-title {
+  font-size: var(--gf-text-sm);
+  font-weight: 500;
+  color: var(--gf-gray-600);
+  line-height: 1.3;
+  margin: 0;
+  /* CRITICAL FIX: Prevent truncation with ellipsis */
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  word-break: break-word;
+  hyphens: auto;
+  /* Ensure adequate width */
+  max-width: 140px;
+}
+
+/* Progress bar alignment within card */
+.stepper-progress {
+  width: 100%;
+  margin-top: var(--gf-space-md);
+  /* CRITICAL FIX: Ensure progress bar aligns to form width, not page width */
+  padding: 0;
+}
+
+.progress-track {
+  width: 100%;
+  height: 4px;
+  background: var(--gf-gray-200);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gf-primary), var(--gf-success));
+  border-radius: 2px;
+  transition: width var(--gf-transition-slow);
+  position: relative;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .gf-two-column {
     gap: var(--gf-space-xl);
+  }
+
+  .stepper-item {
+    min-width: 100px;
+  }
+
+  .stepper-title {
+    max-width: 120px;
+    font-size: var(--gf-text-xs);
   }
 }
 
@@ -498,6 +595,17 @@
   .gf-section-subtitle {
     font-size: var(--gf-text-base);
   }
+
+  /* Mobile stepper fixes */
+  .stepper-item {
+    min-width: 80px;
+  }
+
+  .stepper-title {
+    max-width: 100px;
+    font-size: var(--gf-text-xs);
+    line-height: 1.2;
+  }
 }
 
 @media (max-width: 480px) {
@@ -515,6 +623,31 @@
 
   .gf-step-title {
     font-size: var(--gf-text-lg);
+  }
+
+  /* Very small screen stepper adjustments */
+  .stepper-list {
+    flex-direction: column;
+    gap: var(--gf-space-sm);
+    align-items: stretch;
+  }
+
+  .stepper-item {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    min-width: auto;
+    gap: var(--gf-space-sm);
+  }
+
+  .stepper-title {
+    max-width: none;
+    flex: 1;
+    text-align: left;
+  }
+
+  .stepper-progress {
+    display: none; /* Hide on very small screens to save space */
   }
 }
 
