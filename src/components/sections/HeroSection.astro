@@ -18,7 +18,7 @@
       <div class="hero-content-modern">
         <h1 id="heroHeading" class="hero-title-modern" data-aos="fade-up">
           <span class="title-line">Sydney's Local</span>
-          <span class="title-gradient typing-effect" id="typewriter-text"><strong>Small Business Marketing Expert</strong></span>
+          <span class="title-gradient typing-effect" id="typewriter-text"></span>
           <span class="title-highlight">Fresh Approach, Proven Methods</span>
         </h1>
         <p class="hero-subtitle-modern" data-aos="fade-up" data-aos-delay="100">
@@ -136,14 +136,26 @@
 <style>
 .typing-effect {
   display: inline-block;
-  min-height: 1.2em;
+  min-height: 2.4em;
+  position: relative;
+  line-height: 1.2;
 }
 
 .typewriter-cursor {
   animation: blink 1s infinite;
-  color: #667eea;
+  color: #3B82F6;
   font-weight: 300;
   margin-left: 2px;
+  display: inline-block;
+}
+
+.typing-text {
+  background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  animation: textGlow 2s ease-in-out infinite alternate;
 }
 
 @keyframes blink {
@@ -154,20 +166,70 @@
 @keyframes fadeOut {
   to { opacity: 0; }
 }
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+    transform: translateY(0px);
+  }
+  100% {
+    text-shadow: 0 0 20px rgba(118, 75, 162, 0.5);
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes typeIn {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+.typing-char {
+  display: inline-block;
+  animation: charPop 0.3s ease forwards;
+  opacity: 0;
+}
+
+@keyframes charPop {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.8);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 </style>
 
 <script>
-// Typing effect for Small Business Marketing Expert
+// Enhanced typing effect for Small Business Marketing Expert
 document.addEventListener('DOMContentLoaded', function() {
   const targetElement = document.querySelector('#typewriter-text');
   if (!targetElement) return;
 
-  const text = targetElement.textContent.trim();
-  targetElement.innerHTML = '<strong></strong>';
-  const strongElement = targetElement.querySelector('strong');
+  const phrases = [
+    'Small Business\nMarketing Expert',
+    'Digital Growth\nSpecialist',
+    'SEO & Google Ads\nExpert',
+    'Revenue Growth\nAccelerator'
+  ];
 
-  let index = 0;
-  let currentText = '';
+  let currentPhraseIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  // Clear initial content and setup structure
+  targetElement.innerHTML = '<strong class="typing-text"></strong>';
+  const textContainer = targetElement.querySelector('.typing-text');
 
   // Create cursor
   const cursor = document.createElement('span');
@@ -175,22 +237,104 @@ document.addEventListener('DOMContentLoaded', function() {
   cursor.textContent = '|';
   targetElement.appendChild(cursor);
 
-  function typeWriter() {
-    if (index < text.length) {
-      currentText += text[index];
-      strongElement.textContent = currentText;
-      index++;
-      setTimeout(typeWriter, 60);
+  function typeEffect() {
+    const currentPhrase = phrases[currentPhraseIndex];
+
+    if (!isDeleting) {
+      // Typing
+      if (charIndex <= currentPhrase.length) {
+        const textToShow = currentPhrase.substring(0, charIndex);
+        // Handle HTML entities and line breaks properly
+        let processedText = '';
+        let realCharIndex = 0;
+
+        // Split by newline to handle line breaks properly
+        const parts = textToShow.split('\n');
+
+        for (let partIndex = 0; partIndex < parts.length; partIndex++) {
+          const part = parts[partIndex];
+
+          // Add characters from this part
+          for (let i = 0; i < part.length; i++) {
+            const char = part[i];
+            const displayChar = char === ' ' ? '&nbsp;' : char;
+            processedText += `<span class="typing-char" style="animation-delay: ${realCharIndex * 0.05}s">${displayChar}</span>`;
+            realCharIndex++;
+          }
+
+          // Add line break if not the last part
+          if (partIndex < parts.length - 1) {
+            processedText += '<br>';
+          }
+        }
+
+        textContainer.innerHTML = processedText;
+        charIndex++;
+        setTimeout(typeEffect, 100);
+      } else {
+        // Pause before deleting (only for rotating phrases)
+        if (phrases.length > 1) {
+          setTimeout(() => {
+            isDeleting = true;
+            typeEffect();
+          }, 2000);
+        } else {
+          // Single phrase - just remove cursor after delay
+          setTimeout(() => {
+            cursor.style.animation = 'fadeOut 0.5s forwards';
+            setTimeout(() => cursor.remove(), 500);
+          }, 1500);
+        }
+      }
     } else {
-      // Remove cursor after typing is complete
-      setTimeout(() => {
-        cursor.style.animation = 'fadeOut 0.5s forwards';
-        setTimeout(() => cursor.remove(), 500);
-      }, 1000);
+      // Deleting
+      if (charIndex > 0) {
+        const textToShow = currentPhrase.substring(0, charIndex - 1);
+        // Handle HTML entities and line breaks properly during deletion
+        let processedText = '';
+        let realCharIndex = 0;
+
+        // Split by newline to handle line breaks properly during deletion
+        const parts = textToShow.split('\n');
+
+        for (let partIndex = 0; partIndex < parts.length; partIndex++) {
+          const part = parts[partIndex];
+
+          // Add characters from this part
+          for (let i = 0; i < part.length; i++) {
+            const char = part[i];
+            const displayChar = char === ' ' ? '&nbsp;' : char;
+            processedText += `<span class="typing-char">${displayChar}</span>`;
+            realCharIndex++;
+          }
+
+          // Add line break if not the last part
+          if (partIndex < parts.length - 1) {
+            processedText += '<br>';
+          }
+        }
+
+        textContainer.innerHTML = processedText;
+        charIndex--;
+        setTimeout(typeEffect, 50);
+      } else {
+        // Move to next phrase
+        isDeleting = false;
+        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+        setTimeout(typeEffect, 500);
+      }
     }
   }
 
   // Start typing after a delay
-  setTimeout(typeWriter, 800);
+  setTimeout(() => {
+    typeEffect();
+  }, 1200);
+
+  // Add glow effect to the text container
+  textContainer.style.background = 'linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%)';
+  textContainer.style.webkitBackgroundClip = 'text';
+  textContainer.style.webkitTextFillColor = 'transparent';
+  textContainer.style.backgroundClip = 'text';
 });
 </script>

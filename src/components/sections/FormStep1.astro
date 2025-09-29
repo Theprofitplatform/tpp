@@ -1,0 +1,332 @@
+---
+// Step 1 form with validation and accessibility
+import ServicePills from './ServicePills.astro';
+---
+
+<div class="form-step" id="step1" data-step="1">
+  <div class="step-header">
+    <h3 class="step-title" id="step1-title">Tell us about yourself</h3>
+    <p class="step-subtitle" id="step1-subtitle">We'll create a custom growth strategy just for you</p>
+  </div>
+
+  <!-- Error Summary (initially hidden) -->
+  <div
+    id="error-summary"
+    class="error-summary"
+    role="alert"
+    aria-labelledby="error-summary-title"
+    tabindex="-1"
+    style="display: none;"
+  >
+    <h4 id="error-summary-title">Please fix the following errors:</h4>
+    <ul id="error-list" role="list"></ul>
+  </div>
+
+  <div class="form-fields" role="group" aria-labelledby="step1-title" aria-describedby="step1-subtitle">
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="name" class="form-label">
+        Your Name <span class="required" aria-label="required">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="form-input"
+        required
+        aria-required="true"
+        aria-describedby="name-error name-hint"
+        placeholder="John Smith"
+        autocomplete="given-name"
+        data-validate="required"
+      />
+      <div id="name-hint" class="field-hint">Enter your first and last name</div>
+      <div id="name-error" class="field-error" role="alert" aria-live="polite"></div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email" class="form-label">
+        Email Address <span class="required" aria-label="required">*</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-input"
+        required
+        aria-required="true"
+        aria-describedby="email-error email-hint"
+        placeholder="john@business.com.au"
+        autocomplete="email"
+        data-validate="required email"
+      />
+      <div id="email-hint" class="field-hint">We'll use this to send your custom growth plan</div>
+      <div id="email-error" class="field-error" role="alert" aria-live="polite"></div>
+    </div>
+
+    <!-- Service Selection -->
+    <ServicePills />
+  </div>
+
+  <!-- Trust Elements -->
+  <div class="step-trust" role="region" aria-label="Trust indicators">
+    <div class="trust-item">
+      <i class="fas fa-check-circle" aria-hidden="true"></i>
+      <span>Average Response Time: 15 minutes</span>
+    </div>
+    <div class="trust-item">
+      <i class="fas fa-shield-alt" aria-hidden="true"></i>
+      <span>100% Secure. No spam. Ever.</span>
+    </div>
+  </div>
+
+  <!-- Step Actions -->
+  <div class="step-actions">
+    <button
+      type="button"
+      class="btn-continue"
+      id="continue-step1"
+      disabled
+      aria-describedby="continue-help"
+    >
+      <span>Continue to Step 2</span>
+      <i class="fas fa-arrow-right" aria-hidden="true"></i>
+    </button>
+    <div id="continue-help" class="sr-only">Complete all required fields to continue</div>
+  </div>
+</div>
+
+<style>
+.form-step {
+  display: none;
+  animation: fadeInUp 0.4s ease;
+}
+
+.form-step.active {
+  display: block;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.step-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.step-subtitle {
+  color: #64748b;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.error-summary {
+  background: #fef2f2;
+  border: 2px solid #ef4444;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  color: #991b1b;
+}
+
+.error-summary h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.error-summary ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.error-summary li {
+  margin-bottom: 0.25rem;
+}
+
+.error-summary a {
+  color: #dc2626;
+  text-decoration: underline;
+}
+
+.error-summary a:hover,
+.error-summary a:focus {
+  color: #b91c1c;
+}
+
+.form-fields {
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.required {
+  color: #ef4444;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-input[aria-invalid="true"] {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.field-hint {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.field-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: none;
+  font-weight: 500;
+  min-height: 1.2em; /* Prevent layout shift */
+}
+
+.field-error.active {
+  display: block;
+}
+
+.step-trust {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 4px solid #10b981;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.trust-item i {
+  color: #10b981;
+}
+
+.step-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.btn-continue {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.btn-continue:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.btn-continue:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-continue:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-continue:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .step-trust {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .btn-continue {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .step-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+  }
+}
+</style>

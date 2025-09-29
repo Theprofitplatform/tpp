@@ -3,8 +3,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 export default defineConfig({
   output: 'static',
-  adapter: cloudflare(),
-  site: 'https://theprofitplatform.com.au',
+  site: 'https://new.theprofitplatform.com.au',
   base: '/',
   trailingSlash: 'ignore',
 });
