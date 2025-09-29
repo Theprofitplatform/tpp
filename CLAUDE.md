@@ -1,0 +1,2 @@
+- remeber the repo is https://github.com/Theprofitplatform/tpp.git
+- remeber to use cloudflared instead of local host

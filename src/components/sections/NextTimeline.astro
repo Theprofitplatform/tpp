@@ -1,0 +1,409 @@
+---
+// What Happens Next timeline with consistent alignment
+interface TimelineStep {
+  icon: string;
+  title: string;
+  description: string;
+  ariaLabel: string;
+}
+
+const steps: TimelineStep[] = [
+  {
+    icon: "fas fa-phone",
+    title: "Quick 15-min Call",
+    description: "We'll discuss your goals and current challenges",
+    ariaLabel: "Step 1: Initial consultation call"
+  },
+  {
+    icon: "fas fa-chart-bar",
+    title: "Free Audit",
+    description: "Comprehensive analysis of your digital presence",
+    ariaLabel: "Step 2: Free digital audit"
+  },
+  {
+    icon: "fas fa-file-alt",
+    title: "Growth Proposal",
+    description: "Custom strategy to achieve your goals",
+    ariaLabel: "Step 3: Personalized growth strategy"
+  }
+];
+---
+
+<section class="timeline-section" aria-labelledby="timeline-title">
+  <div class="timeline-header">
+    <h3 class="timeline-title" id="timeline-title">What Happens Next</h3>
+    <p class="timeline-subtitle">Your journey to business growth in 3 simple steps</p>
+  </div>
+
+  <ol class="timeline-steps" role="list">
+    {steps.map((step, index) => (
+      <li
+        class="timeline-step"
+        role="listitem"
+        aria-labelledby={`step-${index + 1}-title`}
+        aria-describedby={`step-${index + 1}-desc`}
+        key={index}
+      >
+        <div class="step-indicator">
+          <div class="step-icon" aria-hidden="true">
+            <i class={step.icon}></i>
+          </div>
+          <div class="step-number" aria-label={`Step ${index + 1}`}>
+            {index + 1}
+          </div>
+        </div>
+
+        <div class="step-content">
+          <h4 class="step-title" id={`step-${index + 1}-title`}>
+            {step.title}
+          </h4>
+          <p class="step-description" id={`step-${index + 1}-desc`}>
+            {step.description}
+          </p>
+        </div>
+
+        {index < steps.length - 1 && (
+          <div class="step-connector" aria-hidden="true">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        )}
+      </li>
+    ))}
+  </ol>
+
+  <!-- Call to Action -->
+  <div class="timeline-cta">
+    <p class="cta-text">Ready to get started?</p>
+    <button
+      type="button"
+      class="btn-timeline-cta"
+      onclick="document.getElementById('growth-journey').scrollIntoView({behavior: 'smooth'})"
+      aria-describedby="cta-help"
+    >
+      <span>Start Your Growth Journey</span>
+      <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+    <div id="cta-help" class="sr-only">Scroll to form to begin your growth journey</div>
+  </div>
+</section>
+
+<style>
+.timeline-section {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.timeline-header {
+  margin-bottom: 2.5rem;
+}
+
+.timeline-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.75rem 0;
+}
+
+.timeline-subtitle {
+  font-size: 1.125rem;
+  color: #64748b;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.timeline-steps {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  max-width: 280px;
+  min-height: 200px;
+}
+
+.step-indicator {
+  position: relative;
+  margin-bottom: 1.5rem;
+  z-index: 2;
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.75rem;
+  box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.timeline-step:hover .step-icon {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.step-number {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 28px;
+  height: 28px;
+  background: #10b981;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.step-content {
+  text-align: center;
+  flex: 1;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.3;
+}
+
+.step-description {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.step-connector {
+  position: absolute;
+  top: 40px;
+  left: calc(100% + 1rem);
+  right: calc(-100% - 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  font-size: 1.5rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.timeline-step:last-child .step-connector {
+  display: none;
+}
+
+.timeline-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cta-text {
+  font-size: 1.125rem;
+  color: #374151;
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+}
+
+.btn-timeline-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-timeline-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.btn-timeline-cta:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.btn-timeline-cta:active {
+  transform: translateY(0);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+  .timeline-steps {
+    gap: 1.5rem;
+  }
+
+  .step-connector {
+    font-size: 1.25rem;
+  }
+
+  .step-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .timeline-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 400px;
+  }
+
+  .timeline-step {
+    max-width: 100%;
+    min-height: auto;
+  }
+
+  .step-connector {
+    position: static;
+    transform: rotate(90deg);
+    margin: 1rem 0;
+    font-size: 1.25rem;
+  }
+
+  .timeline-step:last-child .step-connector {
+    display: none;
+  }
+
+  .step-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 1.75rem;
+  }
+
+  .timeline-title {
+    font-size: 1.5rem;
+  }
+
+  .timeline-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-section {
+    margin: 2rem 0;
+  }
+
+  .timeline-header {
+    margin-bottom: 2rem;
+  }
+
+  .step-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 1.5rem;
+  }
+
+  .step-number {
+    width: 24px;
+    height: 24px;
+    font-size: 0.75rem;
+    top: -6px;
+    right: -6px;
+  }
+
+  .step-title {
+    font-size: 1.125rem;
+  }
+
+  .step-description {
+    font-size: 0.875rem;
+  }
+
+  .btn-timeline-cta {
+    width: 100%;
+    justify-content: center;
+    max-width: 280px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .step-icon {
+    background: #000;
+    border: 2px solid #fff;
+  }
+
+  .step-number {
+    background: #000;
+    border-color: #fff;
+  }
+
+  .step-connector {
+    color: #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .step-icon {
+    transition: none;
+  }
+
+  .timeline-step:hover .step-icon {
+    transform: none;
+  }
+
+  .btn-timeline-cta:hover {
+    transform: none;
+  }
+
+  .btn-timeline-cta:active {
+    transform: none;
+  }
+}
+
+/* Focus indicators */
+.btn-timeline-cta:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+</style>

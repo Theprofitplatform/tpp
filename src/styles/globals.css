@@ -105,7 +105,7 @@ p {
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--pp-primary), #667eea);
+  background: linear-gradient(90deg, var(--pp-primary), #3B82F6);
   width: 0%;
   transition: width 0.1s ease;
 }
@@ -206,7 +206,7 @@ header {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--pp-primary), #667eea);
+  background: linear-gradient(135deg, var(--pp-primary), #3B82F6);
   color: white;
 }
 
@@ -471,7 +471,7 @@ footer {
   width: 40px;
   height: 40px;
   border: 4px solid rgba(0,0,0,0.1);
-  border-top-color: #667eea;
+  border-top-color: #3B82F6;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

@@ -1,1071 +1,979 @@
 ---
-// Components Showcase - Living Style Guide for The Profit Platform
-// This page displays all UI elements and sections used across the site
+// Simple Components Showcase for Cloudflare deployment
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NavigationSection from '../components/sections/NavigationSection.astro';
-import HeroSection from '../components/sections/HeroSection.astro';
-import TrustedBySection from '../components/sections/TrustedBySection.astro';
-import ProofSection from '../components/sections/ProofSection.astro';
-import ServicesSection from '../components/sections/ServicesSection.astro';
-import ProcessSection from '../components/sections/ProcessSection.astro';
-import PricingSection from '../components/sections/PricingSection.astro';
-import FAQSection from '../components/sections/FAQSection.astro';
-import ContactSection from '../components/sections/ContactSection.astro';
-import FooterSection from '../components/sections/FooterSection.astro';
 ---
 
-<BaseLayout title="UI Components Showcase — The Profit Platform Design System">
-  <!-- Enhanced SEO Meta Tags -->
+<BaseLayout title="Design System Playground — The Profit Platform Interactive Style Guide">
   <Fragment slot="head">
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="UI Components Showcase — The Profit Platform Design System">
-    <meta name="description" content="Living style guide showcasing all UI components and design elements used across The Profit Platform website.">
+    <meta name="title" content="Design System Playground — The Profit Platform Interactive Style Guide">
+    <meta name="description" content="Interactive design system playground with component states, theming, responsive previews, and accessibility documentation.">
     <meta name="robots" content="noindex, nofollow">
 
-    <!-- Performance Hints -->
-    <link rel="preload" href="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png" as="image" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
   </Fragment>
 
-  <NavigationSection />
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Main Content -->
-  <main id="components-showcase" role="main">
-    <!-- Showcase Header -->
-    <section class="showcase-header section">
-      <div class="container">
-        <div class="showcase-intro">
-          <h1 class="showcase-title">UI Components Showcase</h1>
-          <p class="showcase-subtitle">Living style guide and design system for The Profit Platform</p>
-          <div class="showcase-meta">
-            <span class="showcase-version">Version 1.0</span>
-            <span class="showcase-updated">Last updated: September 2024</span>
+  <header class="ds-header" id="ds-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-brand">
+          <div class="brand-icon">
+            <i class="fas fa-palette"></i>
+          </div>
+          <div class="brand-text">
+            <h1 class="brand-title">Design System</h1>
+            <span class="brand-subtitle">v2.0.0</span>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Table of Contents -->
-    <section class="toc-section section-small">
-      <div class="container">
-        <h2 class="section-title">Quick Navigation</h2>
-        <div class="toc-grid">
-          <div class="toc-column">
-            <h3>Atomic Elements</h3>
-            <ul class="toc-list">
-              <li><a href="#typography">Typography</a></li>
-              <li><a href="#colors">Color Palette</a></li>
-              <li><a href="#buttons">Buttons</a></li>
-              <li><a href="#forms">Form Elements</a></li>
-              <li><a href="#icons">Icons</a></li>
-            </ul>
-          </div>
-          <div class="toc-column">
-            <h3>Components</h3>
-            <ul class="toc-list">
-              <li><a href="#hero">Hero Section</a></li>
-              <li><a href="#trusted-by">Trust Signals</a></li>
-              <li><a href="#proof">Social Proof</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#process">Process Steps</a></li>
-            </ul>
-          </div>
-          <div class="toc-column">
-            <h3>Sections</h3>
-            <ul class="toc-list">
-              <li><a href="#pricing">Pricing</a></li>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li><a href="#footer">Footer</a></li>
-              <li><a href="#navigation">Navigation</a></li>
-            </ul>
+        <div class="search-container">
+          <div class="search-wrapper">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="search-input" placeholder="Search components..." id="global-search" autocomplete="off">
+            <div class="search-results" id="search-results"></div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Typography Section -->
-    <section id="typography" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Typography</h2>
-          <p class="showcase-description">Heading styles and text formatting used across the site</p>
-
-          <div class="typography-examples">
-            <div class="typography-item">
-              <h1 class="example-h1">Heading 1 - Hero Headlines</h1>
-              <code>.hero-title, h1</code>
+        <div class="header-controls">
+          <div class="control-group">
+            <label class="control-label">Theme</label>
+            <div class="theme-switcher">
+              <button class="theme-btn active" data-theme="light" title="Light Mode">
+                <i class="fas fa-sun"></i>
+              </button>
+              <button class="theme-btn" data-theme="dark" title="Dark Mode">
+                <i class="fas fa-moon"></i>
+              </button>
+              <button class="theme-btn" data-theme="compare" title="Side by Side">
+                <i class="fas fa-columns"></i>
+              </button>
             </div>
+          </div>
 
-            <div class="typography-item">
-              <h2 class="example-h2">Heading 2 - Section Titles</h2>
-              <code>.section-title, h2</code>
-            </div>
-
-            <div class="typography-item">
-              <h3 class="example-h3">Heading 3 - Subsections</h3>
-              <code>.subsection-title, h3</code>
-            </div>
-
-            <div class="typography-item">
-              <h4 class="example-h4">Heading 4 - Card Titles</h4>
-              <code>.card-title, h4</code>
-            </div>
-
-            <div class="typography-item">
-              <p class="example-paragraph">
-                Body text paragraph with <strong>bold emphasis</strong> and <em>italic text</em>.
-                This represents the standard text content used throughout the website for descriptions,
-                articles, and general content areas.
-              </p>
-              <code>p, .body-text</code>
-            </div>
-
-            <div class="typography-item">
-              <p class="example-lead">
-                Lead paragraph text - slightly larger and used for introductory content and subtitles.
-              </p>
-              <code>.lead-text, .section-subtitle</code>
-            </div>
-
-            <div class="typography-item">
-              <blockquote class="example-blockquote">
-                "The Profit Platform transformed our digital presence completely.
-                We're now getting 3x more leads every month!"
-                <cite>— Sarah Johnson, Local Business Owner</cite>
-              </blockquote>
-              <code>blockquote</code>
+          <div class="control-group">
+            <label class="control-label">Viewport</label>
+            <div class="viewport-switcher">
+              <button class="viewport-btn active" data-viewport="desktop" title="Desktop">
+                <i class="fas fa-desktop"></i>
+              </button>
+              <button class="viewport-btn" data-viewport="tablet" title="Tablet">
+                <i class="fas fa-tablet-alt"></i>
+              </button>
+              <button class="viewport-btn" data-viewport="mobile" title="Mobile">
+                <i class="fas fa-mobile-alt"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <!-- Color Palette Section -->
-    <section id="colors" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Color Palette</h2>
-          <p class="showcase-description">Brand colors and their usage across the design system</p>
+  <nav class="ds-sidebar" id="ds-sidebar">
+    <div class="sidebar-content">
+      <div class="nav-section">
+        <div class="nav-section-header">
+          <h3 class="nav-section-title">
+            <i class="fas fa-atom"></i>
+            <span>Design Tokens</span>
+          </h3>
+        </div>
+        <div class="nav-links">
+          <a href="#colors" class="nav-link">
+            <span class="link-icon"><i class="fas fa-palette"></i></span>
+            <span class="link-text">Colors</span>
+            <span class="link-badge">12</span>
+          </a>
+          <a href="#typography" class="nav-link">
+            <span class="link-icon"><i class="fas fa-font"></i></span>
+            <span class="link-text">Typography</span>
+            <span class="link-badge">6</span>
+          </a>
+        </div>
+      </div>
 
-          <div class="color-grid">
-            <div class="color-group">
-              <h3>Primary Colors</h3>
-              <div class="color-swatches">
-                <div class="color-swatch primary-blue">
-                  <div class="color-info">
-                    <strong>#4F46E5</strong>
-                    <span>Primary Blue</span>
-                  </div>
-                </div>
-                <div class="color-swatch primary-purple">
-                  <div class="color-info">
-                    <strong>#7C3AED</strong>
-                    <span>Primary Purple</span>
-                  </div>
-                </div>
-                <div class="color-swatch accent-orange">
-                  <div class="color-info">
-                    <strong>#FB7C1E</strong>
-                    <span>Accent Orange</span>
-                  </div>
-                </div>
+      <div class="nav-section">
+        <div class="nav-section-header">
+          <h3 class="nav-section-title">
+            <i class="fas fa-cubes"></i>
+            <span>Components</span>
+          </h3>
+        </div>
+        <div class="nav-links">
+          <a href="#buttons" class="nav-link">
+            <span class="link-icon"><i class="fas fa-hand-pointer"></i></span>
+            <span class="link-text">Buttons</span>
+            <span class="link-badge">8</span>
+            <span class="update-badge">Updated</span>
+          </a>
+          <a href="#forms" class="nav-link">
+            <span class="link-icon"><i class="fas fa-edit"></i></span>
+            <span class="link-text">Form Elements</span>
+            <span class="link-badge">12</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="ds-main" id="main-content">
+    <div class="main-content">
+      <section class="welcome-section">
+        <div class="welcome-content">
+          <div class="welcome-header">
+            <h1 class="welcome-title">Design System Playground</h1>
+            <p class="welcome-subtitle">
+              Interactive component library with live previews, multiple states,
+              responsive testing, and accessibility documentation.
+            </p>
+            <div class="welcome-stats">
+              <div class="stat">
+                <span class="stat-number">45+</span>
+                <span class="stat-label">Components</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">120+</span>
+                <span class="stat-label">Variants</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">AA</span>
+                <span class="stat-label">WCAG Compliant</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div class="color-group">
-              <h3>Status Colors</h3>
-              <div class="color-swatches">
-                <div class="color-swatch success-green">
-                  <div class="color-info">
-                    <strong>#10B981</strong>
-                    <span>Success</span>
-                  </div>
-                </div>
-                <div class="color-swatch warning-yellow">
-                  <div class="color-info">
-                    <strong>#F59E0B</strong>
-                    <span>Warning</span>
-                  </div>
-                </div>
-                <div class="color-swatch error-red">
-                  <div class="color-info">
-                    <strong>#EF4444</strong>
-                    <span>Error</span>
-                  </div>
-                </div>
-              </div>
+      <section id="colors" class="component-section" data-category="tokens">
+        <div class="section-header">
+          <div class="section-title-group">
+            <h2 class="section-title">
+              <span class="title-icon"><i class="fas fa-palette"></i></span>
+              Color System
+            </h2>
+            <div class="section-badges">
+              <span class="badge badge-token">Design Token</span>
+              <span class="badge badge-accessible">WCAG AA</span>
             </div>
+          </div>
+          <p class="section-description">
+            Carefully crafted color palette optimized for accessibility and brand consistency.
+          </p>
+        </div>
 
-            <div class="color-group">
-              <h3>Neutral Colors</h3>
-              <div class="color-swatches">
-                <div class="color-swatch gray-900">
-                  <div class="color-info">
-                    <strong>#111827</strong>
-                    <span>Gray 900</span>
+        <div class="component-preview">
+          <div class="preview-container">
+            <div class="color-grid">
+              <div class="color-group">
+                <h3 class="group-title">Primary Colors</h3>
+                <div class="color-swatches">
+                  <div class="color-swatch" data-color="#2c86f9">
+                    <div class="swatch-color" style="background: #2c86f9;"></div>
+                    <div class="swatch-info">
+                      <div class="swatch-name">Primary Blue</div>
+                      <div class="swatch-value">#2c86f9</div>
+                      <div class="swatch-contrast">
+                        <span class="contrast-ratio">4.8:1</span>
+                        <span class="contrast-badge aa">AA</span>
+                      </div>
+                    </div>
+                    <div class="swatch-actions">
+                      <button class="swatch-btn" data-action="copy" data-value="#2c86f9" title="Copy Color">
+                        <i class="fas fa-copy"></i>
+                      </button>
+                    </div>
                   </div>
-                </div>
-                <div class="color-swatch gray-600">
-                  <div class="color-info">
-                    <strong>#6B7280</strong>
-                    <span>Gray 600</span>
-                  </div>
-                </div>
-                <div class="color-swatch gray-100">
-                  <div class="color-info">
-                    <strong>#F3F4F6</strong>
-                    <span>Gray 100</span>
-                  </div>
-                </div>
-                <div class="color-swatch white">
-                  <div class="color-info">
-                    <strong>#FFFFFF</strong>
-                    <span>White</span>
+
+                  <div class="color-swatch" data-color="#1e6ee8">
+                    <div class="swatch-color" style="background: #1e6ee8;"></div>
+                    <div class="swatch-info">
+                      <div class="swatch-name">Primary Dark</div>
+                      <div class="swatch-value">#1e6ee8</div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Buttons Section -->
-    <section id="buttons" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Buttons</h2>
-          <p class="showcase-description">Button styles and variations used throughout the site</p>
-
-          <div class="button-examples">
-            <div class="button-group">
-              <h3>Primary Buttons</h3>
-              <div class="button-row">
-                <button class="btn btn-primary">Primary Button</button>
-                <button class="btn btn-primary btn-lg">Large Primary</button>
-                <button class="btn btn-primary" disabled>Disabled</button>
-                <button class="btn btn-primary btn-loading">
-                  <i class="fas fa-spinner fa-spin"></i>
-                  Loading...
-                </button>
-              </div>
-            </div>
-
-            <div class="button-group">
-              <h3>Secondary Buttons</h3>
-              <div class="button-row">
-                <button class="btn btn-secondary">Secondary Button</button>
-                <button class="btn btn-secondary btn-lg">Large Secondary</button>
-                <button class="btn btn-secondary" disabled>Disabled</button>
-              </div>
-            </div>
-
-            <div class="button-group">
-              <h3>Outline Buttons</h3>
-              <div class="button-row">
-                <button class="btn btn-outline">Outline Button</button>
-                <button class="btn btn-outline btn-lg">Large Outline</button>
-                <button class="btn btn-outline" disabled>Disabled</button>
-              </div>
-            </div>
-
-            <div class="button-group">
-              <h3>Link Buttons</h3>
-              <div class="button-row">
-                <a href="#" class="btn btn-link">Link Button</a>
-                <a href="#" class="btn btn-link btn-lg">Large Link</a>
-                <a href="#" class="btn btn-link" disabled>Disabled Link</a>
-              </div>
-            </div>
-
-            <div class="button-group">
-              <h3>CTA Buttons</h3>
-              <div class="button-row">
-                <button class="btn btn-cta">
-                  <i class="fas fa-rocket"></i>
-                  Get Started Free
-                  <i class="fas fa-arrow-right"></i>
-                </button>
-                <button class="btn btn-cta-secondary">
-                  <i class="fas fa-phone"></i>
-                  Call Now: 0487 286 451
-                </button>
-              </div>
+      <section id="buttons" class="component-section" data-category="components">
+        <div class="section-header">
+          <div class="section-title-group">
+            <h2 class="section-title">
+              <span class="title-icon"><i class="fas fa-hand-pointer"></i></span>
+              Button Components
+            </h2>
+            <div class="section-badges">
+              <span class="badge badge-component">Component</span>
+              <span class="badge badge-interactive">Interactive</span>
             </div>
           </div>
+          <p class="section-description">
+            Interactive button components with multiple variants and states.
+          </p>
         </div>
-      </div>
-    </section>
 
-    <!-- Form Elements Section -->
-    <section id="forms" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Form Elements</h2>
-          <p class="showcase-description">Input fields, form controls, and validation states</p>
-
-          <div class="form-examples">
-            <div class="form-group">
-              <h3>Text Inputs</h3>
-              <div class="form-demo">
-                <div class="form-field">
-                  <label for="demo-text" class="form-label">Text Input <span class="required">*</span></label>
-                  <input type="text" id="demo-text" class="form-input" placeholder="Enter text here">
-                </div>
-
-                <div class="form-field">
-                  <label for="demo-email" class="form-label">Email Input <span class="required">*</span></label>
-                  <input type="email" id="demo-email" class="form-input valid" placeholder="example@domain.com" value="valid@email.com">
-                </div>
-
-                <div class="form-field">
-                  <label for="demo-phone" class="form-label">Phone Input</label>
-                  <input type="tel" id="demo-phone" class="form-input error" placeholder="0400 000 000">
-                  <div class="field-error">Please enter a valid phone number</div>
+        <div class="component-preview">
+          <div class="preview-container">
+            <div class="button-playground">
+              <div class="variant-group">
+                <h4 class="variant-title">Button Variants</h4>
+                <div class="variant-buttons">
+                  <button class="btn btn-primary btn-md">Primary</button>
+                  <button class="btn btn-secondary btn-md">Secondary</button>
+                  <button class="btn btn-outline btn-md">Outline</button>
+                  <button class="btn btn-ghost btn-md">Ghost</button>
+                  <button class="btn btn-primary btn-md" disabled>Disabled</button>
                 </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <h3>Select & Textarea</h3>
-              <div class="form-demo">
-                <div class="form-field">
-                  <label for="demo-select" class="form-label">Select Dropdown</label>
-                  <select id="demo-select" class="form-select">
-                    <option value="">Choose an option</option>
-                    <option value="option1">Option 1</option>
-                    <option value="option2">Option 2</option>
-                    <option value="option3">Option 3</option>
-                  </select>
-                </div>
-
-                <div class="form-field">
-                  <label for="demo-textarea" class="form-label">Textarea</label>
-                  <textarea id="demo-textarea" class="form-textarea" rows="4" placeholder="Enter your message here..."></textarea>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <h3>Checkboxes & Radio</h3>
-              <div class="form-demo">
-                <div class="checkbox-group">
-                  <input type="checkbox" id="demo-check1" class="form-checkbox">
-                  <label for="demo-check1">Checkbox Option 1</label>
-                </div>
-
-                <div class="checkbox-group">
-                  <input type="checkbox" id="demo-check2" class="form-checkbox" checked>
-                  <label for="demo-check2">Checkbox Option 2 (Checked)</label>
-                </div>
-
-                <div class="radio-group">
-                  <input type="radio" id="demo-radio1" name="demo-radio" class="form-radio">
-                  <label for="demo-radio1">Radio Option 1</label>
-                </div>
-
-                <div class="radio-group">
-                  <input type="radio" id="demo-radio2" name="demo-radio" class="form-radio" checked>
-                  <label for="demo-radio2">Radio Option 2 (Selected)</label>
+              <div class="variant-group">
+                <h4 class="variant-title">Button Sizes</h4>
+                <div class="variant-buttons">
+                  <button class="btn btn-primary btn-sm">Small</button>
+                  <button class="btn btn-primary btn-md">Medium</button>
+                  <button class="btn btn-primary btn-lg">Large</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Icons Section -->
-    <section id="icons" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Icons</h2>
-          <p class="showcase-description">Font Awesome icons used throughout the design system</p>
-
-          <div class="icon-examples">
-            <div class="icon-group">
-              <h3>Navigation Icons</h3>
-              <div class="icon-grid">
-                <div class="icon-item">
-                  <i class="fas fa-home"></i>
-                  <span>fa-home</span>
-                </div>
-                <div class="icon-item">
-                  <i class="fas fa-rocket"></i>
-                  <span>fa-rocket</span>
-                </div>
-                <div class="icon-item">
-                  <i class="fas fa-dollar-sign"></i>
-                  <span>fa-dollar-sign</span>
-                </div>
-                <div class="icon-item">
-                  <i class="fas fa-envelope"></i>
-                  <span>fa-envelope</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="icon-group">
-              <h3>Service Icons</h3>
-              <div class="icon-grid">
-                <div class="icon-item">
-                  <i class="fas fa-search"></i>
-                  <span>fa-search</span>
-                </div>
-                <div class="icon-item">
-                  <i class="fas fa-bullhorn"></i>
-                  <span>fa-bullhorn</span>
-                </div>
-                <div class="icon-item">
-                  <i class="fas fa-laptop-code"></i>
-                  <span>fa-laptop-code</span>
-                </div>
-                <div class="icon-item">
-                  <i class="fas fa-chart-line"></i>
-                  <span>fa-chart-line</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="icon-group">
-              <h3>UI Icons</h3>
-              <div class="icon-grid">
-                <div class="icon-item">
-                  <i class="fas fa-check"></i>
-                  <span>fa-check</span>
-                </div>
-                <div class="icon-item">
-                  <i class="fas fa-times"></i>
-                  <span>fa-times</span>
-                </div>
-                <div class="icon-item">
-                  <i class="fas fa-arrow-right"></i>
-                  <span>fa-arrow-right</span>
-                </div>
-                <div class="icon-item">
-                  <i class="fas fa-spinner fa-spin"></i>
-                  <span>fa-spinner</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Alert Messages -->
-    <section id="alerts" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Alert Messages</h2>
-          <p class="showcase-description">Success, warning, error, and info message styles</p>
-
-          <div class="alert-examples">
-            <div class="alert alert-success">
-              <div class="alert-icon">
-                <i class="fas fa-check-circle"></i>
-              </div>
-              <div class="alert-content">
-                <strong>Success!</strong> Your message has been sent successfully.
-              </div>
-            </div>
-
-            <div class="alert alert-warning">
-              <div class="alert-icon">
-                <i class="fas fa-exclamation-triangle"></i>
-              </div>
-              <div class="alert-content">
-                <strong>Warning!</strong> Please check your form inputs.
-              </div>
-            </div>
-
-            <div class="alert alert-error">
-              <div class="alert-icon">
-                <i class="fas fa-exclamation-circle"></i>
-              </div>
-              <div class="alert-content">
-                <strong>Error!</strong> Something went wrong. Please try again.
-              </div>
-            </div>
-
-            <div class="alert alert-info">
-              <div class="alert-icon">
-                <i class="fas fa-info-circle"></i>
-              </div>
-              <div class="alert-content">
-                <strong>Info:</strong> This is an informational message.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section Components -->
-    <section id="hero" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Hero Section</h2>
-          <p class="showcase-description">Main landing page hero with headline, description, and CTA</p>
-        </div>
-      </div>
-      <div class="component-demo">
-        <HeroSection />
-      </div>
-    </section>
-
-    <section id="trusted-by" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Trust Signals & Counters</h2>
-          <p class="showcase-description">Animated counters and trust indicators</p>
-        </div>
-      </div>
-      <div class="component-demo">
-        <TrustedBySection />
-      </div>
-    </section>
-
-    <section id="proof" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Social Proof</h2>
-          <p class="showcase-description">Client testimonials and case studies</p>
-        </div>
-      </div>
-      <div class="component-demo">
-        <ProofSection />
-      </div>
-    </section>
-
-    <section id="services" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Services Section</h2>
-          <p class="showcase-description">Service offerings with cards and descriptions</p>
-        </div>
-      </div>
-      <div class="component-demo">
-        <ServicesSection />
-      </div>
-    </section>
-
-    <section id="process" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Process Steps</h2>
-          <p class="showcase-description">Step-by-step workflow visualization</p>
-        </div>
-      </div>
-      <div class="component-demo">
-        <ProcessSection />
-      </div>
-    </section>
-
-    <section id="pricing" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Pricing Section</h2>
-          <p class="showcase-description">Pricing plans and packages</p>
-        </div>
-      </div>
-      <div class="component-demo">
-        <PricingSection />
-      </div>
-    </section>
-
-    <section id="faq" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">FAQ Section</h2>
-          <p class="showcase-description">Expandable frequently asked questions</p>
-        </div>
-      </div>
-      <div class="component-demo">
-        <FAQSection />
-      </div>
-    </section>
-
-    <section id="contact" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Contact Section</h2>
-          <p class="showcase-description">Contact form and information</p>
-        </div>
-      </div>
-      <div class="component-demo">
-        <ContactSection />
-      </div>
-    </section>
-
-    <section id="footer" class="showcase-section">
-      <div class="container">
-        <div class="showcase-item">
-          <h2 class="showcase-heading">Footer Section</h2>
-          <p class="showcase-description">Site footer with links and contact info</p>
-        </div>
-      </div>
-      <div class="component-demo">
-        <FooterSection />
-      </div>
-    </section>
-
-    <!-- Usage Guidelines -->
-    <section class="usage-guidelines section">
-      <div class="container">
-        <h2 class="section-title">Usage Guidelines</h2>
-        <div class="guidelines-grid">
-          <div class="guideline-card">
-            <h3>Typography</h3>
-            <ul>
-              <li>Use Inter font family for all text</li>
-              <li>Maintain consistent line heights</li>
-              <li>Stick to the defined font weights</li>
-              <li>Use proper heading hierarchy</li>
-            </ul>
-          </div>
-
-          <div class="guideline-card">
-            <h3>Colors</h3>
-            <ul>
-              <li>Use primary colors for main CTAs</li>
-              <li>Apply status colors for form validation</li>
-              <li>Maintain sufficient contrast ratios</li>
-              <li>Test colors for accessibility</li>
-            </ul>
-          </div>
-
-          <div class="guideline-card">
-            <h3>Spacing</h3>
-            <ul>
-              <li>Use consistent margin/padding scales</li>
-              <li>Follow the 8px grid system</li>
-              <li>Maintain breathing room between elements</li>
-              <li>Align elements to the baseline grid</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <!-- Showcase-specific styles -->
+  <div class="toast-container" id="toast-container"></div>
+
   <style>
-    /* Showcase Page Styles */
-    .showcase-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    /* Design System Styles */
+    :root {
+      --ds-sidebar-width: 280px;
+      --ds-header-height: 80px;
+      --ds-primary: #2c86f9;
+      --ds-gray-50: #f8fafc;
+      --ds-gray-100: #f1f5f9;
+      --ds-gray-200: #e2e8f0;
+      --ds-gray-600: #475569;
+      --ds-gray-700: #334155;
+      --ds-gray-800: #1e293b;
+      --ds-gray-900: #0f172a;
+      --ds-success: #10b981;
+      --ds-warning: #f59e0b;
+      --ds-error: #ef4444;
+      --ds-info: #3b82f6;
+      --ds-radius: 0.75rem;
+      --ds-radius-sm: 0.375rem;
+      --ds-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --ds-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--ds-gray-50);
+      overflow-x: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 8px;
+      background: var(--ds-primary);
       color: white;
-      padding: 3rem 0;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 600;
+      z-index: 10000;
+    }
+
+    .skip-link:focus {
+      top: 8px;
+    }
+
+    .ds-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--ds-header-height);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--ds-gray-200);
+      z-index: 1000;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      gap: 2rem;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--ds-primary), var(--ds-info));
+      border-radius: var(--ds-radius-sm);
+      color: white;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ds-gray-900);
+      margin: 0;
+    }
+
+    .brand-subtitle {
+      font-size: 0.75rem;
+      color: var(--ds-gray-600);
+      font-weight: 500;
+    }
+
+    .search-container {
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.5rem;
+      border: 1px solid var(--ds-gray-200);
+      border-radius: var(--ds-radius-sm);
+      font-size: 0.875rem;
+      background: white;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 0.875rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ds-gray-600);
+    }
+
+    .search-wrapper {
+      position: relative;
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .control-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--ds-gray-600);
+      text-transform: uppercase;
+    }
+
+    .theme-switcher,
+    .viewport-switcher {
+      display: flex;
+      background: var(--ds-gray-100);
+      border-radius: var(--ds-radius-sm);
+      padding: 2px;
+    }
+
+    .theme-btn,
+    .viewport-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 32px;
+      background: none;
+      border: none;
+      border-radius: calc(var(--ds-radius-sm) - 2px);
+      color: var(--ds-gray-600);
+      cursor: pointer;
+      transition: var(--ds-transition);
+    }
+
+    .theme-btn.active,
+    .viewport-btn.active {
+      background: white;
+      color: var(--ds-primary);
+      box-shadow: var(--ds-shadow);
+    }
+
+    .ds-sidebar {
+      position: fixed;
+      top: var(--ds-header-height);
+      left: 0;
+      width: var(--ds-sidebar-width);
+      height: calc(100vh - var(--ds-header-height));
+      background: white;
+      border-right: 1px solid var(--ds-gray-200);
+      overflow-y: auto;
+      z-index: 900;
+    }
+
+    .sidebar-content {
+      padding: 1.5rem 0;
+    }
+
+    .nav-section {
+      margin-bottom: 2rem;
+    }
+
+    .nav-section-header {
+      padding: 0 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .nav-section-title {
+      display: flex;
+      align-items: center;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ds-gray-700);
+      margin: 0;
+    }
+
+    .nav-section-title i {
+      margin-right: 0.5rem;
+      color: var(--ds-gray-600);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1.5rem;
+      color: var(--ds-gray-700);
+      text-decoration: none;
+      transition: var(--ds-transition);
+    }
+
+    .nav-link:hover {
+      background: var(--ds-gray-50);
+      color: var(--ds-primary);
+    }
+
+    .link-text {
+      flex: 1;
+      font-weight: 500;
+    }
+
+    .link-badge {
+      font-size: 0.75rem;
+      background: var(--ds-gray-200);
+      color: var(--ds-gray-600);
+      padding: 0.125rem 0.5rem;
+      border-radius: 1rem;
+    }
+
+    .update-badge {
+      font-size: 0.625rem;
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      background: var(--ds-warning);
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .ds-main {
+      margin-left: var(--ds-sidebar-width);
+      margin-top: var(--ds-header-height);
+      min-height: calc(100vh - var(--ds-header-height));
+    }
+
+    .main-content {
+      padding: 2rem;
+    }
+
+    .welcome-section {
+      margin-bottom: 4rem;
+    }
+
+    .welcome-content {
+      background: linear-gradient(135deg, var(--ds-primary), var(--ds-info));
+      border-radius: var(--ds-radius);
+      padding: 3rem;
+      color: white;
       text-align: center;
     }
 
-    .showcase-title {
-      font-size: 2.5rem;
+    .welcome-title {
+      font-size: 3rem;
       font-weight: 800;
-      margin-bottom: 1rem;
+      margin: 0 0 1rem 0;
     }
 
-    .showcase-subtitle {
-      font-size: 1.125rem;
+    .welcome-subtitle {
+      font-size: 1.25rem;
+      margin: 0 0 2rem 0;
       opacity: 0.9;
-      margin-bottom: 1.5rem;
     }
 
-    .showcase-meta {
+    .welcome-stats {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 3rem;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
       font-size: 0.875rem;
       opacity: 0.8;
     }
 
-    /* Table of Contents */
-    .toc-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+    .component-section {
+      margin-bottom: 4rem;
+      background: white;
+      border-radius: var(--ds-radius);
+      overflow: hidden;
+      box-shadow: var(--ds-shadow);
     }
 
-    .toc-list {
-      list-style: none;
-      padding: 0;
+    .section-header {
+      padding: 2rem;
+      border-bottom: 1px solid var(--ds-gray-100);
     }
 
-    .toc-list li {
-      margin-bottom: 0.5rem;
+    .section-title-group {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1rem;
     }
 
-    .toc-list a {
-      color: #4f46e5;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .toc-list a:hover {
-      color: #3730a3;
-      text-decoration: underline;
-    }
-
-    /* Showcase Sections */
-    .showcase-section {
-      padding: 4rem 0;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .showcase-item {
-      margin-bottom: 3rem;
-    }
-
-    .showcase-heading {
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
       font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #111827;
+      color: var(--ds-gray-900);
+      margin: 0;
     }
 
-    .showcase-description {
-      color: #6b7280;
+    .title-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--ds-gray-100);
+      border-radius: var(--ds-radius-sm);
+      color: var(--ds-primary);
+    }
+
+    .section-badges {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--ds-radius-sm);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-token {
+      background: var(--ds-gray-100);
+      color: var(--ds-gray-700);
+    }
+
+    .badge-accessible {
+      background: var(--ds-success);
+      color: white;
+    }
+
+    .badge-component {
+      background: var(--ds-info);
+      color: white;
+    }
+
+    .badge-interactive {
+      background: var(--ds-warning);
+      color: white;
+    }
+
+    .section-description {
+      color: var(--ds-gray-600);
       font-size: 1.125rem;
-      margin-bottom: 2rem;
+      line-height: 1.6;
+      margin: 0;
     }
 
-    .component-demo {
-      border: 2px dashed #d1d5db;
-      border-radius: 0.5rem;
-      margin: 2rem 0;
+    .component-preview {
+      padding: 2rem;
+    }
+
+    .preview-container {
+      border: 1px solid var(--ds-gray-200);
+      border-radius: var(--ds-radius-sm);
       overflow: hidden;
     }
 
-    /* Typography Examples */
-    .typography-examples {
-      space-y: 2rem;
-    }
-
-    .typography-item {
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: #f9fafb;
-      border-radius: 0.5rem;
-      border-left: 4px solid #4f46e5;
-    }
-
-    .typography-item code {
-      display: block;
-      margin-top: 0.5rem;
-      font-size: 0.875rem;
-      color: #6b7280;
-      background: #f3f4f6;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.25rem;
-    }
-
-    .example-h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      color: #111827;
-      margin-bottom: 1rem;
-    }
-
-    .example-h2 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      color: #111827;
-      margin-bottom: 0.75rem;
-    }
-
-    .example-h3 {
-      font-size: 1.875rem;
-      font-weight: 600;
-      color: #111827;
-      margin-bottom: 0.5rem;
-    }
-
-    .example-h4 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #111827;
-      margin-bottom: 0.5rem;
-    }
-
-    .example-paragraph {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #374151;
-      margin-bottom: 1rem;
-    }
-
-    .example-lead {
-      font-size: 1.125rem;
-      line-height: 1.6;
-      color: #4b5563;
-      margin-bottom: 1rem;
-    }
-
-    .example-blockquote {
-      border-left: 4px solid #e5e7eb;
-      padding-left: 1rem;
-      font-style: italic;
-      color: #6b7280;
-      margin: 1rem 0;
-    }
-
-    .example-blockquote cite {
-      display: block;
-      margin-top: 0.5rem;
-      font-style: normal;
-      font-weight: 500;
-      color: #374151;
-    }
-
-    /* Color Palette */
     .color-grid {
-      display: grid;
-      gap: 2rem;
+      padding: 2rem;
     }
 
-    .color-group h3 {
-      margin-bottom: 1rem;
+    .color-group {
+      margin-bottom: 2rem;
+    }
+
+    .group-title {
       font-size: 1.25rem;
       font-weight: 600;
+      color: var(--ds-gray-900);
+      margin: 0 0 1rem 0;
     }
 
     .color-swatches {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 1rem;
     }
 
     .color-swatch {
-      height: 100px;
-      border-radius: 0.5rem;
-      display: flex;
-      align-items: end;
-      position: relative;
+      background: white;
+      border: 1px solid var(--ds-gray-200);
+      border-radius: var(--ds-radius-sm);
       overflow: hidden;
     }
 
-    .color-info {
-      background: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 0.5rem;
-      width: 100%;
-      text-align: center;
+    .swatch-color {
+      height: 80px;
     }
 
-    .color-info strong {
-      display: block;
+    .swatch-info {
+      padding: 1rem;
+    }
+
+    .swatch-name {
+      font-weight: 600;
+      color: var(--ds-gray-900);
+      margin-bottom: 0.25rem;
+    }
+
+    .swatch-value {
+      font-family: 'Monaco', monospace;
       font-size: 0.875rem;
+      color: var(--ds-gray-600);
+      margin-bottom: 0.5rem;
     }
 
-    .color-info span {
-      font-size: 0.75rem;
-      opacity: 0.9;
-    }
-
-    /* Color Definitions */
-    .primary-blue { background: #4F46E5; }
-    .primary-purple { background: #7C3AED; }
-    .accent-orange { background: #FB7C1E; }
-    .success-green { background: #10B981; }
-    .warning-yellow { background: #F59E0B; }
-    .error-red { background: #EF4444; }
-    .gray-900 { background: #111827; }
-    .gray-600 { background: #6B7280; }
-    .gray-100 { background: #F3F4F6; }
-    .white { background: #FFFFFF; border: 1px solid #E5E7EB; }
-
-    /* Button Examples */
-    .button-examples {
-      space-y: 2rem;
-    }
-
-    .button-group {
-      margin-bottom: 2rem;
-    }
-
-    .button-group h3 {
-      margin-bottom: 1rem;
-      font-size: 1.125rem;
-      font-weight: 600;
-    }
-
-    .button-row {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    /* Form Examples */
-    .form-examples {
-      space-y: 2rem;
-    }
-
-    .form-group h3 {
-      margin-bottom: 1rem;
-      font-size: 1.125rem;
-      font-weight: 600;
-    }
-
-    .form-demo {
-      background: #f9fafb;
-      padding: 2rem;
-      border-radius: 0.5rem;
-      border: 1px solid #e5e7eb;
-    }
-
-    .form-field {
-      margin-bottom: 1rem;
-    }
-
-    .checkbox-group, .radio-group {
+    .swatch-contrast {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 0.5rem;
     }
 
-    /* Icon Examples */
-    .icon-examples {
-      space-y: 2rem;
+    .contrast-ratio {
+      font-size: 0.75rem;
+      color: var(--ds-gray-600);
     }
 
-    .icon-group h3 {
-      margin-bottom: 1rem;
-      font-size: 1.125rem;
+    .contrast-badge.aa {
+      font-size: 0.625rem;
+      padding: 0.125rem 0.375rem;
+      border-radius: 0.25rem;
+      background: var(--ds-success);
+      color: white;
       font-weight: 600;
     }
 
-    .icon-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
+    .swatch-actions {
+      display: flex;
+      padding: 0.5rem 1rem 1rem;
     }
 
-    .icon-item {
-      text-align: center;
-      padding: 1rem;
-      background: #f9fafb;
-      border-radius: 0.5rem;
-      border: 1px solid #e5e7eb;
-    }
-
-    .icon-item i {
-      font-size: 1.5rem;
-      color: #4f46e5;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .icon-item span {
-      font-size: 0.875rem;
-      color: #6b7280;
-    }
-
-    /* Alert Examples */
-    .alert-examples {
-      space-y: 1rem;
-    }
-
-    .alert {
+    .swatch-btn {
       display: flex;
       align-items: center;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      gap: 0.75rem;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--ds-gray-100);
+      border: none;
+      border-radius: var(--ds-radius-sm);
+      color: var(--ds-gray-600);
+      cursor: pointer;
+      transition: var(--ds-transition);
     }
 
-    .alert-icon {
-      flex-shrink: 0;
-      font-size: 1.25rem;
+    .swatch-btn:hover {
+      background: var(--ds-primary);
+      color: white;
     }
 
-    .alert-success {
-      background: #ecfdf5;
-      border: 1px solid #d1fae5;
-      color: #065f46;
-    }
-
-    .alert-warning {
-      background: #fffbeb;
-      border: 1px solid #fed7aa;
-      color: #92400e;
-    }
-
-    .alert-error {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #991b1b;
-    }
-
-    .alert-info {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      color: #1e40af;
-    }
-
-    /* Usage Guidelines */
-    .guidelines-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
-    .guideline-card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 0.5rem;
+    .button-playground {
       padding: 2rem;
     }
 
-    .guideline-card h3 {
-      margin-bottom: 1rem;
-      font-size: 1.25rem;
+    .variant-group {
+      background: white;
+      border: 1px solid var(--ds-gray-200);
+      border-radius: var(--ds-radius-sm);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .variant-title {
+      font-size: 1.125rem;
       font-weight: 600;
-      color: #111827;
+      color: var(--ds-gray-900);
+      margin: 0 0 1rem 0;
     }
 
-    .guideline-card ul {
-      list-style: none;
-      padding: 0;
+    .variant-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .guideline-card li {
-      margin-bottom: 0.5rem;
-      padding-left: 1rem;
-      position: relative;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: var(--ds-radius-sm);
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--ds-transition);
     }
 
-    .guideline-card li::before {
-      content: '•';
-      color: #4f46e5;
-      position: absolute;
-      left: 0;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--ds-primary), var(--ds-info));
+      color: white;
     }
 
-    /* Responsive */
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(44, 134, 249, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--ds-gray-600);
+      color: white;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ds-primary);
+      border: 2px solid var(--ds-primary);
+    }
+
+    .btn-outline:hover:not(:disabled) {
+      background: var(--ds-primary);
+      color: white;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--ds-gray-600);
+    }
+
+    .btn-ghost:hover:not(:disabled) {
+      background: var(--ds-gray-100);
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-sm {
+      padding: 0.5rem 1rem;
+      font-size: 0.8125rem;
+    }
+
+    .btn-md {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .btn-lg {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+    }
+
+    .container {
+      margin: 0 auto;
+      max-width: 1280px;
+      padding: 0 20px;
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      .ds-sidebar {
+        transform: translateX(-100%);
+      }
+
+      .ds-main {
+        margin-left: 0;
+      }
+
+      .header-controls {
+        display: none;
+      }
+    }
+
     @media (max-width: 768px) {
-      .showcase-title {
+      .main-content {
+        padding: 1rem;
+      }
+
+      .welcome-title {
         font-size: 2rem;
       }
 
-      .showcase-meta {
-        flex-direction: column;
-        gap: 0.5rem;
+      .welcome-stats {
+        gap: 1.5rem;
       }
 
-      .button-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .color-swatches {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      }
-
-      .icon-grid {
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      .variant-buttons {
+        justify-content: center;
       }
     }
   </style>
+
+  <script>
+    // Simple JavaScript for basic functionality
+    class SimpleDesignSystem {
+      constructor() {
+        this.init();
+      }
+
+      init() {
+        this.setupThemeToggle();
+        this.setupViewportToggle();
+        this.setupNavigation();
+        this.setupCopyButtons();
+      }
+
+      setupThemeToggle() {
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            document.documentElement.setAttribute('data-theme', e.target.dataset.theme);
+          });
+        });
+      }
+
+      setupViewportToggle() {
+        document.querySelectorAll('.viewport-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            document.querySelectorAll('.viewport-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+
+            const viewport = e.target.dataset.viewport;
+            const widths = { desktop: '100%', tablet: '768px', mobile: '375px' };
+
+            document.querySelectorAll('.preview-container').forEach(container => {
+              container.style.maxWidth = widths[viewport];
+              container.style.margin = viewport === 'desktop' ? '' : '0 auto';
+            });
+          });
+        });
+      }
+
+      setupNavigation() {
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          });
+        });
+      }
+
+      setupCopyButtons() {
+        document.querySelectorAll('.swatch-btn[data-action="copy"]').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            const color = e.target.dataset.value;
+            navigator.clipboard.writeText(color);
+            this.showToast(`Copied ${color}!`);
+          });
+        });
+      }
+
+      showToast(message) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.textContent = message;
+        toast.style.cssText = `
+          position: fixed;
+          bottom: 20px;
+          right: 20px;
+          background: var(--ds-success);
+          color: white;
+          padding: 1rem;
+          border-radius: var(--ds-radius-sm);
+          z-index: 10000;
+        `;
+
+        document.body.appendChild(toast);
+        setTimeout(() => document.body.removeChild(toast), 3000);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new SimpleDesignSystem();
+    });
+  </script>
 </BaseLayout>
