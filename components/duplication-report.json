@@ -1,0 +1,47 @@
+{
+  "footer": {
+    "count": 16,
+    "totalLines": 727,
+    "files": [
+      "about.html",
+      "contact.html",
+      "disclaimer.html",
+      "google-ads-landing.html",
+      "google-ads.html",
+      "index-optimized.html",
+      "index.html",
+      "landingpage.html",
+      "portfolio.html",
+      "pricing.html",
+      "privacy-policy.html",
+      "privacy.html",
+      "seo.html",
+      "services (draft).html",
+      "terms.html",
+      "web-design.html"
+    ],
+    "averageSize": 45
+  },
+  "navigation": {
+    "count": 1,
+    "totalLines": 29,
+    "files": [
+      "index-optimized.html"
+    ],
+    "averageSize": 29
+  },
+  "contactForm": {
+    "count": 0,
+    "totalLines": 0,
+    "files": [],
+    "averageSize": 0
+  },
+  "testimonials": {
+    "count": 1,
+    "totalLines": 40,
+    "files": [
+      "contact.html"
+    ],
+    "averageSize": 40
+  }
+}
