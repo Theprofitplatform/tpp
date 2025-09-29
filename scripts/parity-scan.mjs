@@ -4,7 +4,7 @@ import { fetch } from "undici";
 import * as cheerio from "cheerio";
 
 const PROD = "https://theprofitplatform.com.au/";
-const LOCAL = "http://localhost:4322/";
+const LOCAL = "http://localhost:4321/";
 
 console.log("[parity-scan] Starting scan...");
 
