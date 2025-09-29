@@ -13,12 +13,19 @@
     "pm2:restart": "pm2 restart tpp-astro",
     "pm2:delete": "pm2 delete tpp-astro",
     "pm2:logs": "pm2 logs tpp-astro",
-    "pm2:status": "pm2 status"
+    "pm2:status": "pm2 status",
+    "fetch:prod": "node scripts/fetch-production.mjs",
+    "assets:download": "node scripts/download-assets.mjs",
+    "parity:scan": "node scripts/parity-scan.mjs",
+    "parity": "npm run fetch:prod && npm run assets:download && npm run build && npm run parity:scan",
+    "deploy": "npm run build && npx wrangler pages deploy dist --project-name=tpp",
+    "deploy:auto": "npm run parity && npx wrangler pages deploy dist --project-name=tpp"
   },
   "dependencies": {
     "@astrojs/cloudflare": "12.6.9",
     "@astrojs/node": "9.4.4",
     "astro": "^5.14.1",
-    "cheerio": "1.1.2"
+    "cheerio": "1.1.2",
+    "undici": "6.21.3"
   }
 }

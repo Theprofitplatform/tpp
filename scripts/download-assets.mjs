@@ -1,84 +1,104 @@
-#!/usr/bin/env node
+// Parse prod HTML, collect local asset URLs, download to /public, fix CSS url(...) references.
+import { readFile, writeFile, mkdir, stat, readdir } from "node:fs/promises";
+import { dirname, join } from "node:path";
+import { fetch } from "undici";
+import * as cheerio from "cheerio";
 
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+const ROOT = "https://theprofitplatform.com.au";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+console.log("[download-assets] Reading production HTML...");
+const html = await readFile(".cache/prod.html", "utf8");
+const $ = cheerio.load(html);
 
-// Critical assets that must exist for the site to work
-const criticalAssets = [
-  '/css/critical.min.css',
-  '/css/style.min.css',
-  '/css/loading-states.css',
-  '/css/modern-theme-variables.css',
-  '/css/navigation.css',
-  '/css/skip-links-fix.css',
-  '/css/main-content-spacing.css',
-  '/css/modern-theme-components.css',
-  '/css/dropdown-fix.css',
-  '/css/layout.css',
-  '/css/navigation-glass-enhanced.css',
-  '/css/hero-content-spacing.css',
-  '/css/hero-modern.css',
-  '/css/trust-signals-enhanced.css',
-  '/css/trust-signals-homepage-theme.css',
-  '/css/bundled.min.css',
-  '/css/fix-animations.css',
-  '/js/combined.min.js',
-  '/js/main.js',
-  '/js/homepage.js',
-  '/js/predictive-resource-loader.js',
-  '/test-phase2-performance.js',
-  '/assets/manifest.json'
-];
+// Collect asset URLs from head/body (local only, starting with "/" or relative)
+const urls = new Set();
+$("link[rel='stylesheet'][href]").each((_,el)=> {
+  const href = $(el).attr("href");
+  if (href) urls.add(href);
+});
+$("link[rel='icon'][href], link[rel='shortcut icon'][href], link[rel='apple-touch-icon'][href]").each((_,el)=> {
+  const href = $(el).attr("href");
+  if (href) urls.add(href);
+});
+$("script[src]").each((_,el)=> {
+  const src = $(el).attr("src");
+  if (src) urls.add(src);
+});
+$("img[src]").each((_,el)=> {
+  const src = $(el).attr("src");
+  if (src) urls.add(src);
+});
 
-async function downloadAsset(assetPath) {
+function toAbs(u){
+  if(!u || u.startsWith("http")) return u;
+  if(u.startsWith("//")) return "https:" + u;
+  if(u.startsWith("/")) return ROOT + u;
+  return ROOT + "/" + u.replace(/^\.?\//,"");
+}
+
+async function save(url, outPath){
+  await mkdir(dirname(outPath), { recursive: true });
+  const res = await fetch(url);
+  if(!res.ok) throw new Error(`Failed ${res.status} ${url}`);
+  const buf = Buffer.from(await res.arrayBuffer());
+  await writeFile(outPath, buf);
+  return buf.length;
+}
+
+console.log(`[download-assets] Found ${urls.size} potential assets`);
+
+const downloads = [];
+let downloadCount = 0;
+let totalBytes = 0;
+
+for(const u of urls){
+  if(!u || u.startsWith("http") || u.startsWith("//")) continue;
+  const abs = toAbs(u);
+  const rel = u.startsWith("/") ? u.slice(1) : u.replace(/^\.?\//,"");
+  const out = join("public", rel);
+
+  downloads.push(
+    save(abs, out)
+      .then((bytes) => {
+        downloadCount++;
+        totalBytes += bytes;
+        console.log(`[saved] ${rel} (${(bytes/1024).toFixed(1)}KB)`);
+      })
+      .catch(e => console.warn(`[miss] ${u} - ${e.message}`))
+  );
+}
+
+await Promise.all(downloads);
+
+// Rewrite CSS url(...) → absolute root if they were relative pathing
+async function* walk(dir){
   try {
-    const url = `https://theprofitplatform.com.au${assetPath}`;
-    const localPath = path.join(__dirname, '..', 'public', assetPath.slice(1));
-
-    // Create directory if it doesn't exist
-    const dir = path.dirname(localPath);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
+    for(const entry of await readdir(dir, { withFileTypes: true })){
+      const p = join(dir, entry.name);
+      if(entry.isDirectory()) yield* walk(p);
+      else yield p;
     }
-
-    // Skip if file already exists and has content
-    if (fs.existsSync(localPath) && fs.statSync(localPath).size > 0) {
-      console.log(`✓ ${assetPath} (already exists)`);
-      return;
-    }
-
-    console.log(`📥 Downloading ${assetPath}...`);
-    const response = await fetch(url);
-
-    if (response.ok) {
-      const content = await response.text();
-      fs.writeFileSync(localPath, content, 'utf8');
-      console.log(`✅ ${assetPath} (${(content.length/1024).toFixed(1)}KB)`);
-    } else {
-      console.log(`⚠️  ${assetPath} (HTTP ${response.status} - may not exist on production)`);
-    }
-  } catch (error) {
-    console.log(`❌ ${assetPath} (${error.message})`);
+  } catch(e) {
+    // Directory might not exist
   }
 }
 
-async function downloadAllAssets() {
-  console.log('🔽 Downloading critical assets from production...\n');
+let cssFixed = 0;
+for await (const file of walk("public")){
+  if(!file.endsWith(".css")) continue;
+  let css = await readFile(file, "utf8");
+  const original = css;
+  // url(../fonts/x.woff2) → url(/fonts/x.woff2)
+  css = css.replace(/url\((['"]?)\.\.\/fonts\//g, "url($1/fonts/");
+  css = css.replace(/url\((['"]?)\.\.\/images\//g, "url($1/images/");
+  css = css.replace(/url\((['"]?)\.\.\/assets\//g, "url($1/assets/");
 
-  for (const asset of criticalAssets) {
-    await downloadAsset(asset);
+  if (css !== original) {
+    await writeFile(file, css);
+    cssFixed++;
+    console.log(`[css-fixed] ${file}`);
   }
-
-  console.log('\n✅ Asset download complete!');
 }
 
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  downloadAllAssets();
-}
-
-export { downloadAllAssets };
+console.log(`[assets] Download complete: ${downloadCount} files, ${(totalBytes/1024).toFixed(1)}KB total`);
+if (cssFixed > 0) console.log(`[assets] Fixed ${cssFixed} CSS files for absolute paths`);
