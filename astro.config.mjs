@@ -1,21 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import node from '@astrojs/node';
-import cloudflare from '@astrojs/cloudflare';
 
-// https://astro.build/config
+// Phase 0 - Simple static config for exact parity
 export default defineConfig({
-  output: process.env.CF_PAGES ? 'static' : 'server',
-  adapter: process.env.CF_PAGES ? undefined : node({
-    mode: 'standalone'
-  }),
-  server: {
-    port: 3001,
-    host: true
-  },
+  output: 'static',
+  site: 'https://theprofitplatform.com.au',
+  base: '/',
+  trailingSlash: 'ignore',
   build: {
-    inlineStylesheets: 'auto'
-  },
-  // Cloudflare Pages configuration
-  site: 'https://tpp.theprofitplatform.com.au'
+    inlineStylesheets: 'never'
+  }
 });
