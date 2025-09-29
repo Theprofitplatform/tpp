@@ -41,3 +41,4 @@ All commands are run from the root of the project, from a terminal:
 ✅ **Automatic CI/CD**: GitHub Actions workflow
 ✅ **Optimized Build**: Cloudflare-specific optimizations
 ✅ **Custom Domains**: Production and preview environments
+<!-- Test comment for swarm system verification -->
