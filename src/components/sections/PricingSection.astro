@@ -1,0 +1,104 @@
+---
+// Pricing Section Component
+---
+
+<section class="pricing section animate-on-scroll" id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">💰 Simple Pricing</span>
+      <h2 class="section-title">Choose Your Growth Level</h2>
+      <p class="section-subtitle">No hidden fees, no lock-in contracts, no surprises. Just transparent pricing that scales with your success.</p>
+    </div>
+    <div class="pricing-toggle">
+      <span class="toggle-label">Monthly</span>
+      <div class="toggle-switch" id="pricingToggle">
+        <div class="toggle-knob"></div>
+      </div>
+      <span class="toggle-label">Annual (Save 20%)</span>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card animate-on-scroll">
+        <h3>Starter Growth</h3>
+        <p class="pricing-description">Perfect for small businesses ready to establish their online presence</p>
+        <div class="price-wrapper">
+          <span class="price" data-monthly="990" data-annual="792">$990</span>
+          <span class="price-period">/month</span>
+        </div>
+        <ul class="pricing-features">
+          <li>Local SEO optimization</li>
+          <li>Google My Business management</li>
+          <li>Basic website audit & fixes</li>
+          <li>Monthly progress reports</li>
+          <li>Email & phone support</li>
+          <li>No lock-in contracts</li>
+        </ul>
+        <div class="pricing-cta">
+          <a href="#contact" class="btn btn-secondary">
+            Get Started
+          </a>
+        </div>
+      </div>
+      <div class="pricing-card featured animate-on-scroll">
+        <div class="popular-badge">Most Popular</div>
+        <h3>Professional Growth</h3>
+        <p class="pricing-description">Comprehensive digital marketing for businesses serious about growth</p>
+        <div class="price-wrapper">
+          <span class="price" data-monthly="1990" data-annual="1592">$1,990</span>
+          <span class="price-period">/month</span>
+        </div>
+        <ul class="pricing-features">
+          <li>Everything in Starter Growth</li>
+          <li>Google & Meta Ads management</li>
+          <li>Advanced SEO & content marketing</li>
+          <li>Conversion rate optimization</li>
+          <li>Weekly strategy calls</li>
+          <li>Priority support & dedicated account manager</li>
+          <li>Performance guarantee</li>
+        </ul>
+        <div class="pricing-cta">
+          <a href="#contact" class="btn btn-primary">
+            Get Started
+          </a>
+        </div>
+      </div>
+      <div class="pricing-card animate-on-scroll">
+        <h3>Enterprise Domination</h3>
+        <p class="pricing-description">Complete market domination for established businesses</p>
+        <div class="price-wrapper">
+          <span class="price" data-monthly="3990" data-annual="3192">$3,990</span>
+          <span class="price-period">/month</span>
+        </div>
+        <ul class="pricing-features">
+          <li>Everything in Professional Growth</li>
+          <li>Full website redesign & optimization</li>
+          <li>Advanced analytics & attribution</li>
+          <li>Multi-location SEO management</li>
+          <li>Dedicated marketing team</li>
+          <li>Custom integrations & automation</li>
+          <li>Quarterly business reviews</li>
+        </ul>
+        <div class="pricing-cta">
+          <a href="#contact" class="btn btn-secondary">
+            Get Started
+          </a>
+        </div>
+        <p class="price-note">*Custom enterprise solutions available</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+document.addEventListener("DOMContentLoaded", () => {
+  const e = document.getElementById("pricingToggle"),
+    l = document.querySelectorAll(".price");
+  let n = !1;
+  e && e.addEventListener("click", () => {
+    n = !n, e.classList.toggle("active"), l.forEach(t => {
+      const o = t.getAttribute("data-monthly"),
+        a = t.getAttribute("data-annual");
+      n && a ? t.textContent = `$${parseInt(a).toLocaleString()}` : o && (t.textContent = `$${parseInt(o).toLocaleString()}`)
+    })
+  })
+});
+</script>

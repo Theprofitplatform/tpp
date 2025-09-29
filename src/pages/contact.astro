@@ -1,0 +1,1051 @@
+---
+// Enhanced Contact Page with improved UX, accessibility, and conversion optimization
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavigationSection from '../components/sections/NavigationSection.astro';
+import FooterSection from '../components/sections/FooterSection.astro';
+---
+
+<BaseLayout title="Contact The Profit Platform — Sydney Digital Marketing Experts">
+  <!-- Enhanced SEO Meta Tags -->
+  <Fragment slot="head">
+<!-- Primary Meta Tags -->
+<meta name="title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
+<meta name="description" content="Contact The Profit Platform for digital marketing, web design, and SEO services in Sydney. Call 0487 286 451 or email avi@theprofitplatform.com.au today.">
+<meta name="keywords" content="contact, digital marketing sydney, seo sydney, web design sydney, google ads sydney">
+<meta name="author" content="The Profit Platform">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="language" content="English">
+<meta name="geo.region" content="AU-NSW">
+<meta name="geo.placename" content="Sydney">
+<meta name="geo.position" content="-33.8688;151.2093">
+<meta name="ICBM" content="-33.8688, 151.2093">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theprofitplatform.com.au/contact">
+<meta property="og:title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
+<meta property="og:description" content="Get in touch with Sydney's digital marketing experts. Free consultation available. Call 0487 286 451 or email us today.">
+<meta property="og:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Contact The Profit Platform - Sydney Digital Marketing">
+<meta property="og:site_name" content="The Profit Platform">
+<meta property="og:locale" content="en_AU">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://theprofitplatform.com.au/contact">
+<meta property="twitter:title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
+<meta property="twitter:description" content="Get in touch with Sydney's digital marketing experts. Free consultation available. Call 0487 286 451 or email us today.">
+<meta property="twitter:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
+<meta property="twitter:image:alt" content="Contact The Profit Platform - Sydney Digital Marketing">
+<meta property="twitter:creator" content="@profitplatform">
+<meta property="twitter:site" content="@profitplatform">
+
+<!-- Additional Meta Tags -->
+<meta name="theme-color" content="#4F46E5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="The Profit Platform">
+<meta name="format-detection" content="telephone=yes">
+<meta name="msapplication-tap-highlight" content="no">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://theprofitplatform.com.au/contact">
+
+<!-- Alternate Language -->
+<link rel="alternate" hreflang="en-au" href="https://theprofitplatform.com.au/contact">
+<link rel="alternate" hreflang="x-default" href="https://theprofitplatform.com.au/contact">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="https://theprofitplatform.com.au/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://theprofitplatform.com.au/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://theprofitplatform.com.au/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://theprofitplatform.com.au/apple-touch-icon.png">
+<link rel="manifest" href="/assets/manifest.json">
+
+<!-- Performance and Resource Hints -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google.com">
+
+<!-- Preload Critical Resources -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<link rel="preload" href="/css/critical.min.css" as="style">
+<link rel="preload" href="/css/style.min.css" as="style">
+<link rel="preload" href="/js/vendor.js" as="script">
+<link rel="preload" href="/js/plugins.js" as="script">
+<link rel="preload" href="/js/main.js" as="script">
+<link rel="preload" href="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png" as="image" fetchpriority="high">
+
+<!-- Fallback for preload -->
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+
+<!-- Critical CSS inline for faster rendering -->
+<link rel="stylesheet" href="/css/critical.min.css">
+<link rel="stylesheet" href="/css/loading-states.css">
+
+<!-- External Resources - Load asynchronously -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
+<noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</noscript>
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="/css/style.min.css" media="all">
+<!-- Consolidated Navigation & Layout Styles -->
+<link rel="stylesheet" href="/css/modern-theme-variables.css" media="all">
+<link rel="stylesheet" href="/css/navigation.css" media="all">
+<link rel="stylesheet" href="/css/skip-links-fix.css" media="all">
+<link rel="stylesheet" href="/css/main-content-spacing.css" media="all">
+<link rel="stylesheet" href="/css/modern-theme-components.css" media="all">
+<link rel="stylesheet" href="/css/dropdown-fix.css" media="all">
+<link rel="stylesheet" href="/css/layout.css" media="all">
+<link rel="stylesheet" href="/css/navigation-glass-enhanced.css" media="all">
+<link rel="stylesheet" href="/css/hero-content-spacing.css" media="all">
+<link rel="stylesheet" href="/css/hero-modern.css" media="all">
+<link rel="stylesheet" href="/css/trust-signals-enhanced.css" media="all">
+<link rel="stylesheet" href="/css/trust-signals-homepage-theme.css" media="all">
+<!-- Bundled CSS for Performance -->
+<link rel="stylesheet" href="/css/bundled.min.css" media="all">
+
+<!-- Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FB947JWCFT');
+</script>
+
+<!-- Hotjar Tracking Code -->
+<script>
+(function(h,o,t,j,a,r){
+h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+h._hjSettings={hjid:6526316,hjsv:6};
+a=o.getElementsByTagName('head')[0];
+r=o.createElement('script');r.async=1;
+r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+a.appendChild(r);
+})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+    <!-- Enhanced JSON-LD Schema - ContactPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "url": "https://theprofitplatform.com.au/contact",
+      "name": "Contact The Profit Platform",
+      "description": "Contact The Profit Platform for digital marketing, web design, and SEO services in Sydney. Free consultation available.",
+      "mainEntity": {
+        "@type": "Organization",
+        "@id": "https://theprofitplatform.com.au/#organization",
+        "name": "The Profit Platform",
+        "url": "https://theprofitplatform.com.au/",
+        "telephone": "+61487286451",
+        "email": "avi@theprofitplatform.com.au",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sydney",
+          "addressRegion": "NSW",
+          "addressCountry": "AU"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+61487286451",
+          "contactType": "customer service",
+          "areaServed": "AU-NSW",
+          "availableLanguage": "en"
+        },
+        "areaServed": "Greater Sydney",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61574707582255",
+          "https://www.linkedin.com/company/theprofitplatform",
+          "https://www.instagram.com/theprofitplatformau"
+        ]
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://theprofitplatform.com.au/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://theprofitplatform.com.au/contact"
+          }
+        ]
+      }
+    }
+    </script>
+  </Fragment>
+
+  <NavigationSection />
+
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- Breadcrumbs -->
+    <section class="breadcrumb-section">
+      <div class="container">
+        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+          <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a href="/" itemprop="item">
+                <span itemprop="name">Home</span>
+              </a>
+              <meta itemprop="position" content="1" />
+            </li>
+            <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <span itemprop="name">Contact</span>
+              <meta itemprop="position" content="2" />
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Enhanced Contact Hero Section -->
+    <section class="contact-hero section animate-on-scroll">
+      <div class="container">
+        <div class="contact-hero-content">
+          <h1 class="contact-hero-title">Get in Touch</h1>
+          <p class="contact-hero-subtitle">Have questions about digital marketing? Ready to grow your Sydney business? We'd love to hear from you — we respond within 2 hours during business hours.</p>
+          <div class="contact-hero-highlights">
+            <div class="hero-highlight">
+              <i class="fas fa-clock" aria-hidden="true"></i>
+              <span>2-hour response time</span>
+            </div>
+            <div class="hero-highlight">
+              <i class="fas fa-gift" aria-hidden="true"></i>
+              <span>Free consultation</span>
+            </div>
+            <div class="hero-highlight">
+              <i class="fas fa-handshake" aria-hidden="true"></i>
+              <span>No obligation</span>
+            </div>
+            <div class="hero-highlight">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>Sydney local team</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Contact Form Section -->
+    <section class="contact section animate-on-scroll" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Start Your Growth Journey</h2>
+          <p class="section-subtitle">Fill out the form below and we'll get back to you with a custom growth strategy within 24 hours.</p>
+        </div>
+
+        <div class="contact-container">
+          <!-- Enhanced Contact Form -->
+          <div class="contact-form-wrapper">
+            <!-- Success Message (hidden by default) -->
+            <div id="form-success" class="form-message success-message" role="alert" aria-live="polite" style="display: none;">
+              <div class="message-icon">
+                <i class="fas fa-check-circle" aria-hidden="true"></i>
+              </div>
+              <div class="message-content">
+                <h3>Thank you for reaching out!</h3>
+                <p>We've received your message and will respond within 2 hours during business hours (Mon-Fri 9am-6pm, Sat 10am-2pm).</p>
+                <p>For urgent inquiries, call us directly at <a href="tel:+61487286451">0487 286 451</a></p>
+              </div>
+            </div>
+
+            <!-- Error Message (hidden by default) -->
+            <div id="form-error" class="form-message error-message" role="alert" aria-live="polite" style="display: none;">
+              <div class="message-icon">
+                <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+              </div>
+              <div class="message-content">
+                <h3>Oops! Something went wrong</h3>
+                <p>Please check your information and try again, or contact us directly at <a href="mailto:avi@theprofitplatform.com.au">avi@theprofitplatform.com.au</a></p>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <form id="contactForm" class="contact-form" method="POST" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name" class="form-label">
+                    Your Name <span class="required" aria-label="required">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    required
+                    aria-required="true"
+                    aria-describedby="name-error"
+                    placeholder="John Smith"
+                    autocomplete="given-name"
+                  >
+                  <div id="name-error" class="field-error" role="alert" aria-live="polite"></div>
+                </div>
+                <div class="form-group">
+                  <label for="business" class="form-label">Business Name</label>
+                  <input
+                    type="text"
+                    id="business"
+                    name="business"
+                    class="form-input"
+                    placeholder="Your Business"
+                    autocomplete="organization"
+                  >
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email" class="form-label">
+                    Email Address <span class="required" aria-label="required">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="form-input"
+                    required
+                    aria-required="true"
+                    aria-describedby="email-error"
+                    placeholder="john@business.com.au"
+                    autocomplete="email"
+                  >
+                  <div id="email-error" class="field-error" role="alert" aria-live="polite"></div>
+                </div>
+                <div class="form-group">
+                  <label for="phone" class="form-label">
+                    Phone Number <span class="required" aria-label="required">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    class="form-input"
+                    required
+                    aria-required="true"
+                    aria-describedby="phone-error"
+                    placeholder="0400 000 000"
+                    autocomplete="tel"
+                  >
+                  <div id="phone-error" class="field-error" role="alert" aria-live="polite"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="service" class="form-label">Service Interested In</label>
+                <select id="service" name="service" class="form-select">
+                  <option value="">Select a service</option>
+                  <option value="seo">Local SEO & Search Marketing</option>
+                  <option value="google-ads">Google Ads Management</option>
+                  <option value="web-design">Website Design & Development</option>
+                  <option value="social-media">Social Media Marketing</option>
+                  <option value="full-service">Full Service Digital Marketing</option>
+                  <option value="consultation">Free Marketing Consultation</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message" class="form-label">Tell us about your goals</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-textarea"
+                  rows="5"
+                  placeholder="What are you hoping to achieve with digital marketing? Any specific challenges you're facing?"
+                ></textarea>
+              </div>
+
+              <!-- Enhanced Honeypot for spam prevention -->
+              <div class="honeypot" aria-hidden="true">
+                <label for="website">Website (leave blank)</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn">
+                <span class="btn-text">Get My Free Strategy Session</span>
+                <span class="btn-loading" style="display: none;">
+                  <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+                  Sending...
+                </span>
+                <i class="fas fa-arrow-right btn-icon" aria-hidden="true"></i>
+              </button>
+
+              <p class="form-disclaimer">
+                <i class="fas fa-lock" aria-hidden="true"></i>
+                Your information is 100% secure and will never be shared. We respect your privacy.
+              </p>
+            </form>
+          </div>
+          <!-- Contact Info -->
+          <div class="contact-info-wrapper" data-astro-cid-joh4gybl>
+            <div class="contact-info-card" data-astro-cid-joh4gybl>
+              <h3 data-astro-cid-joh4gybl>Get in Touch</h3>
+              <div class="contact-item" data-astro-cid-joh4gybl>
+                <i class="fas fa-phone" data-astro-cid-joh4gybl></i>
+                <div data-astro-cid-joh4gybl>
+                  <strong data-astro-cid-joh4gybl>Call Avi Directly:</strong>
+                  <a href="tel:+61487286451" data-astro-cid-joh4gybl>
+                    0487 286 451
+                  </a>
+                </div>
+              </div>
+              <div class="contact-item" data-astro-cid-joh4gybl>
+                <i class="fas fa-envelope" data-astro-cid-joh4gybl></i>
+                <div data-astro-cid-joh4gybl>
+                  <strong data-astro-cid-joh4gybl>Email Us:</strong>
+                  <a href="mailto:avi@theprofitplatform.com.au" data-astro-cid-joh4gybl>
+                    avi@theprofitplatform.com.au
+                  </a>
+                </div>
+              </div>
+              <div class="contact-item" data-astro-cid-joh4gybl>
+                <i class="fas fa-map-marker-alt" data-astro-cid-joh4gybl></i>
+                <div data-astro-cid-joh4gybl>
+                  <strong data-astro-cid-joh4gybl>Service Area:</strong>
+                  <span data-astro-cid-joh4gybl>Sydney, NSW</span>
+                </div>
+              </div>
+              <div class="contact-item" data-astro-cid-joh4gybl>
+                <i class="fas fa-clock" data-astro-cid-joh4gybl></i>
+                <div data-astro-cid-joh4gybl>
+                  <strong data-astro-cid-joh4gybl>Business Hours:</strong>
+                  <span data-astro-cid-joh4gybl>Mon-Fri 9am-6pm, Sat 10am-2pm</span>
+                </div>
+              </div>
+              <div class="response-time" data-astro-cid-joh4gybl>
+                <i class="fas fa-bolt" data-astro-cid-joh4gybl></i>
+                <strong data-astro-cid-joh4gybl>Average Response Time:</strong> 15 minutes during business hours
+              </div>
+              <div class="social-links" data-astro-cid-joh4gybl>
+                <a href="https://www.facebook.com/profile.php?id=61574707582255" target="_blank" rel="noopener noreferrer" aria-label="Facebook" data-astro-cid-joh4gybl>
+                  <i class="fab fa-facebook" data-astro-cid-joh4gybl></i>
+                </a>
+                <a href="https://linkedin.com/company/theprofitplatform" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-astro-cid-joh4gybl>
+                  <i class="fab fa-linkedin" data-astro-cid-joh4gybl></i>
+                </a>
+                <a href="https://www.instagram.com/theprofitplatformau" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-astro-cid-joh4gybl>
+                  <i class="fab fa-instagram" data-astro-cid-joh4gybl></i>
+                </a>
+              </div>
+            </div>
+            <div class="contact-benefits" data-astro-cid-joh4gybl>
+              <h4 data-astro-cid-joh4gybl>What Happens Next?</h4>
+              <ul data-astro-cid-joh4gybl>
+                <li data-astro-cid-joh4gybl><i class="fas fa-check" data-astro-cid-joh4gybl></i> Quick 15-minute discovery call</li>
+                <li data-astro-cid-joh4gybl><i class="fas fa-check" data-astro-cid-joh4gybl></i> Free audit of your current marketing</li>
+                <li data-astro-cid-joh4gybl><i class="fas fa-check" data-astro-cid-joh4gybl></i> Custom growth strategy proposal</li>
+                <li data-astro-cid-joh4gybl><i class="fas fa-check" data-astro-cid-joh4gybl></i> No obligation to proceed</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Direct Contact Section -->
+    <section class="direct-contact section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Reach Us Directly</h2>
+          <p class="section-subtitle">Prefer to reach out directly? Here are all the ways to get in touch with our Sydney team.</p>
+        </div>
+        <div class="direct-contact-grid">
+          <div class="direct-contact-card">
+            <div class="contact-card-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3>Call Us</h3>
+            <p>Speak directly with Avi about your digital marketing needs</p>
+            <a href="tel:+61487286451" class="contact-card-link">0487 286 451</a>
+            <span class="contact-availability">Available Mon-Fri 9am-6pm, Sat 10am-2pm</span>
+          </div>
+          <div class="direct-contact-card">
+            <div class="contact-card-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email Us</h3>
+            <p>Send us a detailed message about your project requirements</p>
+            <a href="mailto:avi@theprofitplatform.com.au" class="contact-card-link">avi@theprofitplatform.com.au</a>
+            <span class="contact-availability">Response within 2 hours during business hours</span>
+          </div>
+          <div class="direct-contact-card">
+            <div class="contact-card-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Service Area</h3>
+            <p>We serve businesses across Greater Sydney with both remote and in-person consultations</p>
+            <span class="contact-card-link">Sydney, NSW, Australia</span>
+            <span class="contact-availability">All suburbs including CBD, North Shore, Eastern Suburbs</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <FooterSection />
+
+<!-- External Scripts in specific order -->
+<script is:inline src="/js/vendor.js"></script>
+<script is:inline src="/js/plugins.js"></script>
+<script is:inline src="/js/main.js"></script>
+
+<!-- Enhanced Contact Form Scripts -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submit-btn');
+  const btnText = submitBtn.querySelector('.btn-text');
+  const btnLoading = submitBtn.querySelector('.btn-loading');
+  const successMessage = document.getElementById('form-success');
+  const errorMessage = document.getElementById('form-error');
+
+  // Form validation patterns
+  const validators = {
+    name: /^[a-zA-Z\s]{2,50}$/,
+    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+    phone: /^(\+61|0)[2-9]\d{8}$/
+  };
+
+  // Real-time validation
+  function validateField(field) {
+    const value = field.value.trim();
+    const fieldName = field.name;
+    const errorDiv = document.getElementById(fieldName + '-error');
+
+    let isValid = true;
+    let errorMessage = '';
+
+    if (field.hasAttribute('required') && !value) {
+      isValid = false;
+      errorMessage = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`;
+    } else if (value && validators[fieldName] && !validators[fieldName].test(value)) {
+      isValid = false;
+      switch(fieldName) {
+        case 'name':
+          errorMessage = 'Please enter a valid name (2-50 characters)';
+          break;
+        case 'email':
+          errorMessage = 'Please enter a valid email address';
+          break;
+        case 'phone':
+          errorMessage = 'Please enter a valid Australian phone number';
+          break;
+      }
+    }
+
+    // Update field styling and error message
+    if (isValid) {
+      field.classList.remove('error');
+      field.classList.add('valid');
+      errorDiv.textContent = '';
+    } else {
+      field.classList.remove('valid');
+      field.classList.add('error');
+      errorDiv.textContent = errorMessage;
+    }
+
+    return isValid;
+  }
+
+  // Add event listeners for real-time validation
+  ['name', 'email', 'phone'].forEach(fieldName => {
+    const field = document.getElementById(fieldName);
+    field.addEventListener('blur', () => validateField(field));
+    field.addEventListener('input', () => {
+      if (field.classList.contains('error')) {
+        validateField(field);
+      }
+    });
+  });
+
+  // Form submission
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate all required fields
+    const requiredFields = form.querySelectorAll('[required]');
+    let isFormValid = true;
+
+    requiredFields.forEach(field => {
+      if (!validateField(field)) {
+        isFormValid = false;
+      }
+    });
+
+    // Check honeypot
+    const honeypot = document.getElementById('website');
+    if (honeypot.value) {
+      console.log('Spam detected');
+      return;
+    }
+
+    if (!isFormValid) {
+      // Focus on first error field
+      const firstError = form.querySelector('.error');
+      if (firstError) {
+        firstError.focus();
+      }
+      return;
+    }
+
+    // Show loading state
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline-flex';
+
+    // Simulate form submission (replace with actual submission logic)
+    setTimeout(() => {
+      // Hide form and show success message
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      // Reset form (in case user wants to submit again)
+      setTimeout(() => {
+        form.reset();
+        form.querySelectorAll('.valid, .error').forEach(field => {
+          field.classList.remove('valid', 'error');
+        });
+        form.querySelectorAll('.field-error').forEach(error => {
+          error.textContent = '';
+        });
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+      }, 100);
+
+      // Track conversion (replace with actual tracking)
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', {
+          event_category: 'contact',
+          event_label: 'contact_form'
+        });
+      }
+    }, 2000);
+  });
+
+  // Show form again if user clicks "submit another inquiry"
+  const showFormAgain = document.createElement('button');
+  showFormAgain.textContent = 'Submit Another Inquiry';
+  showFormAgain.className = 'btn btn-secondary btn-sm';
+  showFormAgain.style.marginTop = '1rem';
+  showFormAgain.addEventListener('click', () => {
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+    form.style.display = 'block';
+  });
+  successMessage.appendChild(showFormAgain);
+
+  // Navigation toggle functionality
+  const menuToggle = document.getElementById('nav-toggle');
+  const primaryNav = document.getElementById('primary-nav');
+
+  if (menuToggle && primaryNav) {
+      menuToggle.addEventListener('click', function() {
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !isExpanded);
+          primaryNav.hidden = isExpanded;
+          primaryNav.setAttribute('aria-hidden', isExpanded);
+      });
+  }
+
+  // Handle mobile navigation if present
+  const mobileToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileOverlay = document.getElementById('mobileNavOverlay');
+  const mobileClose = document.getElementById('mobileNavClose');
+
+  function toggleMobileNav(show) {
+      if (mobileNav && mobileOverlay && mobileToggle) {
+          if (show) {
+              mobileNav.setAttribute('aria-hidden', 'false');
+              mobileOverlay.setAttribute('aria-hidden', 'false');
+              mobileToggle.setAttribute('aria-expanded', 'true');
+              document.body.style.overflow = 'hidden';
+          } else {
+              mobileNav.setAttribute('aria-hidden', 'true');
+              mobileOverlay.setAttribute('aria-hidden', 'true');
+              mobileToggle.setAttribute('aria-expanded', 'false');
+              document.body.style.overflow = '';
+          }
+      }
+  }
+
+  if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+          const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+          toggleMobileNav(!isExpanded);
+      });
+  }
+
+  if (mobileClose) {
+      mobileClose.addEventListener('click', () => toggleMobileNav(false));
+  }
+
+  if (mobileOverlay) {
+      mobileOverlay.addEventListener('click', () => toggleMobileNav(false));
+  }
+});
+</script>
+
+<!-- Contact Form Script -->
+<script type="module" src="/_astro/ContactSection.astro_astro_type_script_index_0_lang.C7RFDwbv.js"></script>
+
+<!-- JSON-LD Schema - ContactPage -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "url": "https://theprofitplatform.com.au/contact",
+  "name": "Contact The Profit Platform",
+  "description": "Contact The Profit Platform for digital marketing, web design, and SEO services in Sydney. Free consultation available.",
+  "mainEntity": {
+    "@type": "Organization",
+    "@id": "https://theprofitplatform.com.au/#organization",
+    "name": "The Profit Platform",
+    "url": "https://theprofitplatform.com.au/",
+    "telephone": "+61487286451",
+    "email": "avi@theprofitplatform.com.au",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sydney",
+      "addressRegion": "NSW",
+      "addressCountry": "AU"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+61487286451",
+      "contactType": "customer service",
+      "areaServed": "AU-NSW",
+      "availableLanguage": "English",
+      "hoursAvailable": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    },
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61574707582255",
+      "https://linkedin.com/company/theprofitplatform",
+      "https://www.instagram.com/theprofitplatformau"
+    ]
+  }
+}
+</script>
+
+<!-- JSON-LD Schema - LocalBusiness -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "The Profit Platform",
+  "url": "https://theprofitplatform.com.au/",
+  "telephone": "+61487286451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sydney",
+    "addressRegion": "NSW",
+    "addressCountry": "AU"
+  },
+  "areaServed": "Greater Sydney",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61574707582255",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://www.instagram.com/theprofitplatformau"
+  ]
+}
+</script>
+
+  <!-- Enhanced Contact Form Styles -->
+  <style>
+    /* Enhanced Contact Form Styles */
+    .contact-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+    }
+
+    .contact-hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .contact-hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .contact-hero-highlights {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-highlight {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-highlight i {
+      color: #fbbf24;
+    }
+
+    /* Enhanced Breadcrumbs */
+    .breadcrumb-section {
+      background: #f8fafc;
+      padding: 1rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .breadcrumb {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+    }
+
+    .breadcrumb-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .breadcrumb-item:not(:last-child)::after {
+      content: '›';
+      margin: 0 0.75rem;
+      color: #6b7280;
+    }
+
+    .breadcrumb-link {
+      color: #4f46e5;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s;
+    }
+
+    .breadcrumb-link:hover {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .breadcrumb-item.active {
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    /* Enhanced Form Styles */
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    .required {
+      color: #ef4444;
+      font-weight: 700;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: all 0.2s;
+      background: white;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .form-input.valid {
+      border-color: #10b981;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2310b981'%3e%3cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1rem;
+      padding-right: 2.5rem;
+    }
+
+    .form-input.error {
+      border-color: #ef4444;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23ef4444'%3e%3cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1rem;
+      padding-right: 2.5rem;
+    }
+
+    .field-error {
+      color: #ef4444;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    .honeypot {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Enhanced Form Messages */
+    .form-message {
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .success-message {
+      background: #ecfdf5;
+      border: 1px solid #d1fae5;
+      color: #065f46;
+    }
+
+    .error-message {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+
+    .message-icon {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+
+    .success-message .message-icon {
+      background: #10b981;
+      color: white;
+    }
+
+    .error-message .message-icon {
+      background: #ef4444;
+      color: white;
+    }
+
+    .message-content h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .message-content p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Enhanced Submit Button */
+    .btn-lg {
+      padding: 1rem 2rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      border: none;
+      color: white;
+      transform: translateY(0);
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-loading {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .contact-hero-title {
+        font-size: 2rem;
+      }
+
+      .contact-hero-highlights {
+        gap: 1rem;
+      }
+
+      .hero-highlight {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+</BaseLayout>
