@@ -18,7 +18,7 @@
       <div class="hero-content-modern">
         <h1 id="heroHeading" class="hero-title-modern" data-aos="fade-up">
           <span class="title-line">Sydney's Local</span>
-          <span class="title-gradient">Small Business Marketing Expert</span>
+          <span class="title-gradient typing-effect" id="typewriter-text"><strong>Small Business Marketing Expert</strong></span>
           <span class="title-highlight">Fresh Approach, Proven Methods</span>
         </h1>
         <p class="hero-subtitle-modern" data-aos="fade-up" data-aos-delay="100">
@@ -132,3 +132,65 @@
     </div>
   </div>
 </section>
+
+<style>
+.typing-effect {
+  display: inline-block;
+  min-height: 1.2em;
+}
+
+.typewriter-cursor {
+  animation: blink 1s infinite;
+  color: #667eea;
+  font-weight: 300;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; }
+}
+</style>
+
+<script>
+// Typing effect for Small Business Marketing Expert
+document.addEventListener('DOMContentLoaded', function() {
+  const targetElement = document.querySelector('#typewriter-text');
+  if (!targetElement) return;
+
+  const text = targetElement.textContent.trim();
+  targetElement.innerHTML = '<strong></strong>';
+  const strongElement = targetElement.querySelector('strong');
+
+  let index = 0;
+  let currentText = '';
+
+  // Create cursor
+  const cursor = document.createElement('span');
+  cursor.className = 'typewriter-cursor';
+  cursor.textContent = '|';
+  targetElement.appendChild(cursor);
+
+  function typeWriter() {
+    if (index < text.length) {
+      currentText += text[index];
+      strongElement.textContent = currentText;
+      index++;
+      setTimeout(typeWriter, 60);
+    } else {
+      // Remove cursor after typing is complete
+      setTimeout(() => {
+        cursor.style.animation = 'fadeOut 0.5s forwards';
+        setTimeout(() => cursor.remove(), 500);
+      }, 1000);
+    }
+  }
+
+  // Start typing after a delay
+  setTimeout(typeWriter, 800);
+});
+</script>
