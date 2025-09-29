@@ -1,10 +1,10 @@
 [
   {
-    "id": "cmd-sparc-1759161422237",
-    "type": "sparc",
+    "id": "cmd-agent-1759161571427",
+    "type": "agent",
     "success": true,
-    "duration": 2.3290700000000015,
-    "timestamp": 1759161422240,
+    "duration": 1.6514099999999985,
+    "timestamp": 1759161571428,
     "metadata": {}
   }
 ]

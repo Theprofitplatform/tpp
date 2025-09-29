@@ -201,26 +201,24 @@ import MobileStickyBar from './MobileStickyBar.astro';
 }
 
 /* CRITICAL FIX: Form step transitions with proper visibility */
+/* By default Step 1 is visible, Step 2 is hidden */
 .form-step {
   display: none;
+  animation: fadeInUp 0.4s ease;
 }
 
 .form-step.active {
   display: block !important;
-  animation: fadeInUp 0.4s ease;
 }
 
-/* Ensure Step 1 is visible by default */
+/* CRITICAL: Ensure Step 1 is ALWAYS visible by default, even if JS fails */
 #step1 {
-  display: block;
-}
-
-#step1.active {
   display: block !important;
 }
 
+/* Step 2 hidden by default, only shown when .active is added */
 #step2 {
-  display: none;
+  display: none !important;
 }
 
 #step2.active {
@@ -481,4 +479,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!-- Load Growth Form JavaScript -->
-<script type="module" src="/src/scripts/growth-form.js"></script>
+<script>
+  // Import growth form functionality
+  import '../../scripts/growth-form.js';
+</script>
