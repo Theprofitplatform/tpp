@@ -1,0 +1,205 @@
+---
+interface Props {
+  clientName: string;
+  industry: string;
+  beforeMetric: string;
+  afterMetric: string;
+  improvement: string;
+  testimonial: string;
+  timeline: string;
+}
+
+const { clientName, industry, beforeMetric, afterMetric, improvement, testimonial, timeline } = Astro.props;
+---
+
+<div class="success-card">
+  <div class="success-header">
+    <h3 class="client-name">{clientName}</h3>
+    <span class="industry-badge">{industry}</span>
+  </div>
+
+  <div class="metrics-comparison">
+    <div class="metric-box before">
+      <span class="metric-label">Before</span>
+      <span class="metric-value">{beforeMetric}</span>
+    </div>
+
+    <div class="arrow-container">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="metric-box after">
+      <span class="metric-label">After</span>
+      <span class="metric-value">{afterMetric}</span>
+    </div>
+  </div>
+
+  <div class="improvement-badge">
+    {improvement}
+  </div>
+
+  <blockquote class="testimonial">
+    "{testimonial}"
+  </blockquote>
+
+  <div class="timeline">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <circle cx="12" cy="12" r="10" stroke-width="2"/>
+      <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    {timeline}
+  </div>
+</div>
+
+<style>
+  .success-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid #f1f5f9;
+  }
+
+  .success-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+    border-color: #3B82F6;
+  }
+
+  .success-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .client-name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  .industry-badge {
+    padding: 6px 16px;
+    background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+    color: #1E40AF;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .metrics-comparison {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 24px;
+    background: linear-gradient(135deg, #F8FAFC, #F1F5F9);
+    border-radius: 16px;
+  }
+
+  .metric-box {
+    text-align: center;
+    padding: 16px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .metric-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .metric-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1e293b;
+  }
+
+  .metric-box.after .metric-value {
+    background: linear-gradient(135deg, #3B82F6, #1E40AF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .arrow-container {
+    color: #3B82F6;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  .improvement-badge {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: white;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  }
+
+  .testimonial {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #475569;
+    font-style: italic;
+    margin: 0 0 16px;
+    padding: 20px;
+    background: #F8FAFC;
+    border-left: 4px solid #3B82F6;
+    border-radius: 8px;
+  }
+
+  .timeline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .timeline svg {
+    color: #3B82F6;
+  }
+
+  @media (max-width: 640px) {
+    .success-card {
+      padding: 24px;
+    }
+
+    .metrics-comparison {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .arrow-container {
+      transform: rotate(90deg);
+    }
+
+    .metric-value {
+      font-size: 1.5rem;
+    }
+  }
+</style>
