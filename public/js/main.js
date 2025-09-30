@@ -946,10 +946,17 @@ function initializeHeader() {
 
 // Exit Intent Popup Functionality
 function initializeExitIntent() {
-    let exitPopupShown = false;
     const exitPopup = document.getElementById('exitPopup');
     const exitClose = document.getElementById('exitClose');
     const exitDecline = document.getElementById('exitDecline');
+    const exitOverlay = document.querySelector('.exit-popup-overlay');
+
+    // Only initialize if popup element exists
+    if (!exitPopup) {
+        return;
+    }
+
+    let exitPopupShown = false;
 
     // Show popup when mouse leaves viewport at top
     document.addEventListener('mouseleave', function(e) {
@@ -967,7 +974,7 @@ function initializeExitIntent() {
 
     // Show popup function
     function showExitPopup() {
-        if (exitPopupShown) return;
+        if (exitPopupShown || !exitPopup) return;
 
         exitPopupShown = true;
         exitPopup.classList.add('show');
@@ -984,7 +991,9 @@ function initializeExitIntent() {
 
     // Hide popup function
     function hideExitPopup() {
-        exitPopup.classList.remove('show');
+        if (exitPopup) {
+            exitPopup.classList.remove('show');
+        }
         document.body.style.overflow = '';
     }
 
@@ -998,7 +1007,9 @@ function initializeExitIntent() {
     }
 
     // Close on overlay click
-    document.querySelector('.exit-popup-overlay').addEventListener('click', hideExitPopup);
+    if (exitOverlay) {
+        exitOverlay.addEventListener('click', hideExitPopup);
+    }
 
     // Close on escape key
     document.addEventListener('keydown', (e) => {
