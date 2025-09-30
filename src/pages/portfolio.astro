@@ -2,25 +2,21 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NavigationSection from '../components/sections/NavigationSection.astro';
 import FooterSection from '../components/sections/FooterSection.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CTASection from '../components/sections/CTASection.astro';
+
+const pageTitle = "Portfolio | The Profit Platform";
+const pageDescription = "See real results from Sydney businesses we've helped grow. Case studies, testimonials, and proven digital marketing success stories.";
 ---
 
-<BaseLayout title="Portfolio | The Profit Platform - Sydney Digital Marketing">
+<BaseLayout title={pageTitle} description={pageDescription}>
   <NavigationSection />
 
-  <main id="main-content" role="main">
-    <!-- Hero Section -->
-    <section class="hero-portfolio py-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center">
-          <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            Our Work
-          </h1>
-          <p class="text-xl text-gray-600 leading-relaxed">
-            Real results from real Sydney businesses we've helped grow
-          </p>
-        </div>
-      </div>
-    </section>
+  <main id="main-content" role="main" class="min-h-screen">
+    <PageHero
+      title="Our Work"
+      subtitle="Real results from real Sydney businesses we've helped grow"
+    />
 
     <!-- Results Overview -->
     <section class="py-20">
@@ -187,18 +183,10 @@ import FooterSection from '../components/sections/FooterSection.astro';
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-br from-indigo-600 to-purple-600">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold text-white mb-6">Ready to See Similar Results?</h2>
-        <p class="text-xl text-indigo-100 mb-8">
-          Let's create a custom strategy for your business
-        </p>
-        <a href="/contact" class="inline-block bg-white text-indigo-600 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-colors">
-          Get Your Free Consultation
-        </a>
-      </div>
-    </section>
+    <CTASection
+      title="Ready to See Similar Results?"
+      subtitle="Let's create a custom strategy for your business"
+    />
   </main>
 
   <FooterSection />
