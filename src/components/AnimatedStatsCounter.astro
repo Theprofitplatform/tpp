@@ -1,0 +1,148 @@
+---
+interface Props {
+  stats: Array<{
+    value: string;
+    label: string;
+    suffix?: string;
+  }>;
+}
+
+const { stats } = Astro.props;
+---
+
+<div class="stats-counter-section">
+  <div class="stats-grid">
+    {stats.map((stat) => (
+      <div class="stat-item">
+        <div class="stat-value" data-target={stat.value}>
+          0<span class="stat-suffix">{stat.suffix || ''}</span>
+        </div>
+        <div class="stat-label">{stat.label}</div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .stats-counter-section {
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .stats-counter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #60A5FA, #3B82F6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-suffix {
+    font-size: 3rem;
+  }
+
+  .stat-label {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    .stats-counter-section {
+      padding: 60px 20px;
+    }
+
+    .stats-grid {
+      gap: 32px;
+    }
+
+    .stat-value {
+      font-size: 3rem;
+    }
+
+    .stat-suffix {
+      font-size: 2rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  function animateCounter(element: HTMLElement, target: string) {
+    const isPercentage = target.includes('%');
+    const isMultiplier = target.includes('x');
+    const targetNumber = parseInt(target.replace(/[^\d]/g, ''));
+
+    const duration = 2000;
+    const frameDuration = 1000 / 60;
+    const totalFrames = Math.round(duration / frameDuration);
+    let frame = 0;
+
+    const counter = setInterval(() => {
+      frame++;
+      const progress = frame / totalFrames;
+      const currentValue = Math.round(targetNumber * progress);
+
+      const suffix = element.querySelector('.stat-suffix')?.textContent || '';
+      element.childNodes[0].textContent = currentValue.toString();
+
+      if (frame === totalFrames) {
+        clearInterval(counter);
+      }
+    }, frameDuration);
+  }
+
+  function handleIntersection(entries: IntersectionObserverEntry[]) {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const statValue = entry.target as HTMLElement;
+        const target = statValue.dataset.target || '0';
+        animateCounter(statValue, target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(handleIntersection, {
+    threshold: 0.5,
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const statElements = document.querySelectorAll('.stat-value');
+    statElements.forEach((el) => observer.observe(el));
+  });
+</script>

@@ -1,0 +1,167 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  features: string[];
+  link?: { label: string; href: string };
+}
+
+const { icon, title, description, features, link } = Astro.props;
+---
+
+<div class="service-icon-card">
+  <div class="icon-wrapper">
+    <span class="icon">{icon}</span>
+  </div>
+
+  <h3 class="service-title">{title}</h3>
+  <p class="service-description">{description}</p>
+
+  <ul class="feature-list">
+    {features.map((feature) => (
+      <li class="feature-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 13l4 4L19 7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        {feature}
+      </li>
+    ))}
+  </ul>
+
+  {link && (
+    <a href={link.href} class="service-link">
+      {link.label}
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  )}
+</div>
+
+<style>
+  .service-icon-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-icon-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.15);
+    border-color: #3B82F6;
+  }
+
+  .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #3B82F6, #1E40AF);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    position: relative;
+  }
+
+  .icon-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: linear-gradient(135deg, #3B82F6, #1E40AF);
+    border-radius: 24px;
+    opacity: 0.3;
+    filter: blur(8px);
+  }
+
+  .icon {
+    font-size: 2.5rem;
+    position: relative;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0 0 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .service-description {
+    font-size: 1rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    flex-grow: 1;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 0.9375rem;
+    color: #475569;
+    font-weight: 500;
+  }
+
+  .feature-item svg {
+    color: #10B981;
+    flex-shrink: 0;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #3B82F6, #2563EB);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .service-link:hover {
+    background: linear-gradient(135deg, #2563EB, #1E40AF);
+    transform: translateX(4px);
+  }
+
+  .service-link svg {
+    transition: transform 0.3s ease;
+  }
+
+  .service-link:hover svg {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 640px) {
+    .service-icon-card {
+      padding: 24px;
+    }
+
+    .icon-wrapper {
+      width: 64px;
+      height: 64px;
+    }
+
+    .icon {
+      font-size: 2rem;
+    }
+  }
+</style>

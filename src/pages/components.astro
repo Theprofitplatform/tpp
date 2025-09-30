@@ -7,6 +7,11 @@ import CTA_Banner from '../components/CTA_Banner.astro';
 import ContactForm from '../components/ContactForm.astro';
 import Footer from '../components/Footer.astro';
 import FAQSection from '../components/sections/FAQSection.astro';
+// New components from new.theprofitplatform.com.au
+import TypingHero from '../components/TypingHero.astro';
+import SuccessMetricsCard from '../components/SuccessMetricsCard.astro';
+import ServiceIconCard from '../components/ServiceIconCard.astro';
+import AnimatedStatsCounter from '../components/AnimatedStatsCounter.astro';
 ---
 
 <BaseLayout
@@ -203,17 +208,133 @@ import FAQSection from '../components/sections/FAQSection.astro';
       </p>
     </div>
 
+    <!-- NEW.THEPROFITPLATFORM.COM.AU COMPONENTS -->
+    <div class="category-header">
+      <h2 class="category-title">Modern Dynamic Components</h2>
+      <p class="category-description">Inspired by new.theprofitplatform.com.au - typing effects, animated stats, and success metrics</p>
+    </div>
+
+    <!-- 1. Typing Hero -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Hero</span>
+        <h3 class="component-title">Typing Hero</h3>
+        <p class="component-description">
+          Dynamic hero with typing animation effect and gradient text
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <TypingHero
+          staticText="We Help You Grow"
+          typingWords={["Sales", "Traffic", "Revenue", "Leads", "Conversions"]}
+          subtitle="Professional digital marketing that delivers real, measurable results for your business"
+          cta={{ label: "Get Started", href: "/book" }}
+          secondaryCta={{ label: "View Plans", href: "/pricing" }}
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 2. Animated Stats Counter -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Stats</span>
+        <h3 class="component-title">Animated Stats Counter</h3>
+        <p class="component-description">
+          Scroll-triggered counter animation with gradient text effects
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <AnimatedStatsCounter
+          stats={[
+            { value: "500", suffix: "+", label: "Clients Served" },
+            { value: "2", suffix: "M+", label: "Revenue Generated" },
+            { value: "150", suffix: "%", label: "Average Growth" },
+            { value: "98", suffix: "%", label: "Client Satisfaction" }
+          ]}
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 3. Success Metrics Card -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Case Study</span>
+        <h3 class="component-title">Success Metrics Card</h3>
+        <p class="component-description">
+          Before/after comparison card with client testimonial and metrics
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 40px; background: #f8fafc;">
+        <div style="max-width: 600px; margin: 0 auto;">
+          <SuccessMetricsCard
+            clientName="Sydney Boutique Cafe"
+            industry="Hospitality"
+            beforeMetric="$8K"
+            afterMetric="$32K"
+            improvement="+300% Revenue"
+            testimonial="The Profit Platform transformed our online presence. We went from struggling to get customers to having a waitlist every weekend!"
+            timeline="6 months"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 4. Service Icon Card -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Services</span>
+        <h3 class="component-title">Service Icon Card</h3>
+        <p class="component-description">
+          Service offering card with gradient icon, features list, and CTA
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 40px; background: #f8fafc;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;">
+          <ServiceIconCard
+            icon="🎯"
+            title="SEO Optimization"
+            description="Get found by customers searching for your services on Google"
+            features={[
+              "Keyword research & strategy",
+              "On-page optimization",
+              "Technical SEO audit",
+              "Monthly reporting"
+            ]}
+            link={{ label: "Learn More", href: "/seo" }}
+          />
+          <ServiceIconCard
+            icon="📱"
+            title="Social Media"
+            description="Build a loyal audience and drive engagement across platforms"
+            features={[
+              "Content creation",
+              "Community management",
+              "Paid advertising",
+              "Analytics & insights"
+            ]}
+            link={{ label: "Learn More", href: "/social" }}
+          />
+        </div>
+      </div>
+    </div>
+
     <!-- HERO & CTA COMPONENTS -->
     <div class="category-header">
       <h2 class="category-title">Hero & CTA Components</h2>
       <p class="category-description">Eye-catching sections for conversions with modern gradients</p>
     </div>
 
-    <!-- 1. Hero Section -->
+    <!-- 5. Standard Hero Section -->
     <div class="component-showcase">
       <div class="component-header">
         <span class="component-label">Hero</span>
-        <h3 class="component-title">Hero Section</h3>
+        <h3 class="component-title">Standard Hero Section</h3>
         <p class="component-description">
           Modern hero section with gradient background and glow effects
         </p>
@@ -281,7 +402,7 @@ import FAQSection from '../components/sections/FAQSection.astro';
       <p class="category-description">Contact forms with gradient styling and modern effects</p>
     </div>
 
-    <!-- 4. Contact Form -->
+    <!-- 8. Contact Form -->
     <div class="component-showcase">
       <div class="component-header">
         <span class="component-label">Forms</span>
@@ -303,7 +424,7 @@ import FAQSection from '../components/sections/FAQSection.astro';
       <p class="category-description">FAQ and footer components for better user experience</p>
     </div>
 
-    <!-- 5. FAQ Section -->
+    <!-- 9. FAQ Section -->
     <div class="component-showcase">
       <div class="component-header">
         <span class="component-label">Support</span>
@@ -319,7 +440,7 @@ import FAQSection from '../components/sections/FAQSection.astro';
 
     <div class="divider"></div>
 
-    <!-- 6. Footer -->
+    <!-- 10. Footer -->
     <div class="component-showcase">
       <div class="component-header">
         <span class="component-label">Navigation</span>
