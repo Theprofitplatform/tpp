@@ -1,28 +1,17 @@
 ---
-import CleanLayout from '../layouts/CleanLayout.astro';
-import Navbar from '../components/Navbar.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavigationSection from '../components/sections/NavigationSection.astro';
 import HeroSection from '../components/HeroSection.astro';
-import MetricsPanel from '../components/MetricsPanel.astro';
-import PricingTable from '../components/PricingTable.astro';
-import FAQAccordion from '../components/FAQAccordion.astro';
-import ContactForm from '../components/ContactForm.astro';
-import BlogCard from '../components/BlogCard.astro';
-import PostMeta from '../components/PostMeta.astro';
-import Pagination from '../components/Pagination.astro';
-import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Section from '../components/Section.astro';
 import CTA_Banner from '../components/CTA_Banner.astro';
-import ComparisonTable from '../components/ComparisonTable.astro';
-import TestimonialCarousel from '../components/TestimonialCarousel.astro';
-import SeoSchema from '../components/SeoSchema.astro';
-import CookieBanner from '../components/CookieBanner.astro';
-import AnnouncementBar from '../components/AnnouncementBar.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+import FAQSection from '../components/sections/FAQSection.astro';
 ---
 
-<CleanLayout
+<BaseLayout
   title="Components Showcase | Production-Ready Astro Components"
-  description="20 fully documented, accessible, and responsive Astro components built with Tailwind CSS"
+  description="Modern, accessible, and responsive Astro components with gradient styling"
 >
   <Fragment slot="head">
     <style>
@@ -53,48 +42,47 @@ import AnnouncementBar from '../components/AnnouncementBar.astro';
       }
 
       .showcase-title {
-        font-size: 3.5rem;
-        font-weight: 800;
-        margin: 0 0 1.5rem;
+        font-size: 3rem;
+        font-weight: 900;
+        margin: 0 0 16px;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        letter-spacing: -0.02em;
         position: relative;
-        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
       }
 
       .showcase-subtitle {
-        font-size: 1.375rem;
+        font-size: 1.25rem;
         opacity: 0.95;
-        max-width: 750px;
+        max-width: 700px;
         margin: 0 auto;
-        position: relative;
         line-height: 1.6;
+        position: relative;
       }
 
       .category-header {
-        max-width: 1400px;
-        margin: 80px auto 50px;
+        max-width: 1200px;
+        margin: 100px auto 60px;
         padding: 0 20px;
-        text-align: center;
       }
 
       .category-title {
         font-size: 2.75rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        font-weight: 900;
+        color: #1e293b;
         margin: 0 0 12px;
+        letter-spacing: -0.02em;
       }
 
       .category-description {
         font-size: 1.25rem;
         color: #64748b;
-        font-weight: 400;
+        margin: 0;
+        line-height: 1.6;
       }
 
       .component-showcase {
-        max-width: 1400px;
-        margin: 50px auto;
+        max-width: 1200px;
+        margin: 60px auto;
         padding: 0 20px;
       }
 
@@ -150,6 +138,30 @@ import AnnouncementBar from '../components/AnnouncementBar.astro';
         background: linear-gradient(to bottom, #f8fafc 0%, rgba(248, 250, 252, 0.5) 50%, #f8fafc 100%);
       }
 
+      .back-to-top {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background: linear-gradient(135deg, #3B82F6, #2c86f9);
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(44, 134, 249, 0.3);
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(44, 134, 249, 0.4);
+      }
+
+      .back-to-top svg {
+        width: 20px;
+        height: 20px;
+      }
+
       @media (max-width: 768px) {
         .showcase-header {
           padding: 80px 20px 60px;
@@ -185,130 +197,25 @@ import AnnouncementBar from '../components/AnnouncementBar.astro';
   <div class="showcase-page">
     <!-- Showcase Header -->
     <div class="showcase-header">
-      <h1 class="showcase-title">Production-Ready Components</h1>
+      <h1 class="showcase-title">Modern Component Library</h1>
       <p class="showcase-subtitle">
-        20 fully documented, accessible, and responsive Astro components built with Tailwind CSS
+        Production-ready Astro components with modern gradient styling and glass morphism effects
       </p>
-    </div>
-
-    <!-- LAYOUT COMPONENTS -->
-    <div class="category-header">
-      <h2 class="category-title">Layout Components</h2>
-      <p class="category-description">Structural components for page layout and navigation</p>
-    </div>
-
-    <!-- 1. Navbar -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Navigation</span>
-        <h3 class="component-title">Navbar</h3>
-        <p class="component-description">
-          Sticky navigation with mobile hamburger menu, keyboard accessible, focus management
-        </p>
-      </div>
-      <div class="component-wrapper">
-        <Navbar
-          logoSrc="/favicon.svg"
-          navItems={[
-            { label: "Home", href: "/" },
-            { label: "Services", href: "/services" },
-            { label: "About", href: "/about" },
-            { label: "Blog", href: "/blog" }
-          ]}
-          cta={{ label: "Get Started", href: "/contact" }}
-        />
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 2. Footer -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Navigation</span>
-        <h3 class="component-title">Footer</h3>
-        <p class="component-description">
-          4-column responsive footer with social links and company info
-        </p>
-      </div>
-      <div class="component-wrapper">
-        <Footer />
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 3. Section -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Layout</span>
-        <h3 class="component-title">Section</h3>
-        <p class="component-description">
-          Generic layout wrapper with padding and background options (white, gray, blue)
-        </p>
-      </div>
-      <div class="component-wrapper">
-        <Section background="gray" id="example-section">
-          <h2 style="text-align: center; font-size: 2rem; color: #1e293b;">Example Section Content</h2>
-          <p style="text-align: center; color: #64748b; margin-top: 1rem;">
-            This is a reusable section wrapper with consistent padding and background options.
-          </p>
-        </Section>
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 4. Breadcrumbs -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Navigation</span>
-        <h3 class="component-title">Breadcrumbs</h3>
-        <p class="component-description">
-          Accessible breadcrumb navigation trail with ARIA attributes
-        </p>
-      </div>
-      <div class="component-wrapper" style="padding: 40px;">
-        <Breadcrumbs
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Blog", href: "/blog" },
-            { label: "Category", href: "/blog/category" }
-          ]}
-          currentLabel="Post Title"
-        />
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 5. Pagination -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Navigation</span>
-        <h3 class="component-title">Pagination</h3>
-        <p class="component-description">
-          Page navigation with prev/next buttons and page numbers
-        </p>
-      </div>
-      <div class="component-wrapper" style="padding: 40px;">
-        <Pagination currentPage={3} totalPages={10} baseUrl="/blog" />
-      </div>
     </div>
 
     <!-- HERO & CTA COMPONENTS -->
     <div class="category-header">
       <h2 class="category-title">Hero & CTA Components</h2>
-      <p class="category-description">Eye-catching sections for conversions</p>
+      <p class="category-description">Eye-catching sections for conversions with modern gradients</p>
     </div>
 
-    <!-- 6. Hero Section -->
+    <!-- 1. Hero Section -->
     <div class="component-showcase">
       <div class="component-header">
         <span class="component-label">Hero</span>
         <h3 class="component-title">Hero Section</h3>
         <p class="component-description">
-          Flexible hero with 3 layout variants (image-left, image-right, center)
+          Modern hero section with gradient background and glow effects
         </p>
       </div>
       <div class="component-wrapper">
@@ -324,13 +231,13 @@ import AnnouncementBar from '../components/AnnouncementBar.astro';
 
     <div class="divider"></div>
 
-    <!-- 7. CTA Banner -->
+    <!-- 2. CTA Banner -->
     <div class="component-showcase">
       <div class="component-header">
         <span class="component-label">CTA</span>
         <h3 class="component-title">CTA Banner</h3>
         <p class="component-description">
-          Full-width call-to-action with gradient background and decorative pattern
+          Full-width call-to-action with gradient overlay and modern button styling
         </p>
       </div>
       <div class="component-wrapper">
@@ -343,376 +250,97 @@ import AnnouncementBar from '../components/AnnouncementBar.astro';
       </div>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- 8. Announcement Bar -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Notification</span>
-        <h3 class="component-title">Announcement Bar</h3>
-        <p class="component-description">
-          Dismissible top banner with LocalStorage persistence for important announcements
-        </p>
-      </div>
-      <div class="component-wrapper">
-        <AnnouncementBar
-          text="🎉 Special Offer: Get 20% off all services this month!"
-          href="/pricing"
-          dismissible={true}
-        />
-      </div>
-    </div>
-
-    <!-- TRUST & SOCIAL PROOF -->
+    <!-- LAYOUT COMPONENTS -->
     <div class="category-header">
-      <h2 class="category-title">Trust & Social Proof</h2>
-      <p class="category-description">Build credibility with client logos and testimonials</p>
+      <h2 class="category-title">Layout Components</h2>
+      <p class="category-description">Flexible section wrappers with gradient backgrounds</p>
     </div>
 
-    <!-- 9. Trust Strip -->
+    <!-- 3. Section -->
     <div class="component-showcase">
       <div class="component-header">
-        <span class="component-label">Social Proof</span>
-        <h3 class="component-title">Trust Strip</h3>
+        <span class="component-label">Layout</span>
+        <h3 class="component-title">Section Wrapper</h3>
         <p class="component-description">
-          Logo row with grayscale hover effect for client logos
+          Reusable section wrapper with gradient backgrounds (white, gray, blue)
         </p>
       </div>
       <div class="component-wrapper">
-        <TrustStrip
-          heading="Trusted by industry leaders"
-          logos={[
-            { src: "/favicon.svg", alt: "Company 1" },
-            { src: "/favicon.svg", alt: "Company 2" },
-            { src: "/favicon.svg", alt: "Company 3" },
-            { src: "/favicon.svg", alt: "Company 4" },
-            { src: "/favicon.svg", alt: "Company 5" },
-            { src: "/favicon.svg", alt: "Company 6" }
-          ]}
-        />
+        <Section background="blue" id="example-section">
+          <h2 style="text-align: center; font-size: 2rem; color: white;">Example Section Content</h2>
+          <p style="text-align: center; color: rgba(255,255,255,0.9); margin-top: 1rem;">
+            This is a reusable section wrapper with gradient backgrounds and consistent padding.
+          </p>
+        </Section>
       </div>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- 10. Metrics Panel -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Stats</span>
-        <h3 class="component-title">Metrics Panel</h3>
-        <p class="component-description">
-          KPI display tiles with configurable column layouts (2, 3, or 4 columns)
-        </p>
-      </div>
-      <div class="component-wrapper" style="padding: 60px 40px;">
-        <MetricsPanel
-          columns={4}
-          metrics={[
-            { label: "Clients Served", value: "500+", hint: "Across Australia" },
-            { label: "Revenue Generated", value: "$10M+", hint: "For our clients" },
-            { label: "Average ROI", value: "347%", hint: "In first year" },
-            { label: "5-Star Reviews", value: "200+", hint: "On Google" }
-          ]}
-        />
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 11. Testimonial Carousel -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Social Proof</span>
-        <h3 class="component-title">Testimonial Carousel</h3>
-        <p class="component-description">
-          Simple carousel with navigation, indicators, and auto-play
-        </p>
-      </div>
-      <div class="component-wrapper">
-        <TestimonialCarousel
-          testimonials={[
-            {
-              quote: "Working with this team has completely transformed our online presence. Our leads have tripled in just 3 months!",
-              author: "Sarah Johnson",
-              role: "CEO, TechStart Inc"
-            },
-            {
-              quote: "The best investment we've made in our business. Professional, results-driven, and always available.",
-              author: "Michael Chen",
-              role: "Founder, Green Solutions"
-            },
-            {
-              quote: "Finally, a marketing agency that delivers on its promises. Our ROI has exceeded all expectations.",
-              author: "Emma Williams",
-              role: "Marketing Director, Retail Co"
-            }
-          ]}
-        />
-      </div>
-    </div>
-
-    <!-- PRICING & COMPARISON -->
+    <!-- FORMS -->
     <div class="category-header">
-      <h2 class="category-title">Pricing & Comparison</h2>
-      <p class="category-description">Showcase pricing plans and feature comparisons</p>
+      <h2 class="category-title">Forms & Conversion</h2>
+      <p class="category-description">Contact forms with gradient styling and modern effects</p>
     </div>
 
-    <!-- 12. Pricing Table -->
+    <!-- 4. Contact Form -->
     <div class="component-showcase">
       <div class="component-header">
-        <span class="component-label">Pricing</span>
-        <h3 class="component-title">Pricing Table</h3>
-        <p class="component-description">
-          3-column pricing table with featured plan highlighting and "Most Popular" badge
-        </p>
-      </div>
-      <div class="component-wrapper" style="padding: 60px 40px;">
-        <PricingTable
-          plans={[
-            {
-              name: "Starter",
-              price: "$999",
-              period: "month",
-              features: [
-                "SEO Optimization",
-                "5 Blog Posts/month",
-                "Social Media Setup",
-                "Monthly Analytics Report"
-              ],
-              cta: { label: "Get Started", href: "/book" }
-            },
-            {
-              name: "Professional",
-              price: "$2,499",
-              period: "month",
-              featured: true,
-              features: [
-                "Everything in Starter",
-                "Google Ads Management",
-                "15 Blog Posts/month",
-                "Weekly Strategy Calls",
-                "A/B Testing",
-                "Priority Support"
-              ],
-              cta: { label: "Start Free Trial", href: "/book" }
-            },
-            {
-              name: "Enterprise",
-              price: "$5,999",
-              period: "month",
-              features: [
-                "Everything in Professional",
-                "Dedicated Account Manager",
-                "Unlimited Content",
-                "Custom Integrations",
-                "White-label Reports",
-                "24/7 Support"
-              ],
-              cta: { label: "Contact Sales", href: "/contact" }
-            }
-          ]}
-        />
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 13. Comparison Table -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Comparison</span>
-        <h3 class="component-title">Comparison Table</h3>
-        <p class="component-description">
-          Side-by-side feature comparison with boolean checkmarks and text values
-        </p>
-      </div>
-      <div class="component-wrapper">
-        <ComparisonTable
-          headers={["Starter", "Professional", "Enterprise"]}
-          rows={[
-            { feature: "SEO Optimization", values: [true, true, true] },
-            { feature: "Blog Posts", values: ["5/month", "15/month", "Unlimited"] },
-            { feature: "Google Ads", values: [false, true, true] },
-            { feature: "Strategy Calls", values: ["Monthly", "Weekly", "Daily"] },
-            { feature: "A/B Testing", values: [false, true, true] },
-            { feature: "Dedicated Manager", values: [false, false, true] },
-            { feature: "24/7 Support", values: [false, false, true] }
-          ]}
-        />
-      </div>
-    </div>
-
-    <!-- FORMS & INTERACTION -->
-    <div class="category-header">
-      <h2 class="category-title">Forms & Interaction</h2>
-      <p class="category-description">User input and engagement components</p>
-    </div>
-
-    <!-- 14. Contact Form -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Form</span>
+        <span class="component-label">Forms</span>
         <h3 class="component-title">Contact Form</h3>
         <p class="component-description">
-          Production-ready form with honeypot spam protection, validation, and n8n webhook integration
+          Modern contact form with gradient buttons, glow effects, and validation
         </p>
       </div>
       <div class="component-wrapper">
-        <ContactForm heading="Send Us a Message" />
+        <Section background="white">
+          <ContactForm />
+        </Section>
       </div>
     </div>
 
-    <div class="divider"></div>
-
-    <!-- 15. FAQ Accordion -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Content</span>
-        <h3 class="component-title">FAQ Accordion</h3>
-        <p class="component-description">
-          Accessible accordion using native details/summary elements with smooth animations
-        </p>
-      </div>
-      <div class="component-wrapper" style="padding: 60px 40px;">
-        <FAQAccordion
-          heading="Common Questions"
-          faqs={[
-            {
-              question: "How long does it take to see results?",
-              answer: "Most clients start seeing measurable improvements within 30-60 days. SEO typically takes 3-6 months for significant organic growth, while paid ads can show results within days."
-            },
-            {
-              question: "What makes your service different?",
-              answer: "We focus on data-driven strategies, transparent reporting, and measurable ROI. Our team has 10+ years of experience and we work as an extension of your team."
-            },
-            {
-              question: "Do you offer month-to-month contracts?",
-              answer: "Yes! We offer flexible month-to-month agreements with no long-term commitments. You can cancel anytime with 30 days notice."
-            },
-            {
-              question: "What industries do you work with?",
-              answer: "We work with businesses across all industries including retail, healthcare, legal, real estate, technology, and professional services."
-            }
-          ]}
-        />
-      </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <!-- 16. Cookie Banner -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">Compliance</span>
-        <h3 class="component-title">Cookie Banner</h3>
-        <p class="component-description">
-          GDPR/Australian Privacy compliant cookie consent banner with LocalStorage persistence
-        </p>
-      </div>
-      <div class="component-wrapper" style="padding: 40px; position: relative; min-height: 200px;">
-        <div style="text-align: center; color: #64748b;">
-          <p>Cookie banner appears at the bottom of the page after 1 second</p>
-          <p style="font-size: 0.875rem; margin-top: 0.5rem;">(Check below to see the live banner)</p>
-        </div>
-        <CookieBanner />
-      </div>
-    </div>
-
-    <!-- CONTENT & BLOG -->
+    <!-- INFORMATIONAL SECTIONS -->
     <div class="category-header">
-      <h2 class="category-title">Content & Blog</h2>
-      <p class="category-description">Blog and content display components</p>
+      <h2 class="category-title">Informational Sections</h2>
+      <p class="category-description">FAQ and footer components for better user experience</p>
     </div>
 
-    <!-- 17. Blog Card -->
+    <!-- 5. FAQ Section -->
     <div class="component-showcase">
       <div class="component-header">
-        <span class="component-label">Content</span>
-        <h3 class="component-title">Blog Card</h3>
+        <span class="component-label">Support</span>
+        <h3 class="component-title">FAQ Section</h3>
         <p class="component-description">
-          Blog post preview card with image, category badge, and hover animations
+          Accordion-style FAQ with smooth animations and modern styling
         </p>
       </div>
-      <div class="component-wrapper" style="padding: 60px 40px;">
-        <div style="max-width: 400px; margin: 0 auto;">
-          <BlogCard
-            title="10 SEO Strategies That Actually Work in 2024"
-            excerpt="Discover the latest SEO tactics that are driving real results for businesses. From technical optimization to content strategy, learn what works now."
-            publishDate={new Date('2024-01-15')}
-            slug="seo-strategies-2024"
-            category="SEO"
-            imageSrc="/favicon.svg"
-          />
-        </div>
+      <div class="component-wrapper">
+        <FAQSection />
       </div>
     </div>
 
     <div class="divider"></div>
 
-    <!-- 18. Post Meta -->
+    <!-- 6. Footer -->
     <div class="component-showcase">
       <div class="component-header">
-        <span class="component-label">Content</span>
-        <h3 class="component-title">Post Meta</h3>
+        <span class="component-label">Navigation</span>
+        <h3 class="component-title">Footer</h3>
         <p class="component-description">
-          Display post metadata including date, read time, and tags
+          Multi-column footer with social links, navigation, and company info
         </p>
       </div>
-      <div class="component-wrapper" style="padding: 40px;">
-        <PostMeta
-          publishDate={new Date('2024-01-15')}
-          readTime={8}
-          tags={["SEO", "Digital Marketing", "Strategy"]}
-        />
+      <div class="component-wrapper">
+        <Footer />
       </div>
     </div>
 
-    <!-- SEO & TECHNICAL -->
-    <div class="category-header">
-      <h2 class="category-title">SEO & Technical</h2>
-      <p class="category-description">Search engine optimization and structured data</p>
-    </div>
-
-    <!-- 19. SEO Schema -->
-    <div class="component-showcase">
-      <div class="component-header">
-        <span class="component-label">SEO</span>
-        <h3 class="component-title">SEO Schema</h3>
-        <p class="component-description">
-          JSON-LD structured data component for rich snippets (invisible in UI)
-        </p>
-      </div>
-      <div class="component-wrapper" style="padding: 40px;">
-        <div style="text-align: center; color: #64748b;">
-          <p>This component renders JSON-LD structured data in the page head</p>
-          <p style="font-size: 0.875rem; margin-top: 0.5rem;">
-            (View page source to see the schema markup)
-          </p>
-        </div>
-        <SeoSchema
-          schema={{
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "The Profit Platform",
-            "url": "https://theprofitplatform.com.au",
-            "logo": "https://theprofitplatform.com.au/logo.png",
-            "description": "Digital marketing agency in Sydney, Australia"
-          }}
-        />
-      </div>
-    </div>
-
-    <!-- Footer Navigation -->
-    <div style="text-align: center; padding: 80px 20px; background: white;">
-      <a
-        href="#"
-        style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, #2c86f9, #1e6ee8); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(44, 134, 249, 0.3); transition: transform 0.2s;"
-      >
-        <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <!-- Back to Top -->
+    <div class="component-showcase" style="text-align: center; margin-top: 100px; padding-bottom: 60px;">
+      <a href="#" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
         </svg>
         Back to Top
       </a>
     </div>
   </div>
-</CleanLayout>
+</BaseLayout>
