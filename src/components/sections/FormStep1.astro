@@ -3,7 +3,7 @@
 import ServicePills from './ServicePills.astro';
 ---
 
-<div class="form-step active" id="step1" data-step="1">
+<div class="form-step active" id="step1" data-step="1" style="display: block !important;">
   <div class="step-header">
     <h3 class="step-title" id="step1-title">Tell us about yourself</h3>
     <p class="step-subtitle" id="step1-subtitle">We'll create a custom growth strategy just for you</p>
@@ -98,13 +98,18 @@ import ServicePills from './ServicePills.astro';
 </div>
 
 <style>
+/* Step 1 is visible by default - DO NOT HIDE */
+#step1.form-step {
+  display: block !important;
+}
+
 .form-step {
   display: none;
   animation: fadeInUp 0.4s ease;
 }
 
 .form-step.active {
-  display: block;
+  display: block !important;
 }
 
 @keyframes fadeInUp {
