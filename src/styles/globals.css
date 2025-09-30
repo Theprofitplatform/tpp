@@ -31,10 +31,21 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: auto !important; /* CRITICAL: Force vertical scroll on mobile */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--pp-gray-50);
   font-size: 16px;
+  position: relative; /* Ensure body is not fixed */
+  min-height: 100vh;
+}
+
+/* CRITICAL FIX: Ensure HTML can scroll */
+html {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  height: auto;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scroll Debug</title>
+    <style>
+        body { font-family: monospace; padding: 20px; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+        .error { background: #ffcccc; }
+        .success { background: #ccffcc; }
+    </style>
+</head>
+<body>
+    <h1>Scroll Debugging Tool</h1>
+    <button onclick="runTests()">Run Scroll Tests</button>
+    <div id="results"></div>
+
+    <script>
+        function runTests() {
+            const results = document.getElementById('results');
+            results.innerHTML = '';
+
+            const tests = [
+                {
+                    name: 'Body overflow style',
+                    test: () => window.getComputedStyle(document.body).overflow
+                },
+                {
+                    name: 'Body overflow-x style',
+                    test: () => window.getComputedStyle(document.body).overflowX
+                },
+                {
+                    name: 'Body overflow-y style',
+                    test: () => window.getComputedStyle(document.body).overflowY
+                },
+                {
+                    name: 'HTML overflow style',
+                    test: () => window.getComputedStyle(document.documentElement).overflow
+                },
+                {
+                    name: 'Body height',
+                    test: () => document.body.scrollHeight + 'px'
+                },
+                {
+                    name: 'Window height',
+                    test: () => window.innerHeight + 'px'
+                },
+                {
+                    name: 'Document height',
+                    test: () => document.documentElement.scrollHeight + 'px'
+                },
+                {
+                    name: 'Can scroll?',
+                    test: () => document.documentElement.scrollHeight > window.innerHeight ? 'YES' : 'NO'
+                },
+                {
+                    name: 'Current scroll position',
+                    test: () => window.pageYOffset + 'px'
+                },
+                {
+                    name: 'Body position',
+                    test: () => window.getComputedStyle(document.body).position
+                },
+                {
+                    name: 'Mobile nav open?',
+                    test: () => {
+                        const toggle = document.getElementById('menuToggle');
+                        return toggle ? toggle.getAttribute('aria-expanded') : 'N/A';
+                    }
+                }
+            ];
+
+            tests.forEach(({name, test}) => {
+                const div = document.createElement('div');
+                div.className = 'debug';
+                try {
+                    const result = test();
+                    div.innerHTML = `<strong>${name}:</strong> ${result}`;
+                    if (name === 'Body overflow-y style' && result === 'hidden') {
+                        div.className += ' error';
+                    } else if (name === 'Can scroll?' && result === 'YES') {
+                        div.className += ' success';
+                    }
+                } catch (e) {
+                    div.innerHTML = `<strong>${name}:</strong> ERROR - ${e.message}`;
+                    div.className += ' error';
+                }
+                results.appendChild(div);
+            });
+        }
+
+        // Run on load
+        window.addEventListener('load', runTests);
+    </script>
+</body>
+</html>
