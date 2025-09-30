@@ -237,26 +237,36 @@ Running on: ${data.url}
   }
 
   /**
-   * Group issues by category and priority
+   * Group issues by page and category
    */
   groupIssuesByCategory(data) {
     if (!data.issueDetails || data.issueDetails.length === 0) {
       return [];
     }
 
-    const grouped = {};
+    // First group by page
+    const byPage = {};
     data.issueDetails.forEach(issue => {
-      const category = issue.category || 'Other';
-      if (!grouped[category]) {
-        grouped[category] = [];
+      const page = issue.page || issue.fullUrl || '/';
+      if (!byPage[page]) {
+        byPage[page] = {};
       }
-      grouped[category].push(issue);
+
+      const category = issue.category || 'Other';
+      if (!byPage[page][category]) {
+        byPage[page][category] = [];
+      }
+      byPage[page][category].push(issue);
     });
 
-    return Object.entries(grouped).map(([category, issues]) => ({
-      category,
-      count: issues.length,
-      issues: issues // Show ALL issues
+    // Convert to array format
+    return Object.entries(byPage).map(([page, categories]) => ({
+      page,
+      categories: Object.entries(categories).map(([category, issues]) => ({
+        category,
+        count: issues.length,
+        issues: issues // Show ALL issues
+      }))
     }));
   }
 
@@ -281,16 +291,19 @@ Running on: ${data.url}
   /**
    * Format issues summary for text email
    */
-  formatIssuesSummaryText(issuesByCategory) {
-    if (issuesByCategory.length === 0) {
+  formatIssuesSummaryText(issuesByPage) {
+    if (issuesByPage.length === 0) {
       return '  No issues found!';
     }
 
     let text = '';
-    issuesByCategory.forEach(({ category, count, issues }) => {
-      text += `\n${category.toUpperCase()} (${count} issues):\n`;
-      issues.forEach(issue => {
-        text += `  • ${issue.description || issue.type}\n`;
+    issuesByPage.forEach(({ page, categories }) => {
+      text += `\n📄 ${page}:\n`;
+      categories.forEach(({ category, count, issues }) => {
+        text += `  ${category.toUpperCase()} (${count} issues):\n`;
+        issues.forEach(issue => {
+          text += `    • ${issue.description || issue.type}\n`;
+        });
       });
     });
     return text;
@@ -315,23 +328,30 @@ Running on: ${data.url}
   /**
    * Format issues summary for HTML email
    */
-  formatIssuesSummaryHTML(issuesByCategory) {
-    if (issuesByCategory.length === 0) {
+  formatIssuesSummaryHTML(issuesByPage) {
+    if (issuesByPage.length === 0) {
       return '<div class="section"><p style="text-align: center; color: #28a745;">✅ No issues found!</p></div>';
     }
 
-    let html = '<div class="section"><div class="section-title">📋 Issues Summary</div>';
+    let html = '<div class="section"><div class="section-title">📋 Issues Summary by Page</div>';
 
-    issuesByCategory.forEach(({ category, count, issues }) => {
-      html += `<div style="margin-bottom: 20px;">
-        <h4 style="margin: 10px 0; color: #495057;">${category} <span style="color: #6c757d; font-size: 14px;">(${count} total)</span></h4>`;
+    issuesByPage.forEach(({ page, categories }) => {
+      html += `<div style="margin-bottom: 30px; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+        <h3 style="margin: 0 0 15px 0; color: #007bff; font-size: 18px;">📄 ${page}</h3>`;
 
-      issues.forEach(issue => {
-        const priority = issue.priority || issue.severity || 'medium';
-        html += `<div class="issue-item">
-          <span class="badge badge-${priority}">${priority}</span>
-          <div style="margin-top: 8px;">${issue.description || issue.message || issue.type}</div>
-        </div>`;
+      categories.forEach(({ category, count, issues }) => {
+        html += `<div style="margin-bottom: 15px;">
+          <h4 style="margin: 10px 0; color: #495057;">${category} <span style="color: #6c757d; font-size: 14px;">(${count} total)</span></h4>`;
+
+        issues.forEach(issue => {
+          const priority = issue.priority || issue.severity || 'medium';
+          html += `<div class="issue-item">
+            <span class="badge badge-${priority}">${priority}</span>
+            <div style="margin-top: 8px;">${issue.description || issue.message || issue.type}</div>
+          </div>`;
+        });
+
+        html += '</div>';
       });
 
       html += '</div>';

@@ -41,6 +41,7 @@ export class AutonomousAgent {
   async start() {
     console.log(chalk.bold.cyan('\n🤖 Autonomous Visual Quality Agent Starting...\n'));
     console.log(chalk.gray(`URL: ${this.config.url}`));
+    console.log(chalk.gray(`Pages: ${this.config.pages ? this.config.pages.length : 1} page(s)`));
     console.log(chalk.gray(`Schedule: ${this.config.interval}`));
     console.log(chalk.gray(`Auto-fix: ${this.config.autoFix.enabled ? 'Enabled' : 'Disabled'}\n`));
 
@@ -111,18 +112,50 @@ export class AutonomousAgent {
           height: vp.height
         }));
 
-      // Run visual check
-      const urlInfo = {
-        url: this.config.url,
-        name: new URL(this.config.url).hostname
+      // Get pages to check
+      const pages = this.config.pages || ['/'];
+      const baseUrl = this.config.url;
+
+      // Run visual check on all pages
+      const allResults = [];
+      let totalIssues = 0;
+
+      for (const page of pages) {
+        const fullUrl = baseUrl + page;
+        console.log(chalk.cyan(`\n🔍 Checking: ${fullUrl}`));
+
+        const urlInfo = {
+          url: fullUrl,
+          name: new URL(baseUrl).hostname + page
+        };
+
+        const pageFolder = path.join(runFolder, page.replace(/\//g, '_') || 'home');
+        await fs.mkdir(pageFolder, { recursive: true });
+
+        const result = await checkUrl(this.browser, urlInfo, viewports, pageFolder);
+        result.page = page;
+        result.fullUrl = fullUrl;
+
+        // Count issues for this page
+        const pageIssues = result.viewportResults.reduce((sum, vr) => {
+          return sum + (vr.issues ? Object.values(vr.issues).flat().length : 0);
+        }, 0);
+
+        totalIssues += pageIssues;
+        allResults.push({ ...result, issueCount: pageIssues });
+
+        console.log(chalk.gray(`  ⚠️  ${pageIssues} issue(s) found on ${page}`));
+      }
+
+      // Combine results for compatibility with existing code
+      const result = {
+        viewportResults: allResults.flatMap(r => r.viewportResults.map(vr => ({
+          ...vr,
+          page: r.page,
+          fullUrl: r.fullUrl
+        }))),
+        pages: allResults
       };
-
-      const result = await checkUrl(this.browser, urlInfo, viewports, runFolder);
-
-      // Count issues
-      const totalIssues = result.viewportResults.reduce((sum, vr) => {
-        return sum + (vr.issues ? Object.values(vr.issues).flat().length : 0);
-      }, 0);
 
       // Compare with previous run
       let comparison = null;
@@ -179,6 +212,24 @@ export class AutonomousAgent {
         console.log(chalk.green('✅ No issues detected!\n'));
       }
 
+      // Prepare issue details with page information
+      const issueDetails = [];
+      result.viewportResults.forEach(vr => {
+        if (vr.issues) {
+          Object.entries(vr.issues).forEach(([category, issues]) => {
+            issues.forEach(issue => {
+              issueDetails.push({
+                ...issue,
+                category,
+                viewport: vr.viewport,
+                page: vr.page,
+                fullUrl: vr.fullUrl
+              });
+            });
+          });
+        }
+      });
+
       // Send notifications
       if (totalIssues > 0 || (comparison && comparison.status === 'degraded')) {
         await this.notifier.send({
@@ -188,6 +239,8 @@ export class AutonomousAgent {
           url: this.config.url,
           totalIssues,
           fixes: fixes.length,
+          issueDetails,
+          fixDetails: fixes,
           comparison,
           reportPath: runFolder
         });
