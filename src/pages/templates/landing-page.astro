@@ -1,0 +1,400 @@
+---
+/**
+ * Landing Page Template
+ * High-conversion landing page for paid traffic campaigns
+ *
+ * Components used:
+ * - HeroWithForm (immediate lead capture)
+ * - LogoWall (trust signals)
+ * - VideoTestimonialCard (social proof)
+ * - BeforeAfterSlider (results visualization)
+ * - MultiStepForm (qualification funnel)
+ * - FloatingCTA (mobile conversion)
+ *
+ * Optimized for:
+ * - Google Ads campaigns
+ * - Facebook/Meta ads
+ * - LinkedIn campaigns
+ * - Email marketing
+ */
+
+import CleanLayout from '../../layouts/CleanLayout.astro';
+import HeroWithForm from '../../components/ui/HeroWithForm.astro';
+import LogoWall from '../../components/ui/LogoWall.astro';
+import VideoTestimonialCard from '../../components/ui/VideoTestimonialCard.astro';
+import BeforeAfterSlider from '../../components/ui/BeforeAfterSlider.astro';
+import MultiStepForm from '../../components/ui/MultiStepForm.astro';
+import FloatingCTA from '../../components/ui/FloatingCTA.astro';
+
+// Campaign-specific data
+const heroData = {
+  headline: "Get 3X More Leads in 90 Days - Guaranteed",
+  subheadline: "Join 500+ businesses using our proven growth system. No long contracts. Cancel anytime.",
+  bulletPoints: [
+    "✅ Done-for-you lead generation system",
+    "✅ Dedicated account manager included",
+    "✅ Real-time performance dashboard",
+    "✅ Money-back guarantee if we don't deliver"
+  ],
+  ctaText: "Start Your 90-Day Growth Sprint",
+  formAction: "/api/leads/campaign",
+  services: [
+    "Digital Marketing",
+    "Lead Generation",
+    "SEO & Content",
+    "Paid Advertising",
+    "Social Media Marketing"
+  ]
+};
+
+const trustedByLogos = [
+  { src: "/images/logos/brand-1.svg", alt: "Fortune 500 Brand" },
+  { src: "/images/logos/brand-2.svg", alt: "Tech Startup" },
+  { src: "/images/logos/brand-3.svg", alt: "Retail Chain" },
+  { src: "/images/logos/brand-4.svg", alt: "Healthcare Provider" },
+  { src: "/images/logos/brand-5.svg", alt: "Financial Services" },
+  { src: "/images/logos/brand-6.svg", alt: "Education Platform" }
+];
+
+const videoTestimonials = [
+  {
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "/images/testimonials/sarah-johnson-thumb.jpg",
+    author: "Sarah Johnson",
+    role: "CEO, TechStart Inc",
+    quote: "We went from 20 leads per month to 180. Best investment we've ever made."
+  },
+  {
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    thumbnail: "/images/testimonials/michael-chen-thumb.jpg",
+    author: "Michael Chen",
+    role: "Marketing Director, RetailCo",
+    quote: "The ROI was incredible - 5x return in the first 6 months alone."
+  }
+];
+
+const beforeAfterData = {
+  beforeImage: "/images/before-after/traffic-before.jpg",
+  afterImage: "/images/before-after/traffic-after.jpg",
+  beforeLabel: "Before: 2.4K visits/month",
+  afterLabel: "After: 18.7K visits/month"
+};
+
+const qualificationFormSteps = [
+  {
+    title: "What's Your Primary Goal?",
+    description: "Help us understand your needs",
+    fields: [
+      {
+        name: "goal",
+        type: "radio",
+        label: "I want to",
+        options: [
+          "Generate more leads",
+          "Increase website traffic",
+          "Improve conversion rates",
+          "Build brand awareness",
+          "Launch a new product/service"
+        ],
+        required: true
+      }
+    ]
+  },
+  {
+    title: "What's Your Budget Range?",
+    description: "This helps us recommend the right solution",
+    fields: [
+      {
+        name: "budget",
+        type: "radio",
+        label: "Monthly marketing budget",
+        options: [
+          "$2,000 - $5,000",
+          "$5,000 - $10,000",
+          "$10,000 - $25,000",
+          "$25,000+"
+        ],
+        required: true
+      }
+    ]
+  },
+  {
+    title: "Your Contact Information",
+    description: "We'll reach out within 24 hours",
+    fields: [
+      {
+        name: "fullName",
+        type: "text",
+        label: "Full Name",
+        placeholder: "John Smith",
+        required: true
+      },
+      {
+        name: "email",
+        type: "email",
+        label: "Email Address",
+        placeholder: "john@company.com",
+        required: true
+      },
+      {
+        name: "phone",
+        type: "tel",
+        label: "Phone Number",
+        placeholder: "(04) 1234 5678",
+        required: true
+      },
+      {
+        name: "company",
+        type: "text",
+        label: "Company Name",
+        placeholder: "Acme Inc"
+      }
+    ]
+  }
+];
+
+const floatingCTAs = [
+  {
+    label: "Get Started",
+    href: "#hero-form",
+    color: "blue" as const,
+    icon: "🚀"
+  },
+  {
+    label: "Call Now",
+    href: "tel:+61-123-456-789",
+    color: "green" as const,
+    icon: "📞"
+  }
+];
+---
+
+<CleanLayout
+  title="Get 3X More Leads in 90 Days | Money-Back Guarantee"
+  description="Proven lead generation system used by 500+ businesses. Done-for-you service with dedicated support. Start your 90-day growth sprint today."
+>
+  <!-- Hero with Immediate Lead Capture -->
+  <div id="hero-form">
+    <HeroWithForm
+      headline={heroData.headline}
+      subheadline={heroData.subheadline}
+      bulletPoints={heroData.bulletPoints}
+      ctaText={heroData.ctaText}
+      formAction={heroData.formAction}
+      services={heroData.services}
+    />
+  </div>
+
+  <!-- Trust Signals -->
+  <LogoWall
+    heading="Trusted by 500+ Growing Businesses"
+    logos={trustedByLogos}
+    carousel={true}
+  />
+
+  <!-- Results Visualization -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <span class="inline-block px-4 py-2 bg-green-100 text-green-800 font-semibold rounded-full text-sm mb-4">
+          Real Results
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          See the Difference for Yourself
+        </h2>
+        <p class="text-xl text-gray-600">
+          Actual client results from our 90-day growth sprint program
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <BeforeAfterSlider
+          beforeImage={beforeAfterData.beforeImage}
+          afterImage={beforeAfterData.afterImage}
+          beforeLabel={beforeAfterData.beforeLabel}
+          afterLabel={beforeAfterData.afterLabel}
+        />
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="grid md:grid-cols-3 gap-8 mt-12">
+        <div class="text-center">
+          <div class="text-5xl font-bold text-blue-600 mb-2">678%</div>
+          <div class="text-gray-600">Average Traffic Increase</div>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold text-green-600 mb-2">5.2X</div>
+          <div class="text-gray-600">Average ROI</div>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold text-purple-600 mb-2">90</div>
+          <div class="text-gray-600">Days to Results</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Testimonials -->
+  <section class="py-16 md:py-20 bg-gray-50">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Don't Just Take Our Word For It
+        </h2>
+        <p class="text-xl text-gray-600">
+          Hear from businesses that transformed their growth with our system
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {videoTestimonials.map((testimonial) => (
+          <VideoTestimonialCard
+            videoUrl={testimonial.videoUrl}
+            thumbnail={testimonial.thumbnail}
+            author={testimonial.author}
+            role={testimonial.role}
+            quote={testimonial.quote}
+          />
+        ))}
+      </div>
+
+      <!-- Review Stats -->
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 mt-12 text-center">
+        <div>
+          <div class="text-4xl font-bold text-yellow-500 mb-1">⭐⭐⭐⭐⭐</div>
+          <div class="text-gray-600">4.9/5.0 on Google</div>
+        </div>
+        <div class="hidden md:block w-px h-12 bg-gray-300"></div>
+        <div>
+          <div class="text-3xl font-bold text-gray-900 mb-1">500+</div>
+          <div class="text-gray-600">Happy Clients</div>
+        </div>
+        <div class="hidden md:block w-px h-12 bg-gray-300"></div>
+        <div>
+          <div class="text-3xl font-bold text-gray-900 mb-1">98%</div>
+          <div class="text-gray-600">Retention Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Simple, Transparent Process
+        </h2>
+        <p class="text-xl text-gray-600">
+          Get started in 3 easy steps
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg">
+            1
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 pt-12 h-full">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3 text-center">Discovery Call</h3>
+            <p class="text-gray-600 text-center">
+              We learn about your business, goals, and current challenges in a 30-minute consultation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg">
+            2
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 pt-12 h-full">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3 text-center">Custom Strategy</h3>
+            <p class="text-gray-600 text-center">
+              We create a tailored 90-day roadmap designed specifically for your business and industry.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold shadow-lg">
+            3
+          </div>
+          <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 pt-12 h-full">
+            <h3 class="text-2xl font-bold text-gray-900 mb-3 text-center">Launch & Grow</h3>
+            <p class="text-gray-600 text-center">
+              We implement everything while you focus on running your business. See results in 30 days.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qualification Form -->
+  <section class="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <span class="inline-block px-4 py-2 bg-blue-100 text-blue-800 font-semibold rounded-full text-sm mb-4">
+          Limited Availability
+        </span>
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Ready to 3X Your Leads?
+        </h2>
+        <p class="text-xl text-gray-600">
+          Answer 3 quick questions to see if you qualify for our 90-day growth sprint
+        </p>
+      </div>
+
+      <MultiStepForm
+        formAction="/api/leads/qualified"
+        steps={qualificationFormSteps}
+      />
+    </div>
+  </section>
+
+  <!-- Guarantee Section -->
+  <section class="py-16 md:py-20 bg-gradient-to-r from-green-600 to-teal-600">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="text-6xl mb-6">🛡️</div>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+          Our Iron-Clad Guarantee
+        </h2>
+        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+          <p class="text-xl text-white leading-relaxed">
+            If we don't generate at least <strong>3X your current monthly leads</strong> within 90 days,
+            we'll work for <strong>free until we do</strong> - or give you a <strong>full refund</strong>.
+            No questions asked.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="#hero-form"
+            class="px-8 py-4 bg-white text-green-600 font-bold rounded-lg hover:bg-gray-100 transition-colors text-lg shadow-xl"
+          >
+            Start Your Risk-Free Trial
+          </a>
+          <a
+            href="tel:+61-123-456-789"
+            class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-green-600 transition-colors text-lg"
+          >
+            Questions? Call Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating CTA -->
+  <FloatingCTA buttons={floatingCTAs} />
+</CleanLayout>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+</style>

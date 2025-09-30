@@ -1,0 +1,135 @@
+---
+/**
+ * BeforeAfterSlider Component
+ * Image comparison slider with drag handle
+ *
+ * @prop {string} beforeImg - Before image URL
+ * @prop {string} afterImg - After image URL
+ * @prop {string} altBefore - Alt text for before image
+ * @prop {string} altAfter - Alt text for after image
+ * @prop {number} [initialPosition=50] - Initial slider position (0-100)
+ *
+ * Example:
+ * <BeforeAfterSlider
+ *   beforeImg="/images/before.jpg"
+ *   afterImg="/images/after.jpg"
+ *   altBefore="Website before redesign"
+ *   altAfter="Website after redesign"
+ *   initialPosition={50}
+ * />
+ */
+
+interface Props {
+  beforeImg: string;
+  afterImg: string;
+  altBefore: string;
+  altAfter: string;
+  initialPosition?: number;
+}
+
+const {
+  beforeImg,
+  afterImg,
+  altBefore,
+  altAfter,
+  initialPosition = 50
+} = Astro.props;
+---
+
+<div class="relative w-full aspect-video bg-gray-100 rounded-xl overflow-hidden" data-before-after>
+  <!-- After Image (background) -->
+  <img
+    src={afterImg}
+    alt={altAfter}
+    class="absolute inset-0 w-full h-full object-cover"
+    loading="lazy"
+  />
+
+  <!-- Before Image (foreground with clip) -->
+  <div
+    class="absolute inset-0"
+    data-before-container
+    style={`clip-path: inset(0 ${100 - initialPosition}% 0 0)`}
+  >
+    <img
+      src={beforeImg}
+      alt={altBefore}
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Slider Handle -->
+  <div
+    class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize"
+    data-slider
+    style={`left: ${initialPosition}%`}
+  >
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
+      <svg class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Labels -->
+  <div class="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-semibold">
+    Before
+  </div>
+  <div class="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-lg text-sm font-semibold">
+    After
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('[data-before-after]').forEach((container) => {
+    const slider = container.querySelector('[data-slider]') as HTMLElement;
+    const beforeContainer = container.querySelector('[data-before-container]') as HTMLElement;
+    let isDragging = false;
+
+    const updatePosition = (x: number) => {
+      const rect = container.getBoundingClientRect();
+      const position = ((x - rect.left) / rect.width) * 100;
+      const clampedPosition = Math.max(0, Math.min(100, position));
+
+      slider.style.left = `${clampedPosition}%`;
+      beforeContainer.style.clipPath = `inset(0 ${100 - clampedPosition}% 0 0)`;
+    };
+
+    const onMouseMove = (e: MouseEvent) => {
+      if (isDragging) {
+        updatePosition(e.clientX);
+      }
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (isDragging && e.touches[0]) {
+        updatePosition(e.touches[0].clientX);
+      }
+    };
+
+    const startDrag = () => {
+      isDragging = true;
+    };
+
+    const stopDrag = () => {
+      isDragging = false;
+    };
+
+    // Mouse events
+    slider.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', stopDrag);
+
+    // Touch events
+    slider.addEventListener('touchstart', startDrag);
+    document.addEventListener('touchmove', onTouchMove);
+    document.addEventListener('touchend', stopDrag);
+  });
+</script>
+
+<style>
+  [data-slider] {
+    touch-action: none;
+  }
+</style>

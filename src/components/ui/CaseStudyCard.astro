@@ -1,0 +1,115 @@
+---
+/**
+ * CaseStudyCard Component
+ * Display client success stories with metrics
+ *
+ * @prop {string} title - Case study title
+ * @prop {string} excerpt - Short description
+ * @prop {string} logo - Client logo URL
+ * @prop {string} logoAlt - Logo alt text
+ * @prop {Array} metrics - Achievement metrics
+ * @prop {string} link - Link to full case study
+ * @prop {string} [industry] - Client industry
+ * @prop {string} [service] - Service provided
+ *
+ * Example:
+ * <CaseStudyCard
+ *   title="How We 3X'd Traffic for TechCo"
+ *   excerpt="Complete SEO overhaul delivering 300% organic growth"
+ *   logo="/logos/techco.png"
+ *   logoAlt="TechCo"
+ *   metrics={[
+ *     { label: "Traffic", value: "+300%", icon: "📈" },
+ *     { label: "Revenue", value: "+$2M", icon: "💰" }
+ *   ]}
+ *   link="/case-studies/techco"
+ *   industry="Technology"
+ *   service="SEO"
+ * />
+ */
+
+interface Metric {
+  label: string;
+  value: string;
+  icon?: string;
+}
+
+interface Props {
+  title: string;
+  excerpt: string;
+  logo: string;
+  logoAlt: string;
+  metrics: Metric[];
+  link: string;
+  industry?: string;
+  service?: string;
+}
+
+const { title, excerpt, logo, logoAlt, metrics, link, industry, service } = Astro.props;
+---
+
+<article class="group bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden transition-all hover:shadow-2xl hover:-translate-y-1">
+  <!-- Logo Header -->
+  <div class="bg-gray-50 p-8 border-b border-gray-200">
+    <img
+      src={logo}
+      alt={logoAlt}
+      class="h-16 w-auto object-contain mx-auto"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Content -->
+  <div class="p-8">
+    {(industry || service) && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {industry && (
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+            {industry}
+          </span>
+        )}
+        {service && (
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+            {service}
+          </span>
+        )}
+      </div>
+    )}
+
+    <h3 class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+      {title}
+    </h3>
+
+    <p class="text-gray-600 mb-6 leading-relaxed">
+      {excerpt}
+    </p>
+
+    <!-- Metrics -->
+    <div class="grid grid-cols-2 gap-4 mb-6">
+      {metrics.map((metric) => (
+        <div class="text-center p-4 bg-blue-50 rounded-lg">
+          {metric.icon && (
+            <span class="text-2xl mb-2 block" aria-hidden="true">{metric.icon}</span>
+          )}
+          <div class="text-2xl font-bold text-blue-600 mb-1">
+            {metric.value}
+          </div>
+          <div class="text-sm text-gray-600">
+            {metric.label}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <a
+      href={link}
+      class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all group"
+    >
+      Read Full Story
+      <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </a>
+  </div>
+</article>

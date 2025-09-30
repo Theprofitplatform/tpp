@@ -1,0 +1,80 @@
+---
+/**
+ * FAQWithSchema Component
+ * FAQ accordion with automatic JSON-LD schema generation
+ *
+ * @prop {Array} items - FAQ items {question, answer}
+ * @prop {string} [heading="Frequently Asked Questions"] - Section heading
+ * @prop {boolean} [generateSchema=true] - Generate JSON-LD schema
+ *
+ * Example:
+ * <FAQWithSchema
+ *   heading="Common Questions"
+ *   items={[
+ *     {
+ *       question: "How long does SEO take?",
+ *       answer: "Most clients see results within 3-6 months..."
+ *     }
+ *   ]}
+ *   generateSchema={true}
+ * />
+ */
+
+import { generateFAQSchema } from '../../lib/useSchema';
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+  heading?: string;
+  generateSchema?: boolean;
+}
+
+const {
+  items,
+  heading = "Frequently Asked Questions",
+  generateSchema = true
+} = Astro.props;
+
+const schema = generateSchema ? generateFAQSchema(items) : null;
+---
+
+<section class="py-16 md:py-20 bg-white">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
+        {heading}
+      </h2>
+
+      <div class="space-y-4">
+        {items.map((item, index) => (
+          <details class="group bg-gray-50 rounded-lg border border-gray-200 overflow-hidden transition-all hover:shadow-md">
+            <summary class="flex items-center justify-between cursor-pointer px-6 py-4 font-semibold text-lg text-gray-900 select-none focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-inset">
+              <span>{item.question}</span>
+              <svg
+                class="h-5 w-5 text-gray-500 transition-transform group-open:rotate-180"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="px-6 pb-4 text-gray-600 leading-relaxed">
+              {item.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JSON-LD Schema -->
+{schema && (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+)}
