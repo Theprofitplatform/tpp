@@ -202,26 +202,31 @@ import MobileStickyBar from './MobileStickyBar.astro';
 
 /* CRITICAL FIX: Form step transitions with proper visibility */
 /* By default Step 1 is visible, Step 2 is hidden */
-.form-step {
+/* Using highest specificity to override any other rules */
+.growth-journey-section .form-step {
   display: none;
   animation: fadeInUp 0.4s ease;
 }
 
-.form-step.active {
+.growth-journey-section .form-step.active {
   display: block !important;
 }
 
 /* CRITICAL: Ensure Step 1 is ALWAYS visible by default, even if JS fails */
-#step1 {
+/* Using ID selector with highest specificity */
+.growth-journey-section #step1,
+.growth-journey-section .form-step#step1 {
   display: block !important;
 }
 
 /* Step 2 hidden by default, only shown when .active is added */
-#step2 {
+.growth-journey-section #step2,
+.growth-journey-section .form-step#step2 {
   display: none !important;
 }
 
-#step2.active {
+.growth-journey-section #step2.active,
+.growth-journey-section .form-step#step2.active {
   display: block !important;
 }
 
