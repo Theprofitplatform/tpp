@@ -1,0 +1,120 @@
+---
+/**
+ * TeamGrid Component
+ * Displays team members in a responsive grid layout using TeamMemberCard component
+ * Features hover effects, animations, and accessibility support
+ * Layout: 1 column mobile, 2 columns tablet, 3 columns desktop
+ *
+ * Data structure for team members:
+ * members = [
+ *   {
+ *     name: "Full Name",
+ *     role: "Job Title",
+ *     bio: "Short bio (2-3 sentences)",
+ *     photo: "/images/team/photo.jpg",
+ *     social: { linkedin: "url", twitter: "url", email: "email" },
+ *     expertise: ["Skill 1", "Skill 2", "Skill 3"],
+ *     funFact: "Optional fun fact about team member"
+ *   }
+ * ]
+ */
+
+import TeamMemberCard from '../ui/TeamMemberCard.astro';
+
+interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  photo?: string;
+  social?: {
+    linkedin?: string;
+    twitter?: string;
+    email?: string;
+  };
+  expertise?: string[];
+  funFact?: string;
+}
+
+interface Props {
+  members?: TeamMember[];
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  members = [
+    // PLACEHOLDER DATA - Replace with actual team information
+    {
+      name: "Avi Cohen",
+      role: "Founder & Digital Strategist",
+      bio: "15+ years driving digital growth for Sydney businesses. Specializes in SEO, conversion optimization, and data-driven marketing strategies.",
+      photo: "/images/team/avi.jpg",
+      social: {
+        linkedin: "https://linkedin.com/in/avicohen",
+        email: "avi@theprofitplatform.com.au"
+      },
+      expertise: ["SEO Strategy", "Conversion Optimization", "Digital Analytics"],
+      funFact: "Has helped over 100 Sydney businesses achieve 2x+ growth"
+    },
+    {
+      name: "Marketing Team Lead",
+      role: "Senior SEO Specialist",
+      bio: "Technical SEO expert with a track record of ranking Sydney businesses on page 1. Passionate about turning organic search into qualified leads.",
+      photo: "/images/team/placeholder.jpg",
+      social: {
+        linkedin: "#"
+      },
+      expertise: ["Technical SEO", "Local SEO", "Link Building"],
+      funFact: "Achieved #1 rankings for 50+ competitive Sydney keywords"
+    },
+    {
+      name: "Content Director",
+      role: "Content & Strategy Lead",
+      bio: "Award-winning content strategist creating campaigns that resonate with Sydney audiences and drive real business results.",
+      photo: "/images/team/placeholder.jpg",
+      social: {
+        linkedin: "#"
+      },
+      expertise: ["Content Marketing", "Copywriting", "Brand Strategy"],
+      funFact: "Content has generated over 1M+ qualified leads"
+    }
+  ],
+  title = "Meet The Team",
+  subtitle = "Experienced professionals dedicated to your success"
+} = Astro.props;
+---
+
+<section class="py-20 md:py-32" aria-labelledby="team-heading">
+  <div class="container mx-auto px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2
+          id="team-heading"
+          class="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+        >
+          {title}
+        </h2>
+        {subtitle && (
+          <p class="text-xl md:text-2xl text-gray-700 font-medium max-w-3xl mx-auto">
+            {subtitle}
+          </p>
+        )}
+      </div>
+
+      <!-- Team Grid using TeamMemberCard component -->
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10"
+        role="list"
+      >
+        {members.map((member, index) => (
+          <TeamMemberCard member={member} index={index} />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* TeamGrid wrapper styles - card styles now handled by TeamMemberCard component */
+</style>

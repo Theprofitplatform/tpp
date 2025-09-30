@@ -274,7 +274,7 @@ a.appendChild(r);
               </div>
               <div class="message-content">
                 <h3>Oops! Something went wrong</h3>
-                <p>Please check your information and try again, or contact us directly at <a href="mailto:avi@theprofitplatform.com.au">avi@theprofitplatform.com.au</a></p>
+                <p id="error-message-text">Please check your information and try again, or contact us directly at <a href="mailto:avi@theprofitplatform.com.au">avi@theprofitplatform.com.au</a></p>
               </div>
             </div>
 
@@ -285,29 +285,37 @@ a.appendChild(r);
                   <label for="name" class="form-label">
                     Your Name <span class="required" aria-label="required">*</span>
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    class="form-input"
-                    required
-                    aria-required="true"
-                    aria-describedby="name-error"
-                    placeholder="John Smith"
-                    autocomplete="given-name"
-                  >
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="form-input"
+                      required
+                      aria-required="true"
+                      aria-describedby="name-error"
+                      placeholder="John Smith"
+                      autocomplete="given-name"
+                      minlength="2"
+                      maxlength="50"
+                    >
+                    <i class="input-icon fas fa-user" aria-hidden="true"></i>
+                  </div>
                   <div id="name-error" class="field-error" role="alert" aria-live="polite"></div>
                 </div>
                 <div class="form-group">
                   <label for="business" class="form-label">Business Name</label>
-                  <input
-                    type="text"
-                    id="business"
-                    name="business"
-                    class="form-input"
-                    placeholder="Your Business"
-                    autocomplete="organization"
-                  >
+                  <div class="input-wrapper">
+                    <input
+                      type="text"
+                      id="business"
+                      name="business"
+                      class="form-input"
+                      placeholder="Your Business"
+                      autocomplete="organization"
+                    >
+                    <i class="input-icon fas fa-building" aria-hidden="true"></i>
+                  </div>
                 </div>
               </div>
 
@@ -316,49 +324,58 @@ a.appendChild(r);
                   <label for="email" class="form-label">
                     Email Address <span class="required" aria-label="required">*</span>
                   </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="form-input"
-                    required
-                    aria-required="true"
-                    aria-describedby="email-error"
-                    placeholder="john@business.com.au"
-                    autocomplete="email"
-                  >
+                  <div class="input-wrapper">
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      class="form-input"
+                      required
+                      aria-required="true"
+                      aria-describedby="email-error"
+                      placeholder="john@business.com.au"
+                      autocomplete="email"
+                    >
+                    <i class="input-icon fas fa-envelope" aria-hidden="true"></i>
+                  </div>
                   <div id="email-error" class="field-error" role="alert" aria-live="polite"></div>
                 </div>
                 <div class="form-group">
                   <label for="phone" class="form-label">
                     Phone Number <span class="required" aria-label="required">*</span>
                   </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    class="form-input"
-                    required
-                    aria-required="true"
-                    aria-describedby="phone-error"
-                    placeholder="0400 000 000"
-                    autocomplete="tel"
-                  >
+                  <div class="input-wrapper">
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      class="form-input"
+                      required
+                      aria-required="true"
+                      aria-describedby="phone-error"
+                      placeholder="0400 000 000"
+                      autocomplete="tel"
+                    >
+                    <i class="input-icon fas fa-phone" aria-hidden="true"></i>
+                  </div>
                   <div id="phone-error" class="field-error" role="alert" aria-live="polite"></div>
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="service" class="form-label">Service Interested In</label>
-                <select id="service" name="service" class="form-select">
-                  <option value="">Select a service</option>
-                  <option value="seo">Local SEO & Search Marketing</option>
-                  <option value="google-ads">Google Ads Management</option>
-                  <option value="web-design">Website Design & Development</option>
-                  <option value="social-media">Social Media Marketing</option>
-                  <option value="full-service">Full Service Digital Marketing</option>
-                  <option value="consultation">Free Marketing Consultation</option>
-                </select>
+                <div class="input-wrapper">
+                  <select id="service" name="service" class="form-select">
+                    <option value="">Select a service</option>
+                    <option value="seo">Local SEO & Search Marketing</option>
+                    <option value="google-ads">Google Ads Management</option>
+                    <option value="web-design">Website Design & Development</option>
+                    <option value="social-media">Social Media Marketing</option>
+                    <option value="full-service">Full Service Digital Marketing</option>
+                    <option value="consultation">Free Marketing Consultation</option>
+                  </select>
+                  <i class="input-icon fas fa-briefcase" aria-hidden="true"></i>
+                </div>
               </div>
 
               <div class="form-group">
@@ -370,6 +387,9 @@ a.appendChild(r);
                   rows="5"
                   placeholder="What are you hoping to achieve with digital marketing? Any specific challenges you're facing?"
                 ></textarea>
+                <div class="textarea-counter">
+                  <span id="message-counter">0</span> / 1000 characters
+                </div>
               </div>
 
               <!-- Enhanced Honeypot for spam prevention -->
@@ -515,50 +535,131 @@ document.addEventListener('DOMContentLoaded', function() {
   const btnLoading = submitBtn.querySelector('.btn-loading');
   const successMessage = document.getElementById('form-success');
   const errorMessage = document.getElementById('form-error');
+  const messageTextarea = document.getElementById('message');
+  const messageCounter = document.getElementById('message-counter');
 
-  // Form validation patterns
+  // Form validation patterns with improved Australian phone validation
   const validators = {
-    name: /^[a-zA-Z\s]{2,50}$/,
-    email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-    phone: /^(\+61|0)[2-9]\d{8}$/
+    name: {
+      pattern: /^[a-zA-Z\s'-]{2,50}$/,
+      message: 'Please enter a valid name (2-50 characters, letters only)'
+    },
+    email: {
+      pattern: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+      message: 'Please enter a valid email address'
+    },
+    phone: {
+      pattern: /^(\+?61|0)[2-9]\d{8}$/,
+      message: 'Please enter a valid Australian phone number (e.g., 0412 345 678)'
+    }
   };
 
-  // Real-time validation
+  // Character counter for textarea
+  if (messageTextarea && messageCounter) {
+    messageTextarea.addEventListener('input', function() {
+      const count = this.value.length;
+      messageCounter.textContent = count;
+
+      if (count > 1000) {
+        messageCounter.style.color = '#ef4444';
+        this.value = this.value.substring(0, 1000);
+        messageCounter.textContent = '1000';
+      } else if (count > 900) {
+        messageCounter.style.color = '#f59e0b';
+      } else {
+        messageCounter.style.color = '#6b7280';
+      }
+    });
+  }
+
+  // Format phone number as user types
+  const phoneInput = document.getElementById('phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      let value = this.value.replace(/\D/g, '');
+
+      // Handle Australian format
+      if (value.startsWith('61')) {
+        value = value.substring(2);
+      }
+
+      if (value.length > 0 && !value.startsWith('0')) {
+        value = '0' + value;
+      }
+
+      // Format: 0400 000 000
+      if (value.length > 10) {
+        value = value.substring(0, 10);
+      }
+
+      if (value.length > 4) {
+        value = value.substring(0, 4) + ' ' + value.substring(4);
+      }
+      if (value.length > 8) {
+        value = value.substring(0, 8) + ' ' + value.substring(8);
+      }
+
+      this.value = value;
+    });
+  }
+
+  // Enhanced field validation with animations
   function validateField(field) {
     const value = field.value.trim();
     const fieldName = field.name;
     const errorDiv = document.getElementById(fieldName + '-error');
+    const inputWrapper = field.closest('.input-wrapper');
 
     let isValid = true;
-    let errorMessage = '';
+    let errorText = '';
 
+    // Check if required field is empty
     if (field.hasAttribute('required') && !value) {
       isValid = false;
-      errorMessage = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`;
-    } else if (value && validators[fieldName] && !validators[fieldName].test(value)) {
-      isValid = false;
-      switch(fieldName) {
-        case 'name':
-          errorMessage = 'Please enter a valid name (2-50 characters)';
-          break;
-        case 'email':
-          errorMessage = 'Please enter a valid email address';
-          break;
-        case 'phone':
-          errorMessage = 'Please enter a valid Australian phone number';
-          break;
+      errorText = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`;
+    }
+    // Validate against pattern
+    else if (value && validators[fieldName]) {
+      const validator = validators[fieldName];
+      // Remove spaces for phone validation
+      const testValue = fieldName === 'phone' ? value.replace(/\s/g, '') : value;
+
+      if (!validator.pattern.test(testValue)) {
+        isValid = false;
+        errorText = validator.message;
       }
     }
 
-    // Update field styling and error message
-    if (isValid) {
+    // Update field styling with smooth transitions
+    if (isValid && value) {
       field.classList.remove('error');
       field.classList.add('valid');
-      errorDiv.textContent = '';
-    } else {
+      if (inputWrapper) {
+        inputWrapper.classList.add('valid');
+        inputWrapper.classList.remove('error');
+      }
+      if (errorDiv) errorDiv.textContent = '';
+    } else if (!isValid) {
       field.classList.remove('valid');
       field.classList.add('error');
-      errorDiv.textContent = errorMessage;
+      if (inputWrapper) {
+        inputWrapper.classList.add('error');
+        inputWrapper.classList.remove('valid');
+      }
+      if (errorDiv) {
+        errorDiv.textContent = errorText;
+        // Shake animation
+        errorDiv.style.animation = 'shake 0.3s';
+        setTimeout(() => {
+          errorDiv.style.animation = '';
+        }, 300);
+      }
+    } else {
+      field.classList.remove('valid', 'error');
+      if (inputWrapper) {
+        inputWrapper.classList.remove('valid', 'error');
+      }
+      if (errorDiv) errorDiv.textContent = '';
     }
 
     return isValid;
@@ -567,41 +668,72 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add event listeners for real-time validation
   ['name', 'email', 'phone'].forEach(fieldName => {
     const field = document.getElementById(fieldName);
-    field.addEventListener('blur', () => validateField(field));
-    field.addEventListener('input', () => {
-      if (field.classList.contains('error')) {
-        validateField(field);
-      }
-    });
+    if (field) {
+      // Validate on blur
+      field.addEventListener('blur', () => {
+        if (field.value.trim()) {
+          validateField(field);
+        }
+      });
+
+      // Real-time validation after first blur
+      field.addEventListener('input', () => {
+        if (field.classList.contains('error') || field.classList.contains('valid')) {
+          validateField(field);
+        }
+      });
+
+      // Focus effects
+      field.addEventListener('focus', () => {
+        const wrapper = field.closest('.input-wrapper');
+        if (wrapper) wrapper.classList.add('focused');
+      });
+
+      field.addEventListener('blur', () => {
+        const wrapper = field.closest('.input-wrapper');
+        if (wrapper) wrapper.classList.remove('focused');
+      });
+    }
   });
 
-  // Form submission
-  form.addEventListener('submit', function(e) {
+  // Form submission with enhanced error handling
+  form.addEventListener('submit', async function(e) {
     e.preventDefault();
 
     // Validate all required fields
     const requiredFields = form.querySelectorAll('[required]');
     let isFormValid = true;
+    let firstErrorField = null;
 
     requiredFields.forEach(field => {
       if (!validateField(field)) {
         isFormValid = false;
+        if (!firstErrorField) firstErrorField = field;
       }
     });
 
     // Check honeypot
     const honeypot = document.getElementById('website');
-    if (honeypot.value) {
+    if (honeypot && honeypot.value) {
       console.log('Spam detected');
       return;
     }
 
     if (!isFormValid) {
-      // Focus on first error field
-      const firstError = form.querySelector('.error');
-      if (firstError) {
-        firstError.focus();
+      // Scroll to first error and focus
+      if (firstErrorField) {
+        firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => firstErrorField.focus(), 300);
       }
+
+      // Show error message
+      errorMessage.style.display = 'block';
+      document.getElementById('error-message-text').textContent =
+        'Please fix the errors above and try again.';
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+      }, 5000);
+
       return;
     }
 
@@ -609,39 +741,61 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.disabled = true;
     btnText.style.display = 'none';
     btnLoading.style.display = 'inline-flex';
+    submitBtn.classList.add('loading');
 
-    // Simulate form submission (replace with actual submission logic)
-    setTimeout(() => {
-      // Hide form and show success message
+    // Actual form submission (replace with your endpoint)
+    try {
+      // Simulate API call - replace with actual submission
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      // Success: Hide form and show success message
       form.style.display = 'none';
       successMessage.style.display = 'block';
       successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-      // Reset form (in case user wants to submit again)
+      // Track conversion
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', {
+          event_category: 'contact',
+          event_label: 'contact_form',
+          value: 1
+        });
+      }
+
+      // Reset form for potential resubmission
       setTimeout(() => {
         form.reset();
         form.querySelectorAll('.valid, .error').forEach(field => {
           field.classList.remove('valid', 'error');
         });
+        form.querySelectorAll('.input-wrapper').forEach(wrapper => {
+          wrapper.classList.remove('valid', 'error');
+        });
         form.querySelectorAll('.field-error').forEach(error => {
           error.textContent = '';
         });
+        if (messageCounter) messageCounter.textContent = '0';
         submitBtn.disabled = false;
         btnText.style.display = 'inline';
         btnLoading.style.display = 'none';
+        submitBtn.classList.remove('loading');
       }, 100);
 
-      // Track conversion (replace with actual tracking)
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'form_submit', {
-          event_category: 'contact',
-          event_label: 'contact_form'
-        });
-      }
-    }, 2000);
+    } catch (error) {
+      // Error handling
+      console.error('Form submission error:', error);
+      errorMessage.style.display = 'block';
+      document.getElementById('error-message-text').textContent =
+        'Sorry, there was an error submitting your form. Please try again or contact us directly.';
+
+      submitBtn.disabled = false;
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+      submitBtn.classList.remove('loading');
+    }
   });
 
-  // Show form again if user clicks "submit another inquiry"
+  // Show form again button
   const showFormAgain = document.createElement('button');
   showFormAgain.textContent = 'Submit Another Inquiry';
   showFormAgain.className = 'btn btn-secondary btn-sm';
@@ -650,6 +804,7 @@ document.addEventListener('DOMContentLoaded', function() {
     successMessage.style.display = 'none';
     errorMessage.style.display = 'none';
     form.style.display = 'block';
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
   successMessage.appendChild(showFormAgain);
 
@@ -777,12 +932,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
   <!-- Enhanced Contact Form Styles -->
   <style>
+    /* Animations */
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
     /* Enhanced Contact Form Styles */
     .contact-hero {
       background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
       color: white;
       padding: 4rem 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+      pointer-events: none;
     }
 
     .contact-hero-title {
@@ -790,6 +981,7 @@ document.addEventListener('DOMContentLoaded', function() {
       font-weight: 800;
       margin-bottom: 1rem;
       letter-spacing: -0.02em;
+      animation: fadeInUp 0.6s ease-out;
     }
 
     .contact-hero-subtitle {
@@ -799,6 +991,7 @@ document.addEventListener('DOMContentLoaded', function() {
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
     }
 
     .contact-hero-highlights {
@@ -806,6 +999,7 @@ document.addEventListener('DOMContentLoaded', function() {
       justify-content: center;
       gap: 2rem;
       flex-wrap: wrap;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
     }
 
     .hero-highlight {
@@ -816,6 +1010,12 @@ document.addEventListener('DOMContentLoaded', function() {
       padding: 0.75rem 1.5rem;
       border-radius: 25px;
       backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .hero-highlight:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
     }
 
     .hero-highlight i {
@@ -880,6 +1080,7 @@ document.addEventListener('DOMContentLoaded', function() {
       color: #374151;
       margin-bottom: 0.5rem;
       font-size: 0.875rem;
+      transition: color 0.2s;
     }
 
     .required {
@@ -887,14 +1088,66 @@ document.addEventListener('DOMContentLoaded', function() {
       font-weight: 700;
     }
 
+    /* Input wrapper for icon positioning */
+    .input-wrapper {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .input-wrapper .input-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #9ca3af;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 1;
+    }
+
+    .input-wrapper.focused .input-icon {
+      color: #4f46e5;
+    }
+
+    .input-wrapper.valid .input-icon {
+      color: #10b981;
+    }
+
+    .input-wrapper.error .input-icon {
+      color: #ef4444;
+    }
+
     .form-input, .form-select, .form-textarea {
       width: 100%;
       padding: 0.875rem 1rem;
+      padding-left: 2.75rem;
       border: 2px solid #e5e7eb;
       border-radius: 0.5rem;
       font-size: 1rem;
       transition: all 0.2s;
       background: white;
+    }
+
+    .form-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+      background-position: right 0.5rem center;
+      background-repeat: no-repeat;
+      background-size: 1.5em 1.5em;
+      padding-right: 2.5rem;
+    }
+
+    .form-textarea {
+      padding-left: 1rem;
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .textarea-counter {
+      font-size: 0.75rem;
+      color: #6b7280;
+      text-align: right;
+      margin-top: 0.25rem;
     }
 
     .form-input:focus, .form-select:focus, .form-textarea:focus {
@@ -903,7 +1156,7 @@ document.addEventListener('DOMContentLoaded', function() {
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
     }
 
-    .form-input.valid {
+    .form-input.valid, .form-select.valid {
       border-color: #10b981;
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2310b981'%3e%3cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3e%3c/svg%3e");
       background-repeat: no-repeat;
@@ -912,7 +1165,7 @@ document.addEventListener('DOMContentLoaded', function() {
       padding-right: 2.5rem;
     }
 
-    .form-input.error {
+    .form-input.error, .form-select.error {
       border-color: #ef4444;
       background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23ef4444'%3e%3cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
       background-repeat: no-repeat;
@@ -921,11 +1174,23 @@ document.addEventListener('DOMContentLoaded', function() {
       padding-right: 2.5rem;
     }
 
+    .input-wrapper.valid {
+      animation: pulse 0.3s ease-in-out;
+    }
+
     .field-error {
       color: #ef4444;
       font-size: 0.875rem;
       margin-top: 0.25rem;
       font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .field-error::before {
+      content: '⚠';
+      font-size: 0.875rem;
     }
 
     .honeypot {
@@ -1021,10 +1286,39 @@ document.addEventListener('DOMContentLoaded', function() {
       transform: none;
     }
 
+    .btn-primary.loading {
+      position: relative;
+      pointer-events: none;
+    }
+
     .btn-loading {
       display: flex;
       align-items: center;
       gap: 0.5rem;
+    }
+
+    .btn-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-primary:hover .btn-icon {
+      transform: translateX(4px);
+    }
+
+    /* Form disclaimer */
+    .form-disclaimer {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .form-disclaimer i {
+      color: #10b981;
     }
 
     /* Responsive Design */
