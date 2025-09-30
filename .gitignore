@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Build artifacts and releases
+releases/
+current
+test-reports/

@@ -1,0 +1,520 @@
+---
+import CleanLayout from '../layouts/CleanLayout.astro';
+
+// Import new UI components
+import MegaMenu from '../components/ui/MegaMenu.astro';
+import HeroWithForm from '../components/ui/HeroWithForm.astro';
+import CaseStudyCard from '../components/ui/CaseStudyCard.astro';
+import CaseStudyGrid from '../components/ui/CaseStudyGrid.astro';
+import BeforeAfterSlider from '../components/ui/BeforeAfterSlider.astro';
+import FloatingCTA from '../components/ui/FloatingCTA.astro';
+import TableOfContents from '../components/ui/TableOfContents.astro';
+import MultiStepForm from '../components/ui/MultiStepForm.astro';
+import LogoWall from '../components/ui/LogoWall.astro';
+import VideoTestimonialCard from '../components/ui/VideoTestimonialCard.astro';
+import FAQWithSchema from '../components/ui/FAQWithSchema.astro';
+
+// Sample data
+const megaMenuItems = [
+  {
+    heading: "Digital Marketing",
+    links: [
+      { label: "SEO Services", href: "/seo", icon: "🔍", description: "Rank higher on Google" },
+      { label: "Google Ads", href: "/google-ads", icon: "📊", description: "PPC advertising" }
+    ]
+  },
+  {
+    heading: "Web Services",
+    links: [
+      { label: "Web Design", href: "/web-design", icon: "🎨", description: "Beautiful websites" },
+      { label: "Development", href: "/development", icon: "⚡", description: "Custom solutions" }
+    ]
+  }
+];
+
+const caseStudies = [
+  {
+    title: "How We 3X'd Traffic for TechCo",
+    excerpt: "Complete SEO overhaul delivering 300% organic growth in 6 months",
+    logo: "/favicon.svg",
+    logoAlt: "TechCo",
+    metrics: [
+      { label: "Traffic", value: "+300%", icon: "📈" },
+      { label: "Revenue", value: "+$2M", icon: "💰" }
+    ],
+    link: "/case-studies/techco",
+    industry: "Technology",
+    service: "SEO"
+  },
+  {
+    title: "Retail Brand Doubles Online Sales",
+    excerpt: "Strategic Google Ads campaign with 450% ROI",
+    logo: "/favicon.svg",
+    logoAlt: "RetailCo",
+    metrics: [
+      { label: "Sales", value: "+200%", icon: "🛍️" },
+      { label: "ROI", value: "450%", icon: "💎" }
+    ],
+    link: "/case-studies/retailco",
+    industry: "Retail",
+    service: "Google Ads"
+  }
+];
+
+const logos = Array(6).fill(null).map((_, i) => ({
+  src: "/favicon.svg",
+  alt: `Client ${i + 1}`
+}));
+
+const faqItems = [
+  {
+    question: "How long does SEO take to show results?",
+    answer: "Most clients start seeing measurable improvements within 30-60 days. SEO typically takes 3-6 months for significant organic growth, while paid ads can show results within days."
+  },
+  {
+    question: "What's included in your service packages?",
+    answer: "All packages include strategy development, implementation, monthly reporting, and ongoing optimization. Higher tiers add more content, dedicated account management, and additional channels."
+  }
+];
+
+const tocHeadings = [
+  { id: "navigation", text: "Navigation Components", level: 2 },
+  { id: "hero-forms", text: "Hero & Forms", level: 2 },
+  { id: "social-proof", text: "Social Proof", level: 2 },
+  { id: "interactive", text: "Interactive Elements", level: 2 },
+  { id: "content", text: "Content Components", level: 2 }
+];
+---
+
+<CleanLayout
+  title="UI Components Library | Advanced Astro Components"
+  description="10 production-ready UI components with advanced features, accessibility, and SEO"
+>
+  <Fragment slot="head">
+    <style>
+      .showcase-page {
+        background: linear-gradient(to bottom, #f8fafc, white);
+        min-height: 100vh;
+      }
+
+      .showcase-header {
+        background: linear-gradient(135deg, #2c86f9, #1e6ee8);
+        color: white;
+        padding: 100px 20px 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .showcase-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.3;
+      }
+
+      .showcase-title {
+        position: relative;
+        font-size: 3.5rem;
+        font-weight: 900;
+        margin: 0 0 1rem;
+        text-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      }
+
+      .showcase-subtitle {
+        position: relative;
+        font-size: 1.5rem;
+        opacity: 0.95;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+      }
+
+      .component-section {
+        max-width: 1400px;
+        margin: 80px auto;
+        padding: 0 20px;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin: 0 0 16px;
+      }
+
+      .section-description {
+        font-size: 1.25rem;
+        color: #64748b;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .component-card {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        margin-bottom: 60px;
+        box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+      }
+
+      .component-header {
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 20px;
+      }
+
+      .component-label {
+        display: inline-block;
+        background: linear-gradient(135deg, #2c86f9, #1e6ee8);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+
+      .component-name {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin: 0 0 8px;
+      }
+
+      .component-desc {
+        font-size: 1rem;
+        color: #64748b;
+        margin: 0;
+      }
+
+      .demo-wrapper {
+        background: #f8fafc;
+        border-radius: 12px;
+        padding: 40px;
+        border: 2px dashed #cbd5e1;
+      }
+
+      @media (max-width: 768px) {
+        .showcase-title {
+          font-size: 2.5rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .component-card {
+          padding: 24px;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <div class="showcase-page">
+    <!-- Header -->
+    <div class="showcase-header">
+      <h1 class="showcase-title">UI Components Library</h1>
+      <p class="showcase-subtitle">
+        10 advanced, production-ready components built with Astro + Tailwind CSS
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        <span class="px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-semibold">✓ Accessible</span>
+        <span class="px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-semibold">✓ SEO-Ready</span>
+        <span class="px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-semibold">✓ Responsive</span>
+        <span class="px-4 py-2 bg-white/20 backdrop-blur rounded-full text-sm font-semibold">✓ TypeScript</span>
+      </div>
+    </div>
+
+    <!-- Navigation Section -->
+    <section class="component-section" id="navigation">
+      <div class="section-header">
+        <h2 class="section-title">Navigation Components</h2>
+        <p class="section-description">
+          Advanced navigation with accessibility and keyboard support
+        </p>
+      </div>
+
+      <!-- MegaMenu -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Navigation</span>
+          <h3 class="component-name">MegaMenu</h3>
+          <p class="component-desc">
+            Multi-column dropdown with icons, descriptions, and full keyboard navigation (Tab, Arrow keys, Esc)
+          </p>
+        </div>
+        <div class="demo-wrapper">
+          <MegaMenu label="Services" items={megaMenuItems} />
+        </div>
+      </div>
+
+      <!-- TableOfContents -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Navigation</span>
+          <h3 class="component-name">TableOfContents</h3>
+          <p class="component-desc">
+            Auto-generated TOC with scrollspy highlighting - sticky on desktop, top anchor on mobile
+          </p>
+        </div>
+        <div class="demo-wrapper">
+          <div class="max-w-sm">
+            <TableOfContents headings={tocHeadings} title="Page Contents" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hero & Forms Section -->
+    <section class="component-section" id="hero-forms">
+      <div class="section-header">
+        <h2 class="section-title">Hero & Forms</h2>
+        <p class="section-description">
+          Conversion-optimized hero sections and multi-step forms
+        </p>
+      </div>
+
+      <!-- HeroWithForm -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Hero</span>
+          <h3 class="component-name">HeroWithForm</h3>
+          <p class="component-desc">
+            Split hero layout with lead capture form + UTM parameter tracking
+          </p>
+        </div>
+        <div class="demo-wrapper" style="padding: 0; background: transparent; border: none;">
+          <HeroWithForm
+            headline="Grow Your Business Online"
+            subheadline="Get a free marketing audit worth $997"
+            ctaText="Get My Free Audit"
+            formAction="/api/leads"
+            services={["SEO", "Google Ads", "Web Design"]}
+          />
+        </div>
+      </div>
+
+      <!-- MultiStepForm -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Form</span>
+          <h3 class="component-name">MultiStepForm</h3>
+          <p class="component-desc">
+            Progressive form with step indicators, validation, and smooth transitions
+          </p>
+        </div>
+        <div class="demo-wrapper">
+          <MultiStepForm
+            formAction="/api/leads"
+            steps={[
+              {
+                title: "Select Service",
+                description: "What are you interested in?",
+                fields: [
+                  { name: "service", type: "radio", label: "Service", options: ["SEO", "Google Ads", "Web Design"], required: true }
+                ]
+              },
+              {
+                title: "Your Details",
+                description: "How can we reach you?",
+                fields: [
+                  { name: "name", type: "text", label: "Name", placeholder: "John Doe", required: true },
+                  { name: "email", type: "email", label: "Email", placeholder: "john@example.com", required: true }
+                ]
+              }
+            ]}
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="component-section" id="social-proof">
+      <div class="section-header">
+        <h2 class="section-title">Social Proof & Testimonials</h2>
+        <p class="section-description">
+          Build trust with case studies, logos, and video testimonials
+        </p>
+      </div>
+
+      <!-- CaseStudyCard -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Social Proof</span>
+          <h3 class="component-name">CaseStudyCard + CaseStudyGrid</h3>
+          <p class="component-desc">
+            Client success stories with metrics, filterable grid by industry/service
+          </p>
+        </div>
+        <div class="demo-wrapper" style="padding: 0; background: transparent; border: none;">
+          <CaseStudyGrid
+            caseStudies={caseStudies}
+            industries={["Technology", "Retail"]}
+            services={["SEO", "Google Ads"]}
+          />
+        </div>
+      </div>
+
+      <!-- LogoWall -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Social Proof</span>
+          <h3 class="component-name">LogoWall</h3>
+          <p class="component-desc">
+            Client logo grid with grayscale hover effect, optional carousel on mobile
+          </p>
+        </div>
+        <div class="demo-wrapper" style="padding: 0; background: transparent; border: none;">
+          <LogoWall
+            heading="Trusted by Industry Leaders"
+            logos={logos}
+            carousel={true}
+          />
+        </div>
+      </div>
+
+      <!-- VideoTestimonialCard -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Social Proof</span>
+          <h3 class="component-name">VideoTestimonialCard</h3>
+          <p class="component-desc">
+            Video testimonial with thumbnail and modal lightbox player
+          </p>
+        </div>
+        <div class="demo-wrapper">
+          <div class="max-w-md mx-auto">
+            <VideoTestimonialCard
+              videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              thumbnail="/favicon.svg"
+              author="Sarah Johnson"
+              role="CEO, TechCorp"
+              quote="Working with this team transformed our business completely"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Section -->
+    <section class="component-section" id="interactive">
+      <div class="section-header">
+        <h2 class="section-title">Interactive Elements</h2>
+        <p class="section-description">
+          Engaging components with smooth interactions
+        </p>
+      </div>
+
+      <!-- BeforeAfterSlider -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Interactive</span>
+          <h3 class="component-name">BeforeAfterSlider</h3>
+          <p class="component-desc">
+            Drag-to-compare image slider - perfect for showcasing website redesigns
+          </p>
+        </div>
+        <div class="demo-wrapper">
+          <BeforeAfterSlider
+            beforeImg="/favicon.svg"
+            afterImg="/favicon.svg"
+            altBefore="Before redesign"
+            altAfter="After redesign"
+            initialPosition={50}
+          />
+        </div>
+      </div>
+
+      <!-- FloatingCTA -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Interactive</span>
+          <h3 class="component-name">FloatingCTA</h3>
+          <p class="component-desc">
+            Sticky action rail with Call, WhatsApp, Book buttons - collapsible on mobile
+          </p>
+        </div>
+        <div class="demo-wrapper">
+          <p class="text-center text-gray-600">
+            Check the bottom-right corner of the page for the live demo →
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="component-section" id="content">
+      <div class="section-header">
+        <h2 class="section-title">Content Components</h2>
+        <p class="section-description">
+          SEO-optimized content components with structured data
+        </p>
+      </div>
+
+      <!-- FAQWithSchema -->
+      <div class="component-card">
+        <div class="component-header">
+          <span class="component-label">Content + SEO</span>
+          <h3 class="component-name">FAQWithSchema</h3>
+          <p class="component-desc">
+            FAQ accordion with automatic JSON-LD schema generation for rich snippets
+          </p>
+        </div>
+        <div class="demo-wrapper" style="padding: 0; background: transparent; border: none;">
+          <FAQWithSchema
+            heading="Common Questions"
+            items={faqItems}
+            generateSchema={true}
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="component-section">
+      <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-12 text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Ready to Use These Components?
+        </h2>
+        <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+          All components are production-ready with TypeScript, accessibility, and SEO built-in
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="/components"
+            class="px-8 py-4 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-100 transition-colors"
+          >
+            View Basic Components
+          </a>
+          <a
+            href="https://github.com"
+            class="px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition-colors"
+          >
+            View Documentation
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating CTA Demo (Live) -->
+  <FloatingCTA
+    buttons={[
+      { label: "Call Us", icon: "📞", href: "tel:+61487286451", color: "green" },
+      { label: "WhatsApp", icon: "💬", href: "https://wa.me/61487286451", color: "green" },
+      { label: "Book Call", icon: "📅", href: "/book", color: "blue" }
+    ]}
+    position="bottom-right"
+  />
+</CleanLayout>
