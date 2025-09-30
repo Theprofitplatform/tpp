@@ -1,979 +1,719 @@
 ---
-// Simple Components Showcase for Cloudflare deployment
-import BaseLayout from '../layouts/BaseLayout.astro';
+import CleanLayout from '../layouts/CleanLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import HeroSection from '../components/HeroSection.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import MetricsPanel from '../components/MetricsPanel.astro';
+import PricingTable from '../components/PricingTable.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import ContactForm from '../components/ContactForm.astro';
+import BlogCard from '../components/BlogCard.astro';
+import PostMeta from '../components/PostMeta.astro';
+import Pagination from '../components/Pagination.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Section from '../components/Section.astro';
+import CTA_Banner from '../components/CTA_Banner.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import TestimonialCarousel from '../components/TestimonialCarousel.astro';
+import SeoSchema from '../components/SeoSchema.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import AnnouncementBar from '../components/AnnouncementBar.astro';
 ---
 
-<BaseLayout title="Design System Playground — The Profit Platform Interactive Style Guide">
+<CleanLayout
+  title="Components Showcase | Production-Ready Astro Components"
+  description="20 fully documented, accessible, and responsive Astro components built with Tailwind CSS"
+>
   <Fragment slot="head">
-    <meta name="title" content="Design System Playground — The Profit Platform Interactive Style Guide">
-    <meta name="description" content="Interactive design system playground with component states, theming, responsive previews, and accessibility documentation.">
-    <meta name="robots" content="noindex, nofollow">
+    <style>
+      .showcase-page {
+        background: #f8fafc;
+        min-height: 100vh;
+      }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+      .showcase-header {
+        background: linear-gradient(135deg, #3B82F6 0%, #2c86f9 50%, #1e6ee8 100%);
+        color: white;
+        padding: 100px 20px 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/css.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+      .showcase-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.4) 0%, transparent 50%);
+        pointer-events: none;
+      }
+
+      .showcase-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin: 0 0 1.5rem;
+        position: relative;
+        text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .showcase-subtitle {
+        font-size: 1.375rem;
+        opacity: 0.95;
+        max-width: 750px;
+        margin: 0 auto;
+        position: relative;
+        line-height: 1.6;
+      }
+
+      .category-header {
+        max-width: 1400px;
+        margin: 80px auto 50px;
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      .category-title {
+        font-size: 2.75rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin: 0 0 12px;
+      }
+
+      .category-description {
+        font-size: 1.25rem;
+        color: #64748b;
+        font-weight: 400;
+      }
+
+      .component-showcase {
+        max-width: 1400px;
+        margin: 50px auto;
+        padding: 0 20px;
+      }
+
+      .component-header {
+        margin-bottom: 24px;
+      }
+
+      .component-label {
+        display: inline-block;
+        background: linear-gradient(135deg, #3B82F6, #2c86f9);
+        color: white;
+        padding: 8px 18px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        box-shadow: 0 4px 12px rgba(44, 134, 249, 0.3);
+      }
+
+      .component-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin: 0 0 8px;
+        letter-spacing: -0.02em;
+      }
+
+      .component-description {
+        font-size: 1.125rem;
+        color: #64748b;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .component-wrapper {
+        background: white;
+        border: 2px solid #e2e8f0;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .component-wrapper:hover {
+        box-shadow: 0 20px 40px -10px rgb(0 0 0 / 0.12), 0 10px 15px -8px rgb(0 0 0 / 0.08);
+        transform: translateY(-2px);
+      }
+
+      .divider {
+        height: 80px;
+        background: linear-gradient(to bottom, #f8fafc 0%, rgba(248, 250, 252, 0.5) 50%, #f8fafc 100%);
+      }
+
+      @media (max-width: 768px) {
+        .showcase-header {
+          padding: 80px 20px 60px;
+        }
+
+        .showcase-title {
+          font-size: 2.25rem;
+        }
+
+        .showcase-subtitle {
+          font-size: 1.125rem;
+        }
+
+        .category-header {
+          margin: 60px auto 40px;
+        }
+
+        .category-title {
+          font-size: 2.25rem;
+        }
+
+        .component-title {
+          font-size: 1.625rem;
+        }
+
+        .component-showcase {
+          margin: 40px auto;
+        }
+      }
+    </style>
   </Fragment>
 
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="showcase-page">
+    <!-- Showcase Header -->
+    <div class="showcase-header">
+      <h1 class="showcase-title">Production-Ready Components</h1>
+      <p class="showcase-subtitle">
+        20 fully documented, accessible, and responsive Astro components built with Tailwind CSS
+      </p>
+    </div>
 
-  <header class="ds-header" id="ds-header">
-    <div class="container">
-      <div class="header-content">
-        <div class="header-brand">
-          <div class="brand-icon">
-            <i class="fas fa-palette"></i>
-          </div>
-          <div class="brand-text">
-            <h1 class="brand-title">Design System</h1>
-            <span class="brand-subtitle">v2.0.0</span>
-          </div>
-        </div>
+    <!-- LAYOUT COMPONENTS -->
+    <div class="category-header">
+      <h2 class="category-title">Layout Components</h2>
+      <p class="category-description">Structural components for page layout and navigation</p>
+    </div>
 
-        <div class="search-container">
-          <div class="search-wrapper">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" class="search-input" placeholder="Search components..." id="global-search" autocomplete="off">
-            <div class="search-results" id="search-results"></div>
-          </div>
-        </div>
-
-        <div class="header-controls">
-          <div class="control-group">
-            <label class="control-label">Theme</label>
-            <div class="theme-switcher">
-              <button class="theme-btn active" data-theme="light" title="Light Mode">
-                <i class="fas fa-sun"></i>
-              </button>
-              <button class="theme-btn" data-theme="dark" title="Dark Mode">
-                <i class="fas fa-moon"></i>
-              </button>
-              <button class="theme-btn" data-theme="compare" title="Side by Side">
-                <i class="fas fa-columns"></i>
-              </button>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <label class="control-label">Viewport</label>
-            <div class="viewport-switcher">
-              <button class="viewport-btn active" data-viewport="desktop" title="Desktop">
-                <i class="fas fa-desktop"></i>
-              </button>
-              <button class="viewport-btn" data-viewport="tablet" title="Tablet">
-                <i class="fas fa-tablet-alt"></i>
-              </button>
-              <button class="viewport-btn" data-viewport="mobile" title="Mobile">
-                <i class="fas fa-mobile-alt"></i>
-              </button>
-            </div>
-          </div>
-        </div>
+    <!-- 1. Navbar -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Navigation</span>
+        <h3 class="component-title">Navbar</h3>
+        <p class="component-description">
+          Sticky navigation with mobile hamburger menu, keyboard accessible, focus management
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <Navbar
+          logoSrc="/favicon.svg"
+          navItems={[
+            { label: "Home", href: "/" },
+            { label: "Services", href: "/services" },
+            { label: "About", href: "/about" },
+            { label: "Blog", href: "/blog" }
+          ]}
+          cta={{ label: "Get Started", href: "/contact" }}
+        />
       </div>
     </div>
-  </header>
 
-  <nav class="ds-sidebar" id="ds-sidebar">
-    <div class="sidebar-content">
-      <div class="nav-section">
-        <div class="nav-section-header">
-          <h3 class="nav-section-title">
-            <i class="fas fa-atom"></i>
-            <span>Design Tokens</span>
-          </h3>
-        </div>
-        <div class="nav-links">
-          <a href="#colors" class="nav-link">
-            <span class="link-icon"><i class="fas fa-palette"></i></span>
-            <span class="link-text">Colors</span>
-            <span class="link-badge">12</span>
-          </a>
-          <a href="#typography" class="nav-link">
-            <span class="link-icon"><i class="fas fa-font"></i></span>
-            <span class="link-text">Typography</span>
-            <span class="link-badge">6</span>
-          </a>
-        </div>
+    <div class="divider"></div>
+
+    <!-- 2. Footer -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Navigation</span>
+        <h3 class="component-title">Footer</h3>
+        <p class="component-description">
+          4-column responsive footer with social links and company info
+        </p>
       </div>
-
-      <div class="nav-section">
-        <div class="nav-section-header">
-          <h3 class="nav-section-title">
-            <i class="fas fa-cubes"></i>
-            <span>Components</span>
-          </h3>
-        </div>
-        <div class="nav-links">
-          <a href="#buttons" class="nav-link">
-            <span class="link-icon"><i class="fas fa-hand-pointer"></i></span>
-            <span class="link-text">Buttons</span>
-            <span class="link-badge">8</span>
-            <span class="update-badge">Updated</span>
-          </a>
-          <a href="#forms" class="nav-link">
-            <span class="link-icon"><i class="fas fa-edit"></i></span>
-            <span class="link-text">Form Elements</span>
-            <span class="link-badge">12</span>
-          </a>
-        </div>
+      <div class="component-wrapper">
+        <Footer />
       </div>
     </div>
-  </nav>
 
-  <main class="ds-main" id="main-content">
-    <div class="main-content">
-      <section class="welcome-section">
-        <div class="welcome-content">
-          <div class="welcome-header">
-            <h1 class="welcome-title">Design System Playground</h1>
-            <p class="welcome-subtitle">
-              Interactive component library with live previews, multiple states,
-              responsive testing, and accessibility documentation.
-            </p>
-            <div class="welcome-stats">
-              <div class="stat">
-                <span class="stat-number">45+</span>
-                <span class="stat-label">Components</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">120+</span>
-                <span class="stat-label">Variants</span>
-              </div>
-              <div class="stat">
-                <span class="stat-number">AA</span>
-                <span class="stat-label">WCAG Compliant</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div class="divider"></div>
 
-      <section id="colors" class="component-section" data-category="tokens">
-        <div class="section-header">
-          <div class="section-title-group">
-            <h2 class="section-title">
-              <span class="title-icon"><i class="fas fa-palette"></i></span>
-              Color System
-            </h2>
-            <div class="section-badges">
-              <span class="badge badge-token">Design Token</span>
-              <span class="badge badge-accessible">WCAG AA</span>
-            </div>
-          </div>
-          <p class="section-description">
-            Carefully crafted color palette optimized for accessibility and brand consistency.
+    <!-- 3. Section -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Layout</span>
+        <h3 class="component-title">Section</h3>
+        <p class="component-description">
+          Generic layout wrapper with padding and background options (white, gray, blue)
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <Section background="gray" id="example-section">
+          <h2 style="text-align: center; font-size: 2rem; color: #1e293b;">Example Section Content</h2>
+          <p style="text-align: center; color: #64748b; margin-top: 1rem;">
+            This is a reusable section wrapper with consistent padding and background options.
           </p>
-        </div>
-
-        <div class="component-preview">
-          <div class="preview-container">
-            <div class="color-grid">
-              <div class="color-group">
-                <h3 class="group-title">Primary Colors</h3>
-                <div class="color-swatches">
-                  <div class="color-swatch" data-color="#2c86f9">
-                    <div class="swatch-color" style="background: #2c86f9;"></div>
-                    <div class="swatch-info">
-                      <div class="swatch-name">Primary Blue</div>
-                      <div class="swatch-value">#2c86f9</div>
-                      <div class="swatch-contrast">
-                        <span class="contrast-ratio">4.8:1</span>
-                        <span class="contrast-badge aa">AA</span>
-                      </div>
-                    </div>
-                    <div class="swatch-actions">
-                      <button class="swatch-btn" data-action="copy" data-value="#2c86f9" title="Copy Color">
-                        <i class="fas fa-copy"></i>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="color-swatch" data-color="#1e6ee8">
-                    <div class="swatch-color" style="background: #1e6ee8;"></div>
-                    <div class="swatch-info">
-                      <div class="swatch-name">Primary Dark</div>
-                      <div class="swatch-value">#1e6ee8</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="buttons" class="component-section" data-category="components">
-        <div class="section-header">
-          <div class="section-title-group">
-            <h2 class="section-title">
-              <span class="title-icon"><i class="fas fa-hand-pointer"></i></span>
-              Button Components
-            </h2>
-            <div class="section-badges">
-              <span class="badge badge-component">Component</span>
-              <span class="badge badge-interactive">Interactive</span>
-            </div>
-          </div>
-          <p class="section-description">
-            Interactive button components with multiple variants and states.
-          </p>
-        </div>
-
-        <div class="component-preview">
-          <div class="preview-container">
-            <div class="button-playground">
-              <div class="variant-group">
-                <h4 class="variant-title">Button Variants</h4>
-                <div class="variant-buttons">
-                  <button class="btn btn-primary btn-md">Primary</button>
-                  <button class="btn btn-secondary btn-md">Secondary</button>
-                  <button class="btn btn-outline btn-md">Outline</button>
-                  <button class="btn btn-ghost btn-md">Ghost</button>
-                  <button class="btn btn-primary btn-md" disabled>Disabled</button>
-                </div>
-              </div>
-
-              <div class="variant-group">
-                <h4 class="variant-title">Button Sizes</h4>
-                <div class="variant-buttons">
-                  <button class="btn btn-primary btn-sm">Small</button>
-                  <button class="btn btn-primary btn-md">Medium</button>
-                  <button class="btn btn-primary btn-lg">Large</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+        </Section>
+      </div>
     </div>
-  </main>
 
-  <div class="toast-container" id="toast-container"></div>
-
-  <style>
-    /* Design System Styles */
-    :root {
-      --ds-sidebar-width: 280px;
-      --ds-header-height: 80px;
-      --ds-primary: #2c86f9;
-      --ds-gray-50: #f8fafc;
-      --ds-gray-100: #f1f5f9;
-      --ds-gray-200: #e2e8f0;
-      --ds-gray-600: #475569;
-      --ds-gray-700: #334155;
-      --ds-gray-800: #1e293b;
-      --ds-gray-900: #0f172a;
-      --ds-success: #10b981;
-      --ds-warning: #f59e0b;
-      --ds-error: #ef4444;
-      --ds-info: #3b82f6;
-      --ds-radius: 0.75rem;
-      --ds-radius-sm: 0.375rem;
-      --ds-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-      --ds-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--ds-gray-50);
-      overflow-x: hidden;
-    }
-
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 8px;
-      background: var(--ds-primary);
-      color: white;
-      padding: 8px 16px;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: 600;
-      z-index: 10000;
-    }
-
-    .skip-link:focus {
-      top: 8px;
-    }
-
-    .ds-header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: var(--ds-header-height);
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--ds-gray-200);
-      z-index: 1000;
-    }
-
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-      gap: 2rem;
-    }
-
-    .header-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .brand-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--ds-primary), var(--ds-info));
-      border-radius: var(--ds-radius-sm);
-      color: white;
-    }
-
-    .brand-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--ds-gray-900);
-      margin: 0;
-    }
-
-    .brand-subtitle {
-      font-size: 0.75rem;
-      color: var(--ds-gray-600);
-      font-weight: 500;
-    }
-
-    .search-container {
-      flex: 1;
-      max-width: 400px;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 0.75rem 1rem 0.75rem 2.5rem;
-      border: 1px solid var(--ds-gray-200);
-      border-radius: var(--ds-radius-sm);
-      font-size: 0.875rem;
-      background: white;
-    }
-
-    .search-icon {
-      position: absolute;
-      left: 0.875rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--ds-gray-600);
-    }
-
-    .search-wrapper {
-      position: relative;
-    }
-
-    .header-controls {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .control-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .control-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--ds-gray-600);
-      text-transform: uppercase;
-    }
-
-    .theme-switcher,
-    .viewport-switcher {
-      display: flex;
-      background: var(--ds-gray-100);
-      border-radius: var(--ds-radius-sm);
-      padding: 2px;
-    }
-
-    .theme-btn,
-    .viewport-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 32px;
-      background: none;
-      border: none;
-      border-radius: calc(var(--ds-radius-sm) - 2px);
-      color: var(--ds-gray-600);
-      cursor: pointer;
-      transition: var(--ds-transition);
-    }
-
-    .theme-btn.active,
-    .viewport-btn.active {
-      background: white;
-      color: var(--ds-primary);
-      box-shadow: var(--ds-shadow);
-    }
-
-    .ds-sidebar {
-      position: fixed;
-      top: var(--ds-header-height);
-      left: 0;
-      width: var(--ds-sidebar-width);
-      height: calc(100vh - var(--ds-header-height));
-      background: white;
-      border-right: 1px solid var(--ds-gray-200);
-      overflow-y: auto;
-      z-index: 900;
-    }
-
-    .sidebar-content {
-      padding: 1.5rem 0;
-    }
-
-    .nav-section {
-      margin-bottom: 2rem;
-    }
-
-    .nav-section-header {
-      padding: 0 1.5rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .nav-section-title {
-      display: flex;
-      align-items: center;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--ds-gray-700);
-      margin: 0;
-    }
-
-    .nav-section-title i {
-      margin-right: 0.5rem;
-      color: var(--ds-gray-600);
-    }
-
-    .nav-links {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.75rem 1.5rem;
-      color: var(--ds-gray-700);
-      text-decoration: none;
-      transition: var(--ds-transition);
-    }
-
-    .nav-link:hover {
-      background: var(--ds-gray-50);
-      color: var(--ds-primary);
-    }
-
-    .link-text {
-      flex: 1;
-      font-weight: 500;
-    }
-
-    .link-badge {
-      font-size: 0.75rem;
-      background: var(--ds-gray-200);
-      color: var(--ds-gray-600);
-      padding: 0.125rem 0.5rem;
-      border-radius: 1rem;
-    }
-
-    .update-badge {
-      font-size: 0.625rem;
-      padding: 0.125rem 0.375rem;
-      border-radius: 0.25rem;
-      background: var(--ds-warning);
-      color: white;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .ds-main {
-      margin-left: var(--ds-sidebar-width);
-      margin-top: var(--ds-header-height);
-      min-height: calc(100vh - var(--ds-header-height));
-    }
-
-    .main-content {
-      padding: 2rem;
-    }
-
-    .welcome-section {
-      margin-bottom: 4rem;
-    }
-
-    .welcome-content {
-      background: linear-gradient(135deg, var(--ds-primary), var(--ds-info));
-      border-radius: var(--ds-radius);
-      padding: 3rem;
-      color: white;
-      text-align: center;
-    }
-
-    .welcome-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin: 0 0 1rem 0;
-    }
-
-    .welcome-subtitle {
-      font-size: 1.25rem;
-      margin: 0 0 2rem 0;
-      opacity: 0.9;
-    }
-
-    .welcome-stats {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-number {
-      display: block;
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 0.25rem;
-    }
-
-    .stat-label {
-      font-size: 0.875rem;
-      opacity: 0.8;
-    }
-
-    .component-section {
-      margin-bottom: 4rem;
-      background: white;
-      border-radius: var(--ds-radius);
-      overflow: hidden;
-      box-shadow: var(--ds-shadow);
-    }
-
-    .section-header {
-      padding: 2rem;
-      border-bottom: 1px solid var(--ds-gray-100);
-    }
-
-    .section-title-group {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--ds-gray-900);
-      margin: 0;
-    }
-
-    .title-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      background: var(--ds-gray-100);
-      border-radius: var(--ds-radius-sm);
-      color: var(--ds-primary);
-    }
-
-    .section-badges {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .badge {
-      font-size: 0.75rem;
-      padding: 0.25rem 0.75rem;
-      border-radius: var(--ds-radius-sm);
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .badge-token {
-      background: var(--ds-gray-100);
-      color: var(--ds-gray-700);
-    }
-
-    .badge-accessible {
-      background: var(--ds-success);
-      color: white;
-    }
-
-    .badge-component {
-      background: var(--ds-info);
-      color: white;
-    }
-
-    .badge-interactive {
-      background: var(--ds-warning);
-      color: white;
-    }
-
-    .section-description {
-      color: var(--ds-gray-600);
-      font-size: 1.125rem;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .component-preview {
-      padding: 2rem;
-    }
-
-    .preview-container {
-      border: 1px solid var(--ds-gray-200);
-      border-radius: var(--ds-radius-sm);
-      overflow: hidden;
-    }
-
-    .color-grid {
-      padding: 2rem;
-    }
-
-    .color-group {
-      margin-bottom: 2rem;
-    }
-
-    .group-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--ds-gray-900);
-      margin: 0 0 1rem 0;
-    }
-
-    .color-swatches {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1rem;
-    }
-
-    .color-swatch {
-      background: white;
-      border: 1px solid var(--ds-gray-200);
-      border-radius: var(--ds-radius-sm);
-      overflow: hidden;
-    }
-
-    .swatch-color {
-      height: 80px;
-    }
-
-    .swatch-info {
-      padding: 1rem;
-    }
-
-    .swatch-name {
-      font-weight: 600;
-      color: var(--ds-gray-900);
-      margin-bottom: 0.25rem;
-    }
-
-    .swatch-value {
-      font-family: 'Monaco', monospace;
-      font-size: 0.875rem;
-      color: var(--ds-gray-600);
-      margin-bottom: 0.5rem;
-    }
-
-    .swatch-contrast {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .contrast-ratio {
-      font-size: 0.75rem;
-      color: var(--ds-gray-600);
-    }
-
-    .contrast-badge.aa {
-      font-size: 0.625rem;
-      padding: 0.125rem 0.375rem;
-      border-radius: 0.25rem;
-      background: var(--ds-success);
-      color: white;
-      font-weight: 600;
-    }
-
-    .swatch-actions {
-      display: flex;
-      padding: 0.5rem 1rem 1rem;
-    }
-
-    .swatch-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 32px;
-      height: 32px;
-      background: var(--ds-gray-100);
-      border: none;
-      border-radius: var(--ds-radius-sm);
-      color: var(--ds-gray-600);
-      cursor: pointer;
-      transition: var(--ds-transition);
-    }
-
-    .swatch-btn:hover {
-      background: var(--ds-primary);
-      color: white;
-    }
-
-    .button-playground {
-      padding: 2rem;
-    }
-
-    .variant-group {
-      background: white;
-      border: 1px solid var(--ds-gray-200);
-      border-radius: var(--ds-radius-sm);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .variant-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--ds-gray-900);
-      margin: 0 0 1rem 0;
-    }
-
-    .variant-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: var(--ds-radius-sm);
-      font-weight: 600;
-      font-size: 0.875rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: var(--ds-transition);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--ds-primary), var(--ds-info));
-      color: white;
-    }
-
-    .btn-primary:hover:not(:disabled) {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(44, 134, 249, 0.4);
-    }
-
-    .btn-secondary {
-      background: var(--ds-gray-600);
-      color: white;
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--ds-primary);
-      border: 2px solid var(--ds-primary);
-    }
-
-    .btn-outline:hover:not(:disabled) {
-      background: var(--ds-primary);
-      color: white;
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--ds-gray-600);
-    }
-
-    .btn-ghost:hover:not(:disabled) {
-      background: var(--ds-gray-100);
-    }
-
-    .btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .btn-sm {
-      padding: 0.5rem 1rem;
-      font-size: 0.8125rem;
-    }
-
-    .btn-md {
-      padding: 0.75rem 1.5rem;
-      font-size: 0.875rem;
-    }
-
-    .btn-lg {
-      padding: 1rem 2rem;
-      font-size: 1rem;
-    }
-
-    .container {
-      margin: 0 auto;
-      max-width: 1280px;
-      padding: 0 20px;
-      width: 100%;
-    }
-
-    @media (max-width: 1024px) {
-      .ds-sidebar {
-        transform: translateX(-100%);
-      }
-
-      .ds-main {
-        margin-left: 0;
-      }
-
-      .header-controls {
-        display: none;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .main-content {
-        padding: 1rem;
-      }
-
-      .welcome-title {
-        font-size: 2rem;
-      }
-
-      .welcome-stats {
-        gap: 1.5rem;
-      }
-
-      .variant-buttons {
-        justify-content: center;
-      }
-    }
-  </style>
-
-  <script>
-    // Simple JavaScript for basic functionality
-    class SimpleDesignSystem {
-      constructor() {
-        this.init();
-      }
-
-      init() {
-        this.setupThemeToggle();
-        this.setupViewportToggle();
-        this.setupNavigation();
-        this.setupCopyButtons();
-      }
-
-      setupThemeToggle() {
-        document.querySelectorAll('.theme-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
-            document.documentElement.setAttribute('data-theme', e.target.dataset.theme);
-          });
-        });
-      }
-
-      setupViewportToggle() {
-        document.querySelectorAll('.viewport-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            document.querySelectorAll('.viewport-btn').forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
-
-            const viewport = e.target.dataset.viewport;
-            const widths = { desktop: '100%', tablet: '768px', mobile: '375px' };
-
-            document.querySelectorAll('.preview-container').forEach(container => {
-              container.style.maxWidth = widths[viewport];
-              container.style.margin = viewport === 'desktop' ? '' : '0 auto';
-            });
-          });
-        });
-      }
-
-      setupNavigation() {
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(link.getAttribute('href'));
-            if (target) {
-              target.scrollIntoView({ behavior: 'smooth' });
+    <div class="divider"></div>
+
+    <!-- 4. Breadcrumbs -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Navigation</span>
+        <h3 class="component-title">Breadcrumbs</h3>
+        <p class="component-description">
+          Accessible breadcrumb navigation trail with ARIA attributes
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 40px;">
+        <Breadcrumbs
+          items={[
+            { label: "Home", href: "/" },
+            { label: "Blog", href: "/blog" },
+            { label: "Category", href: "/blog/category" }
+          ]}
+          currentLabel="Post Title"
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 5. Pagination -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Navigation</span>
+        <h3 class="component-title">Pagination</h3>
+        <p class="component-description">
+          Page navigation with prev/next buttons and page numbers
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 40px;">
+        <Pagination currentPage={3} totalPages={10} baseUrl="/blog" />
+      </div>
+    </div>
+
+    <!-- HERO & CTA COMPONENTS -->
+    <div class="category-header">
+      <h2 class="category-title">Hero & CTA Components</h2>
+      <p class="category-description">Eye-catching sections for conversions</p>
+    </div>
+
+    <!-- 6. Hero Section -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Hero</span>
+        <h3 class="component-title">Hero Section</h3>
+        <p class="component-description">
+          Flexible hero with 3 layout variants (image-left, image-right, center)
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <HeroSection
+          title="Grow Your Business Online"
+          subtitle="Professional digital marketing services that deliver measurable results"
+          cta={{ label: "Start Free Trial", href: "/book" }}
+          secondaryCta={{ label: "Learn More", href: "/services" }}
+          variant="center"
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 7. CTA Banner -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">CTA</span>
+        <h3 class="component-title">CTA Banner</h3>
+        <p class="component-description">
+          Full-width call-to-action with gradient background and decorative pattern
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <CTA_Banner
+          title="Ready to Transform Your Business?"
+          subtitle="Join hundreds of businesses already growing with our proven strategies"
+          cta={{ label: "Get Started Today", href: "/book" }}
+          secondaryCta={{ label: "View Case Studies", href: "/case-studies" }}
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 8. Announcement Bar -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Notification</span>
+        <h3 class="component-title">Announcement Bar</h3>
+        <p class="component-description">
+          Dismissible top banner with LocalStorage persistence for important announcements
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <AnnouncementBar
+          text="🎉 Special Offer: Get 20% off all services this month!"
+          href="/pricing"
+          dismissible={true}
+        />
+      </div>
+    </div>
+
+    <!-- TRUST & SOCIAL PROOF -->
+    <div class="category-header">
+      <h2 class="category-title">Trust & Social Proof</h2>
+      <p class="category-description">Build credibility with client logos and testimonials</p>
+    </div>
+
+    <!-- 9. Trust Strip -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Social Proof</span>
+        <h3 class="component-title">Trust Strip</h3>
+        <p class="component-description">
+          Logo row with grayscale hover effect for client logos
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <TrustStrip
+          heading="Trusted by industry leaders"
+          logos={[
+            { src: "/favicon.svg", alt: "Company 1" },
+            { src: "/favicon.svg", alt: "Company 2" },
+            { src: "/favicon.svg", alt: "Company 3" },
+            { src: "/favicon.svg", alt: "Company 4" },
+            { src: "/favicon.svg", alt: "Company 5" },
+            { src: "/favicon.svg", alt: "Company 6" }
+          ]}
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 10. Metrics Panel -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Stats</span>
+        <h3 class="component-title">Metrics Panel</h3>
+        <p class="component-description">
+          KPI display tiles with configurable column layouts (2, 3, or 4 columns)
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 60px 40px;">
+        <MetricsPanel
+          columns={4}
+          metrics={[
+            { label: "Clients Served", value: "500+", hint: "Across Australia" },
+            { label: "Revenue Generated", value: "$10M+", hint: "For our clients" },
+            { label: "Average ROI", value: "347%", hint: "In first year" },
+            { label: "5-Star Reviews", value: "200+", hint: "On Google" }
+          ]}
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 11. Testimonial Carousel -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Social Proof</span>
+        <h3 class="component-title">Testimonial Carousel</h3>
+        <p class="component-description">
+          Simple carousel with navigation, indicators, and auto-play
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <TestimonialCarousel
+          testimonials={[
+            {
+              quote: "Working with this team has completely transformed our online presence. Our leads have tripled in just 3 months!",
+              author: "Sarah Johnson",
+              role: "CEO, TechStart Inc"
+            },
+            {
+              quote: "The best investment we've made in our business. Professional, results-driven, and always available.",
+              author: "Michael Chen",
+              role: "Founder, Green Solutions"
+            },
+            {
+              quote: "Finally, a marketing agency that delivers on its promises. Our ROI has exceeded all expectations.",
+              author: "Emma Williams",
+              role: "Marketing Director, Retail Co"
             }
-          });
-        });
-      }
+          ]}
+        />
+      </div>
+    </div>
 
-      setupCopyButtons() {
-        document.querySelectorAll('.swatch-btn[data-action="copy"]').forEach(btn => {
-          btn.addEventListener('click', (e) => {
-            const color = e.target.dataset.value;
-            navigator.clipboard.writeText(color);
-            this.showToast(`Copied ${color}!`);
-          });
-        });
-      }
+    <!-- PRICING & COMPARISON -->
+    <div class="category-header">
+      <h2 class="category-title">Pricing & Comparison</h2>
+      <p class="category-description">Showcase pricing plans and feature comparisons</p>
+    </div>
 
-      showToast(message) {
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        toast.textContent = message;
-        toast.style.cssText = `
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          background: var(--ds-success);
-          color: white;
-          padding: 1rem;
-          border-radius: var(--ds-radius-sm);
-          z-index: 10000;
-        `;
+    <!-- 12. Pricing Table -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Pricing</span>
+        <h3 class="component-title">Pricing Table</h3>
+        <p class="component-description">
+          3-column pricing table with featured plan highlighting and "Most Popular" badge
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 60px 40px;">
+        <PricingTable
+          plans={[
+            {
+              name: "Starter",
+              price: "$999",
+              period: "month",
+              features: [
+                "SEO Optimization",
+                "5 Blog Posts/month",
+                "Social Media Setup",
+                "Monthly Analytics Report"
+              ],
+              cta: { label: "Get Started", href: "/book" }
+            },
+            {
+              name: "Professional",
+              price: "$2,499",
+              period: "month",
+              featured: true,
+              features: [
+                "Everything in Starter",
+                "Google Ads Management",
+                "15 Blog Posts/month",
+                "Weekly Strategy Calls",
+                "A/B Testing",
+                "Priority Support"
+              ],
+              cta: { label: "Start Free Trial", href: "/book" }
+            },
+            {
+              name: "Enterprise",
+              price: "$5,999",
+              period: "month",
+              features: [
+                "Everything in Professional",
+                "Dedicated Account Manager",
+                "Unlimited Content",
+                "Custom Integrations",
+                "White-label Reports",
+                "24/7 Support"
+              ],
+              cta: { label: "Contact Sales", href: "/contact" }
+            }
+          ]}
+        />
+      </div>
+    </div>
 
-        document.body.appendChild(toast);
-        setTimeout(() => document.body.removeChild(toast), 3000);
-      }
-    }
+    <div class="divider"></div>
 
-    document.addEventListener('DOMContentLoaded', () => {
-      new SimpleDesignSystem();
-    });
-  </script>
-</BaseLayout>
+    <!-- 13. Comparison Table -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Comparison</span>
+        <h3 class="component-title">Comparison Table</h3>
+        <p class="component-description">
+          Side-by-side feature comparison with boolean checkmarks and text values
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <ComparisonTable
+          headers={["Starter", "Professional", "Enterprise"]}
+          rows={[
+            { feature: "SEO Optimization", values: [true, true, true] },
+            { feature: "Blog Posts", values: ["5/month", "15/month", "Unlimited"] },
+            { feature: "Google Ads", values: [false, true, true] },
+            { feature: "Strategy Calls", values: ["Monthly", "Weekly", "Daily"] },
+            { feature: "A/B Testing", values: [false, true, true] },
+            { feature: "Dedicated Manager", values: [false, false, true] },
+            { feature: "24/7 Support", values: [false, false, true] }
+          ]}
+        />
+      </div>
+    </div>
+
+    <!-- FORMS & INTERACTION -->
+    <div class="category-header">
+      <h2 class="category-title">Forms & Interaction</h2>
+      <p class="category-description">User input and engagement components</p>
+    </div>
+
+    <!-- 14. Contact Form -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Form</span>
+        <h3 class="component-title">Contact Form</h3>
+        <p class="component-description">
+          Production-ready form with honeypot spam protection, validation, and n8n webhook integration
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <ContactForm heading="Send Us a Message" />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 15. FAQ Accordion -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Content</span>
+        <h3 class="component-title">FAQ Accordion</h3>
+        <p class="component-description">
+          Accessible accordion using native details/summary elements with smooth animations
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 60px 40px;">
+        <FAQAccordion
+          heading="Common Questions"
+          faqs={[
+            {
+              question: "How long does it take to see results?",
+              answer: "Most clients start seeing measurable improvements within 30-60 days. SEO typically takes 3-6 months for significant organic growth, while paid ads can show results within days."
+            },
+            {
+              question: "What makes your service different?",
+              answer: "We focus on data-driven strategies, transparent reporting, and measurable ROI. Our team has 10+ years of experience and we work as an extension of your team."
+            },
+            {
+              question: "Do you offer month-to-month contracts?",
+              answer: "Yes! We offer flexible month-to-month agreements with no long-term commitments. You can cancel anytime with 30 days notice."
+            },
+            {
+              question: "What industries do you work with?",
+              answer: "We work with businesses across all industries including retail, healthcare, legal, real estate, technology, and professional services."
+            }
+          ]}
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 16. Cookie Banner -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Compliance</span>
+        <h3 class="component-title">Cookie Banner</h3>
+        <p class="component-description">
+          GDPR/Australian Privacy compliant cookie consent banner with LocalStorage persistence
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 40px; position: relative; min-height: 200px;">
+        <div style="text-align: center; color: #64748b;">
+          <p>Cookie banner appears at the bottom of the page after 1 second</p>
+          <p style="font-size: 0.875rem; margin-top: 0.5rem;">(Check below to see the live banner)</p>
+        </div>
+        <CookieBanner />
+      </div>
+    </div>
+
+    <!-- CONTENT & BLOG -->
+    <div class="category-header">
+      <h2 class="category-title">Content & Blog</h2>
+      <p class="category-description">Blog and content display components</p>
+    </div>
+
+    <!-- 17. Blog Card -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Content</span>
+        <h3 class="component-title">Blog Card</h3>
+        <p class="component-description">
+          Blog post preview card with image, category badge, and hover animations
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 60px 40px;">
+        <div style="max-width: 400px; margin: 0 auto;">
+          <BlogCard
+            title="10 SEO Strategies That Actually Work in 2024"
+            excerpt="Discover the latest SEO tactics that are driving real results for businesses. From technical optimization to content strategy, learn what works now."
+            publishDate={new Date('2024-01-15')}
+            slug="seo-strategies-2024"
+            category="SEO"
+            imageSrc="/favicon.svg"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 18. Post Meta -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Content</span>
+        <h3 class="component-title">Post Meta</h3>
+        <p class="component-description">
+          Display post metadata including date, read time, and tags
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 40px;">
+        <PostMeta
+          publishDate={new Date('2024-01-15')}
+          readTime={8}
+          tags={["SEO", "Digital Marketing", "Strategy"]}
+        />
+      </div>
+    </div>
+
+    <!-- SEO & TECHNICAL -->
+    <div class="category-header">
+      <h2 class="category-title">SEO & Technical</h2>
+      <p class="category-description">Search engine optimization and structured data</p>
+    </div>
+
+    <!-- 19. SEO Schema -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">SEO</span>
+        <h3 class="component-title">SEO Schema</h3>
+        <p class="component-description">
+          JSON-LD structured data component for rich snippets (invisible in UI)
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 40px;">
+        <div style="text-align: center; color: #64748b;">
+          <p>This component renders JSON-LD structured data in the page head</p>
+          <p style="font-size: 0.875rem; margin-top: 0.5rem;">
+            (View page source to see the schema markup)
+          </p>
+        </div>
+        <SeoSchema
+          schema={{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "The Profit Platform",
+            "url": "https://theprofitplatform.com.au",
+            "logo": "https://theprofitplatform.com.au/logo.png",
+            "description": "Digital marketing agency in Sydney, Australia"
+          }}
+        />
+      </div>
+    </div>
+
+    <!-- Footer Navigation -->
+    <div style="text-align: center; padding: 80px 20px; background: white;">
+      <a
+        href="#"
+        style="display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, #2c86f9, #1e6ee8); color: white; text-decoration: none; border-radius: 10px; font-weight: 600; box-shadow: 0 4px 12px rgba(44, 134, 249, 0.3); transition: transform 0.2s;"
+      >
+        <svg style="width: 20px; height: 20px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+        Back to Top
+      </a>
+    </div>
+  </div>
+</CleanLayout>
