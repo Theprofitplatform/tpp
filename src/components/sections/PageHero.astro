@@ -1,0 +1,33 @@
+---
+// PageHero Component - Reusable hero section for all pages
+interface Props {
+  title: string;
+  subtitle: string;
+  gradientFrom?: string;
+  gradientTo?: string;
+}
+
+const {
+  title,
+  subtitle,
+  gradientFrom = "indigo-600",
+  gradientTo = "pink-600"
+} = Astro.props;
+---
+
+<section class="relative py-24 md:py-32 overflow-hidden">
+  <!-- Gradient Background -->
+  <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 opacity-60"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-200 via-transparent to-transparent opacity-40"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class={`text-5xl md:text-7xl font-black mb-6 bg-gradient-to-r from-${gradientFrom} via-purple-600 to-${gradientTo} bg-clip-text text-transparent leading-tight`}>
+        {title}
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-700 leading-relaxed font-medium">
+        {subtitle}
+      </p>
+    </div>
+  </div>
+</section>

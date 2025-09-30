@@ -2,30 +2,27 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NavigationSection from '../components/sections/NavigationSection.astro';
 import FooterSection from '../components/sections/FooterSection.astro';
+import PageHero from '../components/sections/PageHero.astro';
+
+const pageTitle = "Terms of Service | The Profit Platform";
+const pageDescription = "Terms and conditions for using The Profit Platform's digital marketing services. Service agreements, payment terms, and policies.";
 ---
 
-<BaseLayout title="Terms of Service | The Profit Platform">
+<BaseLayout title={pageTitle} description={pageDescription}>
   <NavigationSection />
 
-  <main id="main-content" role="main">
-    <!-- Hero Section -->
-    <section class="py-16 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-            Terms of Service
-          </h1>
-          <p class="text-gray-600">Last updated: December 2024</p>
-        </div>
-      </div>
-    </section>
+  <main id="main-content" role="main" class="min-h-screen">
+    <PageHero
+      title="Terms of Service"
+      subtitle="Last updated: December 2024"
+    />
 
     <!-- Content Section -->
-    <section class="py-16">
+    <section class="py-16 md:py-20 bg-gray-50">
       <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto prose prose-lg">
-          <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Agreement to Terms</h2>
+        <div class="max-w-4xl mx-auto">
+          <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 mb-8 border border-gray-100">
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Agreement to Terms</h2>
             <p class="text-gray-600 mb-4">
               These Terms of Service ("Terms") govern your use of The Profit Platform's website and services. By accessing or using our services, you agree to be bound by these Terms.
             </p>
@@ -35,7 +32,7 @@ import FooterSection from '../components/sections/FooterSection.astro';
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Services</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Services</h2>
             <p class="text-gray-600 mb-4">
               The Profit Platform provides digital marketing services including but not limited to:
             </p>
@@ -49,7 +46,7 @@ import FooterSection from '../components/sections/FooterSection.astro';
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Service Agreement</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Service Agreement</h2>
             <p class="text-gray-600 mb-4">
               When you engage our services, you agree to:
             </p>
@@ -63,7 +60,7 @@ import FooterSection from '../components/sections/FooterSection.astro';
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Payment Terms</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Payment Terms</h2>
             <p class="text-gray-600 mb-4">
               <strong>Monthly Services:</strong> Services are billed monthly in advance. Payment is due on the 1st of each month unless otherwise agreed.
             </p>
@@ -79,7 +76,7 @@ import FooterSection from '../components/sections/FooterSection.astro';
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Cancellation Policy</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Cancellation Policy</h2>
             <p class="text-gray-600 mb-4">
               <strong>No Lock-in Contracts:</strong> You may cancel monthly services with 30 days written notice.
             </p>
@@ -92,7 +89,7 @@ import FooterSection from '../components/sections/FooterSection.astro';
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Intellectual Property</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Intellectual Property</h2>
             <p class="text-gray-600 mb-4">
               <strong>Client Content:</strong> You retain ownership of all content you provide to us (logos, images, text, etc.).
             </p>
@@ -108,7 +105,7 @@ import FooterSection from '../components/sections/FooterSection.astro';
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Warranties and Disclaimers</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Warranties and Disclaimers</h2>
             <p class="text-gray-600 mb-4">
               <strong>Service Quality:</strong> We will provide our services with professional skill and care.
             </p>
@@ -121,7 +118,7 @@ import FooterSection from '../components/sections/FooterSection.astro';
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Limitation of Liability</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Limitation of Liability</h2>
             <p class="text-gray-600 mb-4">
               To the maximum extent permitted by law, The Profit Platform shall not be liable for:
             </p>
@@ -133,42 +130,42 @@ import FooterSection from '../components/sections/FooterSection.astro';
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Confidentiality</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Confidentiality</h2>
             <p class="text-gray-600">
               We will keep your confidential business information private and will not disclose it to third parties except as necessary to provide our services or as required by law.
             </p>
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Indemnification</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Indemnification</h2>
             <p class="text-gray-600">
               You agree to indemnify and hold harmless The Profit Platform from any claims arising from your use of our services or your breach of these Terms.
             </p>
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Changes to Terms</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Changes to Terms</h2>
             <p class="text-gray-600">
               We may modify these Terms at any time. We will notify you of material changes via email or through our website. Continued use of our services after changes constitutes acceptance of the new Terms.
             </p>
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Governing Law</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Governing Law</h2>
             <p class="text-gray-600">
               These Terms are governed by the laws of New South Wales, Australia. Any disputes will be resolved in the courts of New South Wales.
             </p>
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-4">Dispute Resolution</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Dispute Resolution</h2>
             <p class="text-gray-600 mb-4">
               If a dispute arises, we encourage you to contact us first to resolve it informally. If we cannot resolve the dispute, we both agree to attempt mediation before pursuing legal action.
             </p>
           </div>
 
           <div class="bg-white rounded-xl shadow-sm p-8">
-            <h2 class="text-2xl font-bold mb-4">Contact Information</h2>
+            <h2 class="text-3xl font-black mb-6 text-gray-900">Contact Information</h2>
             <p class="text-gray-600 mb-4">
               If you have questions about these Terms, please contact us:
             </p>
