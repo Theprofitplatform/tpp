@@ -256,12 +256,12 @@ Running on: ${data.url}
     return Object.entries(grouped).map(([category, issues]) => ({
       category,
       count: issues.length,
-      issues: issues.slice(0, 3) // Top 3 per category
+      issues: issues // Show ALL issues
     }));
   }
 
   /**
-   * Get top priority fixes
+   * Get all fixes sorted by priority
    */
   getTopFixes(data) {
     if (!data.fixDetails || data.fixDetails.length === 0) {
@@ -275,8 +275,7 @@ Running on: ${data.url}
         const priorityDiff = (priorityOrder[a.priority] || 999) - (priorityOrder[b.priority] || 999);
         if (priorityDiff !== 0) return priorityDiff;
         return (b.confidence || 0) - (a.confidence || 0);
-      })
-      .slice(0, 5); // Top 5 fixes
+      }); // Show ALL fixes sorted by priority
   }
 
   /**
@@ -335,10 +334,6 @@ Running on: ${data.url}
         </div>`;
       });
 
-      if (count > 3) {
-        html += `<p style="color: #6c757d; font-size: 13px; margin-top: 8px;">+ ${count - 3} more ${category} issues...</p>`;
-      }
-
       html += '</div>';
     });
 
@@ -354,7 +349,7 @@ Running on: ${data.url}
       return '';
     }
 
-    let html = '<div class="section"><div class="section-title">💡 Top Recommended Fixes</div>';
+    let html = '<div class="section"><div class="section-title">💡 All Recommended Fixes</div>';
 
     topFixes.forEach((fix, idx) => {
       const confidenceClass = fix.confidence >= 80 ? 'high' : fix.confidence >= 60 ? 'medium' : 'low';
