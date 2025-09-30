@@ -49,11 +49,10 @@ const { member, index = 0 } = Astro.props;
             alt={`${member.name}, ${member.role}`}
             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             loading="lazy"
-            onerror="this.src='/images/team/placeholder.jpg'"
           />
         ) : (
-          <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100">
-            <span class="text-6xl opacity-40" aria-hidden="true">👤</span>
+          <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-600">
+            <span class="text-7xl font-black text-white" aria-hidden="true">{member.name.charAt(0)}</span>
           </div>
         )}
       </div>

@@ -46,24 +46,21 @@ const {
       author: "Sarah Mitchell",
       company: "Sydney Property Group",
       role: "Marketing Director",
-      rating: 5,
-      photo: "/images/testimonials/placeholder-1.jpg"
+      rating: 5
     },
     {
       quote: "Working with The Profit Platform has been game-changing. Their SEO strategies helped us rank #1 for our key terms in Sydney. The ROI speaks for itself - 3x growth in organic traffic!",
       author: "David Chen",
       company: "Parramatta Legal Services",
       role: "Managing Partner",
-      rating: 5,
-      photo: "/images/testimonials/placeholder-2.jpg"
+      rating: 5
     },
     {
       quote: "Finally, a marketing agency that delivers on promises! Clear communication, transparent reporting, and real results. Our conversion rate doubled in the first quarter.",
       author: "Emma Rodriguez",
       company: "Bondi Fitness Studio",
       role: "Owner & Founder",
-      rating: 5,
-      photo: "/images/testimonials/placeholder-3.jpg"
+      rating: 5
     }
   ],
   title = "What Our Clients Say",
@@ -131,19 +128,9 @@ const renderStars = (rating: number) => {
 
             <!-- Author Info -->
             <div class="flex items-center gap-4 relative z-10 border-t border-gray-100 pt-6">
-              {testimonial.photo ? (
-                <img
-                  src={testimonial.photo}
-                  alt={testimonial.author}
-                  class="w-14 h-14 rounded-full object-cover border-2 border-indigo-100"
-                  loading="lazy"
-                  onerror="this.style.display='none'"
-                />
-              ) : (
-                <div class="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-100 to-purple-100 flex items-center justify-center text-2xl font-bold text-indigo-600">
-                  {testimonial.author.charAt(0)}
-                </div>
-              )}
+              <div class="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-2xl font-bold text-white shadow-lg">
+                {testimonial.author.charAt(0)}
+              </div>
 
               <div>
                 <div class="font-bold text-gray-900">{testimonial.author}</div>

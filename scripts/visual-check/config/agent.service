@@ -1,0 +1,31 @@
+[Unit]
+Description=Autonomous Visual Quality Agent
+After=network.target
+Documentation=https://github.com/Theprofitplatform/tpp
+
+[Service]
+Type=simple
+User=avi
+Group=avi
+WorkingDirectory=/home/avi/projects/astro-site/scripts/visual-check
+Environment=NODE_ENV=production
+Environment=PATH=/usr/bin:/usr/local/bin
+ExecStart=/usr/bin/node src/index.js --watch --config config/production.json
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/visual-agent.log
+StandardError=append:/var/log/visual-agent-error.log
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/avi/projects/astro-site/scripts/visual-check
+
+# Resource limits
+MemoryMax=2G
+CPUQuota=50%
+
+[Install]
+WantedBy=multi-user.target
