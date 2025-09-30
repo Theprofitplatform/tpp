@@ -237,6 +237,21 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileOverlay) {
         mobileOverlay.addEventListener('click', () => toggleMobileNav(false));
     }
+
+    // CRITICAL FIX: Ensure body overflow is never stuck
+    // Clear any lingering overflow hidden on page load
+    document.body.style.overflow = '';
+
+    // Add safeguard to clear overflow on visibility change (tab switch, etc.)
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            // Only clear if mobile nav is closed
+            const isNavOpen = mobileToggle && mobileToggle.getAttribute('aria-expanded') === 'true';
+            if (!isNavOpen) {
+                document.body.style.overflow = '';
+            }
+        }
+    });
 });
 </script>
 
