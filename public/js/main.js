@@ -34,10 +34,12 @@ window.addEventListener('scroll', requestTick, { passive: true });
 // Floating CTA visibility
 window.addEventListener('scroll', () => {
     const floatingCta = document.getElementById('floatingCta');
-    if (window.scrollY > 500) {
-        floatingCta.classList.add('visible');
-    } else {
-        floatingCta.classList.remove('visible');
+    if (floatingCta) {
+        if (window.scrollY > 500) {
+            floatingCta.classList.add('visible');
+        } else {
+            floatingCta.classList.remove('visible');
+        }
     }
 });
 
@@ -400,44 +402,50 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => {
 const processSteps = document.querySelectorAll('.process-step');
 const timelineProgress = document.getElementById('timelineProgress');
 
-processSteps.forEach((step, index) => {
-    step.addEventListener('click', () => {
-        // Remove active class from all steps
-        processSteps.forEach(s => s.classList.remove('active', 'completed'));
-        
-        // Add active class to clicked step
-        step.classList.add('active');
-        
-        // Add completed class to previous steps
-        for (let i = 0; i < index; i++) {
-            processSteps[i].classList.add('completed');
-        }
-        
-        // Update timeline progress
-        const progressPercent = ((index + 1) / processSteps.length) * 100;
-        timelineProgress.style.width = progressPercent + '%';
-    });
-});
+if (processSteps.length > 0 && timelineProgress) {
+    processSteps.forEach((step, index) => {
+        step.addEventListener('click', () => {
+            // Remove active class from all steps
+            processSteps.forEach(s => s.classList.remove('active', 'completed'));
 
-// Auto-advance timeline every 3 seconds
-let currentStep = 0;
-setInterval(() => {
-    if (currentStep < processSteps.length - 1) {
-        currentStep++;
-    } else {
-        currentStep = 0;
-    }
-    
-    processSteps.forEach(s => s.classList.remove('active', 'completed'));
-    processSteps[currentStep].classList.add('active');
-    
-    for (let i = 0; i < currentStep; i++) {
-        processSteps[i].classList.add('completed');
-    }
-    
-    const progressPercent = ((currentStep + 1) / processSteps.length) * 100;
-    timelineProgress.style.width = progressPercent + '%';
-}, 3000);
+            // Add active class to clicked step
+            step.classList.add('active');
+
+            // Add completed class to previous steps
+            for (let i = 0; i < index; i++) {
+                processSteps[i].classList.add('completed');
+            }
+
+            // Update timeline progress
+            const progressPercent = ((index + 1) / processSteps.length) * 100;
+            timelineProgress.style.width = progressPercent + '%';
+        });
+    });
+
+    // Auto-advance timeline every 3 seconds
+    let currentStep = 0;
+    setInterval(() => {
+        if (currentStep < processSteps.length - 1) {
+            currentStep++;
+        } else {
+            currentStep = 0;
+        }
+
+        processSteps.forEach(s => s.classList.remove('active', 'completed'));
+        if (processSteps[currentStep]) {
+            processSteps[currentStep].classList.add('active');
+        }
+
+        for (let i = 0; i < currentStep; i++) {
+            if (processSteps[i]) {
+                processSteps[i].classList.add('completed');
+            }
+        }
+
+        const progressPercent = ((currentStep + 1) / processSteps.length) * 100;
+        timelineProgress.style.width = progressPercent + '%';
+    }, 3000);
+}
 
 // Enhanced FAQ functionality
 let visibleFaqs = 6; // Show only first 6 FAQs initially
@@ -912,16 +920,25 @@ function initializeHeader() {
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = target.offsetTop - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+            // Only prevent default and scroll if href is more than just "#"
+            if (href && href.length > 1) {
+                try {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        const headerHeight = header ? header.offsetHeight : 0;
+                        const targetPosition = target.offsetTop - headerHeight - 20;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                } catch (error) {
+                    // Invalid selector, ignore
+                    console.warn('Invalid selector:', href);
+                }
             }
         });
     });
