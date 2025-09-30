@@ -30,17 +30,30 @@ interface Props {
 
 const {
   logos = [
-    // PLACEHOLDER DATA - Replace with actual client logos
-    { name: "Client 1", image: "/images/clients/placeholder-1.png", link: "#" },
-    { name: "Client 2", image: "/images/clients/placeholder-2.png", link: "#" },
-    { name: "Client 3", image: "/images/clients/placeholder-3.png", link: "#" },
-    { name: "Client 4", image: "/images/clients/placeholder-4.png", link: "#" },
-    { name: "Client 5", image: "/images/clients/placeholder-5.png", link: "#" },
-    { name: "Client 6", image: "/images/clients/placeholder-6.png", link: "#" }
+    // PLACEHOLDER DATA - Using SVG placeholders until real logos are added
+    { name: "Client 1", image: "", link: "#" },
+    { name: "Client 2", image: "", link: "#" },
+    { name: "Client 3", image: "", link: "#" },
+    { name: "Client 4", image: "", link: "#" },
+    { name: "Client 5", image: "", link: "#" },
+    { name: "Client 6", image: "", link: "#" }
   ],
   title = "Trusted by Sydney Businesses",
   subtitle = "Delivering results for leading brands across Greater Sydney"
 } = Astro.props;
+
+// Helper function to generate SVG placeholder
+const generateSVGPlaceholder = (name: string, index: number) => {
+  const colors = [
+    'from-indigo-500 to-purple-600',
+    'from-purple-500 to-pink-600',
+    'from-pink-500 to-rose-600',
+    'from-blue-500 to-indigo-600',
+    'from-cyan-500 to-blue-600',
+    'from-teal-500 to-cyan-600'
+  ];
+  return colors[index % colors.length];
+};
 ---
 
 <section class="py-16 md:py-24 bg-gradient-to-br from-gray-50 via-indigo-50/30 to-purple-50/30" aria-labelledby="clients-heading">
@@ -66,7 +79,7 @@ const {
         class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center"
         role="list"
       >
-        {logos.map((logo) => (
+        {logos.map((logo, index) => (
           <div
             class="logo-item group"
             role="listitem"
@@ -79,14 +92,19 @@ const {
                 class="block p-4 bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 aria-label={`Visit ${logo.name} website`}
               >
-                <img
-                  src={logo.image}
-                  alt={`${logo.name} logo`}
-                  class="w-full h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                  loading="lazy"
-                  style="max-height: 60px;"
-                  onerror="this.src='/images/clients/placeholder.png'"
-                />
+                {logo.image ? (
+                  <img
+                    src={logo.image}
+                    alt={`${logo.name} logo`}
+                    class="w-full h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                    loading="lazy"
+                    style="max-height: 60px;"
+                  />
+                ) : (
+                  <div class={`h-16 w-full rounded-lg bg-gradient-to-br ${generateSVGPlaceholder(logo.name, index)} flex items-center justify-center text-white font-bold text-sm grayscale group-hover:grayscale-0 transition-all duration-300`}>
+                    {logo.name}
+                  </div>
+                )}
               </a>
             ) : (
               <div
@@ -94,14 +112,19 @@ const {
                 role="img"
                 aria-label={`${logo.name} logo`}
               >
-                <img
-                  src={logo.image}
-                  alt={`${logo.name} logo`}
-                  class="w-full h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                  loading="lazy"
-                  style="max-height: 60px;"
-                  onerror="this.src='/images/clients/placeholder.png'"
-                />
+                {logo.image ? (
+                  <img
+                    src={logo.image}
+                    alt={`${logo.name} logo`}
+                    class="w-full h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                    loading="lazy"
+                    style="max-height: 60px;"
+                  />
+                ) : (
+                  <div class={`h-16 w-full rounded-lg bg-gradient-to-br ${generateSVGPlaceholder(logo.name, index)} flex items-center justify-center text-white font-bold text-sm grayscale group-hover:grayscale-0 transition-all duration-300`}>
+                    {logo.name}
+                  </div>
+                )}
               </div>
             )}
           </div>

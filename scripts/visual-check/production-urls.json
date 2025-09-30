@@ -1,0 +1,12 @@
+{
+  "urls": [
+    {
+      "url": "https://theprofitplatform.com.au",
+      "name": "Production Home"
+    },
+    {
+      "url": "https://test.theprofitplatform.com.au",
+      "name": "Test Environment"
+    }
+  ]
+}

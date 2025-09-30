@@ -1,0 +1,82 @@
+[
+  {
+    "runId": 1759242837861,
+    "timestamp": "2025-09-30T14:33:57.861Z",
+    "totalIssues": 12,
+    "fixesGenerated": 9,
+    "status": "initial",
+    "issuesDelta": 0
+  },
+  {
+    "runId": 1759271821680,
+    "timestamp": "2025-09-30T22:37:01.680Z",
+    "totalIssues": 12,
+    "fixesGenerated": 9,
+    "status": "initial",
+    "issuesDelta": 0
+  },
+  {
+    "runId": 1759271837656,
+    "timestamp": "2025-09-30T22:37:17.656Z",
+    "totalIssues": 12,
+    "fixesGenerated": 9,
+    "status": "initial",
+    "issuesDelta": 0
+  },
+  {
+    "runId": 1759271881937,
+    "timestamp": "2025-09-30T22:38:01.937Z",
+    "totalIssues": 20,
+    "fixesGenerated": 16,
+    "status": "initial",
+    "issuesDelta": 0
+  },
+  {
+    "runId": 1759272300728,
+    "timestamp": "2025-09-30T22:45:00.728Z",
+    "totalIssues": 21,
+    "fixesGenerated": 16,
+    "status": "degraded",
+    "issuesDelta": 1
+  },
+  {
+    "runId": 1759272980491,
+    "timestamp": "2025-09-30T22:56:20.491Z",
+    "totalIssues": 20,
+    "fixesGenerated": 16,
+    "status": "initial",
+    "issuesDelta": 0
+  },
+  {
+    "runId": 1759273049255,
+    "timestamp": "2025-09-30T22:57:29.255Z",
+    "totalIssues": 20,
+    "fixesGenerated": 16,
+    "status": "initial",
+    "issuesDelta": 0
+  },
+  {
+    "runId": 1759273200441,
+    "timestamp": "2025-09-30T23:00:00.441Z",
+    "totalIssues": 20,
+    "fixesGenerated": 16,
+    "status": "unchanged",
+    "issuesDelta": 0
+  },
+  {
+    "runId": 1759273448064,
+    "timestamp": "2025-09-30T23:04:08.064Z",
+    "totalIssues": 21,
+    "fixesGenerated": 16,
+    "status": "initial",
+    "issuesDelta": 0
+  },
+  {
+    "runId": 1759274100238,
+    "timestamp": "2025-09-30T23:15:00.238Z",
+    "totalIssues": 20,
+    "fixesGenerated": 16,
+    "status": "improved",
+    "issuesDelta": -1
+  }
+]
