@@ -63,7 +63,7 @@ const emailHTML = `
 <body>
   <div class="container">
     <h1>📊 Comprehensive Visual Quality Report</h1>
-    <p style="color: #7f8c8d; margin-top: -10px;">Run: 2025-10-01 10:15:00 UTC | Domain: new.theprofitplatform.com.au</p>
+    <p style="color: #7f8c8d; margin-top: -10px;">Run: 2025-10-01 10:15:00 UTC | Domain: theprofitplatform.com.au</p>
 
     <div class="stats">
       <h2>📈 Executive Summary</h2>
@@ -412,7 +412,7 @@ const emailHTML = `
     <div class="stats" style="margin-top: 30px;">
       <h2>📁 Report Details</h2>
       <p><strong>Location:</strong> <code>/scripts/visual-check/screenshots/run-2025-10-01T10-15-00/</code></p>
-      <p><strong>Domain:</strong> <a href="https://new.theprofitplatform.com.au" style="color: white;">new.theprofitplatform.com.au</a></p>
+      <p><strong>Domain:</strong> <a href="https://theprofitplatform.com.au" style="color: white;">theprofitplatform.com.au</a></p>
       <p><strong>Viewports:</strong> Desktop (1920×1080), Mobile (375×812)</p>
       <p><strong>Next Check:</strong> 15 minutes (10:30 UTC)</p>
       <p><strong>Monitoring Frequency:</strong> Every 15 minutes (*/15 * * * *)</p>
