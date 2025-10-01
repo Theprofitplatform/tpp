@@ -13,6 +13,7 @@
     "parity": "npm run fetch:prod && npm run assets:download && npm run build && npm run parity:scan",
     "deploy": "npm run build && npx wrangler pages deploy dist --project-name=tpp-new",
     "deploy:auto": "npm run parity && npx wrangler pages deploy dist --project-name=tpp-new",
+    "deploy:prod": "npm run build && npx wrangler pages deploy dist --project-name=tpp",
     "backend:dev": "node --watch backend/server.js",
     "backend:start": "node backend/server.js",
     "pm2:start": "pm2 start ecosystem.config.cjs",
