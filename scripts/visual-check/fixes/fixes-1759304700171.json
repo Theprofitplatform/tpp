@@ -1,0 +1,3774 @@
+[
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 147.39999985694885
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 231
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 112.90000009536743
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 197.20000004768372
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 3.200000047683716
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 48.700000047683716
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 123.80000019073486
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 4.400000095367432
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 63.5
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 121.29999995231628
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 1.5
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 4.5
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 117.09999990463257
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 201.79999995231628
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 3.6999998092651367
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 118.79999995231628
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 199.70000004768372
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 3.700000047683716
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 56.5
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 119.20000004768372
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 4.700000047683716
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 49.40000009536743
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 107.5
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 2 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 3.9000000953674316
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 132.69999980926514
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 474.30000019073486
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 0
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 129.79999995231628
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 53.69999980926514
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 0
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 155.90000009536743
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 77.20000004768372
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 0
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 128.5
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 76.5
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 0
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 124.29999995231628
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 59.5
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 0
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 131.19999980926514
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 79.10000014305115
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 0
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 133.29999995231628
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 64.80000019073486
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 0
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 198.39999985694885
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 134.5
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 263.5
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_js",
+    "description": "Fix 2 missing JS file(s)",
+    "priority": "high",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_js_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT",
+          "type": "script",
+          "duration": 0
+        },
+        {
+          "name": "https://static.hotjar.com/c/hotjar-6526316.js?sv=6",
+          "type": "script",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 1 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "",
+          "alt": "Website favicon"
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 1 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "",
+          "alt": "Website favicon"
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 1 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "",
+          "alt": "Website favicon"
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 1 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "",
+          "alt": "Website favicon"
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 1 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "",
+          "alt": "Website favicon"
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 1 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "",
+          "alt": "Website favicon"
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 2 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "https://seo.theprofitplatform.com.au/images/blog/seo-basics.jpg",
+          "alt": "SEO strategy planning on a whiteboard"
+        },
+        {
+          "src": "https://seo.theprofitplatform.com.au/images/blog/seo-basics.jpg",
+          "alt": "SEO strategy planning on a whiteboard"
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 2 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "https://seo.theprofitplatform.com.au/images/blog/seo-basics.jpg",
+          "alt": "SEO strategy planning on a whiteboard"
+        },
+        {
+          "src": "https://seo.theprofitplatform.com.au/images/blog/seo-basics.jpg",
+          "alt": "SEO strategy planning on a whiteboard"
+        }
+      ]
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "desktop",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "mobile",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 3 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "desktop",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "hero-gradient-mesh",
+          "id": "",
+          "width": 1957.187744140625
+        },
+        {
+          "tag": "DIV",
+          "class": "hero-grid-overlay",
+          "id": "",
+          "width": 1920
+        },
+        {
+          "tag": "DIV",
+          "class": "trust-bg-pattern",
+          "id": "",
+          "width": 1957.187744140625
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-desktop.css",
+      "content": "/* Overflow fix for desktop - Generated by Visual Agent */\n.hero-gradient-mesh {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.hero-grid-overlay {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.trust-bg-pattern {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 1920px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "mobile-nav",
+          "id": "mobileNav",
+          "width": 356.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": "",
+          "width": 246.953125
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": "",
+          "width": 69.953125
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "BUTTON",
+          "class": "mobile-nav-close",
+          "id": "mobileNavClose",
+          "width": 36
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 10.515625
+        },
+        {
+          "tag": "NAV",
+          "class": "mobile-nav-links",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "H2",
+          "class": "sr-only",
+          "id": "mobile-nav-title",
+          "width": 1
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n#mobileNav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-header {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.logo-img {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-tagline {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobileNavClose {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-links {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobile-nav-title {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 2 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "desktop",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "hero-gradient-mesh",
+          "id": "",
+          "width": 2000.4100341796875
+        },
+        {
+          "tag": "DIV",
+          "class": "trust-bg-pattern",
+          "id": "",
+          "width": 2000.4100341796875
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-desktop.css",
+      "content": "/* Overflow fix for desktop - Generated by Visual Agent */\n.hero-gradient-mesh {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.trust-bg-pattern {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 1920px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "mobile-nav",
+          "id": "mobileNav",
+          "width": 356.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": "",
+          "width": 246.953125
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": "",
+          "width": 69.953125
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "BUTTON",
+          "class": "mobile-nav-close",
+          "id": "mobileNavClose",
+          "width": 36
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 10.515625
+        },
+        {
+          "tag": "NAV",
+          "class": "mobile-nav-links",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "H2",
+          "class": "sr-only",
+          "id": "mobile-nav-title",
+          "width": 1
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n#mobileNav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-header {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.logo-img {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-tagline {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobileNavClose {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-links {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobile-nav-title {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 1 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "desktop",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "hero-gradient-mesh",
+          "id": "",
+          "width": 2015.9422607421875
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-desktop.css",
+      "content": "/* Overflow fix for desktop - Generated by Visual Agent */\n.hero-gradient-mesh {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 1920px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "mobile-nav",
+          "id": "mobileNav",
+          "width": 356.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": "",
+          "width": 246.953125
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": "",
+          "width": 69.953125
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "BUTTON",
+          "class": "mobile-nav-close",
+          "id": "mobileNavClose",
+          "width": 36
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 10.515625
+        },
+        {
+          "tag": "NAV",
+          "class": "mobile-nav-links",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "H2",
+          "class": "sr-only",
+          "id": "mobile-nav-title",
+          "width": 1
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n#mobileNav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-header {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.logo-img {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-tagline {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobileNavClose {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-links {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobile-nav-title {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 1 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "desktop",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "absolute top-1/3 right-1/4 w-96 h-96 bg-purple-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000",
+          "id": "",
+          "width": 2088.845703125
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-desktop.css",
+      "content": "/* Overflow fix for desktop - Generated by Visual Agent */\n.absolute {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 1920px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 2 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob",
+          "id": "",
+          "width": 394.412353515625
+        },
+        {
+          "tag": "DIV",
+          "class": "absolute top-1/3 right-1/4 w-96 h-96 bg-purple-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000",
+          "id": "",
+          "width": 394.9930114746094
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n.absolute {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.absolute {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "mobile-nav",
+          "id": "mobileNav",
+          "width": 356.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": "",
+          "width": 246.953125
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": "",
+          "width": 69.953125
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "BUTTON",
+          "class": "mobile-nav-close",
+          "id": "mobileNavClose",
+          "width": 36
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 10.515625
+        },
+        {
+          "tag": "NAV",
+          "class": "mobile-nav-links",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "H2",
+          "class": "sr-only",
+          "id": "mobile-nav-title",
+          "width": 1
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n#mobileNav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-header {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.logo-img {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-tagline {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobileNavClose {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-links {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobile-nav-title {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "A",
+          "class": "logo",
+          "id": "",
+          "width": 1118
+        },
+        {
+          "tag": "IMG",
+          "class": "",
+          "id": "",
+          "width": 1094
+        },
+        {
+          "tag": "NAV",
+          "class": "",
+          "id": "primary-nav",
+          "width": 75
+        },
+        {
+          "tag": "UL",
+          "class": "nav-menu",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "LI",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "id": "",
+          "width": 51
+        },
+        {
+          "tag": "LI",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "LI",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "id": "",
+          "width": 59
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n.logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nimg {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#primary-nav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.nav-menu {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nli {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\na {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nli {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\na {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nli {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\na {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "A",
+          "class": "logo",
+          "id": "",
+          "width": 1118
+        },
+        {
+          "tag": "IMG",
+          "class": "",
+          "id": "",
+          "width": 1094
+        },
+        {
+          "tag": "NAV",
+          "class": "",
+          "id": "primary-nav",
+          "width": 75
+        },
+        {
+          "tag": "UL",
+          "class": "nav-menu",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "LI",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "id": "",
+          "width": 51
+        },
+        {
+          "tag": "LI",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "LI",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "id": "",
+          "width": 59
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n.logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nimg {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#primary-nav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.nav-menu {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nli {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\na {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nli {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\na {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nli {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\na {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "A",
+          "class": "logo",
+          "id": "",
+          "width": 1118
+        },
+        {
+          "tag": "IMG",
+          "class": "",
+          "id": "",
+          "width": 1094
+        },
+        {
+          "tag": "NAV",
+          "class": "",
+          "id": "primary-nav",
+          "width": 75
+        },
+        {
+          "tag": "UL",
+          "class": "nav-menu",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "LI",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "id": "",
+          "width": 51
+        },
+        {
+          "tag": "LI",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "LI",
+          "class": "",
+          "id": "",
+          "width": 75
+        },
+        {
+          "tag": "A",
+          "class": "",
+          "id": "",
+          "width": 59
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n.logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nimg {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#primary-nav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.nav-menu {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nli {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\na {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nli {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\na {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nli {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\na {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 147.39999985694885
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 231
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 112.90000009536743
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 197.20000004768372
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 3.200000047683716
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 48.700000047683716
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 123.80000019073486
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 4.400000095367432
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 63.5
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 121.29999995231628
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 1.5
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 4.5
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 3 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 117.09999990463257
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 201.79999995231628
+        },
+        {
+          "name": "https://www.googletagmanager.com/td?id=G-FB947JWCFT&v=3&t=t&pid=1184343347&seq=1&exp=101509157~103116026~103200004~103233427~104527907~104528501~104684208~104684211~104948813~115480709~115616985~115650524~115650526~115691065&dl=seo.theprofitplatform.com.au%2Fcontact%2F&tdp=G-FB947JWCFT;230506916;0;0;0&frm=0&rtg=230506916&slo=0&hlo=0&lst=3&bt=0&ct=3&z=0",
+          "type": "img",
+          "duration": 20.59999990463257
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 3.6999998092651367
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 118.79999995231628
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 199.70000004768372
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 3.700000047683716
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 56.5
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 119.20000004768372
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 4.700000047683716
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 49.40000009536743
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 107.5
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_images",
+    "description": "Fix 2 missing image(s)",
+    "priority": "medium",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_image_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png",
+          "type": "link",
+          "duration": 0
+        },
+        {
+          "name": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "type": "link",
+          "duration": 3.9000000953674316
+        }
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 43 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 44 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 43 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 44 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 43 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 44 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 48 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 48 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 45 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 45 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 48 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 48 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 48 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 48 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 48 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 48 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "cssRule": "\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Inter';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 6 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Brands';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'Font Awesome 5 Free';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}\n\n@font-face {\n  font-family: 'FontAwesome';\n  font-display: swap;\n  /* existing src declarations */\n}"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "desktop",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "logo-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": ""
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "mobile",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-value",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-label",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-content",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "desktop",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "logo-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": ""
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "mobile",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "gf-message-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "gf-message-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "gf-message-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "gf-message-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "step-header",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "form-fields",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "desktop",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "logo-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": ""
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "mobile",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "gf-message-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "gf-message-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "gf-message-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "gf-message-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "step-header",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "form-fields",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 4 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "desktop",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "absolute inset-0 overflow-hidden pointer-events-none",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "absolute top-1/3 right-1/4 w-96 h-96 bg-purple-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "absolute bottom-1/4 left-1/2 w-96 h-96 bg-pink-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 4 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "mobile",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "absolute inset-0 overflow-hidden pointer-events-none",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "absolute top-1/4 left-1/4 w-96 h-96 bg-blue-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "absolute top-1/3 right-1/4 w-96 h-96 bg-purple-400/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "absolute bottom-1/4 left-1/2 w-96 h-96 bg-pink-300/30 rounded-full mix-blend-multiply filter blur-3xl opacity-60 animate-blob animation-delay-4000",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "desktop",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "logo-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": ""
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "mobile",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "message-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "message-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "message-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "message-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "field-error",
+          "id": "name-error"
+        },
+        {
+          "tag": "DIV",
+          "class": "field-error",
+          "id": "email-error"
+        }
+      ]
+    }
+  }
+]
