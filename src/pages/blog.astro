@@ -9,8 +9,51 @@ const pageDescription = "Digital marketing tips, strategies, and insights for Sy
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <link rel="stylesheet" href="/css/blog.css">
+  <style>
+    html {
+      background: #ffffff !important;
+    }
+    body {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+      background-image: none !important;
+    }
+    body * {
+      background-color: transparent;
+    }
+    body .blog-hero {
+      background: #ffffff !important;
+      background-color: #ffffff !important;
+    }
+    #main-content {
+      background: #ffffff !important;
+    }
+    .blog-hero {
+      background: #ffffff !important;
+      background-image: none !important;
+    }
+    .blog-hero::before,
+    .blog-hero::after {
+      display: none !important;
+    }
+    .hero-background,
+    .hero-gradient-mesh,
+    .hero-floating-elements,
+    .hero-grid-overlay,
+    .floating-orb {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+    }
+  </style>
 
   <Header />
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.style.backgroundColor = '#ffffff';
+      document.documentElement.style.backgroundColor = '#ffffff';
+    });
+  </script>
 
   <main id="main-content" role="main">
     <!-- Hero Section -->
