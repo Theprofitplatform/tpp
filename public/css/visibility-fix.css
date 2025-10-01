@@ -1,0 +1,30 @@
+/* Emergency Visibility Fix - Force main content to display */
+
+main,
+#main-content {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+.hero-modern,
+.hero-modern * {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Ensure sections are visible */
+section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Force body to be visible */
+body {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
