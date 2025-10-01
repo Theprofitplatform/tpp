@@ -1,0 +1,727 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - link "Skip to navigation" [ref=e4] [cursor=pointer]:
+    - /url: "#primary-navigation"
+  - progressbar "Page scroll progress" [ref=e5]
+  - banner [ref=e6]:
+    - generic [ref=e8]:
+      - link "The Profit Platform - Home" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img "The Profit Platform Logo" [ref=e11] [cursor=pointer]
+      - navigation "Main navigation" [ref=e12]:
+        - menubar [ref=e13]:
+          - menuitem "Home" [ref=e14] [cursor=pointer]:
+            - generic [ref=e15] [cursor=pointer]: 
+            - generic [ref=e16] [cursor=pointer]: Home
+          - menuitem "Services" [ref=e17] [cursor=pointer]:
+            - generic [ref=e18] [cursor=pointer]: 
+            - generic [ref=e19] [cursor=pointer]: Services
+            - generic [ref=e20] [cursor=pointer]: 
+          - menuitem "Pricing" [ref=e21] [cursor=pointer]:
+            - generic [ref=e22] [cursor=pointer]: $
+            - generic [ref=e23] [cursor=pointer]: Pricing
+          - menuitem "Contact" [ref=e24] [cursor=pointer]:
+            - generic [ref=e25] [cursor=pointer]: 
+            - generic [ref=e26] [cursor=pointer]: Contact
+      - link "Get Free Chat - Contact us" [ref=e28] [cursor=pointer]:
+        - /url: /contact/
+        - generic [ref=e29] [cursor=pointer]: 
+        - generic [ref=e30] [cursor=pointer]: Let's Chat
+  - text:      $    
+  - main [ref=e31]:
+    - generic [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]: 
+        - strong [ref=e37]: "Last Updated:"
+        - text: September 14, 2024
+      - generic [ref=e38]:
+        - heading " Table of Contents" [level=3] [ref=e39]:
+          - generic [ref=e40]: 
+          - text: Table of Contents
+        - list [ref=e41]:
+          - listitem [ref=e42]:
+            - link "1. Introduction & Commitment to Privacy" [ref=e43] [cursor=pointer]:
+              - /url: "#introduction"
+          - listitem [ref=e44]:
+            - link "2. Information We Collect" [ref=e45] [cursor=pointer]:
+              - /url: "#information-collection"
+          - listitem [ref=e46]:
+            - link "3. How We Use Your Information" [ref=e47] [cursor=pointer]:
+              - /url: "#information-use"
+          - listitem [ref=e48]:
+            - link "4. How We Protect Your Information" [ref=e49] [cursor=pointer]:
+              - /url: "#information-protection"
+          - listitem [ref=e50]:
+            - link "5. Third-Party Services" [ref=e51] [cursor=pointer]:
+              - /url: "#third-party-services"
+          - listitem [ref=e52]:
+            - link "6. Your Privacy Rights" [ref=e53] [cursor=pointer]:
+              - /url: "#your-rights"
+          - listitem [ref=e54]:
+            - link "7. Cookie Policy" [ref=e55] [cursor=pointer]:
+              - /url: "#cookie-policy"
+          - listitem [ref=e56]:
+            - link "8. Data Retention" [ref=e57] [cursor=pointer]:
+              - /url: "#data-retention"
+          - listitem [ref=e58]:
+            - link "9. International Data Transfers" [ref=e59] [cursor=pointer]:
+              - /url: "#international-transfers"
+          - listitem [ref=e60]:
+            - link "10. Children's Privacy" [ref=e61] [cursor=pointer]:
+              - /url: "#children-privacy"
+          - listitem [ref=e62]:
+            - link "11. Updates to This Policy" [ref=e63] [cursor=pointer]:
+              - /url: "#policy-updates"
+          - listitem [ref=e64]:
+            - link "12. Contact Us About Privacy" [ref=e65] [cursor=pointer]:
+              - /url: "#contact-privacy"
+          - listitem [ref=e66]:
+            - link "13. GDPR Compliance" [ref=e67] [cursor=pointer]:
+              - /url: "#gdpr-compliance"
+      - generic [ref=e68]:
+        - heading "1. Introduction & Commitment to Privacy" [level=2] [ref=e69]
+        - paragraph [ref=e70]: At The Profit Platform, we are committed to protecting and respecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or interact with us.
+        - generic [ref=e71]:
+          - heading "Our Privacy Promise" [level=3] [ref=e72]
+          - paragraph [ref=e73]: We will never sell, rent, or trade your personal information to third parties. Your data is used solely to provide you with exceptional digital marketing services and to improve your experience with us.
+        - paragraph [ref=e74]:
+          - text: This policy applies to all information collected through our website (
+          - strong [ref=e75]: theprofitplatform.com.au
+          - text: ), our services, and any related communications.
+        - heading "Who We Are" [level=3] [ref=e76]
+        - paragraph [ref=e77]:
+          - strong [ref=e78]: The Profit Platform
+          - text: is a digital marketing consultancy based in Sydney, NSW, Australia. We specialize in SEO, Google Ads, web design, and comprehensive digital marketing strategies for small and medium businesses.
+        - list [ref=e79]:
+          - listitem [ref=e80]:
+            - strong [ref=e81]: "Business Name:"
+            - text: The Profit Platform
+          - listitem [ref=e82]:
+            - strong [ref=e83]: "ABN:"
+            - text: "[Your ABN Number]"
+          - listitem [ref=e84]:
+            - strong [ref=e85]: "Location:"
+            - text: Sydney, NSW, Australia
+          - listitem [ref=e86]:
+            - strong [ref=e87]: "Contact:"
+            - text: avi@theprofitplatform.com.au
+      - generic [ref=e88]:
+        - heading "2. Information We Collect" [level=2] [ref=e89]
+        - paragraph [ref=e90]: "We collect information in several ways to provide you with personalized and effective digital marketing services:"
+        - heading "2.1 Personal Information You Provide" [level=3] [ref=e91]
+        - paragraph [ref=e92]: "When you interact with our website or services, you may voluntarily provide:"
+        - list [ref=e93]:
+          - listitem [ref=e94]:
+            - strong [ref=e95]: "Contact Information:"
+            - text: Name, email address, phone number, business name
+          - listitem [ref=e96]:
+            - strong [ref=e97]: "Business Information:"
+            - text: Company details, industry, website URL, marketing goals
+          - listitem [ref=e98]:
+            - strong [ref=e99]: "Communication Data:"
+            - text: Messages you send us, feedback, survey responses
+          - listitem [ref=e100]:
+            - strong [ref=e101]: "Service Preferences:"
+            - text: Interests in specific services, budget ranges, timelines
+          - listitem [ref=e102]:
+            - strong [ref=e103]: "Payment Information:"
+            - text: Billing details, payment method information (processed securely through third-party payment processors)
+        - heading "2.2 Automatically Collected Information" [level=3] [ref=e104]
+        - paragraph [ref=e105]: "When you visit our website, we automatically collect certain technical information:"
+        - table [ref=e107]:
+          - rowgroup [ref=e108]:
+            - row "Information Type Description Purpose" [ref=e109]:
+              - cell "Information Type" [ref=e110]
+              - cell "Description" [ref=e111]
+              - cell "Purpose" [ref=e112]
+          - rowgroup [ref=e113]:
+            - row "Device Information IP address, browser type, device type, operating system Website optimization, security" [ref=e114]:
+              - cell "Device Information" [ref=e115]
+              - cell "IP address, browser type, device type, operating system" [ref=e116]
+              - cell "Website optimization, security" [ref=e117]
+            - row "Usage Data Pages visited, time spent, click patterns, referral sources Improve user experience, analytics" [ref=e118]:
+              - cell "Usage Data" [ref=e119]
+              - cell "Pages visited, time spent, click patterns, referral sources" [ref=e120]
+              - cell "Improve user experience, analytics" [ref=e121]
+            - row "Location Data General geographic location (city/region level) Localized content, service relevance" [ref=e122]:
+              - cell "Location Data" [ref=e123]
+              - cell "General geographic location (city/region level)" [ref=e124]
+              - cell "Localized content, service relevance" [ref=e125]
+            - row "Cookies & Tracking Session cookies, analytics cookies, preference cookies Site functionality, personalization" [ref=e126]:
+              - cell "Cookies & Tracking" [ref=e127]
+              - cell "Session cookies, analytics cookies, preference cookies" [ref=e128]
+              - cell "Site functionality, personalization" [ref=e129]
+        - heading "2.3 Information from Third-Party Sources" [level=3] [ref=e130]
+        - paragraph [ref=e131]: "We may receive information about you from:"
+        - list [ref=e132]:
+          - listitem [ref=e133]:
+            - strong [ref=e134]: "Social Media Platforms:"
+            - text: When you interact with our social media profiles
+          - listitem [ref=e135]:
+            - strong [ref=e136]: "Business Partners:"
+            - text: Referral partners who recommend our services
+          - listitem [ref=e137]:
+            - strong [ref=e138]: "Public Databases:"
+            - text: Publicly available business information for B2B purposes
+          - listitem [ref=e139]:
+            - strong [ref=e140]: "Analytics Providers:"
+            - text: Google Analytics, Facebook Pixel, and similar services
+      - generic [ref=e141]:
+        - heading "3. How We Use Your Information" [level=2] [ref=e142]
+        - paragraph [ref=e143]: "We use the collected information for legitimate business purposes including:"
+        - heading "3.1 Primary Service Delivery" [level=3] [ref=e144]
+        - list [ref=e145]:
+          - listitem [ref=e146]:
+            - strong [ref=e147]: "Consultation & Strategy:"
+            - text: Developing customized digital marketing strategies
+          - listitem [ref=e148]:
+            - strong [ref=e149]: "Service Provision:"
+            - text: Delivering SEO, Google Ads, and web design services
+          - listitem [ref=e150]:
+            - strong [ref=e151]: "Communication:"
+            - text: Responding to inquiries, providing updates, sharing results
+          - listitem [ref=e152]:
+            - strong [ref=e153]: "Account Management:"
+            - text: Managing your service accounts and billing
+        - heading "3.2 Business Operations" [level=3] [ref=e154]
+        - list [ref=e155]:
+          - listitem [ref=e156]:
+            - strong [ref=e157]: "Customer Support:"
+            - text: Providing technical assistance and resolving issues
+          - listitem [ref=e158]:
+            - strong [ref=e159]: "Quality Improvement:"
+            - text: Analyzing service performance and client satisfaction
+          - listitem [ref=e160]:
+            - strong [ref=e161]: "Legal Compliance:"
+            - text: Meeting regulatory requirements and contractual obligations
+          - listitem [ref=e162]:
+            - strong [ref=e163]: "Security:"
+            - text: Protecting against fraud, abuse, and security threats
+        - heading "3.3 Marketing & Growth (With Your Consent)" [level=3] [ref=e164]
+        - list [ref=e165]:
+          - listitem [ref=e166]:
+            - strong [ref=e167]: "Email Marketing:"
+            - text: Sending newsletters, tips, and service updates (opt-in only)
+          - listitem [ref=e168]:
+            - strong [ref=e169]: "Content Personalization:"
+            - text: Tailoring website content to your interests
+          - listitem [ref=e170]:
+            - strong [ref=e171]: "Case Studies:"
+            - text: Sharing anonymized success stories (with explicit permission)
+          - listitem [ref=e172]:
+            - strong [ref=e173]: "Referral Programs:"
+            - text: Managing referral rewards and recognition
+        - generic [ref=e174]:
+          - heading "Marketing Consent" [level=3] [ref=e175]
+          - paragraph [ref=e176]: We only send marketing communications to those who have explicitly opted in. You can unsubscribe at any time using the link in any email or by contacting us directly.
+      - generic [ref=e177]:
+        - heading "4. How We Protect Your Information" [level=2] [ref=e178]
+        - paragraph [ref=e179]: "We implement comprehensive security measures to protect your personal information:"
+        - heading "4.1 Technical Safeguards" [level=3] [ref=e180]
+        - list [ref=e181]:
+          - listitem [ref=e182]:
+            - strong [ref=e183]: "Encryption:"
+            - text: SSL/TLS encryption for all data transmission
+          - listitem [ref=e184]:
+            - strong [ref=e185]: "Secure Storage:"
+            - text: Encrypted databases and secure cloud storage
+          - listitem [ref=e186]:
+            - strong [ref=e187]: "Access Controls:"
+            - text: Multi-factor authentication and role-based access
+          - listitem [ref=e188]:
+            - strong [ref=e189]: "Regular Monitoring:"
+            - text: Continuous security monitoring and threat detection
+        - heading "4.2 Administrative Safeguards" [level=3] [ref=e190]
+        - list [ref=e191]:
+          - listitem [ref=e192]:
+            - strong [ref=e193]: "Limited Access:"
+            - text: Information access limited to authorized personnel only
+          - listitem [ref=e194]:
+            - strong [ref=e195]: "Employee Training:"
+            - text: Regular privacy and security training for all team members
+          - listitem [ref=e196]:
+            - strong [ref=e197]: "Vendor Management:"
+            - text: Strict security requirements for all third-party services
+          - listitem [ref=e198]:
+            - strong [ref=e199]: "Incident Response:"
+            - text: Established procedures for handling potential security breaches
+        - heading "4.3 Physical Safeguards" [level=3] [ref=e200]
+        - list [ref=e201]:
+          - listitem [ref=e202]:
+            - strong [ref=e203]: "Secure Facilities:"
+            - text: Physical security measures for office and equipment
+          - listitem [ref=e204]:
+            - strong [ref=e205]: "Device Security:"
+            - text: Encrypted devices and secure disposal of hardware
+          - listitem [ref=e206]:
+            - strong [ref=e207]: "Remote Work Security:"
+            - text: Secure VPN and remote access protocols
+        - paragraph [ref=e208]:
+          - strong [ref=e209]: "Important Note:"
+          - text: While we implement robust security measures, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security but commit to maintaining industry-standard protections.
+      - generic [ref=e210]:
+        - heading "5. Third-Party Services" [level=2] [ref=e211]
+        - paragraph [ref=e212]: "We use various third-party services to enhance our website functionality and service delivery. Each service has its own privacy policy:"
+        - heading "5.1 Analytics & Tracking Services" [level=3] [ref=e213]
+        - table [ref=e215]:
+          - rowgroup [ref=e216]:
+            - row "Service Purpose Data Collected Privacy Policy" [ref=e217]:
+              - cell "Service" [ref=e218]
+              - cell "Purpose" [ref=e219]
+              - cell "Data Collected" [ref=e220]
+              - cell "Privacy Policy" [ref=e221]
+          - rowgroup [ref=e222]:
+            - row "Google Analytics Website traffic analysis Usage patterns, demographics Google Privacy Policy" [ref=e223]:
+              - cell "Google Analytics" [ref=e224]
+              - cell "Website traffic analysis" [ref=e225]
+              - cell "Usage patterns, demographics" [ref=e226]
+              - cell "Google Privacy Policy" [ref=e227]:
+                - link "Google Privacy Policy" [ref=e228] [cursor=pointer]:
+                  - /url: https://policies.google.com/privacy
+            - row "Facebook Pixel Advertising optimization Page views, conversions Meta Privacy Policy" [ref=e229]:
+              - cell "Facebook Pixel" [ref=e230]
+              - cell "Advertising optimization" [ref=e231]
+              - cell "Page views, conversions" [ref=e232]
+              - cell "Meta Privacy Policy" [ref=e233]:
+                - link "Meta Privacy Policy" [ref=e234] [cursor=pointer]:
+                  - /url: https://www.facebook.com/privacy/policy/
+            - row "Google Tag Manager Tag management Event tracking data Google Privacy Policy" [ref=e235]:
+              - cell "Google Tag Manager" [ref=e236]
+              - cell "Tag management" [ref=e237]
+              - cell "Event tracking data" [ref=e238]
+              - cell "Google Privacy Policy" [ref=e239]:
+                - link "Google Privacy Policy" [ref=e240] [cursor=pointer]:
+                  - /url: https://policies.google.com/privacy
+            - row "Hotjar User behavior analysis Heatmaps, session recordings Hotjar Privacy Policy" [ref=e241]:
+              - cell "Hotjar" [ref=e242]
+              - cell "User behavior analysis" [ref=e243]
+              - cell "Heatmaps, session recordings" [ref=e244]
+              - cell "Hotjar Privacy Policy" [ref=e245]:
+                - link "Hotjar Privacy Policy" [ref=e246] [cursor=pointer]:
+                  - /url: https://www.hotjar.com/legal/policies/privacy/
+        - heading "5.2 Communication & Marketing Tools" [level=3] [ref=e247]
+        - list [ref=e248]:
+          - listitem [ref=e249]:
+            - strong [ref=e250]: "Mailchimp:"
+            - text: Email marketing and newsletters
+          - listitem [ref=e251]:
+            - strong [ref=e252]: "Calendly:"
+            - text: Appointment scheduling
+          - listitem [ref=e253]:
+            - strong [ref=e254]: "Zoom:"
+            - text: Video consultations
+          - listitem [ref=e255]:
+            - strong [ref=e256]: "Slack:"
+            - text: Internal team communication
+        - heading "5.3 Service Delivery Platforms" [level=3] [ref=e257]
+        - list [ref=e258]:
+          - listitem [ref=e259]:
+            - strong [ref=e260]: "Google Workspace:"
+            - text: Document sharing and collaboration
+          - listitem [ref=e261]:
+            - strong [ref=e262]: "Dropbox:"
+            - text: Secure file storage and sharing
+          - listitem [ref=e263]:
+            - strong [ref=e264]: "Stripe/PayPal:"
+            - text: Payment processing
+          - listitem [ref=e265]:
+            - strong [ref=e266]: "AWS/Google Cloud:"
+            - text: Hosting and data storage
+        - paragraph [ref=e267]:
+          - strong [ref=e268]: "Data Sharing:"
+          - text: We only share necessary information with these services to provide our offerings. We ensure all third-party providers meet our privacy and security standards.
+      - generic [ref=e269]:
+        - heading "6. Your Privacy Rights" [level=2] [ref=e270]
+        - paragraph [ref=e271]: "You have several rights regarding your personal information. We respect these rights and provide easy ways to exercise them:"
+        - heading "6.1 Access Rights" [level=3] [ref=e272]
+        - list [ref=e273]:
+          - listitem [ref=e274]:
+            - strong [ref=e275]: "Right to Know:"
+            - text: Request information about what personal data we hold
+          - listitem [ref=e276]:
+            - strong [ref=e277]: "Data Portability:"
+            - text: Receive your data in a structured, machine-readable format
+          - listitem [ref=e278]:
+            - strong [ref=e279]: "Processing Details:"
+            - text: Learn how we use and share your information
+        - heading "6.2 Control Rights" [level=3] [ref=e280]
+        - list [ref=e281]:
+          - listitem [ref=e282]:
+            - strong [ref=e283]: "Correction:"
+            - text: Update or correct inaccurate personal information
+          - listitem [ref=e284]:
+            - strong [ref=e285]: "Deletion:"
+            - text: Request deletion of your personal data (subject to legal requirements)
+          - listitem [ref=e286]:
+            - strong [ref=e287]: "Opt-out:"
+            - text: Unsubscribe from marketing communications at any time
+          - listitem [ref=e288]:
+            - strong [ref=e289]: "Object to Processing:"
+            - text: Object to certain uses of your personal information
+        - heading "6.3 Australian Privacy Rights" [level=3] [ref=e290]
+        - paragraph [ref=e291]: "Under the Australian Privacy Act 1988, you have additional rights including:"
+        - list [ref=e292]:
+          - listitem [ref=e293]: Right to make a complaint to the Office of the Australian Information Commissioner (OAIC)
+          - listitem [ref=e294]: Right to seek compensation for damages caused by privacy breaches
+          - listitem [ref=e295]: Right to request details about overseas disclosure of personal information
+        - generic [ref=e296]:
+          - heading "How to Exercise Your Rights" [level=3] [ref=e297]
+          - paragraph [ref=e298]:
+            - text: To exercise any of these rights, simply contact us at
+            - strong [ref=e299]: avi@theprofitplatform.com.au
+            - text: or call
+            - strong [ref=e300]: 0487 286 451
+            - text: . We will respond to your request within 30 days.
+      - generic [ref=e301]:
+        - heading "7. Cookie Policy" [level=2] [ref=e302]
+        - paragraph [ref=e303]: We use cookies and similar tracking technologies to enhance your browsing experience and improve our services.
+        - heading "7.1 What Are Cookies?" [level=3] [ref=e304]
+        - paragraph [ref=e305]: Cookies are small text files stored on your device when you visit our website. They help us remember your preferences and understand how you use our site.
+        - heading "7.2 Types of Cookies We Use" [level=3] [ref=e306]
+        - table [ref=e308]:
+          - rowgroup [ref=e309]:
+            - row "Cookie Type Purpose Duration Required" [ref=e310]:
+              - cell "Cookie Type" [ref=e311]
+              - cell "Purpose" [ref=e312]
+              - cell "Duration" [ref=e313]
+              - cell "Required" [ref=e314]
+          - rowgroup [ref=e315]:
+            - row "Essential Cookies Website functionality, security, session management Session/1 year Yes" [ref=e316]:
+              - cell "Essential Cookies" [ref=e317]
+              - cell "Website functionality, security, session management" [ref=e318]
+              - cell "Session/1 year" [ref=e319]
+              - cell "Yes" [ref=e320]
+            - row "Analytics Cookies Website performance analysis, user behavior 2 years No" [ref=e321]:
+              - cell "Analytics Cookies" [ref=e322]
+              - cell "Website performance analysis, user behavior" [ref=e323]
+              - cell "2 years" [ref=e324]
+              - cell "No" [ref=e325]
+            - row "Marketing Cookies Personalized advertising, conversion tracking 90 days No" [ref=e326]:
+              - cell "Marketing Cookies" [ref=e327]
+              - cell "Personalized advertising, conversion tracking" [ref=e328]
+              - cell "90 days" [ref=e329]
+              - cell "No" [ref=e330]
+            - row "Preference Cookies Remember your settings and preferences 1 year No" [ref=e331]:
+              - cell "Preference Cookies" [ref=e332]
+              - cell "Remember your settings and preferences" [ref=e333]
+              - cell "1 year" [ref=e334]
+              - cell "No" [ref=e335]
+        - heading "7.3 Managing Cookies" [level=3] [ref=e336]
+        - paragraph [ref=e337]: "You can control cookies through:"
+        - list [ref=e338]:
+          - listitem [ref=e339]:
+            - strong [ref=e340]: "Browser Settings:"
+            - text: Most browsers allow you to block or delete cookies
+          - listitem [ref=e341]:
+            - strong [ref=e342]: "Cookie Consent Banner:"
+            - text: Manage preferences through our cookie notice
+          - listitem [ref=e343]:
+            - strong [ref=e344]: "Opt-out Tools:"
+            - text: Use industry opt-out tools for advertising cookies
+        - paragraph [ref=e345]:
+          - strong [ref=e346]: "Note:"
+          - text: Disabling essential cookies may impact website functionality and your user experience.
+      - generic [ref=e347]:
+        - heading "8. Data Retention" [level=2] [ref=e348]
+        - paragraph [ref=e349]: "We retain personal information only as long as necessary to fulfill the purposes outlined in this privacy policy:"
+        - heading "8.1 Retention Periods" [level=3] [ref=e350]
+        - list [ref=e351]:
+          - listitem [ref=e352]:
+            - strong [ref=e353]: "Active Clients:"
+            - text: Throughout service period plus 7 years for business records
+          - listitem [ref=e354]:
+            - strong [ref=e355]: "Prospective Clients:"
+            - text: 3 years from last contact (unless you request deletion)
+          - listitem [ref=e356]:
+            - strong [ref=e357]: "Marketing Contacts:"
+            - text: Until you unsubscribe or 3 years of inactivity
+          - listitem [ref=e358]:
+            - strong [ref=e359]: "Website Analytics:"
+            - text: 26 months (Google Analytics default)
+          - listitem [ref=e360]:
+            - strong [ref=e361]: "Legal Requirements:"
+            - text: As required by Australian tax and business laws
+        - heading "8.2 Deletion Process" [level=3] [ref=e362]
+        - paragraph [ref=e363]: "When retention periods expire or you request deletion, we:"
+        - list [ref=e364]:
+          - listitem [ref=e365]: Permanently delete personal information from our systems
+          - listitem [ref=e366]: Notify third-party processors to delete relevant data
+          - listitem [ref=e367]: Maintain anonymized data for statistical purposes (where legally permitted)
+          - listitem [ref=e368]: Retain certain information if required by law or for legitimate legal purposes
+      - generic [ref=e369]:
+        - heading "9. International Data Transfers" [level=2] [ref=e370]
+        - paragraph [ref=e371]: Some of our service providers are located outside Australia. When we transfer your personal information internationally, we ensure appropriate safeguards are in place.
+        - heading "9.1 Transfer Safeguards" [level=3] [ref=e372]
+        - list [ref=e373]:
+          - listitem [ref=e374]:
+            - strong [ref=e375]: "Adequacy Decisions:"
+            - text: Transfers to countries with adequate privacy protections
+          - listitem [ref=e376]:
+            - strong [ref=e377]: "Standard Contractual Clauses:"
+            - text: EU Standard Contractual Clauses for GDPR compliance
+          - listitem [ref=e378]:
+            - strong [ref=e379]: "Certification Programs:"
+            - text: Providers with Privacy Shield or similar certifications
+          - listitem [ref=e380]:
+            - strong [ref=e381]: "Specific Authorization:"
+            - text: Your explicit consent for certain transfers
+        - heading "9.2 Common Transfer Destinations" [level=3] [ref=e382]
+        - list [ref=e383]:
+          - listitem [ref=e384]:
+            - strong [ref=e385]: "United States:"
+            - text: Google, Facebook, Mailchimp, Stripe (with safeguards)
+          - listitem [ref=e386]:
+            - strong [ref=e387]: "European Union:"
+            - text: Various service providers (adequacy decision)
+          - listitem [ref=e388]:
+            - strong [ref=e389]: "United Kingdom:"
+            - text: Some analytics and hosting services (adequacy decision)
+      - generic [ref=e390]:
+        - heading "10. Children's Privacy" [level=2] [ref=e391]
+        - paragraph [ref=e392]: Our services are not intended for individuals under 18 years of age. We do not knowingly collect personal information from children.
+        - paragraph [ref=e393]:
+          - text: If you are a parent or guardian and believe we have collected information from a child, please contact us immediately at
+          - strong [ref=e394]: avi@theprofitplatform.com.au
+          - text: ", and we will take steps to remove such information from our systems."
+      - generic [ref=e395]:
+        - heading "11. Updates to This Policy" [level=2] [ref=e396]
+        - paragraph [ref=e397]: We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements.
+        - heading "11.1 Notification Process" [level=3] [ref=e398]
+        - list [ref=e399]:
+          - listitem [ref=e400]:
+            - strong [ref=e401]: "Material Changes:"
+            - text: We will notify you by email and prominent website notice
+          - listitem [ref=e402]:
+            - strong [ref=e403]: "Minor Updates:"
+            - text: We will update the "Last Updated" date at the top of this policy
+          - listitem [ref=e404]:
+            - strong [ref=e405]: "Continued Use:"
+            - text: Your continued use of our services constitutes acceptance of updates
+        - paragraph [ref=e406]: We encourage you to review this policy periodically to stay informed about how we protect your privacy.
+      - generic [ref=e407]:
+        - heading "12. Contact Us About Privacy" [level=2] [ref=e408]
+        - generic [ref=e409]:
+          - heading " Privacy Questions or Concerns?" [level=3] [ref=e410]:
+            - generic [ref=e411]: 
+            - text: Privacy Questions or Concerns?
+          - paragraph [ref=e412]: If you have any questions about this Privacy Policy, want to exercise your privacy rights, or have concerns about how we handle your personal information, we're here to help.
+          - generic [ref=e413]:
+            - link " Email Us" [ref=e414] [cursor=pointer]:
+              - /url: mailto:avi@theprofitplatform.com.au
+              - generic [ref=e415] [cursor=pointer]: 
+              - text: Email Us
+            - link " Call Us" [ref=e416] [cursor=pointer]:
+              - /url: tel:+61487286451
+              - generic [ref=e417] [cursor=pointer]: 
+              - text: Call Us
+          - generic [ref=e418]:
+            - heading "Business Details" [level=4] [ref=e419]
+            - paragraph [ref=e420]:
+              - strong [ref=e421]: The Profit Platform
+            - paragraph [ref=e422]: Sydney, NSW, Australia
+            - paragraph [ref=e423]: "ABN: [Your ABN Number]"
+            - paragraph [ref=e424]: "Email: avi@theprofitplatform.com.au"
+        - heading "External Privacy Authorities" [level=3] [ref=e425]
+        - paragraph [ref=e426]: "If you're not satisfied with our response to your privacy concern, you may also contact:"
+        - list [ref=e427]:
+          - listitem [ref=e428]:
+            - strong [ref=e429]: Office of the Australian Information Commissioner (OAIC)
+            - text: "Website:"
+            - link "www.oaic.gov.au" [ref=e430] [cursor=pointer]:
+              - /url: https://www.oaic.gov.au
+            - text: "Phone: 1300 363 992"
+          - listitem [ref=e431]:
+            - strong [ref=e432]: European Data Protection Authorities
+            - text: (for EU residents)
+            - text: "Find your local authority at:"
+            - link "edpb.europa.eu" [ref=e433] [cursor=pointer]:
+              - /url: https://edpb.europa.eu/about-edpb/board/members_en
+      - generic [ref=e434]:
+        - heading "13. GDPR Compliance Statement" [level=2] [ref=e435]
+        - paragraph [ref=e436]: If you are located in the European Union (EU), the General Data Protection Regulation (GDPR) provides you with additional rights regarding your personal data.
+        - generic [ref=e437]:
+          - heading "GDPR Rights Summary" [level=3] [ref=e438]
+          - paragraph [ref=e439]: Under GDPR, you have the right to access, rectify, erase, restrict processing, object to processing, and port your personal data. You also have the right to withdraw consent and lodge complaints with supervisory authorities.
+        - heading "13.1 Legal Bases for Processing" [level=3] [ref=e440]
+        - paragraph [ref=e441]: "We process your personal data based on the following legal grounds:"
+        - list [ref=e442]:
+          - listitem [ref=e443]:
+            - strong [ref=e444]: "Consent:"
+            - text: For marketing communications and optional services
+          - listitem [ref=e445]:
+            - strong [ref=e446]: "Contract Performance:"
+            - text: To deliver requested services
+          - listitem [ref=e447]:
+            - strong [ref=e448]: "Legitimate Interest:"
+            - text: For business operations, security, and analytics
+          - listitem [ref=e449]:
+            - strong [ref=e450]: "Legal Obligation:"
+            - text: To comply with applicable laws and regulations
+        - heading "13.2 Data Protection Officer" [level=3] [ref=e451]
+        - paragraph [ref=e452]: "For GDPR-related inquiries, you can contact our Data Protection Officer at:"
+        - paragraph [ref=e453]:
+          - strong [ref=e454]: "Email:"
+          - text: dpo@theprofitplatform.com.au
+          - strong [ref=e455]: "Subject Line:"
+          - text: "\"GDPR Inquiry\" for priority handling"
+        - heading "13.3 Cross-Border Data Transfers" [level=3] [ref=e456]
+        - paragraph [ref=e457]: "When we transfer EU personal data outside the EU, we ensure appropriate safeguards such as:"
+        - list [ref=e458]:
+          - listitem [ref=e459]: EU Commission adequacy decisions
+          - listitem [ref=e460]: Standard Contractual Clauses (SCCs)
+          - listitem [ref=e461]: Approved certification mechanisms
+          - listitem [ref=e462]: Explicit consent for specific transfers
+  - contentinfo [ref=e463]:
+    - generic [ref=e464]:
+      - generic [ref=e465]:
+        - generic [ref=e466]:
+          - heading "The Profit Platform" [level=3] [ref=e467]
+          - paragraph [ref=e468]: We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.
+          - list "Social media links" [ref=e469]:
+            - listitem "Follow us on Facebook" [ref=e470] [cursor=pointer]:
+              - generic [ref=e471] [cursor=pointer]: 
+            - listitem "Follow us on Instagram" [ref=e472] [cursor=pointer]:
+              - generic [ref=e473] [cursor=pointer]: 
+            - listitem "Connect with us on LinkedIn" [ref=e474] [cursor=pointer]:
+              - generic [ref=e475] [cursor=pointer]: 
+            - listitem "Follow us on Twitter" [ref=e476] [cursor=pointer]:
+              - generic [ref=e477] [cursor=pointer]: 
+            - listitem "Subscribe to our YouTube channel" [ref=e478] [cursor=pointer]:
+              - generic [ref=e479] [cursor=pointer]: 
+          - generic [ref=e480]:
+            - generic [ref=e481]:
+              - generic [ref=e482]: 
+              - link "0487 286 451" [ref=e483] [cursor=pointer]:
+                - /url: tel:0487286451
+            - generic [ref=e484]:
+              - generic [ref=e485]: 
+              - link "avi@theprofitplatform.com.au" [ref=e486] [cursor=pointer]:
+                - /url: mailto:avi@theprofitplatform.com.au
+            - generic [ref=e487]:
+              - generic [ref=e488]: 
+              - generic [ref=e489]: Sydney, NSW, Australia
+        - generic [ref=e490]:
+          - heading "Services" [level=3] [ref=e491]
+          - list [ref=e492]:
+            - listitem [ref=e493]:
+              - link " SEO & Local Search" [ref=e494] [cursor=pointer]:
+                - /url: /seo-sydney/
+                - generic [ref=e495] [cursor=pointer]: 
+                - text: SEO & Local Search
+            - listitem [ref=e496]:
+              - link " Google Ads Management" [ref=e497] [cursor=pointer]:
+                - /url: /google-ads-sydney/
+                - generic [ref=e498] [cursor=pointer]: 
+                - text: Google Ads Management
+            - listitem [ref=e499]:
+              - link " Social Media Advertising" [ref=e500] [cursor=pointer]:
+                - /url: /social-media-marketing/
+                - generic [ref=e501] [cursor=pointer]: 
+                - text: Social Media Advertising
+            - listitem [ref=e502]:
+              - link " Website Design" [ref=e503] [cursor=pointer]:
+                - /url: /web-design-sydney/
+                - generic [ref=e504] [cursor=pointer]: 
+                - text: Website Design
+            - listitem [ref=e505]:
+              - link " Conversion Optimization" [ref=e506] [cursor=pointer]:
+                - /url: /content-marketing/
+                - generic [ref=e507] [cursor=pointer]: 
+                - text: Conversion Optimization
+            - listitem [ref=e508]:
+              - link "Analytics & Reporting" [ref=e509] [cursor=pointer]:
+                - /url: "#"
+                - text: Analytics & Reporting
+        - generic [ref=e510]:
+          - heading "Company" [level=3] [ref=e511]
+          - list [ref=e512]:
+            - listitem [ref=e513]:
+              - link " About Us" [ref=e514] [cursor=pointer]:
+                - /url: /about/
+                - generic [ref=e515] [cursor=pointer]: 
+                - text: About Us
+            - listitem [ref=e516]:
+              - link " Case Studies" [ref=e517] [cursor=pointer]:
+                - /url: /portfolio/
+                - generic [ref=e518] [cursor=pointer]: 
+                - text: Case Studies
+            - listitem [ref=e519]:
+              - link " Blog" [ref=e520] [cursor=pointer]:
+                - /url: /blog/
+                - generic [ref=e521] [cursor=pointer]: 
+                - text: Blog
+            - listitem [ref=e522]:
+              - link " Careers" [ref=e523] [cursor=pointer]:
+                - /url: /about/#careers
+                - generic [ref=e524] [cursor=pointer]: 
+                - text: Careers
+            - listitem [ref=e525]:
+              - link " Partners" [ref=e526] [cursor=pointer]:
+                - /url: /about/#partners
+                - generic [ref=e527] [cursor=pointer]: 
+                - text: Partners
+            - listitem [ref=e528]:
+              - link " Contact" [ref=e529] [cursor=pointer]:
+                - /url: /contact/
+                - generic [ref=e530] [cursor=pointer]: 
+                - text: Contact
+        - generic [ref=e531]:
+          - heading "Resources" [level=3] [ref=e532]
+          - list [ref=e533]:
+            - listitem [ref=e534]:
+              - link " Free Marketing Audit" [ref=e535] [cursor=pointer]:
+                - /url: /free-audit/
+                - generic [ref=e536] [cursor=pointer]: 
+                - text: Free Marketing Audit
+            - listitem [ref=e537]:
+              - link " Free SEO Guide" [ref=e538] [cursor=pointer]:
+                - /url: /seo-checklist/
+                - generic [ref=e539] [cursor=pointer]: 
+                - text: Free SEO Guide
+            - listitem [ref=e540]:
+              - link " Google Ads Guide" [ref=e541] [cursor=pointer]:
+                - /url: /google-ads-guide/
+                - generic [ref=e542] [cursor=pointer]: 
+                - text: Google Ads Guide
+            - listitem [ref=e543]:
+              - link " Local SEO Checklist" [ref=e544] [cursor=pointer]:
+                - /url: /local-seo-checklist/
+                - generic [ref=e545] [cursor=pointer]: 
+                - text: Local SEO Checklist
+            - listitem [ref=e546]:
+              - link " Free Webinars" [ref=e547] [cursor=pointer]:
+                - /url: /webinars/
+                - generic [ref=e548] [cursor=pointer]: 
+                - text: Free Webinars
+            - listitem [ref=e549]:
+              - link " Free Tools" [ref=e550] [cursor=pointer]:
+                - /url: /tools/
+                - generic [ref=e551] [cursor=pointer]: 
+                - text: Free Tools
+      - generic [ref=e552]:
+        - generic [ref=e553]:
+          - paragraph [ref=e554]: © 2025 The Profit Platform. All rights reserved.
+          - generic [ref=e555]:
+            - link "Privacy Policy" [ref=e556] [cursor=pointer]:
+              - /url: /privacy/
+            - link "Terms of Service" [ref=e557] [cursor=pointer]:
+              - /url: /terms/
+            - link "Disclaimer" [ref=e558] [cursor=pointer]:
+              - /url: /disclaimer/
+            - link "Sitemap" [ref=e559] [cursor=pointer]:
+              - /url: /sitemap/
+        - generic [ref=e560]:
+          - img "Google Partner Badge" [ref=e561]
+          - generic [ref=e562]:
+            - generic "Visa accepted" [ref=e563]: 
+            - generic "Mastercard accepted" [ref=e564]: 
+            - generic "American Express accepted" [ref=e565]: 
+            - generic "PayPal accepted" [ref=e566]: 
+  - text: 
+```
