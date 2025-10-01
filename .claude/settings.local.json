@@ -12,7 +12,9 @@
       "Bash(alias cx)",
       "Bash(npm run dev:*)",
       "Bash(find:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(tree:*)",
+      "Bash(npx wrangler pages project list:*)"
     ],
     "deny": [],
     "ask": []

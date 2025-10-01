@@ -1,10 +1,21 @@
 ---
-// BaseLayout.astro - Hard fix with exact production structure + improvements
+// BaseLayout.astro - Dynamic SEO with fallbacks to homepage defaults
 export interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
+
+// Get current page URL for canonical and OpenGraph
+const currentPath = Astro.url.pathname;
+const canonicalURL = `https://theprofitplatform.com.au${currentPath === '/' ? '' : currentPath}`;
+
+// SEO defaults (fallback to homepage values)
+const pageTitle = title || "The Profit Platform — Sydney Digital Marketing Expert";
+const pageDescription = description || "Leading digital marketing services in Sydney. Get results with The Profit Platform. ✓ Proven ROI ✓ 127+ Reviews ✓ Free Consultation";
+const ogTitle = title || "The Profit Platform — Sydney Digital Marketing Expert";
+const ogDescription = description || "Transform your business with expert digital marketing services";
 ---
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns#">
@@ -15,9 +26,9 @@ const { title } = Astro.props;
 
 <!-- SEO Meta Tags -->
 <!-- Primary Meta Tags -->
-<title>The Profit Platform — Sydney Digital Marketing Expert</title>
-<meta name="title" content="Sydney Digital Marketing Expert | Fresh Approach, Proven Results">
-<meta name="description" content="Leading digital marketing services in Sydney. Get results with The Profit Platform. ✓ Proven ROI ✓ 127+ Reviews ✓ Free Consultation">
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle}>
+<meta name="description" content={pageDescription}>
 <meta name="keywords" content="digital marketing, sydney, seo, google ads, web design">
 <meta name="author" content="The Profit Platform">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -29,9 +40,9 @@ const { title } = Astro.props;
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://theprofitplatform.com.au/">
-<meta property="og:title" content="The Profit Platform — Sydney Digital Marketing Expert">
-<meta property="og:description" content="Transform your business with expert digital marketing services">
+<meta property="og:url" content={canonicalURL}>
+<meta property="og:title" content={ogTitle}>
+<meta property="og:description" content={ogDescription}>
 <meta property="og:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -41,9 +52,9 @@ const { title } = Astro.props;
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://theprofitplatform.com.au/">
-<meta property="twitter:title" content="Sydney Digital Marketing Expert | Fresh Approach, Proven Results">
-<meta property="twitter:description" content="Sydney's hungry new digital marketing expert. Founded 2024 with fresh strategies & personalised service. 15+ clients already seeing 2x more leads. Serving Bondi, Parramatta, Penrith & Greater Sydney.">
+<meta property="twitter:url" content={canonicalURL}>
+<meta property="twitter:title" content={ogTitle}>
+<meta property="twitter:description" content={ogDescription}>
 <meta property="twitter:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
 <meta property="twitter:image:alt" content="The Profit Platform - Digital Marketing Dashboard showing growth results">
 <meta property="twitter:creator" content="@profitplatform">
@@ -59,11 +70,11 @@ const { title } = Astro.props;
 <meta name="msapplication-tap-highlight" content="no">
 
 <!-- Canonical URL -->
-<link rel="canonical" href="https://theprofitplatform.com.au/">
+<link rel="canonical" href={canonicalURL}>
 
 <!-- Alternate Language -->
-<link rel="alternate" hreflang="en-au" href="https://theprofitplatform.com.au/">
-<link rel="alternate" hreflang="x-default" href="https://theprofitplatform.com.au/">
+<link rel="alternate" hreflang="en-au" href={canonicalURL}>
+<link rel="alternate" hreflang="x-default" href={canonicalURL}>
 
 <!-- Favicons -->
 <link rel="icon" type="image/x-icon" href="https://theprofitplatform.com.au/favicon.ico">

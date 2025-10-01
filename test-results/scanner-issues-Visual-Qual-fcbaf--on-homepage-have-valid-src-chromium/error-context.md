@@ -1,0 +1,725 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - link "Skip to navigation" [ref=e3] [cursor=pointer]:
+    - /url: "#primary-navigation"
+  - progressbar "Page scroll progress" [ref=e4]
+  - banner [ref=e5]:
+    - generic [ref=e7]:
+      - link "The Profit Platform - Home" [ref=e8] [cursor=pointer]:
+        - /url: /
+        - img "The Profit Platform Logo" [ref=e10] [cursor=pointer]
+      - navigation "Main navigation" [ref=e11]:
+        - menubar [ref=e12]:
+          - menuitem "Home" [ref=e13] [cursor=pointer]:
+            - generic [ref=e14] [cursor=pointer]: 
+            - generic [ref=e15] [cursor=pointer]: Home
+          - menuitem "Services" [ref=e16] [cursor=pointer]:
+            - generic [ref=e17] [cursor=pointer]: 
+            - generic [ref=e18] [cursor=pointer]: Services
+            - generic [ref=e19] [cursor=pointer]: 
+          - menuitem "Pricing" [ref=e20] [cursor=pointer]:
+            - generic [ref=e21] [cursor=pointer]: $
+            - generic [ref=e22] [cursor=pointer]: Pricing
+          - menuitem "Tools" [ref=e23] [cursor=pointer]:
+            - generic [ref=e24] [cursor=pointer]: 
+            - generic [ref=e25] [cursor=pointer]: Tools
+            - generic [ref=e26] [cursor=pointer]: 
+          - menuitem "Contact" [ref=e27] [cursor=pointer]:
+            - generic [ref=e28] [cursor=pointer]: 
+            - generic [ref=e29] [cursor=pointer]: Contact
+      - link "Get Free Chat - Contact us" [ref=e31] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e32] [cursor=pointer]: 
+        - generic [ref=e33] [cursor=pointer]: Let's Chat
+  - text:      $    
+  - main [ref=e34]:
+    - banner "Sydney's Local Small Busines | Fresh Approach, Proven Methods" [ref=e35]:
+      - generic [ref=e40]:
+        - generic [ref=e41]:
+          - heading "Sydney's Local Small Busines | Fresh Approach, Proven Methods" [level=1] [ref=e42]:
+            - generic [ref=e43]: Sydney's Local
+            - strong [ref=e45]: Small Busines |
+            - generic [ref=e46]: Fresh Approach, Proven Methods
+          - paragraph [ref=e47]:
+            - text: Dominate Google searches in
+            - generic [ref=e48]: Bondi
+            - text: ","
+            - generic [ref=e49]: Parramatta
+            - text: "&"
+            - generic [ref=e50]: Penrith
+            - text: across Greater Sydney. Founded 2024, I'm helping Sydney businesses get 2x more leads in 60 days with cutting-edge strategies.
+          - generic [ref=e51]:
+            - generic [ref=e52]:
+              - generic [ref=e55]: 
+              - generic [ref=e56]:
+                - generic [ref=e57]:
+                  - generic [ref=e58]: "17"
+                  - text: "%"
+                - generic [ref=e59]: Revenue Increase
+            - generic [ref=e60]:
+              - generic [ref=e63]: 
+              - generic [ref=e64]:
+                - generic [ref=e65]:
+                  - generic [ref=e66]: "1"
+                  - text: +
+                - generic [ref=e67]: Sydney Clients
+          - generic [ref=e68]:
+            - link "Claim Free $997 Audit Only 5 spots left this week " [ref=e69] [cursor=pointer]:
+              - /url: /contact
+              - generic [ref=e70] [cursor=pointer]:
+                - generic [ref=e71] [cursor=pointer]: Claim Free $997 Audit
+                - generic [ref=e72] [cursor=pointer]: Only 5 spots left this week
+              - generic [ref=e74] [cursor=pointer]: 
+            - link " Call Avi directly 0487 286 451" [ref=e76] [cursor=pointer]:
+              - /url: tel:+61487286451
+              - generic [ref=e78] [cursor=pointer]: 
+              - generic [ref=e79] [cursor=pointer]:
+                - generic [ref=e80] [cursor=pointer]: Call Avi directly
+                - generic [ref=e81] [cursor=pointer]: 0487 286 451
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: 
+              - generic [ref=e85]: 4.9★ Rating
+            - generic [ref=e87]:
+              - generic [ref=e88]: 
+              - generic [ref=e89]: No Lock-in Contracts
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - img "Digital Marketing Dashboard showing impressive growth results" [ref=e93]
+            - generic [ref=e94]:
+              - generic [ref=e96]: 
+              - generic [ref=e97]:
+                - generic [ref=e98]: 2x
+                - generic [ref=e99]: More Leads
+            - generic [ref=e100]:
+              - generic [ref=e102]: 
+              - generic [ref=e103]:
+                - generic [ref=e104]: "67"
+                - generic [ref=e105]: New Leads/Month
+            - generic [ref=e106]:
+              - generic [ref=e108]: $
+              - generic [ref=e109]:
+                - generic [ref=e110]: 15x
+                - generic [ref=e111]: ROI Average
+          - img [ref=e113]
+    - region "Trusted by Sydney's Growing Businesses" [ref=e115]:
+      - generic [ref=e116]:
+        - generic [ref=e117]:
+          - heading "Trusted by Sydney's Growing Businesses" [level=2] [ref=e118]
+          - paragraph [ref=e119]: Real results that speak for themselves
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e123]: 
+            - generic [ref=e124]:
+              - generic [ref=e125]: "0"
+              - text: "%"
+            - generic [ref=e126]: Average ROI
+            - generic [ref=e127]: Last 6 Months
+          - generic [ref=e128]:
+            - generic [ref=e129]: Growing Fast
+            - generic [ref=e131]: 
+            - generic [ref=e132]:
+              - generic [ref=e133]: "0"
+              - text: +
+            - generic [ref=e134]: Active Clients
+            - generic [ref=e135]: Sydney Businesses
+            - generic [ref=e136]:
+              - generic [ref=e137]: 
+              - text: +45%
+          - generic [ref=e138]:
+            - generic [ref=e140]: 
+            - generic [ref=e141]:
+              - generic [ref=e142]: "0"
+              - text: +
+            - generic [ref=e143]: Leads Generated
+            - generic [ref=e144]: This Quarter
+          - generic [ref=e145]:
+            - generic [ref=e147]: 
+            - generic [ref=e148]:
+              - generic [ref=e149]: "0"
+              - text: min
+            - generic [ref=e150]: Response Time
+            - generic [ref=e151]: Business Hours
+        - generic [ref=e153]:
+          - generic [ref=e154]:
+            - generic [ref=e155]:
+              - img "Google" [ref=e156]
+              - generic [ref=e157]:
+                - generic [ref=e158]: 
+                - generic [ref=e159]: 
+                - generic [ref=e160]: 
+                - generic [ref=e161]: 
+                - generic [ref=e162]: 
+              - generic [ref=e163]: "5.0"
+            - paragraph [ref=e164]: "\"Best marketing investment\" - Sarah M."
+          - generic [ref=e165]:
+            - generic [ref=e167]: 
+            - generic [ref=e168]:
+              - generic [ref=e169]: 100% Transparent
+              - generic [ref=e170]: No Hidden Fees Ever
+          - generic [ref=e171]:
+            - generic [ref=e173]: 
+            - generic [ref=e174]:
+              - generic [ref=e175]: 30-Day Guarantee
+              - generic [ref=e176]: Risk-Free Trial
+    - region "Real Results in Just Our First Year" [ref=e177]:
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - generic [ref=e180]: 🚀 Early Success Stories
+          - heading "Real Results in Just Our First Year" [level=2] [ref=e181]
+          - paragraph [ref=e182]: See what our early clients are already achieving with our fresh approach to digital marketing.
+        - list "Client success stories" [ref=e183]:
+          - listitem "2.6x increase" [ref=e184]:
+            - img "SUCCESS STORY story" [ref=e185]:
+              - generic [ref=e187]: 
+              - generic [ref=e188]: SUCCESS STORY
+            - generic "Performance comparison" [ref=e189]:
+              - generic [ref=e190]:
+                - generic [ref=e191]: BEFORE
+                - generic [ref=e192]: 
+                - generic [ref=e193]: AFTER
+              - generic [ref=e194]:
+                - 'generic "Before: 3/week" [ref=e195]': 3/week
+                - 'generic "After: 8/week" [ref=e196]': 8/week
+            - generic [ref=e197]:
+              - generic "2.6x increase" [ref=e198]: 2.6x
+              - generic [ref=e199]: More Phone Calls
+            - generic "Client information" [ref=e200]:
+              - generic [ref=e201]: Mike's Plumbing
+              - generic [ref=e202]: Parramatta, NSW
+              - generic [ref=e203]:
+                - generic [ref=e204]: 
+                - 'generic "Campaign duration: 30 days" [ref=e205]': 30 days
+            - blockquote "Client testimonial" [ref=e206]:
+              - paragraph [ref=e207]: "\"The phone doesn't stop ringing now. Best investment I've made.\""
+          - listitem "2.4x increase" [ref=e208]:
+            - img "GROWTH story" [ref=e209]:
+              - generic [ref=e211]: 
+              - generic [ref=e212]: GROWTH
+            - generic "Performance comparison" [ref=e213]:
+              - generic [ref=e214]:
+                - generic [ref=e215]: BEFORE
+                - generic [ref=e216]: 
+                - generic [ref=e217]: AFTER
+              - generic [ref=e218]:
+                - 'generic "Before: 5/week" [ref=e219]': 5/week
+                - 'generic "After: 12/week" [ref=e220]': 12/week
+            - generic [ref=e221]:
+              - generic "2.4x increase" [ref=e222]: 2.4x
+              - generic [ref=e223]: Booking Increase
+            - generic "Client information" [ref=e224]:
+              - generic [ref=e225]: Sydney Physio Care
+              - generic [ref=e226]: North Shore, NSW
+              - generic [ref=e227]:
+                - generic [ref=e228]: 
+                - 'generic "Campaign duration: 45 days" [ref=e229]': 45 days
+            - blockquote "Client testimonial" [ref=e230]:
+              - paragraph [ref=e231]: "\"More than doubled our bookings already. Great start!\""
+          - listitem "-31% increase" [ref=e232]:
+            - img "COST SAVINGS story" [ref=e233]:
+              - generic [ref=e235]: $
+              - generic [ref=e236]: COST SAVINGS
+            - generic "Performance comparison" [ref=e237]:
+              - generic [ref=e238]:
+                - generic [ref=e239]: BEFORE
+                - generic [ref=e240]: 
+                - generic [ref=e241]: AFTER
+              - generic [ref=e242]:
+                - 'generic "Before: $75" [ref=e243]': $75
+                - 'generic "After: $52" [ref=e244]': $52
+            - generic [ref=e245]:
+              - generic "-31% increase" [ref=e246]: "-31%"
+              - generic [ref=e247]: Cost Per Lead
+            - generic "Client information" [ref=e248]:
+              - generic [ref=e249]: Dan's Electrical
+              - generic [ref=e250]: Western Sydney, NSW
+              - generic [ref=e251]:
+                - generic [ref=e252]: 
+                - 'generic "Campaign duration: 30 days" [ref=e253]': 30 days
+            - blockquote "Client testimonial" [ref=e254]:
+              - paragraph [ref=e255]: "\"Already saving money while getting better quality leads.\""
+          - listitem "#1 increase" [ref=e256]:
+            - img "SEO VICTORY story" [ref=e257]:
+              - generic [ref=e259]: 
+              - generic [ref=e260]: SEO VICTORY
+            - generic "Performance comparison" [ref=e261]:
+              - generic [ref=e262]:
+                - generic [ref=e263]: BEFORE
+                - generic [ref=e264]: 
+                - generic [ref=e265]: AFTER
+              - generic [ref=e266]:
+                - 'generic "Before: Page 3" [ref=e267]': Page 3
+                - 'generic "After: #1" [ref=e268]': "#1"
+            - generic [ref=e269]:
+              - generic "#1 increase" [ref=e270]: "#1"
+              - generic [ref=e271]: Google Ranking
+            - generic "Client information" [ref=e272]:
+              - generic [ref=e273]: Aussie Electric Pro
+              - generic [ref=e274]: Inner West, NSW
+              - generic [ref=e275]:
+                - generic [ref=e276]: 
+                - 'generic "Campaign duration: 4 months" [ref=e277]': 4 months
+            - blockquote "Client testimonial" [ref=e278]:
+              - paragraph [ref=e279]: "\"Finally ranking #1 for 'electrician Sydney'. Game changer!\""
+      - generic [ref=e282]:
+        - generic [ref=e283]:
+          - generic [ref=e285]: 
+          - generic [ref=e286]:
+            - generic [ref=e287]: 15+
+            - generic [ref=e288]: Clients & Growing
+        - generic [ref=e289]:
+          - generic [ref=e291]: 
+          - generic [ref=e292]:
+            - generic [ref=e293]: 120%
+            - generic [ref=e294]: Average ROI
+        - generic [ref=e295]:
+          - generic [ref=e297]: 
+          - generic [ref=e298]:
+            - generic [ref=e299]: 5+
+            - generic [ref=e300]: Years Founder Experience
+        - generic [ref=e301]:
+          - generic [ref=e303]: 
+          - generic [ref=e304]:
+            - generic [ref=e305]: "4.9"
+            - generic [ref=e306]: Client Rating
+    - generic [ref=e308]:
+      - generic [ref=e309]:
+        - generic [ref=e310]: 🎯 Our Services
+        - heading "Everything You Need to Dominate Sydney" [level=2] [ref=e311]
+        - paragraph [ref=e312]: We don't just offer services—we deliver complete digital dominance. Our integrated approach ensures every dollar spent drives measurable growth.
+      - generic [ref=e313]:
+        - generic [ref=e314]:
+          - generic [ref=e316]: 
+          - heading "Local SEO & Search Domination" [level=3] [ref=e317]
+          - paragraph [ref=e318]: Own page 1 of Google for your most profitable keywords. We don't just get you ranked—we get you the customers that matter.
+          - list [ref=e319]:
+            - listitem [ref=e320]: ✓ Google My Business optimization
+            - listitem [ref=e321]: ✓ Local citation building
+            - listitem [ref=e322]: ✓ Review management system
+            - listitem [ref=e323]: ✓ Technical SEO audits
+            - listitem [ref=e324]: ✓ Content marketing strategy
+            - listitem [ref=e325]: ✓ Competitor analysis
+          - link "Learn More" [ref=e327] [cursor=pointer]:
+            - /url: /seo
+        - generic [ref=e328]:
+          - generic [ref=e330]: 
+          - heading "Google & Meta Ads Management" [level=3] [ref=e331]
+          - paragraph [ref=e332]: Get instant customers while your SEO builds momentum. Our certified experts maximize every ad dollar for maximum ROI.
+          - list [ref=e333]:
+            - listitem [ref=e334]: ✓ Search & display campaigns
+            - listitem [ref=e335]: ✓ Facebook & Instagram ads
+            - listitem [ref=e336]: ✓ Landing page optimization
+            - listitem [ref=e337]: ✓ Conversion tracking setup
+            - listitem [ref=e338]: ✓ Advanced audience targeting
+            - listitem [ref=e339]: ✓ A/B testing & optimization
+          - link "Learn More" [ref=e341] [cursor=pointer]:
+            - /url: /google-ads
+        - generic [ref=e342]:
+          - generic [ref=e344]: 
+          - heading "High-Converting Web Design" [level=3] [ref=e345]
+          - paragraph [ref=e346]: Your website should be a 24/7 sales machine. We design conversion-focused sites that turn visitors into paying customers.
+          - list [ref=e347]:
+            - listitem [ref=e348]: ✓ Mobile-first responsive design
+            - listitem [ref=e349]: ✓ Speed & performance optimization
+            - listitem [ref=e350]: ✓ Conversion rate optimization
+            - listitem [ref=e351]: ✓ User experience design
+            - listitem [ref=e352]: ✓ E-commerce development
+            - listitem [ref=e353]: ✓ Ongoing maintenance & support
+          - link "Learn More" [ref=e355] [cursor=pointer]:
+            - /url: /web-design
+    - generic [ref=e357]:
+      - generic [ref=e358]:
+        - generic [ref=e359]: ⚡ Our Process
+        - heading "From Struggling to Dominating in 90 Days" [level=2] [ref=e360]
+        - paragraph [ref=e361]: Our proven 4-step system is helping Sydney businesses transform from invisible to industry leaders. Here's exactly how we do it.
+      - generic [ref=e362]:
+        - generic [ref=e363]:
+          - generic [ref=e364]: "1"
+          - generic [ref=e366]: 
+          - generic [ref=e367]:
+            - heading "Deep-Dive Analysis" [level=3] [ref=e368]
+            - paragraph [ref=e369]: We audit your current digital presence, analyze your competitors, and identify the exact opportunities that will drive the biggest impact for your business. No guesswork—just data-driven insights.
+        - generic [ref=e370]:
+          - generic [ref=e371]: "2"
+          - generic [ref=e373]: 
+          - generic [ref=e374]:
+            - heading "Strategic Planning" [level=3] [ref=e375]
+            - paragraph [ref=e376]: Based on our analysis, we create a customized growth strategy that targets your ideal customers, maximizes your budget, and delivers measurable results within 90 days.
+        - generic [ref=e377]:
+          - generic [ref=e378]: "3"
+          - generic [ref=e380]: 
+          - generic [ref=e381]:
+            - heading "Rapid Implementation" [level=3] [ref=e382]
+            - paragraph [ref=e383]: We execute your strategy with precision and speed. From website optimization to ad campaigns, everything is implemented according to our proven framework for maximum impact.
+        - generic [ref=e384]:
+          - generic [ref=e385]: "4"
+          - generic [ref=e387]: 
+          - generic [ref=e388]:
+            - heading "Optimize & Scale" [level=3] [ref=e389]
+            - paragraph [ref=e390]: We continuously monitor, test, and optimize your campaigns to ensure peak performance. As results improve, we scale successful strategies to drive even greater growth.
+    - generic [ref=e392]:
+      - generic [ref=e393]:
+        - generic [ref=e394]: 💰 Simple Pricing
+        - heading "Choose Your Growth Level" [level=2] [ref=e395]
+        - paragraph [ref=e396]: No hidden fees, no lock-in contracts, no surprises. Just transparent pricing that scales with your success.
+      - generic [ref=e397]:
+        - generic [ref=e398]: Monthly
+        - generic [ref=e401]: Annual (Save 20%)
+      - generic [ref=e402]:
+        - generic [ref=e403]:
+          - heading "Starter Growth" [level=3] [ref=e404]
+          - paragraph [ref=e405]: Perfect for small businesses ready to establish their online presence
+          - generic [ref=e406]:
+            - generic [ref=e407]: $990
+            - generic [ref=e408]: /month
+          - list [ref=e409]:
+            - listitem [ref=e410]: ✓ Local SEO optimization
+            - listitem [ref=e411]: ✓ Google My Business management
+            - listitem [ref=e412]: ✓ Basic website audit & fixes
+            - listitem [ref=e413]: ✓ Monthly progress reports
+            - listitem [ref=e414]: ✓ Email & phone support
+            - listitem [ref=e415]: ✓ No lock-in contracts
+          - link "Get Started" [ref=e417] [cursor=pointer]:
+            - /url: "#contact"
+        - generic [ref=e418]:
+          - generic [ref=e419]: Most Popular
+          - heading "Professional Growth" [level=3] [ref=e420]
+          - paragraph [ref=e421]: Comprehensive digital marketing for businesses serious about growth
+          - generic [ref=e422]:
+            - generic [ref=e423]: $1,990
+            - generic [ref=e424]: /month
+          - list [ref=e425]:
+            - listitem [ref=e426]: ✓ Everything in Starter Growth
+            - listitem [ref=e427]: ✓ Google & Meta Ads management
+            - listitem [ref=e428]: ✓ Advanced SEO & content marketing
+            - listitem [ref=e429]: ✓ Conversion rate optimization
+            - listitem [ref=e430]: ✓ Weekly strategy calls
+            - listitem [ref=e431]: ✓ Priority support & dedicated account manager
+            - listitem [ref=e432]: ✓ Performance guarantee
+          - link "Get Started" [ref=e434] [cursor=pointer]:
+            - /url: "#contact"
+        - generic [ref=e435]:
+          - heading "Enterprise Domination" [level=3] [ref=e436]
+          - paragraph [ref=e437]: Complete market domination for established businesses
+          - generic [ref=e438]:
+            - generic [ref=e439]: $3,990
+            - generic [ref=e440]: /month
+          - list [ref=e441]:
+            - listitem [ref=e442]: ✓ Everything in Professional Growth
+            - listitem [ref=e443]: ✓ Full website redesign & optimization
+            - listitem [ref=e444]: ✓ Advanced analytics & attribution
+            - listitem [ref=e445]: ✓ Multi-location SEO management
+            - listitem [ref=e446]: ✓ Dedicated marketing team
+            - listitem [ref=e447]: ✓ Custom integrations & automation
+            - listitem [ref=e448]: ✓ Quarterly business reviews
+          - link "Get Started" [ref=e450] [cursor=pointer]:
+            - /url: "#contact"
+          - paragraph [ref=e451]: "*Custom enterprise solutions available"
+    - generic [ref=e453]:
+      - generic [ref=e454]:
+        - generic [ref=e455]: ❓ FAQs
+        - heading "Everything You Need to Know" [level=2] [ref=e456]
+        - paragraph [ref=e457]: Get answers to common questions about our services, process, and how we help Sydney businesses succeed.
+      - generic [ref=e458]:
+        - generic [ref=e459]:
+          - generic [ref=e460]: 
+          - textbox "Search FAQs" [ref=e461]
+          - generic [ref=e462]:
+            - generic [ref=e463]: "6"
+            - text: questions
+        - group "Filter FAQs by category" [ref=e464]:
+          - button "All Questions" [pressed] [ref=e465] [cursor=pointer]
+          - button "Services & Pricing" [ref=e466] [cursor=pointer]
+          - button "Results & Timeline" [ref=e467] [cursor=pointer]
+          - button "Support & Process" [ref=e468] [cursor=pointer]
+          - button "Technical & Ownership" [ref=e469] [cursor=pointer]
+      - generic [ref=e470]:
+        - generic [ref=e471]:
+          - button "$ How is your pricing structured? " [ref=e472] [cursor=pointer]:
+            - generic [ref=e474] [cursor=pointer]: $
+            - generic [ref=e475] [cursor=pointer]: How is your pricing structured?
+            - generic [ref=e476] [cursor=pointer]: 
+          - paragraph [ref=e477]: "Our pricing is transparent and straightforward with no hidden fees. We offer three tiers: Starter Growth ($990/month), Professional Growth ($1,990/month), and Enterprise Domination ($3,990/month). Each package is designed for different business sizes and growth goals."
+        - generic [ref=e478]:
+          - button " What areas of Sydney do you service? " [ref=e479] [cursor=pointer]:
+            - generic [ref=e481] [cursor=pointer]: 
+            - generic [ref=e482] [cursor=pointer]: What areas of Sydney do you service?
+            - generic [ref=e483] [cursor=pointer]: 
+          - paragraph [ref=e484]: We service all of Greater Sydney including CBD, Eastern Suburbs, North Shore, Inner West, Western Sydney, and Southern Sydney. We work both remotely and in-person depending on your needs.
+        - generic [ref=e485]:
+          - button " How quickly will I see results? " [ref=e486] [cursor=pointer]:
+            - generic [ref=e488] [cursor=pointer]: 
+            - generic [ref=e489] [cursor=pointer]: How quickly will I see results?
+            - generic [ref=e490] [cursor=pointer]: 
+          - paragraph [ref=e491]: Most clients see initial improvements within 30 days, with significant results by 60-90 days. SEO typically takes 3-6 months for full impact, while Google Ads can generate leads within days.
+        - generic [ref=e492]:
+          - button " What kind of results can I expect? " [ref=e493] [cursor=pointer]:
+            - generic [ref=e495] [cursor=pointer]: 
+            - generic [ref=e496] [cursor=pointer]: What kind of results can I expect?
+            - generic [ref=e497] [cursor=pointer]: 
+          - paragraph [ref=e498]: While results vary by industry and competition, our clients typically see 2-3x increase in leads, 50-200% improvement in Google rankings, and 15-25% reduction in cost per acquisition within the first 6 months.
+        - generic [ref=e499]:
+          - button " Are there any lock-in contracts? " [ref=e500] [cursor=pointer]:
+            - generic [ref=e502] [cursor=pointer]: 
+            - generic [ref=e503] [cursor=pointer]: Are there any lock-in contracts?
+            - generic [ref=e504] [cursor=pointer]: 
+          - paragraph [ref=e505]: No! We believe in earning your business every month. All our services are month-to-month with no lock-in contracts. You can cancel or change your plan at any time with 30 days notice.
+        - generic [ref=e506]:
+          - button " Do I need a new website to work with you? " [ref=e507] [cursor=pointer]:
+            - generic [ref=e509] [cursor=pointer]: 
+            - generic [ref=e510] [cursor=pointer]: Do I need a new website to work with you?
+            - generic [ref=e511] [cursor=pointer]: 
+          - paragraph [ref=e512]: Not necessarily. We'll audit your current website first. If it's fundamentally sound, we'll optimize it. If it needs major work, we can redesign it as part of our Professional or Enterprise packages.
+    - generic [ref=e515]:
+      - heading "Ready to Dominate Your Market?" [level=2] [ref=e516]
+      - paragraph [ref=e517]: Join Sydney Businesses Getting Real Results
+      - paragraph [ref=e518]: Stop losing customers to competitors. Start your journey to digital dominance today with a free strategy consultation.
+      - generic [ref=e519]:
+        - generic [ref=e520]: ✅ No lock-in contracts
+        - generic [ref=e521]: ✅ 100% transparent reporting
+        - generic [ref=e522]: ✅ Proven results in 30 days
+        - generic [ref=e523]: ✅ Local Sydney team
+      - generic [ref=e524]:
+        - link "Get Your Free $997 Strategy Session →" [ref=e525] [cursor=pointer]:
+          - /url: "#contact"
+        - 'link "Or Call Now: 0487 286 451" [ref=e526] [cursor=pointer]':
+          - /url: tel:+61487286451
+      - paragraph [ref=e527]:
+        - generic [ref=e528]: 
+        - text: Only accepting 5 new clients this month
+    - generic [ref=e530]:
+      - generic [ref=e531]:
+        - heading "Let's Start Your Growth Journey" [level=2] [ref=e532]
+        - paragraph [ref=e533]: Get your free consultation and custom growth strategy within 24 hours
+      - generic [ref=e534]:
+        - generic [ref=e536]:
+          - generic [ref=e537]:
+            - generic [ref=e538]:
+              - generic [ref=e539]: Your Name *
+              - textbox "Your Name *" [ref=e540]
+            - generic [ref=e541]:
+              - generic [ref=e542]: Business Name
+              - textbox "Business Name" [ref=e543]
+          - generic [ref=e544]:
+            - generic [ref=e545]:
+              - generic [ref=e546]: Email Address *
+              - textbox "Email Address *" [ref=e547]
+            - generic [ref=e548]:
+              - generic [ref=e549]: Phone Number *
+              - textbox "Phone Number *" [ref=e550]
+          - generic [ref=e551]:
+            - generic [ref=e552]: Service Interested In
+            - combobox "Service Interested In" [ref=e553]:
+              - option "Select a service" [selected]
+              - option "Local SEO"
+              - option "Google Ads"
+              - option "Web Design"
+              - option "Full Service Marketing"
+          - generic [ref=e554]:
+            - generic [ref=e555]: Tell us about your goals
+            - textbox "Tell us about your goals" [ref=e556]
+          - generic [ref=e557]:
+            - generic [ref=e558]: Website
+            - textbox [ref=e559]
+          - button "Get My Free Strategy Session →" [ref=e560] [cursor=pointer]
+          - paragraph [ref=e561]:
+            - generic [ref=e562]: 
+            - text: Your information is 100% secure and will never be shared
+        - generic [ref=e563]:
+          - generic [ref=e564]:
+            - heading "Get in Touch" [level=3] [ref=e565]
+            - generic [ref=e566]:
+              - generic [ref=e567]: 
+              - generic [ref=e568]:
+                - strong [ref=e569]: "Call Avi Directly:"
+                - link "0487 286 451" [ref=e570] [cursor=pointer]:
+                  - /url: tel:+61487286451
+            - generic [ref=e571]:
+              - generic [ref=e572]: 
+              - generic [ref=e573]:
+                - strong [ref=e574]: "Email Us:"
+                - link "avi@theprofitplatform.com.au" [ref=e575] [cursor=pointer]:
+                  - /url: mailto:avi@theprofitplatform.com.au
+            - generic [ref=e576]:
+              - generic [ref=e577]: 
+              - generic [ref=e578]:
+                - strong [ref=e579]: "Service Area:"
+                - generic [ref=e580]: Sydney, NSW
+            - generic [ref=e581]:
+              - generic [ref=e582]: 
+              - generic [ref=e583]:
+                - strong [ref=e584]: "Business Hours:"
+                - generic [ref=e585]: Mon-Fri 9am-6pm, Sat 10am-2pm
+            - generic [ref=e586]:
+              - generic [ref=e587]: 
+              - strong [ref=e588]: "Average Response Time:"
+              - text: 15 minutes during business hours
+            - generic [ref=e589]:
+              - link "Facebook" [ref=e590] [cursor=pointer]:
+                - /url: https://www.facebook.com/profile.php?id=61574707582255
+                - generic [ref=e591] [cursor=pointer]: 
+              - link "LinkedIn" [ref=e592] [cursor=pointer]:
+                - /url: https://linkedin.com/company/theprofitplatform
+                - generic [ref=e593] [cursor=pointer]: 
+              - link "Instagram" [ref=e594] [cursor=pointer]:
+                - /url: https://www.instagram.com/theprofitplatformau
+                - generic [ref=e595] [cursor=pointer]: 
+          - generic [ref=e596]:
+            - heading "What Happens Next?" [level=4] [ref=e597]
+            - list [ref=e598]:
+              - listitem [ref=e599]:
+                - generic [ref=e600]: 
+                - text: Quick 15-minute discovery call
+              - listitem [ref=e601]:
+                - generic [ref=e602]: 
+                - text: Free audit of your current marketing
+              - listitem [ref=e603]:
+                - generic [ref=e604]: 
+                - text: Custom growth strategy proposal
+              - listitem [ref=e605]:
+                - generic [ref=e606]: 
+                - text: No obligation to proceed
+  - contentinfo [ref=e607]:
+    - generic [ref=e608]:
+      - generic [ref=e609]:
+        - generic [ref=e610]:
+          - heading "The Profit Platform" [level=3] [ref=e611]
+          - paragraph [ref=e612]: We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.
+          - list "Social media links" [ref=e613]:
+            - listitem "Follow us on Facebook" [ref=e614] [cursor=pointer]:
+              - generic [ref=e615] [cursor=pointer]: 
+            - listitem "Follow us on Instagram" [ref=e616] [cursor=pointer]:
+              - generic [ref=e617] [cursor=pointer]: 
+            - listitem "Connect with us on LinkedIn" [ref=e618] [cursor=pointer]:
+              - generic [ref=e619] [cursor=pointer]: 
+            - listitem "Follow us on Twitter" [ref=e620] [cursor=pointer]:
+              - generic [ref=e621] [cursor=pointer]: 
+            - listitem "Subscribe to our YouTube channel" [ref=e622] [cursor=pointer]:
+              - generic [ref=e623] [cursor=pointer]: 
+          - generic [ref=e624]:
+            - generic [ref=e625]:
+              - generic [ref=e626]: 
+              - link "0487 286 451" [ref=e627] [cursor=pointer]:
+                - /url: tel:+61487286451
+            - generic [ref=e628]:
+              - generic [ref=e629]: 
+              - link "avi@theprofitplatform.com.au" [ref=e630] [cursor=pointer]:
+                - /url: mailto:avi@theprofitplatform.com.au
+            - generic [ref=e631]:
+              - generic [ref=e632]: 
+              - generic [ref=e633]: Sydney, NSW, Australia
+        - generic [ref=e634]:
+          - heading "Services" [level=3] [ref=e635]
+          - list [ref=e636]:
+            - listitem [ref=e637]:
+              - link " SEO & Local Search" [ref=e638] [cursor=pointer]:
+                - /url: /seo
+                - generic [ref=e639] [cursor=pointer]: 
+                - text: SEO & Local Search
+            - listitem [ref=e640]:
+              - link " Google Ads Management" [ref=e641] [cursor=pointer]:
+                - /url: /google-ads
+                - generic [ref=e642] [cursor=pointer]: 
+                - text: Google Ads Management
+            - listitem [ref=e643]:
+              - link " Social Media Advertising" [ref=e644] [cursor=pointer]:
+                - /url: /google-ads
+                - generic [ref=e645] [cursor=pointer]: 
+                - text: Social Media Advertising
+            - listitem [ref=e646]:
+              - link " Website Design" [ref=e647] [cursor=pointer]:
+                - /url: /web-design
+                - generic [ref=e648] [cursor=pointer]: 
+                - text: Website Design
+            - listitem [ref=e649]:
+              - link " Conversion Optimization" [ref=e650] [cursor=pointer]:
+                - /url: /services#conversion
+                - generic [ref=e651] [cursor=pointer]: 
+                - text: Conversion Optimization
+            - listitem [ref=e652]:
+              - link "Analytics & Reporting" [ref=e653] [cursor=pointer]:
+                - /url: /services#analytics
+                - text: Analytics & Reporting
+        - generic [ref=e654]:
+          - heading "Company" [level=3] [ref=e655]
+          - list [ref=e656]:
+            - listitem [ref=e657]:
+              - link " About Us" [ref=e658] [cursor=pointer]:
+                - /url: /about
+                - generic [ref=e659] [cursor=pointer]: 
+                - text: About Us
+            - listitem [ref=e660]:
+              - link " Case Studies" [ref=e661] [cursor=pointer]:
+                - /url: /portfolio
+                - generic [ref=e662] [cursor=pointer]: 
+                - text: Case Studies
+            - listitem [ref=e663]:
+              - link " Blog" [ref=e664] [cursor=pointer]:
+                - /url: /blog
+                - generic [ref=e665] [cursor=pointer]: 
+                - text: Blog
+            - listitem [ref=e666]:
+              - link " Careers" [ref=e667] [cursor=pointer]:
+                - /url: /about#careers
+                - generic [ref=e668] [cursor=pointer]: 
+                - text: Careers
+            - listitem [ref=e669]:
+              - link " Partners" [ref=e670] [cursor=pointer]:
+                - /url: /about#partners
+                - generic [ref=e671] [cursor=pointer]: 
+                - text: Partners
+            - listitem [ref=e672]:
+              - link " Contact" [ref=e673] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e674] [cursor=pointer]: 
+                - text: Contact
+        - generic [ref=e675]:
+          - heading "Resources" [level=3] [ref=e676]
+          - list [ref=e677]:
+            - listitem [ref=e678]:
+              - link " Free Marketing Audit" [ref=e679] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e680] [cursor=pointer]: 
+                - text: Free Marketing Audit
+            - listitem [ref=e681]:
+              - link " Free SEO Guide" [ref=e682] [cursor=pointer]:
+                - /url: /blog/seo-guide
+                - generic [ref=e683] [cursor=pointer]: 
+                - text: Free SEO Guide
+            - listitem [ref=e684]:
+              - link " Google Ads Guide" [ref=e685] [cursor=pointer]:
+                - /url: /blog/google-ads-guide
+                - generic [ref=e686] [cursor=pointer]: 
+                - text: Google Ads Guide
+            - listitem [ref=e687]:
+              - link " Local SEO Checklist" [ref=e688] [cursor=pointer]:
+                - /url: /local-seo-checklist
+                - generic [ref=e689] [cursor=pointer]: 
+                - text: Local SEO Checklist
+            - listitem [ref=e690]:
+              - link " Free Webinars" [ref=e691] [cursor=pointer]:
+                - /url: /webinars
+                - generic [ref=e692] [cursor=pointer]: 
+                - text: Free Webinars
+            - listitem [ref=e693]:
+              - link " Free Tools" [ref=e694] [cursor=pointer]:
+                - /url: /tools
+                - generic [ref=e695] [cursor=pointer]: 
+                - text: Free Tools
+      - generic [ref=e696]:
+        - paragraph [ref=e697]: © 2024 The Profit Platform. All rights reserved.
+        - list [ref=e698]:
+          - listitem [ref=e699]:
+            - link "Privacy Policy" [ref=e700] [cursor=pointer]:
+              - /url: /privacy-policy
+          - listitem [ref=e701]:
+            - link "Terms of Service" [ref=e702] [cursor=pointer]:
+              - /url: /terms-of-service
+          - listitem [ref=e703]:
+            - link "Sitemap" [ref=e704] [cursor=pointer]:
+              - /url: /sitemap
+```
