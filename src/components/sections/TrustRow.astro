@@ -1,0 +1,135 @@
+---
+/**
+ * Trust Row Component
+ *
+ * Features:
+ * - Trust indicators with icons
+ * - Responsive design
+ * - Accessible markup
+ * - Performance optimized
+ */
+---
+
+<div class="gf-trust-row" role="complementary" aria-label="Trust indicators">
+  <div class="gf-trust-item">
+    <i class="fas fa-clock" aria-hidden="true"></i>
+    <span>Average Response Time: 15 minutes</span>
+  </div>
+  <div class="gf-trust-item">
+    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+    <span>100% Secure. No spam. Ever.</span>
+  </div>
+</div>
+
+<style>
+/* Trust Row Styles already defined in growth-form.css */
+/* Additional enhancements */
+
+.gf-trust-row {
+  position: relative;
+}
+
+.gf-trust-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(to bottom, var(--gf-success), var(--gf-primary));
+  border-radius: 2px;
+}
+
+.gf-trust-item {
+  padding-left: var(--gf-space-sm);
+  position: relative;
+}
+
+.gf-trust-item::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--gf-success);
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: var(--gf-shadow-sm);
+}
+
+/* Icon animations */
+.gf-trust-item i {
+  transition: all var(--gf-transition-base);
+}
+
+.gf-trust-item:hover i {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .gf-trust-row {
+    margin: var(--gf-space-md) 0;
+    padding: var(--gf-space-sm);
+  }
+
+  .gf-trust-row::before {
+    display: none;
+  }
+
+  .gf-trust-item::before {
+    display: none;
+  }
+
+  .gf-trust-item {
+    padding-left: 0;
+    text-align: center;
+    gap: var(--gf-space-sm);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .gf-trust-row {
+    border: 2px solid var(--gf-success);
+  }
+
+  .gf-trust-item i {
+    background: #000;
+    color: white;
+    border-radius: 50%;
+    padding: 2px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .gf-trust-item i {
+    transition: none;
+  }
+
+  .gf-trust-item:hover i {
+    transform: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .gf-trust-row {
+    border: 1px solid #000;
+    background: white !important;
+  }
+
+  .gf-trust-item {
+    color: #000 !important;
+  }
+
+  .gf-trust-row::before,
+  .gf-trust-item::before {
+    background: #000;
+  }
+}
+</style>

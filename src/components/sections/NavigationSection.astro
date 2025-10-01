@@ -1,0 +1,169 @@
+---
+// Navigation Section Component - includes header navigation and mobile nav
+---
+
+<!-- Skip Links for Accessibility -->
+<a class="skip-link sr-only-focusable" href="#main-content">Skip to main content</a>
+<a class="skip-link sr-only-focusable" href="#primary-navigation">Skip to navigation</a>
+
+<!-- Scroll Progress Indicator -->
+<div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+<!-- Header Navigation -->
+<header id="header" role="banner" class="premium-nav">
+  <div class="progress-indicator"></div>
+  <div class="nav-floating-container">
+    <div class="container">
+      <!-- Logo -->
+      <a href="/" class="logo premium-logo" aria-label="The Profit Platform - Home">
+        <div class="logo-content">
+          <img src="/images/logo.png" alt="The Profit Platform Logo" class="logo-img" width="150" height="77" loading="eager" fetchpriority="high" decoding="async">
+          <div class="logo-tagline">
+            <span></span>
+          </div>
+        </div>
+        <div class="logo-accent"></div>
+      </a>
+      <!-- Primary Navigation -->
+      <nav id="primary-navigation" role="navigation" aria-label="Main navigation">
+        <ul class="nav-links premium-nav-links" role="menubar">
+          <li role="none">
+            <a href="/" class="nav-item premium-nav-item active" role="menuitem" data-page="home">
+              <i class="fas fa-home nav-icon" aria-hidden="true"></i>
+              <span>Home</span>
+              <div class="nav-pill-bg"></div>
+            </a>
+          </li>
+          <li role="none">
+            <a href="/about" class="nav-item premium-nav-item" role="menuitem" data-page="about">
+              <i class="fas fa-info-circle nav-icon" aria-hidden="true"></i>
+              <span>About</span>
+              <div class="nav-pill-bg"></div>
+            </a>
+          </li>
+          <li role="none">
+            <a href="/services" class="nav-item premium-nav-item" role="menuitem" data-page="services">
+              <i class="fas fa-rocket nav-icon" aria-hidden="true"></i>
+              <span>Services</span>
+              <div class="nav-pill-bg"></div>
+            </a>
+          </li>
+          <li role="none">
+            <a href="/portfolio" class="nav-item premium-nav-item" role="menuitem" data-page="portfolio">
+              <i class="fas fa-chart-bar nav-icon" aria-hidden="true"></i>
+              <span>Portfolio</span>
+              <div class="nav-pill-bg"></div>
+            </a>
+          </li>
+          <li role="none">
+            <a href="/blog" class="nav-item premium-nav-item" role="menuitem" data-page="blog">
+              <i class="fas fa-blog nav-icon" aria-hidden="true"></i>
+              <span>Blog</span>
+              <div class="nav-pill-bg"></div>
+            </a>
+          </li>
+          <li role="none">
+            <a href="/contact" class="nav-item premium-nav-item" role="menuitem" data-page="contact">
+              <i class="fas fa-envelope nav-icon" aria-hidden="true"></i>
+              <span>Contact</span>
+              <div class="nav-pill-bg"></div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- CTA Button -->
+      <div class="nav-cta">
+        <a href="/contact" class="btn btn-primary premium-cta-btn" aria-label="Get Free Chat - Contact us">
+          <i class="fas fa-comments premium-cta-icon" aria-hidden="true"></i>
+          <span>Let's Chat</span>
+          <div class="premium-cta-glow"></div>
+        </a>
+      </div>
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" id="menuToggle" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobileNav" type="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation Overlay -->
+<div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
+
+<!-- Mobile Navigation Menu -->
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-labelledby="mobile-nav-title" aria-hidden="true">
+  <div class="mobile-nav-header">
+    <div class="mobile-nav-logo">
+      <img src="/images/logo.png" alt="The Profit Platform Logo" class="logo-img" width="120" height="62" loading="lazy" decoding="async">
+      <div class="mobile-nav-tagline">
+        <span>Sydney Digital Marketing</span>
+      </div>
+    </div>
+    <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close mobile menu" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <nav class="mobile-nav-links" aria-label="Mobile navigation">
+    <h2 id="mobile-nav-title" class="sr-only">Navigation Menu</h2>
+    <div role="list">
+      <a href="/" class="mobile-nav-link active" role="listitem" data-page="home">
+        <div class="mobile-nav-icon">
+          <i class="fas fa-home" aria-hidden="true"></i>
+        </div>
+        <span>Home</span>
+      </a>
+      <a href="/about" class="mobile-nav-link" role="listitem" data-page="about">
+        <div class="mobile-nav-icon">
+          <i class="fas fa-info-circle" aria-hidden="true"></i>
+        </div>
+        <span>About</span>
+      </a>
+      <a href="/services" class="mobile-nav-link" role="listitem" data-page="services">
+        <div class="mobile-nav-icon">
+          <i class="fas fa-rocket" aria-hidden="true"></i>
+        </div>
+        <span>Services</span>
+      </a>
+      <a href="/portfolio" class="mobile-nav-link" role="listitem" data-page="portfolio">
+        <div class="mobile-nav-icon">
+          <i class="fas fa-chart-bar" aria-hidden="true"></i>
+        </div>
+        <span>Portfolio</span>
+      </a>
+      <a href="/blog" class="mobile-nav-link" role="listitem" data-page="blog">
+        <div class="mobile-nav-icon">
+          <i class="fas fa-blog" aria-hidden="true"></i>
+        </div>
+        <span>Blog</span>
+      </a>
+      <a href="/contact" class="mobile-nav-link" role="listitem" data-page="contact">
+        <div class="mobile-nav-icon">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+        </div>
+        <span>Contact</span>
+      </a>
+    </div>
+    <div class="mobile-nav-cta">
+      <a href="/contact" class="mobile-cta-btn">
+        <i class="fas fa-comments mobile-cta-icon" aria-hidden="true"></i>
+        Get Free Consultation
+      </a>
+    </div>
+  </nav>
+</div>
+
+<!-- Navigation JavaScript -->
+<script>
+// Navigation functionality will be loaded from external JS file
+document.addEventListener('DOMContentLoaded', function() {
+    // Import navigation functionality
+    const script = document.createElement('script');
+    script.src = '/js/components/navigation-inline.js';
+    script.defer = true;
+    document.head.appendChild(script);
+});
+</script>

@@ -86,23 +86,22 @@ const { title } = Astro.props;
 <link rel="preload" href="/js/vendor.js" as="script">
 <link rel="preload" href="/js/plugins.js" as="script">
 <link rel="preload" href="/js/main.js" as="script">
-<link rel="preload" href="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f6e09148075ab5016df.png" as="image" fetchpriority="high">
-<link rel="preload" href="https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png" as="image" fetchpriority="high">
+<link rel="preload" href="/images/logo.png" as="image" fetchpriority="high">
+<link rel="preload" href="/images/dashboard.png" as="image" fetchpriority="high">
 
 <!-- Fallback for preload -->
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+
+<!-- EMERGENCY VISIBILITY FIX - MUST LOAD FIRST -->
+<link rel="stylesheet" href="/css/visibility-fix.css">
 
 <!-- Critical CSS inline for faster rendering -->
 <link rel="stylesheet" href="/css/critical.min.css">
 <link rel="stylesheet" href="/css/loading-states.css">
 
 <!-- External Resources - Load asynchronously -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
-<noscript>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="all">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="all">
 
 <!-- Main Stylesheet -->
 <link rel="stylesheet" href="/css/style.min.css" media="all">
@@ -119,8 +118,13 @@ const { title } = Astro.props;
 <link rel="stylesheet" href="/css/hero-modern.css" media="all">
 <link rel="stylesheet" href="/css/trust-signals-enhanced.css" media="all">
 <link rel="stylesheet" href="/css/trust-signals-homepage-theme.css" media="all">
+<link rel="stylesheet" href="/css/mobile-nav-overflow-fix.css" media="all">
 <!-- Bundled CSS for Performance -->
 <link rel="stylesheet" href="/css/bundled.min.css" media="all">
+<!-- Animation Fix for Services Section - MUST LOAD AFTER BUNDLED CSS -->
+<link rel="stylesheet" href="/css/fix-animations.css" media="all">
+<!-- Contact Text Visibility Fix - HIGHEST PRIORITY -->
+<link rel="stylesheet" href="/css/contact-text-fix.css" media="all">
 
 <!-- Analytics -->
 <!-- Google tag (gtag.js) -->
@@ -207,14 +211,22 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mobileNav && mobileOverlay && mobileToggle) {
             if (show) {
                 mobileNav.setAttribute('aria-hidden', 'false');
+                mobileNav.classList.add('active');
                 mobileOverlay.setAttribute('aria-hidden', 'false');
+                mobileOverlay.classList.add('active');
                 mobileToggle.setAttribute('aria-expanded', 'true');
-                document.body.style.overflow = 'hidden';
+                document.body.style.setProperty('overflow', 'hidden', 'important');
+                document.body.style.setProperty('position', 'fixed', 'important');
+                document.body.style.setProperty('width', '100%', 'important');
             } else {
                 mobileNav.setAttribute('aria-hidden', 'true');
+                mobileNav.classList.remove('active');
                 mobileOverlay.setAttribute('aria-hidden', 'true');
+                mobileOverlay.classList.remove('active');
                 mobileToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+                document.body.style.removeProperty('overflow');
+                document.body.style.removeProperty('position');
+                document.body.style.removeProperty('width');
             }
         }
     }
@@ -233,6 +245,45 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileOverlay) {
         mobileOverlay.addEventListener('click', () => toggleMobileNav(false));
     }
+
+    // CRITICAL FIX: Ensure body overflow is never stuck
+    // Clear any lingering overflow hidden on page load
+    document.body.style.overflow = '';
+    document.body.style.overflowY = '';
+    document.documentElement.style.overflow = '';
+
+    // Debug: Log scroll state
+    console.log('[Scroll Debug] Page loaded');
+    console.log('Body overflow:', window.getComputedStyle(document.body).overflow);
+    console.log('Body overflow-y:', window.getComputedStyle(document.body).overflowY);
+    console.log('HTML overflow:', window.getComputedStyle(document.documentElement).overflow);
+    console.log('Document height:', document.documentElement.scrollHeight);
+    console.log('Window height:', window.innerHeight);
+    console.log('Can scroll:', document.documentElement.scrollHeight > window.innerHeight);
+
+    // Add safeguard to clear overflow on visibility change (tab switch, etc.)
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') {
+            // Only clear if mobile nav is closed
+            const isNavOpen = mobileToggle && mobileToggle.getAttribute('aria-expanded') === 'true';
+            if (!isNavOpen) {
+                document.body.style.overflow = '';
+                document.body.style.overflowY = '';
+                document.documentElement.style.overflow = '';
+            }
+        }
+    });
+
+    // Debug: Monitor scroll attempts
+    let scrollAttempts = 0;
+    window.addEventListener('wheel', (e) => {
+        scrollAttempts++;
+        if (scrollAttempts <= 3) {
+            console.log('[Scroll Debug] Wheel event detected, delta:', e.deltaY);
+            console.log('Current scroll position:', window.pageYOffset);
+            console.log('Body overflow:', window.getComputedStyle(document.body).overflow);
+        }
+    }, { passive: true });
 });
 </script>
 

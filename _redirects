@@ -1,2 +1,7 @@
-# Cloudflare Pages redirects
-/*    /index.html   200
+# Auto-generated redirects
+
+/index.html /
+/home.html /
+/seo.html /services/seo-sydney
+/google-ads.html /services/google-ads-sydney
+/web-design.html /services/web-design-sydney

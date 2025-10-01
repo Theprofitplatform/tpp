@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavigationSection from '../components/sections/NavigationSection.astro';
+import FooterSection from '../components/sections/FooterSection.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CTASection from '../components/sections/CTASection.astro';
+
+const pageTitle = "Portfolio | The Profit Platform";
+const pageDescription = "See real results from Sydney businesses we've helped grow. Case studies, testimonials, and proven digital marketing success stories.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <NavigationSection />
+
+  <main id="main-content" role="main" class="min-h-screen">
+    <PageHero
+      title="Our Work"
+      subtitle="Real results from real Sydney businesses we've helped grow"
+    />
+
+    <!-- Results Overview -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-xl text-center">
+              <div class="text-5xl font-bold text-indigo-600 mb-2">15+</div>
+              <div class="text-gray-600">Active Clients</div>
+            </div>
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl text-center">
+              <div class="text-5xl font-bold text-purple-600 mb-2">2x</div>
+              <div class="text-gray-600">Average Lead Increase</div>
+            </div>
+            <div class="bg-gradient-to-br from-pink-50 to-red-50 p-8 rounded-xl text-center">
+              <div class="text-5xl font-bold text-pink-600 mb-2">127+</div>
+              <div class="text-gray-600">5-Star Reviews</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-4xl font-bold text-center mb-12">Featured Case Studies</h2>
+
+          <!-- Case Study 1 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="bg-gradient-to-br from-indigo-100 to-purple-100 p-12 flex items-center justify-center">
+                <div class="text-center">
+                  <div class="text-6xl mb-4">🏗️</div>
+                  <div class="text-2xl font-bold text-indigo-600">Construction Co.</div>
+                </div>
+              </div>
+              <div class="p-8">
+                <div class="inline-block bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+                  SEO + Google Ads
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Sydney Construction Company</h3>
+                <p class="text-gray-600 mb-6">
+                  Helped a local construction company dominate search results for "commercial builders Sydney" and related keywords.
+                </p>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center">
+                    <span class="text-green-600 font-bold mr-2">↑ 250%</span>
+                    <span class="text-gray-600">Organic traffic increase</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-green-600 font-bold mr-2">↑ 180%</span>
+                    <span class="text-gray-600">Qualified leads</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-green-600 font-bold mr-2">6 months</span>
+                    <span class="text-gray-600">To page 1 rankings</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 2 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="order-2 md:order-1 p-8">
+                <div class="inline-block bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+                  Web Design + SEO
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Professional Services Firm</h3>
+                <p class="text-gray-600 mb-6">
+                  Complete website redesign and SEO overhaul for a Sydney-based professional services firm.
+                </p>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center">
+                    <span class="text-green-600 font-bold mr-2">↑ 320%</span>
+                    <span class="text-gray-600">Website conversions</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-green-600 font-bold mr-2">↑ 150%</span>
+                    <span class="text-gray-600">Page speed improvement</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-green-600 font-bold mr-2">3 months</span>
+                    <span class="text-gray-600">Project timeline</span>
+                  </div>
+                </div>
+              </div>
+              <div class="order-1 md:order-2 bg-gradient-to-br from-purple-100 to-pink-100 p-12 flex items-center justify-center">
+                <div class="text-center">
+                  <div class="text-6xl mb-4">💼</div>
+                  <div class="text-2xl font-bold text-purple-600">Professional Services</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Case Study 3 -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div class="grid md:grid-cols-2 gap-8">
+              <div class="bg-gradient-to-br from-pink-100 to-red-100 p-12 flex items-center justify-center">
+                <div class="text-center">
+                  <div class="text-6xl mb-4">🏪</div>
+                  <div class="text-2xl font-bold text-pink-600">Retail Business</div>
+                </div>
+              </div>
+              <div class="p-8">
+                <div class="inline-block bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+                  Google Ads + Local SEO
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Sydney Retail Store</h3>
+                <p class="text-gray-600 mb-6">
+                  Drove foot traffic and online sales for a Sydney retail business through targeted Google Ads and local SEO.
+                </p>
+                <div class="space-y-3 mb-6">
+                  <div class="flex items-center">
+                    <span class="text-green-600 font-bold mr-2">↑ 400%</span>
+                    <span class="text-gray-600">Store visits from ads</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-green-600 font-bold mr-2">↓ 45%</span>
+                    <span class="text-gray-600">Cost per acquisition</span>
+                  </div>
+                  <div class="flex items-center">
+                    <span class="text-green-600 font-bold mr-2">2.8x</span>
+                    <span class="text-gray-600">Return on ad spend</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-5xl mx-auto">
+          <h2 class="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-xl">
+              <div class="flex items-center mb-4">
+                <div class="text-yellow-400 text-xl">★★★★★</div>
+              </div>
+              <p class="text-gray-700 mb-4 italic">
+                "The Profit Platform helped us double our qualified leads in just 6 months. Their approach is fresh and their results speak for themselves."
+              </p>
+              <div class="font-semibold">— Sydney Business Owner</div>
+            </div>
+            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl">
+              <div class="flex items-center mb-4">
+                <div class="text-yellow-400 text-xl">★★★★★</div>
+              </div>
+              <p class="text-gray-700 mb-4 italic">
+                "Professional, responsive, and most importantly - they deliver results. Our website traffic has tripled and our phone is ringing off the hook."
+              </p>
+              <div class="font-semibold">— Local Service Provider</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Ready to See Similar Results?"
+      subtitle="Let's create a custom strategy for your business"
+    />
+  </main>
+
+  <FooterSection />
+</BaseLayout>

@@ -1,0 +1,72 @@
+{
+  "url": "https://test.theprofitplatform.com.au",
+  "interval": "*/15 * * * *",
+  "viewports": {
+    "desktop": {
+      "width": 1920,
+      "height": 1080,
+      "enabled": true
+    },
+    "tablet": {
+      "width": 768,
+      "height": 1024,
+      "enabled": true
+    },
+    "mobile": {
+      "width": 375,
+      "height": 667,
+      "enabled": true
+    }
+  },
+  "checks": {
+    "layout": true,
+    "typography": true,
+    "colors": true,
+    "images": true,
+    "responsiveness": true,
+    "accessibility": true,
+    "performance": true
+  },
+  "autoFix": {
+    "enabled": false,
+    "requireApproval": true,
+    "backupBeforeFix": true
+  },
+  "notifications": {
+    "webhook": {
+      "enabled": false,
+      "url": ""
+    },
+    "email": {
+      "enabled": false,
+      "to": "",
+      "smtp": {
+        "host": "",
+        "port": 587,
+        "secure": false,
+        "auth": {
+          "user": "",
+          "pass": ""
+        }
+      }
+    },
+    "slack": {
+      "enabled": false,
+      "webhookUrl": ""
+    }
+  },
+  "paths": {
+    "webRoot": "/var/www/theprofitplatform.com.au",
+    "screenshots": "./screenshots",
+    "reports": "./reports",
+    "fixes": "./fixes",
+    "logs": "./logs"
+  },
+  "thresholds": {
+    "maxLayoutShift": 0.1,
+    "minContrast": 4.5,
+    "maxImageSize": 500,
+    "minFontSize": 12,
+    "maxLoadTime": 3000
+  }
+}

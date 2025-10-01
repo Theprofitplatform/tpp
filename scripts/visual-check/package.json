@@ -1,0 +1,39 @@
+{
+  "name": "visual-frontend-checker",
+  "version": "2.0.0",
+  "description": "Autonomous visual quality agent with continuous monitoring and automatic fix generation",
+  "main": "visualCheck.js",
+  "type": "module",
+  "scripts": {
+    "check": "node visualCheck.js",
+    "agent": "node src/index.js",
+    "agent:watch": "node src/index.js --watch",
+    "agent:test": "node src/index.js --config config/test.json --watch",
+    "agent:prod": "node src/index.js --config config/production.json --watch",
+    "agent:once": "node src/index.js --run-once",
+    "agent:status": "node src/index.js --status",
+    "install-browsers": "npx playwright install chromium",
+    "install-service": "sudo cp config/agent.service /etc/systemd/system/visual-agent.service && sudo systemctl daemon-reload && echo 'Service installed. Run: sudo systemctl enable visual-agent && sudo systemctl start visual-agent'"
+  },
+  "keywords": [
+    "visual-testing",
+    "frontend-testing",
+    "playwright",
+    "screenshot",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@playwright/test": "^1.48.0",
+    "axios": "1.12.2",
+    "chalk": "^5.3.0",
+    "commander": "11.1.0",
+    "node-cron": "3.0.3",
+    "nodemailer": "7.0.6",
+    "yargs": "^17.7.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

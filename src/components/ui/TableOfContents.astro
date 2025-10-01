@@ -1,0 +1,115 @@
+---
+/**
+ * TableOfContents Component
+ * Auto-generated TOC with scrollspy
+ *
+ * @prop {Array} headings - Array of headings {id, text, level}
+ * @prop {string} [title="On This Page"] - TOC title
+ *
+ * Example:
+ * <TableOfContents
+ *   headings={[
+ *     { id: "intro", text: "Introduction", level: 2 },
+ *     { id: "features", text: "Key Features", level: 2 },
+ *     { id: "feature-1", text: "Feature One", level: 3 }
+ *   ]}
+ *   title="Contents"
+ * />
+ */
+
+interface Heading {
+  id: string;
+  text: string;
+  level: number;
+}
+
+interface Props {
+  headings: Heading[];
+  title?: string;
+}
+
+const { headings, title = "On This Page" } = Astro.props;
+---
+
+<nav
+  class="sticky top-24 bg-white rounded-xl border border-gray-200 p-6 max-h-[calc(100vh-8rem)] overflow-y-auto"
+  aria-label="Table of contents"
+  data-toc
+>
+  <h2 class="text-lg font-bold text-gray-900 mb-4">{title}</h2>
+
+  <ul class="space-y-2">
+    {headings.map((heading) => (
+      <li
+        class:list={[
+          heading.level === 3 && 'ml-4'
+        ]}
+      >
+        <a
+          href={`#${heading.id}`}
+          class="block py-1.5 px-3 text-sm text-gray-600 hover:text-blue-600 rounded-lg transition-colors data-[active=true]:text-blue-600 data-[active=true]:bg-blue-50 data-[active=true]:font-semibold"
+          data-toc-link={heading.id}
+        >
+          {heading.text}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<script>
+  // Scrollspy functionality
+  const observerOptions = {
+    rootMargin: '-80px 0px -80% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const id = entry.target.getAttribute('id');
+      const link = document.querySelector(`[data-toc-link="${id}"]`);
+
+      if (entry.isIntersecting) {
+        // Remove active from all links
+        document.querySelectorAll('[data-toc-link]').forEach((l) => {
+          l.setAttribute('data-active', 'false');
+        });
+
+        // Set current link as active
+        link?.setAttribute('data-active', 'true');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all headings
+  document.querySelectorAll('[data-toc]').forEach(() => {
+    document.querySelectorAll('h2[id], h3[id]').forEach((heading) => {
+      observer.observe(heading);
+    });
+  });
+
+  // Smooth scroll to section
+  document.querySelectorAll('[data-toc-link]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = link.getAttribute('data-toc-link');
+      const target = document.getElementById(id || '');
+
+      target?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      // Update URL hash
+      history.pushState(null, '', `#${id}`);
+    });
+  });
+</script>
+
+<style>
+  @media (prefers-reduced-motion: reduce) {
+    [data-toc-link] {
+      scroll-behavior: auto !important;
+    }
+  }
+</style>

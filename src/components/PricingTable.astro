@@ -1,0 +1,261 @@
+---
+/**
+ * Pricing Table Component
+ * Display pricing plans with features
+ *
+ * @prop {Array<{name: string, price: string, period: string, features: string[], featured?: boolean, cta: {label: string, href: string}}>} plans
+ */
+
+interface Props {
+  plans: Array<{
+    name: string;
+    price: string;
+    period: string;
+    features: string[];
+    featured?: boolean;
+    cta: { label: string; href: string };
+  }>;
+}
+
+const { plans } = Astro.props;
+---
+
+<div class="pricing-table-grid">
+  {plans.map((plan) => (
+    <div class:list={[
+      'pricing-card',
+      plan.featured ? 'pricing-card-featured' : 'pricing-card-standard'
+    ]}>
+      {plan.featured && (
+        <div class="pricing-badge">
+          <span class="pricing-badge-text">
+            Most Popular
+          </span>
+        </div>
+      )}
+
+      <div class="pricing-header">
+        <h3 class="pricing-plan-name">
+          {plan.name}
+        </h3>
+        <div class="pricing-amount">
+          <span class="pricing-price">
+            {plan.price}
+          </span>
+          <span class="pricing-period">
+            /{plan.period}
+          </span>
+        </div>
+      </div>
+
+      <div class="pricing-features">
+        <h4 class="pricing-features-title">
+          What's Included
+        </h4>
+        <ul class="pricing-features-list">
+          {plan.features.map((feature) => (
+            <li class="pricing-feature-item">
+              <svg class="pricing-check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <a
+        href={plan.cta.href}
+        class:list={[
+          'pricing-cta-button',
+          plan.featured ? 'pricing-cta-featured' : 'pricing-cta-standard'
+        ]}
+      >
+        {plan.cta.label}
+      </a>
+    </div>
+  ))}
+</div>
+
+<style>
+  .pricing-table-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .pricing-table-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .pricing-card {
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-card-standard {
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.08);
+  }
+
+  .pricing-card-standard:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 20px 40px -10px rgb(0 0 0 / 0.12);
+    transform: translateY(-5px);
+  }
+
+  .pricing-card-featured {
+    border: 3px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #3B82F6, #2c86f9) border-box;
+    box-shadow: 0 20px 50px -10px rgba(59, 130, 246, 0.3);
+    transform: scale(1.05);
+  }
+
+  .pricing-card-featured:hover {
+    box-shadow: 0 25px 60px -10px rgba(59, 130, 246, 0.4);
+    transform: scale(1.08) translateY(-5px);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .pricing-badge-text {
+    display: inline-block;
+    background: linear-gradient(135deg, #3B82F6, #2c86f9);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    letter-spacing: 0.5px;
+  }
+
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .pricing-plan-name {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+  }
+
+  .pricing-amount {
+    margin-top: 1.5rem;
+  }
+
+  .pricing-price {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    letter-spacing: -0.03em;
+  }
+
+  .pricing-period {
+    color: #64748b;
+    margin-left: 0.5rem;
+    font-size: 1.125rem;
+  }
+
+  .pricing-features {
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+
+  .pricing-features-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 1.25rem;
+  }
+
+  .pricing-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pricing-feature-item {
+    display: flex;
+    align-items: flex-start;
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .pricing-check-icon {
+    height: 1.25rem;
+    width: 1.25rem;
+    color: #10b981;
+    margin-right: 0.75rem;
+    margin-top: 0.125rem;
+    flex-shrink: 0;
+  }
+
+  .pricing-cta-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    margin-top: auto;
+  }
+
+  .pricing-cta-featured {
+    background: linear-gradient(135deg, #3B82F6, #2c86f9);
+    color: white;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+  }
+
+  .pricing-cta-featured:hover {
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .pricing-cta-standard {
+    background: #f1f5f9;
+    color: #1e293b;
+    border: 2px solid #e2e8f0;
+  }
+
+  .pricing-cta-standard:hover {
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .pricing-card-featured {
+      transform: scale(1);
+    }
+
+    .pricing-card-featured:hover {
+      transform: translateY(-5px);
+    }
+  }
+</style>

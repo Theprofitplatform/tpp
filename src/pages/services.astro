@@ -1,0 +1,307 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavigationSection from '../components/sections/NavigationSection.astro';
+import FooterSection from '../components/sections/FooterSection.astro';
+import PageHero from '../components/sections/PageHero.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import CheckIcon from '../components/ui/CheckIcon.astro';
+
+const pageTitle = "Services | The Profit Platform";
+const pageDescription = "Comprehensive digital marketing solutions for Sydney businesses. SEO, Google Ads, web design, and content marketing services to grow your business.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <NavigationSection />
+
+  <main id="main-content" role="main" class="min-h-screen">
+    <PageHero
+      title="Our Services"
+      subtitle="Comprehensive digital marketing solutions tailored to your business goals"
+    />
+
+    <!-- Services Grid -->
+    <section class="py-20 md:py-32">
+      <div class="container mx-auto px-4">
+        <div class="max-w-7xl mx-auto">
+          <!-- SEO Services -->
+          <div class="mb-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div class="inline-block bg-indigo-100 text-indigo-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                  SEO Services
+                </div>
+                <h2 class="text-4xl font-bold mb-6">Search Engine Optimization</h2>
+                <p class="text-lg text-gray-600 mb-6">
+                  Dominate search results and attract high-quality organic traffic. Our proven SEO strategies help Sydney businesses rank higher and generate more leads.
+                </p>
+                <ul class="space-y-3 mb-8">
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Keyword research & strategy</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">On-page optimization</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Technical SEO audits</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Link building & outreach</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Local SEO optimization</span>
+                  </li>
+                </ul>
+                <a href="/contact" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-indigo-700 transition-colors">
+                  Get Started
+                </a>
+              </div>
+              <div class="relative bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 rounded-3xl p-12 text-center shadow-2xl border border-white/50 group hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-3xl"></div>
+                <div class="relative">
+                  <div class="text-7xl mb-6 group-hover:scale-110 transition-transform duration-300" role="img" aria-label="Magnifying glass">🔍</div>
+                  <div class="text-3xl font-black text-indigo-600 mb-3">Rank Higher</div>
+                  <p class="text-gray-700 font-medium">Appear on page 1 of Google for your target keywords</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Google Ads -->
+          <div class="mb-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div class="order-2 md:order-1 relative bg-gradient-to-br from-purple-100 via-pink-100 to-red-100 rounded-3xl p-12 text-center shadow-2xl border border-white/50 group hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-3xl"></div>
+                <div class="relative">
+                  <div class="text-7xl mb-6 group-hover:scale-110 transition-transform duration-300" role="img" aria-label="Bar chart">📊</div>
+                  <div class="text-3xl font-black text-purple-600 mb-3">Instant Results</div>
+                  <p class="text-gray-700 font-medium">Start generating qualified leads from day one</p>
+                </div>
+              </div>
+              <div class="order-1 md:order-2">
+                <div class="inline-block bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                  Paid Advertising
+                </div>
+                <h2 class="text-4xl font-bold mb-6">Google Ads Management</h2>
+                <p class="text-lg text-gray-600 mb-6">
+                  Get immediate visibility and qualified leads with expertly managed Google Ads campaigns that maximize your ROI.
+                </p>
+                <ul class="space-y-3 mb-8">
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Campaign strategy & setup</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Ad copywriting & testing</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Landing page optimization</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Conversion tracking & analytics</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Ongoing optimization</span>
+                  </li>
+                </ul>
+                <a href="/contact" class="inline-block bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition-colors">
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Web Design -->
+          <div class="mb-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <div class="inline-block bg-pink-100 text-pink-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                  Web Design
+                </div>
+                <h2 class="text-4xl font-bold mb-6">Website Design & Development</h2>
+                <p class="text-lg text-gray-600 mb-6">
+                  Beautiful, high-converting websites built on modern technology. Your website is your digital storefront – make it count.
+                </p>
+                <ul class="space-y-3 mb-8">
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Custom responsive design</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Conversion-focused layouts</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Fast page speed optimization</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Mobile-first approach</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">SEO-ready structure</span>
+                  </li>
+                </ul>
+                <a href="/contact" class="inline-block bg-pink-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-pink-700 transition-colors">
+                  Get Started
+                </a>
+              </div>
+              <div class="relative bg-gradient-to-br from-pink-100 via-red-100 to-orange-100 rounded-3xl p-12 text-center shadow-2xl border border-white/50 group hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-3xl"></div>
+                <div class="relative">
+                  <div class="text-7xl mb-6 group-hover:scale-110 transition-transform duration-300" role="img" aria-label="Laptop computer">💻</div>
+                  <div class="text-3xl font-black text-pink-600 mb-3">Modern Design</div>
+                  <p class="text-gray-700 font-medium">Stand out with a website that converts visitors to customers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Marketing -->
+          <div class="mb-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div class="order-2 md:order-1 relative bg-gradient-to-br from-green-100 via-teal-100 to-cyan-100 rounded-3xl p-12 text-center shadow-2xl border border-white/50 group hover:scale-105 transition-transform duration-300">
+                <div class="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-3xl"></div>
+                <div class="relative">
+                  <div class="text-7xl mb-6 group-hover:scale-110 transition-transform duration-300" role="img" aria-label="Writing hand">✍️</div>
+                  <div class="text-3xl font-black text-green-600 mb-3">Engaging Content</div>
+                  <p class="text-gray-700 font-medium">Connect with your audience through valuable content</p>
+                </div>
+              </div>
+              <div class="order-1 md:order-2">
+                <div class="inline-block bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                  Content Marketing
+                </div>
+                <h2 class="text-4xl font-bold mb-6">Content Strategy & Creation</h2>
+                <p class="text-lg text-gray-600 mb-6">
+                  Build authority and engage your audience with strategic content that drives results and establishes your brand as an industry leader.
+                </p>
+                <ul class="space-y-3 mb-8">
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Blog writing & management</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Content strategy development</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Social media content</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Email marketing campaigns</span>
+                  </li>
+                  <li class="flex items-start">
+                    <CheckIcon class="mr-3 mt-1" />
+                    <span class="text-gray-700">Case studies & whitepapers</span>
+                  </li>
+                </ul>
+                <a href="/contact" class="inline-block bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors">
+                  Get Started
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <CTASection
+      title="Ready to Transform Your Digital Presence?"
+      subtitle="Get a free consultation and custom strategy for your business"
+      buttonText="Book Your Free Consultation"
+    />
+  </main>
+
+  <FooterSection />
+
+  <!-- Structured Data - Service Schema -->
+  <script type="application/ld+json" is:inline>
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "serviceType": "Search Engine Optimization (SEO)",
+        "provider": {
+          "@type": "LocalBusiness",
+          "@id": "https://theprofitplatform.com.au/#organization",
+          "name": "The Profit Platform"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Sydney"
+        },
+        "description": "Dominate search results and attract high-quality organic traffic. Our proven SEO strategies help Sydney businesses rank higher and generate more leads.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Google Ads Management",
+        "provider": {
+          "@type": "LocalBusiness",
+          "@id": "https://theprofitplatform.com.au/#organization"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Sydney"
+        },
+        "description": "Get immediate visibility and qualified leads with expertly managed Google Ads campaigns that maximize your ROI.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Website Design & Development",
+        "provider": {
+          "@type": "LocalBusiness",
+          "@id": "https://theprofitplatform.com.au/#organization"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Sydney"
+        },
+        "description": "Beautiful, high-converting websites built on modern technology. Your website is your digital storefront – make it count.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock"
+        }
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Content Marketing",
+        "provider": {
+          "@type": "LocalBusiness",
+          "@id": "https://theprofitplatform.com.au/#organization"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Sydney"
+        },
+        "description": "Attract, engage, and convert your ideal customers with strategic content marketing that drives results.",
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    ]
+  }
+  </script>
+</BaseLayout>
