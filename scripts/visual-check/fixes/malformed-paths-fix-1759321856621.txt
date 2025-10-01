@@ -1,0 +1,12 @@
+MALFORMED RESOURCE PATHS DETECTED
+==================================================
+
+The following resources have incorrect URLs that need fixing:
+
+Replace "https://js/component-loader.js" with "/js/component-loader.js" in HTML
+Replace "https://js/emergency-fixes-loader.js" with "/js/emergency-fixes-loader.js" in HTML
+
+These paths are being resolved incorrectly by the browser.
+Update your HTML templates to use correct relative or absolute paths.
+
+Example: Change <script src="/js/file.js"> NOT <script src="https://js/file.js">

@@ -534,5 +534,13 @@
     "fixesGenerated": 69,
     "status": "unchanged",
     "issuesDelta": 0
+  },
+  {
+    "runId": 1759321800524,
+    "timestamp": "2025-10-01T12:30:00.524Z",
+    "totalIssues": 204,
+    "fixesGenerated": 69,
+    "status": "degraded",
+    "issuesDelta": 7
   }
 ]
