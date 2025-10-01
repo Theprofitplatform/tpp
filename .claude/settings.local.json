@@ -2,7 +2,14 @@
   "permissions": {
     "allow": [
       "Bash(npm run build:*)",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "Bash(echo $SHELL)",
+      "Read(//home/abhi/**)",
+      "Bash(grep:*)",
+      "Bash(declare:*)",
+      "Bash(source ~/.bashrc)",
+      "Bash(unalias:*)",
+      "Bash(alias cx)"
     ],
     "deny": [],
     "ask": []

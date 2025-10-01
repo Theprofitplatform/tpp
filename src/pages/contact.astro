@@ -1,11 +1,13 @@
 ---
 // Enhanced Contact Page with improved UX, accessibility, and conversion optimization
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NavigationSection from '../components/sections/NavigationSection.astro';
-import FooterSection from '../components/sections/FooterSection.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout title="Contact The Profit Platform — Sydney Digital Marketing Experts">
+  <!-- Contact Page Specific Styles -->
+  <link slot="head" rel="stylesheet" href="/css/contact-page-styles.css">
   <!-- Enhanced SEO Meta Tags -->
   <Fragment slot="head">
 <!-- Primary Meta Tags -->
@@ -192,7 +194,7 @@ a.appendChild(r);
     </script>
   </Fragment>
 
-  <NavigationSection />
+  <Header />
 
   <!-- Main Content -->
   <main id="main-content" role="main">
@@ -519,7 +521,7 @@ a.appendChild(r);
     </section>
   </main>
 
-  <FooterSection />
+  <Footer />
 
 <!-- External Scripts in specific order -->
 <script is:inline src="/js/vendor.js"></script>

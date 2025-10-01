@@ -27,3 +27,8 @@ pnpm-debug.log*
 releases/
 current
 test-reports/
+
+# Backend
+backend/.env
+logs/
+!logs/.gitkeep

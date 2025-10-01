@@ -1,0 +1,15 @@
+# Cloudflare Tunnel Configuration
+# For production use, create a named tunnel:
+# cloudflared tunnel create tpp-backend
+
+# Example named tunnel config:
+# tunnel: YOUR_TUNNEL_ID
+# credentials-file: /path/to/credentials.json
+
+# ingress:
+#   - hostname: api.theprofitplatform.com.au
+#     service: http://localhost:4321
+#   - service: http_status:404
+
+# For now, use quick tunnels:
+# cloudflared tunnel --url http://localhost:4321

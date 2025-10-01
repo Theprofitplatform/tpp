@@ -1,0 +1,11 @@
+{
+  "name": "tpp-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend API server for The Profit Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  }
+}
