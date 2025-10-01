@@ -220,9 +220,51 @@ export class FixGenerator {
   generateAssetFixes(missingAssets, viewport) {
     const fixes = [];
 
-    const cssAssets = missingAssets.filter(a => a.type === 'link' || a.name.endsWith('.css'));
-    const jsAssets = missingAssets.filter(a => a.type === 'script' || a.name.endsWith('.js'));
-    const imageAssets = missingAssets.filter(a => a.type === 'img' || /\.(jpg|jpeg|png|gif|svg|webp)$/i.test(a.name));
+    // Filter out external resources and malformed URLs
+    const validAssets = missingAssets.filter(a => {
+      // Ignore external CDN resources (they're intentional)
+      if (a.name.includes('googleapis.com') ||
+          a.name.includes('cdnjs.cloudflare.com') ||
+          a.name.includes('googletagmanager.com') ||
+          a.name.includes('hotjar.com') ||
+          a.name.includes('storage.googleapis.com')) {
+        return false;
+      }
+      // Ignore malformed URLs (they'll be caught separately)
+      if (a.name.startsWith('https://js/') || a.name.startsWith('https://css/')) {
+        return false;
+      }
+      return true;
+    });
+
+    const cssAssets = validAssets.filter(a => a.type === 'link' || a.name.endsWith('.css'));
+    const jsAssets = validAssets.filter(a => a.type === 'script' || a.name.endsWith('.js'));
+    const imageAssets = validAssets.filter(a => a.type === 'img' || /\.(jpg|jpeg|png|gif|svg|webp)$/i.test(a.name));
+
+    // Check for malformed local paths
+    const malformedPaths = missingAssets.filter(a =>
+      a.name.startsWith('https://js/') ||
+      a.name.startsWith('https://css/')
+    );
+
+    if (malformedPaths.length > 0) {
+      fixes.push({
+        type: 'asset',
+        issue: 'malformed_paths',
+        description: `Fix ${malformedPaths.length} malformed resource path(s)`,
+        priority: 'critical',
+        confidence: 100,
+        viewport,
+        action: 'fix_malformed_paths',
+        data: {
+          assets: malformedPaths,
+          instructions: malformedPaths.map(a => {
+            const correctPath = a.name.replace(/^https:\/\/(js|css)\//, '/$1/');
+            return `Replace "${a.name}" with "${correctPath}" in HTML`;
+          })
+        }
+      });
+    }
 
     if (cssAssets.length > 0) {
       fixes.push({
@@ -280,9 +322,42 @@ export class FixGenerator {
   }
 
   /**
+   * Validate a fix before saving
+   */
+  validateFix(fix) {
+    // Ensure fix has required fields
+    if (!fix.type || !fix.description || !fix.action) {
+      return { valid: false, reason: 'Missing required fields' };
+    }
+
+    // Validate confidence is reasonable
+    if (fix.confidence < 50) {
+      return { valid: false, reason: 'Confidence too low (< 50%)' };
+    }
+
+    // Check for incomplete CSS content
+    if (fix.code?.content && fix.code.content.includes('/* existing src declarations */')) {
+      return { valid: false, reason: 'Incomplete CSS template detected' };
+    }
+
+    if (fix.code?.cssRule && fix.code.cssRule.includes('/* existing src declarations */')) {
+      return { valid: false, reason: 'Incomplete CSS rule detected' };
+    }
+
+    return { valid: true };
+  }
+
+  /**
    * Apply a fix to the actual files
    */
   async applyFix(fix) {
+    // Validate fix before applying
+    const validation = this.validateFix(fix);
+    if (!validation.valid) {
+      console.log(chalk.yellow(`    ⚠️  Skipping invalid fix: ${validation.reason}`));
+      return;
+    }
+
     console.log(chalk.gray(`    Applying fix: ${fix.action}`));
 
     switch (fix.action) {
@@ -296,6 +371,10 @@ export class FixGenerator {
 
       case 'fix_overflow':
         await this.applyOverflowFix(fix);
+        break;
+
+      case 'fix_malformed_paths':
+        await this.applyMalformedPathFix(fix);
         break;
 
       default:
@@ -361,14 +440,31 @@ img {
    * Generate font-display fix
    */
   generateFontDisplayFix(fonts) {
+    // Instead of creating incomplete @font-face rules, provide instructions
+    // to modify existing font declarations
     return {
       description: 'Add font-display property to prevent invisible text',
-      cssRule: fonts.map(font => `
-@font-face {
-  font-family: '${font}';
-  font-display: swap;
-  /* existing src declarations */
-}`).join('\n')
+      manual: true,
+      instructions: [
+        'Locate all @font-face declarations in your CSS files',
+        'Add "font-display: swap;" property to each @font-face rule',
+        'This prevents invisible text during font loading (FOIT)',
+        '',
+        'Example:',
+        '@font-face {',
+        '  font-family: "MyFont";',
+        '  src: url("/fonts/myfont.woff2") format("woff2");',
+        '  font-display: swap; /* Add this line */',
+        '}',
+        '',
+        `Fonts detected: ${fonts.join(', ')}`,
+        '',
+        'Alternative: Use Google Fonts with display=swap parameter:',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'
+      ].join('\n'),
+      // Provide a search pattern for CSS files
+      searchPattern: '@font-face\\s*{[^}]+}',
+      addProperty: 'font-display: swap;'
     };
   }
 
@@ -419,12 +515,12 @@ ${selectors.map(sel => `${sel} {
    * Apply font-display fix
    */
   async applyFontDisplay(fix) {
-    // This would require parsing CSS files and adding font-display
-    // For now, just create a patch file
-    const patchPath = path.join(this.config.paths.fixes, `font-display-${Date.now()}.css`);
-    await fs.writeFile(patchPath, fix.code.cssRule);
-    console.log(chalk.gray(`    Patch created: ${patchPath}`));
-    console.log(chalk.yellow(`    Manual: Add font-display to your @font-face rules`));
+    // Don't create incomplete CSS files - provide instructions instead
+    const instructionsPath = path.join(this.config.paths.fixes, `font-display-instructions-${Date.now()}.txt`);
+    await fs.writeFile(instructionsPath, fix.code.instructions);
+    console.log(chalk.gray(`    Instructions created: ${instructionsPath}`));
+    console.log(chalk.yellow(`    Manual: Review instructions to add font-display to @font-face rules`));
+    console.log(chalk.cyan(`    Tip: Search for "${fix.code.searchPattern}" in CSS files`));
   }
 
   /**
@@ -436,5 +532,31 @@ ${selectors.map(sel => `${sel} {
     await fs.writeFile(cssPath, fix.code.content);
     console.log(chalk.gray(`    Created: ${cssPath}`));
     console.log(chalk.yellow(`    Manual: Include this CSS file in your HTML`));
+  }
+
+  /**
+   * Apply malformed path fix
+   */
+  async applyMalformedPathFix(fix) {
+    const instructionsPath = path.join(this.config.paths.fixes, `malformed-paths-fix-${Date.now()}.txt`);
+    const instructions = [
+      'MALFORMED RESOURCE PATHS DETECTED',
+      '='.repeat(50),
+      '',
+      'The following resources have incorrect URLs that need fixing:',
+      '',
+      ...fix.data.instructions,
+      '',
+      'These paths are being resolved incorrectly by the browser.',
+      'Update your HTML templates to use correct relative or absolute paths.',
+      '',
+      'Example: Change <script src="/js/file.js"> NOT <script src="https://js/file.js">'
+    ].join('\n');
+
+    await fs.mkdir(path.dirname(instructionsPath), { recursive: true });
+    await fs.writeFile(instructionsPath, instructions);
+    console.log(chalk.red(`    ⚠️  CRITICAL: Malformed paths detected!`));
+    console.log(chalk.gray(`    Instructions: ${instructionsPath}`));
+    console.log(chalk.cyan(`    Fix these paths immediately to restore functionality`));
   }
 }
