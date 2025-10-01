@@ -32,3 +32,5 @@ test-reports/
 backend/.env
 logs/
 !logs/.gitkeep
+
+SETUP_STEPS.md
