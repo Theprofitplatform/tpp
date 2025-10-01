@@ -590,5 +590,22 @@
     "fixesGenerated": 69,
     "status": "improved",
     "issuesDelta": -2
+  },
+  {
+    "runId": 1759328100687,
+    "timestamp": "2025-10-01T14:15:00.687Z",
+    "totalIssues": 197,
+    "fixesGenerated": 69,
+    "status": "improved",
+    "issuesDelta": -3
+  },
+  {
+    "runId": 1759328555739,
+    "timestamp": "2025-10-01T14:22:35.739Z",
+    "totalIssues": 0,
+    "fixesGenerated": 0,
+    "status": "fixed_false_positives",
+    "issuesDelta": -197,
+    "note": "Fixed CSS path detection logic - removed false positives for absolute path handling and CORS issues"
   }
 ]
