@@ -1,0 +1,2624 @@
+[
+  {
+    "type": "asset",
+    "issue": "malformed_paths",
+    "description": "Fix 2 malformed resource path(s)",
+    "priority": "critical",
+    "confidence": 100,
+    "viewport": "desktop",
+    "action": "fix_malformed_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://js/component-loader.js",
+          "type": "script",
+          "duration": 29.799999952316284
+        },
+        {
+          "name": "https://js/emergency-fixes-loader.js",
+          "type": "script",
+          "duration": 29.799999952316284
+        }
+      ],
+      "instructions": [
+        "Replace \"https://js/component-loader.js\" with \"/js/component-loader.js\" in HTML",
+        "Replace \"https://js/emergency-fixes-loader.js\" with \"/js/emergency-fixes-loader.js\" in HTML"
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "malformed_paths",
+    "description": "Fix 2 malformed resource path(s)",
+    "priority": "critical",
+    "confidence": 100,
+    "viewport": "mobile",
+    "action": "fix_malformed_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://js/emergency-fixes-loader.js",
+          "type": "script",
+          "duration": 42.89999985694885
+        },
+        {
+          "name": "https://js/component-loader.js",
+          "type": "script",
+          "duration": 43.59999990463257
+        }
+      ],
+      "instructions": [
+        "Replace \"https://js/emergency-fixes-loader.js\" with \"/js/emergency-fixes-loader.js\" in HTML",
+        "Replace \"https://js/component-loader.js\" with \"/js/component-loader.js\" in HTML"
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 19 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/skip-links-fix.css",
+          "type": "link",
+          "duration": 7.1000001430511475
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/navigation.css",
+          "type": "link",
+          "duration": 7
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/navigation-dropdown-fix.css",
+          "type": "link",
+          "duration": 8
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/main-content-spacing.css",
+          "type": "link",
+          "duration": 8
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/navigation-contact-page-fix.css",
+          "type": "link",
+          "duration": 8.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/layout.css",
+          "type": "link",
+          "duration": 8.899999856948853
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/navigation-glass-enhanced.css",
+          "type": "link",
+          "duration": 9.099999904632568
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/hero-content-spacing.css",
+          "type": "link",
+          "duration": 9.699999809265137
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/trust-signals-enhanced.css",
+          "type": "link",
+          "duration": 9.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/loading-states.css",
+          "type": "link",
+          "duration": 9.700000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/style.css",
+          "type": "link",
+          "duration": 10.800000190734863
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 10.700000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 10.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 11.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 11.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 2.8999998569488525
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 3.299999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 3.4000000953674316
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 4
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 19 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/skip-links-fix.css",
+          "type": "link",
+          "duration": 13.099999904632568
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/navigation.css",
+          "type": "link",
+          "duration": 13.099999904632568
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/navigation-dropdown-fix.css",
+          "type": "link",
+          "duration": 13.099999904632568
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/main-content-spacing.css",
+          "type": "link",
+          "duration": 13.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/navigation-contact-page-fix.css",
+          "type": "link",
+          "duration": 13.299999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/layout.css",
+          "type": "link",
+          "duration": 13.400000095367432
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/navigation-glass-enhanced.css",
+          "type": "link",
+          "duration": 13.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/hero-content-spacing.css",
+          "type": "link",
+          "duration": 13.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/trust-signals-enhanced.css",
+          "type": "link",
+          "duration": 13.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/loading-states.css",
+          "type": "link",
+          "duration": 13.599999904632568
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/about/css/style.css",
+          "type": "link",
+          "duration": 13.700000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 13.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 13.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 13.600000143051147
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 13.600000143051147
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 2.9000000953674316
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 3.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 3.8999998569488525
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 4.400000095367432
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 12 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://new.theprofitplatform.com.au/css/success-stories.css",
+          "type": "link",
+          "duration": 15.299999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/results-section.css",
+          "type": "link",
+          "duration": 16
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/contact-form-enhanced.css",
+          "type": "link",
+          "duration": 18.09999990463257
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/faq-enhanced.css",
+          "type": "link",
+          "duration": 18.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 18
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 18.299999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 18.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 18.699999809265137
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 4.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 4.400000095367432
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 4.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 4.599999904632568
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 16 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://new.theprofitplatform.com.au/css/success-stories.css",
+          "type": "link",
+          "duration": 4.199999809265137
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/results-section.css",
+          "type": "link",
+          "duration": 4.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/contact-form-enhanced.css",
+          "type": "link",
+          "duration": 7.099999904632568
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/faq-enhanced.css",
+          "type": "link",
+          "duration": 7.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 6.8999998569488525
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 7
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 6.700000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 6.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/success-stories.css",
+          "type": "link",
+          "duration": 4.099999904632568
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/results-section.css",
+          "type": "link",
+          "duration": 4.299999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/contact-form-enhanced.css",
+          "type": "link",
+          "duration": 4.3999998569488525
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/faq-enhanced.css",
+          "type": "link",
+          "duration": 4.400000095367432
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 2.6999998092651367
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 2.6999998092651367
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 2.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 2.799999952316284
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 8 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://new.theprofitplatform.com.au/css/success-stories.css",
+          "type": "link",
+          "duration": 23.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/results-section.css",
+          "type": "link",
+          "duration": 23.300000190734863
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/contact-form-enhanced.css",
+          "type": "link",
+          "duration": 24.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/faq-enhanced.css",
+          "type": "link",
+          "duration": 24.90000009536743
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 25.100000143051147
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 25.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 2.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 2.5999999046325684
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 8 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://new.theprofitplatform.com.au/css/success-stories.css",
+          "type": "link",
+          "duration": 20.40000009536743
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/results-section.css",
+          "type": "link",
+          "duration": 20.600000143051147
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/contact-form-enhanced.css",
+          "type": "link",
+          "duration": 20.59999990463257
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/faq-enhanced.css",
+          "type": "link",
+          "duration": 20.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 20.699999809265137
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 20.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 2.200000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 2.200000047683716
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 12 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "desktop",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://new.theprofitplatform.com.au/css/success-stories.css",
+          "type": "link",
+          "duration": 32.80000019073486
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/results-section.css",
+          "type": "link",
+          "duration": 32.90000009536743
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/contact-form-enhanced.css",
+          "type": "link",
+          "duration": 32.89999985694885
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/faq-enhanced.css",
+          "type": "link",
+          "duration": 33
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 32.89999985694885
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 33.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 33.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 34.10000014305115
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 1.9000000953674316
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 2.299999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 2.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 3.200000047683716
+        }
+      ]
+    }
+  },
+  {
+    "type": "asset",
+    "issue": "missing_css",
+    "description": "Fix 14 missing CSS file(s)",
+    "priority": "critical",
+    "confidence": 95,
+    "viewport": "mobile",
+    "action": "fix_css_paths",
+    "data": {
+      "assets": [
+        {
+          "name": "https://new.theprofitplatform.com.au/css/success-stories.css",
+          "type": "link",
+          "duration": 3.0999999046325684
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/results-section.css",
+          "type": "link",
+          "duration": 3.6000001430511475
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/contact-form-enhanced.css",
+          "type": "link",
+          "duration": 4.700000047683716
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/faq-enhanced.css",
+          "type": "link",
+          "duration": 4.8999998569488525
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 4.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 4.799999952316284
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 4.900000095367432
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 4.800000190734863
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/success-stories.css",
+          "type": "link",
+          "duration": 1.9000000953674316
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/results-section.css",
+          "type": "link",
+          "duration": 2
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/modern-theme.css",
+          "type": "link",
+          "duration": 1.1999998092651367
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/glassmorphism.css",
+          "type": "link",
+          "duration": 1.5
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/animations.css",
+          "type": "link",
+          "duration": 1.7000000476837158
+        },
+        {
+          "name": "https://new.theprofitplatform.com.au/css/gradients.css",
+          "type": "link",
+          "duration": 2.200000047683716
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 1 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "desktop",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "alt": "Google Partner Badge"
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "broken_images",
+    "description": "Fix 1 broken image(s)",
+    "priority": "high",
+    "confidence": 90,
+    "viewport": "mobile",
+    "action": "fix_images",
+    "data": {
+      "images": [
+        {
+          "src": "https://storage.googleapis.com/msgsndr/El8AYzrtJG3nVg76QPpa/media/68b56f98291670614001dfbf.png",
+          "alt": "Google Partner Badge"
+        }
+      ]
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "desktop",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "mobile",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "desktop",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "mobile",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <h1> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "desktop",
+    "action": "add_element",
+    "data": {
+      "element": "h1"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <h1> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "mobile",
+    "action": "add_element",
+    "data": {
+      "element": "h1"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <h1> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "desktop",
+    "action": "add_element",
+    "data": {
+      "element": "h1"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <h1> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "mobile",
+    "action": "add_element",
+    "data": {
+      "element": "h1"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "desktop",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "mobile",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "desktop",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "html",
+    "issue": "missing_element",
+    "description": "Add missing <main> element",
+    "priority": "high",
+    "confidence": 85,
+    "viewport": "mobile",
+    "action": "add_element",
+    "data": {
+      "element": "main"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "mobile-nav",
+          "id": "mobileNav",
+          "width": 356.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": "",
+          "width": 246.953125
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": "",
+          "width": 69.953125
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 162
+        },
+        {
+          "tag": "BUTTON",
+          "class": "mobile-nav-close",
+          "id": "mobileNavClose",
+          "width": 36
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 10.515625
+        },
+        {
+          "tag": "NAV",
+          "class": "mobile-nav-links",
+          "id": "",
+          "width": 355.25
+        },
+        {
+          "tag": "H2",
+          "class": "sr-only",
+          "id": "mobile-nav-title",
+          "width": 1
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n#mobileNav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-header {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.logo-img {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-tagline {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobileNavClose {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-links {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobile-nav-title {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "mobile-nav",
+          "id": "mobileNav",
+          "width": 300
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": "",
+          "width": 299
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": "",
+          "width": 259
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": "",
+          "width": 93.265625
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": "",
+          "width": 150.734375
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 93
+        },
+        {
+          "tag": "BUTTON",
+          "class": "mobile-nav-close",
+          "id": "mobileNavClose",
+          "width": 40
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 14.015625
+        },
+        {
+          "tag": "NAV",
+          "class": "mobile-nav-links",
+          "id": "",
+          "width": 299
+        },
+        {
+          "tag": "H2",
+          "class": "sr-only",
+          "id": "mobile-nav-title",
+          "width": 1
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n#mobileNav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-header {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.logo-img {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-tagline {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobileNavClose {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-links {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobile-nav-title {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "horizontal_overflow",
+    "description": "Fix horizontal overflow on 10 element(s)",
+    "priority": "high",
+    "confidence": 75,
+    "viewport": "mobile",
+    "action": "fix_overflow",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "mobile-nav",
+          "id": "mobileNav",
+          "width": 300
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": "",
+          "width": 299
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": "",
+          "width": 259
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": "",
+          "width": 93.265625
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": "",
+          "width": 150.734375
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 93
+        },
+        {
+          "tag": "BUTTON",
+          "class": "mobile-nav-close",
+          "id": "mobileNavClose",
+          "width": 40
+        },
+        {
+          "tag": "SPAN",
+          "class": "",
+          "id": "",
+          "width": 14.015625
+        },
+        {
+          "tag": "NAV",
+          "class": "mobile-nav-links",
+          "id": "",
+          "width": 299
+        },
+        {
+          "tag": "H2",
+          "class": "sr-only",
+          "id": "mobile-nav-title",
+          "width": 1
+        }
+      ]
+    },
+    "code": {
+      "file": "overflow-fix-mobile.css",
+      "content": "/* Overflow fix for mobile - Generated by Visual Agent */\n#mobileNav {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-header {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-logo {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.logo-img {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-tagline {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobileNavClose {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\nspan {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n.mobile-nav-links {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n#mobile-nav-title {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n\n/* Responsive container */\n@media (max-width: 768px) {\n  * {\n    max-width: 100%;\n  }\n\n  img {\n    width: 100%;\n    height: auto;\n  }\n}\n"
+    }
+  },
+  {
+    "type": "css",
+    "issue": "unstyled_page",
+    "description": "Page appears unstyled - add fallback styles",
+    "priority": "high",
+    "confidence": 70,
+    "viewport": "desktop",
+    "action": "add_fallback_styles",
+    "code": {
+      "file": "fallback-styles.css",
+      "content": "/* Fallback styles - Generated by Visual Agent */\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  line-height: 1.6;\n  color: #333;\n  margin: 0;\n  padding: 20px;\n  background: #fff;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n  font-weight: 600;\n}\n\np {\n  margin-bottom: 1em;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n* {\n  box-sizing: border-box;\n}\n"
+    }
+  },
+  {
+    "type": "css",
+    "issue": "unstyled_page",
+    "description": "Page appears unstyled - add fallback styles",
+    "priority": "high",
+    "confidence": 70,
+    "viewport": "mobile",
+    "action": "add_fallback_styles",
+    "code": {
+      "file": "fallback-styles.css",
+      "content": "/* Fallback styles - Generated by Visual Agent */\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  line-height: 1.6;\n  color: #333;\n  margin: 0;\n  padding: 20px;\n  background: #fff;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n  font-weight: 600;\n}\n\np {\n  margin-bottom: 1em;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n* {\n  box-sizing: border-box;\n}\n"
+    }
+  },
+  {
+    "type": "css",
+    "issue": "unstyled_page",
+    "description": "Page appears unstyled - add fallback styles",
+    "priority": "high",
+    "confidence": 70,
+    "viewport": "desktop",
+    "action": "add_fallback_styles",
+    "code": {
+      "file": "fallback-styles.css",
+      "content": "/* Fallback styles - Generated by Visual Agent */\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  line-height: 1.6;\n  color: #333;\n  margin: 0;\n  padding: 20px;\n  background: #fff;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n  font-weight: 600;\n}\n\np {\n  margin-bottom: 1em;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n* {\n  box-sizing: border-box;\n}\n"
+    }
+  },
+  {
+    "type": "css",
+    "issue": "unstyled_page",
+    "description": "Page appears unstyled - add fallback styles",
+    "priority": "high",
+    "confidence": 70,
+    "viewport": "mobile",
+    "action": "add_fallback_styles",
+    "code": {
+      "file": "fallback-styles.css",
+      "content": "/* Fallback styles - Generated by Visual Agent */\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  line-height: 1.6;\n  color: #333;\n  margin: 0;\n  padding: 20px;\n  background: #fff;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n  font-weight: 600;\n}\n\np {\n  margin-bottom: 1em;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n* {\n  box-sizing: border-box;\n}\n"
+    }
+  },
+  {
+    "type": "css",
+    "issue": "unstyled_page",
+    "description": "Page appears unstyled - add fallback styles",
+    "priority": "high",
+    "confidence": 70,
+    "viewport": "desktop",
+    "action": "add_fallback_styles",
+    "code": {
+      "file": "fallback-styles.css",
+      "content": "/* Fallback styles - Generated by Visual Agent */\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  line-height: 1.6;\n  color: #333;\n  margin: 0;\n  padding: 20px;\n  background: #fff;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n  font-weight: 600;\n}\n\np {\n  margin-bottom: 1em;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n* {\n  box-sizing: border-box;\n}\n"
+    }
+  },
+  {
+    "type": "css",
+    "issue": "unstyled_page",
+    "description": "Page appears unstyled - add fallback styles",
+    "priority": "high",
+    "confidence": 70,
+    "viewport": "mobile",
+    "action": "add_fallback_styles",
+    "code": {
+      "file": "fallback-styles.css",
+      "content": "/* Fallback styles - Generated by Visual Agent */\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  line-height: 1.6;\n  color: #333;\n  margin: 0;\n  padding: 20px;\n  background: #fff;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n  font-weight: 600;\n}\n\np {\n  margin-bottom: 1em;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n* {\n  box-sizing: border-box;\n}\n"
+    }
+  },
+  {
+    "type": "css",
+    "issue": "unstyled_page",
+    "description": "Page appears unstyled - add fallback styles",
+    "priority": "high",
+    "confidence": 70,
+    "viewport": "desktop",
+    "action": "add_fallback_styles",
+    "code": {
+      "file": "fallback-styles.css",
+      "content": "/* Fallback styles - Generated by Visual Agent */\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  line-height: 1.6;\n  color: #333;\n  margin: 0;\n  padding: 20px;\n  background: #fff;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n  font-weight: 600;\n}\n\np {\n  margin-bottom: 1em;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n* {\n  box-sizing: border-box;\n}\n"
+    }
+  },
+  {
+    "type": "css",
+    "issue": "unstyled_page",
+    "description": "Page appears unstyled - add fallback styles",
+    "priority": "high",
+    "confidence": 70,
+    "viewport": "mobile",
+    "action": "add_fallback_styles",
+    "code": {
+      "file": "fallback-styles.css",
+      "content": "/* Fallback styles - Generated by Visual Agent */\nbody {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, sans-serif;\n  line-height: 1.6;\n  color: #333;\n  margin: 0;\n  padding: 20px;\n  background: #fff;\n}\n\nh1, h2, h3, h4, h5, h6 {\n  margin-top: 1.5em;\n  margin-bottom: 0.5em;\n  font-weight: 600;\n}\n\np {\n  margin-bottom: 1em;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n* {\n  box-sizing: border-box;\n}\n"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 43 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 44 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 6 Free, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 52 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 6 Free, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 52 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 6 Free, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 52 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 6 Free, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 52 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 6 Free, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 53 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 6 Free, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 53 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 6 Free, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 56 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "desktop",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 6 Brands, Font Awesome 6 Free, Font Awesome 6 Free, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "fonts_still_loading",
+    "description": "Add font-display: swap for 56 font(s)",
+    "priority": "medium",
+    "confidence": 80,
+    "viewport": "mobile",
+    "action": "add_font_display",
+    "data": {
+      "fonts": [
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Inter",
+        "Font Awesome 6 Brands",
+        "Font Awesome 6 Free",
+        "Font Awesome 6 Free",
+        "Font Awesome 5 Brands",
+        "Font Awesome 5 Free",
+        "Font Awesome 5 Free",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome",
+        "FontAwesome"
+      ]
+    },
+    "code": {
+      "description": "Add font-display property to prevent invisible text",
+      "manual": true,
+      "instructions": "Locate all @font-face declarations in your CSS files\nAdd \"font-display: swap;\" property to each @font-face rule\nThis prevents invisible text during font loading (FOIT)\n\nExample:\n@font-face {\n  font-family: \"MyFont\";\n  src: url(\"/fonts/myfont.woff2\") format(\"woff2\");\n  font-display: swap; /* Add this line */\n}\n\nFonts detected: Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Inter, Font Awesome 6 Brands, Font Awesome 6 Free, Font Awesome 6 Free, Font Awesome 5 Brands, Font Awesome 5 Free, Font Awesome 5 Free, FontAwesome, FontAwesome, FontAwesome, FontAwesome\n\nAlternative: Use Google Fonts with display=swap parameter:\nhttps://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap",
+      "searchPattern": "@font-face\\s*{[^}]+}",
+      "addProperty": "font-display: swap;"
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "Arial",
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "Arial",
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "\"Times New Roman\""
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "\"Times New Roman\""
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "\"Times New Roman\""
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "\"Times New Roman\""
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif",
+        "Arial"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "desktop",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "\"Times New Roman\""
+      ]
+    }
+  },
+  {
+    "type": "font",
+    "issue": "system_fonts_only",
+    "description": "Custom fonts not loading - check font declarations",
+    "priority": "medium",
+    "confidence": 65,
+    "viewport": "mobile",
+    "action": "check_font_loading",
+    "data": {
+      "systemFonts": [
+        "\"Times New Roman\""
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "desktop",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "logo-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": ""
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "mobile",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-value",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-label",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-value",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "metric-label",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "desktop",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "hero-grid-overlay",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "hero-floating-elements",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "floating-orb floating-orb-1",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "floating-orb floating-orb-2",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "floating-orb floating-orb-3",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "exit-popup-container",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "exit-popup-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "exit-popup-badge",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "exit-popup-value",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "form-group",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "mobile",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "hero-grid-overlay",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "hero-floating-elements",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "floating-orb floating-orb-1",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "floating-orb floating-orb-2",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "floating-orb floating-orb-3",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "exit-popup-container",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "exit-popup-content",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "exit-popup-badge",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "exit-popup-value",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "form-group",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "desktop",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "logo-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": ""
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "mobile",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "error-message",
+          "id": "firstNameError"
+        },
+        {
+          "tag": "DIV",
+          "class": "error-message",
+          "id": "lastNameError"
+        },
+        {
+          "tag": "DIV",
+          "class": "error-message",
+          "id": "emailError"
+        },
+        {
+          "tag": "DIV",
+          "class": "error-message",
+          "id": "phoneError"
+        },
+        {
+          "tag": "DIV",
+          "class": "error-message",
+          "id": "businessNameError"
+        },
+        {
+          "tag": "DIV",
+          "class": "error-message",
+          "id": "serviceInterestError"
+        },
+        {
+          "tag": "DIV",
+          "class": "error-message",
+          "id": "budgetError"
+        },
+        {
+          "tag": "DIV",
+          "class": "error-message",
+          "id": "timelineError"
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 10 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "desktop",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "logo-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-header",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-logo",
+          "id": ""
+        },
+        {
+          "tag": "IMG",
+          "class": "logo-img",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-tagline",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        },
+        {
+          "tag": "DIV",
+          "class": "mobile-nav-icon",
+          "id": ""
+        }
+      ]
+    }
+  },
+  {
+    "type": "layout",
+    "issue": "zero_dimension_elements",
+    "description": "Fix 2 invisible element(s)",
+    "priority": "medium",
+    "confidence": 60,
+    "viewport": "mobile",
+    "action": "fix_dimensions",
+    "data": {
+      "elements": [
+        {
+          "tag": "DIV",
+          "class": "progress-bar",
+          "id": "progressBar"
+        },
+        {
+          "tag": "DIV",
+          "class": "progress-indicator",
+          "id": ""
+        }
+      ]
+    }
+  }
+]
