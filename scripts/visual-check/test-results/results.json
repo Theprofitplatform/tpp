@@ -1,0 +1,2897 @@
+{
+  "config": {
+    "configFile": "/home/avi/projects/astro-site/scripts/visual-check/playwright.config.js",
+    "rootDir": "/home/avi/projects/astro-site/scripts/visual-check/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 5
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "test-results/html",
+          "open": "never"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/avi/projects/astro-site/scripts/visual-check/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.1",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "production-validation.spec.js",
+      "file": "production-validation.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HTTP Status Codes",
+          "file": "production-validation.spec.js",
+          "line": 48,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Home page returns 200",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2385,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:37.753Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-20553b9f6be5e8be0f25",
+              "file": "production-validation.spec.js",
+              "line": 50,
+              "column": 5
+            },
+            {
+              "title": "About page returns 200",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3555,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:37.398Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-4f14291b46b707ace740",
+              "file": "production-validation.spec.js",
+              "line": 50,
+              "column": 5
+            },
+            {
+              "title": "Services page returns 200",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1160,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 56
+                        },
+                        "snippet": "  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 56
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:37.531Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-13683-s-Services-page-returns-200-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-13683-s-Services-page-returns-200-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-13683-s-Services-page-returns-200-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 56
+                      }
+                    },
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 1011,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 56
+                        },
+                        "snippet": "  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 56
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:37:39.964Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-13683-s-Services-page-returns-200-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-13683-s-Services-page-returns-200-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-13683-s-Services-page-returns-200-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-13683-s-Services-page-returns-200-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 56
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-e531113911d01641bfc5",
+              "file": "production-validation.spec.js",
+              "line": 50,
+              "column": 5
+            },
+            {
+              "title": "Blog page returns 200",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 1113,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m403\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m403\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 56
+                        },
+                        "snippet": "  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 56
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m403\u001b[39m\n\n  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:37.493Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-1f26c-Codes-Blog-page-returns-200-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-1f26c-Codes-Blog-page-returns-200-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-1f26c-Codes-Blog-page-returns-200-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 56
+                      }
+                    },
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 992,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m403\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m403\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 56
+                        },
+                        "snippet": "  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 56
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m403\u001b[39m\n\n  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:37:39.915Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-1f26c-Codes-Blog-page-returns-200-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-1f26c-Codes-Blog-page-returns-200-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-1f26c-Codes-Blog-page-returns-200-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-1f26c-Codes-Blog-page-returns-200-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 56
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-b7cfde9b7a1dfa1386dc",
+              "file": "production-validation.spec.js",
+              "line": 50,
+              "column": 5
+            },
+            {
+              "title": "Contact page returns 200",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 2112,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:37.523Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-b35235de3598d3cd2e80",
+              "file": "production-validation.spec.js",
+              "line": 50,
+              "column": 5
+            },
+            {
+              "title": "Privacy page returns 200",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1664,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:39.850Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-c3d9022ef0183c6a2e4b",
+              "file": "production-validation.spec.js",
+              "line": 50,
+              "column": 5
+            },
+            {
+              "title": "Terms page returns 200",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1102,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:40.386Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-927d05b2dc5f6b08e03e",
+              "file": "production-validation.spec.js",
+              "line": 50,
+              "column": 5
+            },
+            {
+              "title": "Cookies page returns 200",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 955,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 56
+                        },
+                        "snippet": "  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 56
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:41.168Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-e1e0f-es-Cookies-page-returns-200-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-e1e0f-es-Cookies-page-returns-200-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-e1e0f-es-Cookies-page-returns-200-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 56
+                      }
+                    },
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 1045,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 56
+                        },
+                        "snippet": "  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 56
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m200\u001b[39m\nReceived: \u001b[31m404\u001b[39m\n\n  54 |       });\n  55 |\n> 56 |       expect(response.status()).toBe(200);\n     |                                 ^\n  57 |     });\n  58 |   }\n  59 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:56:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:37:42.991Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-e1e0f-es-Cookies-page-returns-200-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-e1e0f-es-Cookies-page-returns-200-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-e1e0f-es-Cookies-page-returns-200-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-HTTP-e1e0f-es-Cookies-page-returns-200-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 56
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-8a7b5279489fabeda53a",
+              "file": "production-validation.spec.js",
+              "line": 50,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "Critical HTML Elements",
+          "file": "production-validation.spec.js",
+          "line": 62,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Home page has <main> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3448,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:42.136Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-f88010f3f7e6d1615a57",
+              "file": "production-validation.spec.js",
+              "line": 64,
+              "column": 5
+            },
+            {
+              "title": "Home page has <h1> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3545,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:42.267Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-46afc4f4ee123c071ca4",
+              "file": "production-validation.spec.js",
+              "line": 74,
+              "column": 5
+            },
+            {
+              "title": "About page has <main> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3427,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:41.514Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-5018a59922816593195b",
+              "file": "production-validation.spec.js",
+              "line": 64,
+              "column": 5
+            },
+            {
+              "title": "About page has <h1> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 2310,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:41.556Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-bc33c67b375ab9990f17",
+              "file": "production-validation.spec.js",
+              "line": 74,
+              "column": 5
+            },
+            {
+              "title": "Services page has <main> element",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 6136,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 71
+                        },
+                        "snippet": "  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 71
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n\n  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:43.901Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-057ef-vices-page-has-main-element-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-057ef-vices-page-has-main-element-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-057ef-vices-page-has-main-element-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 71
+                      }
+                    },
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 4,
+                      "status": "failed",
+                      "duration": 6220,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 71
+                        },
+                        "snippet": "  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 71
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n\n  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:37:50.803Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-057ef-vices-page-has-main-element-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-057ef-vices-page-has-main-element-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-057ef-vices-page-has-main-element-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-057ef-vices-page-has-main-element-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 71
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-5af76fbe20ecdaf4f744",
+              "file": "production-validation.spec.js",
+              "line": 64,
+              "column": 5
+            },
+            {
+              "title": "Services page has <h1> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 836,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:45.204Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-d2ef3cf9484ec77a96ae",
+              "file": "production-validation.spec.js",
+              "line": 74,
+              "column": 5
+            },
+            {
+              "title": "Blog page has <main> element",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6193,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 71
+                        },
+                        "snippet": "  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 71
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n\n  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:44.974Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b627f--Blog-page-has-main-element-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b627f--Blog-page-has-main-element-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b627f--Blog-page-has-main-element-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 71
+                      }
+                    },
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6372,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 71
+                        },
+                        "snippet": "  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 71
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n\n  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:37:51.910Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b627f--Blog-page-has-main-element-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b627f--Blog-page-has-main-element-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b627f--Blog-page-has-main-element-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b627f--Blog-page-has-main-element-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 71
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-c128c3b549a692e3d914",
+              "file": "production-validation.spec.js",
+              "line": 64,
+              "column": 5
+            },
+            {
+              "title": "Blog page has <h1> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 819,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:45.761Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-0fa020bbf57aebff4113",
+              "file": "production-validation.spec.js",
+              "line": 74,
+              "column": 5
+            },
+            {
+              "title": "Contact page has <main> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1803,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:45.979Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-9f511d458b82144e2e56",
+              "file": "production-validation.spec.js",
+              "line": 64,
+              "column": 5
+            },
+            {
+              "title": "Contact page has <h1> element",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 6909,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:81:31",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 31,
+                          "line": 81
+                        },
+                        "snippet": "  79 |\n  80 |       const h1Element = playwrightPage.locator('h1');\n> 81 |       await expect(h1Element).toBeVisible();\n     |                               ^\n  82 |     });\n  83 |   }\n  84 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 31,
+                            "line": 81
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n  79 |\n  80 |       const h1Element = playwrightPage.locator('h1');\n> 81 |       await expect(h1Element).toBeVisible();\n     |                               ^\n  82 |     });\n  83 |   }\n  84 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:81:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:46.188Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b77bf-Contact-page-has-h1-element-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b77bf-Contact-page-has-h1-element-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b77bf-Contact-page-has-h1-element-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 31,
+                        "line": 81
+                      }
+                    },
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 7344,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:81:31",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 31,
+                          "line": 81
+                        },
+                        "snippet": "  79 |\n  80 |       const h1Element = playwrightPage.locator('h1');\n> 81 |       await expect(h1Element).toBeVisible();\n     |                               ^\n  82 |     });\n  83 |   }\n  84 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 31,
+                            "line": 81
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n  79 |\n  80 |       const h1Element = playwrightPage.locator('h1');\n> 81 |       await expect(h1Element).toBeVisible();\n     |                               ^\n  82 |     });\n  83 |   }\n  84 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:81:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:37:53.727Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b77bf-Contact-page-has-h1-element-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b77bf-Contact-page-has-h1-element-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b77bf-Contact-page-has-h1-element-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-b77bf-Contact-page-has-h1-element-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 31,
+                        "line": 81
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-9d219e5324fb6f5e4c39",
+              "file": "production-validation.spec.js",
+              "line": 74,
+              "column": 5
+            },
+            {
+              "title": "Privacy page has <main> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1704,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:46.603Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-e64b73cfa598e3d5b376",
+              "file": "production-validation.spec.js",
+              "line": 64,
+              "column": 5
+            },
+            {
+              "title": "Privacy page has <h1> element",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 6630,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:81:31",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 31,
+                          "line": 81
+                        },
+                        "snippet": "  79 |\n  80 |       const h1Element = playwrightPage.locator('h1');\n> 81 |       await expect(h1Element).toBeVisible();\n     |                               ^\n  82 |     });\n  83 |   }\n  84 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 31,
+                            "line": 81
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n  79 |\n  80 |       const h1Element = playwrightPage.locator('h1');\n> 81 |       await expect(h1Element).toBeVisible();\n     |                               ^\n  82 |     });\n  83 |   }\n  84 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:81:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:47.797Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-290bf-Privacy-page-has-h1-element-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-290bf-Privacy-page-has-h1-element-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-290bf-Privacy-page-has-h1-element-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 31,
+                        "line": 81
+                      }
+                    },
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 7700,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:81:31",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 31,
+                          "line": 81
+                        },
+                        "snippet": "  79 |\n  80 |       const h1Element = playwrightPage.locator('h1');\n> 81 |       await expect(h1Element).toBeVisible();\n     |                               ^\n  82 |     });\n  83 |   }\n  84 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 31,
+                            "line": 81
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('h1')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n  79 |\n  80 |       const h1Element = playwrightPage.locator('h1');\n> 81 |       await expect(h1Element).toBeVisible();\n     |                               ^\n  82 |     });\n  83 |   }\n  84 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:81:31"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:37:55.224Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-290bf-Privacy-page-has-h1-element-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-290bf-Privacy-page-has-h1-element-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-290bf-Privacy-page-has-h1-element-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-290bf-Privacy-page-has-h1-element-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 31,
+                        "line": 81
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-7abe216fdee49d2e01ec",
+              "file": "production-validation.spec.js",
+              "line": 74,
+              "column": 5
+            },
+            {
+              "title": "Terms page has <main> element",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 6564,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 71
+                        },
+                        "snippet": "  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 71
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n\n  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:48.328Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-de2fc-Terms-page-has-main-element-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-de2fc-Terms-page-has-main-element-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-de2fc-Terms-page-has-main-element-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 71
+                      }
+                    },
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 7103,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 71
+                        },
+                        "snippet": "  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 71
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n\n  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:37:55.650Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-de2fc-Terms-page-has-main-element-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-de2fc-Terms-page-has-main-element-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-de2fc-Terms-page-has-main-element-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-de2fc-Terms-page-has-main-element-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 71
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-3541699fac06cb93a4f9",
+              "file": "production-validation.spec.js",
+              "line": 64,
+              "column": 5
+            },
+            {
+              "title": "Terms page has <h1> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 1472,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:58.023Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-a402fbcd00063d3960be",
+              "file": "production-validation.spec.js",
+              "line": 74,
+              "column": 5
+            },
+            {
+              "title": "Cookies page has <main> element",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7325,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 71
+                        },
+                        "snippet": "  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 71
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n\n  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:59.290Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-f5014-okies-page-has-main-element-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-f5014-okies-page-has-main-element-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-f5014-okies-page-has-main-element-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 71
+                      }
+                    },
+                    {
+                      "workerIndex": 21,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6909,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 33,
+                          "line": 71
+                        },
+                        "snippet": "  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 33,
+                            "line": 71
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  locator('main')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('main')\u001b[22m\n\n\n  69 |\n  70 |       const mainElement = playwrightPage.locator('main');\n> 71 |       await expect(mainElement).toBeVisible();\n     |                                 ^\n  72 |     });\n  73 |\n  74 |     test(`${page.name} page has <h1> element`, async ({ page: playwrightPage }) => {\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:71:33"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:38:08.368Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-f5014-okies-page-has-main-element-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-f5014-okies-page-has-main-element-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-f5014-okies-page-has-main-element-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Crit-f5014-okies-page-has-main-element-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 33,
+                        "line": 71
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-2604f81437e072b1cde4",
+              "file": "production-validation.spec.js",
+              "line": 64,
+              "column": 5
+            },
+            {
+              "title": "Cookies page has <h1> element",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 778,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:37:59.680Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-7570ca9d96d338147296",
+              "file": "production-validation.spec.js",
+              "line": 74,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "CSS File Loading",
+          "file": "production-validation.spec.js",
+          "line": 87,
+          "column": 6,
+          "specs": [
+            {
+              "title": "/css/critical.min.css loads successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 3158,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:00.491Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-797636a943dbbed26909",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            },
+            {
+              "title": "/css/style.min.css loads successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4323,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:02.697Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-b8b38de46e12addb7be9",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            },
+            {
+              "title": "/css/visibility-fix.css loads successfully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 19,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 4648,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 25,
+                          "line": 105
+                        },
+                        "snippet": "  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 25,
+                            "line": 105
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:04.067Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--0d9de--fix-css-loads-successfully-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--0d9de--fix-css-loads-successfully-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--0d9de--fix-css-loads-successfully-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 25,
+                        "line": 105
+                      }
+                    },
+                    {
+                      "workerIndex": 22,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 4834,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 25,
+                          "line": 105
+                        },
+                        "snippet": "  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 25,
+                            "line": 105
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:38:10.165Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--0d9de--fix-css-loads-successfully-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--0d9de--fix-css-loads-successfully-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--0d9de--fix-css-loads-successfully-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--0d9de--fix-css-loads-successfully-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 25,
+                        "line": 105
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-e6be151bb2a9505b682b",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            },
+            {
+              "title": "/css/navigation.css loads successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 4202,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:04.789Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-13403c5f2c85914e78da",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            },
+            {
+              "title": "/css/skip-links-fix.css loads successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 4,
+                      "status": "timedOut",
+                      "duration": 30332,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                        },
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 18,
+                            "line": 99
+                          },
+                          "message": "TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://theprofitplatform.com.au/\", waiting until \"networkidle\"\u001b[22m\n\n\n   97 |       });\n   98 |\n>  99 |       await page.goto(BASE_URL, {\n      |                  ^\n  100 |         waitUntil: 'networkidle',\n  101 |         timeout: 30000\n  102 |       });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:99:18"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:03.688Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--07a77--fix-css-loads-successfully-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--07a77--fix-css-loads-successfully-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--07a77--fix-css-loads-successfully-chromium/error-context.md"
+                        }
+                      ]
+                    },
+                    {
+                      "workerIndex": 31,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2893,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:38:34.610Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--07a77--fix-css-loads-successfully-chromium-retry1/trace.zip"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "flaky"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-4159b81e87a89258fbfb",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            },
+            {
+              "title": "/css/main-content-spacing.css loads successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3341,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:07.243Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-76e2b2f7e10b61b484f0",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            },
+            {
+              "title": "/css/layout.css loads successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3454,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:09.191Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-ba7cc0abbf60fc56e25b",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            },
+            {
+              "title": "/css/dropdown-fix.css loads successfully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 18,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 4049,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 25,
+                          "line": 105
+                        },
+                        "snippet": "  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 25,
+                            "line": 105
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:10.611Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--d4866--fix-css-loads-successfully-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--d4866--fix-css-loads-successfully-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--d4866--fix-css-loads-successfully-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 25,
+                        "line": 105
+                      }
+                    },
+                    {
+                      "workerIndex": 23,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 6094,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 25,
+                          "line": 105
+                        },
+                        "snippet": "  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 25,
+                            "line": 105
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:38:16.044Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--d4866--fix-css-loads-successfully-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--d4866--fix-css-loads-successfully-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--d4866--fix-css-loads-successfully-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--d4866--fix-css-loads-successfully-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 25,
+                        "line": 105
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-b456b3404e45bf755972",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            },
+            {
+              "title": "/css/navigation-glass-enhanced.css loads successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3361,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:12.681Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-787cf0211cba8b86bc6b",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            },
+            {
+              "title": "/css/bundled.min.css loads successfully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 24,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4548,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 25,
+                          "line": 105
+                        },
+                        "snippet": "  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 25,
+                            "line": 105
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:16.954Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--04b38--min-css-loads-successfully-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--04b38--min-css-loads-successfully-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--04b38--min-css-loads-successfully-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 25,
+                        "line": 105
+                      }
+                    },
+                    {
+                      "workerIndex": 27,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 4818,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 25,
+                          "line": 105
+                        },
+                        "snippet": "  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 25,
+                            "line": 105
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  103 |\n  104 |       // Verify CSS file was requested and loaded\n> 105 |       expect(cssLoaded).toBe(true);\n      |                         ^\n  106 |     });\n  107 |   }\n  108 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:105:25"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:38:22.967Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--04b38--min-css-loads-successfully-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--04b38--min-css-loads-successfully-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--04b38--min-css-loads-successfully-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-CSS--04b38--min-css-loads-successfully-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 25,
+                        "line": 105
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-21387aa258e517a73985",
+              "file": "production-validation.spec.js",
+              "line": 89,
+              "column": 5
+            }
+          ]
+        },
+        {
+          "title": "JavaScript File Loading",
+          "file": "production-validation.spec.js",
+          "line": 111,
+          "column": 6,
+          "specs": [
+            {
+              "title": "/js/vendor.js loads successfully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 25,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 6220,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 24,
+                          "line": 129
+                        },
+                        "snippet": "  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 24,
+                            "line": 129
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:16.879Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-d214d-endor-js-loads-successfully-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-d214d-endor-js-loads-successfully-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-d214d-endor-js-loads-successfully-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 24,
+                        "line": 129
+                      }
+                    },
+                    {
+                      "workerIndex": 29,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 4869,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 24,
+                          "line": 129
+                        },
+                        "snippet": "  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 24,
+                            "line": 129
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:38:24.320Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-d214d-endor-js-loads-successfully-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-d214d-endor-js-loads-successfully-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-d214d-endor-js-loads-successfully-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-d214d-endor-js-loads-successfully-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 24,
+                        "line": 129
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-7fa50e82286b0562a6f2",
+              "file": "production-validation.spec.js",
+              "line": 113,
+              "column": 5
+            },
+            {
+              "title": "/js/plugins.js loads successfully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 20,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 5045,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 24,
+                          "line": 129
+                        },
+                        "snippet": "  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 24,
+                            "line": 129
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:16.070Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-78dbb-ugins-js-loads-successfully-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-78dbb-ugins-js-loads-successfully-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-78dbb-ugins-js-loads-successfully-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 24,
+                        "line": 129
+                      }
+                    },
+                    {
+                      "workerIndex": 26,
+                      "parallelIndex": 2,
+                      "status": "failed",
+                      "duration": 6280,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 24,
+                          "line": 129
+                        },
+                        "snippet": "  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 24,
+                            "line": 129
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:38:22.683Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-78dbb-ugins-js-loads-successfully-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-78dbb-ugins-js-loads-successfully-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-78dbb-ugins-js-loads-successfully-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-78dbb-ugins-js-loads-successfully-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 24,
+                        "line": 129
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-6ea60f66413c07f9b048",
+              "file": "production-validation.spec.js",
+              "line": 113,
+              "column": 5
+            },
+            {
+              "title": "/js/main.js loads successfully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 28,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 4306,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 24,
+                          "line": 129
+                        },
+                        "snippet": "  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 24,
+                            "line": 129
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-01T15:38:24.131Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-3d2a5--main-js-loads-successfully-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-3d2a5--main-js-loads-successfully-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-3d2a5--main-js-loads-successfully-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 24,
+                        "line": 129
+                      }
+                    },
+                    {
+                      "workerIndex": 30,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 2980,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24",
+                        "location": {
+                          "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                          "column": 24,
+                          "line": 129
+                        },
+                        "snippet": "  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                            "column": 24,
+                            "line": 129
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n\n  127 |\n  128 |       // Verify JS file was requested and loaded\n> 129 |       expect(jsLoaded).toBe(true);\n      |                        ^\n  130 |     });\n  131 |   }\n  132 | });\n    at /home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js:129:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-01T15:38:29.774Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-3d2a5--main-js-loads-successfully-chromium-retry1/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-3d2a5--main-js-loads-successfully-chromium-retry1/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-3d2a5--main-js-loads-successfully-chromium-retry1/error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "/home/avi/projects/astro-site/scripts/visual-check/test-results/artifacts/production-validation-Java-3d2a5--main-js-loads-successfully-chromium-retry1/trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/home/avi/projects/astro-site/scripts/visual-check/tests/production-validation.spec.js",
+                        "column": 24,
+                        "line": 129
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "55ad658ac2acac9f3a47-bc1e148063d7af86a190",
+              "file": "production-validation.spec.js",
+              "line": 113,
+              "column": 5
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-10-01T15:37:36.623Z",
+    "duration": 61139.954000000005,
+    "expected": 21,
+    "skipped": 0,
+    "unexpected": 15,
+    "flaky": 1
+  }
+}

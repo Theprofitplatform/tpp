@@ -1,0 +1,109 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e3]:
+    - heading "Terms of Service" [level=1] [ref=e4]
+    - paragraph [ref=e5]: "Last Updated: January 2024"
+    - generic [ref=e6]:
+      - heading "1. Agreement to Terms" [level=2] [ref=e7]
+      - paragraph [ref=e8]: By accessing and using the services of The Profit Platform ("we," "us," or "our"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access our services.
+    - generic [ref=e9]:
+      - heading "2. Services Provided" [level=2] [ref=e10]
+      - paragraph [ref=e11]: "The Profit Platform provides digital marketing services including but not limited to:"
+      - list [ref=e12]:
+        - listitem [ref=e13]: Search Engine Optimization (SEO)
+        - listitem [ref=e14]: Google Ads Management
+        - listitem [ref=e15]: Web Design and Development
+        - listitem [ref=e16]: Content Marketing
+        - listitem [ref=e17]: Social Media Marketing
+        - listitem [ref=e18]: Email Marketing
+    - generic [ref=e19]:
+      - heading "3. Client Obligations" [level=2] [ref=e20]
+      - paragraph [ref=e21]: "As a client, you agree to:"
+      - list [ref=e22]:
+        - listitem [ref=e23]: Provide accurate and complete information necessary for service delivery
+        - listitem [ref=e24]: Grant necessary access to websites, accounts, and platforms
+        - listitem [ref=e25]: Make timely payments as per agreed terms
+        - listitem [ref=e26]: Respond to requests for information or approval within reasonable timeframes
+        - listitem [ref=e27]: Comply with all applicable laws and regulations
+    - generic [ref=e28]:
+      - heading "4. Payment Terms" [level=2] [ref=e29]
+      - paragraph [ref=e30]:
+        - text: 4.1.
+        - strong [ref=e31]: "Pricing:"
+        - text: All prices are in Australian Dollars (AUD) unless otherwise specified.
+      - paragraph [ref=e32]:
+        - text: 4.2.
+        - strong [ref=e33]: "Payment Schedule:"
+        - text: Monthly services are billed in advance on a recurring basis.
+      - paragraph [ref=e34]:
+        - text: 4.3.
+        - strong [ref=e35]: "Late Payments:"
+        - text: Late payments may result in service suspension after 7 days written notice.
+      - paragraph [ref=e36]:
+        - text: 4.4.
+        - strong [ref=e37]: "No Hidden Fees:"
+        - text: All costs are transparent and agreed upon before service commencement.
+    - generic [ref=e38]:
+      - heading "5. Service Terms" [level=2] [ref=e39]
+      - paragraph [ref=e40]:
+        - text: 5.1.
+        - strong [ref=e41]: "No Lock-in Contracts:"
+        - text: Services are provided on a month-to-month basis.
+      - paragraph [ref=e42]:
+        - text: 5.2.
+        - strong [ref=e43]: "Cancellation:"
+        - text: Either party may cancel services with 30 days written notice.
+      - paragraph [ref=e44]:
+        - text: 5.3.
+        - strong [ref=e45]: "Service Modifications:"
+        - text: We reserve the right to modify services with reasonable notice.
+    - generic [ref=e46]:
+      - heading "6. Intellectual Property" [level=2] [ref=e47]
+      - paragraph [ref=e48]:
+        - text: 6.1.
+        - strong [ref=e49]: "Client Content:"
+        - text: You retain all rights to your existing content and materials.
+      - paragraph [ref=e50]:
+        - text: 6.2.
+        - strong [ref=e51]: "Created Content:"
+        - text: Content created by us becomes your property upon full payment.
+      - paragraph [ref=e52]:
+        - text: 6.3.
+        - strong [ref=e53]: "Our IP:"
+        - text: Our methodologies, processes, and proprietary tools remain our property.
+    - generic [ref=e54]:
+      - heading "7. Confidentiality" [level=2] [ref=e55]
+      - paragraph [ref=e56]: Both parties agree to maintain confidentiality of any proprietary or sensitive information shared during the course of the business relationship.
+    - generic [ref=e57]:
+      - heading "8. Performance and Results" [level=2] [ref=e58]
+      - paragraph [ref=e59]: 8.1. While we strive for optimal results, specific outcomes cannot be guaranteed due to factors beyond our control, including search engine algorithm changes and market conditions.
+      - paragraph [ref=e60]: 8.2. We commit to using industry best practices and providing transparent reporting of all activities and results.
+    - generic [ref=e61]:
+      - heading "9. Limitation of Liability" [level=2] [ref=e62]
+      - paragraph [ref=e63]: To the maximum extent permitted by law, The Profit Platform shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use our services.
+    - generic [ref=e64]:
+      - heading "10. Indemnification" [level=2] [ref=e65]
+      - paragraph [ref=e66]: You agree to indemnify and hold harmless The Profit Platform from any claims, damages, or expenses arising from your breach of these Terms or misuse of our services.
+    - generic [ref=e67]:
+      - heading "11. Dispute Resolution" [level=2] [ref=e68]
+      - paragraph [ref=e69]: Any disputes arising from these Terms shall first be addressed through good faith negotiation. If unresolved, disputes shall be settled through mediation or arbitration in Sydney, NSW, Australia.
+    - generic [ref=e70]:
+      - heading "12. Governing Law" [level=2] [ref=e71]
+      - paragraph [ref=e72]: These Terms are governed by the laws of New South Wales, Australia, without regard to conflict of law principles.
+    - generic [ref=e73]:
+      - heading "13. Changes to Terms" [level=2] [ref=e74]
+      - paragraph [ref=e75]: We reserve the right to update these Terms at any time. Clients will be notified of significant changes via email with 30 days notice.
+    - generic [ref=e76]:
+      - heading "14. Contact Information" [level=2] [ref=e77]
+      - paragraph [ref=e78]: "For questions about these Terms of Service, please contact us at:"
+      - generic [ref=e79]:
+        - text: The Profit Platform
+        - text: Level 1, 234 George Street
+        - text: Sydney, NSW 2000
+        - text: "Email: avi@theprofitplatform.com.au"
+        - text: "Phone: 0487 286 451"
+```

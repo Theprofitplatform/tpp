@@ -639,5 +639,35 @@
     "fixesGenerated": 69,
     "status": "degraded",
     "issuesDelta": 6
+  },
+  {
+    "runId": 1759332600681,
+    "timestamp": "2025-10-01T15:30:00.681Z",
+    "totalIssues": 199,
+    "fixesGenerated": 69,
+    "status": "improved",
+    "issuesDelta": -6
+  },
+  {
+    "runId": 1759333005485,
+    "timestamp": "2025-10-01T15:36:45.485Z",
+    "totalIssues": 0,
+    "fixesGenerated": 0,
+    "status": "improved",
+    "issuesDelta": -199,
+    "testsPassed": 0,
+    "testsTotal": 0,
+    "note": "Playwright-based validation (accurate)"
+  },
+  {
+    "runId": 1759333139652,
+    "timestamp": "2025-10-01T15:38:59.652Z",
+    "totalIssues": 15,
+    "fixesGenerated": 0,
+    "status": "degraded",
+    "issuesDelta": 15,
+    "testsPassed": 21,
+    "testsTotal": 36,
+    "note": "Playwright-based validation (accurate)"
   }
 ]

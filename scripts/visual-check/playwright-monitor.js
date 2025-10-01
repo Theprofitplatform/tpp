@@ -75,24 +75,39 @@ function parseTestResults() {
   try {
     const data = JSON.parse(fs.readFileSync(resultsPath, 'utf-8'));
 
-    const stats = data.suites.reduce((acc, suite) => {
-      suite.specs.forEach(spec => {
-        acc.total++;
-        if (spec.ok) {
-          acc.passed++;
-        } else {
-          acc.failed++;
-          acc.failures.push({
-            title: spec.title,
-            file: spec.file,
-            error: spec.tests[0]?.results[0]?.error?.message || 'Unknown error'
+    // Use stats directly from Playwright JSON
+    if (data.stats) {
+      const stats = {
+        total: data.stats.expected + data.stats.unexpected,
+        passed: data.stats.expected,
+        failed: data.stats.unexpected,
+        failures: []
+      };
+
+      // Recursively collect failures from suites
+      function collectFailures(suite) {
+        if (suite.specs) {
+          suite.specs.forEach(spec => {
+            if (!spec.ok && spec.tests && spec.tests[0]) {
+              stats.failures.push({
+                title: spec.title,
+                file: spec.file,
+                error: spec.tests[0].results[0]?.error?.message || 'Unknown error'
+              });
+            }
           });
         }
-      });
-      return acc;
-    }, { total: 0, passed: 0, failed: 0, failures: [] });
+        if (suite.suites) {
+          suite.suites.forEach(collectFailures);
+        }
+      }
 
-    return stats;
+      data.suites.forEach(collectFailures);
+
+      return stats;
+    }
+
+    return null;
   } catch (error) {
     console.error('❌ Error parsing test results:', error.message);
     return null;

@@ -1,0 +1,421 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - link "Skip to main content" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - link "Skip to navigation" [ref=e4] [cursor=pointer]:
+    - /url: "#primary-navigation"
+  - progressbar "Page scroll progress" [ref=e5]
+  - banner [ref=e6]:
+    - generic [ref=e8]:
+      - link "The Profit Platform - Home" [ref=e9] [cursor=pointer]:
+        - /url: /
+        - img "The Profit Platform Logo" [ref=e11] [cursor=pointer]
+      - navigation "Main navigation" [ref=e12]:
+        - menubar [ref=e13]:
+          - menuitem "Home" [ref=e14] [cursor=pointer]:
+            - generic [ref=e15] [cursor=pointer]: 
+            - generic [ref=e16] [cursor=pointer]: Home
+          - menuitem "Services" [ref=e17] [cursor=pointer]:
+            - generic [ref=e18] [cursor=pointer]: 
+            - generic [ref=e19] [cursor=pointer]: Services
+            - generic [ref=e20] [cursor=pointer]: 
+          - menuitem "Pricing" [ref=e21] [cursor=pointer]:
+            - generic [ref=e22] [cursor=pointer]: $
+            - generic [ref=e23] [cursor=pointer]: Pricing
+          - menuitem "Contact" [ref=e24] [cursor=pointer]:
+            - generic [ref=e25] [cursor=pointer]: 
+            - generic [ref=e26] [cursor=pointer]: Contact
+      - link "Get Free Chat - Contact us" [ref=e28] [cursor=pointer]:
+        - /url: /contact/
+        - generic [ref=e29] [cursor=pointer]: 
+        - generic [ref=e30] [cursor=pointer]: Let's Chat
+  - text:      $    
+  - main [ref=e31]:
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - heading "Get Your Free Marketing Audit" [level=2] [ref=e35]
+        - paragraph [ref=e36]: Tell me about your business and goals. I'll analyze your current marketing and show you exactly how to get more customers.
+        - generic [ref=e37]:
+          - heading " How can I help you today?" [level=3] [ref=e38]:
+            - generic [ref=e39]: 
+            - text: How can I help you today?
+          - generic [ref=e40]:
+            - generic [ref=e41] [cursor=pointer]:
+              - generic [ref=e42] [cursor=pointer]: 
+              - heading "Free Marketing Audit" [level=4] [ref=e43] [cursor=pointer]
+              - paragraph [ref=e44] [cursor=pointer]: Get a comprehensive $997 audit of your current marketing efforts
+            - generic [ref=e45] [cursor=pointer]:
+              - generic [ref=e46] [cursor=pointer]: 
+              - heading "SEO Consultation" [level=4] [ref=e47] [cursor=pointer]
+              - paragraph [ref=e48] [cursor=pointer]: Discuss SEO strategies to dominate Google search results
+            - generic [ref=e49] [cursor=pointer]:
+              - generic [ref=e50] [cursor=pointer]: 
+              - heading "Google Ads Setup" [level=4] [ref=e51] [cursor=pointer]
+              - paragraph [ref=e52] [cursor=pointer]: Launch profitable ad campaigns that generate instant leads
+            - generic [ref=e53] [cursor=pointer]:
+              - generic [ref=e54] [cursor=pointer]: 
+              - heading "Website Optimization" [level=4] [ref=e55] [cursor=pointer]
+              - paragraph [ref=e56] [cursor=pointer]: Transform your website into a lead generation machine
+        - generic [ref=e57]:
+          - textbox [ref=e58]
+          - generic [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e61]: First Name *
+              - textbox "First Name *" [ref=e62]
+            - generic [ref=e63]:
+              - generic [ref=e64]: Last Name *
+              - textbox "Last Name *" [ref=e65]
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: Email Address *
+              - textbox "Email Address *" [ref=e69]
+            - generic [ref=e70]:
+              - generic [ref=e71]: Phone Number *
+              - textbox "Phone Number *" [ref=e72]
+          - generic [ref=e73]:
+            - generic [ref=e74]: Business Name *
+            - textbox "Business Name *" [ref=e75]
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic [ref=e78]: Service Interest *
+              - combobox "Service Interest *" [ref=e79]:
+                - option "Select a service..." [selected]
+                - option "SEO & Local Search"
+                - option "Google Ads Management"
+                - option "Website Design"
+                - option "Social Media Marketing"
+                - option "Complete Marketing Package"
+                - option "Just Need Advice"
+            - generic [ref=e80]:
+              - generic [ref=e81]: Monthly Budget *
+              - combobox "Monthly Budget *" [ref=e82]:
+                - option "Select budget range..." [selected]
+                - option "Under $1,000/month"
+                - option "$1,000 - $2,000/month"
+                - option "$2,000 - $5,000/month"
+                - option "$5,000+/month"
+                - option "Not sure yet"
+          - generic [ref=e83]:
+            - generic [ref=e84]: Project Timeline *
+            - combobox "Project Timeline *" [ref=e85]:
+              - option "When do you want to get started?" [selected]
+              - option "ASAP - I need results now!"
+              - option "Within 1-2 weeks"
+              - option "Within 1 month"
+              - option "In 2-3 months"
+              - option "Just planning ahead"
+          - generic [ref=e86]:
+            - generic [ref=e87]: Tell me about your business and goals *
+            - textbox "Tell me about your business and goals *" [ref=e88]
+            - generic [ref=e89]:
+              - generic [ref=e90]: 
+              - strong [ref=e91]: "Tip:"
+              - text: The more details you share, the more personalized insights I can provide in your free audit.
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - generic [ref=e95]: 
+              - generic [ref=e96]:
+                - heading "Prefer to schedule a call?" [level=4] [ref=e97]
+                - paragraph [ref=e98]: Book a 30-minute strategy session at your convenience
+            - generic [ref=e99]:
+              - link " Book Strategy Call" [ref=e100] [cursor=pointer]:
+                - /url: https://calendly.com/theprofitplatform/30min-strategy-call
+                - generic [ref=e101] [cursor=pointer]: 
+                - generic [ref=e102] [cursor=pointer]: Book Strategy Call
+              - generic [ref=e103]:
+                - generic [ref=e104]: 
+                - generic [ref=e105]: Available today • 30 minutes • Free
+          - button " Get My Free $997 Marketing Audit" [ref=e106] [cursor=pointer]:
+            - generic [ref=e107] [cursor=pointer]: 
+            - text: Get My Free $997 Marketing Audit
+          - generic [ref=e109]:
+            - generic [ref=e110]:
+              - generic [ref=e112]: 
+              - heading "24-Hour Response Guarantee" [level=4] [ref=e113]
+            - paragraph [ref=e114]: I personally respond to every enquiry within 24 hours (usually much faster). Your information is 100% secure and never shared.
+            - generic [ref=e115]:
+              - generic [ref=e116]:
+                - generic [ref=e117]: 
+                - generic [ref=e118]: SSL Encrypted
+              - generic [ref=e119]:
+                - generic [ref=e120]: 
+                - generic [ref=e121]: GDPR Compliant
+              - generic [ref=e122]:
+                - generic [ref=e123]: 
+                - generic [ref=e124]: No Spam Ever
+      - generic [ref=e125]:
+        - heading " Let's Connect" [level=3] [ref=e126]:
+          - generic [ref=e127]: 
+          - text: Let's Connect
+        - generic [ref=e128]:
+          - generic [ref=e130]: 
+          - generic [ref=e131]:
+            - heading "Call Direct" [level=4] [ref=e132]
+            - link "0487 286 451" [ref=e133] [cursor=pointer]:
+              - /url: tel:+61487286451
+            - paragraph [ref=e134]: Available 9 AM - 6 PM (AEDT)
+        - generic [ref=e135]:
+          - generic [ref=e137]: 
+          - generic [ref=e138]:
+            - heading "Email" [level=4] [ref=e139]
+            - link "avi@theprofitplatform.com.au" [ref=e140] [cursor=pointer]:
+              - /url: mailto:avi@theprofitplatform.com.au
+            - paragraph [ref=e141]: I respond within 24 hours
+        - generic [ref=e142]:
+          - generic [ref=e144]: 
+          - generic [ref=e145]:
+            - heading "Location" [level=4] [ref=e146]
+            - paragraph [ref=e147]:
+              - text: Sydney, NSW
+              - text: Serving all of Greater Sydney
+              - generic [ref=e148]: Bondi • Parramatta • Penrith • CBD
+        - generic [ref=e149]:
+          - generic [ref=e151]: 
+          - generic [ref=e152]:
+            - heading "Business Hours" [level=4] [ref=e153]
+            - generic [ref=e154]:
+              - generic [ref=e155]: Monday
+              - generic [ref=e156]: 9:00 AM - 6:00 PM
+              - generic [ref=e157]: Tuesday
+              - generic [ref=e158]: 9:00 AM - 6:00 PM
+              - generic [ref=e159]: Wednesday
+              - generic [ref=e160]: 9:00 AM - 6:00 PM
+              - generic [ref=e161]: Thursday
+              - generic [ref=e162]: 9:00 AM - 6:00 PM
+              - generic [ref=e163]: Friday
+              - generic [ref=e164]: 9:00 AM - 6:00 PM
+              - generic [ref=e165]: Saturday
+              - generic [ref=e166]: By Appointment
+              - generic [ref=e167]: Sunday
+              - generic [ref=e168]: Closed
+            - paragraph [ref=e169]:
+              - generic [ref=e170]: 
+              - text: All times in Australian Eastern Time
+        - generic [ref=e171]:
+          - generic [ref=e172]:
+            - heading " Service Areas" [level=4] [ref=e173]:
+              - generic [ref=e174]: 
+              - text: Service Areas
+            - generic [ref=e175]:
+              - generic [ref=e176]: 🏙️ Sydney CBD
+              - generic [ref=e177]: 🏖️ Bondi
+              - generic [ref=e178]: 🌆 Parramatta
+              - generic [ref=e179]: 🏔️ Penrith
+              - generic [ref=e180]: ⛱️ Manly
+              - generic [ref=e181]: 🌅 Chatswood
+            - generic [ref=e183]:
+              - generic [ref=e184]: 
+              - text: Serving all Greater Sydney areas
+          - iframe [ref=e185]:
+            
+          - button " Get Directions" [ref=e187] [cursor=pointer]:
+            - generic [ref=e188] [cursor=pointer]: 
+            - text: Get Directions
+    - generic [ref=e190]:
+      - generic [ref=e191]:
+        - heading "Frequently Asked Questions" [level=2] [ref=e192]
+        - paragraph [ref=e193]: Got questions? I've got answers. Here are the most common questions Sydney business owners ask.
+      - generic [ref=e194]:
+        - generic [ref=e195]:
+          - generic [ref=e196] [cursor=pointer]:
+            - generic [ref=e197] [cursor=pointer]: How quickly will I see results from your marketing services?
+            - generic [ref=e198] [cursor=pointer]: +
+          - paragraph [ref=e199]: Most clients start seeing increased website traffic within 30 days and new leads within 60 days. SEO is a longer-term strategy that builds momentum over 3-6 months, while Google Ads can generate leads within days of launch. I provide monthly reports so you can track your progress every step of the way.
+        - generic [ref=e200]:
+          - generic [ref=e201] [cursor=pointer]:
+            - generic [ref=e202] [cursor=pointer]: Do you work with businesses outside of Sydney?
+            - generic [ref=e203] [cursor=pointer]: +
+          - paragraph [ref=e204]: While I'm based in Sydney and specialize in local Sydney businesses, I work with clients across Australia. My local SEO expertise is particularly valuable for Sydney businesses looking to dominate their local market, but my digital marketing strategies work anywhere.
+        - generic [ref=e205]:
+          - generic [ref=e206] [cursor=pointer]:
+            - generic [ref=e207] [cursor=pointer]: What's included in the free marketing audit?
+            - generic [ref=e208] [cursor=pointer]: +
+          - paragraph [ref=e209]: "Your comprehensive audit includes: website performance analysis, SEO audit, competitor research, Google My Business optimization review, social media assessment, and a custom growth strategy with actionable recommendations. This usually costs $997 but it's completely free for new clients."
+        - generic [ref=e210]:
+          - generic [ref=e211] [cursor=pointer]:
+            - generic [ref=e212] [cursor=pointer]: Do you require long-term contracts?
+            - generic [ref=e213] [cursor=pointer]: +
+          - paragraph [ref=e214]: No lock-in contracts, ever. I believe in earning your business every month through results, not contracts. You can pause or cancel services with 30 days notice. This gives you complete flexibility and peace of mind.
+        - generic [ref=e215]:
+          - generic [ref=e216] [cursor=pointer]:
+            - generic [ref=e217] [cursor=pointer]: How much should I budget for digital marketing?
+            - generic [ref=e218] [cursor=pointer]: +
+          - paragraph [ref=e219]: Investment varies based on your goals and business size. Most Sydney small businesses see great results with $1,500-$3,500/month. This includes my management fees plus advertising spend. During our consultation, I'll recommend a budget that aligns with your goals and expected ROI.
+        - generic [ref=e220]:
+          - generic [ref=e221] [cursor=pointer]:
+            - generic [ref=e222] [cursor=pointer]: What makes you different from other marketing agencies?
+            - generic [ref=e223] [cursor=pointer]: +
+          - paragraph [ref=e224]: I'm a solo expert, not a big agency. You get personal attention, direct communication, and strategies tailored to your specific business. I focus on Sydney businesses exclusively, so I understand the local market intimately. Plus, no contracts means I have to deliver results to keep your business.
+    - generic [ref=e225]:
+      - generic [ref=e226]:
+        - generic [ref=e227]:
+          - heading "What Sydney Business Owners Say" [level=2] [ref=e228]
+          - paragraph [ref=e229]: Real results from real Sydney businesses. See why local business owners choose The Profit Platform.
+        - generic [ref=e230]:
+          - heading "Sarah Mitchell" [level=4] [ref=e231]
+          - paragraph [ref=e232]: Bondi Dental Practice
+      - generic [ref=e233]:
+        - heading "Mike Rodriguez" [level=4] [ref=e234]
+        - paragraph [ref=e235]: Parramatta Plumbing Services
+      - generic [ref=e236]:
+        - heading "Lisa Thompson" [level=4] [ref=e237]
+        - paragraph [ref=e238]: Penrith Fitness Studio
+      - generic [ref=e240]:
+        - generic [ref=e241]:
+          - generic [ref=e242]: 4.9★
+          - generic [ref=e243]: Google Rating
+        - generic [ref=e245]:
+          - generic [ref=e246]: 15+
+          - generic [ref=e247]: Sydney Businesses
+        - generic [ref=e249]:
+          - generic [ref=e250]: 24hr
+          - generic [ref=e251]: Response Time
+        - generic [ref=e253]:
+          - generic [ref=e254]: "No"
+          - generic [ref=e255]: Lock-in Contracts
+  - contentinfo [ref=e256]:
+    - generic [ref=e257]:
+      - generic [ref=e258]:
+        - generic [ref=e259]:
+          - heading "The Profit Platform" [level=3] [ref=e260]
+          - paragraph [ref=e261]: We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.
+          - list "Social media links" [ref=e262]:
+            - listitem "Follow us on Facebook" [ref=e263] [cursor=pointer]:
+              - generic [ref=e264] [cursor=pointer]: 
+            - listitem "Follow us on Instagram" [ref=e265] [cursor=pointer]:
+              - generic [ref=e266] [cursor=pointer]: 
+            - listitem "Connect with us on LinkedIn" [ref=e267] [cursor=pointer]:
+              - generic [ref=e268] [cursor=pointer]: 
+            - listitem "Follow us on Twitter" [ref=e269] [cursor=pointer]:
+              - generic [ref=e270] [cursor=pointer]: 
+            - listitem "Subscribe to our YouTube channel" [ref=e271] [cursor=pointer]:
+              - generic [ref=e272] [cursor=pointer]: 
+          - generic [ref=e273]:
+            - generic [ref=e274]:
+              - generic [ref=e275]: 
+              - link "0487 286 451" [ref=e276] [cursor=pointer]:
+                - /url: tel:0487286451
+            - generic [ref=e277]:
+              - generic [ref=e278]: 
+              - link "[email protected]" [ref=e279] [cursor=pointer]:
+                - /url: /cdn-cgi/l/email-protection#29485f40695d414c595b464f405d5945485d4f465b44074a464407485c
+                - generic [ref=e280] [cursor=pointer]: "[email protected]"
+            - generic [ref=e281]:
+              - generic [ref=e282]: 
+              - generic [ref=e283]: Sydney, NSW, Australia
+        - generic [ref=e284]:
+          - heading "Services" [level=3] [ref=e285]
+          - list [ref=e286]:
+            - listitem [ref=e287]:
+              - link " SEO & Local Search" [ref=e288] [cursor=pointer]:
+                - /url: seo.html
+                - generic [ref=e289] [cursor=pointer]: 
+                - text: SEO & Local Search
+            - listitem [ref=e290]:
+              - link " Google Ads Management" [ref=e291] [cursor=pointer]:
+                - /url: google-ads.html
+                - generic [ref=e292] [cursor=pointer]: 
+                - text: Google Ads Management
+            - listitem [ref=e293]:
+              - link " Social Media Advertising" [ref=e294] [cursor=pointer]:
+                - /url: google-ads.html
+                - generic [ref=e295] [cursor=pointer]: 
+                - text: Social Media Advertising
+            - listitem [ref=e296]:
+              - link " Website Design" [ref=e297] [cursor=pointer]:
+                - /url: web-design.html
+                - generic [ref=e298] [cursor=pointer]: 
+                - text: Website Design
+            - listitem [ref=e299]:
+              - link " Conversion Optimization" [ref=e300] [cursor=pointer]:
+                - /url: services.html#conversion
+                - generic [ref=e301] [cursor=pointer]: 
+                - text: Conversion Optimization
+            - listitem [ref=e302]:
+              - link "Analytics & Reporting" [ref=e303] [cursor=pointer]:
+                - /url: services.html#analytics
+                - text: Analytics & Reporting
+        - generic [ref=e304]:
+          - heading "Company" [level=3] [ref=e305]
+          - list [ref=e306]:
+            - listitem [ref=e307]:
+              - link " About Us" [ref=e308] [cursor=pointer]:
+                - /url: about.html
+                - generic [ref=e309] [cursor=pointer]: 
+                - text: About Us
+            - listitem [ref=e310]:
+              - link " Case Studies" [ref=e311] [cursor=pointer]:
+                - /url: portfolio.html
+                - generic [ref=e312] [cursor=pointer]: 
+                - text: Case Studies
+            - listitem [ref=e313]:
+              - link " Blog" [ref=e314] [cursor=pointer]:
+                - /url: blog/index.html
+                - generic [ref=e315] [cursor=pointer]: 
+                - text: Blog
+            - listitem [ref=e316]:
+              - link " Careers" [ref=e317] [cursor=pointer]:
+                - /url: about.html#careers
+                - generic [ref=e318] [cursor=pointer]: 
+                - text: Careers
+            - listitem [ref=e319]:
+              - link " Partners" [ref=e320] [cursor=pointer]:
+                - /url: about.html#partners
+                - generic [ref=e321] [cursor=pointer]: 
+                - text: Partners
+            - listitem [ref=e322]:
+              - link " Contact" [ref=e323] [cursor=pointer]:
+                - /url: contact.html
+                - generic [ref=e324] [cursor=pointer]: 
+                - text: Contact
+        - generic [ref=e325]:
+          - heading "Resources" [level=3] [ref=e326]
+          - list [ref=e327]:
+            - listitem [ref=e328]:
+              - link " Free Marketing Audit" [ref=e329] [cursor=pointer]:
+                - /url: contact.html
+                - generic [ref=e330] [cursor=pointer]: 
+                - text: Free Marketing Audit
+            - listitem [ref=e331]:
+              - link " Free SEO Guide" [ref=e332] [cursor=pointer]:
+                - /url: blog/seo-guide.html
+                - generic [ref=e333] [cursor=pointer]: 
+                - text: Free SEO Guide
+            - listitem [ref=e334]:
+              - link " Google Ads Guide" [ref=e335] [cursor=pointer]:
+                - /url: blog/google-ads-guide.html
+                - generic [ref=e336] [cursor=pointer]: 
+                - text: Google Ads Guide
+            - listitem [ref=e337]:
+              - link " Local SEO Checklist" [ref=e338] [cursor=pointer]:
+                - /url: /local-seo-checklist
+                - generic [ref=e339] [cursor=pointer]: 
+                - text: Local SEO Checklist
+            - listitem [ref=e340]:
+              - link " Free Webinars" [ref=e341] [cursor=pointer]:
+                - /url: /webinars
+                - generic [ref=e342] [cursor=pointer]: 
+                - text: Free Webinars
+            - listitem [ref=e343]:
+              - link " Free Tools" [ref=e344] [cursor=pointer]:
+                - /url: /tools
+                - generic [ref=e345] [cursor=pointer]: 
+                - text: Free Tools
+      - generic [ref=e346]:
+        - paragraph [ref=e347]: © 2024 The Profit Platform. All rights reserved.
+        - list [ref=e348]:
+          - listitem [ref=e349]:
+            - link "Privacy Policy" [ref=e350] [cursor=pointer]:
+              - /url: /privacy-policy
+          - listitem [ref=e351]:
+            - link "Terms of Service" [ref=e352] [cursor=pointer]:
+              - /url: /terms-of-service
+          - listitem [ref=e353]:
+            - link "Sitemap" [ref=e354] [cursor=pointer]:
+              - /url: /sitemap
+  - text: 
+```
