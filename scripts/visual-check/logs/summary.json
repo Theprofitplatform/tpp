@@ -607,5 +607,13 @@
     "status": "fixed_false_positives",
     "issuesDelta": -197,
     "note": "Fixed CSS path detection logic - removed false positives for absolute path handling and CORS issues"
+  },
+  {
+    "runId": 1759329000666,
+    "timestamp": "2025-10-01T14:30:00.666Z",
+    "totalIssues": 204,
+    "fixesGenerated": 69,
+    "status": "degraded",
+    "issuesDelta": 7
   }
 ]
