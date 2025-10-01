@@ -1,0 +1,280 @@
+---
+/**
+ * CompanyTimeline Component
+ * Vertical timeline displaying company milestones and achievements
+ * Features scroll-triggered animations using Intersection Observer
+ * Includes year markers, descriptions, and growth metrics
+ */
+
+interface TimelineEvent {
+  year: string;
+  quarter?: string;
+  title: string;
+  description: string;
+  metric?: string;
+  icon?: string;
+}
+
+interface Props {
+  events?: TimelineEvent[];
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  events = [
+    {
+      year: "2024",
+      quarter: "Q1",
+      title: "The Profit Platform Founded",
+      description: "Launched with a mission to revolutionise digital marketing for Sydney businesses with fresh, innovative strategies and personalised service.",
+      icon: "🚀"
+    },
+    {
+      year: "2024",
+      quarter: "Q2",
+      title: "First 10 Clients Onboarded",
+      description: "Helped Sydney businesses across Bondi, Parramatta, and Penrith achieve an average 2x increase in qualified leads through targeted SEO and content strategies.",
+      metric: "2x Lead Growth",
+      icon: "📈"
+    },
+    {
+      year: "2024",
+      quarter: "Q3",
+      title: "Expanded Service Offerings",
+      description: "Introduced comprehensive digital marketing packages including advanced analytics, conversion optimisation, and social media management.",
+      icon: "⚡"
+    },
+    {
+      year: "2024",
+      quarter: "Q4",
+      title: "15+ Active Clients & Growing",
+      description: "Built a strong portfolio serving diverse industries from professional services to e-commerce, with 127+ five-star reviews and counting.",
+      metric: "127+ Reviews",
+      icon: "⭐"
+    },
+    {
+      year: "2025",
+      quarter: "Q1",
+      title: "Scaling Success Across Sydney",
+      description: "Expanding team and capabilities to serve more businesses. Goal: Help 50+ Sydney businesses achieve transformational growth.",
+      metric: "50+ Goal",
+      icon: "🎯"
+    },
+    {
+      year: "2025",
+      quarter: "Q4",
+      title: "Your Success Story Starts Here",
+      description: "Join The Profit Platform and let's write the next chapter together. We're ready to help your Sydney business thrive in the digital landscape.",
+      icon: "✨"
+    }
+  ],
+  title = "Our Journey",
+  subtitle = "Building trust and delivering results since 2024"
+} = Astro.props;
+---
+
+<section class="py-20 md:py-32 bg-gradient-to-br from-gray-50 via-purple-50/30 to-pink-50/30" aria-labelledby="timeline-heading">
+  <div class="container mx-auto px-4">
+    <div class="max-w-5xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2
+          id="timeline-heading"
+          class="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+        >
+          {title}
+        </h2>
+        {subtitle && (
+          <p class="text-xl md:text-2xl text-gray-700 font-medium max-w-3xl mx-auto">
+            {subtitle}
+          </p>
+        )}
+      </div>
+
+      <!-- Timeline Container -->
+      <div class="relative" role="list">
+        <!-- Vertical Line -->
+        <div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-indigo-600 via-purple-600 to-pink-600 transform md:-translate-x-1/2" aria-hidden="true"></div>
+
+        <!-- Timeline Events -->
+        {events.map((event, index) => (
+          <div
+            class="timeline-item relative mb-12 md:mb-16 last:mb-0"
+            data-index={index}
+            role="listitem"
+          >
+            <div class={`flex flex-col md:flex-row md:items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+              <!-- Content Card -->
+              <div class={`flex-1 ${index % 2 === 0 ? 'md:pl-12 md:text-right' : 'md:pr-12'} ml-20 md:ml-0`}>
+                <article class="bg-white p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 transform hover:-translate-y-1">
+                  <!-- Year Badge with Enhanced Colors -->
+                  <div class={`inline-flex items-center gap-2 mb-4 ${index % 2 === 0 ? 'md:float-right md:ml-4' : 'md:float-left md:mr-4'}`}>
+                    <span class="px-4 py-2 bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 text-white font-bold rounded-full text-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      {event.year}
+                      {event.quarter && <span class="ml-1 opacity-90">{event.quarter}</span>}
+                    </span>
+                    {event.metric && (
+                      <span class="px-4 py-2 bg-gradient-to-r from-emerald-500 via-green-500 to-teal-600 text-white font-bold rounded-full text-sm shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        {event.metric}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 class="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-indigo-900 bg-clip-text text-transparent">
+                    {event.title}
+                  </h3>
+
+                  <p class="text-gray-600 leading-relaxed text-lg">
+                    {event.description}
+                  </p>
+                </article>
+              </div>
+
+              <!-- Center Dot with Icon -->
+              <div class="absolute left-8 md:left-1/2 transform md:-translate-x-1/2 -translate-y-1 z-20" aria-hidden="true">
+                <div class="timeline-dot w-10 h-10 rounded-full bg-white border-4 border-indigo-600 shadow-xl transition-all duration-300 flex items-center justify-center">
+                  <span class="text-lg">{event.icon}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Call to Action -->
+      <div class="mt-16 text-center">
+        <div class="inline-block bg-gradient-to-r from-indigo-600 to-purple-600 p-1 rounded-2xl shadow-xl">
+          <div class="bg-white rounded-xl px-8 py-6">
+            <p class="text-xl font-semibold text-gray-900 mb-2">Ready to be part of our story?</p>
+            <p class="text-gray-600">Let's achieve great things together</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer for scroll animations
+  function initTimelineAnimations() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    if (!timelineItems.length) return;
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const item = entry.target as HTMLElement;
+          const dot = item.querySelector('.timeline-dot');
+          const card = item.querySelector('article');
+
+          // Animate dot
+          if (dot) {
+            dot.classList.add('animate-pulse-scale');
+          }
+
+          // Animate card
+          if (card) {
+            card.classList.add('animate-slide-in');
+          }
+
+          // Stop observing after animation
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    timelineItems.forEach((item) => {
+      observer.observe(item);
+    });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTimelineAnimations);
+  } else {
+    initTimelineAnimations();
+  }
+
+  // Re-initialize on navigation (for SPAs)
+  document.addEventListener('astro:page-load', initTimelineAnimations);
+</script>
+
+<style>
+  /* Timeline animations */
+  @keyframes pulse-scale {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+    }
+    50% {
+      transform: scale(1.2);
+      box-shadow: 0 0 0 10px rgba(79, 70, 229, 0);
+    }
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-pulse-scale {
+    animation: pulse-scale 0.8s ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.6s ease-out forwards;
+  }
+
+  /* Initial state for animation */
+  .timeline-item article {
+    opacity: 0;
+  }
+
+  /* Smooth transitions */
+  .timeline-dot {
+    will-change: transform;
+  }
+
+  article {
+    will-change: transform, box-shadow;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .timeline-item {
+      padding-left: 0;
+    }
+  }
+
+  /* Gradient line enhancement */
+  .timeline-item:last-child::after {
+    content: '';
+    position: absolute;
+    left: 2rem;
+    bottom: -2rem;
+    width: 1px;
+    height: 2rem;
+    background: linear-gradient(to bottom, #ec4899, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .timeline-item:last-child::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+</style>

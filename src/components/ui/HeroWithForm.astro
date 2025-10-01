@@ -1,0 +1,176 @@
+---
+/**
+ * HeroWithForm Component
+ * Split hero layout with lead capture form
+ *
+ * @prop {string} headline - Main headline
+ * @prop {string} subheadline - Supporting text
+ * @prop {string} ctaText - CTA button text
+ * @prop {string} formAction - Form submission endpoint
+ * @prop {Array} services - Service options for dropdown
+ *
+ * Example:
+ * <HeroWithForm
+ *   headline="Grow Your Business Online"
+ *   subheadline="Get a free marketing audit worth $997"
+ *   ctaText="Get My Free Audit"
+ *   formAction="/api/leads"
+ *   services={["SEO", "Google Ads", "Web Design"]}
+ * />
+ */
+
+interface Props {
+  headline: string;
+  subheadline: string;
+  ctaText?: string;
+  formAction?: string;
+  services?: string[];
+}
+
+const {
+  headline,
+  subheadline,
+  ctaText = "Get Started",
+  formAction = "/api/leads",
+  services = ["SEO", "Google Ads", "Web Design", "Social Media"]
+} = Astro.props;
+---
+
+<section class="relative bg-gradient-to-br from-blue-50 via-white to-blue-50 py-16 md:py-24 overflow-hidden">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 opacity-30">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400/30 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/30 rounded-full blur-3xl"></div>
+  </div>
+
+  <div class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Content -->
+      <div>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          {headline}
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+          {subheadline}
+        </p>
+        <ul class="space-y-3 text-gray-700">
+          <li class="flex items-center gap-3">
+            <svg class="h-6 w-6 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>No credit card required</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="h-6 w-6 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>100% confidential</span>
+          </li>
+          <li class="flex items-center gap-3">
+            <svg class="h-6 w-6 text-green-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Response within 24 hours</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
+        <form action={formAction} method="POST" class="space-y-4" data-hero-form>
+          <div>
+            <label for="name" class="block text-sm font-semibold text-gray-900 mb-2">
+              Full Name <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+              aria-required="true"
+            />
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">
+              Email <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+              aria-required="true"
+            />
+          </div>
+
+          <div>
+            <label for="phone" class="block text-sm font-semibold text-gray-900 mb-2">
+              Phone
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+            />
+          </div>
+
+          <div>
+            <label for="service" class="block text-sm font-semibold text-gray-900 mb-2">
+              Interested In <span class="text-red-500">*</span>
+            </label>
+            <select
+              id="service"
+              name="service"
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+              aria-required="true"
+            >
+              <option value="">Select a service...</option>
+              {services.map((service) => (
+                <option value={service}>{service}</option>
+              ))}
+            </select>
+          </div>
+
+          <!-- Hidden UTM fields -->
+          <input type="hidden" name="utm_source" id="utm_source" />
+          <input type="hidden" name="utm_campaign" id="utm_campaign" />
+          <input type="hidden" name="utm_medium" id="utm_medium" />
+
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white text-lg font-semibold py-4 rounded-lg hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+          >
+            {ctaText}
+          </button>
+
+          <p class="text-xs text-gray-500 text-center">
+            By submitting, you agree to our Terms & Privacy Policy
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Capture UTM parameters from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source');
+  const utmCampaign = urlParams.get('utm_campaign');
+  const utmMedium = urlParams.get('utm_medium');
+
+  if (utmSource) {
+    (document.getElementById('utm_source') as HTMLInputElement).value = utmSource;
+  }
+  if (utmCampaign) {
+    (document.getElementById('utm_campaign') as HTMLInputElement).value = utmCampaign;
+  }
+  if (utmMedium) {
+    (document.getElementById('utm_medium') as HTMLInputElement).value = utmMedium;
+  }
+</script>

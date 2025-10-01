@@ -1,0 +1,169 @@
+---
+/**
+ * LogoWall Component
+ * Grid of client logos with optional carousel on mobile
+ *
+ * @prop {Array} logos - Array of logo objects
+ * @prop {string} [heading="Trusted By"] - Section heading
+ * @prop {boolean} [carousel=false] - Enable carousel on mobile
+ *
+ * Example:
+ * <LogoWall
+ *   heading="Trusted by Industry Leaders"
+ *   logos={[
+ *     { src: "/logos/client1.png", alt: "Client 1", href: "https://client1.com" },
+ *     { src: "/logos/client2.png", alt: "Client 2" }
+ *   ]}
+ *   carousel={true}
+ * />
+ */
+
+interface Logo {
+  src: string;
+  alt: string;
+  href?: string;
+}
+
+interface Props {
+  logos: Logo[];
+  heading?: string;
+  carousel?: boolean;
+}
+
+const {
+  logos,
+  heading = "Trusted By",
+  carousel = false
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 bg-white">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-center text-sm font-semibold text-gray-500 uppercase tracking-wide mb-12">
+      {heading}
+    </h2>
+
+    {carousel ? (
+      <!-- Mobile Carousel / Desktop Grid -->
+      <div class="relative" data-logo-wall-carousel>
+        <div class="md:hidden overflow-hidden">
+          <div class="flex transition-transform duration-500 ease-out" data-carousel-track>
+            {logos.map((logo) => (
+              <div class="min-w-full flex items-center justify-center px-12 py-8">
+                {logo.href ? (
+                  <a href={logo.href} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      class="h-16 w-auto object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all"
+                      loading="lazy"
+                    />
+                  </a>
+                ) : (
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    class="h-16 w-auto object-contain grayscale opacity-60"
+                    loading="lazy"
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+
+          <!-- Carousel Dots -->
+          <div class="flex justify-center gap-2 mt-6">
+            {logos.map((_, index) => (
+              <button
+                class="w-2 h-2 rounded-full bg-gray-300 transition-colors data-[active=true]:bg-blue-600"
+                data-carousel-dot={index}
+                aria-label={`Go to logo ${index + 1}`}
+              ></button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Desktop Grid -->
+        <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-8 items-center justify-items-center">
+          {logos.map((logo) => (
+            <div class="flex items-center justify-center p-4">
+              {logo.href ? (
+                <a href={logo.href} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    class="h-16 w-auto object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all"
+                    loading="lazy"
+                  />
+                </a>
+              ) : (
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  class="h-16 w-auto object-contain grayscale opacity-60"
+                  loading="lazy"
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <!-- Simple Grid (No Carousel) -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8 items-center justify-items-center">
+        {logos.map((logo) => (
+          <div class="flex items-center justify-center p-4">
+            {logo.href ? (
+              <a href={logo.href} target="_blank" rel="noopener noreferrer">
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  class="h-16 w-auto object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all"
+                  loading="lazy"
+                />
+              </a>
+            ) : (
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                class="h-16 w-auto object-contain grayscale opacity-60"
+                loading="lazy"
+              />
+            )}
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+</section>
+
+{carousel && (
+  <script>
+    document.querySelectorAll('[data-logo-wall-carousel]').forEach((carousel) => {
+      const track = carousel.querySelector('[data-carousel-track]') as HTMLElement;
+      const dots = carousel.querySelectorAll('[data-carousel-dot]');
+      let currentIndex = 0;
+      const totalLogos = dots.length;
+
+      const updateCarousel = () => {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        dots.forEach((dot, index) => {
+          dot.setAttribute('data-active', (index === currentIndex).toString());
+        });
+      };
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+      });
+
+      // Auto-advance every 3 seconds
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalLogos;
+        updateCarousel();
+      }, 3000);
+    });
+  </script>
+)}

@@ -1,0 +1,229 @@
+---
+/**
+ * MissionVision Component
+ * Split layout displaying company mission and vision statements
+ * Features gradient backgrounds, icons, and responsive design
+ * Optimized for accessibility and visual impact
+ */
+
+interface Props {
+  mission?: {
+    title?: string;
+    content: string;
+    icon?: string;
+  };
+  vision?: {
+    title?: string;
+    content: string;
+    icon?: string;
+  };
+  sectionTitle?: string;
+}
+
+const {
+  mission = {
+    title: "Our Mission",
+    content: "To empower Sydney businesses with innovative, results-driven digital marketing strategies that deliver measurable growth. We believe in transparent communication, personalised service, and building long-term partnerships based on trust and proven results.",
+    icon: "🎯"
+  },
+  vision = {
+    title: "Our Vision",
+    content: "To become Sydney's most trusted digital marketing partner, known for transforming businesses through cutting-edge strategies, exceptional service, and unwavering commitment to client success. We envision a future where every Sydney business has access to world-class digital marketing expertise.",
+    icon: "🚀"
+  },
+  sectionTitle = "What Drives Us"
+} = Astro.props;
+---
+
+<section class="py-20 md:py-32 relative overflow-hidden" aria-labelledby="mission-vision-heading">
+  <!-- Background Decoration -->
+  <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 opacity-50" aria-hidden="true"></div>
+  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-indigo-200 to-purple-200 rounded-full filter blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2" aria-hidden="true"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-pink-200 to-purple-200 rounded-full filter blur-3xl opacity-20 translate-y-1/2 -translate-x-1/2" aria-hidden="true"></div>
+
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Title -->
+      {sectionTitle && (
+        <div class="text-center mb-16">
+          <h2
+            id="mission-vision-heading"
+            class="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent"
+          >
+            {sectionTitle}
+          </h2>
+        </div>
+      )}
+
+      <!-- Mission & Vision Grid -->
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Mission Card -->
+        <article
+          class="group relative bg-gradient-to-br from-indigo-600 to-purple-600 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500 hover:shadow-indigo-500/50"
+          aria-labelledby="mission-title"
+        >
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+
+          <!-- Content -->
+          <div class="relative p-8 lg:p-12">
+            <!-- Icon -->
+            {mission.icon && (
+              <div class="text-6xl mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500" aria-hidden="true">
+                {mission.icon}
+              </div>
+            )}
+
+            <!-- Title -->
+            <h3
+              id="mission-title"
+              class="text-3xl md:text-4xl font-black mb-6 text-white"
+            >
+              {mission.title}
+            </h3>
+
+            <!-- Content -->
+            <p class="text-lg md:text-xl text-white/95 leading-relaxed">
+              {mission.content}
+            </p>
+
+            <!-- Decorative Element -->
+            <div class="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-tl-full transform translate-x-16 translate-y-16 group-hover:translate-x-12 group-hover:translate-y-12 transition-transform duration-500" aria-hidden="true"></div>
+          </div>
+
+          <!-- Border Gradient Effect -->
+          <div class="absolute inset-0 rounded-3xl ring-2 ring-white/20 ring-inset" aria-hidden="true"></div>
+        </article>
+
+        <!-- Vision Card -->
+        <article
+          class="group relative bg-gradient-to-br from-purple-600 to-pink-600 rounded-3xl shadow-2xl overflow-hidden transform hover:scale-105 transition-all duration-500 hover:shadow-purple-500/50"
+          aria-labelledby="vision-title"
+        >
+          <!-- Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" aria-hidden="true"></div>
+
+          <!-- Content -->
+          <div class="relative p-8 lg:p-12">
+            <!-- Icon -->
+            {vision.icon && (
+              <div class="text-6xl mb-6 transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500" aria-hidden="true">
+                {vision.icon}
+              </div>
+            )}
+
+            <!-- Title -->
+            <h3
+              id="vision-title"
+              class="text-3xl md:text-4xl font-black mb-6 text-white"
+            >
+              {vision.title}
+            </h3>
+
+            <!-- Content -->
+            <p class="text-lg md:text-xl text-white/95 leading-relaxed">
+              {vision.content}
+            </p>
+
+            <!-- Decorative Element -->
+            <div class="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-tl-full transform translate-x-16 translate-y-16 group-hover:translate-x-12 group-hover:translate-y-12 transition-transform duration-500" aria-hidden="true"></div>
+          </div>
+
+          <!-- Border Gradient Effect -->
+          <div class="absolute inset-0 rounded-3xl ring-2 ring-white/20 ring-inset" aria-hidden="true"></div>
+        </article>
+      </div>
+
+      <!-- Supporting Statement -->
+      <div class="mt-12 text-center">
+        <div class="inline-block relative">
+          <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl filter blur-xl opacity-50" aria-hidden="true"></div>
+          <div class="relative bg-white px-8 py-6 rounded-2xl shadow-xl border border-gray-100">
+            <p class="text-xl md:text-2xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Serving Sydney businesses with integrity, innovation, and results
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Enhance gradient text readability */
+  h3 {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Smooth hover effects */
+  article {
+    will-change: transform, box-shadow;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Optimize performance */
+  .absolute {
+    transform: translateZ(0);
+  }
+
+  /* Responsive typography */
+  @media (max-width: 768px) {
+    article {
+      transform: scale(1) !important;
+    }
+
+    article:active {
+      transform: scale(0.98) !important;
+    }
+  }
+
+  /* Enhanced focus states for accessibility */
+  article:focus-within {
+    outline: 3px solid #6366f1;
+    outline-offset: 4px;
+  }
+
+  /* Smooth background transitions */
+  article::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.15), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  article:hover::before {
+    opacity: 1;
+  }
+</style>
+
+<script>
+  // Add mouse tracking for enhanced hover effect
+  function initMouseTracking() {
+    const cards = document.querySelectorAll('article');
+
+    cards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = (card as HTMLElement).getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+        (card as HTMLElement).style.setProperty('--mouse-x', `${x}%`);
+        (card as HTMLElement).style.setProperty('--mouse-y', `${y}%`);
+      });
+    });
+  }
+
+  // Initialize on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMouseTracking);
+  } else {
+    initMouseTracking();
+  }
+
+  // Re-initialize on navigation
+  document.addEventListener('astro:page-load', initMouseTracking);
+</script>

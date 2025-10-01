@@ -1,0 +1,82 @@
+{
+  "url": "https://theprofitplatform.com.au",
+  "testUrl": "https://test.theprofitplatform.com.au",
+  "environment": "production",
+  "monitoring": {
+    "enabled": true,
+    "interval": "*/15 * * * *",
+    "autoFix": false,
+    "requireApproval": true
+  },
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "name": "laptop",
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "name": "tablet",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "mobile",
+      "width": 375,
+      "height": 812
+    }
+  ],
+  "detectionThresholds": {
+    "layoutShift": 0.1,
+    "contrastRatio": 4.5,
+    "missingImages": true,
+    "brokenLinks": true,
+    "cssErrors": true,
+    "responsiveIssues": true,
+    "performanceScore": 80
+  },
+  "paths": {
+    "screenshots": "./screenshots",
+    "reports": "./reports",
+    "fixes": "./fixes",
+    "webRoot": "/home/avi/projects/astro-site"
+  },
+  "notifications": {
+    "enabled": false,
+    "channels": {
+      "slack": {
+        "enabled": false,
+        "webhookUrl": ""
+      },
+      "email": {
+        "enabled": false,
+        "smtp": {
+          "host": "",
+          "port": 587,
+          "secure": false,
+          "auth": {
+            "user": "",
+            "pass": ""
+          }
+        },
+        "from": "",
+        "to": []
+      },
+      "webhook": {
+        "enabled": false,
+        "url": "",
+        "method": "POST"
+      }
+    }
+  },
+  "git": {
+    "enabled": true,
+    "autoCommit": false,
+    "branchPrefix": "visual-fix/",
+    "commitMessagePrefix": "fix(visual):"
+  }
+}

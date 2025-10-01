@@ -31,10 +31,21 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-y: auto !important; /* CRITICAL: Force vertical scroll on mobile */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--pp-gray-50);
   font-size: 16px;
+  position: relative; /* Ensure body is not fixed */
+  min-height: 100vh;
+}
+
+/* CRITICAL FIX: Ensure HTML can scroll */
+html {
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  height: auto;
+  position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -105,7 +116,7 @@ p {
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, var(--pp-primary), #667eea);
+  background: linear-gradient(90deg, var(--pp-primary), #3B82F6);
   width: 0%;
   transition: width 0.1s ease;
 }
@@ -206,7 +217,7 @@ header {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--pp-primary), #667eea);
+  background: linear-gradient(135deg, var(--pp-primary), #3B82F6);
   color: white;
 }
 
@@ -471,7 +482,7 @@ footer {
   width: 40px;
   height: 40px;
   border: 4px solid rgba(0,0,0,0.1);
-  border-top-color: #667eea;
+  border-top-color: #3B82F6;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

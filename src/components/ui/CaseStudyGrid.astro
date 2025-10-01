@@ -1,0 +1,131 @@
+---
+/**
+ * CaseStudyGrid Component
+ * Grid layout with filtering for case studies
+ *
+ * @prop {Array} caseStudies - Array of case study data
+ * @prop {Array} industries - Available industry filters
+ * @prop {Array} services - Available service filters
+ *
+ * Example:
+ * <CaseStudyGrid
+ *   caseStudies={studies}
+ *   industries={["Technology", "Retail", "Healthcare"]}
+ *   services={["SEO", "Google Ads", "Web Design"]}
+ * />
+ */
+
+import CaseStudyCard from './CaseStudyCard.astro';
+
+interface CaseStudy {
+  title: string;
+  excerpt: string;
+  logo: string;
+  logoAlt: string;
+  metrics: Array<{ label: string; value: string; icon?: string }>;
+  link: string;
+  industry?: string;
+  service?: string;
+}
+
+interface Props {
+  caseStudies: CaseStudy[];
+  industries?: string[];
+  services?: string[];
+}
+
+const {
+  caseStudies,
+  industries = [],
+  services = []
+} = Astro.props;
+---
+
+<section class="py-16 md:py-20 bg-gray-50">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Client Success Stories
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Real results from real businesses. See how we've helped companies grow.
+      </p>
+    </div>
+
+    <!-- Filters -->
+    {(industries.length > 0 || services.length > 0) && (
+      <div class="flex flex-wrap gap-4 justify-center mb-12" data-filters>
+        <button
+          class="px-6 py-2 rounded-full font-medium transition-all bg-blue-600 text-white"
+          data-filter="all"
+        >
+          All
+        </button>
+        {industries.map((industry) => (
+          <button
+            class="px-6 py-2 rounded-full font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
+            data-filter={`industry-${industry.toLowerCase().replace(/\s+/g, '-')}`}
+          >
+            {industry}
+          </button>
+        ))}
+        {services.map((service) => (
+          <button
+            class="px-6 py-2 rounded-full font-medium transition-all bg-white text-gray-700 hover:bg-gray-100 border border-gray-300"
+            data-filter={`service-${service.toLowerCase().replace(/\s+/g, '-')}`}
+          >
+            {service}
+          </button>
+        ))}
+      </div>
+    )}
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-grid>
+      {caseStudies.map((study) => (
+        <div
+          data-industry={study.industry?.toLowerCase().replace(/\s+/g, '-')}
+          data-service={study.service?.toLowerCase().replace(/\s+/g, '-')}
+        >
+          <CaseStudyCard {...study} />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('[data-filters]').forEach((filterContainer) => {
+    const buttons = filterContainer.querySelectorAll('button');
+    const grid = document.querySelector('[data-grid]');
+    const items = grid?.querySelectorAll('[data-industry], [data-service]');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
+
+        // Update active button
+        buttons.forEach((btn) => {
+          btn.classList.remove('bg-blue-600', 'text-white');
+          btn.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+        });
+        button.classList.add('bg-blue-600', 'text-white');
+        button.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-300');
+
+        // Filter items
+        items?.forEach((item) => {
+          const industry = item.getAttribute('data-industry');
+          const service = item.getAttribute('data-service');
+
+          if (filter === 'all') {
+            (item as HTMLElement).style.display = '';
+          } else if (filter?.startsWith('industry-')) {
+            (item as HTMLElement).style.display = industry === filter.replace('industry-', '') ? '' : 'none';
+          } else if (filter?.startsWith('service-')) {
+            (item as HTMLElement).style.display = service === filter.replace('service-', '') ? '' : 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

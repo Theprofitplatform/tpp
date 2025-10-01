@@ -1,0 +1,190 @@
+---
+/**
+ * CTA Banner Component
+ * Full-width call-to-action with gradient background
+ *
+ * @prop {string} title - CTA heading
+ * @prop {string} subtitle - Supporting text
+ * @prop {Object} cta - Primary CTA button {label, href}
+ * @prop {Object} [secondaryCta] - Optional secondary CTA
+ */
+
+interface Props {
+  title: string;
+  subtitle: string;
+  cta: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+}
+
+const { title, subtitle, cta, secondaryCta } = Astro.props;
+---
+
+<section class="cta-banner-modern">
+  <!-- Decorative background effects -->
+  <div class="cta-background-glow"></div>
+  <div class="cta-grid-pattern">
+    <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="cta-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#cta-grid)" />
+    </svg>
+  </div>
+
+  <div class="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+    <h2 class="cta-title-modern">
+      {title}
+    </h2>
+    <p class="cta-subtitle-modern">
+      {subtitle}
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href={cta.href} class="cta-primary-modern">
+        <span>{cta.label}</span>
+        <div class="cta-button-glow"></div>
+      </a>
+      {secondaryCta && (
+        <a href={secondaryCta.href} class="cta-secondary-modern">
+          {secondaryCta.label}
+        </a>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-banner-modern {
+    position: relative;
+    background: linear-gradient(135deg, #3B82F6 0%, #2c86f9 50%, #1e6ee8 100%);
+    padding: 5rem 0;
+    overflow: hidden;
+  }
+
+  .cta-background-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(96, 165, 250, 0.4) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(30, 110, 232, 0.4) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .cta-grid-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.1;
+    z-index: 2;
+  }
+
+  .cta-title-modern {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 1.25rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .cta-subtitle-modern {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-primary-modern {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: white;
+    color: #1e6ee8;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+  }
+
+  .cta-primary-modern:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  .cta-button-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.5) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  .cta-primary-modern:hover .cta-button-glow {
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+
+  .cta-secondary-modern {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .cta-secondary-modern:hover {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e6ee8;
+    border-color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .cta-banner-modern {
+      padding: 4rem 0;
+    }
+
+    .cta-title-modern {
+      margin-bottom: 1rem;
+    }
+
+    .cta-subtitle-modern {
+      margin-bottom: 2rem;
+    }
+
+    .cta-primary-modern,
+    .cta-secondary-modern {
+      width: 100%;
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+    }
+  }
+</style>

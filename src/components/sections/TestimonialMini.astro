@@ -1,0 +1,187 @@
+---
+/**
+ * Testimonial Mini Component
+ *
+ * Features:
+ * - Compact testimonial with stars
+ * - Accessible markup with proper citations
+ * - Visual appeal with gradient background
+ * - Responsive design
+ */
+---
+
+<div class="gf-testimonial" role="complementary" aria-label="Client testimonial">
+  <div class="stars" aria-label="5 out of 5 stars">
+    <i class="fas fa-star" aria-hidden="true"></i>
+    <i class="fas fa-star" aria-hidden="true"></i>
+    <i class="fas fa-star" aria-hidden="true"></i>
+    <i class="fas fa-star" aria-hidden="true"></i>
+    <i class="fas fa-star" aria-hidden="true"></i>
+  </div>
+  <blockquote>
+    "They helped us 3x leads in 60 days. The ROI was incredible!"
+  </blockquote>
+  <cite>— Sarah M., Sydney Client</cite>
+</div>
+
+<style>
+/* Testimonial styles already defined in growth-form.css */
+/* Additional enhancements */
+
+.gf-testimonial {
+  position: relative;
+  overflow: hidden;
+}
+
+.gf-testimonial::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gf-testimonial > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Quote mark enhancement */
+.gf-testimonial blockquote::before {
+  content: '"';
+  position: absolute;
+  left: -0.5rem;
+  top: -0.2rem;
+  font-size: 3rem;
+  color: var(--gf-primary);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.gf-testimonial blockquote {
+  position: relative;
+  padding-left: 1rem;
+}
+
+/* Star animation */
+.stars i {
+  transition: all var(--gf-transition-base);
+  display: inline-block;
+}
+
+.gf-testimonial:hover .stars i {
+  animation: starPulse 1.5s ease-in-out;
+}
+
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.stars i:nth-child(1) { animation-delay: 0s; }
+.stars i:nth-child(2) { animation-delay: 0.1s; }
+.stars i:nth-child(3) { animation-delay: 0.2s; }
+.stars i:nth-child(4) { animation-delay: 0.3s; }
+.stars i:nth-child(5) { animation-delay: 0.4s; }
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+  .gf-testimonial {
+    margin: var(--gf-space-md) 0;
+    padding: var(--gf-space-md);
+    text-align: left;
+  }
+
+  .gf-testimonial blockquote {
+    font-size: var(--gf-text-base);
+  }
+
+  .stars {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .gf-testimonial blockquote::before {
+    font-size: 2rem;
+    left: -0.3rem;
+    top: -0.1rem;
+  }
+
+  .gf-testimonial blockquote {
+    padding-left: 0.7rem;
+    font-size: var(--gf-text-sm);
+  }
+
+  .stars {
+    font-size: var(--gf-text-base);
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .gf-testimonial {
+    border: 2px solid #000;
+    background: white !important;
+  }
+
+  .gf-testimonial::before {
+    display: none;
+  }
+
+  .stars {
+    color: #000 !important;
+  }
+
+  .gf-testimonial blockquote::before {
+    color: #000;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .stars i {
+    transition: none;
+  }
+
+  .gf-testimonial:hover .stars i {
+    animation: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  .gf-testimonial {
+    border: 1px solid #000;
+    background: white !important;
+    box-shadow: none;
+  }
+
+  .gf-testimonial::before {
+    display: none;
+  }
+
+  .stars::after {
+    content: " (5/5 stars)";
+    font-size: var(--gf-text-xs);
+  }
+
+  .gf-testimonial blockquote::before {
+    color: #000;
+  }
+}
+
+/* Focus styles for accessibility */
+.gf-testimonial:focus-within {
+  outline: 2px solid var(--gf-primary);
+  outline-offset: 4px;
+}
+</style>

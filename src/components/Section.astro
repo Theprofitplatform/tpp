@@ -1,0 +1,71 @@
+---
+/**
+ * Section Component
+ * Generic layout wrapper with padding and background options
+ *
+ * @prop {string} [background="white"] - Background color (white, gray, blue)
+ * @prop {string} [id] - Section ID for anchor links
+ */
+
+interface Props {
+  background?: "white" | "gray" | "blue";
+  id?: string;
+}
+
+const { background = "white", id } = Astro.props;
+
+const bgClasses = {
+  white: 'section-bg-white',
+  gray: 'section-bg-gray',
+  blue: 'section-bg-blue'
+};
+---
+
+<section
+  id={id}
+  class:list={['section-modern', bgClasses[background]]}
+>
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section-modern {
+    padding: 5rem 0;
+    position: relative;
+  }
+
+  .section-bg-white {
+    background: white;
+  }
+
+  .section-bg-gray {
+    background: linear-gradient(to bottom, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+  }
+
+  .section-bg-blue {
+    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 50%, #BFDBFE 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-bg-blue::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 90% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  @media (max-width: 768px) {
+    .section-modern {
+      padding: 4rem 0;
+    }
+  }
+</style>

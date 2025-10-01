@@ -3,12 +3,19 @@
    ========================= */
 .hero-modern {
     position: relative;
-    min-height: 100vh;
+    min-height: auto; /* FIXED: Changed from 100vh to auto for better mobile scroll */
     display: flex;
     align-items: center;
     padding: 120px 0 80px;
     overflow: hidden;
     background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+}
+
+/* Desktop only: Use taller hero */
+@media (min-width: 769px) {
+    .hero-modern {
+        min-height: 80vh; /* Reduced from 100vh for better UX */
+    }
 }
 
 .hero-background {

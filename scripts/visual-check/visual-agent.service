@@ -1,0 +1,20 @@
+[Unit]
+Description=Visual Quality Monitoring Agent
+After=network.target
+
+[Service]
+Type=simple
+User=avi
+WorkingDirectory=/home/avi/projects/astro-site/scripts/visual-check
+ExecStart=/usr/bin/node /home/avi/projects/astro-site/scripts/visual-check/src/index.js --watch --config /home/avi/projects/astro-site/scripts/visual-check/config/production.json
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/visual-agent.log
+StandardError=append:/var/log/visual-agent.log
+
+# Security hardening
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

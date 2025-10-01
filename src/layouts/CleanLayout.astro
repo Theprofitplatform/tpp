@@ -1,0 +1,33 @@
+---
+/**
+ * Clean Layout - For Component Showcases
+ * Only loads Astro-generated CSS, no WordPress styles
+ */
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Components Showcase",
+  description = "Production-ready Astro components"
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <title>{title}</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Let Astro handle CSS automatically -->
+  <slot name="head" />
+</head>
+<body>
+  <slot />
+</body>
+</html>

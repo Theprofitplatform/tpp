@@ -1,0 +1,278 @@
+---
+// Service selection pills with keyboard navigation
+interface Service {
+  id: string;
+  value: string;
+  icon: string;
+  label: string;
+}
+
+const services: Service[] = [
+  { id: "service-seo", value: "seo", icon: "fas fa-search", label: "SEO" },
+  { id: "service-ads", value: "paid-ads", icon: "fab fa-google", label: "Paid Ads" },
+  { id: "service-web", value: "web-design", icon: "fas fa-code", label: "Web Design" },
+  { id: "service-full", value: "full-strategy", icon: "fas fa-rocket", label: "Full Strategy" }
+];
+---
+
+<fieldset class="service-fieldset">
+  <legend class="service-legend">
+    What service interests you most? <span class="required" aria-label="required">*</span>
+  </legend>
+
+  <div
+    class="service-pills"
+    role="radiogroup"
+    aria-labelledby="service-legend"
+    aria-required="true"
+  >
+    {services.map((service, index) => (
+      <div class="service-pill-wrapper" key={service.id}>
+        <input
+          type="radio"
+          id={service.id}
+          name="service"
+          value={service.value}
+          class="service-radio sr-only"
+          required
+          aria-describedby="service-error"
+        />
+        <label
+          for={service.id}
+          class="service-pill"
+          role="radio"
+          tabindex={index === 0 ? "0" : "-1"}
+          aria-checked="false"
+          data-service-pill
+        >
+          <div class="pill-icon" aria-hidden="true">
+            <i class={service.icon}></i>
+          </div>
+          <span class="pill-label">{service.label}</span>
+        </label>
+      </div>
+    ))}
+  </div>
+
+  <div id="service-error" class="field-error" role="alert" aria-live="polite"></div>
+</fieldset>
+
+<style>
+.service-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
+
+.service-legend {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+}
+
+.required {
+  color: #ef4444;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.service-pills {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.service-pill-wrapper {
+  position: relative;
+}
+
+.service-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: white;
+  text-decoration: none;
+  color: #374151;
+  width: 100%;
+  min-height: 80px;
+  position: relative;
+}
+
+.service-pill:hover {
+  border-color: #3b82f6;
+  background: #f8fafc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.service-pill:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.service-pill[aria-checked="true"] {
+  border-color: #3b82f6;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+.service-pill[aria-checked="true"]::after {
+  content: '✓';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.pill-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.pill-label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.field-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: none;
+}
+
+.field-error.active {
+  display: block;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .service-pills {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .service-pill {
+    flex-direction: row;
+    text-align: left;
+    justify-content: flex-start;
+    min-height: 60px;
+  }
+
+  .pill-icon {
+    margin-bottom: 0;
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
+  }
+}
+</style>
+
+<script>
+// Service pills keyboard navigation and accessibility
+document.addEventListener('DOMContentLoaded', function() {
+  const servicePills = document.querySelectorAll('[data-service-pill]');
+  const serviceRadios = document.querySelectorAll('.service-radio');
+
+  if (!servicePills.length) return;
+
+  // Handle keyboard navigation
+  servicePills.forEach((pill, index) => {
+    pill.addEventListener('keydown', function(e) {
+      let targetIndex = index;
+
+      switch(e.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+          e.preventDefault();
+          targetIndex = (index + 1) % servicePills.length;
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          e.preventDefault();
+          targetIndex = (index - 1 + servicePills.length) % servicePills.length;
+          break;
+        case ' ':
+        case 'Enter':
+          e.preventDefault();
+          selectService(index);
+          return;
+      }
+
+      // Move focus to target pill
+      if (targetIndex !== index) {
+        servicePills[index].tabIndex = -1;
+        servicePills[targetIndex].tabIndex = 0;
+        servicePills[targetIndex].focus();
+      }
+    });
+
+    // Handle click selection
+    pill.addEventListener('click', function(e) {
+      e.preventDefault();
+      selectService(index);
+    });
+  });
+
+  // Handle radio change events
+  serviceRadios.forEach((radio, index) => {
+    radio.addEventListener('change', function() {
+      updateAriaStates();
+    });
+  });
+
+  function selectService(index) {
+    // Clear previous selections
+    servicePills.forEach(p => p.setAttribute('aria-checked', 'false'));
+    serviceRadios.forEach(r => r.checked = false);
+
+    // Set new selection
+    servicePills[index].setAttribute('aria-checked', 'true');
+    serviceRadios[index].checked = true;
+
+    // Trigger change event
+    serviceRadios[index].dispatchEvent(new Event('change', { bubbles: true }));
+
+    // Update tabindex
+    servicePills.forEach(p => p.tabIndex = -1);
+    servicePills[index].tabIndex = 0;
+  }
+
+  function updateAriaStates() {
+    serviceRadios.forEach((radio, index) => {
+      servicePills[index].setAttribute('aria-checked', radio.checked.toString());
+    });
+  }
+
+  // Initialize aria states
+  updateAriaStates();
+});
+</script>
