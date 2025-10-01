@@ -1,193 +1,505 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NavigationSection from '../components/sections/NavigationSection.astro';
-import FooterSection from '../components/sections/FooterSection.astro';
-import PageHero from '../components/sections/PageHero.astro';
-import CTASection from '../components/sections/CTASection.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const pageTitle = "Portfolio | The Profit Platform";
 const pageDescription = "See real results from Sydney businesses we've helped grow. Case studies, testimonials, and proven digital marketing success stories.";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-  <NavigationSection />
+  <link rel="stylesheet" href="/css/portfolio.css">
 
-  <main id="main-content" role="main" class="min-h-screen">
-    <PageHero
-      title="Our Work"
-      subtitle="Real results from real Sydney businesses we've helped grow"
-    />
+  <Header />
 
-    <!-- Results Overview -->
-    <section class="py-20">
-      <div class="container mx-auto px-4">
-        <div class="max-w-5xl mx-auto">
-          <div class="grid md:grid-cols-3 gap-8 mb-16">
-            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-xl text-center">
-              <div class="text-5xl font-bold text-indigo-600 mb-2">15+</div>
-              <div class="text-gray-600">Active Clients</div>
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section class="portfolio-hero">
+      <div class="hero-background">
+        <div class="hero-gradient"></div>
+        <div class="hero-pattern"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-badge">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6l2-6z"/>
+            </svg>
+            Real Results, Real Growth
+          </span>
+
+          <h1 class="hero-title">
+            Success Stories from<br/>
+            <span class="gradient-text">Sydney Businesses</span>
+          </h1>
+
+          <p class="hero-description">
+            See how we've helped local businesses dominate their markets with strategic digital marketing.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-number">20+</span>
+              <span class="stat-label">Projects</span>
             </div>
-            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl text-center">
-              <div class="text-5xl font-bold text-purple-600 mb-2">2x</div>
-              <div class="text-gray-600">Average Lead Increase</div>
+            <div class="stat-item">
+              <span class="stat-number">180%</span>
+              <span class="stat-label">Avg ROI</span>
             </div>
-            <div class="bg-gradient-to-br from-pink-50 to-red-50 p-8 rounded-xl text-center">
-              <div class="text-5xl font-bold text-pink-600 mb-2">127+</div>
-              <div class="text-gray-600">5-Star Reviews</div>
+            <div class="stat-item">
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Happy Clients</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Case Studies -->
-    <section class="py-20 bg-gray-50">
-      <div class="container mx-auto px-4">
-        <div class="max-w-5xl mx-auto">
-          <h2 class="text-4xl font-bold text-center mb-12">Featured Case Studies</h2>
+    <!-- Filter Section -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-container">
+          <h2 class="filter-title">Filter by Service</h2>
+          <div class="filter-pills">
+            <button class="filter-pill active" data-filter="all">
+              All Projects <span class="pill-count">6</span>
+            </button>
+            <button class="filter-pill" data-filter="seo">
+              SEO <span class="pill-count">2</span>
+            </button>
+            <button class="filter-pill" data-filter="ads">
+              Google Ads <span class="pill-count">2</span>
+            </button>
+            <button class="filter-pill" data-filter="web">
+              Web Design <span class="pill-count">2</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Case Study 1 -->
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
-            <div class="grid md:grid-cols-2 gap-8">
-              <div class="bg-gradient-to-br from-indigo-100 to-purple-100 p-12 flex items-center justify-center">
-                <div class="text-center">
-                  <div class="text-6xl mb-4">🏗️</div>
-                  <div class="text-2xl font-bold text-indigo-600">Construction Co.</div>
-                </div>
+    <!-- Portfolio Grid -->
+    <section class="portfolio-section">
+      <div class="container">
+        <div class="portfolio-grid">
+          <!-- Project 1 -->
+          <article class="portfolio-card" data-category="seo ads">
+            <div class="card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+              <div class="image-overlay"></div>
+              <div class="project-icon">
+                🏗️
               </div>
-              <div class="p-8">
-                <div class="inline-block bg-indigo-100 text-indigo-600 px-3 py-1 rounded-full text-sm font-semibold mb-4">
-                  SEO + Google Ads
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Sydney Construction Company</h3>
-                <p class="text-gray-600 mb-6">
-                  Helped a local construction company dominate search results for "commercial builders Sydney" and related keywords.
-                </p>
-                <div class="space-y-3 mb-6">
-                  <div class="flex items-center">
-                    <span class="text-green-600 font-bold mr-2">↑ 250%</span>
-                    <span class="text-gray-600">Organic traffic increase</span>
-                  </div>
-                  <div class="flex items-center">
-                    <span class="text-green-600 font-bold mr-2">↑ 180%</span>
-                    <span class="text-gray-600">Qualified leads</span>
-                  </div>
-                  <div class="flex items-center">
-                    <span class="text-green-600 font-bold mr-2">6 months</span>
-                    <span class="text-gray-600">To page 1 rankings</span>
-                  </div>
-                </div>
+              <div class="project-tags">
+                <span class="tag">SEO</span>
+                <span class="tag">Google Ads</span>
               </div>
             </div>
-          </div>
 
-          <!-- Case Study 2 -->
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
-            <div class="grid md:grid-cols-2 gap-8">
-              <div class="order-2 md:order-1 p-8">
-                <div class="inline-block bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-semibold mb-4">
-                  Web Design + SEO
+            <div class="card-body">
+              <h3 class="project-title">Sydney Construction Company</h3>
+              <p class="project-excerpt">
+                Helped a local construction company dominate search results for commercial builders in Sydney.
+              </p>
+
+              <div class="project-results">
+                <div class="result-item">
+                  <span class="result-number">250%</span>
+                  <span class="result-label">Traffic Increase</span>
                 </div>
-                <h3 class="text-2xl font-bold mb-4">Professional Services Firm</h3>
-                <p class="text-gray-600 mb-6">
-                  Complete website redesign and SEO overhaul for a Sydney-based professional services firm.
-                </p>
-                <div class="space-y-3 mb-6">
-                  <div class="flex items-center">
-                    <span class="text-green-600 font-bold mr-2">↑ 320%</span>
-                    <span class="text-gray-600">Website conversions</span>
-                  </div>
-                  <div class="flex items-center">
-                    <span class="text-green-600 font-bold mr-2">↑ 150%</span>
-                    <span class="text-gray-600">Page speed improvement</span>
-                  </div>
-                  <div class="flex items-center">
-                    <span class="text-green-600 font-bold mr-2">3 months</span>
-                    <span class="text-gray-600">Project timeline</span>
-                  </div>
+                <div class="result-item">
+                  <span class="result-number">180%</span>
+                  <span class="result-label">More Leads</span>
                 </div>
               </div>
-              <div class="order-1 md:order-2 bg-gradient-to-br from-purple-100 to-pink-100 p-12 flex items-center justify-center">
-                <div class="text-center">
-                  <div class="text-6xl mb-4">💼</div>
-                  <div class="text-2xl font-bold text-purple-600">Professional Services</div>
-                </div>
+
+              <div class="project-footer">
+                <span class="project-timeline">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 7H8a1 1 0 01-1-1V5a1 1 0 112 0v2h1a1 1 0 110 2z"/>
+                  </svg>
+                  6 months
+                </span>
+                <a href="#" class="view-case-study">
+                  View Case Study
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
               </div>
             </div>
-          </div>
+          </article>
 
-          <!-- Case Study 3 -->
-          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div class="grid md:grid-cols-2 gap-8">
-              <div class="bg-gradient-to-br from-pink-100 to-red-100 p-12 flex items-center justify-center">
-                <div class="text-center">
-                  <div class="text-6xl mb-4">🏪</div>
-                  <div class="text-2xl font-bold text-pink-600">Retail Business</div>
-                </div>
+          <!-- Project 2 -->
+          <article class="portfolio-card" data-category="web seo">
+            <div class="card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+              <div class="image-overlay"></div>
+              <div class="project-icon">
+                ⚖️
               </div>
-              <div class="p-8">
-                <div class="inline-block bg-pink-100 text-pink-600 px-3 py-1 rounded-full text-sm font-semibold mb-4">
-                  Google Ads + Local SEO
-                </div>
-                <h3 class="text-2xl font-bold mb-4">Sydney Retail Store</h3>
-                <p class="text-gray-600 mb-6">
-                  Drove foot traffic and online sales for a Sydney retail business through targeted Google Ads and local SEO.
-                </p>
-                <div class="space-y-3 mb-6">
-                  <div class="flex items-center">
-                    <span class="text-green-600 font-bold mr-2">↑ 400%</span>
-                    <span class="text-gray-600">Store visits from ads</span>
-                  </div>
-                  <div class="flex items-center">
-                    <span class="text-green-600 font-bold mr-2">↓ 45%</span>
-                    <span class="text-gray-600">Cost per acquisition</span>
-                  </div>
-                  <div class="flex items-center">
-                    <span class="text-green-600 font-bold mr-2">2.8x</span>
-                    <span class="text-gray-600">Return on ad spend</span>
-                  </div>
-                </div>
+              <div class="project-tags">
+                <span class="tag">Web Design</span>
+                <span class="tag">SEO</span>
               </div>
             </div>
-          </div>
+
+            <div class="card-body">
+              <h3 class="project-title">Professional Services Firm</h3>
+              <p class="project-excerpt">
+                Complete website redesign and SEO overhaul for a Sydney-based professional services firm.
+              </p>
+
+              <div class="project-results">
+                <div class="result-item">
+                  <span class="result-number">320%</span>
+                  <span class="result-label">Conversions</span>
+                </div>
+                <div class="result-item">
+                  <span class="result-number">145%</span>
+                  <span class="result-label">Traffic</span>
+                </div>
+              </div>
+
+              <div class="project-footer">
+                <span class="project-timeline">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 7H8a1 1 0 01-1-1V5a1 1 0 112 0v2h1a1 1 0 110 2z"/>
+                  </svg>
+                  4 months
+                </span>
+                <a href="#" class="view-case-study">
+                  View Case Study
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="portfolio-card" data-category="ads">
+            <div class="card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+              <div class="image-overlay"></div>
+              <div class="project-icon">
+                🏥
+              </div>
+              <div class="project-tags">
+                <span class="tag">Google Ads</span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="project-title">Healthcare Practice</h3>
+              <p class="project-excerpt">
+                Launched targeted Google Ads campaigns for a healthcare practice in Sydney's Eastern Suburbs.
+              </p>
+
+              <div class="project-results">
+                <div class="result-item">
+                  <span class="result-number">400%</span>
+                  <span class="result-label">Booking Increase</span>
+                </div>
+                <div class="result-item">
+                  <span class="result-number">$2.50</span>
+                  <span class="result-label">Cost Per Lead</span>
+                </div>
+              </div>
+
+              <div class="project-footer">
+                <span class="project-timeline">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 7H8a1 1 0 01-1-1V5a1 1 0 112 0v2h1a1 1 0 110 2z"/>
+                  </svg>
+                  3 months
+                </span>
+                <a href="#" class="view-case-study">
+                  View Case Study
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="portfolio-card" data-category="seo">
+            <div class="card-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+              <div class="image-overlay"></div>
+              <div class="project-icon">
+                🍽️
+              </div>
+              <div class="project-tags">
+                <span class="tag">SEO</span>
+                <span class="tag">Local SEO</span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="project-title">Restaurant Group</h3>
+              <p class="project-excerpt">
+                Multi-location SEO strategy for a restaurant group across Sydney suburbs.
+              </p>
+
+              <div class="project-results">
+                <div class="result-item">
+                  <span class="result-number">230%</span>
+                  <span class="result-label">Reservations</span>
+                </div>
+                <div class="result-item">
+                  <span class="result-number">5x</span>
+                  <span class="result-label">GMB Views</span>
+                </div>
+              </div>
+
+              <div class="project-footer">
+                <span class="project-timeline">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 7H8a1 1 0 01-1-1V5a1 1 0 112 0v2h1a1 1 0 110 2z"/>
+                  </svg>
+                  8 months
+                </span>
+                <a href="#" class="view-case-study">
+                  View Case Study
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="portfolio-card" data-category="web">
+            <div class="card-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+              <div class="image-overlay"></div>
+              <div class="project-icon">
+                💼
+              </div>
+              <div class="project-tags">
+                <span class="tag">Web Design</span>
+                <span class="tag">E-commerce</span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="project-title">E-commerce Store</h3>
+              <p class="project-excerpt">
+                Custom Shopify store design and optimization for a Sydney-based fashion retailer.
+              </p>
+
+              <div class="project-results">
+                <div class="result-item">
+                  <span class="result-number">275%</span>
+                  <span class="result-label">Online Sales</span>
+                </div>
+                <div class="result-item">
+                  <span class="result-number">4.2%</span>
+                  <span class="result-label">Conversion Rate</span>
+                </div>
+              </div>
+
+              <div class="project-footer">
+                <span class="project-timeline">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 7H8a1 1 0 01-1-1V5a1 1 0 112 0v2h1a1 1 0 110 2z"/>
+                  </svg>
+                  5 months
+                </span>
+                <a href="#" class="view-case-study">
+                  View Case Study
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="portfolio-card" data-category="ads web">
+            <div class="card-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+              <div class="image-overlay"></div>
+              <div class="project-icon">
+                🏡
+              </div>
+              <div class="project-tags">
+                <span class="tag">Google Ads</span>
+                <span class="tag">Landing Pages</span>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h3 class="project-title">Real Estate Agency</h3>
+              <p class="project-excerpt">
+                Google Ads campaigns and high-converting landing pages for a real estate agency.
+              </p>
+
+              <div class="project-results">
+                <div class="result-item">
+                  <span class="result-number">350%</span>
+                  <span class="result-label">Inquiries</span>
+                </div>
+                <div class="result-item">
+                  <span class="result-number">$8.30</span>
+                  <span class="result-label">Cost Per Lead</span>
+                </div>
+              </div>
+
+              <div class="project-footer">
+                <span class="project-timeline">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 2a6 6 0 100 12A6 6 0 008 2zm1 7H8a1 1 0 01-1-1V5a1 1 0 112 0v2h1a1 1 0 110 2z"/>
+                  </svg>
+                  6 months
+                </span>
+                <a href="#" class="view-case-study">
+                  View Case Study
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20">
-      <div class="container mx-auto px-4">
-        <div class="max-w-5xl mx-auto">
-          <h2 class="text-4xl font-bold text-center mb-12">What Our Clients Say</h2>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 p-8 rounded-xl">
-              <div class="flex items-center mb-4">
-                <div class="text-yellow-400 text-xl">★★★★★</div>
-              </div>
-              <p class="text-gray-700 mb-4 italic">
-                "The Profit Platform helped us double our qualified leads in just 6 months. Their approach is fresh and their results speak for themselves."
-              </p>
-              <div class="font-semibold">— Sydney Business Owner</div>
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">What Our Clients Say</h2>
+          <p class="section-subtitle">Real feedback from real Sydney businesses</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
             </div>
-            <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-xl">
-              <div class="flex items-center mb-4">
-                <div class="text-yellow-400 text-xl">★★★★★</div>
+            <p class="testimonial-text">
+              "Working with The Profit Platform completely transformed our online presence. Our leads increased by 180% in just 6 months."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">JD</div>
+              <div class="author-info">
+                <div class="author-name">John Davidson</div>
+                <div class="author-company">Construction Company</div>
               </div>
-              <p class="text-gray-700 mb-4 italic">
-                "Professional, responsive, and most importantly - they deliver results. Our website traffic has tripled and our phone is ringing off the hook."
-              </p>
-              <div class="font-semibold">— Local Service Provider</div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+            </div>
+            <p class="testimonial-text">
+              "The new website design exceeded our expectations. Our conversion rate tripled and clients love the user experience."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SM</div>
+              <div class="author-info">
+                <div class="author-name">Sarah Mitchell</div>
+                <div class="author-company">Professional Services</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" class="star">
+                <path d="M10 1l2.5 6.5L19 8.5l-5.5 5 1.5 7-5-3.5-5 3.5 1.5-7L1 8.5l6.5-1L10 1z"/>
+              </svg>
+            </div>
+            <p class="testimonial-text">
+              "Outstanding Google Ads management. Our cost per lead dropped by 50% while leads increased by 400%. Incredible ROI!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">DL</div>
+              <div class="author-info">
+                <div class="author-name">Dr. Lisa Chen</div>
+                <div class="author-company">Healthcare Practice</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <CTASection
-      title="Ready to See Similar Results?"
-      subtitle="Let's create a custom strategy for your business"
-    />
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-background">
+        <div class="cta-gradient"></div>
+        <div class="cta-pattern"></div>
+      </div>
+
+      <div class="container">
+        <div class="cta-content">
+          <h2 class="cta-title">Ready to Grow Your Business?</h2>
+          <p class="cta-description">
+            Let's create a success story together. Book your free strategy call today.
+          </p>
+          <div class="cta-buttons">
+            <a href="/contact" class="cta-primary">
+              Get Started
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a href="tel:+61487286451" class="cta-secondary">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
+              0487 286 451
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <FooterSection />
+  <Footer />
 </BaseLayout>
