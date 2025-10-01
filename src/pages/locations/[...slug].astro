@@ -1,0 +1,254 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const locations = await getCollection('locations', ({ data }) => {
+    return !data.draft;
+  });
+
+  return locations.map(location => ({
+    params: { slug: location.slug },
+    props: { location },
+  }));
+}
+
+const { location } = Astro.props;
+const { Content } = await location.render();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": `The Profit Platform - ${location.data.city}`,
+  "description": location.data.description,
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": location.data.city,
+    "addressRegion": location.data.state,
+    "addressCountry": location.data.country
+  },
+  "telephone": location.data.phone,
+  "email": location.data.email,
+  "areaServed": location.data.serviceAreas
+};
+---
+
+<BaseLayout
+  title={location.data.title}
+  description={location.data.description}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="location-page">
+    <header class="location-header">
+      <div class="container">
+        <h1>{location.data.title}</h1>
+        <div class="location-meta">
+          <span class="location-info">📍 {location.data.city}, {location.data.state}</span>
+          {location.data.phone && (
+            <a href={`tel:${location.data.phone.replace(/\s/g, '')}`} class="phone-link">
+              📞 {location.data.phone}
+            </a>
+          )}
+          {location.data.email && (
+            <a href={`mailto:${location.data.email}`} class="email-link">
+              ✉️ {location.data.email}
+            </a>
+          )}
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      {location.data.serviceAreas.length > 0 && (
+        <div class="service-areas">
+          <h2>Service Areas</h2>
+          <div class="areas-grid">
+            {location.data.serviceAreas.map(area => (
+              <span class="area-badge">{area}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="location-content">
+        <Content />
+      </div>
+
+      {location.data.coordinates && (
+        <div class="map-section">
+          <h2>Find Us</h2>
+          <div class="map-embed">
+            <iframe
+              src={`https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${location.data.coordinates.lat},${location.data.coordinates.lng}`}
+              width="100%"
+              height="400"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      )}
+
+      <aside class="location-cta">
+        <h3>Ready to grow your {location.data.city} business?</h3>
+        <p>Let's discuss how we can help you dominate local search and attract more customers.</p>
+        <a href="/contact" class="cta-button">Get in Touch</a>
+      </aside>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .location-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 0 3rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .location-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .location-meta a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.95;
+  }
+
+  .location-meta a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .service-areas {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
+
+  .service-areas h2 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .areas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .area-badge {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+    display: block;
+    text-align: center;
+  }
+
+  .location-content {
+    max-width: 800px;
+    margin: 3rem auto;
+    line-height: 1.8;
+  }
+
+  .location-content :global(h2) {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .location-content :global(h3) {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #555;
+  }
+
+  .location-content :global(ul) {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .location-content :global(li) {
+    margin: 0.5rem 0;
+  }
+
+  .map-section {
+    margin: 3rem 0;
+  }
+
+  .map-section h2 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .map-embed {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .location-cta {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 600px;
+  }
+
+  .location-cta h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    transition: background 0.3s;
+  }
+
+  .cta-button:hover {
+    background: #5568d3;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .location-meta {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .areas-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

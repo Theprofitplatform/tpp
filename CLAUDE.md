@@ -18,16 +18,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ### Deployment
 - `npm run deploy` - Build and deploy to Cloudflare Pages
 - `npm run deploy:auto` - Full parity check then deploy
-- `npm run pm2:start` - Start with PM2 on VPS (port 3001)
-- `npm run pm2:logs` - View PM2 logs
-- `npm run pm2:restart` - Restart PM2 process
 
 ## Architecture Overview
 
 ### Framework & Deployment
 - **Framework**: Astro 5.x with static output mode
-- **Deployment**: Dual deployment to VPS (PM2) and Cloudflare Pages
-- **Adapter**: `@astrojs/cloudflare` for Cloudflare Pages compatibility
+- **Deployment**: Cloudflare Pages
 - **Site URL**: https://theprofitplatform.com.au
 
 ### Project Structure
@@ -53,16 +49,11 @@ The codebase includes sophisticated scripts to ensure the Astro build matches pr
 3. **parity-scan.mjs** - Compares CSS/JS load order and SEO meta tags between production and local build
 4. **behavior-parity-scanner.mjs** - Advanced behavioral comparison
 
-### VPS Configuration
-- **Server**: 31.97.222.218:3001
-- **Process Manager**: PM2 with cluster mode
-- **Config**: `ecosystem.config.cjs` with production deployment settings
-- **Logs**: Stored in `./logs/` directory
-
-### Cloudflare Configuration
+### Cloudflare Pages Configuration
 - **Config**: `wrangler.toml` with production environment
-- **Pages**: Automatic deployment from `dist/` directory
+- **Deployment**: Automatic deployment from `dist/` directory via `npm run deploy`
 - **Domain**: theprofitplatform.com.au
+- **Build Output**: Static HTML/CSS/JS optimized for Cloudflare's edge network
 
 ## Development Workflow
 
@@ -94,7 +85,7 @@ When making changes:
 ### Production Deployment
 - **Cloudflare Pages**: Optimized routing configuration in `dist/_routes.json`
 - **Minified Output**: Production builds are heavily optimized
-- **Dual Deployment**: Both VPS and Cloudflare Pages ready
+- **Edge Network**: Global CDN distribution via Cloudflare
 
 ## Key Files to Understand
 
@@ -102,6 +93,6 @@ When making changes:
 - `src/components/Header.astro` - ARIA-enhanced navigation component
 - `src/components/Footer.astro` - Contact-optimized footer component
 - `scripts/parity-scan.mjs` - Production comparison logic
-- `ecosystem.config.cjs` - VPS deployment configuration
+- `wrangler.toml` - Cloudflare Pages deployment configuration
 - `dist/_headers` - Cloudflare caching and security headers
 - `dist/_routes.json` - Cloudflare Pages routing configuration
