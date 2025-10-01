@@ -1,12 +1,24 @@
 {
   "urls": [
     {
-      "url": "https://theprofitplatform.com.au",
-      "name": "Production Home"
+      "url": "https://new.theprofitplatform.com.au",
+      "name": "New Site Home"
     },
     {
-      "url": "https://test.theprofitplatform.com.au",
-      "name": "Test Environment"
+      "url": "https://new.theprofitplatform.com.au/about",
+      "name": "New Site About"
+    },
+    {
+      "url": "https://new.theprofitplatform.com.au/contact",
+      "name": "New Site Contact"
+    },
+    {
+      "url": "https://new.theprofitplatform.com.au/services",
+      "name": "New Site Services"
+    },
+    {
+      "url": "https://new.theprofitplatform.com.au/blog",
+      "name": "New Site Blog"
     }
   ]
 }
