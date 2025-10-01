@@ -100,6 +100,30 @@
               <div class="nav-pill-bg"></div>
             </a>
           </li>
+          <li class="nav-dropdown premium-dropdown" role="none">
+            <a href="/tools" class="nav-item premium-nav-item" role="menuitem" aria-expanded="false" aria-haspopup="true" aria-controls="tools-dropdown" data-page="tools">
+              <i class="fas fa-tools nav-icon" aria-hidden="true"></i>
+              <span>Tools</span>
+              <i class="fas fa-chevron-down dropdown-arrow" aria-hidden="true"></i>
+              <div class="nav-pill-bg"></div>
+            </a>
+            <div class="dropdown-menu mega-dropdown" role="menu" id="tools-dropdown" aria-label="Tools submenu">
+              <div class="mega-dropdown-content">
+                <a href="/blog" class="dropdown-item mega-item" role="menuitem" data-page="blog">
+                  <div class="mega-item-icon">
+                    <i class="fas fa-blog" aria-hidden="true"></i>
+                  </div>
+                  <div class="mega-item-content">
+                    <strong>Blog</strong>
+                    <span>Marketing tips & insights</span>
+                  </div>
+                  <div class="mega-item-arrow">
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
           <li role="none">
             <a href="/contact" class="nav-item premium-nav-item" role="menuitem" data-page="contact">
               <i class="fas fa-envelope nav-icon" aria-hidden="true"></i>
@@ -194,6 +218,20 @@
         </div>
         <span>Pricing</span>
       </a>
+      <a href="/tools" class="mobile-nav-link" role="listitem" data-page="tools">
+        <div class="mobile-nav-icon">
+          <i class="fas fa-tools" aria-hidden="true"></i>
+        </div>
+        <span>Tools</span>
+      </a>
+      <div class="mobile-nav-submenu">
+        <a href="/blog" class="mobile-nav-link mobile-sub-item" role="listitem" data-page="blog">
+          <div class="mobile-nav-icon">
+            <i class="fas fa-blog" aria-hidden="true"></i>
+          </div>
+          <span>Blog</span>
+        </a>
+      </div>
       <a href="/contact" class="mobile-nav-link" role="listitem" data-page="contact">
         <div class="mobile-nav-icon">
           <i class="fas fa-envelope" aria-hidden="true"></i>
@@ -263,6 +301,77 @@ document.addEventListener('DOMContentLoaded', function() {
       link.classList.add('active');
     } else {
       link.classList.remove('active');
+    }
+  });
+
+  // Dropdown functionality
+  const dropdowns = document.querySelectorAll('.nav-dropdown');
+  let activeDropdown = null;
+
+  dropdowns.forEach(dropdown => {
+    const trigger = dropdown.querySelector('.nav-item');
+    const menu = dropdown.querySelector('.dropdown-menu, .mega-dropdown');
+    let closeTimeout;
+
+    if (!trigger || !menu) return;
+
+    // Click handler for mobile/tablets
+    trigger.addEventListener('click', (e) => {
+      if (window.innerWidth <= 968) {
+        e.preventDefault();
+        toggleDropdown(dropdown);
+      }
+    });
+
+    // Hover handlers for desktop
+    if (window.innerWidth > 968) {
+      dropdown.addEventListener('mouseenter', () => {
+        clearTimeout(closeTimeout);
+        openDropdown(dropdown);
+      });
+
+      dropdown.addEventListener('mouseleave', () => {
+        closeTimeout = setTimeout(() => {
+          closeDropdown(dropdown);
+        }, 300);
+      });
+    }
+  });
+
+  function toggleDropdown(dropdown) {
+    if (activeDropdown === dropdown) {
+      closeDropdown(dropdown);
+    } else {
+      if (activeDropdown) closeDropdown(activeDropdown);
+      openDropdown(dropdown);
+    }
+  }
+
+  function openDropdown(dropdown) {
+    const trigger = dropdown.querySelector('.nav-item');
+    dropdown.classList.add('active');
+    if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    activeDropdown = dropdown;
+  }
+
+  function closeDropdown(dropdown) {
+    const trigger = dropdown.querySelector('.nav-item');
+    dropdown.classList.remove('active');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    if (activeDropdown === dropdown) activeDropdown = null;
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-dropdown') && activeDropdown) {
+      closeDropdown(activeDropdown);
+    }
+  });
+
+  // Close dropdown on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && activeDropdown) {
+      closeDropdown(activeDropdown);
     }
   });
 });

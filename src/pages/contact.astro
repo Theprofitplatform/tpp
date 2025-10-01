@@ -3,140 +3,63 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <BaseLayout title="Contact The Profit Platform — Sydney Digital Marketing Experts">
   <!-- Contact Page Specific Styles -->
-  <link slot="head" rel="stylesheet" href="/css/contact-page-styles.css">
+  <link slot="head" rel="stylesheet" href="/css/contact-page-styles.css?v=2">
+
   <!-- Enhanced SEO Meta Tags -->
   <Fragment slot="head">
-<!-- Primary Meta Tags -->
-<meta name="title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
-<meta name="description" content="Contact The Profit Platform for digital marketing, web design, and SEO services in Sydney. Call 0487 286 451 or email avi@theprofitplatform.com.au today.">
-<meta name="keywords" content="contact, digital marketing sydney, seo sydney, web design sydney, google ads sydney">
-<meta name="author" content="The Profit Platform">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<meta name="language" content="English">
-<meta name="geo.region" content="AU-NSW">
-<meta name="geo.placename" content="Sydney">
-<meta name="geo.position" content="-33.8688;151.2093">
-<meta name="ICBM" content="-33.8688, 151.2093">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
+    <meta name="description" content="Contact The Profit Platform for digital marketing, web design, and SEO services in Sydney. Call 0487 286 451 or email avi@theprofitplatform.com.au today.">
+    <meta name="keywords" content="contact, digital marketing sydney, seo sydney, web design sydney, google ads sydney">
+    <meta name="author" content="The Profit Platform">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="AU-NSW">
+    <meta name="geo.placename" content="Sydney">
+    <meta name="geo.position" content="-33.8688;151.2093">
+    <meta name="ICBM" content="-33.8688, 151.2093">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://theprofitplatform.com.au/contact">
-<meta property="og:title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
-<meta property="og:description" content="Get in touch with Sydney's digital marketing experts. Free consultation available. Call 0487 286 451 or email us today.">
-<meta property="og:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Contact The Profit Platform - Sydney Digital Marketing">
-<meta property="og:site_name" content="The Profit Platform">
-<meta property="og:locale" content="en_AU">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theprofitplatform.com.au/contact">
+    <meta property="og:title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
+    <meta property="og:description" content="Get in touch with Sydney's digital marketing experts. Free consultation available. Call 0487 286 451 or email us today.">
+    <meta property="og:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Contact The Profit Platform - Sydney Digital Marketing">
+    <meta property="og:site_name" content="The Profit Platform">
+    <meta property="og:locale" content="en_AU">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://theprofitplatform.com.au/contact">
-<meta property="twitter:title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
-<meta property="twitter:description" content="Get in touch with Sydney's digital marketing experts. Free consultation available. Call 0487 286 451 or email us today.">
-<meta property="twitter:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
-<meta property="twitter:image:alt" content="Contact The Profit Platform - Sydney Digital Marketing">
-<meta property="twitter:creator" content="@profitplatform">
-<meta property="twitter:site" content="@profitplatform">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://theprofitplatform.com.au/contact">
+    <meta property="twitter:title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
+    <meta property="twitter:description" content="Get in touch with Sydney's digital marketing experts. Free consultation available. Call 0487 286 451 or email us today.">
+    <meta property="twitter:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
+    <meta property="twitter:image:alt" content="Contact The Profit Platform - Sydney Digital Marketing">
+    <meta property="twitter:creator" content="@profitplatform">
+    <meta property="twitter:site" content="@profitplatform">
 
-<!-- Additional Meta Tags -->
-<meta name="theme-color" content="#4F46E5">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="The Profit Platform">
-<meta name="format-detection" content="telephone=yes">
-<meta name="msapplication-tap-highlight" content="no">
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#4F46E5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="The Profit Platform">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="msapplication-tap-highlight" content="no">
 
-<!-- Canonical URL -->
-<link rel="canonical" href="https://theprofitplatform.com.au/contact">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://theprofitplatform.com.au/contact">
 
-<!-- Alternate Language -->
-<link rel="alternate" hreflang="en-au" href="https://theprofitplatform.com.au/contact">
-<link rel="alternate" hreflang="x-default" href="https://theprofitplatform.com.au/contact">
-
-<!-- Favicons -->
-<link rel="icon" type="image/x-icon" href="https://theprofitplatform.com.au/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://theprofitplatform.com.au/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://theprofitplatform.com.au/favicon-32x32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://theprofitplatform.com.au/apple-touch-icon.png">
-<link rel="manifest" href="/assets/manifest.json">
-
-<!-- Performance and Resource Hints -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="">
-<link rel="dns-prefetch" href="https://www.google-analytics.com">
-<link rel="dns-prefetch" href="https://www.googletagmanager.com">
-<link rel="dns-prefetch" href="https://www.google.com">
-
-<!-- Preload Critical Resources -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/css/critical.min.css" as="style">
-<link rel="preload" href="/css/style.min.css" as="style">
-<link rel="preload" href="/js/vendor.js" as="script">
-<link rel="preload" href="/js/plugins.js" as="script">
-<link rel="preload" href="/js/main.js" as="script">
-<link rel="preload" href="/images/logo.png" as="image" fetchpriority="high">
-
-<!-- Fallback for preload -->
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
-
-<!-- Critical CSS inline for faster rendering -->
-<link rel="stylesheet" href="/css/critical.min.css">
-<link rel="stylesheet" href="/css/loading-states.css">
-
-<!-- External Resources - Load asynchronously -->
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
-<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="all">
-<noscript>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-</noscript>
-
-<!-- Main Stylesheet -->
-<link rel="stylesheet" href="/css/style.min.css" media="all">
-<!-- Consolidated Navigation & Layout Styles -->
-<link rel="stylesheet" href="/css/modern-theme-variables.css" media="all">
-<link rel="stylesheet" href="/css/navigation.css" media="all">
-<link rel="stylesheet" href="/css/skip-links-fix.css" media="all">
-<link rel="stylesheet" href="/css/main-content-spacing.css" media="all">
-<link rel="stylesheet" href="/css/modern-theme-components.css" media="all">
-<link rel="stylesheet" href="/css/dropdown-fix.css" media="all">
-<link rel="stylesheet" href="/css/layout.css" media="all">
-<link rel="stylesheet" href="/css/navigation-glass-enhanced.css" media="all">
-<link rel="stylesheet" href="/css/hero-content-spacing.css" media="all">
-<link rel="stylesheet" href="/css/hero-modern.css" media="all">
-<link rel="stylesheet" href="/css/trust-signals-enhanced.css" media="all">
-<link rel="stylesheet" href="/css/trust-signals-homepage-theme.css" media="all">
-<!-- Bundled CSS for Performance -->
-<link rel="stylesheet" href="/css/bundled.min.css" media="all">
-
-<!-- Analytics -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-FB947JWCFT');
-</script>
-
-<!-- Hotjar Tracking Code -->
-<script>
-(function(h,o,t,j,a,r){
-h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-h._hjSettings={hjid:6526316,hjsv:6};
-a=o.getElementsByTagName('head')[0];
-r=o.createElement('script');r.async=1;
-r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-a.appendChild(r);
-})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    <!-- Alternate Language -->
+    <link rel="alternate" hreflang="en-au" href="https://theprofitplatform.com.au/contact">
+    <link rel="alternate" hreflang="x-default" href="https://theprofitplatform.com.au/contact">
 
     <!-- Enhanced JSON-LD Schema - ContactPage -->
     <script type="application/ld+json">
@@ -198,323 +121,319 @@ a.appendChild(r);
 
   <!-- Main Content -->
   <main id="main-content" role="main">
-    <!-- Breadcrumbs -->
-    <section class="breadcrumb-section">
-      <div class="container">
-        <nav aria-label="Breadcrumb" class="breadcrumb-nav">
-          <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
-            <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <a href="/" itemprop="item">
-                <span itemprop="name">Home</span>
-              </a>
-              <meta itemprop="position" content="1" />
-            </li>
-            <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-              <span itemprop="name">Contact</span>
-              <meta itemprop="position" content="2" />
-            </li>
-          </ol>
-        </nav>
+    <!-- Premium Contact Hero Section -->
+    <section class="contact-hero premium-hero" role="banner" aria-labelledby="contactHeroHeading" style="padding: 150px 0 80px; background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%); position: relative; overflow: hidden;">
+      <!-- Hero Background Elements -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.1;">
+        <div style="position: absolute; top: 20%; left: 10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
+        <div style="position: absolute; top: 60%; right: 15%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%); border-radius: 50%; animation: float 4s ease-in-out infinite reverse;"></div>
+        <div style="position: absolute; bottom: 20%; left: 20%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%); border-radius: 50%; animation: float 5s ease-in-out infinite;"></div>
       </div>
-    </section>
 
-    <!-- Enhanced Contact Hero Section -->
-    <section class="contact-hero section animate-on-scroll">
-      <div class="container">
-        <div class="contact-hero-content">
-          <h1 class="contact-hero-title">Get in Touch</h1>
-          <p class="contact-hero-subtitle">Have questions about digital marketing? Ready to grow your Sydney business? We'd love to hear from you — we respond within 2 hours during business hours.</p>
-          <div class="contact-hero-highlights">
-            <div class="hero-highlight">
-              <i class="fas fa-clock" aria-hidden="true"></i>
-              <span>2-hour response time</span>
-            </div>
-            <div class="hero-highlight">
-              <i class="fas fa-gift" aria-hidden="true"></i>
-              <span>Free consultation</span>
-            </div>
-            <div class="hero-highlight">
-              <i class="fas fa-handshake" aria-hidden="true"></i>
-              <span>No obligation</span>
-            </div>
-            <div class="hero-highlight">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-              <span>Sydney local team</span>
-            </div>
+      <div class="container" style="position: relative; z-index: 2;">
+        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+          <!-- Response Time Guarantee Badge -->
+          <div style="display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; padding: 8px 20px; margin-bottom: 24px; font-size: 14px; font-weight: 600; color: white;">
+            <i class="fas fa-clock" style="margin-right: 8px;"></i>
+            <span style="color: #FFD700;">24-Hour Response Guarantee</span> • Free Marketing Audit Worth $997
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Enhanced Contact Form Section -->
-    <section class="contact section animate-on-scroll" id="contact">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Start Your Growth Journey</h2>
-          <p class="section-subtitle">Fill out the form below and we'll get back to you with a custom growth strategy within 24 hours.</p>
-        </div>
+          <h1 id="contactHeroHeading" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 24px; color: white; letter-spacing: -0.02em; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            Let's Grow Your Business Together
+          </h1>
+          <p style="font-size: 1.3rem; line-height: 1.6; color: rgba(255,255,255,0.95); margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400;">
+            Ready to dominate your market? Get personalized strategies, expert guidance, and guaranteed results. Sydney's #1 digital marketing specialist is just one click away.
+          </p>
 
-        <div class="contact-container">
-          <!-- Enhanced Contact Form -->
-          <div class="contact-form-wrapper">
-            <!-- Success Message (hidden by default) -->
-            <div id="form-success" class="form-message success-message" role="alert" aria-live="polite" style="display: none;">
-              <div class="message-icon">
-                <i class="fas fa-check-circle" aria-hidden="true"></i>
-              </div>
-              <div class="message-content">
-                <h3>Thank you for reaching out!</h3>
-                <p>We've received your message and will respond within 2 hours during business hours (Mon-Fri 9am-6pm, Sat 10am-2pm).</p>
-                <p>For urgent inquiries, call us directly at <a href="tel:+61487286451">0487 286 451</a></p>
-              </div>
-            </div>
-
-            <!-- Error Message (hidden by default) -->
-            <div id="form-error" class="form-message error-message" role="alert" aria-live="polite" style="display: none;">
-              <div class="message-icon">
-                <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
-              </div>
-              <div class="message-content">
-                <h3>Oops! Something went wrong</h3>
-                <p id="error-message-text">Please check your information and try again, or contact us directly at <a href="mailto:avi@theprofitplatform.com.au">avi@theprofitplatform.com.au</a></p>
-              </div>
-            </div>
-
-            <!-- Contact Form -->
-            <form id="contactForm" class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="name" class="form-label">
-                    Your Name <span class="required" aria-label="required">*</span>
-                  </label>
-                  <div class="input-wrapper">
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      class="form-input"
-                      required
-                      aria-required="true"
-                      aria-describedby="name-error"
-                      placeholder="John Smith"
-                      autocomplete="given-name"
-                      minlength="2"
-                      maxlength="50"
-                    >
-                    <i class="input-icon fas fa-user" aria-hidden="true"></i>
-                  </div>
-                  <div id="name-error" class="field-error" role="alert" aria-live="polite"></div>
-                </div>
-                <div class="form-group">
-                  <label for="business" class="form-label">Business Name</label>
-                  <div class="input-wrapper">
-                    <input
-                      type="text"
-                      id="business"
-                      name="business"
-                      class="form-input"
-                      placeholder="Your Business"
-                      autocomplete="organization"
-                    >
-                    <i class="input-icon fas fa-building" aria-hidden="true"></i>
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="email" class="form-label">
-                    Email Address <span class="required" aria-label="required">*</span>
-                  </label>
-                  <div class="input-wrapper">
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      class="form-input"
-                      required
-                      aria-required="true"
-                      aria-describedby="email-error"
-                      placeholder="john@business.com.au"
-                      autocomplete="email"
-                    >
-                    <i class="input-icon fas fa-envelope" aria-hidden="true"></i>
-                  </div>
-                  <div id="email-error" class="field-error" role="alert" aria-live="polite"></div>
-                </div>
-                <div class="form-group">
-                  <label for="phone" class="form-label">
-                    Phone Number <span class="required" aria-label="required">*</span>
-                  </label>
-                  <div class="input-wrapper">
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      class="form-input"
-                      required
-                      aria-required="true"
-                      aria-describedby="phone-error"
-                      placeholder="0400 000 000"
-                      autocomplete="tel"
-                    >
-                    <i class="input-icon fas fa-phone" aria-hidden="true"></i>
-                  </div>
-                  <div id="phone-error" class="field-error" role="alert" aria-live="polite"></div>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="service" class="form-label">Service Interested In</label>
-                <div class="input-wrapper">
-                  <select id="service" name="service" class="form-select">
-                    <option value="">Select a service</option>
-                    <option value="seo">Local SEO & Search Marketing</option>
-                    <option value="google-ads">Google Ads Management</option>
-                    <option value="web-design">Website Design & Development</option>
-                    <option value="social-media">Social Media Marketing</option>
-                    <option value="full-service">Full Service Digital Marketing</option>
-                    <option value="consultation">Free Marketing Consultation</option>
-                  </select>
-                  <i class="input-icon fas fa-briefcase" aria-hidden="true"></i>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="message" class="form-label">Tell us about your goals</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  class="form-textarea"
-                  rows="5"
-                  placeholder="What are you hoping to achieve with digital marketing? Any specific challenges you're facing?"
-                ></textarea>
-                <div class="textarea-counter">
-                  <span id="message-counter">0</span> / 1000 characters
-                </div>
-              </div>
-
-              <!-- Enhanced Honeypot for spam prevention -->
-              <div class="honeypot" aria-hidden="true">
-                <label for="website">Website (leave blank)</label>
-                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn">
-                <span class="btn-text">Get My Free Strategy Session</span>
-                <span class="btn-loading" style="display: none;">
-                  <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
-                  Sending...
-                </span>
-                <i class="fas fa-arrow-right btn-icon" aria-hidden="true"></i>
-              </button>
-
-              <p class="form-disclaimer">
-                <i class="fas fa-lock" aria-hidden="true"></i>
-                Your information is 100% secure and will never be shared. We respect your privacy.
-              </p>
-            </form>
+          <!-- Premium Quick Contact Options -->
+          <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
+            <a href="tel:+61487286451" class="hero-cta-btn" style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.15); backdrop-filter: blur(15px); color: white; padding: 18px 32px; border-radius: 14px; text-decoration: none; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.4s; position: relative; overflow: hidden;">
+              <i class="fas fa-phone-alt" style="font-size: 18px;"></i>
+              <span>Call Now: 0487 286 451</span>
+            </a>
+            <a href="mailto:avi@theprofitplatform.com.au" class="hero-cta-btn" style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.15); backdrop-filter: blur(15px); color: white; padding: 18px 32px; border-radius: 14px; text-decoration: none; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.4s; position: relative; overflow: hidden;">
+              <i class="fas fa-envelope-open" style="font-size: 18px;"></i>
+              <span>Email Strategy Session</span>
+            </a>
+            <a href="https://wa.me/61487286451?text=Hi%20Avi%2C%20I%27d%20like%20to%20book%20my%20free%20marketing%20audit%20for%20my%20Sydney%20business.%20When%20can%20we%20chat%3F" target="_blank" rel="noopener" class="hero-cta-btn" style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 18px 32px; border-radius: 14px; text-decoration: none; font-weight: 600; transition: all 0.4s; box-shadow: 0 8px 25px rgba(37,211,102,0.4); position: relative; overflow: hidden;">
+              <i class="fab fa-whatsapp" style="font-size: 20px;"></i>
+              <span>WhatsApp Chat</span>
+            </a>
           </div>
-          <!-- Contact Info -->
-          <div class="contact-info-wrapper" data-astro-cid-joh4gybl>
-            <div class="contact-info-card" data-astro-cid-joh4gybl>
-              <h3 data-astro-cid-joh4gybl>Get in Touch</h3>
-              <div class="contact-item" data-astro-cid-joh4gybl>
-                <i class="fas fa-phone" data-astro-cid-joh4gybl></i>
-                <div data-astro-cid-joh4gybl>
-                  <strong data-astro-cid-joh4gybl>Call Avi Directly:</strong>
-                  <a href="tel:+61487286451" data-astro-cid-joh4gybl>
-                    0487 286 451
-                  </a>
-                </div>
-              </div>
-              <div class="contact-item" data-astro-cid-joh4gybl>
-                <i class="fas fa-envelope" data-astro-cid-joh4gybl></i>
-                <div data-astro-cid-joh4gybl>
-                  <strong data-astro-cid-joh4gybl>Email Us:</strong>
-                  <a href="mailto:avi@theprofitplatform.com.au" data-astro-cid-joh4gybl>
-                    avi@theprofitplatform.com.au
-                  </a>
-                </div>
-              </div>
-              <div class="contact-item" data-astro-cid-joh4gybl>
-                <i class="fas fa-map-marker-alt" data-astro-cid-joh4gybl></i>
-                <div data-astro-cid-joh4gybl>
-                  <strong data-astro-cid-joh4gybl>Service Area:</strong>
-                  <span data-astro-cid-joh4gybl>Sydney, NSW</span>
-                </div>
-              </div>
-              <div class="contact-item" data-astro-cid-joh4gybl>
-                <i class="fas fa-clock" data-astro-cid-joh4gybl></i>
-                <div data-astro-cid-joh4gybl>
-                  <strong data-astro-cid-joh4gybl>Business Hours:</strong>
-                  <span data-astro-cid-joh4gybl>Mon-Fri 9am-6pm, Sat 10am-2pm</span>
-                </div>
-              </div>
-              <div class="response-time" data-astro-cid-joh4gybl>
-                <i class="fas fa-bolt" data-astro-cid-joh4gybl></i>
-                <strong data-astro-cid-joh4gybl>Average Response Time:</strong> 15 minutes during business hours
-              </div>
-              <div class="social-links" data-astro-cid-joh4gybl>
-                <a href="https://www.facebook.com/profile.php?id=61574707582255" target="_blank" rel="noopener noreferrer" aria-label="Facebook" data-astro-cid-joh4gybl>
-                  <i class="fab fa-facebook" data-astro-cid-joh4gybl></i>
-                </a>
-                <a href="https://linkedin.com/company/theprofitplatform" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-astro-cid-joh4gybl>
-                  <i class="fab fa-linkedin" data-astro-cid-joh4gybl></i>
-                </a>
-                <a href="https://www.instagram.com/theprofitplatformau" target="_blank" rel="noopener noreferrer" aria-label="Instagram" data-astro-cid-joh4gybl>
-                  <i class="fab fa-instagram" data-astro-cid-joh4gybl></i>
-                </a>
-              </div>
+
+          <!-- Trust Indicators -->
+          <div style="display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap; padding: 24px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 16px; border: 1px solid rgba(255,255,255,0.2);">
+            <div style="text-align: center;">
+              <div style="font-size: 1.8rem; font-weight: 800; color: #FFD700; margin-bottom: 4px;">⭐ 4.9/5</div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.9);">Google Reviews</div>
             </div>
-            <div class="contact-benefits" data-astro-cid-joh4gybl>
-              <h4 data-astro-cid-joh4gybl>What Happens Next?</h4>
-              <ul data-astro-cid-joh4gybl>
-                <li data-astro-cid-joh4gybl><i class="fas fa-check" data-astro-cid-joh4gybl></i> Quick 15-minute discovery call</li>
-                <li data-astro-cid-joh4gybl><i class="fas fa-check" data-astro-cid-joh4gybl></i> Free audit of your current marketing</li>
-                <li data-astro-cid-joh4gybl><i class="fas fa-check" data-astro-cid-joh4gybl></i> Custom growth strategy proposal</li>
-                <li data-astro-cid-joh4gybl><i class="fas fa-check" data-astro-cid-joh4gybl></i> No obligation to proceed</li>
-              </ul>
+            <div style="width: 1px; height: 30px; background: rgba(255,255,255,0.3);"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 1.8rem; font-weight: 800; color: #FFD700; margin-bottom: 4px;">24hr</div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.9);">Response Time</div>
+            </div>
+            <div style="width: 1px; height: 30px; background: rgba(255,255,255,0.3);"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 1.8rem; font-weight: 800; color: #FFD700; margin-bottom: 4px;">15+</div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.9);">Sydney Businesses</div>
+            </div>
+            <div style="width: 1px; height: 30px; background: rgba(255,255,255,0.3);"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 1.8rem; font-weight: 800; color: #FFD700; margin-bottom: 4px;">$997</div>
+              <div style="font-size: 14px; color: rgba(255,255,255,0.9);">Free Audit Value</div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Direct Contact Section -->
-    <section class="direct-contact section">
+    <!-- Contact Form and Sidebar Section -->
+    <section class="contact-section" style="padding: 80px 0;">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Reach Us Directly</h2>
-          <p class="section-subtitle">Prefer to reach out directly? Here are all the ways to get in touch with our Sydney team.</p>
+        <div class="contact-grid">
+          <!-- Main Contact Form -->
+          <div class="contact-form-container">
+            <div class="success-message" id="successMessage" style="display: none;">
+              <i class="fas fa-check-circle"></i>
+              Thank you! Your message has been sent successfully. I'll get back to you within 24 hours.
+            </div>
+
+            <ContactForm />
+          </div>
+
+          <!-- Contact Information Sidebar -->
+          <div class="contact-sidebar">
+            <h3 style="font-size: 1.5rem; margin-bottom: 32px; color: var(--pp-gray-800);">
+              <i class="fas fa-handshake" style="color: var(--pp-primary); margin-right: 8px;"></i>
+              Let's Connect
+            </h3>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 4px; color: var(--pp-gray-800);">Call Direct</h4>
+                <a href="tel:+61487286451" style="color: var(--pp-primary); text-decoration: none; font-weight: 600; font-size: 18px;">
+                  0487 286 451
+                </a>
+                <p style="color: var(--pp-gray-600); font-size: 14px; margin: 4px 0 0 0;">
+                  Available 9 AM - 6 PM (AEDT)
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 4px; color: var(--pp-gray-800);">Email</h4>
+                <a href="mailto:avi@theprofitplatform.com.au" style="color: var(--pp-primary); text-decoration: none;">
+                  avi@theprofitplatform.com.au
+                </a>
+                <p style="color: var(--pp-gray-600); font-size: 14px; margin: 4px 0 0 0;">
+                  I respond within 24 hours
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 4px; color: var(--pp-gray-800);">Location</h4>
+                <p style="color: var(--pp-gray-600); line-height: 1.4; margin: 0;">
+                  Sydney, NSW<br>
+                  Serving all of Greater Sydney<br>
+                  <span style="font-size: 14px;">Bondi • Parramatta • Penrith • CBD</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 12px; color: var(--pp-gray-800);">Business Hours</h4>
+                <div class="business-hours-grid">
+                  <span class="day">Monday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Tuesday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Wednesday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Thursday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Friday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Saturday</span><span class="hours closed">By Appointment</span>
+                  <span class="day">Sunday</span><span class="hours closed">Closed</span>
+                </div>
+                <p style="color: var(--pp-gray-500); font-size: 14px; margin: 12px 0 0 0;">
+                  <i class="fas fa-info-circle"></i>
+                  All times in Australian Eastern Time
+                </p>
+              </div>
+            </div>
+
+            <!-- Interactive Office Map -->
+            <div class="map-container premium-map" style="position: relative;">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106441.99929454103!2d151.074982375!3d-33.868820225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae401e8b983f%3A0x5017d681632a850!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2s!4v1692180000000!5m2!1sen!2s" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="The Profit Platform Service Areas - Sydney, NSW" aria-label="Interactive map showing The Profit Platform service areas across Sydney" style="width: 100%; height: 350px; border: none; border-radius: 16px;"></iframe>
+            </div>
+          </div>
         </div>
-        <div class="direct-contact-grid">
-          <div class="direct-contact-card">
-            <div class="contact-card-icon">
-              <i class="fas fa-phone-alt"></i>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="padding: 80px 0; background: var(--pp-gray-50);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; color: var(--pp-gray-800);">
+            Frequently Asked Questions
+          </h2>
+          <p style="font-size: 1.125rem; color: var(--pp-gray-600); max-width: 600px; margin: 0 auto;">
+            Got questions? I've got answers. Here are the most common questions Sydney business owners ask.
+          </p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>How quickly will I see results from your marketing services?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
             </div>
-            <h3>Call Us</h3>
-            <p>Speak directly with Avi about your digital marketing needs</p>
-            <a href="tel:+61487286451" class="contact-card-link">0487 286 451</a>
-            <span class="contact-availability">Available Mon-Fri 9am-6pm, Sat 10am-2pm</span>
+            <div class="faq-answer">
+              <p>Most clients start seeing increased website traffic within 30 days and new leads within 60 days. SEO is a longer-term strategy that builds momentum over 3-6 months, while Google Ads can generate leads within days of launch. I provide monthly reports so you can track your progress every step of the way.</p>
+            </div>
           </div>
-          <div class="direct-contact-card">
-            <div class="contact-card-icon">
-              <i class="fas fa-envelope"></i>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>Do you work with businesses outside of Sydney?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
             </div>
-            <h3>Email Us</h3>
-            <p>Send us a detailed message about your project requirements</p>
-            <a href="mailto:avi@theprofitplatform.com.au" class="contact-card-link">avi@theprofitplatform.com.au</a>
-            <span class="contact-availability">Response within 2 hours during business hours</span>
+            <div class="faq-answer">
+              <p>While I'm based in Sydney and specialize in local Sydney businesses, I work with clients across Australia. My local SEO expertise is particularly valuable for Sydney businesses looking to dominate their local market, but my digital marketing strategies work anywhere.</p>
+            </div>
           </div>
-          <div class="direct-contact-card">
-            <div class="contact-card-icon">
-              <i class="fas fa-map-marker-alt"></i>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>What's included in the free marketing audit?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
             </div>
-            <h3>Service Area</h3>
-            <p>We serve businesses across Greater Sydney with both remote and in-person consultations</p>
-            <span class="contact-card-link">Sydney, NSW, Australia</span>
-            <span class="contact-availability">All suburbs including CBD, North Shore, Eastern Suburbs</span>
+            <div class="faq-answer">
+              <p>Your comprehensive audit includes: website performance analysis, SEO audit, competitor research, Google My Business optimization review, social media assessment, and a custom growth strategy with actionable recommendations. This usually costs $997 but it's completely free for new clients.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>Do you require long-term contracts?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
+            </div>
+            <div class="faq-answer">
+              <p>No lock-in contracts, ever. I believe in earning your business every month through results, not contracts. You can pause or cancel services with 30 days notice. This gives you complete flexibility and peace of mind.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>How much should I budget for digital marketing?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Investment varies based on your goals and business size. Most Sydney small businesses see great results with $1,500-$3,500/month. This includes my management fees plus advertising spend. During our consultation, I'll recommend a budget that aligns with your goals and expected ROI.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>What makes you different from other marketing agencies?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
+            </div>
+            <div class="faq-answer">
+              <p>I'm a solo expert, not a big agency. You get personal attention, direct communication, and strategies tailored to your specific business. I focus on Sydney businesses exclusively, so I understand the local market intimately. Plus, no contracts means I have to deliver results to keep your business.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" style="padding: 80px 0;">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; color: var(--pp-gray-800);">
+            What Sydney Business Owners Say
+          </h2>
+          <p style="font-size: 1.125rem; color: var(--pp-gray-600); max-width: 600px; margin: 0 auto;">
+            Real results from real Sydney businesses. See why local business owners choose The Profit Platform.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              "Avi transformed our online presence completely. Within 3 months, our Google rankings improved dramatically and we're getting 3x more enquiries. His local SEO knowledge for Sydney businesses is exceptional."
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">SM</div>
+              <div class="author-info">
+                <h4>Sarah Mitchell</h4>
+                <p>Bondi Dental Practice</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              "Finally found a marketing expert who understands small business. No corporate BS, just real strategies that work. Our leads have doubled and the ROI is incredible."
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">MR</div>
+              <div class="author-info">
+                <h4>Mike Rodriguez</h4>
+                <p>Parramatta Plumbing Services</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              "The personal service is amazing. Avi actually answers the phone and explains everything in plain English. Our Google Ads are now profitable for the first time ever."
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">LT</div>
+              <div class="author-info">
+                <h4>Lisa Thompson</h4>
+                <p>Penrith Fitness Studio</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Signals -->
+        <div style="text-align: center; margin-top: 60px; padding: 40px; background: white; border-radius: 20px; box-shadow: var(--pp-shadow);">
+          <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+            <div style="text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 800; color: var(--pp-primary); margin-bottom: 4px;">4.9★</div>
+              <div style="color: var(--pp-gray-600); font-size: 14px;">Google Rating</div>
+            </div>
+            <div style="width: 1px; height: 40px; background: var(--pp-gray-200);"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 800; color: var(--pp-primary); margin-bottom: 4px;">15+</div>
+              <div style="color: var(--pp-gray-600); font-size: 14px;">Sydney Businesses</div>
+            </div>
+            <div style="width: 1px; height: 40px; background: var(--pp-gray-200);"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 800; color: var(--pp-primary); margin-bottom: 4px;">24hr</div>
+              <div style="color: var(--pp-gray-600); font-size: 14px;">Response Time</div>
+            </div>
+            <div style="width: 1px; height: 40px; background: var(--pp-gray-200);"></div>
+            <div style="text-align: center;">
+              <div style="font-size: 2.5rem; font-weight: 800; color: var(--pp-primary); margin-bottom: 4px;">No</div>
+              <div style="color: var(--pp-gray-600); font-size: 14px;">Lock-in Contracts</div>
+            </div>
           </div>
         </div>
       </div>
@@ -523,825 +442,26 @@ a.appendChild(r);
 
   <Footer />
 
-<!-- External Scripts in specific order -->
-<script is:inline src="/js/vendor.js"></script>
-<script is:inline src="/js/plugins.js"></script>
-<script is:inline src="/js/main.js"></script>
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/61487286451?text=Hi%20Avi,%20I'm%20interested%20in%20learning%20more%20about%20your%20digital%20marketing%20services" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
-<!-- Enhanced Contact Form Scripts -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('contactForm');
-  const submitBtn = document.getElementById('submit-btn');
-  const btnText = submitBtn.querySelector('.btn-text');
-  const btnLoading = submitBtn.querySelector('.btn-loading');
-  const successMessage = document.getElementById('form-success');
-  const errorMessage = document.getElementById('form-error');
-  const messageTextarea = document.getElementById('message');
-  const messageCounter = document.getElementById('message-counter');
+  <script is:inline>
+    // FAQ toggle functionality
+    function toggleFAQ(element) {
+      const faqItem = element.parentElement;
+      const isActive = faqItem.classList.contains('active');
 
-  // Form validation patterns with improved Australian phone validation
-  const validators = {
-    name: {
-      pattern: /^[a-zA-Z\s'-]{2,50}$/,
-      message: 'Please enter a valid name (2-50 characters, letters only)'
-    },
-    email: {
-      pattern: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-      message: 'Please enter a valid email address'
-    },
-    phone: {
-      pattern: /^(\+?61|0)[2-9]\d{8}$/,
-      message: 'Please enter a valid Australian phone number (e.g., 0412 345 678)'
-    }
-  };
-
-  // Character counter for textarea
-  if (messageTextarea && messageCounter) {
-    messageTextarea.addEventListener('input', function() {
-      const count = this.value.length;
-      messageCounter.textContent = count;
-
-      if (count > 1000) {
-        messageCounter.style.color = '#ef4444';
-        this.value = this.value.substring(0, 1000);
-        messageCounter.textContent = '1000';
-      } else if (count > 900) {
-        messageCounter.style.color = '#f59e0b';
-      } else {
-        messageCounter.style.color = '#6b7280';
-      }
-    });
-  }
-
-  // Format phone number as user types
-  const phoneInput = document.getElementById('phone');
-  if (phoneInput) {
-    phoneInput.addEventListener('input', function(e) {
-      let value = this.value.replace(/\D/g, '');
-
-      // Handle Australian format
-      if (value.startsWith('61')) {
-        value = value.substring(2);
-      }
-
-      if (value.length > 0 && !value.startsWith('0')) {
-        value = '0' + value;
-      }
-
-      // Format: 0400 000 000
-      if (value.length > 10) {
-        value = value.substring(0, 10);
-      }
-
-      if (value.length > 4) {
-        value = value.substring(0, 4) + ' ' + value.substring(4);
-      }
-      if (value.length > 8) {
-        value = value.substring(0, 8) + ' ' + value.substring(8);
-      }
-
-      this.value = value;
-    });
-  }
-
-  // Enhanced field validation with animations
-  function validateField(field) {
-    const value = field.value.trim();
-    const fieldName = field.name;
-    const errorDiv = document.getElementById(fieldName + '-error');
-    const inputWrapper = field.closest('.input-wrapper');
-
-    let isValid = true;
-    let errorText = '';
-
-    // Check if required field is empty
-    if (field.hasAttribute('required') && !value) {
-      isValid = false;
-      errorText = `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`;
-    }
-    // Validate against pattern
-    else if (value && validators[fieldName]) {
-      const validator = validators[fieldName];
-      // Remove spaces for phone validation
-      const testValue = fieldName === 'phone' ? value.replace(/\s/g, '') : value;
-
-      if (!validator.pattern.test(testValue)) {
-        isValid = false;
-        errorText = validator.message;
-      }
-    }
-
-    // Update field styling with smooth transitions
-    if (isValid && value) {
-      field.classList.remove('error');
-      field.classList.add('valid');
-      if (inputWrapper) {
-        inputWrapper.classList.add('valid');
-        inputWrapper.classList.remove('error');
-      }
-      if (errorDiv) errorDiv.textContent = '';
-    } else if (!isValid) {
-      field.classList.remove('valid');
-      field.classList.add('error');
-      if (inputWrapper) {
-        inputWrapper.classList.add('error');
-        inputWrapper.classList.remove('valid');
-      }
-      if (errorDiv) {
-        errorDiv.textContent = errorText;
-        // Shake animation
-        errorDiv.style.animation = 'shake 0.3s';
-        setTimeout(() => {
-          errorDiv.style.animation = '';
-        }, 300);
-      }
-    } else {
-      field.classList.remove('valid', 'error');
-      if (inputWrapper) {
-        inputWrapper.classList.remove('valid', 'error');
-      }
-      if (errorDiv) errorDiv.textContent = '';
-    }
-
-    return isValid;
-  }
-
-  // Add event listeners for real-time validation
-  ['name', 'email', 'phone'].forEach(fieldName => {
-    const field = document.getElementById(fieldName);
-    if (field) {
-      // Validate on blur
-      field.addEventListener('blur', () => {
-        if (field.value.trim()) {
-          validateField(field);
-        }
+      // Close all FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
       });
 
-      // Real-time validation after first blur
-      field.addEventListener('input', () => {
-        if (field.classList.contains('error') || field.classList.contains('valid')) {
-          validateField(field);
-        }
-      });
-
-      // Focus effects
-      field.addEventListener('focus', () => {
-        const wrapper = field.closest('.input-wrapper');
-        if (wrapper) wrapper.classList.add('focused');
-      });
-
-      field.addEventListener('blur', () => {
-        const wrapper = field.closest('.input-wrapper');
-        if (wrapper) wrapper.classList.remove('focused');
-      });
-    }
-  });
-
-  // Form submission with enhanced error handling
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-
-    // Validate all required fields
-    const requiredFields = form.querySelectorAll('[required]');
-    let isFormValid = true;
-    let firstErrorField = null;
-
-    requiredFields.forEach(field => {
-      if (!validateField(field)) {
-        isFormValid = false;
-        if (!firstErrorField) firstErrorField = field;
-      }
-    });
-
-    // Check honeypot
-    const honeypot = document.getElementById('website');
-    if (honeypot && honeypot.value) {
-      console.log('Spam detected');
-      return;
-    }
-
-    if (!isFormValid) {
-      // Scroll to first error and focus
-      if (firstErrorField) {
-        firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        setTimeout(() => firstErrorField.focus(), 300);
-      }
-
-      // Show error message
-      errorMessage.style.display = 'block';
-      document.getElementById('error-message-text').textContent =
-        'Please fix the errors above and try again.';
-      setTimeout(() => {
-        errorMessage.style.display = 'none';
-      }, 5000);
-
-      return;
-    }
-
-    // Show loading state
-    submitBtn.disabled = true;
-    btnText.style.display = 'none';
-    btnLoading.style.display = 'inline-flex';
-    submitBtn.classList.add('loading');
-
-    // Actual form submission (replace with your endpoint)
-    try {
-      // Simulate API call - replace with actual submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      // Success: Hide form and show success message
-      form.style.display = 'none';
-      successMessage.style.display = 'block';
-      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-      // Track conversion
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'form_submit', {
-          event_category: 'contact',
-          event_label: 'contact_form',
-          value: 1
-        });
-      }
-
-      // Reset form for potential resubmission
-      setTimeout(() => {
-        form.reset();
-        form.querySelectorAll('.valid, .error').forEach(field => {
-          field.classList.remove('valid', 'error');
-        });
-        form.querySelectorAll('.input-wrapper').forEach(wrapper => {
-          wrapper.classList.remove('valid', 'error');
-        });
-        form.querySelectorAll('.field-error').forEach(error => {
-          error.textContent = '';
-        });
-        if (messageCounter) messageCounter.textContent = '0';
-        submitBtn.disabled = false;
-        btnText.style.display = 'inline';
-        btnLoading.style.display = 'none';
-        submitBtn.classList.remove('loading');
-      }, 100);
-
-    } catch (error) {
-      // Error handling
-      console.error('Form submission error:', error);
-      errorMessage.style.display = 'block';
-      document.getElementById('error-message-text').textContent =
-        'Sorry, there was an error submitting your form. Please try again or contact us directly.';
-
-      submitBtn.disabled = false;
-      btnText.style.display = 'inline';
-      btnLoading.style.display = 'none';
-      submitBtn.classList.remove('loading');
-    }
-  });
-
-  // Show form again button
-  const showFormAgain = document.createElement('button');
-  showFormAgain.textContent = 'Submit Another Inquiry';
-  showFormAgain.className = 'btn btn-secondary btn-sm';
-  showFormAgain.style.marginTop = '1rem';
-  showFormAgain.addEventListener('click', () => {
-    successMessage.style.display = 'none';
-    errorMessage.style.display = 'none';
-    form.style.display = 'block';
-    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-  successMessage.appendChild(showFormAgain);
-
-  // Navigation toggle functionality
-  const menuToggle = document.getElementById('nav-toggle');
-  const primaryNav = document.getElementById('primary-nav');
-
-  if (menuToggle && primaryNav) {
-      menuToggle.addEventListener('click', function() {
-          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-          menuToggle.setAttribute('aria-expanded', !isExpanded);
-          primaryNav.hidden = isExpanded;
-          primaryNav.setAttribute('aria-hidden', isExpanded);
-      });
-  }
-
-  // Handle mobile navigation if present
-  const mobileToggle = document.getElementById('menuToggle');
-  const mobileNav = document.getElementById('mobileNav');
-  const mobileOverlay = document.getElementById('mobileNavOverlay');
-  const mobileClose = document.getElementById('mobileNavClose');
-
-  function toggleMobileNav(show) {
-      if (mobileNav && mobileOverlay && mobileToggle) {
-          if (show) {
-              mobileNav.setAttribute('aria-hidden', 'false');
-              mobileOverlay.setAttribute('aria-hidden', 'false');
-              mobileToggle.setAttribute('aria-expanded', 'true');
-              document.body.style.overflow = 'hidden';
-          } else {
-              mobileNav.setAttribute('aria-hidden', 'true');
-              mobileOverlay.setAttribute('aria-hidden', 'true');
-              mobileToggle.setAttribute('aria-expanded', 'false');
-              document.body.style.overflow = '';
-          }
-      }
-  }
-
-  if (mobileToggle) {
-      mobileToggle.addEventListener('click', () => {
-          const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-          toggleMobileNav(!isExpanded);
-      });
-  }
-
-  if (mobileClose) {
-      mobileClose.addEventListener('click', () => toggleMobileNav(false));
-  }
-
-  if (mobileOverlay) {
-      mobileOverlay.addEventListener('click', () => toggleMobileNav(false));
-  }
-});
-</script>
-
-<!-- Contact Form Script -->
-<script type="module" src="/_astro/ContactSection.astro_astro_type_script_index_0_lang.C7RFDwbv.js"></script>
-
-<!-- JSON-LD Schema - ContactPage -->
-<script type="application/ld+json" is:inline>
-{
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "url": "https://theprofitplatform.com.au/contact",
-  "name": "Contact The Profit Platform",
-  "description": "Contact The Profit Platform for digital marketing, web design, and SEO services in Sydney. Free consultation available.",
-  "mainEntity": {
-    "@type": "Organization",
-    "@id": "https://theprofitplatform.com.au/#organization",
-    "name": "The Profit Platform",
-    "url": "https://theprofitplatform.com.au/",
-    "telephone": "+61487286451",
-    "email": "avi@theprofitplatform.com.au",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Sydney",
-      "addressRegion": "NSW",
-      "addressCountry": "AU"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+61487286451",
-      "contactType": "customer service",
-      "areaServed": "AU-NSW",
-      "availableLanguage": "English",
-      "hoursAvailable": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
-      }
-    },
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61574707582255",
-      "https://linkedin.com/company/theprofitplatform",
-      "https://www.instagram.com/theprofitplatformau"
-    ]
-  }
-}
-</script>
-
-<!-- JSON-LD Schema - LocalBusiness -->
-<script type="application/ld+json" is:inline>
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "The Profit Platform",
-  "url": "https://theprofitplatform.com.au/",
-  "telephone": "+61487286451",
-  "email": "avi@theprofitplatform.com.au",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Sydney",
-    "addressRegion": "NSW",
-    "addressCountry": "AU"
-  },
-  "areaServed": "Greater Sydney",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61574707582255",
-    "https://www.linkedin.com/company/theprofitplatform",
-    "https://www.instagram.com/theprofitplatformau"
-  ]
-}
-</script>
-
-  <!-- Enhanced Contact Form Styles -->
-  <style>
-    /* Animations */
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      75% { transform: translateX(5px); }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      // Open clicked item if it wasn't active
+      if (!isActive) {
+        faqItem.classList.add('active');
       }
     }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-
-    /* Enhanced Contact Form Styles */
-    .contact-hero {
-      background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%);
-      color: white;
-      padding: 4rem 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-      pointer-events: none;
-    }
-
-    .contact-hero-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      letter-spacing: -0.02em;
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    .contact-hero-subtitle {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: fadeInUp 0.6s ease-out 0.1s both;
-    }
-
-    .contact-hero-highlights {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      animation: fadeInUp 0.6s ease-out 0.2s both;
-    }
-
-    .hero-highlight {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 0.75rem 1.5rem;
-      border-radius: 25px;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-    }
-
-    .hero-highlight:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    .hero-highlight i {
-      color: #fbbf24;
-    }
-
-    /* Enhanced Breadcrumbs */
-    .breadcrumb-section {
-      background: #f8fafc;
-      padding: 1rem 0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-
-    .breadcrumb {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-    }
-
-    .breadcrumb-item {
-      display: flex;
-      align-items: center;
-    }
-
-    .breadcrumb-item:not(:last-child)::after {
-      content: '›';
-      margin: 0 0.75rem;
-      color: #6b7280;
-    }
-
-    .breadcrumb-link {
-      color: #4f46e5;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.25rem 0.5rem;
-      border-radius: 0.375rem;
-      transition: all 0.2s;
-    }
-
-    .breadcrumb-link:hover {
-      background: #e0e7ff;
-      color: #3730a3;
-    }
-
-    .breadcrumb-item.active {
-      color: #6b7280;
-      font-weight: 500;
-    }
-
-    /* Enhanced Form Styles */
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-label {
-      display: block;
-      font-weight: 600;
-      color: #374151;
-      margin-bottom: 0.5rem;
-      font-size: 0.875rem;
-      transition: color 0.2s;
-    }
-
-    .required {
-      color: #ef4444;
-      font-weight: 700;
-    }
-
-    /* Input wrapper for icon positioning */
-    .input-wrapper {
-      position: relative;
-      transition: all 0.3s ease;
-    }
-
-    .input-wrapper .input-icon {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #9ca3af;
-      pointer-events: none;
-      transition: all 0.3s ease;
-      z-index: 1;
-    }
-
-    .input-wrapper.focused .input-icon {
-      color: #4f46e5;
-    }
-
-    .input-wrapper.valid .input-icon {
-      color: #10b981;
-    }
-
-    .input-wrapper.error .input-icon {
-      color: #ef4444;
-    }
-
-    .form-input, .form-select, .form-textarea {
-      width: 100%;
-      padding: 0.875rem 1rem;
-      padding-left: 2.75rem;
-      border: 2px solid #e5e7eb;
-      border-radius: 0.5rem;
-      font-size: 1rem;
-      transition: all 0.2s;
-      background: white;
-    }
-
-    .form-select {
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-      background-position: right 0.5rem center;
-      background-repeat: no-repeat;
-      background-size: 1.5em 1.5em;
-      padding-right: 2.5rem;
-    }
-
-    .form-textarea {
-      padding-left: 1rem;
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .textarea-counter {
-      font-size: 0.75rem;
-      color: #6b7280;
-      text-align: right;
-      margin-top: 0.25rem;
-    }
-
-    .form-input:focus, .form-select:focus, .form-textarea:focus {
-      outline: none;
-      border-color: #4f46e5;
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-    }
-
-    .form-input.valid, .form-select.valid {
-      border-color: #10b981;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2310b981'%3e%3cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      background-size: 1rem;
-      padding-right: 2.5rem;
-    }
-
-    .form-input.error, .form-select.error {
-      border-color: #ef4444;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23ef4444'%3e%3cpath fill-rule='evenodd' d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z' clip-rule='evenodd'/%3e%3c/svg%3e");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      background-size: 1rem;
-      padding-right: 2.5rem;
-    }
-
-    .input-wrapper.valid {
-      animation: pulse 0.3s ease-in-out;
-    }
-
-    .field-error {
-      color: #ef4444;
-      font-size: 0.875rem;
-      margin-top: 0.25rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    .field-error::before {
-      content: '⚠';
-      font-size: 0.875rem;
-    }
-
-    .honeypot {
-      position: absolute;
-      left: -9999px;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    /* Enhanced Form Messages */
-    .form-message {
-      padding: 1.5rem;
-      border-radius: 0.75rem;
-      margin-bottom: 2rem;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .success-message {
-      background: #ecfdf5;
-      border: 1px solid #d1fae5;
-      color: #065f46;
-    }
-
-    .error-message {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #991b1b;
-    }
-
-    .message-icon {
-      flex-shrink: 0;
-      width: 2rem;
-      height: 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-    }
-
-    .success-message .message-icon {
-      background: #10b981;
-      color: white;
-    }
-
-    .error-message .message-icon {
-      background: #ef4444;
-      color: white;
-    }
-
-    .message-content h3 {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .message-content p {
-      margin-bottom: 0.5rem;
-    }
-
-    /* Enhanced Submit Button */
-    .btn-lg {
-      padding: 1rem 2rem;
-      font-size: 1.125rem;
-      font-weight: 600;
-      border-radius: 0.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      transition: all 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-      border: none;
-      color: white;
-      transform: translateY(0);
-      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
-    }
-
-    .btn-primary:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
-    }
-
-    .btn-primary:disabled {
-      opacity: 0.7;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .btn-primary.loading {
-      position: relative;
-      pointer-events: none;
-    }
-
-    .btn-loading {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .btn-icon {
-      transition: transform 0.3s ease;
-    }
-
-    .btn-primary:hover .btn-icon {
-      transform: translateX(4px);
-    }
-
-    /* Form disclaimer */
-    .form-disclaimer {
-      text-align: center;
-      font-size: 0.875rem;
-      color: #6b7280;
-      margin-top: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .form-disclaimer i {
-      color: #10b981;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .contact-hero-title {
-        font-size: 2rem;
-      }
-
-      .contact-hero-highlights {
-        gap: 1rem;
-      }
-
-      .hero-highlight {
-        font-size: 0.875rem;
-        padding: 0.5rem 1rem;
-      }
-
-      .form-row {
-        flex-direction: column;
-      }
-    }
-  </style>
-
+  </script>
 </BaseLayout>
