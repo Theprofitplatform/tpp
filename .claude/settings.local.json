@@ -9,7 +9,8 @@
       "Bash(declare:*)",
       "Bash(source ~/.bashrc)",
       "Bash(unalias:*)",
-      "Bash(alias cx)"
+      "Bash(alias cx)",
+      "Bash(npm run dev:*)"
     ],
     "deny": [],
     "ask": []

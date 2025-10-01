@@ -478,12 +478,14 @@ function updateFAQVisibility() {
     // Update "Show More" button
     const showMoreBtn = document.getElementById('showMoreFaqs');
     const hiddenCount = filteredFaqs.length - Math.min(visibleFaqs, filteredFaqs.length);
-    
-    if (hiddenCount > 0) {
-        showMoreBtn.style.display = 'block';
-        showMoreBtn.innerHTML = `<i class="fas fa-chevron-down"></i> Show ${hiddenCount} More Questions`;
-    } else {
-        showMoreBtn.style.display = 'none';
+
+    if (showMoreBtn) {
+        if (hiddenCount > 0) {
+            showMoreBtn.style.display = 'block';
+            showMoreBtn.innerHTML = `<i class="fas fa-chevron-down"></i> Show ${hiddenCount} More Questions`;
+        } else {
+            showMoreBtn.style.display = 'none';
+        }
     }
 }
 

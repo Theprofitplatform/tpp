@@ -10,6 +10,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4321;
 
+// Trust proxy (Cloudflare tunnel - trust first hop only)
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet());
 app.use(cors({
