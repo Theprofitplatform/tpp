@@ -12,21 +12,31 @@ const pageDescription = "Digital marketing tips, strategies, and insights for Sy
   <style>
     html {
       background: #ffffff !important;
+      background-image: none !important;
     }
     body {
       background: #ffffff !important;
       background-color: #ffffff !important;
       background-image: none !important;
     }
-    body * {
-      background-color: transparent;
+    body::before,
+    body::after,
+    html::before,
+    html::after {
+      display: none !important;
+    }
+    main::before,
+    main::after {
+      display: none !important;
     }
     body .blog-hero {
       background: #ffffff !important;
       background-color: #ffffff !important;
+      background-image: none !important;
     }
     #main-content {
       background: #ffffff !important;
+      background-image: none !important;
     }
     .blog-hero {
       background: #ffffff !important;
@@ -40,10 +50,18 @@ const pageDescription = "Digital marketing tips, strategies, and insights for Sy
     .hero-gradient-mesh,
     .hero-floating-elements,
     .hero-grid-overlay,
-    .floating-orb {
+    .floating-orb,
+    .newsletter-gradient,
+    .newsletter-pattern {
       display: none !important;
       opacity: 0 !important;
       visibility: hidden !important;
+    }
+
+    /* Remove any gradient backgrounds from hero section */
+    .hero,
+    [class*="hero"] {
+      background-image: none !important;
     }
   </style>
 
