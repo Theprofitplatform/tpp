@@ -30,24 +30,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `src/pages/` - Astro pages (primarily index.astro with full site content)
 - `src/layouts/` - Layout components (BaseLayout.astro with comprehensive SEO/performance optimization)
 - `src/components/` - Reusable Astro components (Header with ARIA, Footer with contact links)
-- `src/styles/` - Stylesheets
+- `src/styles/` - Stylesheets (main.css consolidates all CSS for Astro bundling)
 - `scripts/` - Custom build and verification scripts for production parity
 - `public/` - Static assets
 - `dist/` - Generated build output (optimized HTML, CSS, JS with Cloudflare headers)
+- `archive/` - Legacy files (HTML, screenshots, test scripts) moved from root for organization
 
-### Migration Context
-This is a migrated site from static HTML to Astro. The root directory contains:
-- Original HTML files (index.html, about.html, contact.html, etc.)
-- Backup versions with `.backup-inline-styles` and `.footer-backup` suffixes
-- Multiple deployment documentation files showing migration progress
+### Migration Context & Recent Optimizations
+This is a migrated site from static HTML to Astro.
+
+**Recent Performance Optimizations (2025-01):**
+- Consolidated 22+ individual CSS `<link>` tags into Astro's bundling system (~91% reduction in CSS HTTP requests)
+- Created `src/styles/main.css` that imports all CSS in correct order for optimal bundling
+- Astro now generates optimized, hashed CSS files (e.g., `dist/_astro/about.Dz-KOsIw.css`)
+- Improved parity-scan.mjs with configurable URLs via environment variables or CLI args
+- Cleaned up root directory: moved legacy HTML files, utility scripts, and screenshots to `archive/`
 
 ### Production Parity System
-The codebase includes sophisticated scripts to ensure the Astro build matches production:
+The codebase includes scripts to ensure the Astro build matches production:
 
-1. **fetch-production.mjs** - Downloads current production HTML
-2. **download-assets.mjs** - Downloads production assets (CSS, JS, images)
-3. **parity-scan.mjs** - Compares CSS/JS load order and SEO meta tags between production and local build
-4. **behavior-parity-scanner.mjs** - Advanced behavioral comparison
+1. **parity-scan.mjs** - Compares CSS/JS load order and SEO meta tags between production and local build
+   - Supports configurable URLs: `PROD_URL=https://... LOCAL_URL=http://... npm run parity:scan`
+   - Or pass as CLI args: `node scripts/parity-scan.mjs <prod-url> <local-url>`
+
+Note: Some parity scripts mentioned in package.json (fetch-production.mjs, download-assets.mjs) are not yet implemented.
 
 ### Cloudflare Pages Configuration
 - **Config**: `wrangler.toml` with production environment
