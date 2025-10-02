@@ -3,10 +3,13 @@ import { readFile } from "node:fs/promises";
 import { fetch } from "undici";
 import * as cheerio from "cheerio";
 
-const PROD = "https://theprofitplatform.com.au/";
-const LOCAL = "http://localhost:4321/";
+// Allow configuration via environment variables or CLI args
+const PROD = process.env.PROD_URL || process.argv[2] || "https://theprofitplatform.com.au/";
+const LOCAL = process.env.LOCAL_URL || process.argv[3] || "http://localhost:4321/";
 
 console.log("[parity-scan] Starting scan...");
+console.log(`[parity-scan] Production URL: ${PROD}`);
+console.log(`[parity-scan] Local URL: ${LOCAL}`);
 
 function extract(html){
   const $ = cheerio.load(html);
@@ -52,7 +55,8 @@ try {
   localHtml = await fetch(LOCAL).then(r=>r.text());
   console.log(`[parity-scan] Local HTML: ${localHtml.length} bytes`);
 } catch (e) {
-  console.error("❌ Failed to fetch local (is preview running on port 4321?):", e.message);
+  console.error(`❌ Failed to fetch local (is preview running at ${LOCAL}?):`, e.message);
+  console.error("   Tip: Override with LOCAL_URL=http://localhost:PORT or pass as 2nd arg");
   process.exit(1);
 }
 
