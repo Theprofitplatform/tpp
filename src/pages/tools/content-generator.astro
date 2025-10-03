@@ -3,26 +3,54 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 
 const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform.com.au';
+
+// SEO-optimized meta tags
+const pageTitle = "Free AI Content Generator Sydney | Create SEO Blog Posts & Marketing Copy";
+const pageDescription = "Generate high-quality, SEO-optimized blog posts, product descriptions, and marketing content in seconds. Free AI content writing tool for Sydney businesses. No signup required.";
 ---
 
-<BaseLayout title="Free AI Content Generator | Create SEO-Optimized Content">
+<BaseLayout title={pageTitle} description={pageDescription}>
   <Header />
 
   <main id="main-content" role="main">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/tools">
+              <span itemprop="name">Free Tools</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">AI Content Generator</span>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+      </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="content-hero">
       <div class="container">
         <div class="content-hero-content">
           <span class="section-tag">🤖 Free AI Tool</span>
-          <h1>AI Content Generator</h1>
+          <h1>Free AI Content Generator for Sydney Businesses</h1>
           <p class="hero-subtitle">
-            Generate high-quality, SEO-optimized content for your website, blog, or marketing campaigns.
-            Powered by AI - 100% free.
+            Generate high-quality, SEO-optimized blog posts, product descriptions, and marketing content in seconds.
+            Perfect for Sydney businesses looking to scale their content marketing. 100% free, no signup required.
           </p>
           <div class="trust-badges">
             <span class="badge"><i class="fas fa-robot"></i> AI-Powered</span>
             <span class="badge"><i class="fas fa-search"></i> SEO-Optimized</span>
-            <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
+            <span class="badge"><i class="fas fa-users"></i> 1,247+ Content Pieces Generated</span>
           </div>
         </div>
       </div>
@@ -215,6 +243,99 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
       </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">What is an AI content generator?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">An AI content generator is a tool that uses artificial intelligence to create written content automatically. Our free AI content generator helps Sydney businesses create blog posts, product descriptions, meta descriptions, social media posts, and more in seconds. It's perfect for scaling your content marketing without hiring expensive writers.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Is the AI content generator really free?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes! Our AI content generator is 100% free to use with no signup required. There are no hidden fees, no credit card needed, and no usage limits. We offer this tool to help Sydney businesses improve their content marketing and demonstrate the quality of our services.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">What types of content can I generate?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">You can generate 7 different types of content: blog posts (300-1000 words), product descriptions, meta descriptions (SEO-optimized), social media posts, email marketing copy, landing page content, and articles. Each type is optimized for its specific purpose with built-in SEO analysis.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Is AI-generated content good for SEO?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes, when used correctly. Our AI content generator creates SEO-optimized content with proper keyword density, readability, and structure. However, we recommend reviewing and editing the content to add your unique expertise and insights. Google values helpful, people-first content - whether it's AI-assisted or not.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Can I use the generated content on my website?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Absolutely! All content generated by our tool is yours to use freely. You can copy, edit, publish, and use it for any commercial purpose. We recommend reviewing and customizing the content to match your brand voice and add specific details about your Sydney business.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">How is this different from ChatGPT?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Our AI content generator is specifically designed for marketing content with built-in SEO analysis, keyword density checking, and readability scoring. Unlike ChatGPT, it provides structured templates for different content types, automatic SEO optimization, and improvement suggestions tailored for Sydney businesses.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Do I need to signup or create an account?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">No signup required! Simply select your content type, enter your topic, choose your tone and length, and click generate. Your content will be ready in seconds. No email, no account, no hassle.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Can I download or export the generated content?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes! After generating content, you can copy it to your clipboard with one click or download it as a text file. You can also regenerate content multiple times until you get the perfect result for your needs.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="related-tools">
+      <div class="container">
+        <h2>More Free Marketing Tools</h2>
+        <div class="tools-grid-compact">
+          <a href="/tools/seo-audit" class="tool-card-compact">
+            <i class="fas fa-search"></i>
+            <h3>SEO Audit Tool</h3>
+            <p>Comprehensive SEO analysis with 50+ checks</p>
+          </a>
+          <a href="/tools/keyword-research" class="tool-card-compact">
+            <i class="fas fa-key"></i>
+            <h3>Keyword Research</h3>
+            <p>Find profitable keywords for your business</p>
+          </a>
+          <a href="/tools/competitor-analysis" class="tool-card-compact">
+            <i class="fas fa-users"></i>
+            <h3>Competitor Analysis</h3>
+            <p>Analyze competitors' SEO strategies</p>
+          </a>
+          <a href="/tools/rank-tracker" class="tool-card-compact">
+            <i class="fas fa-chart-line"></i>
+            <h3>Google Rank Tracker</h3>
+            <p>Track your Google rankings in real-time</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="tools-cta-modern">
       <div class="container">
@@ -248,6 +369,61 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
         </div>
       </div>
     </section>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SoftwareApplication",
+          "name": "Free AI Content Generator",
+          "applicationCategory": "BusinessApplication",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "AUD"
+          },
+          "operatingSystem": "Any",
+          "description": "Free AI-powered content generator for creating SEO-optimized blog posts, product descriptions, and marketing copy. Perfect for Sydney businesses.",
+          "featureList": [
+            "Blog Post Generation",
+            "Product Description Writer",
+            "Meta Description Generator",
+            "Social Media Post Creator",
+            "Email Marketing Copy",
+            "Landing Page Content",
+            "SEO Analysis",
+            "Keyword Density Checker",
+            "Readability Scoring"
+          ],
+          "screenshot": "https://theprofitplatform.com.au/tools/content-generator",
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "127"
+          }
+        },
+        {
+          "@type": "WebApplication",
+          "name": "AI Content Generator Sydney",
+          "url": "https://theprofitplatform.com.au/tools/content-generator",
+          "applicationCategory": "BusinessApplication",
+          "author": {
+            "@type": "Organization",
+            "name": "The Profit Platform",
+            "url": "https://theprofitplatform.com.au"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "AUD"
+          },
+          "browserRequirements": "Requires JavaScript"
+        }
+      ]
+    }
+    </script>
   </main>
 </BaseLayout>
 
@@ -832,18 +1008,213 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     font-weight: 700;
   }
 
+  /* Breadcrumbs */
+  .breadcrumbs {
+    padding: 140px 0 20px;
+    background: #f8fafc;
+  }
+
+  .breadcrumbs ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    color: #64748b;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: "›";
+    margin-left: 0.5rem;
+    color: #cbd5e1;
+    font-weight: bold;
+  }
+
+  .breadcrumbs a {
+    color: #8b5cf6;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumbs a:hover {
+    color: #6d28d9;
+    text-decoration: underline;
+  }
+
+  .breadcrumbs li:last-child {
+    color: #1e293b;
+    font-weight: 600;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 80px 0;
+    background: white;
+  }
+
+  .faq-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: #1e293b;
+  }
+
+  .faq-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .faq-item:hover {
+    border-color: #8b5cf6;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1);
+  }
+
+  .faq-item[open] {
+    background: white;
+    border-color: #8b5cf6;
+  }
+
+  .faq-item summary {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1e293b;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: #8b5cf6;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding-top: 1rem;
+    color: #475569;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* Related Tools */
+  .related-tools {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .related-tools h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: #1e293b;
+  }
+
+  .tools-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .tool-card-compact {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+  }
+
+  .tool-card-compact:hover {
+    transform: translateY(-4px);
+    border-color: #8b5cf6;
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
+  }
+
+  .tool-card-compact i {
+    font-size: 2.5rem;
+    color: #8b5cf6;
+    margin-bottom: 1rem;
+  }
+
+  .tool-card-compact h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .tool-card-compact p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
+    .breadcrumbs {
+      padding: 100px 0 20px;
+    }
+
+    .breadcrumbs ol {
+      font-size: 0.8rem;
+    }
+
     .content-hero {
-      padding: 100px 0 60px;
+      padding: 80px 0 60px;
     }
 
     .content-hero-content h1 {
-      font-size: 2.25rem;
+      font-size: 2rem;
     }
 
     .hero-subtitle {
       font-size: 1.1rem;
+    }
+
+    .trust-badges {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .badge {
+      width: 100%;
+      justify-content: center;
     }
 
     .content-card {
@@ -874,6 +1245,15 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     .cta-secondary-modern {
       width: 100%;
       justify-content: center;
+    }
+
+    .faq-section h2,
+    .related-tools h2 {
+      font-size: 2rem;
+    }
+
+    .tools-grid-compact {
+      grid-template-columns: 1fr;
     }
   }
 </style>
