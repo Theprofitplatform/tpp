@@ -2,7 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 
-const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform.com.au';
+// API URL: Use relative path for production (Cloudflare Pages Functions), env variable for local dev
+const apiUrl = import.meta.env.PUBLIC_API_URL || '';
 
 // SEO-optimized meta tags
 const pageTitle = "Free AI Content Generator Sydney | Create SEO Blog Posts & Marketing Copy";
