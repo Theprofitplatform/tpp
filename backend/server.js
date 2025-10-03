@@ -1169,8 +1169,7 @@ app.post('/api/competitor-analysis', competitorAnalysisLimiter, async (req, res)
 
     res.status(500).json({
       success: false,
-      error: 'Failed to analyze competitor. Please check the domains and try again.',
-      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: error.message || 'Failed to analyze competitor. Please check the domains and try again.'
     });
   }
 });
