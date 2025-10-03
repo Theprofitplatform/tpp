@@ -1,0 +1,1187 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+
+const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform.com.au';
+---
+
+<BaseLayout title="Free Google Rank Tracker | Check Your Rankings Now">
+  <Header />
+
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section class="rank-hero">
+      <div class="container">
+        <div class="rank-hero-content">
+          <span class="section-tag">🎯 Free Tool</span>
+          <h1>Google Rank Tracker</h1>
+          <p class="hero-subtitle">
+            Check where your website ranks on Google for any keyword.
+            Real-time data from live SERP API - 100% free, no signup required.
+          </p>
+          <div class="trust-badges">
+            <span class="badge"><i class="fas fa-bolt"></i> Real-time Data</span>
+            <span class="badge"><i class="fas fa-globe"></i> Top 100 Results</span>
+            <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rank Checker Tool -->
+    <section class="rank-checker-section">
+      <div class="container">
+        <div class="checker-card">
+          <form id="rankCheckerForm" class="checker-form">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="keyword">
+                  <i class="fas fa-search"></i>
+                  Keyword or Search Phrase
+                </label>
+                <input
+                  type="text"
+                  id="keyword"
+                  name="keyword"
+                  placeholder="e.g., plumber Sydney"
+                  required
+                />
+                <small>Enter the exact keyword you want to check</small>
+              </div>
+
+              <div class="form-group">
+                <label for="domain">
+                  <i class="fas fa-globe"></i>
+                  Your Website URL
+                </label>
+                <input
+                  type="text"
+                  id="domain"
+                  name="domain"
+                  placeholder="e.g., yourwebsite.com.au"
+                  required
+                />
+                <small>Without http:// or https://</small>
+              </div>
+
+              <div class="form-group">
+                <label for="location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Location
+                </label>
+                <select id="location" name="location">
+                  <option value="Australia">Australia (National)</option>
+                  <option value="Sydney,New South Wales,Australia">Sydney, NSW</option>
+                  <option value="Melbourne,Victoria,Australia">Melbourne, VIC</option>
+                  <option value="Brisbane,Queensland,Australia">Brisbane, QLD</option>
+                  <option value="Perth,Western Australia,Australia">Perth, WA</option>
+                  <option value="Adelaide,South Australia,Australia">Adelaide, SA</option>
+                </select>
+                <small>Target search location</small>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block" id="checkButton">
+              <i class="fas fa-search"></i>
+              Check My Ranking
+            </button>
+          </form>
+
+          <!-- Loading State -->
+          <div id="loadingState" class="loading-state" style="display: none;">
+            <div class="spinner"></div>
+            <p>Checking Google rankings...</p>
+            <small>This may take a few seconds</small>
+          </div>
+
+          <!-- Error State -->
+          <div id="errorState" class="error-state" style="display: none;">
+            <i class="fas fa-exclamation-circle"></i>
+            <h3>Oops! Something went wrong</h3>
+            <p id="errorMessage"></p>
+            <button class="btn btn-secondary" onclick="location.reload()">
+              Try Again
+            </button>
+          </div>
+
+          <!-- Results Section -->
+          <div id="resultsSection" class="results-section" style="display: none;">
+            <div class="result-header">
+              <h2>Your Ranking Results</h2>
+              <button class="btn btn-secondary btn-sm" onclick="location.reload()">
+                <i class="fas fa-redo"></i> Check Another
+              </button>
+            </div>
+
+            <div id="resultContent" class="result-content">
+              <!-- Results will be inserted here -->
+            </div>
+
+            <!-- Historical Chart Section -->
+            <div id="historySection" class="history-section" style="display: none;">
+              <div class="history-header">
+                <h3><i class="fas fa-history"></i> Rank History</h3>
+                <p class="history-subtitle">Track how your ranking changes over time</p>
+              </div>
+              <div id="historyChart" class="history-chart">
+                <!-- Chart will be inserted here -->
+              </div>
+              <div id="historyComparison" class="history-comparison">
+                <!-- Comparison data will be inserted here -->
+              </div>
+            </div>
+
+            <div class="result-actions">
+              <h3>Want to improve your ranking?</h3>
+              <p>Our SEO experts can help you dominate Google search results</p>
+              <div class="action-buttons">
+                <a href="/contact" class="btn btn-primary btn-lg">
+                  Get Free SEO Audit →
+                </a>
+                <a href="tel:+61487286451" class="btn btn-secondary btn-lg">
+                  <i class="fas fa-phone"></i> 0487 286 451
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-question-circle"></i>
+            </div>
+            <h3>How It Works</h3>
+            <p>
+              We query Google's search results in real-time and find where your
+              website appears for your target keyword. Results are 100% accurate
+              and updated instantly.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Why Rankings Matter</h3>
+            <p>
+              75% of users never scroll past the first page of Google. Ranking
+              in the top 3 positions can increase your traffic by 10-20x compared
+              to page 2.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Improve Your Rank</h3>
+            <p>
+              Not happy with your ranking? Our SEO experts specialize in getting
+              Sydney businesses to page 1. Get a free audit to see how we can help.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<script define:vars={{ apiUrl }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('rankCheckerForm');
+    const loadingState = document.getElementById('loadingState');
+    const errorState = document.getElementById('errorState');
+    const resultsSection = document.getElementById('resultsSection');
+    const resultContent = document.getElementById('resultContent');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const keyword = document.getElementById('keyword').value.trim();
+      const domain = document.getElementById('domain').value.trim();
+      const location = document.getElementById('location').value;
+
+      // Hide all states
+      form.style.display = 'none';
+      errorState.style.display = 'none';
+      resultsSection.style.display = 'none';
+      loadingState.style.display = 'block';
+
+      try {
+        const response = await fetch(`${apiUrl}/api/serp/rank-check`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ keyword, domain, location })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'Failed to check ranking');
+        }
+
+        // Show results
+        loadingState.style.display = 'none';
+        resultsSection.style.display = 'block';
+        displayResults(data.data);
+
+        // Fetch and display history
+        fetchHistory(keyword, domain, location);
+
+      } catch (error) {
+        console.error('Rank check error:', error);
+        loadingState.style.display = 'none';
+        errorState.style.display = 'block';
+        errorMessage.textContent = error.message || 'Unable to check ranking. Please try again.';
+      }
+    });
+
+    function displayResults(data) {
+      const { keyword, domain, location, rank, found, result } = data;
+
+      let html = '';
+
+      if (found) {
+        const page = Math.ceil(rank / 10);
+        const rankClass = rank <= 3 ? 'excellent' : rank <= 10 ? 'good' : rank <= 20 ? 'fair' : 'poor';
+
+        html = `
+          <div class="rank-card rank-${rankClass}">
+            <div class="rank-position">
+              <div class="rank-number">#${rank}</div>
+              <div class="rank-label">on Google</div>
+            </div>
+            <div class="rank-details">
+              <div class="detail-row">
+                <span class="label">Keyword:</span>
+                <span class="value">${keyword}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Domain:</span>
+                <span class="value">${domain}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Location:</span>
+                <span class="value">${location}</span>
+              </div>
+              <div class="detail-row">
+                <span class="label">Page:</span>
+                <span class="value">Page ${page} of Google results</span>
+              </div>
+            </div>
+          </div>
+
+          ${result ? `
+          <div class="serp-preview">
+            <h4><i class="fas fa-eye"></i> How it appears on Google:</h4>
+            <div class="serp-result">
+              <div class="serp-title">${result.title}</div>
+              <div class="serp-url">${result.link}</div>
+              <div class="serp-snippet">${result.snippet || ''}</div>
+            </div>
+          </div>
+          ` : ''}
+
+          <div class="rank-analysis">
+            <h4>Analysis</h4>
+            ${getRankAnalysis(rank)}
+          </div>
+        `;
+      } else {
+        html = `
+          <div class="rank-card rank-not-found">
+            <div class="rank-position">
+              <div class="rank-icon">
+                <i class="fas fa-search-minus"></i>
+              </div>
+              <div class="rank-label">Not Found</div>
+            </div>
+            <div class="rank-details">
+              <p>
+                <strong>${domain}</strong> was not found in the top 100 results for
+                <strong>"${keyword}"</strong> in <strong>${location}</strong>.
+              </p>
+              <p class="recommendation">
+                This means you're either ranking beyond position 100, or not ranking at all.
+                Don't worry - we can help you get to page 1!
+              </p>
+            </div>
+          </div>
+        `;
+      }
+
+      resultContent.innerHTML = html;
+    }
+
+    function getRankAnalysis(rank) {
+      if (rank <= 3) {
+        return `
+          <div class="analysis excellent">
+            <i class="fas fa-trophy"></i>
+            <p><strong>Excellent!</strong> You're in the top 3 positions. This is where you want to be.
+            The top 3 results get 75% of all clicks. Keep optimizing to maintain this position!</p>
+          </div>
+        `;
+      } else if (rank <= 10) {
+        return `
+          <div class="analysis good">
+            <i class="fas fa-thumbs-up"></i>
+            <p><strong>Good job!</strong> You're on page 1, which is great. However, moving into the
+            top 3 positions could increase your traffic by 3-5x. We can help you get there.</p>
+          </div>
+        `;
+      } else if (rank <= 20) {
+        return `
+          <div class="analysis fair">
+            <i class="fas fa-chart-line"></i>
+            <p><strong>You're close!</strong> You're on page 2, which gets very little traffic.
+            With focused SEO work, we can get you to page 1 within 60-90 days.</p>
+          </div>
+        `;
+      } else {
+        return `
+          <div class="analysis poor">
+            <i class="fas fa-rocket"></i>
+            <p><strong>Lots of room to grow!</strong> You're ranking, but too far down to get
+            meaningful traffic. Our proven SEO strategies can dramatically improve your position.</p>
+          </div>
+        `;
+      }
+    }
+
+    // Fetch and display historical data
+    async function fetchHistory(keyword, domain, location) {
+      try {
+        const response = await fetch(
+          `${apiUrl}/api/serp/history?keyword=${encodeURIComponent(keyword)}&domain=${encodeURIComponent(domain)}&location=${encodeURIComponent(location)}`
+        );
+
+        const data = await response.json();
+
+        if (data.success && data.data.history.length > 0) {
+          displayHistory(data.data);
+        }
+      } catch (error) {
+        console.error('History fetch error:', error);
+        // Silently fail - history is optional
+      }
+    }
+
+    function displayHistory(historyData) {
+      const historySection = document.getElementById('historySection');
+      const historyChart = document.getElementById('historyChart');
+      const historyComparison = document.getElementById('historyComparison');
+
+      const { history, comparison } = historyData;
+
+      // Show history section
+      historySection.style.display = 'block';
+
+      // Build chart
+      const chartHTML = buildChart(history);
+      historyChart.innerHTML = chartHTML;
+
+      // Build comparison
+      if (comparison && history.length > 1) {
+        const comparisonHTML = buildComparison(comparison, history.length);
+        historyComparison.innerHTML = comparisonHTML;
+      }
+    }
+
+    function buildChart(history) {
+      // Reverse to show oldest first
+      const data = [...history].reverse();
+      const maxRank = Math.max(...data.map(h => h.rank || 100), 100);
+
+      let html = '<div class="chart-container">';
+      html += '<div class="chart-grid">';
+
+      // Y-axis labels
+      html += '<div class="y-axis">';
+      for (let i = 0; i <= 5; i++) {
+        const rank = Math.round((maxRank / 5) * i);
+        html += `<div class="y-label">#${rank}</div>`;
+      }
+      html += '</div>';
+
+      // Chart bars
+      html += '<div class="chart-bars">';
+      data.forEach((point, index) => {
+        const rank = point.rank || maxRank;
+        const height = ((maxRank - rank) / maxRank) * 100;
+        const date = new Date(point.checked_at).toLocaleDateString();
+        const isLatest = index === data.length - 1;
+
+        html += `
+          <div class="chart-bar-wrapper">
+            <div class="chart-bar ${isLatest ? 'latest' : ''}" style="height: ${height}%">
+              <div class="bar-tooltip">
+                <div class="tooltip-rank">#${point.rank || 'Not Found'}</div>
+                <div class="tooltip-date">${date}</div>
+              </div>
+            </div>
+            <div class="x-label">${date.split('/')[0]}/${date.split('/')[1]}</div>
+          </div>
+        `;
+      });
+      html += '</div>';
+      html += '</div>';
+      html += '</div>';
+
+      return html;
+    }
+
+    function buildComparison(comparison, totalChecks) {
+      if (!comparison.first_rank || !comparison.latest_rank) {
+        return '';
+      }
+
+      const change = comparison.rank_change;
+      const isImprovement = change > 0;
+      const isDecline = change < 0;
+      const firstDate = new Date(comparison.first_checked).toLocaleDateString();
+      const latestDate = new Date(comparison.latest_checked).toLocaleDateString();
+
+      let statusClass = 'neutral';
+      let statusIcon = 'fa-minus';
+      let statusText = 'No change';
+
+      if (isImprovement) {
+        statusClass = 'improvement';
+        statusIcon = 'fa-arrow-up';
+        statusText = `Improved by ${change} positions`;
+      } else if (isDecline) {
+        statusClass = 'decline';
+        statusIcon = 'fa-arrow-down';
+        statusText = `Dropped ${Math.abs(change)} positions`;
+      }
+
+      return `
+        <div class="comparison-card ${statusClass}">
+          <div class="comparison-header">
+            <i class="fas ${statusIcon}"></i>
+            <h4>${statusText}</h4>
+          </div>
+          <div class="comparison-details">
+            <div class="comparison-item">
+              <span class="label">First Check (${firstDate})</span>
+              <span class="value">#${comparison.first_rank}</span>
+            </div>
+            <div class="comparison-arrow">
+              <i class="fas ${isImprovement ? 'fa-arrow-right' : isDecline ? 'fa-arrow-right' : 'fa-arrow-right'}"></i>
+            </div>
+            <div class="comparison-item">
+              <span class="label">Latest Check (${latestDate})</span>
+              <span class="value">#${comparison.latest_rank}</span>
+            </div>
+          </div>
+          <div class="comparison-stats">
+            <span class="stat"><i class="fas fa-history"></i> ${totalChecks} checks tracked</span>
+          </div>
+        </div>
+      `;
+    }
+  });
+</script>
+
+<style>
+  .rank-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .rank-hero-content h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 1rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trust-badges .badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .rank-checker-section {
+    padding: 80px 0;
+    background: #f9fafb;
+  }
+
+  .checker-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+  }
+
+  .checker-form {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .form-group label i {
+    color: #667eea;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  .form-group small {
+    display: block;
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+  }
+
+  .loading-state,
+  .error-state {
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #e5e7eb;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1.5rem;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .loading-state p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .loading-state small {
+    color: #64748b;
+  }
+
+  .error-state i {
+    font-size: 4rem;
+    color: #ef4444;
+    margin-bottom: 1rem;
+  }
+
+  .error-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .error-state p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+  }
+
+  .results-section {
+    padding-top: 2rem;
+  }
+
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .result-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .rank-card {
+    background: #f9fafb;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-left: 6px solid #667eea;
+  }
+
+  .rank-card.rank-excellent {
+    background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+    border-left-color: #10b981;
+  }
+
+  .rank-card.rank-good {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-left-color: #3b82f6;
+  }
+
+  .rank-card.rank-fair {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left-color: #f59e0b;
+  }
+
+  .rank-card.rank-poor {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-left-color: #ef4444;
+  }
+
+  .rank-card.rank-not-found {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    border-left-color: #6b7280;
+  }
+
+  .rank-position {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .rank-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #1e293b;
+    line-height: 1;
+  }
+
+  .rank-label {
+    font-size: 1.25rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+  }
+
+  .rank-icon {
+    font-size: 4rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+  }
+
+  .rank-details {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .detail-row:last-child {
+    border-bottom: none;
+  }
+
+  .detail-row .label {
+    font-weight: 600;
+    color: #64748b;
+  }
+
+  .detail-row .value {
+    color: #1e293b;
+    font-weight: 500;
+  }
+
+  .recommendation {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    color: #475569;
+  }
+
+  .serp-preview {
+    margin: 2rem 0;
+  }
+
+  .serp-preview h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .serp-result {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .serp-title {
+    color: #1a0dab;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+  }
+
+  .serp-title:hover {
+    text-decoration: underline;
+  }
+
+  .serp-url {
+    color: #006621;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .serp-snippet {
+    color: #545454;
+    line-height: 1.6;
+  }
+
+  .rank-analysis {
+    margin: 2rem 0;
+  }
+
+  .rank-analysis h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .analysis {
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .analysis i {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .analysis.excellent {
+    background: #d1fae5;
+    color: #065f46;
+  }
+
+  .analysis.excellent i {
+    color: #10b981;
+  }
+
+  .analysis.good {
+    background: #dbeafe;
+    color: #1e40af;
+  }
+
+  .analysis.good i {
+    color: #3b82f6;
+  }
+
+  .analysis.fair {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .analysis.fair i {
+    color: #f59e0b;
+  }
+
+  .analysis.poor {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .analysis.poor i {
+    color: #ef4444;
+  }
+
+  .result-actions {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    color: white;
+  }
+
+  .result-actions h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-actions p {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .info-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .info-icon i {
+    font-size: 1.75rem;
+    color: white;
+  }
+
+  .info-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #1e293b;
+  }
+
+  .info-card p {
+    color: #475569;
+    line-height: 1.6;
+  }
+
+  /* History Section Styles */
+  .history-section {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #f8fafc 100%);
+    border-radius: 16px;
+    border: 2px solid #e0f2fe;
+  }
+
+  .history-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .history-header h3 {
+    font-size: 1.75rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .history-header h3 i {
+    color: #667eea;
+  }
+
+  .history-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+  }
+
+  /* Chart Styles */
+  .chart-container {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .chart-grid {
+    display: flex;
+    gap: 1rem;
+    min-height: 300px;
+    position: relative;
+  }
+
+  .y-axis {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding-right: 1rem;
+    border-right: 2px solid #e5e7eb;
+    min-width: 50px;
+  }
+
+  .y-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .chart-bars {
+    flex: 1;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
+    padding: 0 1rem;
+  }
+
+  .chart-bar-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 300px;
+    justify-content: flex-end;
+  }
+
+  .chart-bar {
+    width: 100%;
+    min-height: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .chart-bar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+  }
+
+  .chart-bar.latest {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+
+  .bar-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    margin-bottom: 0.5rem;
+  }
+
+  .chart-bar:hover .bar-tooltip {
+    opacity: 1;
+  }
+
+  .tooltip-rank {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .tooltip-date {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  .x-label {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: #64748b;
+    text-align: center;
+  }
+
+  /* Comparison Card Styles */
+  .comparison-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-left: 6px solid #667eea;
+  }
+
+  .comparison-card.improvement {
+    border-left-color: #10b981;
+    background: linear-gradient(135deg, #d1fae5 0%, #ffffff 100%);
+  }
+
+  .comparison-card.decline {
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, #fee2e2 0%, #ffffff 100%);
+  }
+
+  .comparison-card.neutral {
+    border-left-color: #6b7280;
+    background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
+  }
+
+  .comparison-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .comparison-header i {
+    font-size: 2rem;
+  }
+
+  .comparison-card.improvement .comparison-header i {
+    color: #10b981;
+  }
+
+  .comparison-card.decline .comparison-header i {
+    color: #ef4444;
+  }
+
+  .comparison-card.neutral .comparison-header i {
+    color: #6b7280;
+  }
+
+  .comparison-header h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  .comparison-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .comparison-item {
+    flex: 1;
+    text-align: center;
+  }
+
+  .comparison-item .label {
+    display: block;
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+  }
+
+  .comparison-item .value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  .comparison-arrow {
+    font-size: 2rem;
+    color: #667eea;
+  }
+
+  .comparison-stats {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .comparison-stats .stat {
+    color: #64748b;
+    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .rank-hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .checker-card {
+      padding: 1.5rem;
+    }
+
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .result-header {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .action-buttons {
+      flex-direction: column;
+    }
+
+    .rank-number {
+      font-size: 3rem;
+    }
+  }
+</style>
