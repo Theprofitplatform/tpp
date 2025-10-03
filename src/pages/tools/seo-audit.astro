@@ -1,0 +1,1218 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+
+const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform.com.au';
+---
+
+<BaseLayout title="Free SEO Audit Tool | Comprehensive Website Analysis">
+  <Header />
+
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section class="seo-audit-hero">
+      <div class="container">
+        <div class="seo-audit-hero-content">
+          <span class="section-tag">🔍 Free Tool</span>
+          <h1>SEO Audit Tool</h1>
+          <p class="hero-subtitle">
+            Get a comprehensive SEO audit of your website with detailed recommendations.
+            Analyze meta tags, performance, mobile-friendliness, and more - 100% free.
+          </p>
+          <div class="trust-badges">
+            <span class="badge"><i class="fas fa-chart-bar"></i> 50+ Checks</span>
+            <span class="badge"><i class="fas fa-tachometer-alt"></i> Performance</span>
+            <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Audit Tool -->
+    <section class="seo-audit-section">
+      <div class="container">
+        <div class="audit-card">
+          <form id="seoAuditForm" class="audit-form">
+            <div class="form-group">
+              <label for="url">
+                <i class="fas fa-globe"></i>
+                Website URL to Audit
+              </label>
+              <input
+                type="url"
+                id="url"
+                name="url"
+                placeholder="https://yourwebsite.com.au"
+                required
+              />
+              <small>Enter the full URL including https://</small>
+            </div>
+
+            <button type="submit" class="btn-primary" id="auditButton">
+              <span class="btn-text">
+                <i class="fas fa-search"></i>
+                Run SEO Audit
+              </span>
+              <span class="btn-loader" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                Analyzing...
+              </span>
+            </button>
+          </form>
+
+          <!-- Loading State -->
+          <div id="loadingState" class="loading-state" style="display: none;">
+            <div class="loader-animation">
+              <div class="scanning-line"></div>
+              <i class="fas fa-search-location fa-3x"></i>
+            </div>
+            <h3>Analyzing Your Website...</h3>
+            <div class="progress-steps">
+              <div class="step active" id="step1">
+                <i class="fas fa-check-circle"></i>
+                <span>Fetching page content</span>
+              </div>
+              <div class="step" id="step2">
+                <i class="fas fa-circle"></i>
+                <span>Analyzing meta tags</span>
+              </div>
+              <div class="step" id="step3">
+                <i class="fas fa-circle"></i>
+                <span>Checking performance</span>
+              </div>
+              <div class="step" id="step4">
+                <i class="fas fa-circle"></i>
+                <span>Generating report</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Section -->
+          <div id="resultsContainer" style="display: none;">
+            <div class="results-header">
+              <h2>SEO Audit Results</h2>
+              <div class="overall-score" id="overallScore">
+                <div class="score-circle">
+                  <span class="score-number">--</span>
+                  <span class="score-label">/100</span>
+                </div>
+                <p>Overall SEO Score</p>
+              </div>
+            </div>
+
+            <!-- Score Categories -->
+            <div class="score-categories" id="scoreCategories">
+              <!-- Populated by JS -->
+            </div>
+
+            <!-- Issues and Recommendations -->
+            <div class="audit-sections">
+              <!-- Meta Tags Section -->
+              <div class="audit-section">
+                <h3><i class="fas fa-tags"></i> Meta Tags Analysis</h3>
+                <div id="metaResults" class="results-grid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Performance Section -->
+              <div class="audit-section">
+                <h3><i class="fas fa-tachometer-alt"></i> Performance</h3>
+                <div id="performanceResults" class="results-grid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Content Section -->
+              <div class="audit-section">
+                <h3><i class="fas fa-file-alt"></i> Content Analysis</h3>
+                <div id="contentResults" class="results-grid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Technical SEO Section -->
+              <div class="audit-section">
+                <h3><i class="fas fa-code"></i> Technical SEO</h3>
+                <div id="technicalResults" class="results-grid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Mobile & Accessibility -->
+              <div class="audit-section">
+                <h3><i class="fas fa-mobile-alt"></i> Mobile & Accessibility</h3>
+                <div id="mobileResults" class="results-grid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Items -->
+            <div class="action-items">
+              <h3><i class="fas fa-list-check"></i> Priority Action Items</h3>
+              <div id="actionItems" class="action-list">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Export Options -->
+            <div class="export-options">
+              <button class="btn-secondary" onclick="window.print()">
+                <i class="fas fa-print"></i> Print Report
+              </button>
+              <button class="btn-secondary" id="exportPDF">
+                <i class="fas fa-file-pdf"></i> Export PDF
+              </button>
+              <button class="btn-secondary" id="shareReport">
+                <i class="fas fa-share-alt"></i> Share Report
+              </button>
+            </div>
+          </div>
+
+          <!-- Error State -->
+          <div id="errorState" class="error-state" style="display: none;">
+            <i class="fas fa-exclamation-triangle fa-3x"></i>
+            <h3>Audit Failed</h3>
+            <p id="errorMessage"></p>
+            <button class="btn-primary" onclick="location.reload()">
+              <i class="fas fa-redo"></i> Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="tools-cta-modern">
+      <div class="container">
+        <div class="cta-content-modern">
+          <span class="section-tag white">🚀 Need Expert Help?</span>
+          <h2>Get Professional SEO Services</h2>
+          <p class="cta-subtitle">
+            Found issues with your SEO? Let our Sydney-based experts fix them and get you ranking on Google.
+          </p>
+          <div class="cta-buttons-modern">
+            <a href="/contact" class="cta-primary-modern">
+              <span class="cta-content">
+                <span class="cta-main">Get Free SEO Consultation</span>
+                <span class="cta-sub">Worth $997 • No obligation</span>
+              </span>
+              <span class="cta-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+            <a href="tel:+61487286451" class="cta-secondary-modern">
+              <span class="cta-icon-pulse">
+                <i class="fas fa-phone"></i>
+              </span>
+              <span class="cta-text">
+                <span class="cta-label">Call Avi directly</span>
+                <span class="cta-number">0487 286 451</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  /* ==========================================
+     SEO AUDIT TOOL STYLES
+     ========================================== */
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .section-tag.white {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Hero Section */
+  .seo-audit-hero {
+    padding: 140px 0 80px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .seo-audit-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 1rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .badge i {
+    font-size: 1.1rem;
+  }
+
+  /* Audit Section */
+  .seo-audit-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .audit-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Form */
+  .audit-form {
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1e293b;
+    font-size: 1.1rem;
+  }
+
+  .form-group label i {
+    color: #667eea;
+    margin-right: 0.5rem;
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  .form-group small {
+    display: block;
+    margin-top: 0.5rem;
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    padding: 0.875rem 1.5rem;
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #667eea;
+    color: white;
+  }
+
+  /* Loading State */
+  .loading-state {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .loader-animation {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .loader-animation i {
+    color: #667eea;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .scanning-line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #667eea, transparent);
+    top: 50%;
+    animation: scan 2s linear infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-50%) translateX(-100%); }
+    100% { transform: translateY(-50%) translateX(100%); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+
+  .progress-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 2rem auto 0;
+    text-align: left;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #94a3b8;
+  }
+
+  .step.active {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+  }
+
+  .step.complete {
+    color: #10b981;
+  }
+
+  .step i {
+    font-size: 1.2rem;
+  }
+
+  /* Results */
+  .results-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .results-header h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: #1e293b;
+  }
+
+  .overall-score {
+    display: inline-block;
+  }
+
+  .score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto 1rem;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+  }
+
+  .score-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+  }
+
+  .score-label {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .overall-score p {
+    font-size: 1.1rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  /* Score Categories */
+  .score-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .category-score {
+    background: white;
+    border: 2px solid #f1f5f9;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .category-score:hover {
+    border-color: #667eea;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+  }
+
+  .category-score h4 {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .category-score .score {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1e293b;
+  }
+
+  .category-score.good .score { color: #10b981; }
+  .category-score.warning .score { color: #f59e0b; }
+  .category-score.poor .score { color: #ef4444; }
+
+  /* Audit Sections */
+  .audit-sections {
+    margin-bottom: 3rem;
+  }
+
+  .audit-section {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .audit-section h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .audit-section h3 i {
+    color: #667eea;
+  }
+
+  .results-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .result-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-left: 4px solid #e2e8f0;
+  }
+
+  .result-item.pass {
+    border-left-color: #10b981;
+  }
+
+  .result-item.pass .icon {
+    color: #10b981;
+  }
+
+  .result-item.warning {
+    border-left-color: #f59e0b;
+  }
+
+  .result-item.warning .icon {
+    color: #f59e0b;
+  }
+
+  .result-item.fail {
+    border-left-color: #ef4444;
+  }
+
+  .result-item.fail .icon {
+    color: #ef4444;
+  }
+
+  .result-item .icon {
+    font-size: 1.5rem;
+  }
+
+  .result-item .content {
+    flex: 1;
+  }
+
+  .result-item .content h5 {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+  }
+
+  .result-item .content p {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
+  .result-item .value {
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  /* Action Items */
+  .action-items {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .action-items h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .action-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .action-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .action-item .priority {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .action-item.medium .priority {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+  }
+
+  .action-item.low .priority {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+  }
+
+  .action-item .content h5 {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .action-item .content p {
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+
+  /* Export Options */
+  .export-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 2px solid #f1f5f9;
+  }
+
+  /* Error State */
+  .error-state {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .error-state i {
+    color: #ef4444;
+    margin-bottom: 1.5rem;
+  }
+
+  .error-state h3 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+  }
+
+  .error-state p {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  /* CTA Section */
+  .tools-cta-modern {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-content-modern h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 1.5rem 0 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons-modern {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary-modern {
+    background: white;
+    color: #1e40af;
+    padding: 1.25rem 2rem;
+    border-radius: 60px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-primary-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-main {
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .cta-sub {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  .cta-arrow {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .cta-secondary-modern {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 1.25rem 2rem;
+    border-radius: 60px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .cta-secondary-modern:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .cta-icon-pulse {
+    width: 45px;
+    height: 45px;
+    background: white;
+    color: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cta-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-label {
+    font-size: 0.85rem;
+  }
+
+  .cta-number {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .seo-audit-hero {
+      padding: 100px 0 60px;
+    }
+
+    .seo-audit-hero-content h1 {
+      font-size: 2.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .audit-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .score-circle {
+      width: 120px;
+      height: 120px;
+    }
+
+    .score-number {
+      font-size: 2.5rem;
+    }
+
+    .cta-buttons-modern {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cta-primary-modern,
+    .cta-secondary-modern {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script define:vars={{ apiUrl }}>
+  const form = document.getElementById('seoAuditForm');
+  const loadingState = document.getElementById('loadingState');
+  const resultsContainer = document.getElementById('resultsContainer');
+  const errorState = document.getElementById('errorState');
+  const auditButton = document.getElementById('auditButton');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const url = document.getElementById('url').value.trim();
+
+    // Show loading state
+    form.style.display = 'none';
+    loadingState.style.display = 'block';
+    resultsContainer.style.display = 'none';
+    errorState.style.display = 'none';
+
+    // Animate progress steps
+    animateProgressSteps();
+
+    try {
+      const response = await fetch(`${apiUrl}/api/seo-audit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to audit website');
+      }
+
+      // Display results
+      displayResults(data);
+    } catch (error) {
+      console.error('Audit error:', error);
+      showError(error.message);
+    }
+  });
+
+  function animateProgressSteps() {
+    const steps = ['step1', 'step2', 'step3', 'step4'];
+    steps.forEach((stepId, index) => {
+      setTimeout(() => {
+        const step = document.getElementById(stepId);
+        step.classList.add('active');
+        if (index > 0) {
+          const prevStep = document.getElementById(steps[index - 1]);
+          prevStep.classList.remove('active');
+          prevStep.classList.add('complete');
+          prevStep.querySelector('i').className = 'fas fa-check-circle';
+        }
+      }, index * 1500);
+    });
+  }
+
+  function displayResults(data) {
+    loadingState.style.display = 'none';
+    resultsContainer.style.display = 'block';
+
+    // Overall Score
+    const scoreNumber = document.querySelector('.score-number');
+    scoreNumber.textContent = data.overallScore;
+
+    // Score Categories
+    const categories = document.getElementById('scoreCategories');
+    categories.innerHTML = Object.entries(data.categoryScores || {})
+      .map(([category, score]) => {
+        const status = score >= 80 ? 'good' : score >= 60 ? 'warning' : 'poor';
+        return `
+          <div class="category-score ${status}">
+            <h4>${category}</h4>
+            <div class="score">${score}/100</div>
+          </div>
+        `;
+      })
+      .join('');
+
+    // Meta Results
+    displayMetaResults(data.meta);
+
+    // Performance Results
+    displayPerformanceResults(data.performance);
+
+    // Content Results
+    displayContentResults(data.content);
+
+    // Technical Results
+    displayTechnicalResults(data.technical);
+
+    // Mobile Results
+    displayMobileResults(data.mobile);
+
+    // Action Items
+    displayActionItems(data.actionItems);
+  }
+
+  function displayMetaResults(meta) {
+    const container = document.getElementById('metaResults');
+    const checks = [
+      {
+        name: 'Title Tag',
+        value: meta.title?.value || 'Missing',
+        status: meta.title?.status || 'fail',
+        message: meta.title?.message || 'No title tag found'
+      },
+      {
+        name: 'Meta Description',
+        value: meta.description?.value || 'Missing',
+        status: meta.description?.status || 'fail',
+        message: meta.description?.message || 'No meta description found'
+      },
+      {
+        name: 'Open Graph Tags',
+        value: meta.og?.count || 0,
+        status: meta.og?.status || 'fail',
+        message: meta.og?.message || ''
+      },
+      {
+        name: 'Canonical URL',
+        value: meta.canonical?.value || 'Missing',
+        status: meta.canonical?.status || 'fail',
+        message: meta.canonical?.message || ''
+      }
+    ];
+
+    container.innerHTML = checks.map(check => createResultItem(check)).join('');
+  }
+
+  function displayPerformanceResults(perf) {
+    const container = document.getElementById('performanceResults');
+    const checks = [
+      {
+        name: 'Page Load Time',
+        value: `${perf.loadTime || 0}s`,
+        status: perf.loadTimeStatus || 'warning',
+        message: perf.loadTimeMessage || ''
+      },
+      {
+        name: 'Images Optimized',
+        value: `${perf.imagesOptimized || 0}%`,
+        status: perf.imagesStatus || 'warning',
+        message: perf.imagesMessage || ''
+      },
+      {
+        name: 'Minified Resources',
+        value: perf.minified || 'Unknown',
+        status: perf.minifiedStatus || 'warning',
+        message: perf.minifiedMessage || ''
+      }
+    ];
+
+    container.innerHTML = checks.map(check => createResultItem(check)).join('');
+  }
+
+  function displayContentResults(content) {
+    const container = document.getElementById('contentResults');
+    const checks = [
+      {
+        name: 'H1 Tag',
+        value: content.h1?.value || 'Missing',
+        status: content.h1?.status || 'fail',
+        message: content.h1?.message || ''
+      },
+      {
+        name: 'Heading Structure',
+        value: content.headings?.value || 'Unknown',
+        status: content.headings?.status || 'warning',
+        message: content.headings?.message || ''
+      },
+      {
+        name: 'Word Count',
+        value: content.wordCount?.value || 0,
+        status: content.wordCount?.status || 'warning',
+        message: content.wordCount?.message || ''
+      },
+      {
+        name: 'Internal Links',
+        value: content.internalLinks?.value || 0,
+        status: content.internalLinks?.status || 'warning',
+        message: content.internalLinks?.message || ''
+      }
+    ];
+
+    container.innerHTML = checks.map(check => createResultItem(check)).join('');
+  }
+
+  function displayTechnicalResults(tech) {
+    const container = document.getElementById('technicalResults');
+    const checks = [
+      {
+        name: 'HTTPS',
+        value: tech.https?.value || 'No',
+        status: tech.https?.status || 'fail',
+        message: tech.https?.message || ''
+      },
+      {
+        name: 'Robots.txt',
+        value: tech.robots?.value || 'Missing',
+        status: tech.robots?.status || 'warning',
+        message: tech.robots?.message || ''
+      },
+      {
+        name: 'Sitemap',
+        value: tech.sitemap?.value || 'Missing',
+        status: tech.sitemap?.status || 'warning',
+        message: tech.sitemap?.message || ''
+      },
+      {
+        name: 'Structured Data',
+        value: tech.structuredData?.value || 'None',
+        status: tech.structuredData?.status || 'warning',
+        message: tech.structuredData?.message || ''
+      }
+    ];
+
+    container.innerHTML = checks.map(check => createResultItem(check)).join('');
+  }
+
+  function displayMobileResults(mobile) {
+    const container = document.getElementById('mobileResults');
+    const checks = [
+      {
+        name: 'Mobile Viewport',
+        value: mobile.viewport?.value || 'Missing',
+        status: mobile.viewport?.status || 'fail',
+        message: mobile.viewport?.message || ''
+      },
+      {
+        name: 'Mobile Friendly',
+        value: mobile.friendly?.value || 'Unknown',
+        status: mobile.friendly?.status || 'warning',
+        message: mobile.friendly?.message || ''
+      },
+      {
+        name: 'Alt Tags',
+        value: `${mobile.altTags?.value || 0}%`,
+        status: mobile.altTags?.status || 'warning',
+        message: mobile.altTags?.message || ''
+      }
+    ];
+
+    container.innerHTML = checks.map(check => createResultItem(check)).join('');
+  }
+
+  function displayActionItems(items) {
+    const container = document.getElementById('actionItems');
+    if (!items || items.length === 0) {
+      container.innerHTML = '<p style="text-align: center; color: #10b981; font-weight: 600;">Great job! No critical issues found.</p>';
+      return;
+    }
+
+    container.innerHTML = items
+      .map(item => `
+        <div class="action-item ${item.priority}">
+          <div class="priority">${item.priority === 'high' ? 'H' : item.priority === 'medium' ? 'M' : 'L'}</div>
+          <div class="content">
+            <h5>${item.title}</h5>
+            <p>${item.description}</p>
+          </div>
+        </div>
+      `)
+      .join('');
+  }
+
+  function createResultItem(check) {
+    const icons = {
+      pass: 'fa-check-circle',
+      warning: 'fa-exclamation-triangle',
+      fail: 'fa-times-circle'
+    };
+
+    return `
+      <div class="result-item ${check.status}">
+        <i class="fas ${icons[check.status]} icon"></i>
+        <div class="content">
+          <h5>${check.name}</h5>
+          <p>${check.message}</p>
+        </div>
+        <div class="value">${check.value}</div>
+      </div>
+    `;
+  }
+
+  function showError(message) {
+    loadingState.style.display = 'none';
+    errorState.style.display = 'block';
+    document.getElementById('errorMessage').textContent = message;
+  }
+
+  // Export PDF functionality
+  document.getElementById('exportPDF')?.addEventListener('click', () => {
+    alert('PDF export feature coming soon!');
+  });
+
+  // Share functionality
+  document.getElementById('shareReport')?.addEventListener('click', async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'SEO Audit Report',
+          text: 'Check out my SEO audit results',
+          url: url
+        });
+      } catch (err) {
+        console.log('Share failed:', err);
+      }
+    } else {
+      navigator.clipboard.writeText(url);
+      alert('Link copied to clipboard!');
+    }
+  });
+</script>

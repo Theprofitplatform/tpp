@@ -9,7 +9,7 @@ import Footer from '../components/Footer.astro';
 
   <main id="main-content" role="main">
     <!-- Enhanced Hero Section -->
-    <section class="tools-hero-modern" role="banner" aria-labelledby="toolsHeroHeading" style="padding-top: 180px !important;">
+    <section class="tools-hero-modern" role="banner" aria-labelledby="toolsHeroHeading">
       <div class="hero-background" aria-hidden="true">
         <div class="hero-gradient-mesh"></div>
         <div class="hero-floating-elements">
@@ -108,30 +108,34 @@ import Footer from '../components/Footer.astro';
             <div class="card-shine"></div>
           </a>
 
-          <!-- Coming Soon Tools -->
-
-          <div class="tool-card-modern coming-soon">
-            <div class="tool-badge-modern coming-soon-badge">
-              <i class="fas fa-clock"></i>
-              <span>Coming Soon</span>
+          <!-- SEO Audit Tool -->
+          <a href="/tools/seo-audit" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #10b981, #059669); color: white; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);">
+              <i class="fas fa-sparkles"></i>
+              <span>NEW!</span>
             </div>
             <div class="tool-icon-modern">
-              <div class="icon-bg-gradient secondary"></div>
+              <div class="icon-bg-gradient"></div>
               <i class="fas fa-search"></i>
             </div>
             <h2>SEO Audit Tool</h2>
             <p>
               Get a comprehensive SEO audit of your website with detailed
-              recommendations for improvement.
+              recommendations for improvement. 50+ checks included.
             </p>
             <div class="tool-features-modern">
-              <span class="feature-tag-modern disabled"><i class="fas fa-clock"></i> In Development</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> 50+ SEO Checks</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> Action Items</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> Detailed Report</span>
             </div>
-            <div class="progress-bar-wrapper">
-              <div class="progress-bar" style="--progress: 45%;"></div>
-              <span class="progress-label">45% Complete</span>
+            <div class="tool-cta-modern">
+              <span>Audit Your Website</span>
+              <i class="fas fa-arrow-right"></i>
             </div>
-          </div>
+            <div class="card-shine"></div>
+          </a>
+
+          <!-- Coming Soon Tools -->
 
           <div class="tool-card-modern coming-soon">
             <div class="tool-badge-modern coming-soon-badge">
