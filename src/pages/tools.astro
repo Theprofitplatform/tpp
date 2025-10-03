@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout title="Free Marketing Tools | The Profit Platform">
@@ -189,30 +188,34 @@ import Footer from '../components/Footer.astro';
             <div class="card-shine"></div>
           </a>
 
-          <!-- Coming Soon Tools -->
-
-          <div class="tool-card-modern coming-soon">
-            <div class="tool-badge-modern coming-soon-badge">
-              <i class="fas fa-clock"></i>
-              <span>Coming Soon</span>
+          <!-- AI Content Generator Tool -->
+          <a href="/tools/content-generator" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #10b981, #059669); color: white; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);">
+              <i class="fas fa-sparkles"></i>
+              <span>NEW!</span>
             </div>
             <div class="tool-icon-modern">
-              <div class="icon-bg-gradient secondary"></div>
+              <div class="icon-bg-gradient"></div>
               <i class="fas fa-robot"></i>
             </div>
             <h2>AI Content Generator</h2>
             <p>
               Generate SEO-optimized content for your website with AI.
-              Blog posts, product descriptions, and more.
+              Blog posts, product descriptions, meta tags, and more.
             </p>
             <div class="tool-features-modern">
-              <span class="feature-tag-modern disabled"><i class="fas fa-clock"></i> In Development</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> 7 Content Types</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> SEO Analysis</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> Export Options</span>
             </div>
-            <div class="progress-bar-wrapper">
-              <div class="progress-bar" style="--progress: 10%;"></div>
-              <span class="progress-label">10% Complete</span>
+            <div class="tool-cta-modern">
+              <span>Generate Content</span>
+              <i class="fas fa-arrow-right"></i>
             </div>
-          </div>
+            <div class="card-shine"></div>
+          </a>
+
+          <!-- Coming Soon Tools -->
 
           <div class="tool-card-modern coming-soon">
             <div class="tool-badge-modern coming-soon-badge">
@@ -301,7 +304,6 @@ import Footer from '../components/Footer.astro';
 
   </main>
 
-  <Footer />
 </BaseLayout>
 
 <style>
