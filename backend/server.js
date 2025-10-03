@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import axios from 'axios';
 import { saveRankCheck, getRankHistory, getTrackedKeywords, getRankComparison } from './database.js';
 import { runSpeedTest, getPerformanceGrade } from './speed-test.js';
+import { researchKeywords } from './keyword-research.js';
 
 dotenv.config();
 
@@ -529,7 +530,17 @@ app.post('/api/seo-audit', seoAuditLimiter, async (req, res) => {
     const pageResponse = await axios.get(url, {
       timeout: 10000,
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; TPP-SEO-Audit/1.0; +https://theprofitplatform.com.au)'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'DNT': '1',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1'
+      },
+      maxRedirects: 5,
+      validateStatus: function (status) {
+        return status >= 200 && status < 400; // Accept redirects
       }
     });
 
@@ -935,6 +946,22 @@ app.post('/api/seo-audit', seoAuditLimiter, async (req, res) => {
       });
     }
 
+    // Handle 403 Forbidden
+    if (error.response?.status === 403) {
+      return res.status(403).json({
+        success: false,
+        error: 'Access denied. The website is blocking automated requests. This is common for sites with strict bot protection (Cloudflare, etc).'
+      });
+    }
+
+    // Handle other HTTP errors
+    if (error.response?.status) {
+      return res.status(error.response.status).json({
+        success: false,
+        error: `Website returned error ${error.response.status}. The site may be temporarily unavailable or blocking requests.`
+      });
+    }
+
     res.status(500).json({
       success: false,
       error: 'Failed to audit website. Please try again.'
@@ -1019,6 +1046,62 @@ app.post('/api/speed-test', speedTestLimiter, async (req, res) => {
     res.status(500).json({
       success: false,
       error: 'Failed to run speed test. Please try again.'
+    });
+  }
+});
+
+// ==========================================
+// KEYWORD RESEARCH API
+// ==========================================
+const keywordResearchLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 10, // 10 keyword research per minute
+  message: { success: false, error: 'Too many keyword research requests. Please wait a minute before trying again.' }
+});
+
+app.post('/api/keyword-research', keywordResearchLimiter, async (req, res) => {
+  try {
+    const { keyword, location, intent } = req.body;
+
+    // Validation
+    if (!keyword || keyword.trim().length < 2) {
+      return res.status(400).json({
+        success: false,
+        error: 'Keyword is required and must be at least 2 characters'
+      });
+    }
+
+    if (!location) {
+      return res.status(400).json({
+        success: false,
+        error: 'Location is required'
+      });
+    }
+
+    console.log('🔑 Starting keyword research:', { keyword, location, intent });
+
+    // Research keywords
+    const results = researchKeywords(keyword, location, intent || 'all');
+
+    console.log('✅ Keyword research completed:', {
+      keyword,
+      totalKeywords: results.keywords.length,
+      clusters: results.clusters.length
+    });
+
+    res.json({
+      success: true,
+      ...results,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('❌ Keyword research error:', error.message);
+
+    res.status(500).json({
+      success: false,
+      error: 'Failed to research keywords. Please try again.',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 });
