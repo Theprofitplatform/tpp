@@ -10,6 +10,7 @@ import { runSpeedTest, getPerformanceGrade } from './speed-test.js';
 import { researchKeywords } from './keyword-research.js';
 import { analyzeCompetitors } from './competitor-analysis.js';
 import { generateContent } from './content-generator.js';
+import { generateMetaTags } from './meta-tag-generator.js';
 
 dotenv.config();
 
@@ -1246,6 +1247,72 @@ app.post('/api/content-generator', contentGeneratorLimiter, async (req, res) => 
     res.status(500).json({
       success: false,
       error: error.message || 'Failed to generate content. Please try again.'
+    });
+  }
+});
+
+// Meta Tag Generator endpoint - Rate limited
+const metaTagLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 20, // 20 requests per minute
+  message: { success: false, error: 'Too many requests. Please try again in a minute.' }
+});
+
+app.post('/api/meta-tag-generator', metaTagLimiter, async (req, res) => {
+  try {
+    const {
+      topic,
+      businessName,
+      location,
+      pageType,
+      includeYear,
+      includeCTA,
+      canonicalUrl,
+      customTitle,
+      customDescription
+    } = req.body;
+
+    // Validate required fields
+    if (!topic && !customTitle) {
+      return res.status(400).json({
+        success: false,
+        error: 'Topic or custom title is required'
+      });
+    }
+
+    console.log('🏷️  Generating meta tags:', { topic, businessName, location, pageType });
+
+    // Generate meta tags
+    const results = await generateMetaTags({
+      topic,
+      businessName: businessName || '',
+      location: location || '',
+      pageType: pageType || 'general',
+      includeYear: includeYear || false,
+      includeCTA: includeCTA !== false, // default to true
+      canonicalUrl: canonicalUrl || '',
+      customTitle: customTitle || '',
+      customDescription: customDescription || ''
+    });
+
+    console.log('✅ Meta tags generated:', {
+      topic,
+      titleLength: results.metaTags.title.length,
+      descriptionLength: results.metaTags.description.length,
+      overallScore: results.analysis.overallScore
+    });
+
+    res.json({
+      ...results,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('❌ Meta tag generation error:', error.message);
+
+    res.status(500).json({
+      success: false,
+      error: error.message || 'Failed to generate meta tags. Please try again.'
     });
   }
 });
