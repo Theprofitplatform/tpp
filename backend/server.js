@@ -9,6 +9,7 @@ import { saveRankCheck, getRankHistory, getTrackedKeywords, getRankComparison } 
 import { runSpeedTest, getPerformanceGrade } from './speed-test.js';
 import { researchKeywords } from './keyword-research.js';
 import { analyzeCompetitors } from './competitor-analysis.js';
+import { generateContent } from './content-generator.js';
 
 dotenv.config();
 
@@ -1107,10 +1108,10 @@ app.post('/api/keyword-research', keywordResearchLimiter, async (req, res) => {
   }
 });
 
-// Rate limiter for competitor analysis - 3 per hour
+// Rate limiter for competitor analysis - 10 per hour
 const competitorAnalysisLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
-  max: 3,
+  max: 10,
   message: { success: false, error: 'Too many competitor analysis requests. Please wait an hour before trying again.' }
 });
 
@@ -1170,6 +1171,81 @@ app.post('/api/competitor-analysis', competitorAnalysisLimiter, async (req, res)
     res.status(500).json({
       success: false,
       error: error.message || 'Failed to analyze competitor. Please check the domains and try again.'
+    });
+  }
+});
+
+// ==========================================
+// CONTENT GENERATOR API
+// ==========================================
+const contentGeneratorLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 5, // 5 content generations per minute
+  message: { success: false, error: 'Too many content generation requests. Please wait a minute before trying again.' }
+});
+
+app.post('/api/content-generator', contentGeneratorLimiter, async (req, res) => {
+  try {
+    const { contentType, topic, tone, length, targetAudience } = req.body;
+
+    // Validation
+    if (!contentType || !topic || !tone || !length) {
+      return res.status(400).json({
+        success: false,
+        error: 'Content type, topic, tone, and length are required'
+      });
+    }
+
+    // Validate content type
+    const validContentTypes = ['blog_post', 'product_description', 'meta_description', 'social_media', 'email', 'landing_page', 'article'];
+    if (!validContentTypes.includes(contentType)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid content type'
+      });
+    }
+
+    // Validate tone
+    const validTones = ['professional', 'friendly', 'casual', 'formal', 'persuasive', 'informative'];
+    if (!validTones.includes(tone)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid tone'
+      });
+    }
+
+    // Validate length
+    const validLengths = ['short', 'medium', 'long'];
+    if (!validLengths.includes(length)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid length'
+      });
+    }
+
+    console.log('🤖 Generating content:', { contentType, topic, tone, length, targetAudience });
+
+    // Generate content
+    const results = await generateContent(contentType, topic, tone, length, targetAudience);
+
+    console.log('✅ Content generated:', {
+      contentType,
+      topic,
+      wordCount: results.wordCount,
+      seoScore: results.seoAnalysis.seoScore
+    });
+
+    res.json({
+      ...results,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('❌ Content generation error:', error.message);
+
+    res.status(500).json({
+      success: false,
+      error: error.message || 'Failed to generate content. Please try again.'
     });
   }
 });
