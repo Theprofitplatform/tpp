@@ -17,6 +17,7 @@ pnpm-debug.log*
 .env
 .env.production
 
+
 # macOS-specific files
 .DS_Store
 
@@ -27,3 +28,11 @@ pnpm-debug.log*
 releases/
 current
 test-reports/
+
+# Backend
+backend/.env
+logs/
+!logs/.gitkeep
+
+SETUP_STEPS.md
+ecosystem.config.cjs

@@ -1,0 +1,921 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const pageTitle = "SEO Services | The Profit Platform - Sydney";
+---
+
+<BaseLayout title={pageTitle}>
+  <Header />
+  
+  <link rel="stylesheet" href="/css/seo-page-styles.css">
+  <link rel="stylesheet" href="/css/seo-ultra.css">
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+    <main id="main-content" role="main">
+        <!-- SEO Hero Section -->
+        <section class="seo-hero" role="banner" aria-labelledby="seo-hero-heading">
+            <div class="hero-background-elements">
+                <div class="floating-shape shape-1"></div>
+                <div class="floating-shape shape-2"></div>
+                <div class="floating-shape shape-3"></div>
+            </div>
+
+            <div class="container">
+                <div class="seo-hero-content">
+                    <div class="hero-badge" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 0.75rem 1.5rem; border-radius: 50px; margin-bottom: 0.5rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
+                        <i class="fas fa-crown" style="color: #ffffff; text-shadow: 0 2px 4px rgba(0,0,0,0.1);"></i>
+                        <span style="color: #ffffff; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Results-Driven SEO Excellence</span>
+                    </div>
+
+                    <h1 id="seo-hero-heading">
+                        <span class="highlight-text">Dominate Google</span><br>
+                        Get 3x More Customers with Expert <span class="location-text">SEO</span>
+                        <div class="title-underline"></div>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Transform your Sydney business with proven SEO strategies that deliver real results. Get found by customers actively searching for your services and watch your revenue grow.
+                    </p>
+
+
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">385%</div>
+                            <div class="stat-label">Average Traffic Increase</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">60</div>
+                            <div class="stat-label">Days to Page 1</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">150+</div>
+                            <div class="stat-label">Keywords Ranking</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-cta-section">
+                        <div class="hero-buttons">
+                            <a href="#seo-contact" class="hero-primary-btn enhanced-cta">
+                                <div class="btn-text">
+                                    Get Free SEO Audit
+                                    <i class="fas fa-search btn-arrow"></i>
+                                </div>
+                                <div class="btn-subtext">Worth $500 - Limited Time</div>
+                            </a>
+                            <a href="tel:0487286451" class="hero-call-btn">
+                                <i class="fas fa-phone"></i>
+                                <span>Call (04) 8728 6451</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Services Grid -->
+        <section id="seo-services" style="background: white;">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; color: #1f2937;">Complete SEO Services</h2>
+                    <p style="font-size: 1.125rem; color: #6b7280; max-width: 600px; margin: 0 auto;">
+                        Everything you need to dominate Google search results and attract more customers in Sydney. No hidden fees, no long-term contracts.
+                    </p>
+                </div>
+
+                <div class="seo-services-grid">
+                    <!-- Local SEO -->
+                    <div class="seo-service-card">
+                        <div class="seo-service-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Local SEO Optimization</h3>
+                        <p>Dominate local search results across Sydney. Get found when customers search for businesses like yours in their area.</p>
+                        <ul class="seo-features">
+                            <li><i class="fas fa-check"></i> Google My Business optimization</li>
+                            <li><i class="fas fa-check"></i> Local citation building</li>
+                            <li><i class="fas fa-check"></i> Suburb-specific targeting</li>
+                            <li><i class="fas fa-check"></i> Review management</li>
+                            <li><i class="fas fa-check"></i> Local schema markup</li>
+                        </ul>
+                        <a href="/contact" class="seo-cta">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Technical SEO -->
+                    <div class="seo-service-card">
+                        <div class="seo-service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Technical SEO</h3>
+                        <p>Fix technical issues that prevent your website from ranking. Improve site speed, mobile responsiveness, and search engine crawlability.</p>
+                        <ul class="seo-features">
+                            <li><i class="fas fa-check"></i> Site speed optimization</li>
+                            <li><i class="fas fa-check"></i> Mobile-first optimization</li>
+                            <li><i class="fas fa-check"></i> Core Web Vitals improvement</li>
+                            <li><i class="fas fa-check"></i> XML sitemap creation</li>
+                            <li><i class="fas fa-check"></i> Schema markup implementation</li>
+                        </ul>
+                        <a href="/contact" class="seo-cta">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Content SEO -->
+                    <div class="seo-service-card">
+                        <div class="seo-service-icon">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                        <h3>Content Optimization</h3>
+                        <p>Create and optimize content that ranks well and converts visitors into customers. Strategic keyword targeting and compelling copy.</p>
+                        <ul class="seo-features">
+                            <li><i class="fas fa-check"></i> Keyword research & strategy</li>
+                            <li><i class="fas fa-check"></i> Content creation & optimization</li>
+                            <li><i class="fas fa-check"></i> Meta tag optimization</li>
+                            <li><i class="fas fa-check"></i> Internal linking strategy</li>
+                            <li><i class="fas fa-check"></i> Featured snippet optimization</li>
+                        </ul>
+                        <a href="/contact" class="seo-cta">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Link Building -->
+                    <div class="seo-service-card">
+                        <div class="seo-service-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>Link Building</h3>
+                        <p>Build high-quality backlinks from reputable Sydney and Australian websites to increase your domain authority and rankings.</p>
+                        <ul class="seo-features">
+                            <li><i class="fas fa-check"></i> Local directory submissions</li>
+                            <li><i class="fas fa-check"></i> Industry-specific link building</li>
+                            <li><i class="fas fa-check"></i> Guest posting opportunities</li>
+                            <li><i class="fas fa-check"></i> Broken link recovery</li>
+                            <li><i class="fas fa-check"></i> Competitor backlink analysis</li>
+                        </ul>
+                        <a href="/contact" class="seo-cta">
+                            <span>Get Started</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Packages Section -->
+        <section class="seo-packages section" id="seo-packages">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Choose Your SEO Package</h2>
+                    <p>Flexible SEO solutions designed to fit your budget and business goals</p>
+                </div>
+
+                <div class="packages-grid">
+                    <!-- Starter SEO Package -->
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-name">Local SEO</div>
+                            <div class="package-subtitle">Perfect for local businesses</div>
+                            <div class="package-price">
+                                <span class="price">$1,500</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+
+                        <div class="package-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Google My Business optimization</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Local citation building (20/month)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>10 target keywords</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Monthly SEO report</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Basic technical SEO</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Review management setup</span>
+                            </div>
+                        </div>
+
+                        <a href="#seo-contact" class="package-cta btn btn-outline">
+                            Choose Local SEO
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Growth SEO Package -->
+                    <div class="package-card featured">
+                        <div class="package-badge">Most Popular</div>
+                        <div class="package-header">
+                            <div class="package-name">Growth SEO</div>
+                            <div class="package-subtitle">For growing businesses</div>
+                            <div class="package-price">
+                                <span class="price">$2,500</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+
+                        <div class="package-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Everything in Local SEO</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>25 target keywords</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Content creation (4 articles/month)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Link building (10 quality links/month)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Advanced technical SEO</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Competitor analysis</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Weekly progress updates</span>
+                            </div>
+                        </div>
+
+                        <a href="#seo-contact" class="package-cta btn btn-primary">
+                            Choose Growth SEO
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <!-- Enterprise SEO Package -->
+                    <div class="package-card">
+                        <div class="package-header">
+                            <div class="package-name">Enterprise SEO</div>
+                            <div class="package-subtitle">For established businesses</div>
+                            <div class="package-price">
+                                <span class="price">$4,500</span>
+                                <span class="period">/month</span>
+                            </div>
+                        </div>
+
+                        <div class="package-features">
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Everything in Growth SEO</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>50+ target keywords</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Premium content strategy</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Advanced link building (25 links/month)</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>E-commerce SEO optimization</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Dedicated SEO specialist</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check"></i>
+                                <span>Priority support & consultation</span>
+                            </div>
+                        </div>
+
+                        <a href="#seo-contact" class="package-cta btn btn-outline">
+                            Choose Enterprise SEO
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="package-guarantee">
+                    <div class="guarantee-content">
+                        <div class="guarantee-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="guarantee-text">
+                            <h3>60-Day Results Guarantee</h3>
+                            <p>See significant ranking improvements within 60 days or get your money back.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Process Section -->
+        <section class="process section animate-on-scroll" id="process">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">🔍 Our SEO Process</span>
+                    <h2 class="section-title">From Invisible to Page One in 90 Days</h2>
+                    <p class="section-subtitle">Our proven 4-step SEO methodology delivers measurable results quickly. Here's exactly how we get Sydney businesses ranking on Google.</p>
+                </div>
+
+                <div class="process-timeline">
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">1</div>
+                        <div class="process-icon">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                        <div class="process-content">
+                            <h3>SEO Audit & Analysis</h3>
+                            <p>We analyze your current SEO performance, identify technical issues, research your competitors, and discover the best keyword opportunities for your Sydney business.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">2</div>
+                        <div class="process-icon">
+                            <i class="fas fa-chess"></i>
+                        </div>
+                        <div class="process-content">
+                            <h3>SEO Strategy Development</h3>
+                            <p>Based on our analysis, we create a customized SEO strategy targeting the most profitable keywords for your business with clear timelines and expected results.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">3</div>
+                        <div class="process-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="process-content">
+                            <h3>Technical Implementation</h3>
+                            <p>We fix technical issues, optimize your website structure, create high-quality content, and build authoritative backlinks to boost your search rankings.</p>
+                        </div>
+                    </div>
+
+                    <div class="process-step animate-on-scroll">
+                        <div class="step-number">4</div>
+                        <div class="process-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="process-content">
+                            <h3>Monitor & Optimize</h3>
+                            <p>We continuously track your rankings, analyze performance data, and make strategic optimizations to maintain and improve your search visibility.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Case Studies Section -->
+        <section class="seo-case-studies section" id="seo-case-studies">
+            <div class="container">
+                <div class="section-header">
+                    <h2>SEO Success Stories</h2>
+                    <p>Real results from real Sydney businesses we've helped dominate Google</p>
+                </div>
+
+                <div class="case-studies-grid">
+                    <!-- Case Study 1 -->
+                    <div class="case-study-card">
+                        <div class="case-study-header">
+                            <div class="client-info">
+                                <div class="client-logo">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="client-details">
+                                    <h4>Sydney Plumbing Services</h4>
+                                    <span class="client-industry">Home Services</span>
+                                </div>
+                            </div>
+                            <div class="case-study-badge">Local SEO</div>
+                        </div>
+
+                        <div class="case-study-content">
+                            <div class="challenge">
+                                <h5>Challenge</h5>
+                                <p>Struggling to compete with established plumbers, ranking on page 3-4 for "plumber Sydney" and related local terms.</p>
+                            </div>
+
+                            <div class="solution">
+                                <h5>Solution</h5>
+                                <p>Implemented comprehensive local SEO strategy with Google My Business optimization, local citations, and suburb-specific landing pages.</p>
+                            </div>
+
+                            <div class="results">
+                                <h5>Results in 4 Months</h5>
+                                <div class="result-stats">
+                                    <div class="result-stat">
+                                        <div class="stat-number">450%</div>
+                                        <div class="stat-label">Increase in Organic Traffic</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">#1</div>
+                                        <div class="stat-label">Ranking for "Plumber Sydney"</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">35+</div>
+                                        <div class="stat-label">Keywords on Page 1</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-study-footer">
+                            <div class="revenue-impact">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span>Generated $180,000+ additional revenue</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 2 -->
+                    <div class="case-study-card">
+                        <div class="case-study-header">
+                            <div class="client-info">
+                                <div class="client-logo">
+                                    <i class="fas fa-tooth"></i>
+                                </div>
+                                <div class="client-details">
+                                    <h4>Sydney Dental Practice</h4>
+                                    <span class="client-industry">Healthcare</span>
+                                </div>
+                            </div>
+                            <div class="case-study-badge">Technical + Content SEO</div>
+                        </div>
+
+                        <div class="case-study-content">
+                            <div class="challenge">
+                                <h5>Challenge</h5>
+                                <p>Website had technical issues, slow loading times, and wasn't mobile-friendly. Organic traffic was declining month over month.</p>
+                            </div>
+
+                            <div class="solution">
+                                <h5>Solution</h5>
+                                <p>Complete technical SEO overhaul, mobile optimization, content creation strategy, and local search optimization for dental services.</p>
+                            </div>
+
+                            <div class="results">
+                                <h5>Results in 6 Months</h5>
+                                <div class="result-stats">
+                                    <div class="result-stat">
+                                        <div class="stat-number">280%</div>
+                                        <div class="stat-label">More Appointment Bookings</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">65%</div>
+                                        <div class="stat-label">Faster Page Load Speed</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">95+</div>
+                                        <div class="stat-label">Google PageSpeed Score</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-study-footer">
+                            <div class="revenue-impact">
+                                <i class="fas fa-calendar-plus"></i>
+                                <span>850+ new patient appointments booked</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case Study 3 -->
+                    <div class="case-study-card">
+                        <div class="case-study-header">
+                            <div class="client-info">
+                                <div class="client-logo">
+                                    <i class="fas fa-store"></i>
+                                </div>
+                                <div class="client-details">
+                                    <h4>Sydney E-commerce Store</h4>
+                                    <span class="client-industry">Retail</span>
+                                </div>
+                            </div>
+                            <div class="case-study-badge">E-commerce SEO</div>
+                        </div>
+
+                        <div class="case-study-content">
+                            <div class="challenge">
+                                <h5>Challenge</h5>
+                                <p>Product pages weren't ranking, low organic visibility for key product categories, and poor conversion rates from organic traffic.</p>
+                            </div>
+
+                            <div class="solution">
+                                <h5>Solution</h5>
+                                <p>E-commerce SEO strategy with product page optimization, category structure improvement, and targeted content marketing.</p>
+                            </div>
+
+                            <div class="results">
+                                <h5>Results in 8 Months</h5>
+                                <div class="result-stats">
+                                    <div class="result-stat">
+                                        <div class="stat-number">520%</div>
+                                        <div class="stat-label">Increase in Organic Revenue</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">75%</div>
+                                        <div class="stat-label">More Product Page Views</div>
+                                    </div>
+                                    <div class="result-stat">
+                                        <div class="stat-number">180+</div>
+                                        <div class="stat-label">Products Ranking Top 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="case-study-footer">
+                            <div class="revenue-impact">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>$320,000+ additional online sales</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="case-studies-cta">
+                    <div class="cta-content">
+                        <h3>Ready to Be Our Next SEO Success Story?</h3>
+                        <p>Join 150+ Sydney businesses that have transformed their online presence with our proven SEO strategies</p>
+                        <a href="#seo-contact" class="btn btn-primary btn-lg">
+                            Get My Free SEO Audit
+                            <i class="fas fa-search"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO FAQ Section -->
+        <section class="seo-faq section" id="seo-faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>SEO Questions Answered</h2>
+                    <p>Everything Sydney business owners ask about SEO services</p>
+                </div>
+
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How long does SEO take to show results?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>For local SEO, you can expect to see initial improvements within 30-60 days, with significant results in 3-6 months. National SEO typically takes 6-12 months for competitive keywords. We provide monthly reports so you can track progress every step of the way.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What's the difference between SEO and Google Ads?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SEO is organic (free) search results that build long-term value, while Google Ads are paid advertisements. SEO takes longer but provides lasting results and higher trust. Google Ads give immediate visibility but stop when you stop paying. We recommend both for maximum impact.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Do you guarantee first page rankings?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We guarantee significant ranking improvements within 60 days or your money back. While no ethical SEO company can guarantee specific rankings (Google's algorithm changes constantly), we have a 95% success rate getting clients to page 1 for their target keywords.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How is local SEO different from regular SEO?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Local SEO focuses on "near me" searches and location-specific keywords. It includes Google My Business optimization, local citations, and suburb-specific content. It's perfect for businesses serving Sydney customers physically (like plumbers, dentists, restaurants).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can you help improve my Google My Business listing?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely! Google My Business optimization is a core part of our local SEO service. We optimize your profile, manage reviews, add posts, optimize photos, and ensure your business information is consistent across all platforms.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What SEO tools and software do you use?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We use enterprise-level tools including SEMrush, Ahrefs, Google Analytics, Google Search Console, Screaming Frog, and proprietary tracking software. You'll get access to detailed reports showing exactly how your SEO campaign is performing.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Do you work with any industry or business size?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We work with all types of Sydney businesses - from local service providers to e-commerce stores to professional services. Our packages scale from small local businesses ($1,500/month) to large enterprises ($4,500+/month). Every strategy is customized to your industry and goals.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What happens if I stop SEO services?</h4>
+                            <i class="fas fa-plus faq-icon"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Your rankings will gradually decline over time as competitors continue optimizing and Google's algorithm evolves. However, the content we create and technical improvements remain. SEO is an ongoing investment, like maintaining a gym membership - you need consistency for long-term results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Contact Section -->
+        <section class="seo-contact section" id="seo-contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get Your Free SEO Audit Worth $500</h2>
+                    <p>Discover exactly how to outrank your competition and get 3x more customers from Google</p>
+                </div>
+
+                <div class="contact-content">
+                    <div class="contact-form-container">
+                        <div class="form-header">
+                            <h3>Free SEO Audit Includes:</h3>
+                            <div class="audit-features">
+                                <div class="audit-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Complete technical SEO analysis</span>
+                                </div>
+                                <div class="audit-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Competitor ranking analysis</span>
+                                </div>
+                                <div class="audit-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Keyword opportunity report</span>
+                                </div>
+                                <div class="audit-feature">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Custom SEO strategy roadmap</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="contact-form" id="seoContactForm" action="https://formspree.io/f/meoqjgzn" method="POST" novalidate>
+                            <!-- Honeypot -->
+                            <input type="text" name="website" style="position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+                            <!-- Hidden fields -->
+                            <input type="hidden" name="_subject" value="SEO Audit Request">
+                            <input type="hidden" name="_next" value="/seo.html?success=1">
+                            <input type="hidden" name="service" value="SEO Services">
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                    <span class="error-message"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                    <span class="error-message"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="websiteUrl">Website URL *</label>
+                                <input type="url" id="websiteUrl" name="websiteUrl" placeholder="https://" required>
+                                <span class="error-message"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="seoGoals">What are your main SEO goals?</label>
+                                <select id="seoGoals" name="seoGoals">
+                                    <option value="">Select your primary goal</option>
+                                    <option value="local-visibility">Improve local visibility</option>
+                                    <option value="more-leads">Generate more leads</option>
+                                    <option value="beat-competitors">Outrank competitors</option>
+                                    <option value="website-traffic">Increase website traffic</option>
+                                    <option value="online-sales">Boost online sales</option>
+                                    <option value="brand-awareness">Build brand awareness</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="currentRankings">How are you currently performing in Google?</label>
+                                <select id="currentRankings" name="currentRankings">
+                                    <option value="">Select your situation</option>
+                                    <option value="not-found">Can't find my business on Google</option>
+                                    <option value="page-2-3">Showing up on page 2-3</option>
+                                    <option value="page-1-bottom">Bottom of page 1</option>
+                                    <option value="page-1-top">Top of page 1 for some keywords</option>
+                                    <option value="not-sure">Not sure how to check</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="budget">Monthly SEO Budget</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-1500">Under $1,500</option>
+                                    <option value="1500-2500">$1,500 - $2,500</option>
+                                    <option value="2500-4500">$2,500 - $4,500</option>
+                                    <option value="4500-plus">$4,500+</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="additionalInfo">Tell us about your business and current challenges</label>
+                                <textarea id="additionalInfo" name="additionalInfo" rows="4" placeholder="What industry are you in? What are your biggest SEO challenges?"></textarea>
+                            </div>
+
+                            <button type="submit" class="form-submit btn btn-primary btn-lg">
+                                <i class="fas fa-search"></i>
+                                Get My Free SEO Audit
+                            </button>
+
+                            <div class="form-guarantee">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>No spam. Your information is 100% secure. Results within 24 hours.</span>
+                            </div>
+
+                            <div id="formStatus" class="form-status"></div>
+                        </form>
+                    </div>
+
+                    <div class="contact-info">
+                        <div class="contact-card">
+                            <div class="contact-header">
+                                <h4>Prefer to Talk?</h4>
+                                <p>Speak directly with our SEO experts</p>
+                            </div>
+
+                            <div class="contact-methods">
+                                <div class="contact-method">
+                                    <div class="method-icon">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h5>Call Now</h5>
+                                        <a href="tel:0487286451">0487 286 451</a>
+                                        <span>Mon-Fri 9AM-6PM AEST</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact-method">
+                                    <div class="method-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h5>Email</h5>
+                                        <a href="mailto:avi@theprofitplatform.com.au">avi@theprofitplatform.com.au</a>
+                                        <span>Response within 2 hours</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact-method">
+                                    <div class="method-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="method-content">
+                                        <h5>Book a Call</h5>
+                                        <a href="#" onclick="window.open('https://calendly.com/theprofitplatform', '_blank')">Schedule Consultation</a>
+                                        <span>15-30 minute strategy call</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-benefits">
+                                <h5>What you'll get on our call:</h5>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Free competitive analysis</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Custom SEO strategy for your business</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Realistic timeline and expectations</span>
+                                </div>
+                                <div class="benefit-item">
+                                    <i class="fas fa-check"></i>
+                                    <span>Transparent pricing with no surprises</span>
+                                </div>
+                            </div>
+
+                            <div class="social-proof">
+                                <div class="proof-stats">
+                                    <div class="proof-stat">
+                                        <div class="proof-number">95%</div>
+                                        <div class="proof-label">Client Success Rate</div>
+                                    </div>
+                                    <div class="proof-stat">
+                                        <div class="proof-number">4.9/5</div>
+                                        <div class="proof-label">Average Rating</div>
+                                    </div>
+                                </div>
+
+                                <div class="trust-badges">
+                                    <div class="trust-badge">
+                                        <i class="fab fa-google"></i>
+                                        <span>Google Partner</span>
+                                    </div>
+                                    <div class="trust-badge">
+                                        <i class="fas fa-certificate"></i>
+                                        <span>SEO Certified</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+  <Footer />
+  
+  <!-- SEO page scripts -->
+  <script is:inline>
+    // FAQ Accordion functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            otherItem.classList.remove('active');
+          });
+          
+          // Toggle current item
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

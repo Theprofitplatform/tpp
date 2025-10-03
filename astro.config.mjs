@@ -1,18 +1,10 @@
 import { defineConfig } from 'astro/config';
-import cloudflare from '@astrojs/cloudflare';
 
+// Static site configuration for Cloudflare Pages
+// Note: No adapter needed for static deployment to Cloudflare Pages
 export default defineConfig({
   output: 'static',
-  site: 'https://new.theprofitplatform.com.au',
+  site: 'https://theprofitplatform.com.au',
   base: '/',
   trailingSlash: 'ignore',
-  vite: {
-    server: {
-      allowedHosts: [
-        '.trycloudflare.com',
-        'localhost',
-        '127.0.0.1'
-      ]
-    }
-  }
 });

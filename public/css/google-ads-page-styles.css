@@ -1,0 +1,294 @@
+/* Google Ads Page Specific Styles */
+
+.google-ads-hero {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    padding: 220px 0 100px 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.google-ads-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Grid background removed */
+    opacity: 0.3;
+}
+
+.google-ads-service-card {
+    background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.google-ads-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #dc2626, #f59e0b);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.google-ads-service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.google-ads-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(220, 38, 38, 0.15);
+    border-color: #dc2626;
+}
+
+.google-ads-service-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #dc2626, #f59e0b);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.google-ads-benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(220, 38, 38, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid #dc2626;
+}
+
+.google-ads-benefit-icon {
+    width: 24px;
+    height: 24px;
+    background: #dc2626;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.875rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.google-ads-process-step {
+    background: linear-gradient(135deg, #fef2f2 0%, #ffffff 100%);
+    border: 1px solid #fecaca;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.google-ads-process-step:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(220, 38, 38, 0.1);
+    border-color: #dc2626;
+}
+
+.google-ads-process-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    border: 3px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.google-ads-cta {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: white;
+    padding: 100px 0;
+    position: relative;
+}
+
+.google-ads-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+}
+
+.btn-google-ads {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: none;
+    font-size: 1rem;
+}
+
+.btn-google-ads:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(220, 38, 38, 0.3);
+    background: linear-gradient(135deg, #b91c1c, #991b1b);
+    color: white;
+}
+
+.google-ads-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.google-ads-stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(220, 38, 38, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+.google-ads-stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #dc2626;
+    margin-bottom: 0.5rem;
+}
+
+.google-ads-stat-label {
+    color: #6b7280;
+    font-weight: 500;
+}
+
+/* Process Grid Responsive Layout */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+@media (max-width: 1200px) {
+    .process-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .google-ads-process-step {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-grid {
+        margin-top: 2rem;
+    }
+}
+
+/* Animation Keyframes for SVG Icons */
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes pulseScale {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes bounceY {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-5px); }
+    75% { transform: translateY(5px); }
+}
+
+@keyframes clickPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes rocketLaunch {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Mobile Navigation Fix */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .google-ads-stats {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Tablet Layout */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .google-ads-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Dashboard Metric Cards */
+@keyframes gridMove {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+.metric-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}

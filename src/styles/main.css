@@ -1,0 +1,43 @@
+/**
+ * Main Consolidated Stylesheet
+ * This file imports all CSS in the correct order for optimal rendering
+ * Astro will bundle this into an optimized, hashed CSS file
+ */
+
+/* CRITICAL: Visibility fixes must load first */
+@import url('/css/visibility-fix.css');
+@import url('/css/critical.min.css');
+@import url('/css/loading-states.css');
+
+/* Main stylesheet */
+@import url('/css/style.min.css');
+
+/* Theme and layout */
+@import url('/css/modern-theme-variables.css');
+@import url('/css/navigation.css');
+@import url('/css/skip-links-fix.css');
+@import url('/css/main-content-spacing.css');
+@import url('/css/modern-theme-components.css');
+@import url('/css/dropdown-fix.css');
+@import url('/css/layout.css');
+@import url('/css/navigation-glass-enhanced.css');
+
+/* Hero section */
+@import url('/css/hero-content-spacing.css');
+@import url('/css/hero-modern.css');
+
+/* Trust signals */
+@import url('/css/trust-signals-enhanced.css');
+@import url('/css/trust-signals-homepage-theme.css');
+
+/* Mobile navigation */
+@import url('/css/mobile-nav-overflow-fix.css');
+
+/* Bundled CSS */
+@import url('/css/bundled.min.css');
+
+/* Animation fixes - MUST load after bundled CSS */
+@import url('/css/fix-animations.css');
+
+/* Contact text visibility - HIGHEST PRIORITY fix */
+@import url('/css/contact-text-fix.css');
