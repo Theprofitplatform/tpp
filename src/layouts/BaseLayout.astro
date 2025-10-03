@@ -1,6 +1,7 @@
 ---
 // BaseLayout.astro - Dynamic SEO with fallbacks to homepage defaults
 import '../styles/main.css';
+import Footer from '../components/Footer.astro';
 
 export interface Props {
   title?: string;
@@ -131,6 +132,8 @@ a.appendChild(r);
 
 <body>
 <slot />
+
+<Footer />
 
 <!-- Critical initialization script - must run last -->
 <script is:inline>
