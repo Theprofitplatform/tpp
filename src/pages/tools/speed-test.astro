@@ -554,13 +554,15 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
   /* Results */
   .results-section {
     padding-top: 2rem;
+    background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 100%);
   }
 
   @media (min-width: 1024px) {
     .results-section {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 3rem 4rem 4rem;
+      padding: 3rem 4rem 5rem;
+      background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 50%, #f9fafb 100%);
     }
 
     .result-header h2 {
@@ -570,6 +572,18 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     .result-header {
       margin-bottom: 3rem;
       padding-bottom: 1.5rem;
+      border-bottom: 3px solid #667eea;
+      position: relative;
+    }
+
+    .result-header::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
     }
   }
 
@@ -621,6 +635,13 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     border-radius: 16px;
     padding: 1.5rem;
     text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .score-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
 
   .score-card.main-score {
@@ -629,6 +650,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     gap: 2rem;
     padding: 2rem;
     background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid rgba(102, 126, 234, 0.2);
   }
 
   @media (min-width: 1024px) {
@@ -737,6 +759,10 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
   /* Metrics */
   .metrics-section {
     margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
 
   .metrics-section h3 {
@@ -745,6 +771,12 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .metrics-section h3 i {
+    color: #667eea;
   }
 
   .metrics-grid {
@@ -836,6 +868,10 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
   /* Opportunities */
   .opportunities-section {
     margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
 
   .opportunities-section h3 {
@@ -844,11 +880,18 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .opportunities-section h3 i {
+    color: #f59e0b;
   }
 
   .section-subtitle {
     color: #64748b;
     margin-bottom: 1.5rem;
+    font-size: 1rem;
   }
 
   .opportunities-list {

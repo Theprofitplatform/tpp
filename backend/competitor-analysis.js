@@ -25,7 +25,12 @@ async function analyzeWebsite(domain) {
     const response = await axios.get(url, {
       timeout: 10000,
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; TPP-CompetitorAnalyzer/1.0)'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
       }
     });
 
@@ -73,7 +78,19 @@ async function analyzeWebsite(domain) {
     };
   } catch (error) {
     console.error('Error analyzing website:', error.message);
-    throw new Error(`Failed to analyze ${domain}`);
+
+    // Provide specific error messages based on error type
+    if (error.response?.status === 403) {
+      throw new Error(`${domain} has bot protection enabled and cannot be analyzed. Try a different competitor.`);
+    } else if (error.response?.status === 404) {
+      throw new Error(`${domain} could not be found. Please check the domain name.`);
+    } else if (error.code === 'ENOTFOUND') {
+      throw new Error(`${domain} does not exist or is not accessible.`);
+    } else if (error.code === 'ETIMEDOUT' || error.code === 'ECONNABORTED') {
+      throw new Error(`${domain} took too long to respond. Please try again.`);
+    }
+
+    throw new Error(`Failed to analyze ${domain}. Please check the domain and try again.`);
   }
 }
 
