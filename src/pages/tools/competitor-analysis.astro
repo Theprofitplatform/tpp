@@ -121,6 +121,17 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
               </div>
             </div>
 
+            <!-- Estimation Notice (shown when bot protection detected) -->
+            <div id="estimationNotice" style="display: none; background: linear-gradient(135deg, #fff7e6 0%, #ffe4b3 100%); border-left: 4px solid #ff9800; padding: 20px; border-radius: 12px; margin: 25px 0;">
+              <div style="display: flex; align-items: start; gap: 15px;">
+                <i class="fas fa-info-circle" style="color: #ff9800; font-size: 24px; margin-top: 2px;"></i>
+                <div>
+                  <h4 style="margin: 0 0 10px 0; color: #e65100; font-size: 18px;">Estimated Analysis</h4>
+                  <p id="estimationNoteText" style="margin: 0; color: #5d4037; line-height: 1.6; font-size: 15px;"></p>
+                </div>
+              </div>
+            </div>
+
             <!-- Score Comparison -->
             <div class="score-comparison">
               <h3><i class="fas fa-trophy"></i> Overall Comparison</h3>
@@ -1123,6 +1134,16 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
   function displayResults(data) {
     loadingState.style.display = 'none';
     resultsContainer.style.display = 'block';
+
+    // Display estimation notice if present
+    const estimationNotice = document.getElementById('estimationNotice');
+    const estimationNoteText = document.getElementById('estimationNoteText');
+    if (data.note) {
+      estimationNoteText.textContent = data.note;
+      estimationNotice.style.display = 'block';
+    } else {
+      estimationNotice.style.display = 'none';
+    }
 
     // Display domains
     document.getElementById('yourDomainDisplay').textContent = data.yourDomain;
