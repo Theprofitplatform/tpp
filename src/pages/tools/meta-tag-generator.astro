@@ -2,7 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 
-const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform.com.au';
+// Use tunnel URL explicitly for now since production API doesn't have the endpoint yet
+const apiUrl = 'https://rush-minute-partnership-tender.trycloudflare.com';
 
 // SEO-optimized meta tags
 const pageTitle = "Free Meta Tag Generator | Create SEO Title & Description Tags";
