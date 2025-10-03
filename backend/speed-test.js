@@ -19,7 +19,16 @@ export async function runSpeedTest(url, options = {}) {
 
     // Launch Chrome
     chrome = await chromeLauncher.launch({
-      chromeFlags: ['--headless', '--disable-gpu', '--no-sandbox']
+      chromePath: '/usr/bin/chromium-browser',
+      chromeFlags: [
+        '--headless',
+        '--disable-gpu',
+        '--no-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-setuid-sandbox',
+        '--disable-software-rasterizer',
+        '--disable-extensions'
+      ]
     });
 
     // Run Lighthouse

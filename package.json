@@ -13,11 +13,15 @@
     "deploy:prod": "npm run build && npx wrangler pages deploy dist --project-name=tpp",
     "backend:dev": "node --watch backend/server.js",
     "backend:start": "node backend/server.js",
+    "prod:start": "./scripts/start-production.sh",
+    "prod:update-url": "./scripts/update-tunnel-url.sh",
     "pm2:start": "pm2 start ecosystem.config.cjs",
-    "pm2:stop": "pm2 stop tpp-backend",
-    "pm2:restart": "pm2 restart tpp-backend",
-    "pm2:logs": "pm2 logs tpp-backend",
-    "pm2:status": "pm2 status"
+    "pm2:stop": "pm2 stop all",
+    "pm2:restart": "pm2 restart all",
+    "pm2:logs": "pm2 logs",
+    "pm2:status": "pm2 status",
+    "pm2:backend-logs": "pm2 logs tpp-backend",
+    "pm2:tunnel-logs": "pm2 logs cloudflare-tunnel"
   },
   "dependencies": {
     "@astrojs/cloudflare": "12.6.9",

@@ -158,6 +158,9 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
 
             <!-- Export Options -->
             <div class="export-options">
+              <button class="btn-primary" id="newAuditButton">
+                <i class="fas fa-plus"></i> New Audit
+              </button>
               <button class="btn-secondary" onclick="window.print()">
                 <i class="fas fa-print"></i> Print Report
               </button>
@@ -175,7 +178,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
             <i class="fas fa-exclamation-triangle fa-3x"></i>
             <h3>Audit Failed</h3>
             <p id="errorMessage"></p>
-            <button class="btn-primary" onclick="location.reload()">
+            <button class="btn-primary" id="tryAgainButton">
               <i class="fas fa-redo"></i> Try Again
             </button>
           </div>
@@ -1189,8 +1192,26 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
   function showError(message) {
     loadingState.style.display = 'none';
     errorState.style.display = 'block';
+    resultsContainer.style.display = 'none';
     document.getElementById('errorMessage').textContent = message;
   }
+
+  // Try Again button handler
+  document.getElementById('tryAgainButton')?.addEventListener('click', () => {
+    errorState.style.display = 'none';
+    form.style.display = 'block';
+    document.getElementById('url').value = '';
+    document.getElementById('url').focus();
+  });
+
+  // New Audit button handler
+  document.getElementById('newAuditButton')?.addEventListener('click', () => {
+    resultsContainer.style.display = 'none';
+    errorState.style.display = 'none';
+    form.style.display = 'block';
+    document.getElementById('url').value = '';
+    document.getElementById('url').focus();
+  });
 
   // Export PDF functionality
   document.getElementById('exportPDF')?.addEventListener('click', () => {
