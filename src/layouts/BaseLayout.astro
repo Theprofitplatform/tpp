@@ -263,69 +263,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Handle mobile navigation if present
-    const mobileToggle = document.getElementById('menuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    const mobileOverlay = document.getElementById('mobileNavOverlay');
-    const mobileClose = document.getElementById('mobileNavClose');
-
-    function toggleMobileNav(show) {
-        if (mobileNav && mobileOverlay && mobileToggle) {
-            if (show) {
-                mobileNav.setAttribute('aria-hidden', 'false');
-                mobileNav.classList.add('active');
-                mobileOverlay.setAttribute('aria-hidden', 'false');
-                mobileOverlay.classList.add('active');
-                mobileToggle.setAttribute('aria-expanded', 'true');
-                document.body.style.setProperty('overflow', 'hidden', 'important');
-                document.body.style.setProperty('position', 'fixed', 'important');
-                document.body.style.setProperty('width', '100%', 'important');
-            } else {
-                mobileNav.setAttribute('aria-hidden', 'true');
-                mobileNav.classList.remove('active');
-                mobileOverlay.setAttribute('aria-hidden', 'true');
-                mobileOverlay.classList.remove('active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.removeProperty('overflow');
-                document.body.style.removeProperty('position');
-                document.body.style.removeProperty('width');
-            }
-        }
-    }
-
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', () => {
-            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-            toggleMobileNav(!isExpanded);
-        });
-    }
-
-    if (mobileClose) {
-        mobileClose.addEventListener('click', () => toggleMobileNav(false));
-    }
-
-    if (mobileOverlay) {
-        mobileOverlay.addEventListener('click', () => toggleMobileNav(false));
-    }
-
-    // CRITICAL FIX: Ensure body overflow is never stuck
-    // Clear any lingering overflow hidden on page load
-    document.body.style.overflow = '';
-    document.body.style.overflowY = '';
-    document.documentElement.style.overflow = '';
-
-    // Add safeguard to clear overflow on visibility change (tab switch, etc.)
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') {
-            // Only clear if mobile nav is closed
-            const isNavOpen = mobileToggle && mobileToggle.getAttribute('aria-expanded') === 'true';
-            if (!isNavOpen) {
-                document.body.style.overflow = '';
-                document.body.style.overflowY = '';
-                document.documentElement.style.overflow = '';
-            }
-        }
-    });
+    // Mobile navigation is handled by Header.astro component
+    // Removed duplicate code to prevent conflicts
 });
 </script>
 
