@@ -95,9 +95,6 @@ const ogDescription = description || "Transform your business with expert digita
 
 <!-- Preload Critical Resources -->
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<link rel="preload" href="/js/vendor.js" as="script">
-<link rel="preload" href="/js/plugins.js" as="script">
-<link rel="preload" href="/js/main.js" as="script">
 
 <!-- Fallback for preload -->
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
@@ -134,11 +131,6 @@ a.appendChild(r);
 
 <body>
 <slot />
-
-<!-- External Scripts in specific order -->
-<script is:inline src="/js/vendor.js"></script>
-<script is:inline src="/js/plugins.js"></script>
-<script is:inline src="/js/main.js"></script>
 
 <!-- Critical initialization script - must run last -->
 <script is:inline>
@@ -234,15 +226,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflowY = '';
     document.documentElement.style.overflow = '';
 
-    // Debug: Log scroll state
-    console.log('[Scroll Debug] Page loaded');
-    console.log('Body overflow:', window.getComputedStyle(document.body).overflow);
-    console.log('Body overflow-y:', window.getComputedStyle(document.body).overflowY);
-    console.log('HTML overflow:', window.getComputedStyle(document.documentElement).overflow);
-    console.log('Document height:', document.documentElement.scrollHeight);
-    console.log('Window height:', window.innerHeight);
-    console.log('Can scroll:', document.documentElement.scrollHeight > window.innerHeight);
-
     // Add safeguard to clear overflow on visibility change (tab switch, etc.)
     document.addEventListener('visibilitychange', () => {
         if (document.visibilityState === 'visible') {
@@ -255,17 +238,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-
-    // Debug: Monitor scroll attempts
-    let scrollAttempts = 0;
-    window.addEventListener('wheel', (e) => {
-        scrollAttempts++;
-        if (scrollAttempts <= 3) {
-            console.log('[Scroll Debug] Wheel event detected, delta:', e.deltaY);
-            console.log('Current scroll position:', window.pageYOffset);
-            console.log('Body overflow:', window.getComputedStyle(document.body).overflow);
-        }
-    }, { passive: true });
 });
 </script>
 

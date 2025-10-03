@@ -154,4 +154,50 @@
   </div>
 </section>
 
-<script type="module" src="/_astro/ContactSection.astro_astro_type_script_index_0_lang.C7RFDwbv.js"></script>
+<script is:inline>
+  // Override buggy form handler - run after DOM loaded
+  window.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+
+    // Remove all existing event listeners by cloning and replacing
+    const newForm = form.cloneNode(true);
+    form.parentNode.replaceChild(newForm, form);
+
+    // Add our clean handler
+    newForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const submitBtn = newForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending...';
+
+      const formData = new FormData(newForm);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          alert('Thank you for your inquiry! We\\'ll contact you within 24 hours.');
+          newForm.reset();
+        } else {
+          alert('Failed to submit: ' + (result.error || 'Please try again'));
+        }
+      } catch (error) {
+        alert('Network error. Please try again or call us directly.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  });
+</script>

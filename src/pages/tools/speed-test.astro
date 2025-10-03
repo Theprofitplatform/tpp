@@ -1,0 +1,899 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+
+const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform.com.au';
+---
+
+<BaseLayout title="Free Website Speed Test | Lighthouse Performance Audit">
+  <Header />
+
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section class="speed-hero">
+      <div class="container">
+        <div class="speed-hero-content">
+          <span class="section-tag">⚡ Free Tool</span>
+          <h1>Website Speed Test</h1>
+          <p class="hero-subtitle">
+            Analyze your website's performance with Google Lighthouse.
+            Get detailed metrics and actionable recommendations - 100% free!
+          </p>
+          <div class="trust-badges">
+            <span class="badge"><i class="fas fa-check"></i> Powered by Lighthouse</span>
+            <span class="badge"><i class="fas fa-chart-bar"></i> Real Metrics</span>
+            <span class="badge"><i class="fas fa-lightbulb"></i> Actionable Tips</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speed Test Tool -->
+    <section class="speed-test-section">
+      <div class="container">
+        <div class="test-card">
+          <form id="speedTestForm" class="test-form">
+            <div class="form-group-large">
+              <label for="url">
+                <i class="fas fa-globe"></i>
+                Enter Your Website URL
+              </label>
+              <div class="input-with-button">
+                <input
+                  type="url"
+                  id="url"
+                  name="url"
+                  placeholder="https://yourwebsite.com"
+                  required
+                />
+                <button type="submit" class="btn btn-primary btn-lg" id="testButton">
+                  <i class="fas fa-bolt"></i>
+                  Analyze Speed
+                </button>
+              </div>
+              <small>Enter the full URL including https://</small>
+            </div>
+          </form>
+
+          <!-- Loading State -->
+          <div id="loadingState" class="loading-state" style="display: none;">
+            <div class="loading-animation">
+              <div class="lighthouse-beam"></div>
+              <div class="lighthouse-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+            </div>
+            <p class="loading-text">Running Lighthouse audit...</p>
+            <p class="loading-subtext">This may take 30-60 seconds</p>
+            <div class="loading-progress">
+              <div class="progress-step active">
+                <i class="fas fa-download"></i>
+                <span>Loading page</span>
+              </div>
+              <div class="progress-step">
+                <i class="fas fa-chart-line"></i>
+                <span>Analyzing</span>
+              </div>
+              <div class="progress-step">
+                <i class="fas fa-check"></i>
+                <span>Complete</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Error State -->
+          <div id="errorState" class="error-state" style="display: none;">
+            <i class="fas fa-exclamation-circle"></i>
+            <h3>Oops! Something went wrong</h3>
+            <p id="errorMessage"></p>
+            <button class="btn btn-secondary" onclick="location.reload()">
+              Try Again
+            </button>
+          </div>
+
+          <!-- Results Section -->
+          <div id="resultsSection" class="results-section" style="display: none;">
+            <div class="result-header">
+              <h2>Performance Report</h2>
+              <button class="btn btn-secondary btn-sm" onclick="location.reload()">
+                <i class="fas fa-redo"></i> Test Another Site
+              </button>
+            </div>
+
+            <div id="resultContent" class="result-content">
+              <!-- Results will be inserted here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3>Why Speed Matters</h3>
+            <p>
+              53% of mobile users abandon sites that take over 3 seconds to load.
+              Faster sites rank better in Google and convert more visitors.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>Core Web Vitals</h3>
+            <p>
+              Google uses speed metrics (LCP, FID, CLS) as ranking factors.
+              Our test shows exactly how you measure up.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Get Expert Help</h3>
+            <p>
+              Not sure how to fix the issues? Our speed optimization service
+              can make your site blazing fast in days.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<script define:vars={{ apiUrl }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('speedTestForm');
+    const loadingState = document.getElementById('loadingState');
+    const errorState = document.getElementById('errorState');
+    const resultsSection = document.getElementById('resultsSection');
+    const resultContent = document.getElementById('resultContent');
+    const errorMessage = document.getElementById('errorMessage');
+    const testButton = document.getElementById('testButton');
+
+    let progressInterval;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const urlInput = document.getElementById('url');
+      let url = urlInput.value.trim();
+
+      // Add https:// if not present
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+        urlInput.value = url;
+      }
+
+      // Hide all states
+      form.style.display = 'none';
+      errorState.style.display = 'none';
+      resultsSection.style.display = 'none';
+      loadingState.style.display = 'block';
+      testButton.disabled = true;
+
+      // Animate progress steps
+      startProgressAnimation();
+
+      try {
+        const response = await fetch(`${apiUrl}/api/speed-test`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ url })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'Failed to run speed test');
+        }
+
+        // Show results
+        clearInterval(progressInterval);
+        loadingState.style.display = 'none';
+        resultsSection.style.display = 'block';
+        displayResults(data.data);
+
+      } catch (error) {
+        console.error('Speed test error:', error);
+        clearInterval(progressInterval);
+        loadingState.style.display = 'none';
+        errorState.style.display = 'block';
+        errorMessage.textContent = error.message || 'Unable to run speed test. Please try again.';
+      } finally {
+        testButton.disabled = false;
+      }
+    });
+
+    function startProgressAnimation() {
+      const steps = document.querySelectorAll('.progress-step');
+      let currentStep = 0;
+
+      progressInterval = setInterval(() => {
+        if (currentStep < steps.length) {
+          steps[currentStep].classList.add('active');
+          currentStep++;
+        }
+      }, 10000); // Each step after 10s
+    }
+
+    function displayResults(data) {
+      const { url, scores, metrics, performanceGrade, opportunities, diagnostics } = data;
+
+      let html = `
+        <!-- Score Cards -->
+        <div class="score-cards">
+          <div class="score-card main-score score-${performanceGrade.grade.toLowerCase()}">
+            <div class="score-icon">
+              <div class="score-circle">
+                <svg viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="${performanceGrade.color}"
+                    stroke-width="8" stroke-dasharray="${scores.performance * 2.83} 283"
+                    transform="rotate(-90 50 50)"/>
+                </svg>
+                <div class="score-value">${scores.performance}</div>
+              </div>
+            </div>
+            <div class="score-info">
+              <h3>Performance Score</h3>
+              <div class="score-grade">
+                <span class="grade-letter">${performanceGrade.grade}</span>
+                <span class="grade-label">${performanceGrade.label}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="score-card">
+            <div class="score-mini">${scores.accessibility}</div>
+            <div class="score-label">Accessibility</div>
+          </div>
+
+          <div class="score-card">
+            <div class="score-mini">${scores.bestPractices}</div>
+            <div class="score-label">Best Practices</div>
+          </div>
+
+          <div class="score-card">
+            <div class="score-mini">${scores.seo}</div>
+            <div class="score-label">SEO</div>
+          </div>
+        </div>
+
+        <!-- Core Metrics -->
+        <div class="metrics-section">
+          <h3><i class="fas fa-chart-bar"></i> Core Web Vitals</h3>
+          <div class="metrics-grid">
+            ${buildMetric('Largest Contentful Paint', metrics.largestContentfulPaint, 2500, 4000, 'LCP')}
+            ${buildMetric('First Contentful Paint', metrics.firstContentfulPaint, 1800, 3000, 'FCP')}
+            ${buildMetric('Total Blocking Time', metrics.totalBlockingTime, 200, 600, 'TBT')}
+            ${buildMetric('Cumulative Layout Shift', metrics.cumulativeLayoutShift, 0.1, 0.25, 'CLS', true)}
+            ${buildMetric('Speed Index', metrics.speedIndex, 3400, 5800, 'SI')}
+            ${buildMetric('Time to Interactive', metrics.timeToInteractive, 3800, 7300, 'TTI')}
+          </div>
+        </div>
+
+        <!-- Opportunities -->
+        ${opportunities && opportunities.length > 0 ? `
+        <div class="opportunities-section">
+          <h3><i class="fas fa-lightbulb"></i> Performance Opportunities</h3>
+          <p class="section-subtitle">Here's how you can improve your speed:</p>
+          <div class="opportunities-list">
+            ${opportunities.map(opp => `
+              <div class="opportunity-item">
+                <div class="opportunity-header">
+                  <div class="opportunity-icon">
+                    <i class="fas fa-bolt"></i>
+                  </div>
+                  <div class="opportunity-info">
+                    <h4>${opp.title}</h4>
+                    <p>${opp.description}</p>
+                  </div>
+                  <div class="opportunity-savings">
+                    <div class="savings-value">${formatTime(opp.savingsMs)}</div>
+                    <div class="savings-label">potential savings</div>
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- CTA -->
+        <div class="result-cta">
+          <h3>Need help optimizing your site?</h3>
+          <p>Our experts can make your website load 2-3x faster in just days</p>
+          <div class="cta-buttons">
+            <a href="/contact" class="btn btn-primary btn-lg">
+              Get Free Speed Optimization Quote →
+            </a>
+            <a href="tel:+61487286451" class="btn btn-secondary btn-lg">
+              <i class="fas fa-phone"></i> 0487 286 451
+            </a>
+          </div>
+        </div>
+      `;
+
+      resultContent.innerHTML = html;
+    }
+
+    function buildMetric(name, value, goodThreshold, poorThreshold, abbreviation, isRatio = false) {
+      const displayValue = isRatio ? value.toFixed(3) : formatTime(value);
+      let status = 'good';
+
+      if (!isRatio) {
+        if (value > poorThreshold) status = 'poor';
+        else if (value > goodThreshold) status = 'fair';
+      } else {
+        if (value > poorThreshold) status = 'poor';
+        else if (value > goodThreshold) status = 'fair';
+      }
+
+      return `
+        <div class="metric-card metric-${status}">
+          <div class="metric-value">${displayValue}</div>
+          <div class="metric-label">${name}</div>
+          <div class="metric-abbr">${abbreviation}</div>
+        </div>
+      `;
+    }
+
+    function formatTime(ms) {
+      if (ms < 1000) return `${Math.round(ms)}ms`;
+      return `${(ms / 1000).toFixed(2)}s`;
+    }
+  });
+</script>
+
+<style>
+  /* Same styling patterns as rank-tracker for consistency */
+  .speed-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .speed-hero-content h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 1rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trust-badges .badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .speed-test-section {
+    padding: 80px 0;
+    background: #f9fafb;
+  }
+
+  .test-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+  }
+
+  .form-group-large label {
+    display: block;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .form-group-large label i {
+    color: #667eea;
+    font-size: 1.5rem;
+  }
+
+  .input-with-button {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-with-button input {
+    flex: 1;
+    padding: 1.25rem 1.5rem;
+    border: 3px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+  }
+
+  .input-with-button input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  }
+
+  .input-with-button button {
+    white-space: nowrap;
+  }
+
+  /* Loading State */
+  .loading-state {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .loading-animation {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 2rem;
+  }
+
+  .lighthouse-beam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #667eea;
+    border-top-color: transparent;
+    animation: lighthouse-spin 1s linear infinite;
+  }
+
+  @keyframes lighthouse-spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .lighthouse-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #667eea;
+  }
+
+  .loading-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .loading-subtext {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  .loading-progress {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+  }
+
+  .progress-step.active {
+    opacity: 1;
+  }
+
+  .progress-step i {
+    font-size: 2rem;
+    color: #667eea;
+  }
+
+  .progress-step span {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
+  /* Error State */
+  .error-state {
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .error-state i {
+    font-size: 4rem;
+    color: #ef4444;
+    margin-bottom: 1rem;
+  }
+
+  .error-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .error-state p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Results */
+  .results-section {
+    padding-top: 2rem;
+  }
+
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .result-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  /* Score Cards */
+  .score-cards {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .score-card {
+    background: #f9fafb;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .score-card.main-score {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  }
+
+  .score-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+
+  .score-circle svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .score-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+  }
+
+  .score-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .score-grade {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .grade-letter {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #667eea;
+  }
+
+  .grade-label {
+    font-size: 1.25rem;
+    color: #64748b;
+  }
+
+  .score-mini {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .score-label {
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+
+  /* Metrics */
+  .metrics-section {
+    margin: 3rem 0;
+  }
+
+  .metrics-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .metric-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid #10b981;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .metric-card.metric-fair {
+    border-left-color: #f59e0b;
+  }
+
+  .metric-card.metric-poor {
+    border-left-color: #ef4444;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-label {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .metric-abbr {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  /* Opportunities */
+  .opportunities-section {
+    margin: 3rem 0;
+  }
+
+  .opportunities-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-subtitle {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+  }
+
+  .opportunities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .opportunity-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #667eea;
+  }
+
+  .opportunity-header {
+    display: flex;
+    align-items: start;
+    gap: 1.5rem;
+  }
+
+  .opportunity-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .opportunity-icon i {
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .opportunity-info {
+    flex: 1;
+  }
+
+  .opportunity-info h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .opportunity-info p {
+    color: #64748b;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .opportunity-savings {
+    text-align: right;
+  }
+
+  .savings-value {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #10b981;
+  }
+
+  .savings-label {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+
+  /* Result CTA */
+  .result-cta {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    color: white;
+    text-align: center;
+  }
+
+  .result-cta h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-cta p {
+    font-size: 1.125rem;
+    opacity: 0.95;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Info Cards */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .info-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .info-icon i {
+    font-size: 1.75rem;
+    color: white;
+  }
+
+  .info-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #1e293b;
+  }
+
+  .info-card p {
+    color: #475569;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .test-card {
+      padding: 1.5rem;
+    }
+
+    .input-with-button {
+      flex-direction: column;
+    }
+
+    .score-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .score-card.main-score {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .opportunity-header {
+      flex-direction: column;
+    }
+
+    .opportunity-savings {
+      text-align: left;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .loading-progress {
+      gap: 1.5rem;
+    }
+  }
+</style>
