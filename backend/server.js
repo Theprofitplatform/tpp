@@ -8,6 +8,7 @@ import axios from 'axios';
 import { saveRankCheck, getRankHistory, getTrackedKeywords, getRankComparison } from './database.js';
 import { runSpeedTest, getPerformanceGrade } from './speed-test.js';
 import { researchKeywords } from './keyword-research.js';
+import { analyzeCompetitors } from './competitor-analysis.js';
 
 dotenv.config();
 
@@ -1101,6 +1102,74 @@ app.post('/api/keyword-research', keywordResearchLimiter, async (req, res) => {
     res.status(500).json({
       success: false,
       error: 'Failed to research keywords. Please try again.',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+});
+
+// Rate limiter for competitor analysis - 3 per hour
+const competitorAnalysisLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 3,
+  message: { success: false, error: 'Too many competitor analysis requests. Please wait an hour before trying again.' }
+});
+
+app.post('/api/competitor-analysis', competitorAnalysisLimiter, async (req, res) => {
+  try {
+    const { yourDomain, competitorDomain } = req.body;
+
+    // Validation
+    if (!yourDomain || !competitorDomain) {
+      return res.status(400).json({
+        success: false,
+        error: 'Both your domain and competitor domain are required'
+      });
+    }
+
+    // Basic domain validation - allow any reasonable domain format
+    const domainRegex = /^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
+    const cleanYourDomain = yourDomain.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
+    const cleanCompetitorDomain = competitorDomain.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
+
+    if (!cleanYourDomain || !cleanCompetitorDomain) {
+      return res.status(400).json({
+        success: false,
+        error: 'Both your domain and competitor domain are required'
+      });
+    }
+
+    if (!domainRegex.test(cleanYourDomain) || !domainRegex.test(cleanCompetitorDomain)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid domain format. Please enter valid domain names.'
+      });
+    }
+
+    console.log('🔍 Starting competitor analysis:', {
+      yourDomain: cleanYourDomain,
+      competitorDomain: cleanCompetitorDomain
+    });
+
+    // Analyze competitors
+    const results = await analyzeCompetitors(yourDomain, competitorDomain);
+
+    console.log('✅ Competitor analysis completed:', {
+      yourDomain: results.yourDomain,
+      competitorDomain: results.competitorDomain,
+      opportunities: results.opportunities.length
+    });
+
+    res.json({
+      ...results,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('❌ Competitor analysis error:', error.message);
+
+    res.status(500).json({
+      success: false,
+      error: 'Failed to analyze competitor. Please check the domains and try again.',
       details: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }

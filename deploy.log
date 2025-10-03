@@ -1,0 +1,126 @@
+
+> tpp-astro@0.0.1 deploy:prod
+> npm run build && npx wrangler pages deploy dist --project-name=tpp
+
+
+> tpp-astro@0.0.1 build
+> astro build
+
+24:02:03 [content] Syncing content
+24:02:03 [content] Synced content
+24:02:03 [types] Generated 2.45s
+24:02:03 [build] output: "static"
+24:02:03 [build] mode: "static"
+24:02:03 [build] directory: /mnt/c/Users/abhis/projects/atpp/tpp/dist/
+24:02:03 [build] Collecting build info...
+24:02:03 [build] ✓ Completed in 2.62s.
+24:02:03 [build] Building static entrypoints...
+24:02:10 [vite] ✓ built in 6.04s
+24:02:10 [build] ✓ Completed in 6.11s.
+
+ building client (vite) 
+24:02:10 [vite] transforming...
+24:02:10 [vite] ✓ 22 modules transformed.
+24:02:10 [vite] rendering chunks...
+24:02:10 [vite] ✓ built in 294ms
+
+ generating static routes 
+24:02:10 ▶ src/pages/about.astro
+24:02:10   └─ /about/index.html (+19ms) 
+24:02:10 ▶ src/pages/blog.astro
+24:02:10   └─ /blog/index.html (+6ms) 
+24:02:10 ▶ src/pages/blog/[...slug].astro
+24:02:10   ├─ /blog/how-to-scale-local-seo/index.html (+7ms) 
+24:02:10   ├─ /blog/google-ads-vs-seo-sydney-businesses/index.html (+8ms) 
+24:02:10   ├─ /blog/15-free-digital-marketing-tools-sydney-business/index.html (+8ms) 
+24:02:10   ├─ /blog/how-sydney-businesses-rank-number-1-google-2025/index.html (+6ms) 
+24:02:10   └─ /blog/parramatta-plumber-case-study/index.html (+6ms) 
+24:02:10 ▶ src/pages/components.astro
+24:02:10   └─ /components/index.html (+7ms) 
+24:02:10 ▶ src/pages/contact.astro
+24:02:10   └─ /contact/index.html (+6ms) 
+24:02:10 ▶ src/pages/disclaimer.astro
+24:02:10   └─ /disclaimer/index.html (+5ms) 
+24:02:10 ▶ src/pages/google-ads.astro
+24:02:10   └─ /google-ads/index.html (+6ms) 
+24:02:10 ▶ src/pages/index-complete.html
+24:02:10   └─ /index-complete/index.html (+6ms) 
+24:02:10 ▶ src/pages/locations/index.astro
+24:02:10   └─ /locations/index.html (+9ms) 
+24:02:10 ▶ src/pages/locations/[...slug].astro
+24:02:10   ├─ /locations/perth/index.html (+8ms) 
+24:02:10   ├─ /locations/brisbane/index.html (+7ms) 
+24:02:10   ├─ /locations/sydney/index.html (+7ms) 
+24:02:10   ├─ /locations/melbourne/index.html (+7ms) 
+24:02:10   ├─ /locations/parramatta/index.html (+7ms) 
+24:02:10   ├─ /locations/bondi/index.html (+6ms) 
+24:02:10   ├─ /locations/chatswood/index.html (+6ms) 
+24:02:10   ├─ /locations/liverpool/index.html (+6ms) 
+24:02:10   └─ /locations/penrith/index.html (+8ms) 
+24:02:10 ▶ src/pages/n8n.astro
+24:02:10   └─ /n8n/index.html (+6ms) 
+24:02:10 ▶ src/pages/portfolio.astro
+24:02:10   └─ /portfolio/index.html (+5ms) 
+24:02:10 ▶ src/pages/pricing.astro
+24:02:10   └─ /pricing/index.html (+6ms) 
+24:02:10 ▶ src/pages/privacy.astro
+24:02:10   └─ /privacy/index.html (+5ms) 
+24:02:10 ▶ src/pages/seo.astro
+24:02:10   └─ /seo/index.html (+6ms) 
+24:02:11 ▶ src/pages/seo-checklist.astro
+24:02:11   └─ /seo-checklist/index.html (+6ms) 
+24:02:11 ▶ src/pages/services.astro
+24:02:11   └─ /services/index.html (+7ms) 
+24:02:11 ▶ src/pages/services/[...slug].astro
+24:02:11   ├─ /services/conversion-optimization/index.html (+6ms) 
+24:02:11   ├─ /services/email-marketing/index.html (+7ms) 
+24:02:11   ├─ /services/google-ads-management/index.html (+7ms) 
+24:02:11   ├─ /services/seo-optimization/index.html (+5ms) 
+24:02:11   ├─ /services/social-media-marketing/index.html (+15ms) 
+24:02:11   └─ /services/web-development/index.html (+7ms) 
+24:02:11 ▶ src/pages/templates/blog-post.astro
+24:02:11   └─ /templates/blog-post/index.html (+14ms) 
+24:02:11 ▶ src/pages/templates/landing-page.astro
+24:02:11   └─ /templates/landing-page/index.html (+9ms) 
+24:02:11 ▶ src/pages/templates/service-page.astro
+24:02:11   └─ /templates/service-page/index.html (+8ms) 
+24:02:11 ▶ src/pages/terms.astro
+24:02:11   └─ /terms/index.html (+6ms) 
+24:02:11 ▶ src/pages/tools/competitor-analysis.astro
+24:02:11   └─ /tools/competitor-analysis/index.html (+11ms) 
+24:02:11 ▶ src/pages/tools/keyword-research.astro
+24:02:11   └─ /tools/keyword-research/index.html (+6ms) 
+24:02:11 ▶ src/pages/tools/rank-tracker.astro
+24:02:11   └─ /tools/rank-tracker/index.html (+6ms) 
+24:02:11 ▶ src/pages/tools/seo-audit.astro
+24:02:11   └─ /tools/seo-audit/index.html (+8ms) 
+24:02:11 ▶ src/pages/tools/speed-test.astro
+24:02:11   └─ /tools/speed-test/index.html (+7ms) 
+24:02:11 ▶ src/pages/tools.astro
+24:02:11   └─ /tools/index.html (+7ms) 
+24:02:11 ▶ src/pages/ui-components.astro
+24:02:11   └─ /ui-components/index.html (+7ms) 
+24:02:11 ▶ src/pages/web-design.astro
+24:02:11   └─ /web-design/index.html (+5ms) 
+24:02:11 ▶ src/pages/index.astro
+24:02:11   └─ /index.html (+6ms) 
+24:02:11 ✓ Completed in 1.11s.
+
+24:02:12 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+24:02:12 [build] 48 page(s) built in 11.47s
+24:02:12 [build] Complete!
+
+ ⛅️ wrangler 4.37.0 (update available 4.41.0)
+─────────────────────────────────────────────
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mWarning: Your working directory is a git repo and has uncommitted changes[0m
+
+  To silence this warning, pass in --commit-dirty=true
+
+
+✨ Compiled Worker successfully
+Uploading... (0/0)
+✨ Success! Uploaded 0 files (0.42 sec)
+
+✨ Uploading Functions bundle
+🌎 Deploying...
+✨ Deployment complete! Take a peek over at https://204069d9.tpp.pages.dev
