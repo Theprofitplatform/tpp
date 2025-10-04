@@ -101,9 +101,11 @@ const schema = {
 
 <style>
   .post-header {
+    position: relative; /* Override global fixed header positioning */
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     padding: 4rem 0 3rem;
+    margin-top: 95px; /* Account for fixed navigation header height */
   }
 
   .post-meta-top {
