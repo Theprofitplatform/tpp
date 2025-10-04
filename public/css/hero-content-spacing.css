@@ -5,7 +5,7 @@
 
 /* Hero sections start from top but content has padding */
 .hero,
-.hero-modern,
+.hero-modern:not(.tools-hero-modern),
 .about-hero,
 .pricing-hero,
 .pricing-hero-enhanced,
@@ -68,7 +68,7 @@ main > section:not(:first-child) {
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .hero .container,
-    .hero-modern .container,
+    .hero-modern:not(.tools-hero-modern) .container,
     .about-hero .container,
     .pricing-hero .container,
     .pricing-hero-enhanced .container,
@@ -91,7 +91,7 @@ main > section:not(:first-child) {
 
 @media (max-width: 480px) {
     .hero .container,
-    .hero-modern .container,
+    .hero-modern:not(.tools-hero-modern) .container,
     .about-hero .container,
     .pricing-hero .container,
     .pricing-hero-enhanced .container,

@@ -9,6 +9,30 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
   <Header />
 
   <main id="main-content" role="main">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/tools">
+              <span itemprop="name">Free Tools</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Competitor Analysis</span>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+      </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="competitor-hero">
       <div class="container">
@@ -22,7 +46,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
           <div class="trust-badges">
             <span class="badge"><i class="fas fa-chart-line"></i> Real-Time Data</span>
             <span class="badge"><i class="fas fa-trophy"></i> Competitive Edge</span>
-            <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
+            <span class="badge"><i class="fas fa-users"></i> 2,847+ Analyses Completed</span>
           </div>
         </div>
       </div>
@@ -229,6 +253,99 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
       </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">What is a competitor analysis tool?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">A competitor analysis tool helps you compare your website's SEO performance against your competitors. Our free tool analyzes SEO metrics, keywords, backlinks, content strategy, and technical SEO to identify gaps and opportunities to outrank your competition in Sydney and beyond.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Is the competitor analysis tool really free?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes! Our competitor analysis tool is 100% free with no signup required, no credit card needed, and no hidden fees. You can analyze as many competitors as you want. We offer this to help Sydney businesses improve their SEO and demonstrate the quality of our services.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">What metrics does the tool analyze?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">The tool analyzes SEO metrics (domain authority, traffic estimates), keyword gaps (keywords they rank for that you don't), content analysis (word count, readability), backlink profiles (link quality and quantity), and technical SEO (page speed, mobile-friendliness, security).</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">How do I find my competitors?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Your competitors are businesses ranking for your target keywords on Google. Search for your main keywords in Sydney and see who appears in the top 10 results. You can also use our keyword research tool to find who ranks for your industry terms, then analyze them here.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Can I analyze multiple competitors at once?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Currently, you can analyze one competitor at a time. However, you can run multiple analyses back-to-back and compare the results. We recommend analyzing your top 2-3 competitors to get a complete picture of your competitive landscape.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">How accurate is the competitor data?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">We analyze publicly available data and provide real-time SEO metrics. Some estimates (like traffic) are approximations based on industry-standard algorithms. For the most accurate competitive intelligence, we recommend combining this tool with professional SEO analysis from our Sydney team.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">What should I do with the analysis results?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Focus on the "Opportunities to Outrank Them" and "Your Action Plan" sections. These highlight quick wins like keyword gaps, content improvements, and technical fixes. Start with high-priority items that have the biggest potential impact on your rankings.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Can I export or save the analysis?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes! After analyzing a competitor, you can print the report, export it as a PDF, or share it with your team. The report includes all metrics, opportunities, and action items in an easy-to-read format.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="related-tools">
+      <div class="container">
+        <h2>More Free SEO Tools</h2>
+        <div class="tools-grid-compact">
+          <a href="/tools/seo-audit" class="tool-card-compact">
+            <i class="fas fa-search"></i>
+            <h3>SEO Audit Tool</h3>
+            <p>50+ checks for your website's SEO health</p>
+          </a>
+          <a href="/tools/keyword-research" class="tool-card-compact">
+            <i class="fas fa-key"></i>
+            <h3>Keyword Research</h3>
+            <p>Find profitable keywords to target</p>
+          </a>
+          <a href="/tools/rank-tracker" class="tool-card-compact">
+            <i class="fas fa-chart-line"></i>
+            <h3>Google Rank Tracker</h3>
+            <p>Track your Google rankings in real-time</p>
+          </a>
+          <a href="/tools/content-generator" class="tool-card-compact">
+            <i class="fas fa-robot"></i>
+            <h3>AI Content Generator</h3>
+            <p>Create SEO-optimized content instantly</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="tools-cta-modern">
       <div class="container">
@@ -295,8 +412,8 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
   }
 
   /* Hero Section */
-  .competitor-hero {
-    padding: 240px 0 80px;
+  main#main-content section.competitor-hero.competitor-hero {
+    padding: 180px 0 60px !important;
     background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
     color: white;
     text-align: center;
@@ -609,6 +726,14 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
+    border: 2px solid #f1f5f9;
+    transition: all 0.3s ease;
+  }
+
+  .comparison-item:hover {
+    border-color: #f59e0b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
   }
 
   .comparison-item h4 {
@@ -623,6 +748,7 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 1rem;
   }
 
   .your-value {
@@ -642,15 +768,52 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     font-weight: 700;
   }
 
+  .comparison-progress {
+    width: 100%;
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    border-radius: 10px;
+    transition: width 0.6s ease;
+  }
+
+  .progress-bar.winning {
+    background: linear-gradient(90deg, #10b981, #059669);
+  }
+
+  .progress-bar.losing {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+  }
+
   .winner-badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
-    background: #10b981;
+    background: linear-gradient(135deg, #10b981, #059669);
     color: white;
     border-radius: 20px;
     font-size: 0.75rem;
     font-weight: 700;
     margin-top: 0.5rem;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  }
+
+  .loser-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
   }
 
   /* Analysis Sections */
@@ -1027,10 +1190,194 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     font-weight: 700;
   }
 
+  /* Breadcrumbs */
+  .breadcrumbs {
+    padding: 140px 0 20px;
+    background: #f8fafc;
+  }
+
+  .breadcrumbs ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    color: #64748b;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: "›";
+    margin-left: 0.5rem;
+    color: #cbd5e1;
+    font-weight: bold;
+  }
+
+  .breadcrumbs a {
+    color: #f59e0b;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumbs a:hover {
+    color: #d97706;
+    text-decoration: underline;
+  }
+
+  .breadcrumbs li:last-child {
+    color: #1e293b;
+    font-weight: 600;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 80px 0;
+    background: white;
+  }
+
+  .faq-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: #1e293b;
+  }
+
+  .faq-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .faq-item:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+  }
+
+  .faq-item[open] {
+    background: white;
+    border-color: #f59e0b;
+  }
+
+  .faq-item summary {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1e293b;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: #f59e0b;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding-top: 1rem;
+    color: #475569;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* Related Tools */
+  .related-tools {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .related-tools h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: #1e293b;
+  }
+
+  .tools-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .tool-card-compact {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+  }
+
+  .tool-card-compact:hover {
+    transform: translateY(-4px);
+    border-color: #f59e0b;
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+  }
+
+  .tool-card-compact i {
+    font-size: 2.5rem;
+    color: #f59e0b;
+    margin-bottom: 1rem;
+  }
+
+  .tool-card-compact h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .tool-card-compact p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+  }
+
   /* Responsive */
   @media (max-width: 768px) {
-    .competitor-hero {
-      padding: 100px 0 60px;
+    .breadcrumbs {
+      padding: 100px 0 20px;
+    }
+
+    .breadcrumbs ol {
+      font-size: 0.8rem;
+    }
+    main#main-content section.competitor-hero.competitor-hero {
+      padding: 100px 0 60px !important;
     }
 
     .competitor-hero-content h1 {
@@ -1067,6 +1414,15 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     .cta-secondary-modern {
       width: 100%;
       justify-content: center;
+    }
+
+    .faq-section h2,
+    .related-tools h2 {
+      font-size: 2rem;
+    }
+
+    .tools-grid-compact {
+      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -1178,7 +1534,13 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     const grid = document.getElementById('comparisonGrid');
     grid.innerHTML = Object.entries(comparison || {})
       .map(([metric, data]) => {
-        const winner = data.yourValue > data.competitorValue ? 'you' : 'competitor';
+        const yourVal = parseFloat(data.yourValue) || 0;
+        const compVal = parseFloat(data.competitorValue) || 0;
+        const total = yourVal + compVal;
+        const yourPercent = total > 0 ? (yourVal / total) * 100 : 50;
+        const winner = yourVal > compVal ? 'you' : 'competitor';
+        const progressClass = yourVal > compVal ? 'winning' : 'losing';
+
         return `
           <div class="comparison-item">
             <h4>${metric}</h4>
@@ -1187,7 +1549,12 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
               <span class="separator">vs</span>
               <span class="competitor-value">${data.competitorValue}</span>
             </div>
-            ${winner === 'you' ? '<span class="winner-badge">You\'re Winning</span>' : ''}
+            <div class="comparison-progress">
+              <div class="progress-bar ${progressClass}" style="width: ${yourPercent}%"></div>
+            </div>
+            ${winner === 'you'
+              ? '<span class="winner-badge"><i class="fas fa-trophy"></i> You\'re Winning</span>'
+              : '<span class="loser-badge"><i class="fas fa-flag"></i> Opportunity</span>'}
           </div>
         `;
       })
