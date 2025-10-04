@@ -146,36 +146,38 @@ async function analyzeWebsite(domain) {
   }
 }
 
-// Generate comparison metrics
+// Generate comparison metrics with realistic estimates
 function generateComparison(yourData, competitorData) {
-  // Estimate domain authority based on various factors (simplified)
-  const yourDA = Math.min(100, Math.round(
-    (yourData.content.wordCount / 50) +
-    (yourData.content.internalLinks * 0.5) +
-    (yourData.meta.hasOG ? 10 : 0) +
-    (yourData.meta.hasSchema ? 15 : 0) +
-    (yourData.technical.isHttps ? 5 : 0)
+  // More conservative DA estimation (cap at 60 for realistic estimates)
+  const yourDA = Math.min(60, Math.round(
+    (yourData.content.wordCount / 200) +  // Reduced weight
+    (yourData.content.internalLinks * 0.3) +
+    (yourData.meta.hasOG ? 5 : 0) +
+    (yourData.meta.hasSchema ? 8 : 0) +
+    (yourData.technical.isHttps ? 3 : 0) +
+    15  // Base score for any functioning website
   ));
 
-  const competitorDA = Math.min(100, Math.round(
-    (competitorData.content.wordCount / 50) +
-    (competitorData.content.internalLinks * 0.5) +
-    (competitorData.meta.hasOG ? 10 : 0) +
-    (competitorData.meta.hasSchema ? 15 : 0) +
-    (competitorData.technical.isHttps ? 5 : 0)
+  const competitorDA = Math.min(60, Math.round(
+    (competitorData.content.wordCount / 200) +
+    (competitorData.content.internalLinks * 0.3) +
+    (competitorData.meta.hasOG ? 5 : 0) +
+    (competitorData.meta.hasSchema ? 8 : 0) +
+    (competitorData.technical.isHttps ? 3 : 0) +
+    15
   ));
 
-  // Estimate organic traffic (simplified)
-  const yourTraffic = Math.round(yourDA * 100 + yourData.content.wordCount);
-  const competitorTraffic = Math.round(competitorDA * 100 + competitorData.content.wordCount);
+  // More realistic traffic estimates (small business range)
+  const yourTraffic = Math.round(yourDA * 50 + (yourData.content.wordCount / 2));
+  const competitorTraffic = Math.round(competitorDA * 50 + (competitorData.content.wordCount / 2));
 
-  // Estimate keywords (simplified)
-  const yourKeywords = Math.round(yourData.content.wordCount / 5 + yourData.content.internalLinks);
-  const competitorKeywords = Math.round(competitorData.content.wordCount / 5 + competitorData.content.internalLinks);
+  // More conservative keyword estimates
+  const yourKeywords = Math.round((yourData.content.wordCount / 10) + (yourData.content.internalLinks * 1.5));
+  const competitorKeywords = Math.round((competitorData.content.wordCount / 10) + (competitorData.content.internalLinks * 1.5));
 
-  // Estimate backlinks (simplified)
-  const yourBacklinks = Math.round(yourDA * 20 + yourData.content.internalLinks * 2);
-  const competitorBacklinks = Math.round(competitorDA * 20 + competitorData.content.internalLinks * 2);
+  // More realistic backlink estimates
+  const yourBacklinks = Math.round(yourDA * 8 + yourData.content.internalLinks);
+  const competitorBacklinks = Math.round(competitorDA * 8 + competitorData.content.internalLinks);
 
   return {
     'Domain Authority': {

@@ -327,66 +327,137 @@ const apiUrl = '';
         const page = Math.ceil(rank / 10);
         const rankClass = rank <= 3 ? 'excellent' : rank <= 10 ? 'good' : rank <= 20 ? 'fair' : 'poor';
 
+        // CTR data for visualization
+        const ctrData = {
+          1: 39.6, 2: 18.1, 3: 10.4, 4: 6.9, 5: 5.5,
+          6: 4.5, 7: 3.9, 8: 3.3, 9: 2.9, 10: 2.5
+        };
+        const currentCTR = ctrData[rank] || (rank > 10 ? 1.0 : 1.5);
+        const targetCTR = ctrData[1];
+        const rankColor = rank <= 3 ? '#10b981' : rank <= 10 ? '#f59e0b' : '#ef4444';
+
         html = `
-          <div class="rank-card rank-${rankClass}">
-            <div class="rank-position">
-              <div class="rank-number">#${rank}</div>
-              <div class="rank-label">on Google</div>
+          <!-- Hero Rank Display -->
+          <div class="rank-hero rank-${rankClass}">
+            <div class="rank-visual">
+              <div class="rank-circle" style="border-color: ${rankColor};">
+                <span class="rank-hash">#</span>
+                <span class="rank-number">${rank}</span>
+              </div>
+              <div class="rank-label">Google Position</div>
             </div>
-            <div class="rank-details">
-              <div class="detail-row">
-                <span class="label">Keyword:</span>
-                <span class="value">${keyword}</span>
+
+            <!-- Position Indicator Bar -->
+            <div class="position-indicator">
+              <div class="position-label">Page ${page} of Google • ${rank <= 3 ? 'Top 3' : rank <= 10 ? 'First Page' : 'Page 2+'}</div>
+              <div class="position-track">
+                ${Array.from({length: 10}, (_, i) => {
+                  const pos = i + 1;
+                  const isActive = pos === rank;
+                  const isPassed = pos < rank;
+                  return `<div class="position-dot ${isActive ? 'active' : ''} ${isPassed ? 'passed' : ''}" style="${isActive ? `background: ${rankColor}; box-shadow: 0 0 20px ${rankColor}` : ''}">
+                    <span class="pos-num">${pos}</span>
+                  </div>`;
+                }).join('')}
+                ${rank > 10 ? `<div class="position-dot active" style="background: ${rankColor};">10+</div>` : ''}
               </div>
-              <div class="detail-row">
-                <span class="label">Domain:</span>
-                <span class="value">${domain}</span>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+              <div class="quick-stat">
+                <div class="stat-icon" style="color: ${rankColor};"><i class="fas fa-mouse-pointer"></i></div>
+                <div class="stat-info">
+                  <div class="stat-value">${currentCTR}%</div>
+                  <div class="stat-name">Click Rate</div>
+                </div>
               </div>
-              <div class="detail-row">
-                <span class="label">Location:</span>
-                <span class="value">${location}</span>
+              <div class="quick-stat">
+                <div class="stat-icon" style="color: ${rankColor};"><i class="fas fa-search"></i></div>
+                <div class="stat-info">
+                  <div class="stat-value">"${keyword.length > 25 ? keyword.substring(0, 25) + '...' : keyword}"</div>
+                  <div class="stat-name">Keyword</div>
+                </div>
               </div>
-              <div class="detail-row">
-                <span class="label">Page:</span>
-                <span class="value">Page ${page} of Google results</span>
+              <div class="quick-stat">
+                <div class="stat-icon" style="color: ${rankColor};"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="stat-info">
+                  <div class="stat-value">${location}</div>
+                  <div class="stat-name">Location</div>
+                </div>
               </div>
+            </div>
+          </div>
+
+          <!-- CTR Comparison Chart -->
+          <div class="ctr-comparison">
+            <h3><i class="fas fa-chart-bar"></i> Click-Through Rate Comparison</h3>
+            <p class="chart-desc">See how your position affects traffic</p>
+            <div class="ctr-chart">
+              <div class="ctr-bar-group">
+                <div class="ctr-bar your-ctr" style="width: ${(currentCTR / targetCTR * 100)}%; background: ${rankColor};">
+                  <span class="ctr-label">You (#${rank}): ${currentCTR}%</span>
+                </div>
+              </div>
+              <div class="ctr-bar-group">
+                <div class="ctr-bar target-ctr" style="width: 100%; background: #10b981;">
+                  <span class="ctr-label">Position #1: ${targetCTR}%</span>
+                </div>
+              </div>
+            </div>
+            <div class="ctr-insight">
+              ${rank > 1 ? `<i class="fas fa-arrow-up"></i> Moving to #1 would increase clicks by <strong>${Math.round((targetCTR / currentCTR - 1) * 100)}%</strong>` : '<i class="fas fa-trophy"></i> You\'re getting maximum clicks!'}
             </div>
           </div>
 
           ${result ? `
-          <div class="serp-preview">
-            <h4><i class="fas fa-eye"></i> How it appears on Google:</h4>
-            <div class="serp-result">
-              <div class="serp-title">${result.title}</div>
-              <div class="serp-url">${result.link}</div>
-              <div class="serp-snippet">${result.snippet || ''}</div>
+          <!-- Authentic Google SERP Preview -->
+          <div class="google-serp-preview">
+            <div class="serp-header">
+              <svg class="google-logo" viewBox="0 0 272 92" width="92" height="30">
+                <path fill="#EA4335" d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"></path>
+                <path fill="#FBBC05" d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z"></path>
+                <path fill="#4285F4" d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z"></path>
+                <path fill="#34A853" d="M225 3v65h-9.5V3h9.5z"></path>
+                <path fill="#EA4335" d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z"></path>
+                <path fill="#4285F4" d="M35.29 41.41V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.01z"></path>
+              </svg>
+              <span class="serp-time">About ${Math.floor(Math.random() * 500000000).toLocaleString()} results (0.${Math.floor(Math.random() * 90) + 10} seconds)</span>
+            </div>
+            <div class="google-result">
+              <div class="result-url-row">
+                <div class="result-favicon">
+                  <svg width="26" height="26" viewBox="0 0 26 26">
+                    <circle cx="13" cy="13" r="13" fill="${rankColor}"/>
+                    <text x="13" y="18" fill="white" font-size="14" font-weight="600" text-anchor="middle">${domain.substring(0,1).toUpperCase()}</text>
+                  </svg>
+                </div>
+                <div class="result-breadcrumb">
+                  <span class="result-domain">${new URL(result.link).hostname.replace('www.', '')}</span>
+                  <span class="result-arrow">›</span>
+                  <span class="result-path">${new URL(result.link).pathname.split('/').filter(p => p).slice(0, 2).join(' › ') || 'Home'}</span>
+                </div>
+              </div>
+              <h3 class="result-title">${result.title}</h3>
+              <div class="result-snippet">${result.snippet || ''}</div>
             </div>
           </div>
           ` : ''}
 
-          <div class="rank-analysis">
-            <h4>Analysis</h4>
-            ${getRankAnalysis(rank)}
-          </div>
         `;
       } else {
         html = `
-          <div class="rank-card rank-not-found">
-            <div class="rank-position">
-              <div class="rank-icon">
-                <i class="fas fa-search-minus"></i>
+          <div class="rank-hero rank-not-found">
+            <div class="rank-visual">
+              <div class="rank-circle" style="border-color: #64748b;">
+                <i class="fas fa-search-minus" style="font-size: 3rem;"></i>
               </div>
-              <div class="rank-label">Not Found</div>
+              <div class="rank-label">Not Ranking</div>
             </div>
-            <div class="rank-details">
-              <p>
-                <strong>${domain}</strong> was not found in the top 100 results for
-                <strong>"${keyword}"</strong> in <strong>${location}</strong>.
-              </p>
-              <p class="recommendation">
-                This means you're either ranking beyond position 100, or not ranking at all.
-                Don't worry - we can help you get to page 1!
-              </p>
+            <div class="not-found-message">
+              <h3>Not Found in Top 100</h3>
+              <p><strong>${domain}</strong> was not found in the top 100 results for <strong>"${keyword}"</strong> in <strong>${location}</strong>.</p>
+              <p class="recommendation">This means you're either ranking beyond position 100, or not ranking at all. Don't worry - we can help you get to page 1!</p>
             </div>
           </div>
         `;
@@ -409,9 +480,9 @@ const apiUrl = '';
                     revenueImpact.severity === 'warning' ? '<i class="fas fa-chart-line"></i>' :
                     '<i class="fas fa-trophy"></i>'}
                 </div>
-                <h3>${revenueImpact.severity === 'critical' ? '📉 Page 2+ Is Costing You Serious Money' :
-                    revenueImpact.severity === 'warning' ? '💰 Revenue Opportunity: Get to Top 3' :
-                    '🎉 Excellent! Protect Your Top Position'}</h3>
+                <h3>${revenueImpact.severity === 'critical' ? 'Page 2+ Is Costing You Serious Money' :
+                    revenueImpact.severity === 'warning' ? 'Revenue Opportunity: Get to Top 3' :
+                    'Excellent! Protect Your Top Position'}</h3>
               </div>
               <div class="impact-stats">
                 <div class="impact-stat">
@@ -1680,4 +1751,390 @@ const apiUrl = '';
       grid-template-columns: 1fr;
     }
   }
+  /* ===== NEW UI IMPROVEMENTS ===== */
+
+  /* Hero Rank Display */
+  .rank-hero {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .rank-visual {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .rank-circle {
+    width: 180px;
+    height: 180px;
+    border: 8px solid;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .rank-circle:hover {
+    transform: scale(1.05);
+  }
+
+  .rank-hash {
+    font-size: 2rem;
+    font-weight: 300;
+    opacity: 0.7;
+  }
+
+  .rank-number {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-top: -0.5rem;
+  }
+
+  .rank-label {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #64748b;
+  }
+
+  /* Position Indicator */
+  .position-indicator {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .position-label {
+    text-align: center;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 1rem;
+  }
+
+  .position-track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+  }
+
+  .position-dot {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: #94a3b8;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .position-dot.passed {
+    background: #cbd5e1;
+  }
+
+  .position-dot.active {
+    transform: scale(1.3);
+    color: white;
+    z-index: 2;
+  }
+
+  .pos-num {
+    font-size: 0.875rem;
+  }
+
+  /* Quick Stats */
+  .quick-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .quick-stat {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8fafc;
+    border-radius: 12px;
+  }
+
+  .stat-icon {
+    font-size: 2rem;
+    opacity: 0.9;
+  }
+
+  .stat-info {
+    flex: 1;
+  }
+
+  .stat-value {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-name {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
+  /* CTR Comparison Chart */
+  .ctr-comparison {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .ctr-comparison h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .chart-desc {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  .ctr-chart {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .ctr-bar-group {
+    position: relative;
+  }
+
+  .ctr-bar {
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    transition: all 0.5s ease;
+    min-width: 150px;
+  }
+
+  .ctr-label {
+    color: white;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    white-space: nowrap;
+  }
+
+  .ctr-insight {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-left: 4px solid #3b82f6;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    margin-top: 1.5rem;
+    color: #1e40af;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  /* Google SERP Preview */
+  .google-serp-preview {
+    background: white;
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .serp-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .google-logo {
+    flex-shrink: 0;
+  }
+
+  .serp-time {
+    color: #70757a;
+    font-size: 0.875rem;
+  }
+
+  .google-result {
+    max-width: 600px;
+  }
+
+  .result-url-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-favicon {
+    flex-shrink: 0;
+  }
+
+  .result-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .result-domain {
+    color: #202124;
+    font-weight: 400;
+  }
+
+  .result-arrow {
+    color: #70757a;
+  }
+
+  .result-path {
+    color: #5f6368;
+  }
+
+  .result-title {
+    color: #1a0dab;
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin-bottom: 0.375rem;
+    line-height: 1.3;
+    cursor: pointer;
+  }
+
+  .result-title:hover {
+    text-decoration: underline;
+  }
+
+  .result-snippet {
+    color: #4d5156;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Not Found State */
+  .rank-hero.rank-not-found .rank-circle {
+    border-color: #94a3b8;
+  }
+
+  .rank-hero.rank-not-found .rank-circle i {
+    color: #64748b;
+  }
+
+  .not-found-message {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .not-found-message h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+  }
+
+  .not-found-message p {
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .recommendation {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 4px solid #f59e0b;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    color: #92400e;
+    font-weight: 600;
+    margin-top: 1.5rem;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .rank-circle {
+      width: 140px;
+      height: 140px;
+    }
+
+    .rank-number {
+      font-size: 3.5rem;
+    }
+
+    .position-track {
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem;
+    }
+
+    .position-dot {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+    }
+
+    .quick-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .ctr-comparison,
+    .google-serp-preview,
+    .rank-hero {
+      padding: 1.5rem;
+    }
+
+    .ctr-bar {
+      height: 50px;
+      padding: 0 1rem;
+    }
+
+    .ctr-label {
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .rank-circle {
+      width: 120px;
+      height: 120px;
+    }
+
+    .rank-number {
+      font-size: 3rem;
+    }
+
+    .rank-hash {
+      font-size: 1.5rem;
+    }
+
+    .result-title {
+      font-size: 1.125rem;
+    }
+  }
+
 </style>
