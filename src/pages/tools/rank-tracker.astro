@@ -326,7 +326,7 @@ const apiUrl = '/api/serp';
       loadingState.style.display = 'block';
 
       try {
-        const response = await fetch(`${apiUrl}/api/serp/rank-check`, {
+        const response = await fetch(`${apiUrl}/rank-check`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -772,7 +772,7 @@ const apiUrl = '/api/serp';
     async function fetchHistory(keyword, domain, location) {
       try {
         const response = await fetch(
-          `${apiUrl}/api/serp/history?keyword=${encodeURIComponent(keyword)}&domain=${encodeURIComponent(domain)}&location=${encodeURIComponent(location)}`
+          `${apiUrl}/history?keyword=${encodeURIComponent(keyword)}&domain=${encodeURIComponent(domain)}&location=${encodeURIComponent(location)}`
         );
 
         const data = await response.json();
