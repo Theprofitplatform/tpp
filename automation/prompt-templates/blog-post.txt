@@ -191,12 +191,13 @@ A: [Detailed answer with specifics]
 
 OUTPUT INSTRUCTIONS:
 - Write ONLY the markdown content (no frontmatter, I'll add that separately)
-- Start directly with the # Title (H1 heading)
+- Start directly with an H2 heading (## Not H1) - the title is already in the frontmatter
 - Use Australian English spelling throughout
 - Include [Source: ...] citations for any statistics or data
 - Mark places where internal links should go like this: [SEO](/seo) or [Google Ads](/google-ads)
 - Make it sound human, not AI-generated
 - Provide unique value in every section
 - Focus on practical, actionable advice
+- DO NOT include the post title as an H1 in the content
 
 Write the blog post now:
