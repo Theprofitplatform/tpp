@@ -2,12 +2,14 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import ToolBadge from '../../components/ToolBadge.astro';
+// import '../../public/css/speed-test-page-styles.css'; // Removed - not needed
 
 // Use Cloudflare Pages Function (serverless API on same domain)
 const apiUrl = '';
 ---
 
 <BaseLayout title="Free Website Speed Test | Lighthouse Performance Audit">
+  <link rel="stylesheet" href="/css/speed-test-page-styles.css">
   <Header />
 
   <main id="main-content" role="main">
@@ -662,11 +664,12 @@ const apiUrl = '';
             </div>
             <div class="cta-buttons">
               <a href="/contact" class="btn-emergency" onclick="trackEvent('cta_clicked', {cta_type: 'emergency', tool: 'Speed Test', position: 'results'})">
-                <span class="btn-main">Get Emergency Speed Fix</span>
-                <span class="btn-sub">Free analysis + Quote</span>
+                <i class="fas fa-rocket"></i>
+                <span class="btn-main">Get Emergency Speed Fix Now</span>
+                <span class="btn-sub">Free Analysis & Quote</span>
               </a>
-              <a href="tel:+61487286451" class="btn-phone" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Speed Test', position: 'results'})">
-                <i class="fas fa-phone"></i>
+              <a href="tel:+61487286451" class="btn-phone-large" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Speed Test', position: 'results'})">
+                <i class="fas fa-phone-alt"></i>
                 <span>Call Now: 0487 286 451</span>
               </a>
             </div>
@@ -697,11 +700,12 @@ const apiUrl = '';
             </div>
             <div class="cta-buttons">
               <a href="/contact" class="btn-primary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'primary', tool: 'Speed Test', position: 'results'})">
-                Get Free Optimization Quote →
+                <i class="fas fa-rocket"></i>
+                Get Free Speed Optimization Quote
               </a>
-              <a href="tel:+61487286451" class="btn-phone" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Speed Test', position: 'results'})">
-                <i class="fas fa-phone"></i>
-                <span>0487 286 451</span>
+              <a href="tel:+61487286451" class="btn-secondary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Speed Test', position: 'results'})">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call: 0487 286 451</span>
               </a>
             </div>
           </div>
@@ -731,11 +735,12 @@ const apiUrl = '';
             </div>
             <div class="cta-buttons">
               <a href="/contact" class="btn-primary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'primary', tool: 'Speed Test', position: 'results'})">
-                Get Monitoring Quote →
+                <i class="fas fa-shield-check"></i>
+                Get Speed Monitoring Quote
               </a>
               <a href="tel:+61487286451" class="btn-secondary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Speed Test', position: 'results'})">
-                <i class="fas fa-phone"></i>
-                <span>0487 286 451</span>
+                <i class="fas fa-phone-alt"></i>
+                <span>Call: 0487 286 451</span>
               </a>
             </div>
           </div>
@@ -795,7 +800,7 @@ const apiUrl = '';
       }
     };
 
-    window.exportToPDF = function() {
+    window.exportToPDF = async function() {
       if (!currentResults) return;
 
       trackEvent('export_pdf', {
@@ -803,8 +808,44 @@ const apiUrl = '';
         url: currentResults.url
       });
 
-      // Create PDF-friendly print view
-      window.print();
+      // Load html2pdf library if not already loaded
+      if (typeof html2pdf === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+        document.head.appendChild(script);
+
+        await new Promise((resolve) => {
+          script.onload = resolve;
+        });
+      }
+
+      // Get the results section
+      const resultsSection = document.getElementById('resultsSection');
+      if (!resultsSection) return;
+
+      // Clone the results section to avoid modifying the original
+      const clone = resultsSection.cloneNode(true);
+
+      // Remove action buttons from the clone
+      const actionButtons = clone.querySelector('.result-actions');
+      if (actionButtons) actionButtons.remove();
+
+      // Configure PDF options
+      const opt = {
+        margin: 10,
+        filename: `speed-test-report-${new URL(currentResults.url).hostname}-${new Date().toISOString().split('T')[0]}.pdf`,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      // Generate PDF
+      try {
+        await html2pdf().set(opt).from(clone).save();
+      } catch (error) {
+        console.error('PDF generation failed:', error);
+        alert('Failed to generate PDF. Please try again or use the print option.');
+      }
     };
 
     window.shareResults = async function() {
@@ -878,7 +919,7 @@ const apiUrl = '';
   });
 </script>
 
-<style>
+<style is:global>
   /* Same styling patterns as rank-tracker for consistency */
   main#main-content section.speed-hero.speed-hero {
     padding: 180px 0 60px !important;

@@ -1,11 +1,16 @@
+import dotenv from 'dotenv';
 import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { fetchAndSaveFeaturedImage } from './unsplash-fetcher.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '../..');
+
+// Load .env.local for local development
+dotenv.config({ path: path.join(projectRoot, '.env.local') });
 
 const anthropic = new Anthropic({
   apiKey: process.env.CLAUDE_API_KEY
@@ -47,7 +52,24 @@ async function generateBlogPost() {
     console.log(`🎯 Keyword: ${topic.targetKeyword}`);
     console.log(`📁 Category: ${topic.category}\n`);
 
-    // 3. Load brand guidelines and template
+    // 3. Fetch featured image from Unsplash
+    let imageData = null;
+    try {
+      const slug = topic.title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '');
+
+      imageData = await fetchAndSaveFeaturedImage(
+        topic.targetKeyword,
+        topic.category,
+        slug
+      );
+    } catch (error) {
+      console.warn('⚠️  Failed to fetch image, continuing without:', error.message);
+    }
+
+    // 4. Load brand guidelines and template
     const brandGuidelines = await fs.readFile(
       path.join(projectRoot, 'automation/brand-guidelines.md'),
       'utf-8'
@@ -58,7 +80,7 @@ async function generateBlogPost() {
       'utf-8'
     );
 
-    // 4. Build prompt with caching
+    // 5. Build prompt with caching
     const systemPrompt = `You are an expert digital marketing content writer for The Profit Platform, a Sydney-based agency.
 
 BRAND GUIDELINES:
@@ -74,7 +96,7 @@ Follow these guidelines strictly to maintain brand voice and quality standards.`
       .replace('{tags}', topic.tags.join(', '))
       .replace('{search_intent}', topic.searchIntent);
 
-    // 5. Generate content with Claude
+    // 6. Generate content with Claude
     console.log('🧠 Generating content with Claude API...');
 
     const message = await anthropic.messages.create({
@@ -98,7 +120,7 @@ Follow these guidelines strictly to maintain brand voice and quality standards.`
     const content = message.content[0].text;
     console.log(`✅ Content generated (${content.split(/\s+/).length} words)\n`);
 
-    // 6. Generate SEO meta description
+    // 7. Generate SEO meta description
     console.log('🔍 Generating SEO meta description...');
 
     const metaMessage = await anthropic.messages.create({
@@ -133,26 +155,26 @@ Return only the meta description text.`
 
     console.log(`✅ Meta description: ${metaDescription.length} chars\n`);
 
-    // 7. Add internal links
+    // 8. Add internal links
     console.log('🔗 Adding internal links...');
     const contentWithLinks = await addInternalLinks(content);
 
-    // 8. Calculate read time
+    // 9. Calculate read time
     const wordCount = content.split(/\s+/).length;
     const readTime = Math.ceil(wordCount / 200); // Average reading speed: 200 wpm
 
-    // 9. Generate slug
+    // 10. Generate slug
     const slug = topic.title
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
 
-    // 10. Determine author
+    // 11. Determine author
     const author = Math.random() > 0.5 ? 'Avi' : 'TPP Team';
 
-    // 11. Create frontmatter
+    // 12. Create frontmatter with image data
     const today = new Date().toISOString().split('T')[0];
-    const frontmatter = `---
+    let frontmatter = `---
 title: "${topic.title}"
 description: "${metaDescription}"
 author: "${author}"
@@ -161,7 +183,19 @@ category: "${topic.category}"
 tags: ${JSON.stringify(topic.tags)}
 featured: false
 draft: false
-readTime: "${readTime} min"
+readTime: "${readTime} min"`;
+
+    // Add image data if available
+    if (imageData) {
+      frontmatter += `
+coverImage: "${imageData.coverImage}"
+coverImageAlt: "${imageData.coverImageAlt}"
+coverImageCredit:
+  name: "${imageData.coverImageCredit.name}"
+  link: "${imageData.coverImageCredit.link}"`;
+    }
+
+    frontmatter += `
 seo:
   title: "${topic.title} | The Profit Platform"
   description: "${metaDescription}"
@@ -170,14 +204,14 @@ seo:
 
 `;
 
-    // 12. Combine and save
+    // 13. Combine and save
     const fullContent = frontmatter + contentWithLinks;
     const filename = `${today}-${slug}.md`;
     const filepath = path.join(projectRoot, 'src/content/blog', filename);
 
     await fs.writeFile(filepath, fullContent, 'utf-8');
 
-    // 13. Update queue (mark as published)
+    // 14. Update queue (mark as published)
     topic.status = 'published';
     topic.publishedDate = today;
     topic.publishedSlug = slug;
@@ -189,7 +223,7 @@ seo:
 
     await fs.writeFile(queuePath, JSON.stringify(queue, null, 2));
 
-    // 14. Output for GitHub Actions (special format for workflow)
+    // 15. Output for GitHub Actions (special format for workflow)
     if (process.env.GITHUB_OUTPUT) {
       await fs.appendFile(
         process.env.GITHUB_OUTPUT,
@@ -201,7 +235,7 @@ seo:
       );
     }
 
-    // 15. Success summary
+    // 16. Success summary
     console.log('\n✅ Blog post generated successfully!');
     console.log(`📄 File: ${filename}`);
     console.log(`📊 Stats:

@@ -30,6 +30,11 @@ const blogCollection = defineCollection({
     updatedDate: z.date().optional(),
     image: z.string().optional(),
     coverImage: z.string().optional(),
+    coverImageAlt: z.string().optional(),
+    coverImageCredit: z.object({
+      name: z.string(),
+      link: z.string(),
+    }).optional(),
     category: z.string(),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),

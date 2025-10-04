@@ -8,13 +8,24 @@ export async function getStaticPaths() {
     return !data.draft;
   });
 
-  return posts.map(post => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  return posts.map(post => {
+    // Get related posts (same category or tags, excluding current post)
+    const relatedPosts = posts
+      .filter(p => p.slug !== post.slug && !p.data.draft)
+      .filter(p =>
+        p.data.category === post.data.category ||
+        post.data.tags?.some(tag => p.data.tags?.includes(tag))
+      )
+      .slice(0, 3);
+
+    return {
+      params: { slug: post.slug },
+      props: { post, relatedPosts },
+    };
+  });
 }
 
-const { post } = Astro.props;
+const { post, relatedPosts } = Astro.props;
 const { Content } = await post.render();
 
 // Handle both pubDate and publishDate for backwards compatibility
@@ -49,6 +60,11 @@ const schema = {
   <Header />
 
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress">
+    <div class="reading-progress-bar"></div>
+  </div>
 
   <article class="blog-post">
     <!-- Breadcrumbs -->
@@ -147,8 +163,34 @@ const schema = {
     </header>
 
     {post.data.coverImage && (
-      <div class="cover-image">
-        <img src={post.data.coverImage} alt={post.data.title} />
+      <div class="featured-image-container">
+        <figure class="featured-image">
+          <img
+            src={post.data.coverImage}
+            alt={post.data.coverImageAlt || post.data.title}
+            loading="eager"
+            fetchpriority="high"
+            width="1200"
+            height="630"
+          />
+          {post.data.coverImageCredit && (
+            <figcaption class="image-credit">
+              Photo by <a
+                href={post.data.coverImageCredit.link + '?utm_source=theprofitplatform&utm_medium=referral'}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {post.data.coverImageCredit.name}
+              </a> on <a
+                href="https://unsplash.com?utm_source=theprofitplatform&utm_medium=referral"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Unsplash
+              </a>
+            </figcaption>
+          )}
+        </figure>
       </div>
     )}
 
@@ -158,11 +200,24 @@ const schema = {
       </div>
 
       <div class="post-footer">
-        <p>Written by <strong>{post.data.author}</strong></p>
         {post.data.updatedDate && (
           <p>Last updated: {post.data.updatedDate.toLocaleDateString('en-AU')}</p>
         )}
       </div>
+
+      <!-- Author Bio -->
+      <aside class="author-bio-card">
+        <div class="author-bio-avatar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+          </svg>
+        </div>
+        <div class="author-bio-content">
+          <h4>About {post.data.author}</h4>
+          <p>We're a digital marketing agency specializing in scalable SEO and growth strategies for Australian businesses. Based in Sydney, we've helped hundreds of companies dominate local search results.</p>
+          <a href="/about" class="author-bio-link">Learn more about us →</a>
+        </div>
+      </aside>
 
       <aside class="post-cta">
         <h3>Ready to grow your business?</h3>
@@ -170,10 +225,56 @@ const schema = {
         <a href="/contact" class="cta-button">Schedule a Free Consultation</a>
       </aside>
     </div>
+
+    <!-- Related Posts -->
+    {relatedPosts && relatedPosts.length > 0 && (
+      <section class="related-posts">
+        <div class="container">
+          <h3 class="related-posts-title">Continue Reading</h3>
+          <div class="related-posts-grid">
+            {relatedPosts.map((relatedPost) => {
+              const relatedPublishDate = relatedPost.data.publishDate || relatedPost.data.pubDate || new Date();
+              return (
+                <article class="related-post-card">
+                  <a href={`/blog/${relatedPost.slug}`} class="related-post-link">
+                    <div class="related-post-category">{relatedPost.data.category}</div>
+                    <h4 class="related-post-title">{relatedPost.data.title}</h4>
+                    <p class="related-post-excerpt">{relatedPost.data.description}</p>
+                    <div class="related-post-meta">
+                      <time datetime={relatedPublishDate.toISOString()}>
+                        {relatedPublishDate.toLocaleDateString('en-AU', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      </time>
+                    </div>
+                  </a>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    )}
   </article>
 </BaseLayout>
 
 <style>
+  /* Reading Progress Bar */
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #e2e8f0;
+    z-index: 1000;
+  }
+
+  .reading-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    width: 0%;
+    transition: width 0.1s ease-out;
+  }
+
   /* Breadcrumbs */
   .breadcrumbs {
     background: #f8f9fa;
@@ -224,7 +325,7 @@ const schema = {
 
   /* Container */
   .container-narrow {
-    max-width: 920px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 0 2rem;
   }
@@ -232,27 +333,10 @@ const schema = {
   /* Post Header */
   .post-header {
     position: relative;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 3.5rem 0;
-  }
-
-  .post-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background:
-      radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .post-header > * {
-    position: relative;
-    z-index: 1;
+    background: #ffffff;
+    color: #0f172a;
+    padding: 3.5rem 0 2.5rem;
+    border-bottom: 1px solid #e2e8f0;
   }
 
   .post-meta-top {
@@ -261,31 +345,30 @@ const schema = {
 
   .category-badge {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: #ede9fe;
+    color: #6d28d9;
+    border: 1px solid #ddd6fe;
     padding: 0.4rem 1rem;
     border-radius: 50px;
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 1px;
     font-size: 0.75rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
 
   .post-title {
-    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
     margin: 1.5rem 0 1rem;
-    line-height: 1.15;
+    line-height: 1.2;
     font-weight: 800;
     letter-spacing: -0.02em;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #0f172a;
   }
 
   .post-lead {
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
     line-height: 1.6;
-    opacity: 0.95;
+    color: #475569;
     margin-bottom: 2rem;
     font-weight: 400;
   }
@@ -298,8 +381,8 @@ const schema = {
     flex-wrap: wrap;
     gap: 1.5rem;
     padding: 1.5rem 0;
-    border-top: 1px solid rgba(255,255,255,0.2);
-    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
   }
 
   .author-info {
@@ -312,18 +395,17 @@ const schema = {
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.2);
+    background: #f1f5f9;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid rgba(255,255,255,0.3);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 2px solid #e2e8f0;
   }
 
   .author-avatar svg {
     width: 28px;
     height: 28px;
-    opacity: 0.9;
+    color: #64748b;
   }
 
   .author-details {
@@ -335,7 +417,7 @@ const schema = {
   .author-name {
     font-weight: 600;
     font-size: 1rem;
-    opacity: 0.95;
+    color: #0f172a;
   }
 
   .meta-items {
@@ -343,7 +425,7 @@ const schema = {
     align-items: center;
     gap: 0.75rem;
     font-size: 0.875rem;
-    opacity: 0.85;
+    color: #64748b;
   }
 
   .meta-separator {
@@ -360,27 +442,27 @@ const schema = {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    backdrop-filter: blur(10px);
+    color: #64748b;
   }
 
   .share-btn svg {
     width: 18px;
     height: 18px;
-    opacity: 0.9;
   }
 
   .share-btn:hover {
-    background: rgba(255,255,255,0.35);
-    border-color: rgba(255,255,255,0.5);
+    background: #667eea;
+    border-color: #667eea;
+    color: white;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
   }
 
   /* Tags */
@@ -392,47 +474,75 @@ const schema = {
   }
 
   .post-tags .tag {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255,255,255,0.25);
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-size: 0.875rem;
     font-weight: 500;
     text-decoration: none;
-    color: white;
+    color: #475569;
     transition: all 0.3s;
   }
 
   .post-tags .tag:hover {
-    background: rgba(255, 255, 255, 0.25);
+    background: #e2e8f0;
+    color: #0f172a;
     transform: translateY(-1px);
   }
 
-  .cover-image {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
+  /* Featured Image */
+  .featured-image-container {
+    background: #f8f9fa;
+    padding: 3rem 0 2rem;
+    margin: 0;
   }
 
-  .cover-image img {
+  .featured-image {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .featured-image img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    display: block;
+  }
+
+  .image-credit {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: #6c757d;
+    margin-top: 1rem;
+    font-style: italic;
+  }
+
+  .image-credit a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .image-credit a:hover {
+    color: #5568d3;
+    text-decoration: underline;
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 0 1.5rem;
   }
 
   .post-content {
-    max-width: 800px;
+    max-width: 750px;
     margin: 3rem auto;
-    line-height: 1.8;
-    font-size: 1.125rem;
+    line-height: 1.75;
+    font-size: 1.1875rem;
+    color: #334155;
   }
 
   /* Hide duplicate H1 from markdown content */
@@ -443,15 +553,20 @@ const schema = {
   .post-content :global(h2) {
     font-size: 2rem;
     margin-top: 3rem;
-    margin-bottom: 1rem;
-    color: #333;
+    margin-bottom: 1.25rem;
+    color: #0f172a;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
   }
 
   .post-content :global(h3) {
     font-size: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    color: #555;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: #1e293b;
+    font-weight: 600;
+    line-height: 1.4;
   }
 
   .post-content :global(p) {
@@ -493,43 +608,273 @@ const schema = {
     color: #666;
   }
 
+  /* Pull Quote / Stat Highlight */
+  .post-content :global(.stat-highlight) {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 4px solid #667eea;
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    text-align: center;
+  }
+
+  .post-content :global(.stat-number) {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #667eea;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-content :global(.stat-label) {
+    font-size: 1.125rem;
+    color: #475569;
+    font-weight: 500;
+  }
+
+  /* Step Headers with Numbers */
+  .post-content :global(.step-header) {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .post-content :global(.step-number) {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #667eea;
+    opacity: 0.2;
+    line-height: 1;
+    min-width: 70px;
+  }
+
+  .post-content :global(.step-header h2) {
+    margin: 0;
+    flex: 1;
+  }
+
+  /* Results Box */
+  .post-content :global(.results-box) {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #86efac;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+  }
+
+  .post-content :global(.results-box h2),
+  .post-content :global(.results-box h3) {
+    color: #15803d;
+    margin-top: 0;
+  }
+
+  .post-content :global(.results-box ul) {
+    margin-bottom: 0;
+  }
+
+  .post-content :global(.results-box li) {
+    color: #166534;
+  }
+
+  .post-content :global(.results-box strong) {
+    color: #15803d;
+  }
+
   .post-footer {
-    max-width: 800px;
-    margin: 3rem auto;
+    max-width: 750px;
+    margin: 2rem auto 0;
     padding-top: 2rem;
     border-top: 1px solid #e9ecef;
-    color: #666;
+    color: #64748b;
+    font-size: 0.9375rem;
+  }
+
+  /* Author Bio Card */
+  .author-bio-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2.5rem auto;
+    max-width: 750px;
+    display: flex;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .author-bio-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .author-bio-avatar svg {
+    width: 40px;
+    height: 40px;
+    color: white;
+  }
+
+  .author-bio-content h4 {
+    margin: 0 0 0.75rem 0;
+    color: #0f172a;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .author-bio-content p {
+    margin: 0 0 1rem 0;
+    color: #475569;
+    line-height: 1.6;
+  }
+
+  .author-bio-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: color 0.2s;
+  }
+
+  .author-bio-link:hover {
+    color: #5568d3;
+    text-decoration: underline;
   }
 
   .post-cta {
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    padding: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
     text-align: center;
     margin: 3rem auto;
-    max-width: 600px;
+    max-width: 750px;
+    box-shadow: 0 20px 60px rgba(102, 126, 234, 0.25);
   }
 
   .post-cta h3 {
-    margin-bottom: 0.5rem;
-    color: #333;
+    margin-bottom: 0.75rem;
+    color: white;
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  .post-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
   }
 
   .cta-button {
     display: inline-block;
-    background: #667eea;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 6px;
+    background: white;
+    color: #667eea;
+    padding: 1rem 2.5rem;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
-    margin-top: 1rem;
-    transition: background 0.3s;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    margin-top: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .cta-button:hover {
-    background: #5568d3;
+    background: #f8f9fa;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Related Posts */
+  .related-posts {
+    background: #f8fafc;
+    padding: 4rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .related-posts-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 3rem;
+  }
+
+  .related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .related-post-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .related-post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    border-color: #667eea;
+  }
+
+  .related-post-link {
+    display: block;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .related-post-category {
+    display: inline-block;
+    background: #ede9fe;
+    color: #6d28d9;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.375rem 0.75rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+
+  .related-post-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.4;
+  }
+
+  .related-post-excerpt {
+    font-size: 0.9375rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0 0 1rem 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .related-post-meta {
+    font-size: 0.875rem;
+    color: #94a3b8;
+  }
+
+  .related-post-card:hover .related-post-title {
+    color: #667eea;
   }
 
   /* Mobile */
@@ -569,7 +914,8 @@ const schema = {
     }
 
     .post-content {
-      font-size: 1.0625rem;
+      font-size: 1.125rem;
+      line-height: 1.7;
     }
 
     .post-content :global(h2) {
@@ -579,16 +925,91 @@ const schema = {
 
     .post-content :global(h3) {
       font-size: 1.375rem;
-      margin-top: 1.75rem;
+      margin-top: 2rem;
     }
 
-    .cover-image {
-      margin: 1.5rem auto;
+    .share-btn {
+      width: 44px;
+      height: 44px;
+    }
+
+    .featured-image-container {
+      padding: 2rem 0 1.5rem;
+    }
+
+    .featured-image {
+      padding: 0 1.25rem;
+    }
+
+    .featured-image img {
+      border-radius: 8px;
+    }
+
+    .author-bio-card {
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+
+    .author-bio-avatar {
+      width: 72px;
+      height: 72px;
+    }
+
+    .author-bio-avatar svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .post-cta {
+      padding: 2rem 1.5rem;
+    }
+
+    .post-cta h3 {
+      font-size: 1.5rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .related-posts {
+      padding: 3rem 0;
+    }
+
+    .related-posts-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .related-posts-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
   }
 </style>
 
 <script>
+  // Reading progress bar
+  const updateReadingProgress = () => {
+    const progressBar = document.querySelector('.reading-progress-bar');
+    if (!progressBar) return;
+
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.scrollY;
+    const trackLength = documentHeight - windowHeight;
+    const percentScrolled = (scrollTop / trackLength) * 100;
+
+    progressBar.style.width = `${Math.min(percentScrolled, 100)}%`;
+  };
+
+  window.addEventListener('scroll', updateReadingProgress, { passive: true });
+  window.addEventListener('resize', updateReadingProgress, { passive: true });
+  updateReadingProgress();
+
   // Social sharing functionality
   document.addEventListener('DOMContentLoaded', () => {
     const shareButtons = document.querySelectorAll('.share-btn');

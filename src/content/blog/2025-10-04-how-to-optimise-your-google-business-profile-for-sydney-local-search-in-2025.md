@@ -8,6 +8,11 @@ tags: ["Local SEO","Google Business Profile","Sydney","Local Search"]
 featured: false
 draft: false
 readTime: "16 min"
+coverImage: "https://images.unsplash.com/photo-1618748879306-ef472cbe595c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxnb29nbGUlMjBhZHMlMjBtaXN0YWtlcyUyMHN5ZG5leXxlbnwxfDB8fHwxNzU5NTkxMDQxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "Google Business Profile optimization for local Sydney businesses"
+coverImageCredit:
+  name: "1Click"
+  link: "https://unsplash.com/@1clickaf"
 seo:
   title: "How to Optimise Your Google Business Profile for Sydney Local Search in 2025 | The Profit Platform"
   description: "Discover how to optimise your Google Business Profile Sydney listing for 2025. Get found first in local search and stop losing $30k+ annually to competitors."

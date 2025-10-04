@@ -41,3 +41,6 @@
 
 /* Contact text visibility - HIGHEST PRIORITY fix */
 @import url('/css/contact-text-fix.css');
+
+/* Mobile nav flex fix - MUST be last to override bundled CSS */
+@import url('/css/mobile-nav-fix.css');

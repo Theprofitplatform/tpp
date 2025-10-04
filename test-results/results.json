@@ -1,0 +1,185 @@
+{
+  "config": {
+    "configFile": "/mnt/c/Users/abhis/projects/atpp/tpp/playwright.config.js",
+    "rootDir": "/mnt/c/Users/abhis/projects/atpp/tpp/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/mnt/c/Users/abhis/projects/atpp/tpp/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/mnt/c/Users/abhis/projects/atpp/tpp/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/mnt/c/Users/abhis/projects/atpp/tpp/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "/mnt/c/Users/abhis/projects/atpp/tpp/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.1",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "mobile-menu.spec.js",
+      "file": "mobile-menu.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Mobile Menu",
+          "file": "mobile-menu.spec.js",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should show mobile menu with reduced gap and visible Tools submenu",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 3181,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m80\u001b[39m\nReceived:   \u001b[31m92\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m80\u001b[39m\nReceived:   \u001b[31m92\u001b[39m\n    at /mnt/c/Users/abhis/projects/atpp/tpp/tests/mobile-menu.spec.js:34:30",
+                        "location": {
+                          "file": "/mnt/c/Users/abhis/projects/atpp/tpp/tests/mobile-menu.spec.js",
+                          "column": 30,
+                          "line": 34
+                        },
+                        "snippet": "  32 |\n  33 |     // Header should be compact (less than 80px)\n> 34 |     expect(headerBox.height).toBeLessThan(80);\n     |                              ^\n  35 |   });\n  36 | });\n  37 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/mnt/c/Users/abhis/projects/atpp/tpp/tests/mobile-menu.spec.js",
+                            "column": 30,
+                            "line": 34
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeLessThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nExpected: < \u001b[32m80\u001b[39m\nReceived:   \u001b[31m92\u001b[39m\n\n  32 |\n  33 |     // Header should be compact (less than 80px)\n> 34 |     expect(headerBox.height).toBeLessThan(80);\n     |                              ^\n  35 |   });\n  36 | });\n  37 |\n    at /mnt/c/Users/abhis/projects/atpp/tpp/tests/mobile-menu.spec.js:34:30"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Mobile nav header height: \u001b[33m92\u001b[39m\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-04T21:50:03.642Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/mnt/c/Users/abhis/projects/atpp/tpp/test-results/mobile-menu-Mobile-Menu-sh-5b69d-p-and-visible-Tools-submenu-chromium/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/mnt/c/Users/abhis/projects/atpp/tpp/test-results/mobile-menu-Mobile-Menu-sh-5b69d-p-and-visible-Tools-submenu-chromium/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/mnt/c/Users/abhis/projects/atpp/tpp/test-results/mobile-menu-Mobile-Menu-sh-5b69d-p-and-visible-Tools-submenu-chromium/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/mnt/c/Users/abhis/projects/atpp/tpp/tests/mobile-menu.spec.js",
+                        "column": 30,
+                        "line": 34
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "823a5059145590f9afba-c14a7a1eb2ccaee4b04e",
+              "file": "mobile-menu.spec.js",
+              "line": 4,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-10-04T21:49:58.726Z",
+    "duration": 8329.529999999999,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

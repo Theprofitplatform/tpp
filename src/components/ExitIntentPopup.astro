@@ -1,0 +1,398 @@
+---
+// Exit Intent Popup Component
+// Triggers when user is about to leave the page
+---
+
+<div id="exit-intent-popup" class="exit-popup-overlay hidden">
+  <div class="exit-popup-container">
+    <button class="exit-popup-close" aria-label="Close popup">
+      <i class="fas fa-times"></i>
+    </button>
+
+    <div class="exit-popup-content">
+      <div class="exit-popup-icon">
+        <i class="fas fa-gift"></i>
+      </div>
+
+      <h2 class="exit-popup-title">Wait! Don't Leave Empty-Handed 🎁</h2>
+
+      <p class="exit-popup-subtitle">
+        Get a <strong>FREE $997 Digital Marketing Audit</strong> before you go!
+      </p>
+
+      <ul class="exit-popup-benefits">
+        <li><i class="fas fa-check-circle"></i> Comprehensive SEO Analysis</li>
+        <li><i class="fas fa-check-circle"></i> Conversion Rate Review</li>
+        <li><i class="fas fa-check-circle"></i> Competitor Research</li>
+        <li><i class="fas fa-check-circle"></i> Growth Strategy Roadmap</li>
+      </ul>
+
+      <div class="exit-popup-ctas">
+        <a
+          href="https://wa.me/61487286451?text=Hi%2C%20I%20was%20about%20to%20leave%20but%20I%27m%20interested%20in%20the%20free%20%24997%20audit%21"
+          class="exit-popup-btn exit-popup-btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fab fa-whatsapp"></i>
+          Claim Free Audit Now
+        </a>
+
+        <a href="tel:+61487286451" class="exit-popup-btn exit-popup-btn-secondary">
+          <i class="fas fa-phone-alt"></i>
+          Call: 0487 286 451
+        </a>
+      </div>
+
+      <p class="exit-popup-trust">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <span>4.9/5 from 15+ Sydney businesses</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .exit-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .exit-popup-overlay.hidden {
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .exit-popup-container {
+    background: white;
+    border-radius: 24px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    animation: slideUp 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .exit-popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .exit-popup-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: rotate(90deg);
+  }
+
+  .exit-popup-close i {
+    font-size: 20px;
+    color: #64748b;
+  }
+
+  .exit-popup-content {
+    padding: 60px 40px 40px;
+    text-align: center;
+  }
+
+  .exit-popup-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: bounce 1s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .exit-popup-icon i {
+    font-size: 48px;
+    color: white;
+  }
+
+  .exit-popup-title {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #1e293b;
+    line-height: 1.2;
+  }
+
+  .exit-popup-subtitle {
+    font-size: 1.2rem;
+    color: #64748b;
+    margin-bottom: 32px;
+    line-height: 1.4;
+  }
+
+  .exit-popup-subtitle strong {
+    color: #6366f1;
+    font-weight: 700;
+  }
+
+  .exit-popup-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .exit-popup-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 1rem;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .exit-popup-benefits li:last-child {
+    border-bottom: none;
+  }
+
+  .exit-popup-benefits i {
+    color: #10b981;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .exit-popup-ctas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .exit-popup-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 18px 32px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .exit-popup-btn-primary {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+  }
+
+  .exit-popup-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+  }
+
+  .exit-popup-btn-secondary {
+    background: white;
+    color: #6366f1;
+    border: 2px solid #6366f1;
+  }
+
+  .exit-popup-btn-secondary:hover {
+    background: #6366f1;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .exit-popup-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+
+  .exit-popup-trust i {
+    color: #fbbf24;
+    font-size: 16px;
+  }
+
+  @media (max-width: 640px) {
+    .exit-popup-container {
+      margin: 20px;
+    }
+
+    .exit-popup-content {
+      padding: 50px 24px 24px;
+    }
+
+    .exit-popup-title {
+      font-size: 1.5rem;
+    }
+
+    .exit-popup-subtitle {
+      font-size: 1rem;
+    }
+
+    .exit-popup-icon {
+      width: 80px;
+      height: 80px;
+    }
+
+    .exit-popup-icon i {
+      font-size: 36px;
+    }
+  }
+</style>
+
+<script>
+  // Exit intent detection
+  (function() {
+    const popup = document.getElementById('exit-intent-popup');
+    const closeBtn = popup?.querySelector('.exit-popup-close');
+    let isShown = false;
+
+    // Check if popup has already been shown this session
+    if (sessionStorage.getItem('exitPopupShown')) {
+      return;
+    }
+
+    function showPopup() {
+      if (!isShown && popup) {
+        popup.classList.remove('hidden');
+        isShown = true;
+        sessionStorage.setItem('exitPopupShown', 'true');
+
+        // Track exit intent event (if analytics is available)
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'exit_intent_shown', {
+            event_category: 'engagement',
+            event_label: 'exit_popup'
+          });
+        }
+      }
+    }
+
+    function hidePopup() {
+      if (popup) {
+        popup.classList.add('hidden');
+
+        // Track popup closed event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'exit_intent_closed', {
+            event_category: 'engagement',
+            event_label: 'exit_popup'
+          });
+        }
+      }
+    }
+
+    // Detect mouse leaving viewport at the top
+    document.addEventListener('mouseleave', (e) => {
+      if (e.clientY <= 0 && !isShown) {
+        showPopup();
+      }
+    });
+
+    // Mobile: detect back button press or navigation
+    let lastTouchY = 0;
+    document.addEventListener('touchstart', (e) => {
+      lastTouchY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      const currentY = e.touches[0].clientY;
+      // If user is at top of page and scrolling up (trying to access browser chrome)
+      if (window.scrollY === 0 && currentY > lastTouchY && !isShown) {
+        showPopup();
+      }
+    });
+
+    // Close popup when clicking close button
+    closeBtn?.addEventListener('click', hidePopup);
+
+    // Close popup when clicking overlay (outside popup)
+    popup?.addEventListener('click', (e) => {
+      if (e.target === popup) {
+        hidePopup();
+      }
+    });
+
+    // Track CTA clicks
+    const ctaButtons = popup?.querySelectorAll('.exit-popup-btn');
+    ctaButtons?.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'exit_intent_cta_clicked', {
+            event_category: 'conversion',
+            event_label: btn.classList.contains('exit-popup-btn-primary') ? 'whatsapp' : 'phone'
+          });
+        }
+      });
+    });
+
+    // Escape key to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !popup?.classList.contains('hidden')) {
+        hidePopup();
+      }
+    });
+  })();
+</script>

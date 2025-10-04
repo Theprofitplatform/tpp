@@ -1,0 +1,328 @@
+---
+// Social Proof Notification Widget
+// Shows recent inquiry notifications to create urgency
+---
+
+<div id="social-proof-container" class="social-proof-notifications"></div>
+
+<style>
+  .social-proof-notifications {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .social-proof-notification {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 320px;
+    animation: slideInRight 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid #10b981;
+  }
+
+  .social-proof-notification:hover {
+    transform: translateX(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  .social-proof-notification.hiding {
+    animation: slideOutRight 0.4s ease forwards;
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideOutRight {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(400px);
+      opacity: 0;
+    }
+  }
+
+  .social-proof-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981, #059669);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .social-proof-icon i {
+    color: white;
+    font-size: 20px;
+  }
+
+  .social-proof-content {
+    flex: 1;
+  }
+
+  .social-proof-name {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .social-proof-action {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .social-proof-time {
+    color: #94a3b8;
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  .social-proof-close {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+
+  .social-proof-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .social-proof-close i {
+    font-size: 12px;
+    color: #64748b;
+  }
+
+  @media (max-width: 640px) {
+    .social-proof-notifications {
+      right: 10px;
+      bottom: 80px;
+    }
+
+    .social-proof-notification {
+      max-width: calc(100vw - 20px);
+    }
+  }
+</style>
+
+<script>
+  // Social proof notification data
+  const notifications = [
+    {
+      name: 'Sarah from Bondi',
+      action: 'just requested a free marketing audit',
+      icon: 'fa-chart-line',
+      service: 'SEO'
+    },
+    {
+      name: 'James from Parramatta',
+      action: 'just booked a strategy call',
+      icon: 'fa-calendar-check',
+      service: 'Consultation'
+    },
+    {
+      name: 'Emily from Manly',
+      action: 'just requested a quote for Google Ads',
+      icon: 'fa-google',
+      service: 'Google Ads'
+    },
+    {
+      name: 'Michael from Chatswood',
+      action: 'just started their free website audit',
+      icon: 'fa-desktop',
+      service: 'Web Design'
+    },
+    {
+      name: 'Lisa from Newtown',
+      action: 'just contacted us about SEO services',
+      icon: 'fa-search',
+      service: 'SEO'
+    },
+    {
+      name: 'David from Surry Hills',
+      action: 'just requested a social media audit',
+      icon: 'fa-thumbs-up',
+      service: 'Social Media'
+    },
+    {
+      name: 'Rachel from Mosman',
+      action: 'just booked a free consultation',
+      icon: 'fa-comments',
+      service: 'Consultation'
+    },
+    {
+      name: 'Tom from Cronulla',
+      action: 'just requested our pricing guide',
+      icon: 'fa-file-invoice-dollar',
+      service: 'Pricing'
+    },
+    {
+      name: 'Jessica from Dee Why',
+      action: 'just submitted an inquiry',
+      icon: 'fa-envelope',
+      service: 'Contact'
+    },
+    {
+      name: 'Chris from North Sydney',
+      action: 'just started their digital marketing journey',
+      icon: 'fa-rocket',
+      service: 'Digital Marketing'
+    }
+  ];
+
+  (function() {
+    const container = document.getElementById('social-proof-container');
+    if (!container) return;
+
+    let notificationCount = 0;
+    const maxNotifications = 4; // Max notifications per session
+    let shownNotifications = new Set();
+
+    // Check if user has already seen notifications this session
+    const sessionKey = 'socialProofCount';
+    const existingCount = parseInt(sessionStorage.getItem(sessionKey) || '0');
+
+    if (existingCount >= maxNotifications) {
+      return; // Don't show more notifications
+    }
+    notificationCount = existingCount;
+
+    function getRandomNotification() {
+      // Filter out already shown notifications
+      const available = notifications.filter((_, index) => !shownNotifications.has(index));
+      if (available.length === 0) {
+        shownNotifications.clear(); // Reset if all shown
+        return notifications[Math.floor(Math.random() * notifications.length)];
+      }
+      const randomIndex = Math.floor(Math.random() * available.length);
+      const notification = available[randomIndex];
+      const originalIndex = notifications.indexOf(notification);
+      shownNotifications.add(originalIndex);
+      return notification;
+    }
+
+    function getRandomTime() {
+      const times = ['Just now', '2 minutes ago', '5 minutes ago', '8 minutes ago'];
+      return times[Math.floor(Math.random() * times.length)];
+    }
+
+    function createNotification(data) {
+      const notification = document.createElement('div');
+      notification.className = 'social-proof-notification';
+
+      notification.innerHTML = `
+        <div class="social-proof-icon">
+          <i class="fas ${data.icon}"></i>
+        </div>
+        <div class="social-proof-content">
+          <div class="social-proof-name">${data.name}</div>
+          <div class="social-proof-action">${data.action}</div>
+          <div class="social-proof-time">${getRandomTime()}</div>
+        </div>
+        <button class="social-proof-close" aria-label="Close notification">
+          <i class="fas fa-times"></i>
+        </button>
+      `;
+
+      // Close button functionality
+      const closeBtn = notification.querySelector('.social-proof-close');
+      closeBtn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        hideNotification(notification);
+      });
+
+      // Click to scroll to contact form
+      notification.addEventListener('click', () => {
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+          contactForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          hideNotification(notification);
+        }
+      });
+
+      return notification;
+    }
+
+    function showNotification() {
+      if (notificationCount >= maxNotifications) {
+        return;
+      }
+
+      const data = getRandomNotification();
+      const notification = createNotification(data);
+      container?.appendChild(notification);
+
+      notificationCount++;
+      sessionStorage.setItem(sessionKey, notificationCount.toString());
+
+      // Track notification shown
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'social_proof_shown', {
+          event_category: 'engagement',
+          event_label: data.service
+        });
+      }
+
+      // Auto-hide after 6 seconds
+      setTimeout(() => {
+        hideNotification(notification);
+      }, 6000);
+    }
+
+    function hideNotification(notification) {
+      notification.classList.add('hiding');
+      setTimeout(() => {
+        notification.remove();
+      }, 400);
+    }
+
+    // Show first notification after 8 seconds
+    setTimeout(showNotification, 8000);
+
+    // Show subsequent notifications every 15-25 seconds
+    function scheduleNextNotification() {
+      if (notificationCount >= maxNotifications) {
+        return;
+      }
+
+      const delay = 15000 + Math.random() * 10000; // 15-25 seconds
+      setTimeout(() => {
+        showNotification();
+        scheduleNextNotification();
+      }, delay);
+    }
+
+    setTimeout(scheduleNextNotification, 8000);
+  })();
+</script>
