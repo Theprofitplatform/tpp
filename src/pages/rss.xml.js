@@ -6,10 +6,12 @@ export async function GET(context) {
     return !data.draft;
   });
 
-  // Sort by date (newest first)
-  const sortedPosts = posts.sort((a, b) =>
-    b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-  );
+  // Sort by date (newest first) - handle both pubDate and publishDate
+  const sortedPosts = posts.sort((a, b) => {
+    const dateA = a.data.publishDate || a.data.pubDate;
+    const dateB = b.data.publishDate || b.data.pubDate;
+    return dateB.valueOf() - dateA.valueOf();
+  });
 
   return rss({
     title: 'The Profit Platform Blog',
@@ -17,7 +19,7 @@ export async function GET(context) {
     site: context.site,
     items: sortedPosts.map((post) => ({
       title: post.data.title,
-      pubDate: post.data.publishDate,
+      pubDate: post.data.publishDate || post.data.pubDate,
       description: post.data.description,
       link: `/blog/${post.slug}/`,
       categories: [post.data.category, ...post.data.tags],
