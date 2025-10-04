@@ -22,10 +22,16 @@
     "pm2:logs": "pm2 logs",
     "pm2:status": "pm2 status",
     "pm2:backend-logs": "pm2 logs tpp-backend",
-    "pm2:tunnel-logs": "pm2 logs cloudflare-tunnel"
+    "pm2:tunnel-logs": "pm2 logs cloudflare-tunnel",
+    "blog:generate": "node automation/scripts/generate-blog-post.js",
+    "blog:validate": "node automation/scripts/validate-content.js",
+    "blog:plagiarism": "node automation/scripts/plagiarism-check.js",
+    "blog:test": "npm run blog:generate && npm run blog:validate"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.65.0",
     "@astrojs/cloudflare": "12.6.9",
+    "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.14.1",
     "cheerio": "1.1.2",
@@ -33,6 +39,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-rate-limit": "^8.1.0",
+    "gray-matter": "^4.0.3",
     "helmet": "^8.1.0",
     "nodemailer": "^7.0.6",
     "undici": "6.21.3"

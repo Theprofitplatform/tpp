@@ -399,15 +399,20 @@ const apiUrl = '';
         severity: revenueImpact.severity
       });
 
+      // Ensure performanceGrade is an object
+      const gradeObj = typeof performanceGrade === 'string'
+        ? { grade: performanceGrade, label: performanceGrade, color: '#667eea' }
+        : performanceGrade;
+
       let html = `
         <!-- Score Cards -->
         <div class="score-cards">
-          <div class="score-card main-score score-${performanceGrade.grade.toLowerCase()}">
+          <div class="score-card main-score score-${gradeObj.grade.toLowerCase()}">
             <div class="score-icon">
               <div class="score-circle">
                 <svg viewBox="0 0 100 100">
                   <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8"/>
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="${performanceGrade.color}"
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="${gradeObj.color}"
                     stroke-width="8" stroke-dasharray="${scores.performance * 2.83} 283"
                     transform="rotate(-90 50 50)"/>
                 </svg>
@@ -417,8 +422,8 @@ const apiUrl = '';
             <div class="score-info">
               <h3>Performance Score</h3>
               <div class="score-grade">
-                <span class="grade-letter">${performanceGrade.grade}</span>
-                <span class="grade-label">${performanceGrade.label}</span>
+                <span class="grade-letter">${gradeObj.grade}</span>
+                <span class="grade-label">${gradeObj.label}</span>
               </div>
             </div>
           </div>
@@ -2408,6 +2413,36 @@ const apiUrl = '';
     filter: blur(60px);
     opacity: 0.3;
     animation: float 20s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    33% {
+      transform: translate(30px, -30px);
+    }
+    66% {
+      transform: translate(-20px, 20px);
+    }
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   .speed-hero-enhanced .gradient-orb:nth-child(1) {
