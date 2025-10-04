@@ -2722,6 +2722,7 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
+    color: white;
     margin-bottom: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.3);
     animation: pulse-badge 2s ease-in-out infinite;
@@ -2732,7 +2733,10 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
     50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0); }
   }
 
-  .hero-badge i {
+  .hero-badge i,
+  .badge-icon,
+  .badge-text {
+    color: white;
     font-size: 1.125rem;
   }
 
@@ -2758,10 +2762,11 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
     display: block;
   }
 
+  .hero-description-new,
   .hero-subtitle-new {
     font-size: 1.375rem;
     line-height: 1.6;
-    opacity: 0.95;
+    color: rgba(255, 255, 255, 0.95);
     margin-bottom: 3rem;
     max-width: 700px;
     margin-left: auto;
@@ -2769,6 +2774,7 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
   }
 
   @media (max-width: 768px) {
+    .hero-description-new,
     .hero-subtitle-new {
       font-size: 1.125rem;
       margin-bottom: 2.5rem;
@@ -2783,6 +2789,7 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
     margin-bottom: 3rem;
   }
 
+  .pill,
   .feature-pill {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
@@ -2790,6 +2797,7 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
     border-radius: 50px;
     font-weight: 600;
     font-size: 1rem;
+    color: white;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -2797,13 +2805,16 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
     transition: all 0.3s ease;
   }
 
+  .pill:hover,
   .feature-pill:hover {
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
   }
 
+  .pill i,
   .feature-pill i {
     font-size: 1.125rem;
+    color: white;
   }
 
   .trust-indicators-new {
@@ -2827,6 +2838,18 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
     gap: 0.5rem;
   }
 
+  .trust-item i {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .trust-item span {
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+  }
+
   .trust-icon {
     width: 48px;
     height: 48px;
@@ -2836,21 +2859,38 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
     align-items: center;
     justify-content: center;
     font-size: 1.375rem;
+    color: white;
     margin-bottom: 0.25rem;
   }
 
   .trust-text {
     font-weight: 600;
     font-size: 1rem;
+    color: white;
   }
 
   .scroll-indicator {
     margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .scroll-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .scroll-arrow {
     animation: bounce 2s ease-in-out infinite;
   }
 
+  .scroll-arrow i,
   .scroll-indicator i {
     font-size: 2rem;
+    color: white;
     opacity: 0.8;
   }
 
