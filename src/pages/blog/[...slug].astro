@@ -435,6 +435,11 @@ const schema = {
     font-size: 1.125rem;
   }
 
+  /* Hide duplicate H1 from markdown content */
+  .post-content :global(h1:first-child) {
+    display: none;
+  }
+
   .post-content :global(h2) {
     font-size: 2rem;
     margin-top: 3rem;
