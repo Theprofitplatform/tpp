@@ -1,0 +1,366 @@
+{
+  "queue": [
+    {
+      "id": 1,
+      "title": "How to Optimise Your Google Business Profile for Sydney Local Search in 2025",
+      "category": "SEO",
+      "tags": ["Local SEO", "Google Business Profile", "Sydney", "Local Search"],
+      "targetKeyword": "google business profile sydney",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "title": "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month",
+      "category": "Google Ads",
+      "tags": ["PPC", "Google Ads", "Cost Optimization", "Sydney"],
+      "targetKeyword": "google ads mistakes sydney",
+      "searchIntent": "commercial",
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "title": "Website Speed Optimization: How Sydney Businesses Can Improve Core Web Vitals",
+      "category": "Web Design",
+      "tags": ["Page Speed", "Core Web Vitals", "SEO", "User Experience"],
+      "targetKeyword": "website speed optimization sydney",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
+      "category": "SEO",
+      "tags": ["Local SEO", "Checklist", "Sydney", "Rankings"],
+      "targetKeyword": "local seo sydney",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "title": "Google Ads vs SEO: Which Should Sydney Small Businesses Invest in First?",
+      "category": "Digital Marketing",
+      "tags": ["Google Ads", "SEO", "ROI", "Strategy"],
+      "targetKeyword": "google ads vs seo",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "title": "How to Write Google Ads Copy That Converts for Sydney Service Businesses",
+      "category": "Google Ads",
+      "tags": ["Ad Copywriting", "PPC", "Conversions", "Service Business"],
+      "targetKeyword": "google ads copywriting",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "title": "Complete Guide to Multi-Location SEO for Sydney Business Owners",
+      "category": "SEO",
+      "tags": ["Multi-Location SEO", "Local SEO", "Scaling", "Sydney"],
+      "targetKeyword": "multi location seo sydney",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "id": 8,
+      "title": "Landing Page Design That Converts: 11 Sydney Success Stories",
+      "category": "Web Design",
+      "tags": ["Landing Pages", "Conversion Optimization", "Web Design", "Case Studies"],
+      "targetKeyword": "landing page design sydney",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "title": "How to Track Google Ads ROI: A Sydney Business Owner's Guide",
+      "category": "Google Ads",
+      "tags": ["ROI", "Analytics", "Google Ads", "Tracking"],
+      "targetKeyword": "google ads roi tracking",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "title": "15 Free SEO Tools Every Sydney Small Business Should Use in 2025",
+      "category": "SEO",
+      "tags": ["SEO Tools", "Free Tools", "Small Business", "Resources"],
+      "targetKeyword": "free seo tools",
+      "searchIntent": "informational",
+      "priority": 3,
+      "status": "pending"
+    },
+    {
+      "id": 11,
+      "title": "Keyword Research for Local Sydney Businesses: The Complete Framework",
+      "category": "SEO",
+      "tags": ["Keyword Research", "Local SEO", "Sydney", "Content Strategy"],
+      "targetKeyword": "keyword research sydney",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "id": 12,
+      "title": "How to Reduce Google Ads Cost Per Click Without Sacrificing Quality",
+      "category": "Google Ads",
+      "tags": ["Cost Reduction", "CPC", "PPC Optimization", "Budget"],
+      "targetKeyword": "reduce google ads cost",
+      "searchIntent": "commercial",
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "id": 13,
+      "title": "Mobile-First Web Design: Why Sydney Businesses Can't Ignore It in 2025",
+      "category": "Web Design",
+      "tags": ["Mobile Design", "Responsive Design", "User Experience", "SEO"],
+      "targetKeyword": "mobile first web design",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 14,
+      "title": "Link Building Strategies That Actually Work for Sydney Businesses",
+      "category": "SEO",
+      "tags": ["Link Building", "SEO", "Backlinks", "Authority"],
+      "targetKeyword": "link building sydney",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 15,
+      "title": "Google Ads Quality Score: How to Improve It and Lower Your Costs",
+      "category": "Google Ads",
+      "tags": ["Quality Score", "PPC Optimization", "Cost Reduction"],
+      "targetKeyword": "google ads quality score",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 16,
+      "title": "Content Marketing Strategy for Sydney B2B Companies in 2025",
+      "category": "Content Marketing",
+      "tags": ["Content Strategy", "B2B", "Marketing", "Sydney"],
+      "targetKeyword": "content marketing strategy b2b",
+      "searchIntent": "commercial",
+      "priority": 3,
+      "status": "pending"
+    },
+    {
+      "id": 17,
+      "title": "Google Search Console: The Complete Guide for Sydney Business Owners",
+      "category": "SEO",
+      "tags": ["Google Search Console", "SEO Tools", "Analytics", "Tracking"],
+      "targetKeyword": "google search console guide",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 18,
+      "title": "Remarketing Campaigns That Actually Convert for Sydney eCommerce",
+      "category": "Google Ads",
+      "tags": ["Remarketing", "Retargeting", "eCommerce", "Conversions"],
+      "targetKeyword": "remarketing campaigns",
+      "searchIntent": "commercial",
+      "priority": 3,
+      "status": "pending"
+    },
+    {
+      "id": 19,
+      "title": "WordPress SEO: Complete Optimization Guide for Sydney Websites",
+      "category": "SEO",
+      "tags": ["WordPress", "SEO", "CMS", "Optimization"],
+      "targetKeyword": "wordpress seo",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 20,
+      "title": "Conversion Rate Optimization: 9 Quick Wins for Sydney Service Businesses",
+      "category": "Web Design",
+      "tags": ["CRO", "Conversions", "Optimization", "Service Business"],
+      "targetKeyword": "conversion rate optimization",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 21,
+      "title": "Voice Search SEO: Optimising for Sydney Local Voice Queries in 2025",
+      "category": "SEO",
+      "tags": ["Voice Search", "Local SEO", "Mobile", "Future"],
+      "targetKeyword": "voice search seo",
+      "searchIntent": "informational",
+      "priority": 3,
+      "status": "pending"
+    },
+    {
+      "id": 22,
+      "title": "Google Ads Extensions: Complete Guide to Maximising Click-Through Rates",
+      "category": "Google Ads",
+      "tags": ["Ad Extensions", "CTR", "PPC", "Optimization"],
+      "targetKeyword": "google ads extensions",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 23,
+      "title": "Technical SEO Audit Checklist for Sydney Business Websites",
+      "category": "SEO",
+      "tags": ["Technical SEO", "Audit", "Checklist", "Site Health"],
+      "targetKeyword": "technical seo audit",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "id": 24,
+      "title": "Social Media Marketing for Sydney Small Businesses: What Actually Works",
+      "category": "Digital Marketing",
+      "tags": ["Social Media", "Small Business", "Strategy", "ROI"],
+      "targetKeyword": "social media marketing sydney",
+      "searchIntent": "commercial",
+      "priority": 3,
+      "status": "pending"
+    },
+    {
+      "id": 25,
+      "title": "Google My Business Posts: How to Use Them to Increase Local Visibility",
+      "category": "SEO",
+      "tags": ["Google Business Profile", "Local SEO", "Posts", "Engagement"],
+      "targetKeyword": "google my business posts",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 26,
+      "title": "Email Marketing Automation for Sydney Service-Based Businesses",
+      "category": "Digital Marketing",
+      "tags": ["Email Marketing", "Automation", "Lead Nurturing", "Service Business"],
+      "targetKeyword": "email marketing automation",
+      "searchIntent": "commercial",
+      "priority": 3,
+      "status": "pending"
+    },
+    {
+      "id": 27,
+      "title": "Google Analytics 4: Complete Setup Guide for Sydney Business Owners",
+      "category": "Analytics",
+      "tags": ["Google Analytics", "GA4", "Setup", "Tracking"],
+      "targetKeyword": "google analytics 4 setup",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 28,
+      "title": "Negative Keywords: How to Stop Wasting Money on Google Ads",
+      "category": "Google Ads",
+      "tags": ["Negative Keywords", "PPC Optimization", "Cost Reduction", "Targeting"],
+      "targetKeyword": "negative keywords google ads",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "pending"
+    },
+    {
+      "id": 29,
+      "title": "Schema Markup for Local Sydney Businesses: Implementation Guide",
+      "category": "SEO",
+      "tags": ["Schema Markup", "Structured Data", "Local SEO", "Rich Results"],
+      "targetKeyword": "schema markup local business",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 30,
+      "title": "Website Accessibility: Legal Requirements and SEO Benefits for Sydney Sites",
+      "category": "Web Design",
+      "tags": ["Accessibility", "WCAG", "Legal", "SEO"],
+      "targetKeyword": "website accessibility",
+      "searchIntent": "informational",
+      "priority": 3,
+      "status": "pending"
+    },
+    {
+      "id": 31,
+      "title": "Local Citations: Building Authority for Sydney Multi-Location Businesses",
+      "category": "SEO",
+      "tags": ["Citations", "Local SEO", "NAP", "Directory Listings"],
+      "targetKeyword": "local citations sydney",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 32,
+      "title": "Google Ads Bidding Strategies: Which One is Right for Your Sydney Business?",
+      "category": "Google Ads",
+      "tags": ["Bidding Strategies", "PPC", "Automation", "ROI"],
+      "targetKeyword": "google ads bidding strategies",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 33,
+      "title": "Image Optimisation for SEO: Complete Guide for Sydney Websites",
+      "category": "SEO",
+      "tags": ["Image SEO", "Page Speed", "Optimization", "Alt Text"],
+      "targetKeyword": "image optimization seo",
+      "searchIntent": "informational",
+      "priority": 3,
+      "status": "pending"
+    },
+    {
+      "id": 34,
+      "title": "Lead Generation Funnels for Sydney Professional Services Firms",
+      "category": "Digital Marketing",
+      "tags": ["Lead Generation", "Funnels", "Professional Services", "Conversion"],
+      "targetKeyword": "lead generation professional services",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "pending"
+    },
+    {
+      "id": 35,
+      "title": "Google Ads for Service Businesses: Campaign Structure That Converts",
+      "category": "Google Ads",
+      "tags": ["Campaign Structure", "Service Business", "PPC", "Setup"],
+      "targetKeyword": "google ads service business",
+      "searchIntent": "commercial",
+      "priority": 1,
+      "status": "pending"
+    }
+  ],
+  "published": [],
+  "config": {
+    "postsPerWeek": 2,
+    "maxQueueSize": 90,
+    "autoRefillThreshold": 30,
+    "rolloutSchedule": {
+      "month1": { "postsPerWeek": 2, "days": ["Monday", "Thursday"] },
+      "month2": { "postsPerWeek": 3, "days": ["Monday", "Wednesday", "Friday"] },
+      "month3": { "postsPerWeek": 5, "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"] },
+      "month4": { "postsPerWeek": 7, "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] }
+    }
+  }
+}
