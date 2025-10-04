@@ -68,58 +68,316 @@ function getReadTime(post) {
 <BaseLayout title={pageTitle} description={pageDescription}>
   <link rel="stylesheet" href="/css/blog.css">
   <style>
-    html {
+    /* Clean, modern blog listing design */
+    html, body {
       background: #ffffff !important;
       background-image: none !important;
-    }
-    body {
-      background: #ffffff !important;
-      background-color: #ffffff !important;
-      background-image: none !important;
-    }
-    body::before,
-    body::after,
-    html::before,
-    html::after {
-      display: none !important;
-    }
-    main::before,
-    main::after {
-      display: none !important;
-    }
-    body .blog-hero {
-      background: #ffffff !important;
-      background-color: #ffffff !important;
-      background-image: none !important;
-    }
-    #main-content {
-      background: #ffffff !important;
-      background-image: none !important;
-    }
-    .blog-hero {
-      background: #ffffff !important;
-      background-image: none !important;
-    }
-    .blog-hero::before,
-    .blog-hero::after {
-      display: none !important;
-    }
-    .hero-background,
-    .hero-gradient-mesh,
-    .hero-floating-elements,
-    .hero-grid-overlay,
-    .floating-orb,
-    .newsletter-gradient,
-    .newsletter-pattern {
-      display: none !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
     }
 
-    /* Remove any gradient backgrounds from hero section */
-    .hero,
-    [class*="hero"] {
-      background-image: none !important;
+    body::before, body::after,
+    html::before, html::after,
+    main::before, main::after {
+      display: none !important;
+    }
+
+    /* Hero Section - Clean Design */
+    .blog-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      padding: 6rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-background,
+    .hero-floating-elements,
+    .floating-orb {
+      display: none !important;
+    }
+
+    .hero-gradient-mesh {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-grid-overlay {
+      display: none !important;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-title {
+      color: white;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin: 1.5rem 0 1rem;
+      line-height: 1.2;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.25rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stat-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .stat-number {
+      display: block;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      display: block;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.875rem;
+    }
+
+    /* Featured Article - Modern Card */
+    .featured-section {
+      background: #f8fafc;
+      padding: 4rem 0;
+    }
+
+    .featured-article {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 0;
+    }
+
+    .featured-visual {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+    }
+
+    .visual-gradient,
+    .visual-icon {
+      position: absolute;
+    }
+
+    .visual-icon {
+      color: rgba(255, 255, 255, 0.15);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: white;
+      color: #667eea;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    .featured-content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 1rem 0;
+      line-height: 1.3;
+    }
+
+    .featured-excerpt {
+      color: #64748b;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .featured-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s;
+      width: fit-content;
+    }
+
+    .featured-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Newsletter - Refined */
+    .newsletter-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .newsletter-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .newsletter-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    }
+
+    .newsletter-pattern {
+      display: none;
+    }
+
+    .newsletter-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: white;
+    }
+
+    .newsletter-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .newsletter-description {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .newsletter-input {
+      background: white;
+      border: 2px solid transparent;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .newsletter-submit {
+      background: white;
+      color: #667eea;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 1rem;
+      transition: all 0.3s;
+    }
+
+    .newsletter-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .blog-hero {
+        padding: 4rem 0 3rem;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .featured-article {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-visual {
+        min-height: 250px;
+      }
+
+      .featured-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .newsletter-form .form-group {
+        flex-direction: column;
+      }
+
+      .newsletter-submit {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+      }
     }
   </style>
 
