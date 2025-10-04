@@ -11,10 +11,12 @@ const allPosts = await getCollection('blog', ({ data }) => {
   return !data.draft;
 });
 
-// Sort by date (newest first)
-const sortedPosts = allPosts.sort((a, b) =>
-  b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-);
+// Sort by date (newest first) - handle both pubDate and publishDate
+const sortedPosts = allPosts.sort((a, b) => {
+  const dateA = a.data.publishDate || a.data.pubDate;
+  const dateB = b.data.publishDate || b.data.pubDate;
+  return dateB.valueOf() - dateA.valueOf();
+});
 
 // Featured post (if marked, otherwise use newest)
 const featuredPost = sortedPosts.find(p => p.data.featured) || sortedPosts[0];
@@ -47,8 +49,9 @@ function getCategoryGradient(category) {
   return gradients[category] || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
 }
 
-// Helper function to format date
-function formatDate(date) {
+// Helper function to format date (handles both pubDate and publishDate)
+function formatDate(post) {
+  const date = post.data.publishDate || post.data.pubDate;
   return new Date(date).toLocaleDateString('en-AU', {
     year: 'numeric',
     month: 'short',
@@ -264,7 +267,7 @@ function getReadTime(post) {
                   <div class="author-avatar">{featuredPost.data.author === 'Avi' ? 'A' : 'TPP'}</div>
                   <div class="author-details">
                     <span class="author-name">{featuredPost.data.author}</span>
-                    <span class="publish-date">{formatDate(featuredPost.data.publishDate)}</span>
+                    <span class="publish-date">{formatDate(featuredPost)}</span>
                   </div>
                 </div>
 
@@ -317,7 +320,7 @@ function getReadTime(post) {
 
                 <div class="article-footer">
                   <div class="article-meta">
-                    <span class="meta-date">{formatDate(post.data.publishDate)}</span>
+                    <span class="meta-date">{formatDate(post)}</span>
                     <span class="meta-divider">•</span>
                     <span class="meta-time">{getReadTime(post)}</span>
                   </div>
