@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import ToolBadge from '../../components/ToolBadge.astro';
-import TrustBar from '../../components/TrustBar.astro';
 
 // Use Cloudflare Pages Function (serverless API on same domain)
 const apiUrl = '';
@@ -12,24 +11,80 @@ const apiUrl = '';
   <Header />
 
   <main id="main-content" role="main">
-    <!-- Hero Section -->
-    <section class="speed-hero" data-tool-name="speed-test">
+    <!-- Enhanced Hero Section -->
+    <section class="speed-hero-enhanced" data-tool-name="speed-test">
+      <div class="hero-background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+
       <div class="container">
-        <div class="speed-hero-content">
-          <ToolBadge type="free" icon="fa-bolt" text="Free Speed Test" />
-          <h1>Website Speed Test</h1>
-          <p class="hero-subtitle">
-            Analyze your website's performance with Google Lighthouse.
-            Get detailed metrics and actionable recommendations - 100% free!
+        <div class="speed-hero-content-new">
+          <!-- Badge -->
+          <div class="hero-badge">
+            <span class="badge-icon">⚡</span>
+            <span class="badge-text">100% Free • Powered by Lighthouse</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="hero-title-new">
+            <span class="title-line-1">Test Your Website</span>
+            <span class="title-line-2">Performance</span>
+            <span class="title-accent">In Seconds</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="hero-description-new">
+            Get a complete Google Lighthouse audit with Core Web Vitals, performance scores,
+            and actionable recommendations. Know exactly how fast your site loads for real users.
           </p>
-          <div class="trust-badges">
-            <span class="badge"><i class="fas fa-check"></i> Powered by Lighthouse</span>
-            <span class="badge"><i class="fas fa-chart-bar"></i> Real Metrics</span>
-            <span class="badge"><i class="fas fa-lightbulb"></i> Actionable Tips</span>
+
+          <!-- Feature Pills -->
+          <div class="feature-pills-new">
+            <div class="pill">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Core Web Vitals</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-mobile-alt"></i>
+              <span>Mobile + Desktop</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-lightbulb"></i>
+              <span>Actionable Insights</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-chart-line"></i>
+              <span>Real User Metrics</span>
+            </div>
+          </div>
+
+          <!-- Trust Indicators (Honest) -->
+          <div class="trust-indicators-new">
+            <div class="trust-item">
+              <i class="fas fa-google"></i>
+              <span>Google Lighthouse</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-bolt"></i>
+              <span>Instant Results</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>Detailed Reports</span>
+            </div>
+          </div>
+
+          <!-- Scroll Indicator -->
+          <div class="scroll-indicator">
+            <span class="scroll-text">Start testing your speed ↓</span>
+            <div class="scroll-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
           </div>
         </div>
-
-        <TrustBar />
       </div>
     </section>
 
@@ -68,21 +123,32 @@ const apiUrl = '';
                 <i class="fas fa-chart-line"></i>
               </div>
             </div>
-            <p class="loading-text">Running Lighthouse audit...</p>
-            <p class="loading-subtext">This may take 30-60 seconds</p>
+            <p class="loading-text" id="loadingText">Running Lighthouse audit...</p>
+            <p class="loading-subtext" id="loadingSubtext">This may take 30-60 seconds</p>
             <div class="loading-progress">
-              <div class="progress-step active">
+              <div class="progress-step active" data-step="1">
                 <i class="fas fa-download"></i>
                 <span>Loading page</span>
               </div>
-              <div class="progress-step">
-                <i class="fas fa-chart-line"></i>
-                <span>Analyzing</span>
+              <div class="progress-step" data-step="2">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Testing mobile</span>
               </div>
-              <div class="progress-step">
+              <div class="progress-step" data-step="3">
+                <i class="fas fa-desktop"></i>
+                <span>Testing desktop</span>
+              </div>
+              <div class="progress-step" data-step="4">
+                <i class="fas fa-chart-bar"></i>
+                <span>Analyzing metrics</span>
+              </div>
+              <div class="progress-step" data-step="5">
                 <i class="fas fa-check"></i>
                 <span>Complete</span>
               </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
             </div>
           </div>
 
@@ -106,9 +172,20 @@ const apiUrl = '';
           <div id="resultsSection" class="results-section" style="display: none;">
             <div class="result-header">
               <h2>Performance Report</h2>
-              <button class="btn btn-secondary btn-sm" onclick="location.reload()">
-                <i class="fas fa-redo"></i> Test Another Site
-              </button>
+              <div class="result-actions">
+                <button class="btn btn-secondary btn-sm" onclick="exportToPDF()">
+                  <i class="fas fa-file-pdf"></i> Export PDF
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="shareResults()">
+                  <i class="fas fa-share-alt"></i> Share
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="saveResults()">
+                  <i class="fas fa-envelope"></i> Email Report
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="location.reload()">
+                  <i class="fas fa-redo"></i> Test Another
+                </button>
+              </div>
             </div>
 
             <div id="resultContent" class="result-content">
@@ -208,6 +285,7 @@ const apiUrl = '';
     const testButton = document.getElementById('testButton');
 
     let progressInterval;
+    let currentResults = null;
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -235,8 +313,8 @@ const apiUrl = '';
       loadingState.style.display = 'block';
       testButton.disabled = true;
 
-      // Animate progress steps
-      startProgressAnimation();
+      // Animate progress steps with detailed messages
+      startEnhancedProgressAnimation();
 
       try {
         const response = await fetch(`${apiUrl}/api/speed-test`, {
@@ -244,7 +322,7 @@ const apiUrl = '';
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ url })
+          body: JSON.stringify({ url, strategy: 'mobile' })
         });
 
         // Check if response is JSON
@@ -261,6 +339,7 @@ const apiUrl = '';
 
         // Show results
         clearInterval(progressInterval);
+        currentResults = data.data;
         loadingState.style.display = 'none';
         resultsSection.style.display = 'block';
         displayResults(data.data);
@@ -276,20 +355,39 @@ const apiUrl = '';
       }
     });
 
-    function startProgressAnimation() {
+    function startEnhancedProgressAnimation() {
       const steps = document.querySelectorAll('.progress-step');
+      const loadingText = document.getElementById('loadingText');
+      const loadingSubtext = document.getElementById('loadingSubtext');
+      const progressFill = document.getElementById('progressFill');
       let currentStep = 0;
+
+      const messages = [
+        { text: 'Analyzing page structure...', subtext: 'Loading your website', progress: 20 },
+        { text: 'Testing mobile performance...', subtext: 'Running Lighthouse on mobile', progress: 40 },
+        { text: 'Testing desktop performance...', subtext: 'Running Lighthouse on desktop', progress: 60 },
+        { text: 'Analyzing Core Web Vitals...', subtext: 'Calculating metrics and opportunities', progress: 80 },
+        { text: 'Finalizing report...', subtext: 'Preparing your detailed analysis', progress: 95 }
+      ];
 
       progressInterval = setInterval(() => {
         if (currentStep < steps.length) {
           steps[currentStep].classList.add('active');
+          if (messages[currentStep]) {
+            loadingText.textContent = messages[currentStep].text;
+            loadingSubtext.textContent = messages[currentStep].subtext;
+            progressFill.style.width = messages[currentStep].progress + '%';
+          }
           currentStep++;
         }
-      }, 10000); // Each step after 10s
+      }, 8000); // Each step after 8s
     }
 
     function displayResults(data) {
-      const { url, scores, metrics, performanceGrade, opportunities, diagnostics } = data;
+      const {
+        url, scores, metrics, performanceGrade, opportunities,
+        coreWebVitals, deviceComparison, benchmarks, recommendations
+      } = data;
 
       // Calculate revenue impact
       const revenueImpact = calculateSpeedImpact(scores.performance);
@@ -341,9 +439,90 @@ const apiUrl = '';
           </div>
         </div>
 
-        <!-- Core Metrics -->
-        <div class="metrics-section">
-          <h3><i class="fas fa-chart-bar"></i> Core Web Vitals</h3>
+        <!-- Mobile vs Desktop Comparison -->
+        ${deviceComparison ? `
+        <div class="device-comparison-section">
+          <h3><i class="fas fa-mobile-alt"></i> Device Performance Comparison</h3>
+          <div class="device-comparison-grid">
+            <div class="device-score ${deviceComparison.mobile >= 75 ? 'good' : deviceComparison.mobile >= 50 ? 'fair' : 'poor'}">
+              <div class="device-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="device-label">Mobile</div>
+              <div class="device-value">${deviceComparison.mobile}</div>
+            </div>
+            <div class="comparison-arrow">
+              ${deviceComparison.difference > 0 ? '<i class="fas fa-arrow-right"></i>' : '<i class="fas fa-arrows-alt-h"></i>'}
+              <div class="difference ${Math.abs(deviceComparison.difference) > 10 ? 'significant' : ''}">${deviceComparison.difference > 0 ? '+' : ''}${deviceComparison.difference}</div>
+            </div>
+            <div class="device-score ${deviceComparison.desktop >= 75 ? 'good' : deviceComparison.desktop >= 50 ? 'fair' : 'poor'}">
+              <div class="device-icon">
+                <i class="fas fa-desktop"></i>
+              </div>
+              <div class="device-label">Desktop</div>
+              <div class="device-value">${deviceComparison.desktop}</div>
+            </div>
+          </div>
+          <p class="comparison-note"><i class="fas fa-info-circle"></i> ${deviceComparison.recommendation}</p>
+        </div>
+        ` : ''}
+
+        <!-- Industry Benchmarks -->
+        ${benchmarks ? `
+        <div class="benchmarks-section">
+          <h3><i class="fas fa-trophy"></i> Industry Comparison</h3>
+          <div class="benchmark-card">
+            <div class="benchmark-stat">
+              <div class="benchmark-label">Your Score</div>
+              <div class="benchmark-value your-score">${benchmarks.yourScore}</div>
+            </div>
+            <div class="benchmark-stat">
+              <div class="benchmark-label">Industry Average</div>
+              <div class="benchmark-value">${benchmarks.industryAverage}</div>
+            </div>
+            <div class="benchmark-stat">
+              <div class="benchmark-label">Top Performers</div>
+              <div class="benchmark-value">${benchmarks.topPerformers}</div>
+            </div>
+          </div>
+          <div class="percentile-badge ${benchmarks.competitive ? 'competitive' : 'non-competitive'}">
+            <i class="fas ${benchmarks.competitive ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i>
+            ${benchmarks.percentile} - ${benchmarks.competitive ? 'Competitive Performance' : 'Improvement Needed'}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- Core Web Vitals (Enhanced) -->
+        <div class="metrics-section core-vitals-enhanced">
+          <h3><i class="fas fa-heartbeat"></i> Core Web Vitals (Google Ranking Factors)</h3>
+          ${coreWebVitals ? `
+          <div class="cwv-grid">
+            <div class="cwv-card cwv-${coreWebVitals.lcp.rating}">
+              <div class="cwv-header">
+                <h4>Largest Contentful Paint (LCP)</h4>
+                <div class="cwv-rating">${coreWebVitals.lcp.rating}</div>
+              </div>
+              <div class="cwv-value">${coreWebVitals.lcp.displayValue}</div>
+              <div class="cwv-benchmark">Target: ≤ 2.5s</div>
+            </div>
+            <div class="cwv-card cwv-${coreWebVitals.fid.rating}">
+              <div class="cwv-header">
+                <h4>First Input Delay (FID)</h4>
+                <div class="cwv-rating">${coreWebVitals.fid.rating}</div>
+              </div>
+              <div class="cwv-value">${coreWebVitals.fid.displayValue}</div>
+              <div class="cwv-benchmark">Target: ≤ 200ms</div>
+            </div>
+            <div class="cwv-card cwv-${coreWebVitals.cls.rating}">
+              <div class="cwv-header">
+                <h4>Cumulative Layout Shift (CLS)</h4>
+                <div class="cwv-rating">${coreWebVitals.cls.rating}</div>
+              </div>
+              <div class="cwv-value">${coreWebVitals.cls.displayValue}</div>
+              <div class="cwv-benchmark">Target: ≤ 0.1</div>
+            </div>
+          </div>
+          ` : `
           <div class="metrics-grid">
             ${buildMetric('Largest Contentful Paint', metrics.largestContentfulPaint, 2500, 4000, 'LCP')}
             ${buildMetric('First Contentful Paint', metrics.firstContentfulPaint, 1800, 3000, 'FCP')}
@@ -352,17 +531,21 @@ const apiUrl = '';
             ${buildMetric('Speed Index', metrics.speedIndex, 3400, 5800, 'SI')}
             ${buildMetric('Time to Interactive', metrics.timeToInteractive, 3800, 7300, 'TTI')}
           </div>
+          `}
         </div>
 
-        <!-- Opportunities -->
+        <!-- Opportunities with Code Examples -->
         ${opportunities && opportunities.length > 0 ? `
         <div class="opportunities-section">
-          <h3><i class="fas fa-lightbulb"></i> Performance Opportunities</h3>
-          <p class="section-subtitle">Here's how you can improve your speed:</p>
+          <h3><i class="fas fa-lightbulb"></i> Performance Opportunities with Fix Examples</h3>
+          <p class="section-subtitle">Prioritized fixes with code you can implement today:</p>
           <div class="opportunities-list">
             ${opportunities.map(opp => `
-              <div class="opportunity-item">
+              <div class="opportunity-item opportunity-${opp.priority || 'medium'}">
                 <div class="opportunity-header">
+                  <div class="opportunity-badge">
+                    <span class="priority-badge priority-${opp.priority || 'medium'}">${opp.priority || 'medium'} priority</span>
+                  </div>
                   <div class="opportunity-icon">
                     <i class="fas fa-bolt"></i>
                   </div>
@@ -374,6 +557,35 @@ const apiUrl = '';
                     <div class="savings-value">${formatTime(opp.savingsMs)}</div>
                     <div class="savings-label">potential savings</div>
                   </div>
+                </div>
+                ${opp.codeExample ? `
+                <div class="code-example-section">
+                  <button class="toggle-code" onclick="toggleCode(this)">
+                    <i class="fas fa-code"></i> View Fix Example
+                  </button>
+                  <div class="code-example" style="display: none;">
+                    <pre><code>${escapeHtml(opp.codeExample)}</code></pre>
+                  </div>
+                </div>
+                ` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- Personalized Recommendations -->
+        ${recommendations && recommendations.length > 0 ? `
+        <div class="recommendations-section">
+          <h3><i class="fas fa-magic"></i> Personalized Action Plan</h3>
+          <div class="recommendations-list">
+            ${recommendations.map((rec, index) => `
+              <div class="recommendation-card">
+                <div class="rec-number">${index + 1}</div>
+                <div class="rec-content">
+                  <h4>${rec.title}</h4>
+                  <p>${rec.description}</p>
+                  <a href="/contact?service=${rec.action}" class="rec-link">Get Help with This <i class="fas fa-arrow-right"></i></a>
                 </div>
               </div>
             `).join('')}
@@ -553,6 +765,110 @@ const apiUrl = '';
     function formatTime(ms) {
       if (ms < 1000) return `${Math.round(ms)}ms`;
       return `${(ms / 1000).toFixed(2)}s`;
+    }
+
+    function escapeHtml(text) {
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+      return text.replace(/[&<>"']/g, m => map[m]);
+    }
+
+    // Global functions for results actions
+    window.toggleCode = function(button) {
+      const codeSection = button.nextElementSibling;
+      if (codeSection.style.display === 'none') {
+        codeSection.style.display = 'block';
+        button.innerHTML = '<i class="fas fa-code"></i> Hide Fix Example';
+      } else {
+        codeSection.style.display = 'none';
+        button.innerHTML = '<i class="fas fa-code"></i> View Fix Example';
+      }
+    };
+
+    window.exportToPDF = function() {
+      if (!currentResults) return;
+
+      trackEvent('export_pdf', {
+        tool_name: 'Speed Test',
+        url: currentResults.url
+      });
+
+      // Create PDF-friendly print view
+      window.print();
+    };
+
+    window.shareResults = async function() {
+      if (!currentResults) return;
+
+      trackEvent('share_results', {
+        tool_name: 'Speed Test',
+        url: currentResults.url
+      });
+
+      const shareData = {
+        title: `Speed Test Results - ${currentResults.url}`,
+        text: `Performance Score: ${currentResults.scores.performance}/100`,
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          copyToClipboard(window.location.href);
+        }
+      } else {
+        copyToClipboard(window.location.href);
+      }
+    };
+
+    window.saveResults = function() {
+      if (!currentResults) return;
+
+      trackEvent('email_report', {
+        tool_name: 'Speed Test',
+        url: currentResults.url
+      });
+
+      // Show email capture modal
+      const email = prompt('Enter your email to receive the detailed report:');
+      if (email && validateEmail(email)) {
+        sendEmailReport(email, currentResults);
+      }
+    };
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Link copied to clipboard!');
+      });
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    async function sendEmailReport(email, results) {
+      try {
+        const response = await fetch('/api/send-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, results })
+        });
+
+        if (response.ok) {
+          alert('Report sent successfully! Check your email.');
+        } else {
+          alert('Failed to send report. Please try again or contact us directly.');
+        }
+      } catch (error) {
+        console.error('Email send error:', error);
+        alert('Failed to send report. Please contact us at avi@theprofitplatform.com.au');
+      }
     }
   });
 </script>
@@ -1587,6 +1903,390 @@ const apiUrl = '';
     background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   }
 
+  /* Progress Bar */
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+
+  /* Result Actions */
+  .result-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* Device Comparison */
+  .device-comparison-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .device-comparison-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .device-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .device-score {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #f9fafb;
+  }
+
+  .device-score.good {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  }
+
+  .device-score.fair {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+  }
+
+  .device-score.poor {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+  }
+
+  .device-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #667eea;
+  }
+
+  .device-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+  }
+
+  .device-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+  }
+
+  .comparison-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 2rem;
+    color: #667eea;
+  }
+
+  .difference {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #64748b;
+  }
+
+  .difference.significant {
+    color: #ef4444;
+  }
+
+  .comparison-note {
+    text-align: center;
+    color: #64748b;
+    margin-top: 1rem;
+  }
+
+  /* Benchmarks */
+  .benchmarks-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .benchmarks-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .benchmark-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .benchmark-stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 12px;
+  }
+
+  .benchmark-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+  }
+
+  .benchmark-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+  }
+
+  .benchmark-value.your-score {
+    color: #667eea;
+  }
+
+  .percentile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+  }
+
+  .percentile-badge.competitive {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #059669;
+  }
+
+  .percentile-badge.non-competitive {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #dc2626;
+  }
+
+  /* Core Web Vitals Enhanced */
+  .cwv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .cwv-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: white;
+    border-left: 4px solid #10b981;
+  }
+
+  .cwv-card.cwv-needs-improvement {
+    border-left-color: #f59e0b;
+  }
+
+  .cwv-card.cwv-poor {
+    border-left-color: #ef4444;
+  }
+
+  .cwv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+  }
+
+  .cwv-header h4 {
+    font-size: 1rem;
+    color: #1e293b;
+    font-weight: 700;
+  }
+
+  .cwv-rating {
+    text-transform: capitalize;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    background: #f9fafb;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .cwv-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .cwv-benchmark {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
+  /* Code Examples */
+  .code-example-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .toggle-code {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .toggle-code:hover {
+    transform: translateY(-2px);
+  }
+
+  .code-example {
+    margin-top: 1rem;
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+  }
+
+  .code-example pre {
+    margin: 0;
+  }
+
+  .code-example code {
+    color: #a5b4fc;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Priority Badges */
+  .opportunity-badge {
+    margin-bottom: 1rem;
+  }
+
+  .priority-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .priority-high {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+
+  .priority-medium {
+    background: #fef3c7;
+    color: #d97706;
+  }
+
+  .priority-low {
+    background: #e0f2fe;
+    color: #0284c7;
+  }
+
+  /* Recommendations */
+  .recommendations-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .recommendations-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .recommendations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .recommendation-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 12px;
+    transition: transform 0.2s;
+  }
+
+  .recommendation-card:hover {
+    transform: translateX(4px);
+  }
+
+  .rec-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .rec-content h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .rec-content p {
+    color: #64748b;
+    margin-bottom: 0.75rem;
+  }
+
+  .rec-link {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .rec-link:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 768px) {
     .speed-hero-content h1 {
       font-size: 2rem;
@@ -1623,6 +2323,7 @@ const apiUrl = '';
 
     .loading-progress {
       gap: 1.5rem;
+      flex-wrap: wrap;
     }
 
     .impact-header {
@@ -1637,5 +2338,280 @@ const apiUrl = '';
     .cta-benefits {
       grid-template-columns: 1fr;
     }
+
+    .result-actions {
+      flex-direction: column;
+    }
+
+    .device-comparison-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .comparison-arrow {
+      transform: rotate(90deg);
+    }
+
+    .benchmark-card {
+      grid-template-columns: 1fr;
+    }
+
+    .cwv-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media print {
+    .result-header,
+    .result-actions,
+    .toggle-code,
+    header,
+    footer,
+    .info-grid,
+    .btn {
+      display: none !important;
+    }
+
+    .results-section {
+      background: white !important;
+    }
+  }
+
+  /* Enhanced Hero Section Styles */
+  .speed-hero-enhanced {
+    position: relative;
+    padding: 180px 0 100px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-enhanced {
+      padding: 120px 0 80px;
+    }
+  }
+
+  .speed-hero-enhanced .hero-background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .speed-hero-enhanced .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .speed-hero-enhanced .gradient-orb:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+
+  .speed-hero-enhanced .gradient-orb:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #60a5fa 0%, transparent 70%);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: 7s;
+  }
+
+  .speed-hero-enhanced .gradient-orb:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #10b981 0%, transparent 70%);
+    top: 50%;
+    right: 10%;
+    animation-delay: 14s;
+  }
+
+  .speed-hero-enhanced .grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+  }
+
+  .speed-hero-content-new {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .speed-hero-enhanced .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: pulse-badge 2s ease-in-out infinite;
+  }
+
+  .speed-hero-enhanced .hero-badge i,
+  .speed-hero-enhanced .badge-icon,
+  .speed-hero-enhanced .badge-text {
+    color: white;
+    font-size: 1.125rem;
+  }
+
+  .speed-hero-enhanced .hero-title-new {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-enhanced .hero-title-new {
+      font-size: 2.5rem;
+    }
+  }
+
+  .speed-hero-enhanced .title-accent {
+    background: linear-gradient(to right, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+  }
+
+  .speed-hero-enhanced .hero-description-new,
+  .speed-hero-enhanced .hero-subtitle-new {
+    font-size: 1.375rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-enhanced .hero-description-new,
+    .speed-hero-enhanced .hero-subtitle-new {
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  .speed-hero-enhanced .feature-pills-new {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .speed-hero-enhanced .pill,
+  .speed-hero-enhanced .feature-pill {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 0.875rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .speed-hero-enhanced .pill:hover,
+  .speed-hero-enhanced .feature-pill:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .speed-hero-enhanced .pill i,
+  .speed-hero-enhanced .feature-pill i {
+    font-size: 1.125rem;
+    color: white;
+  }
+
+  .speed-hero-enhanced .trust-indicators-new {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-enhanced .trust-indicators-new {
+      gap: 1.5rem;
+    }
+  }
+
+  .speed-hero-enhanced .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .speed-hero-enhanced .trust-item i {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .speed-hero-enhanced .trust-item span {
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .speed-hero-enhanced .scroll-indicator {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .speed-hero-enhanced .scroll-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .speed-hero-enhanced .scroll-arrow {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .speed-hero-enhanced .scroll-arrow i,
+  .speed-hero-enhanced .scroll-indicator i {
+    font-size: 2rem;
+    color: white;
+    opacity: 0.8;
   }
 </style>
