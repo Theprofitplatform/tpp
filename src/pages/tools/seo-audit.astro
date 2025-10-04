@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import ToolBadge from '../../components/ToolBadge.astro';
-import TrustBar from '../../components/TrustBar.astro';
 
 // Use relative path for Cloudflare Pages Functions
 const apiUrl = '';
@@ -12,24 +11,80 @@ const apiUrl = '';
   <Header />
 
   <main id="main-content" role="main">
-    <!-- Hero Section -->
-    <section class="seo-audit-hero" data-tool-name="seo-audit">
+    <!-- Enhanced Hero Section -->
+    <section class="seo-audit-hero-enhanced" data-tool-name="seo-audit">
+      <div class="hero-background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+
       <div class="container">
-        <div class="seo-audit-hero-content">
-          <ToolBadge type="free" icon="fa-search" text="Free SEO Audit" />
-          <h1>SEO Audit Tool</h1>
-          <p class="hero-subtitle">
-            Get a comprehensive SEO audit of your website with detailed recommendations.
-            Analyze meta tags, performance, mobile-friendliness, and more - 100% free.
+        <div class="seo-audit-hero-content-new">
+          <!-- Badge -->
+          <div class="hero-badge">
+            <span class="badge-icon">🔍</span>
+            <span class="badge-text">100% Free • Comprehensive Analysis</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="hero-title-new">
+            <span class="title-line-1">Audit Your</span>
+            <span class="title-line-2">SEO Performance</span>
+            <span class="title-accent">Completely</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="hero-description-new">
+            Get a detailed SEO analysis of your website with 50+ automated checks.
+            Discover technical issues, content gaps, and opportunities to rank higher in Google.
           </p>
-          <div class="trust-badges">
-            <span class="badge"><i class="fas fa-chart-bar"></i> 50+ Checks</span>
-            <span class="badge"><i class="fas fa-tachometer-alt"></i> Performance</span>
-            <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
+
+          <!-- Feature Pills -->
+          <div class="feature-pills-new">
+            <div class="pill">
+              <i class="fas fa-check-double"></i>
+              <span>50+ SEO Checks</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-mobile-alt"></i>
+              <span>Mobile Friendly</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-file-alt"></i>
+              <span>Meta Tag Analysis</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-bolt"></i>
+              <span>Performance Audit</span>
+            </div>
+          </div>
+
+          <!-- Trust Indicators (Honest) -->
+          <div class="trust-indicators-new">
+            <div class="trust-item">
+              <i class="fas fa-search"></i>
+              <span>Complete SEO Scan</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-chart-line"></i>
+              <span>Actionable Reports</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-lock"></i>
+              <span>No Registration</span>
+            </div>
+          </div>
+
+          <!-- Scroll Indicator -->
+          <div class="scroll-indicator">
+            <span class="scroll-text">Start your SEO audit ↓</span>
+            <div class="scroll-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
           </div>
         </div>
-
-        <TrustBar />
       </div>
     </section>
 
@@ -1168,6 +1223,260 @@ const apiUrl = '';
     .cta-buttons {
       flex-direction: column;
     }
+  }
+
+  /* Enhanced Hero Section Styles */
+  .seo-audit-hero-enhanced {
+    position: relative;
+    padding: 180px 0 100px;
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .seo-audit-hero-enhanced {
+      padding: 120px 0 80px;
+    }
+  }
+
+  .seo-audit-hero-enhanced .hero-background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .seo-audit-hero-enhanced .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0); }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+
+  .seo-audit-hero-enhanced .gradient-orb:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+
+  .seo-audit-hero-enhanced .gradient-orb:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #5eead4 0%, transparent 70%);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: 7s;
+  }
+
+  .seo-audit-hero-enhanced .gradient-orb:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #fbbf24 0%, transparent 70%);
+    top: 50%;
+    right: 10%;
+    animation-delay: 14s;
+  }
+
+  .seo-audit-hero-enhanced .grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+  }
+
+  .seo-audit-hero-content-new {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .seo-audit-hero-enhanced .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: pulse-badge 2s ease-in-out infinite;
+  }
+
+  .seo-audit-hero-enhanced .hero-badge i,
+  .seo-audit-hero-enhanced .badge-icon,
+  .seo-audit-hero-enhanced .badge-text {
+    color: white;
+    font-size: 1.125rem;
+  }
+
+  .seo-audit-hero-enhanced .hero-title-new {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .seo-audit-hero-enhanced .hero-title-new {
+      font-size: 2.5rem;
+    }
+  }
+
+  .seo-audit-hero-enhanced .title-accent {
+    background: linear-gradient(to right, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+  }
+
+  .seo-audit-hero-enhanced .hero-description-new,
+  .seo-audit-hero-enhanced .hero-subtitle-new {
+    font-size: 1.375rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .seo-audit-hero-enhanced .hero-description-new,
+    .seo-audit-hero-enhanced .hero-subtitle-new {
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  .seo-audit-hero-enhanced .feature-pills-new {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .seo-audit-hero-enhanced .pill,
+  .seo-audit-hero-enhanced .feature-pill {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 0.875rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .seo-audit-hero-enhanced .pill:hover,
+  .seo-audit-hero-enhanced .feature-pill:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .seo-audit-hero-enhanced .pill i,
+  .seo-audit-hero-enhanced .feature-pill i {
+    font-size: 1.125rem;
+    color: white;
+  }
+
+  .seo-audit-hero-enhanced .trust-indicators-new {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .seo-audit-hero-enhanced .trust-indicators-new {
+      gap: 1.5rem;
+    }
+  }
+
+  .seo-audit-hero-enhanced .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .seo-audit-hero-enhanced .trust-item i {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .seo-audit-hero-enhanced .trust-item span {
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .seo-audit-hero-enhanced .scroll-indicator {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .seo-audit-hero-enhanced .scroll-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .seo-audit-hero-enhanced .scroll-arrow {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .seo-audit-hero-enhanced .scroll-arrow i,
+  .seo-audit-hero-enhanced .scroll-indicator i {
+    font-size: 2rem;
+    color: white;
+    opacity: 0.8;
   }
 </style>
 
