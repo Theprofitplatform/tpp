@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import ToolBadge from '../../components/ToolBadge.astro';
-import TrustBar from '../../components/TrustBar.astro';
 
 // Use relative path for Cloudflare Pages Functions
 const apiUrl = '/api/serp';
@@ -12,24 +11,81 @@ const apiUrl = '/api/serp';
   <Header />
 
   <main id="main-content" role="main">
-    <!-- Hero Section -->
-    <section class="rank-hero" data-tool-name="rank-tracker">
+    <!-- Enhanced Hero Section -->
+    <section class="rank-hero-enhanced" data-tool-name="rank-tracker">
+      <div class="hero-background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+
       <div class="container">
-        <div class="rank-hero-content">
-          <ToolBadge type="free" icon="fa-bullseye" text="Free Rank Tracker" />
-          <h1>Google Rank Tracker</h1>
-          <p class="hero-subtitle">
-            Check where your website ranks on Google for any keyword.
-            Real-time data from live SERP API - 100% free, no signup required.
+        <div class="rank-hero-content-new">
+          <!-- Badge -->
+          <div class="hero-badge">
+            <span class="badge-icon">🎯</span>
+            <span class="badge-text">100% Free • No Signup Required</span>
+            <span class="badge-pulse"></span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="hero-title-new">
+            <span class="title-line-1">Check Your</span>
+            <span class="title-line-2">Google Rankings</span>
+            <span class="title-accent">Instantly</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="hero-description-new">
+            Track where your website appears on Google for any keyword. Get real-time SERP data
+            from positions 1-100 with our live API. Know exactly where you stand against competitors.
           </p>
-          <div class="trust-badges">
-            <span class="badge"><i class="fas fa-bolt"></i> Real-time Data</span>
-            <span class="badge"><i class="fas fa-globe"></i> Top 100 Results</span>
-            <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
+
+          <!-- Feature Pills -->
+          <div class="feature-pills-new">
+            <div class="pill">
+              <i class="fas fa-bolt"></i>
+              <span>Real-time SERP Data</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-chart-line"></i>
+              <span>Top 100 Positions</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-globe-asia"></i>
+              <span>Location Specific</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-shield-alt"></i>
+              <span>Privacy Protected</span>
+            </div>
+          </div>
+
+          <!-- Trust Indicators (Honest) -->
+          <div class="trust-indicators-new">
+            <div class="trust-item">
+              <i class="fas fa-check-circle"></i>
+              <span>Accurate SERP Results</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-lock"></i>
+              <span>SSL Encrypted</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Fast & Reliable</span>
+            </div>
+          </div>
+
+          <!-- Quick Start Arrow -->
+          <div class="scroll-indicator">
+            <span class="scroll-text">Start checking your rankings ↓</span>
+            <div class="scroll-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
           </div>
         </div>
-
-        <TrustBar />
       </div>
     </section>
 
@@ -2568,6 +2624,239 @@ https://theprofitplatform.com.au/tools/rank-tracker/`;
     .result-title {
       font-size: 1.125rem;
     }
+  }
+
+  /* Enhanced Hero Section Styles */
+  .rank-hero-enhanced {
+    position: relative;
+    padding: 180px 0 100px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .rank-hero-enhanced {
+      padding: 120px 0 80px;
+    }
+  }
+
+  .hero-background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  .gradient-orb:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+
+  .gradient-orb:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #a78bfa 0%, transparent 70%);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: 7s;
+  }
+
+  .gradient-orb:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #fbbf24 0%, transparent 70%);
+    top: 50%;
+    right: 10%;
+    animation-delay: 14s;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -30px) scale(1.1); }
+    66% { transform: translate(-20px, 20px) scale(0.9); }
+  }
+
+  .rank-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: pulse-badge 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0); }
+  }
+
+  .hero-badge i {
+    font-size: 1.125rem;
+  }
+
+  .hero-title-new {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .hero-title-new {
+      font-size: 2.5rem;
+    }
+  }
+
+  .title-accent {
+    background: linear-gradient(to right, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+  }
+
+  .hero-subtitle-new {
+    font-size: 1.375rem;
+    line-height: 1.6;
+    opacity: 0.95;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .hero-subtitle-new {
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  .feature-pills-new {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .feature-pill {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 0.875rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .feature-pill:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .feature-pill i {
+    font-size: 1.125rem;
+  }
+
+  .trust-indicators-new {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .trust-indicators-new {
+      gap: 1.5rem;
+    }
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .trust-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.375rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .trust-text {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .scroll-indicator {
+    margin-top: 3rem;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .scroll-indicator i {
+    font-size: 2rem;
+    opacity: 0.8;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
   }
 
 </style>
