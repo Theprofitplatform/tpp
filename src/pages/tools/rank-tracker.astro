@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
+import ToolBadge from '../../components/ToolBadge.astro';
+import TrustBar from '../../components/TrustBar.astro';
 
 const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform.com.au';
 ---
@@ -10,10 +12,10 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
 
   <main id="main-content" role="main">
     <!-- Hero Section -->
-    <section class="rank-hero">
+    <section class="rank-hero" data-tool-name="rank-tracker">
       <div class="container">
         <div class="rank-hero-content">
-          <span class="section-tag">🎯 Free Tool</span>
+          <ToolBadge type="free" icon="fa-bullseye" text="Free Rank Tracker" />
           <h1>Google Rank Tracker</h1>
           <p class="hero-subtitle">
             Check where your website ranks on Google for any keyword.
@@ -25,6 +27,8 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
             <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
           </div>
         </div>
+
+        <TrustBar />
       </div>
     </section>
 
@@ -99,9 +103,15 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
             <i class="fas fa-exclamation-circle"></i>
             <h3>Oops! Something went wrong</h3>
             <p id="errorMessage"></p>
-            <button class="btn btn-secondary" onclick="location.reload()">
-              Try Again
-            </button>
+            <div class="error-actions">
+              <button class="btn-secondary" onclick="location.reload()">
+                <i class="fas fa-redo"></i> Try Again
+              </button>
+              <a href="/contact" class="btn-primary">
+                <i class="fas fa-comment"></i> Get Manual Check
+              </a>
+            </div>
+            <p class="error-help">Need help? Call us at <a href="tel:+61487286451" class="phone-link">0487 286 451</a></p>
           </div>
 
           <!-- Results Section -->
@@ -131,18 +141,8 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
               </div>
             </div>
 
-            <div class="result-actions">
-              <h3>Want to improve your ranking?</h3>
-              <p>Our SEO experts can help you dominate Google search results</p>
-              <div class="action-buttons">
-                <a href="/contact" class="btn btn-primary btn-lg">
-                  Get Free SEO Audit →
-                </a>
-                <a href="tel:+61487286451" class="btn btn-secondary btn-lg">
-                  <i class="fas fa-phone"></i> 0487 286 451
-                </a>
-              </div>
-            </div>
+            <!-- Revenue Impact & CTA will be inserted here by JavaScript -->
+            <div id="revenueImpactSection"></div>
           </div>
         </div>
 
@@ -190,6 +190,59 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
 </BaseLayout>
 
 <script define:vars={{ apiUrl }}>
+  // Analytics tracking (inline version)
+  function trackEvent(eventName, params = {}) {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', eventName, params);
+    }
+    if (typeof window !== 'undefined' && window.fbq) {
+      if (eventName === 'tool_started') {
+        window.fbq('track', 'InitiateCheckout', { content_name: 'Rank Tracker' });
+      } else if (eventName === 'cta_clicked') {
+        window.fbq('track', 'Lead', { value: 500, currency: 'AUD' });
+      }
+    }
+  }
+
+  // Revenue calculator for ranking impact
+  function calculateRankingImpact(currentRank, keyword) {
+    const avgConversion = 0.04; // 4% for local business
+    const avgOrderValue = 350; // AUD
+
+    // CTR by position (2024 data)
+    const ctrByPosition = {
+      1: 0.396, 2: 0.181, 3: 0.104, 4: 0.069, 5: 0.055,
+      6: 0.045, 7: 0.039, 8: 0.033, 9: 0.029, 10: 0.025,
+      11: 0.015
+    };
+
+    const currentCTR = ctrByPosition[currentRank] || (currentRank > 10 ? 0.01 : 0.02);
+    const targetCTR = ctrByPosition[1]; // Position #1 benchmark
+
+    // Estimate monthly searches based on keyword
+    const words = keyword.trim().split(/\s+/).length;
+    let baseVolume = words === 1 ? 8000 : words === 2 ? 3000 : words === 3 ? 1200 : 500;
+    const hasLocation = /sydney|melbourne|brisbane|perth|adelaide|australia/i.test(keyword);
+    if (hasLocation) baseVolume *= 0.4;
+    const estimatedSearches = Math.round(baseVolume);
+
+    const currentVisitors = estimatedSearches * currentCTR;
+    const potentialVisitors = estimatedSearches * targetCTR;
+    const lostVisitors = potentialVisitors - currentVisitors;
+
+    const lostConversions = lostVisitors * avgConversion;
+    const monthlyLoss = lostConversions * avgOrderValue;
+
+    return {
+      monthlyLoss: Math.round(monthlyLoss),
+      yearlyLoss: Math.round(monthlyLoss * 12),
+      lostVisitors: Math.round(lostVisitors),
+      lostConversions: Math.round(lostConversions),
+      estimatedSearches: Math.round(estimatedSearches),
+      severity: currentRank > 10 ? 'critical' : currentRank > 3 ? 'warning' : 'info'
+    };
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('rankCheckerForm');
     const loadingState = document.getElementById('loadingState');
@@ -204,6 +257,15 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
       const keyword = document.getElementById('keyword').value.trim();
       const domain = document.getElementById('domain').value.trim();
       const location = document.getElementById('location').value;
+
+      // Track tool usage
+      trackEvent('tool_started', {
+        tool_name: 'Rank Tracker',
+        keyword: keyword,
+        domain: domain,
+        location: location,
+        timestamp: Date.now()
+      });
 
       // Hide all states
       form.style.display = 'none';
@@ -220,6 +282,12 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
           body: JSON.stringify({ keyword, domain, location })
         });
 
+        // Check if response is JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Rank tracker API is not yet available. Please contact us for a manual ranking check.');
+        }
+
         const data = await response.json();
 
         if (!response.ok || !data.success) {
@@ -229,7 +297,14 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
         // Show results
         loadingState.style.display = 'none';
         resultsSection.style.display = 'block';
-        displayResults(data.data);
+        displayResults(data.data, keyword);
+
+        // Track results viewed
+        trackEvent('tool_completed', {
+          tool_name: 'Rank Tracker',
+          rank: data.data.rank,
+          found: data.data.found
+        });
 
         // Fetch and display history
         fetchHistory(keyword, domain, location);
@@ -242,8 +317,8 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
       }
     });
 
-    function displayResults(data) {
-      const { keyword, domain, location, rank, found, result } = data;
+    function displayResults(data, keyword) {
+      const { domain, location, rank, found, result } = data;
 
       let html = '';
 
@@ -317,6 +392,196 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
       }
 
       resultContent.innerHTML = html;
+
+      // Calculate and display revenue impact
+      const revenueImpactSection = document.getElementById('revenueImpactSection');
+      if (found && rank > 0) {
+        const revenueImpact = calculateRankingImpact(rank, keyword);
+
+        revenueImpactSection.innerHTML = `
+          <!-- Revenue Impact Section -->
+          <div class="revenue-impact-section">
+            <div class="impact-card impact-${revenueImpact.severity}">
+              <div class="impact-header">
+                <div class="impact-icon">
+                  ${revenueImpact.severity === 'critical' ? '<i class="fas fa-exclamation-triangle"></i>' :
+                    revenueImpact.severity === 'warning' ? '<i class="fas fa-chart-line"></i>' :
+                    '<i class="fas fa-trophy"></i>'}
+                </div>
+                <h3>${revenueImpact.severity === 'critical' ? '📉 Page 2+ Is Costing You Serious Money' :
+                    revenueImpact.severity === 'warning' ? '💰 Revenue Opportunity: Get to Top 3' :
+                    '🎉 Excellent! Protect Your Top Position'}</h3>
+              </div>
+              <div class="impact-stats">
+                <div class="impact-stat">
+                  <div class="stat-value">$${revenueImpact.monthlyLoss.toLocaleString()}</div>
+                  <div class="stat-label">${revenueImpact.severity === 'info' ? 'Protected Monthly' : 'Lost Monthly'}</div>
+                </div>
+                <div class="impact-stat">
+                  <div class="stat-value">$${revenueImpact.yearlyLoss.toLocaleString()}</div>
+                  <div class="stat-label">${revenueImpact.severity === 'info' ? 'Protected Yearly' : 'Lost Yearly'}</div>
+                </div>
+                <div class="impact-stat">
+                  <div class="stat-value">${revenueImpact.lostVisitors.toLocaleString()}</div>
+                  <div class="stat-label">${revenueImpact.severity === 'info' ? 'Visitors Secured' : 'Lost Visitors/Month'}</div>
+                </div>
+              </div>
+              <div class="impact-message">
+                ${revenueImpact.severity === 'critical' ?
+                  `<p>75% of users never scroll past page 1. You're invisible to <strong>${revenueImpact.lostVisitors.toLocaleString()} monthly visitors</strong>. Every month you wait costs you <strong>$${revenueImpact.monthlyLoss.toLocaleString()}</strong> in lost business.</p>` :
+                  revenueImpact.severity === 'warning' ?
+                  `<p>Moving from #${rank} to top 3 could generate <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong> more revenue. Position #1 gets 2.5x more clicks than position #${rank}. Let's get you there.</p>` :
+                  `<p>Top 3 ranking! You're capturing maximum traffic for this keyword. Maintain this position to protect <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong> from competitors.</p>`
+                }
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic CTA based on severity -->
+          ${revenueImpact.severity === 'critical' ? `
+          <div class="result-cta cta-emergency">
+            <div class="cta-content">
+              <div class="cta-badge">
+                <i class="fas fa-rocket"></i>
+                <span>EMERGENCY SEO SERVICE</span>
+              </div>
+              <h3>Get to Page 1 in 60-90 Days (Guaranteed)</h3>
+              <p>Our emergency SEO service targets low-hanging fruit to get you visible fast. We've helped 127 Australian businesses escape page 2 purgatory.</p>
+              <div class="cta-benefits">
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>60-90 day page 1 guarantee</span>
+                </div>
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Technical SEO fixes</span>
+                </div>
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Monthly progress reports</span>
+                </div>
+              </div>
+              <div class="cta-buttons">
+                <a href="/contact" class="btn-emergency" onclick="trackEvent('cta_clicked', {cta_type: 'emergency', tool: 'Rank Tracker', position: 'results', rank: ${rank}})">
+                  <span class="btn-main">Get Free SEO Strategy</span>
+                  <span class="btn-sub">We'll show you how to reach page 1</span>
+                </a>
+                <a href="tel:+61487286451" class="btn-phone" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Rank Tracker', position: 'results'})">
+                  <i class="fas fa-phone"></i>
+                  <span>Call Now: 0487 286 451</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          ` : revenueImpact.severity === 'warning' ? `
+          <div class="result-cta cta-warning">
+            <div class="cta-content">
+              <div class="cta-badge">
+                <i class="fas fa-chart-line"></i>
+                <span>RANKING OPTIMIZATION</span>
+              </div>
+              <h3>Break Into Top 3 & Triple Your Traffic</h3>
+              <p>You're on page 1 - that's great! But positions #1-3 get 3x more clicks than #${rank}. Our targeted optimization gets you there faster.</p>
+              <div class="cta-benefits">
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Competitor gap analysis</span>
+                </div>
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Authority building strategy</span>
+                </div>
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Weekly rank tracking</span>
+                </div>
+              </div>
+              <div class="cta-buttons">
+                <a href="/contact" class="btn-primary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'primary', tool: 'Rank Tracker', position: 'results', rank: ${rank}})">
+                  Get Free Top 3 Strategy →
+                </a>
+                <a href="tel:+61487286451" class="btn-phone" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Rank Tracker', position: 'results'})">
+                  <i class="fas fa-phone"></i>
+                  <span>0487 286 451</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          ` : `
+          <div class="result-cta cta-success">
+            <div class="cta-content">
+              <div class="cta-badge">
+                <i class="fas fa-shield-check"></i>
+                <span>PROTECT YOUR POSITION</span>
+              </div>
+              <h3>Maintain Your Dominance with Ongoing SEO</h3>
+              <p>You've earned a top position! Protect it with ongoing optimization and monitoring. Competitors are gunning for your spot.</p>
+              <div class="cta-benefits">
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Daily rank monitoring</span>
+                </div>
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Competitor alerts</span>
+                </div>
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Content optimization</span>
+                </div>
+              </div>
+              <div class="cta-buttons">
+                <a href="/contact" class="btn-primary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'primary', tool: 'Rank Tracker', position: 'results', rank: ${rank}})">
+                  Get Ongoing SEO Quote →
+                </a>
+                <a href="tel:+61487286451" class="btn-secondary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Rank Tracker', position: 'results'})">
+                  <i class="fas fa-phone"></i>
+                  <span>0487 286 451</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          `}
+        `;
+      } else {
+        // Not found - show emergency CTA
+        revenueImpactSection.innerHTML = `
+          <div class="result-cta cta-emergency">
+            <div class="cta-content">
+              <div class="cta-badge">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span>CRITICAL: NOT RANKING</span>
+              </div>
+              <h3>You're Invisible on Google - Let's Fix That</h3>
+              <p>Not ranking in top 100 means zero organic traffic. Our proven SEO process has helped 200+ Australian businesses get found on Google.</p>
+              <div class="cta-benefits">
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Complete SEO audit</span>
+                </div>
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Custom ranking strategy</span>
+                </div>
+                <div class="benefit">
+                  <i class="fas fa-check"></i>
+                  <span>Guaranteed results or refund</span>
+                </div>
+              </div>
+              <div class="cta-buttons">
+                <a href="/contact" class="btn-emergency" onclick="trackEvent('cta_clicked', {cta_type: 'emergency', tool: 'Rank Tracker', position: 'results', rank: 0})">
+                  <span class="btn-main">Get Emergency SEO Help</span>
+                  <span class="btn-sub">Free audit shows exactly what to fix</span>
+                </a>
+                <a href="tel:+61487286451" class="btn-phone" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Rank Tracker', position: 'results'})">
+                  <i class="fas fa-phone"></i>
+                  <span>Call Now: 0487 286 451</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }
     }
 
     function getRankAnalysis(rank) {
@@ -491,11 +756,17 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
 </script>
 
 <style>
-  .rank-hero {
-    padding: 220px 0 60px;
+  main#main-content section.rank-hero.rank-hero {
+    padding: 180px 0 60px !important;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    main#main-content section.rank-hero.rank-hero {
+      padding: 100px 0 60px !important;
+    }
   }
 
   .rank-hero-content h1 {
@@ -1182,6 +1453,230 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
 
     .rank-number {
       font-size: 3rem;
+    }
+  }
+
+  /* Error State Improvements */
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .error-help {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 1rem;
+  }
+
+  .phone-link {
+    color: #667eea;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .phone-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Revenue Impact Section - same as Speed Test */
+  .revenue-impact-section {
+    margin: 3rem 0;
+  }
+
+  .impact-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #10b981;
+  }
+
+  .impact-card.impact-warning {
+    border-left-color: #f59e0b;
+  }
+
+  .impact-card.impact-critical {
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+  }
+
+  .impact-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .impact-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .impact-card.impact-warning .impact-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  .impact-card.impact-critical .impact-icon {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    animation: pulse-urgent 2s infinite;
+  }
+
+  @keyframes pulse-urgent {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  .impact-header h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  .impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 12px;
+  }
+
+  .impact-stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+  }
+
+  .impact-card.impact-critical .stat-value {
+    color: #ef4444;
+  }
+
+  .impact-card.impact-warning .stat-value {
+    color: #f59e0b;
+  }
+
+  .stat-label {
+    color: #64748b;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .impact-message {
+    color: #1e293b;
+    line-height: 1.7;
+    font-size: 1.125rem;
+  }
+
+  .impact-message strong {
+    color: #667eea;
+  }
+
+  .impact-card.impact-critical .impact-message strong {
+    color: #ef4444;
+  }
+
+  /* CTA Badge */
+  .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .cta-badge i {
+    font-size: 1rem;
+  }
+
+  /* CTA Benefits */
+  .cta-benefits {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .cta-benefits {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .benefit {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .benefit i {
+    font-size: 1.25rem;
+  }
+
+  /* Emergency CTA */
+  .cta-emergency {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    animation: pulse-cta 3s infinite;
+  }
+
+  @keyframes pulse-cta {
+    0%, 100% { box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3); }
+    50% { box-shadow: 0 12px 48px rgba(220, 38, 38, 0.5); }
+  }
+
+  .cta-emergency .cta-buttons {
+    gap: 1.5rem;
+  }
+
+  /* Warning CTA */
+  .cta-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  /* Success CTA */
+  .cta-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+
+  @media (max-width: 768px) {
+    .impact-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .impact-card {
+      padding: 1.5rem;
+    }
+
+    .cta-benefits {
+      grid-template-columns: 1fr;
     }
   }
 </style>

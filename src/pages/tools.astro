@@ -242,6 +242,33 @@ import Header from '../components/Header.astro';
             <div class="card-shine"></div>
           </a>
 
+          <!-- n8n Workflow Triggers -->
+          <a href="/n8n" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);">
+              <i class="fas fa-robot"></i>
+              <span>Automation</span>
+            </div>
+            <div class="tool-icon-modern">
+              <div class="icon-bg-gradient"></div>
+              <i class="fas fa-wand-magic-sparkles"></i>
+            </div>
+            <h2>n8n Workflow Triggers</h2>
+            <p>
+              Manually trigger your n8n automation workflows. Run AI agents,
+              data processing, and marketing automations on demand.
+            </p>
+            <div class="tool-features-modern">
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> Custom Workflows</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> One-Click Trigger</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> Real-time Updates</span>
+            </div>
+            <div class="tool-cta-modern">
+              <span>Run Workflows</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="card-shine"></div>
+          </a>
+
         </div>
       </div>
     </section>
@@ -339,20 +366,20 @@ import Header from '../components/Header.astro';
   /* ==================
      HERO SECTION
      ================== */
-  .tools-hero-modern {
+  main#main-content section.tools-hero-modern.tools-hero-modern {
     position: relative;
     min-height: auto;
     display: flex;
     align-items: center;
-    padding: 140px 0 50px;
+    padding: 140px 0 50px !important;
     overflow: hidden;
     background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
   }
 
   @media (min-width: 769px) {
-    .tools-hero-modern {
+    main#main-content section.tools-hero-modern.tools-hero-modern {
       min-height: auto;
-      padding: 180px 0 20px;
+      padding: 180px 0 20px !important;
     }
   }
 
@@ -1063,8 +1090,8 @@ import Header from '../components/Header.astro';
      RESPONSIVE
      ================== */
   @media (max-width: 768px) {
-    .tools-hero-modern {
-      padding: 100px 0 60px;
+    main#main-content section.tools-hero-modern.tools-hero-modern {
+      padding: 100px 0 60px !important;
     }
 
     .hero-title-gradient {

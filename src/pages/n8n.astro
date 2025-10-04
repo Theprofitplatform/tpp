@@ -250,8 +250,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </div>
 
   <script>
-    // Use environment variable or fallback to localhost for development
-    const API_URL = import.meta.env.PUBLIC_API_URL || 'http://localhost:4321';
+    // Use production API URL (Cloudflare Pages Functions proxy to backend)
+    const API_URL = window.location.origin;
     let currentPassword = '';
 
     // Show toast notification

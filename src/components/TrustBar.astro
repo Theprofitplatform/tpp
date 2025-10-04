@@ -1,0 +1,240 @@
+---
+/**
+ * TrustBar Component
+ * Displays social proof and trust signals
+ */
+interface Props {
+  toolsUsed?: number;
+  rating?: number;
+  reviews?: number;
+  showBadges?: boolean;
+}
+
+const {
+  toolsUsed = 12847,
+  rating = 4.9,
+  reviews = 287,
+  showBadges = true
+} = Astro.props;
+---
+
+<div class="trust-bar">
+  <div class="trust-stat">
+    <span class="trust-number" data-count={toolsUsed}>0</span>
+    <span class="trust-label">Tools used this month</span>
+  </div>
+
+  <div class="trust-stat">
+    <div class="trust-rating">
+      <span class="trust-number">{rating}</span>
+      <span class="trust-stars">
+        {[...Array(5)].map((_, i) => (
+          <i class={`fas fa-star ${i < Math.floor(rating) ? 'filled' : ''}`}></i>
+        ))}
+      </span>
+    </div>
+    <span class="trust-label">from {reviews} reviews</span>
+  </div>
+
+  {showBadges && (
+    <div class="trust-badges">
+      <span class="badge-alt">
+        <i class="fas fa-shield-check"></i>
+        <span>SSL Secure</span>
+      </span>
+      <span class="badge-alt">
+        <i class="fas fa-lock"></i>
+        <span>Privacy Protected</span>
+      </span>
+      <span class="badge-alt">
+        <i class="fas fa-tachometer-alt"></i>
+        <span>Fast & Reliable</span>
+      </span>
+    </div>
+  )}
+</div>
+
+<script>
+  // Animate counting on mount
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll<HTMLElement>('.trust-number[data-count]');
+
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const target = parseInt(el.dataset.count || '0');
+          let current = 0;
+          const increment = target / 50;
+          const duration = 1500;
+          const stepTime = duration / 50;
+
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              el.textContent = target.toLocaleString();
+              clearInterval(timer);
+            } else {
+              el.textContent = Math.floor(current).toLocaleString();
+            }
+          }, stepTime);
+
+          observer.unobserve(el);
+        }
+      });
+    }, observerOptions);
+
+    counters.forEach(counter => observer.observe(counter));
+  });
+</script>
+
+<style>
+  .trust-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 1.5rem 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin: 2rem auto;
+    max-width: 900px;
+    backdrop-filter: blur(10px);
+  }
+
+  .trust-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .trust-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    line-height: 1;
+  }
+
+  .trust-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .trust-stars {
+    color: #fbbf24;
+    font-size: 1rem;
+    display: flex;
+    gap: 0.125rem;
+  }
+
+  .trust-stars i {
+    color: #d1d5db;
+  }
+
+  .trust-stars i.filled {
+    color: #fbbf24;
+  }
+
+  .trust-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .trust-badges img {
+    height: 40px;
+    width: auto;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+  }
+
+  .trust-badges img:hover {
+    opacity: 1;
+  }
+
+  .badge-alt {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .badge-alt i {
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 968px) {
+    .trust-bar {
+      gap: 2rem;
+      padding: 1.25rem 1.5rem;
+    }
+
+    .trust-number {
+      font-size: 1.75rem;
+    }
+
+    .trust-badges img {
+      height: 32px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .trust-bar {
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1.5rem 1rem;
+    }
+
+    .trust-stat {
+      width: 100%;
+    }
+
+    .trust-badges {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .trust-number {
+      font-size: 1.5rem;
+    }
+
+    .trust-label {
+      font-size: 0.8125rem;
+    }
+
+    .trust-badges {
+      gap: 0.75rem;
+    }
+
+    .trust-badges img {
+      height: 28px;
+    }
+
+    .badge-alt {
+      font-size: 0.8125rem;
+      padding: 0.4rem 0.875rem;
+    }
+  }
+</style>

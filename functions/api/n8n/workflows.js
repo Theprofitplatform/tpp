@@ -1,4 +1,8 @@
-// Get available n8n workflows for Cloudflare Pages Functions
+/**
+ * Cloudflare Pages Function: GET /api/n8n/workflows
+ * Returns list of available n8n workflows
+ */
+
 export async function onRequestGet(context) {
   const { request, env } = context;
 
@@ -6,18 +10,15 @@ export async function onRequestGet(context) {
     const url = new URL(request.url);
     const password = url.searchParams.get('password');
 
-    // Optional password protection
+    // Check password if required
     if (env.N8N_PAGE_PASSWORD && password !== env.N8N_PAGE_PASSWORD) {
-      return new Response(JSON.stringify({
-        success: false,
-        error: 'Invalid password'
-      }), {
+      return new Response(JSON.stringify({ error: 'Invalid password' }), {
         status: 401,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    // Parse workflow configurations from environment
+    // Collect workflows from environment variables
     const workflows = [];
     let i = 1;
 
@@ -31,7 +32,6 @@ export async function onRequestGet(context) {
     }
 
     return new Response(JSON.stringify({
-      success: true,
       workflows,
       requiresPassword: !!env.N8N_PAGE_PASSWORD
     }), {
@@ -40,11 +40,8 @@ export async function onRequestGet(context) {
     });
 
   } catch (error) {
-    console.error('❌ n8n workflows list error:', error.message);
-    return new Response(JSON.stringify({
-      success: false,
-      error: 'Failed to load workflows'
-    }), {
+    console.error('N8N workflows list error:', error);
+    return new Response(JSON.stringify({ error: 'Failed to fetch workflows' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
     });

@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
+import ToolBadge from '../../components/ToolBadge.astro';
+import TrustBar from '../../components/TrustBar.astro';
 
 const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform.com.au';
 ---
@@ -10,10 +12,10 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
 
   <main id="main-content" role="main">
     <!-- Hero Section -->
-    <section class="seo-audit-hero">
+    <section class="seo-audit-hero" data-tool-name="seo-audit">
       <div class="container">
         <div class="seo-audit-hero-content">
-          <span class="section-tag">🔍 Free Tool</span>
+          <ToolBadge type="free" icon="fa-search" text="Free SEO Audit" />
           <h1>SEO Audit Tool</h1>
           <p class="hero-subtitle">
             Get a comprehensive SEO audit of your website with detailed recommendations.
@@ -25,6 +27,8 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
             <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
           </div>
         </div>
+
+        <TrustBar />
       </div>
     </section>
 
@@ -156,6 +160,9 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
               </div>
             </div>
 
+            <!-- Revenue Impact & CTA will be inserted here by JavaScript -->
+            <div id="revenueImpactSection"></div>
+
             <!-- Export Options -->
             <div class="export-options">
               <button class="btn-primary" id="newAuditButton">
@@ -178,9 +185,15 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
             <i class="fas fa-exclamation-triangle fa-3x"></i>
             <h3>Audit Failed</h3>
             <p id="errorMessage"></p>
-            <button class="btn-primary" id="tryAgainButton">
-              <i class="fas fa-redo"></i> Try Again
-            </button>
+            <div class="error-actions">
+              <button class="btn-secondary" id="tryAgainButton">
+                <i class="fas fa-redo"></i> Try Again
+              </button>
+              <a href="/contact" class="btn-primary">
+                <i class="fas fa-comment"></i> Get Manual Audit
+              </a>
+            </div>
+            <p class="error-help">Need help? Call us at <a href="tel:+61487286451" class="phone-link">0487 286 451</a></p>
           </div>
         </div>
       </div>
@@ -252,8 +265,8 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
   }
 
   /* Hero Section */
-  .seo-audit-hero {
-    padding: 240px 0 80px;
+  main#main-content section.seo-audit-hero.seo-audit-hero {
+    padding: 180px 0 60px !important;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     text-align: center;
@@ -863,8 +876,8 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
 
   /* Responsive */
   @media (max-width: 768px) {
-    .seo-audit-hero {
-      padding: 100px 0 60px;
+    main#main-content section.seo-audit-hero.seo-audit-hero {
+      padding: 100px 0 60px !important;
     }
 
     .seo-audit-hero-content h1 {
@@ -899,9 +912,308 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
       justify-content: center;
     }
   }
+
+  /* Error State Improvements */
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  .error-help {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 1rem;
+  }
+
+  .phone-link {
+    color: #667eea;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .phone-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Revenue Impact Section */
+  .revenue-impact-section {
+    margin: 3rem 0;
+  }
+
+  .impact-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #10b981;
+  }
+
+  .impact-card.impact-warning {
+    border-left-color: #f59e0b;
+  }
+
+  .impact-card.impact-critical {
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+  }
+
+  .impact-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .impact-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .impact-card.impact-warning .impact-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  .impact-card.impact-critical .impact-icon {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    animation: pulse-urgent 2s infinite;
+  }
+
+  @keyframes pulse-urgent {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  .impact-header h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  .impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 12px;
+  }
+
+  .impact-stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+  }
+
+  .impact-card.impact-critical .stat-value {
+    color: #ef4444;
+  }
+
+  .impact-card.impact-warning .stat-value {
+    color: #f59e0b;
+  }
+
+  .stat-label {
+    color: #64748b;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .impact-message {
+    color: #1e293b;
+    line-height: 1.7;
+    font-size: 1.125rem;
+  }
+
+  .impact-message strong {
+    color: #667eea;
+  }
+
+  .impact-card.impact-critical .impact-message strong {
+    color: #ef4444;
+  }
+
+  /* CTA Badge */
+  .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .cta-badge i {
+    font-size: 1rem;
+  }
+
+  /* CTA Benefits */
+  .cta-benefits {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .cta-benefits {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .benefit {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .benefit i {
+    font-size: 1.25rem;
+  }
+
+  /* Emergency CTA */
+  .cta-emergency {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    animation: pulse-cta 3s infinite;
+    color: white;
+    margin: 3rem 0;
+    padding: 2.5rem;
+    border-radius: 16px;
+  }
+
+  @keyframes pulse-cta {
+    0%, 100% { box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3); }
+    50% { box-shadow: 0 12px 48px rgba(220, 38, 38, 0.5); }
+  }
+
+  .cta-emergency .cta-buttons {
+    gap: 1.5rem;
+  }
+
+  /* Warning CTA */
+  .cta-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    margin: 3rem 0;
+    padding: 2.5rem;
+    border-radius: 16px;
+  }
+
+  /* Success CTA */
+  .cta-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    margin: 3rem 0;
+    padding: 2.5rem;
+    border-radius: 16px;
+  }
+
+  .cta-content h3 {
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .impact-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .impact-card {
+      padding: 1.5rem;
+    }
+
+    .cta-benefits {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
 </style>
 
 <script define:vars={{ apiUrl }}>
+  // Analytics tracking (inline version)
+  function trackEvent(eventName, params = {}) {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', eventName, params);
+    }
+    if (typeof window !== 'undefined' && window.fbq) {
+      if (eventName === 'tool_started') {
+        window.fbq('track', 'InitiateCheckout', { content_name: 'SEO Audit' });
+      } else if (eventName === 'cta_clicked') {
+        window.fbq('track', 'Lead', { value: 500, currency: 'AUD' });
+      }
+    }
+  }
+
+  // Revenue calculator for SEO impact
+  function calculateSEOImpact(auditScore, issues) {
+    const visitors = 5000; // Conservative estimate
+    const avgConversion = 0.04; // 4% for local business
+    const avgOrderValue = 350; // AUD
+
+    // Weight issues by severity
+    const criticalIssues = issues.filter(i => i.severity === 'critical').length;
+    const warningIssues = issues.filter(i => i.severity === 'warning').length;
+    const infoIssues = issues.filter(i => i.severity === 'info').length;
+
+    // Impact calculation: Critical = 5%, Warning = 2%, Info = 0.5%
+    const trafficImpactPercent = (criticalIssues * 5 + warningIssues * 2 + infoIssues * 0.5) / 100;
+    const trafficLoss = visitors * trafficImpactPercent;
+
+    const lostConversions = trafficLoss * avgConversion;
+    const monthlyLoss = lostConversions * avgOrderValue;
+
+    return {
+      monthlyLoss: Math.round(monthlyLoss),
+      yearlyLoss: Math.round(monthlyLoss * 12),
+      lostVisitors: Math.round(trafficLoss),
+      lostConversions: Math.round(lostConversions),
+      criticalIssues,
+      warningIssues,
+      severity: criticalIssues > 5 ? 'critical' : criticalIssues > 0 || auditScore < 70 ? 'warning' : 'info'
+    };
+  }
+
   const form = document.getElementById('seoAuditForm');
   const loadingState = document.getElementById('loadingState');
   const resultsContainer = document.getElementById('resultsContainer');
@@ -912,6 +1224,13 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
     e.preventDefault();
 
     const url = document.getElementById('url').value.trim();
+
+    // Track tool usage
+    trackEvent('tool_started', {
+      tool_name: 'SEO Audit',
+      url: url,
+      timestamp: Date.now()
+    });
 
     // Show loading state
     form.style.display = 'none';
@@ -931,11 +1250,24 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
         body: JSON.stringify({ url }),
       });
 
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('SEO Audit API is not yet available. Please contact us for a manual SEO audit.');
+      }
+
       const data = await response.json();
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to audit website');
       }
+
+      // Track results viewed
+      trackEvent('tool_completed', {
+        tool_name: 'SEO Audit',
+        score: data.overallScore,
+        url: url
+      });
 
       // Display results
       displayResults(data);
@@ -1000,6 +1332,169 @@ const apiUrl = import.meta.env.PUBLIC_API_URL || 'https://api3.theprofitplatform
 
     // Action Items
     displayActionItems(data.actionItems);
+
+    // Calculate and display revenue impact
+    const allIssues = [
+      ...(data.actionItems || []),
+      ...(data.meta?.issues || []),
+      ...(data.performance?.issues || []),
+      ...(data.content?.issues || []),
+      ...(data.technical?.issues || []),
+      ...(data.mobile?.issues || [])
+    ];
+
+    const revenueImpact = calculateSEOImpact(data.overallScore, allIssues);
+    displayRevenueImpact(revenueImpact, data.overallScore);
+  }
+
+  function displayRevenueImpact(revenueImpact, score) {
+    const revenueImpactSection = document.getElementById('revenueImpactSection');
+
+    revenueImpactSection.innerHTML = `
+      <!-- Revenue Impact Section -->
+      <div class="revenue-impact-section">
+        <div class="impact-card impact-${revenueImpact.severity}">
+          <div class="impact-header">
+            <div class="impact-icon">
+              ${revenueImpact.severity === 'critical' ? '<i class="fas fa-exclamation-triangle"></i>' :
+                revenueImpact.severity === 'warning' ? '<i class="fas fa-chart-line"></i>' :
+                '<i class="fas fa-shield-check"></i>'}
+            </div>
+            <h3>${revenueImpact.severity === 'critical' ? '🚨 CRITICAL SEO Issues Costing You Money' :
+                revenueImpact.severity === 'warning' ? '⚠️ SEO Improvements Could Unlock Revenue' :
+                '✅ Strong SEO Foundation Protecting Revenue'}</h3>
+          </div>
+          <div class="impact-stats">
+            <div class="impact-stat">
+              <div class="stat-value">$${revenueImpact.monthlyLoss.toLocaleString()}</div>
+              <div class="stat-label">${revenueImpact.severity === 'info' ? 'Protected Monthly' : 'Lost Monthly'}</div>
+            </div>
+            <div class="impact-stat">
+              <div class="stat-value">$${revenueImpact.yearlyLoss.toLocaleString()}</div>
+              <div class="stat-label">${revenueImpact.severity === 'info' ? 'Protected Yearly' : 'Lost Yearly'}</div>
+            </div>
+            <div class="impact-stat">
+              <div class="stat-value">${revenueImpact.criticalIssues}</div>
+              <div class="stat-label">Critical Issues</div>
+            </div>
+          </div>
+          <div class="impact-message">
+            ${revenueImpact.severity === 'critical' ?
+              `<p><strong>${revenueImpact.criticalIssues} critical SEO issues</strong> are preventing Google from properly indexing and ranking your site. These prevent you from reaching <strong>${revenueImpact.lostVisitors.toLocaleString()} potential visitors</strong>, costing you <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong> in lost revenue.</p>` :
+              revenueImpact.severity === 'warning' ?
+              `<p>Your SEO score of <strong>${score}/100</strong> indicates missed opportunities. Fixing ${revenueImpact.criticalIssues} critical and ${revenueImpact.warningIssues} warning issues could recover <strong>$${Math.round(revenueImpact.monthlyLoss * 0.7).toLocaleString()}/month</strong> in lost organic traffic.</p>` :
+              `<p>Excellent! Your SEO foundation is strong. Continue monitoring and optimizing to protect <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong> in potential revenue from algorithm changes and new competitors.</p>`
+            }
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic CTA based on severity -->
+      ${revenueImpact.severity === 'critical' ? `
+      <div class="result-cta cta-emergency">
+        <div class="cta-content">
+          <div class="cta-badge">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>CRITICAL: FIX IMMEDIATELY</span>
+          </div>
+          <h3>Fix These Issues Before You Lose More Money</h3>
+          <p>${revenueImpact.criticalIssues} critical issues are preventing customers from finding you. Our SEO emergency service fixes critical issues in 7-14 days.</p>
+          <div class="cta-benefits">
+            <div class="benefit">
+              <i class="fas fa-check"></i>
+              <span>7-14 day critical fix guarantee</span>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-check"></i>
+              <span>Technical SEO repairs</span>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-check"></i>
+              <span>Recovery roadmap included</span>
+            </div>
+          </div>
+          <div class="cta-buttons">
+            <a href="/contact" class="btn-emergency" onclick="trackEvent('cta_clicked', {cta_type: 'emergency', tool: 'SEO Audit', position: 'results', score: ${score}})">
+              <span class="btn-main">Get Emergency SEO Fix</span>
+              <span class="btn-sub">We'll fix the critical issues fast</span>
+            </a>
+            <a href="tel:+61487286451" class="btn-phone" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'SEO Audit', position: 'results'})">
+              <i class="fas fa-phone"></i>
+              <span>Call Now: 0487 286 451</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      ` : revenueImpact.severity === 'warning' ? `
+      <div class="result-cta cta-warning">
+        <div class="cta-content">
+          <div class="cta-badge">
+            <i class="fas fa-chart-line"></i>
+            <span>OPTIMIZATION OPPORTUNITY</span>
+          </div>
+          <h3>Unlock $${revenueImpact.monthlyLoss.toLocaleString()}/Month with SEO Optimization</h3>
+          <p>Your site has good SEO fundamentals, but fixing ${revenueImpact.criticalIssues + revenueImpact.warningIssues} issues could significantly boost your rankings and traffic.</p>
+          <div class="cta-benefits">
+            <div class="benefit">
+              <i class="fas fa-check"></i>
+              <span>Complete SEO optimization</span>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-check"></i>
+              <span>30-60 day improvement plan</span>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-check"></i>
+              <span>Monthly reporting & monitoring</span>
+            </div>
+          </div>
+          <div class="cta-buttons">
+            <a href="/contact" class="btn-primary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'primary', tool: 'SEO Audit', position: 'results', score: ${score}})">
+              Get SEO Optimization Quote →
+            </a>
+            <a href="tel:+61487286451" class="btn-phone" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'SEO Audit', position: 'results'})">
+              <i class="fas fa-phone"></i>
+              <span>0487 286 451</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      ` : `
+      <div class="result-cta cta-success">
+        <div class="cta-content">
+          <div class="cta-badge">
+            <i class="fas fa-shield-check"></i>
+            <span>EXCELLENT SEO</span>
+          </div>
+          <h3>Protect Your Rankings with Ongoing SEO</h3>
+          <p>Your SEO is strong! Stay ahead of competitors and algorithm changes with ongoing monitoring and optimization.</p>
+          <div class="cta-benefits">
+            <div class="benefit">
+              <i class="fas fa-check"></i>
+              <span>Weekly SEO monitoring</span>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-check"></i>
+              <span>Proactive issue detection</span>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-check"></i>
+              <span>Content optimization</span>
+            </div>
+          </div>
+          <div class="cta-buttons">
+            <a href="/contact" class="btn-primary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'primary', tool: 'SEO Audit', position: 'results', score: ${score}})">
+              Get Ongoing SEO Quote →
+            </a>
+            <a href="tel:+61487286451" class="btn-secondary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'SEO Audit', position: 'results'})">
+              <i class="fas fa-phone"></i>
+              <span>0487 286 451</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      `}
+    `;
   }
 
   function displayMetaResults(meta) {

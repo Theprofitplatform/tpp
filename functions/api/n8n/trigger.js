@@ -1,4 +1,8 @@
-// n8n workflow trigger endpoint for Cloudflare Pages Functions
+/**
+ * Cloudflare Pages Function: POST /api/n8n/trigger
+ * Triggers an n8n workflow via webhook
+ */
+
 export async function onRequestPost(context) {
   const { request, env } = context;
 
@@ -7,21 +11,15 @@ export async function onRequestPost(context) {
     const { workflowId, password } = body;
 
     if (!workflowId) {
-      return new Response(JSON.stringify({
-        success: false,
-        error: 'Workflow ID is required'
-      }), {
+      return new Response(JSON.stringify({ error: 'Workflow ID is required' }), {
         status: 400,
         headers: { 'Content-Type': 'application/json' }
       });
     }
 
-    // Optional password protection
+    // Check password if required
     if (env.N8N_PAGE_PASSWORD && password !== env.N8N_PAGE_PASSWORD) {
-      return new Response(JSON.stringify({
-        success: false,
-        error: 'Invalid password'
-      }), {
+      return new Response(JSON.stringify({ error: 'Invalid password' }), {
         status: 401,
         headers: { 'Content-Type': 'application/json' }
       });
@@ -32,10 +30,7 @@ export async function onRequestPost(context) {
     const workflowName = env[`N8N_WORKFLOW_${workflowId}_NAME`] || workflowId;
 
     if (!webhookUrl) {
-      return new Response(JSON.stringify({
-        success: false,
-        error: 'Workflow not found'
-      }), {
+      return new Response(JSON.stringify({ error: 'Workflow not found' }), {
         status: 404,
         headers: { 'Content-Type': 'application/json' }
       });
@@ -44,22 +39,28 @@ export async function onRequestPost(context) {
     // Trigger n8n webhook
     const response = await fetch(webhookUrl, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
-        triggeredBy: 'manual',
+        source: 'manual-trigger',
         timestamp: new Date().toISOString(),
-        source: 'tpp-admin-panel'
-      }),
-      signal: AbortSignal.timeout(5000)
+        workflowId,
+        workflowName
+      })
     });
+
+    if (!response.ok) {
+      throw new Error(`N8N webhook returned status ${response.status}`);
+    }
 
     console.log('✅ n8n workflow triggered:', { workflowId, workflowName, status: response.status });
 
     return new Response(JSON.stringify({
       success: true,
-      message: `Workflow "${workflowName}" triggered successfully`,
+      message: `Successfully triggered: ${workflowName}`,
       workflowId,
-      timestamp: new Date().toISOString()
+      workflowName
     }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' }
@@ -68,8 +69,8 @@ export async function onRequestPost(context) {
   } catch (error) {
     console.error('❌ n8n trigger error:', error.message);
     return new Response(JSON.stringify({
-      success: false,
-      error: 'Failed to trigger workflow. Please check n8n configuration.'
+      error: 'Failed to trigger workflow. Please check n8n configuration.',
+      details: error.message
     }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' }
