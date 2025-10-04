@@ -14,7 +14,8 @@
       "Bash(find:*)",
       "Bash(cat:*)",
       "Bash(tree:*)",
-      "Bash(npx wrangler pages project list:*)"
+      "Bash(npx wrangler pages project list:*)",
+      "WebFetch(domain:theprofitplatform.com.au)"
     ],
     "deny": [],
     "ask": []

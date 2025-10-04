@@ -5,7 +5,7 @@ import ToolBadge from '../../components/ToolBadge.astro';
 import TrustBar from '../../components/TrustBar.astro';
 
 // Use relative path for Cloudflare Pages Functions
-const apiUrl = '';
+const apiUrl = '/api/serp';
 ---
 
 <BaseLayout title="Free Google Rank Tracker | Check Your Rankings Now">
@@ -119,9 +119,14 @@ const apiUrl = '';
           <div id="resultsSection" class="results-section" style="display: none;">
             <div class="result-header">
               <h2>Your Ranking Results</h2>
-              <button class="btn btn-secondary btn-sm" onclick="location.reload()">
-                <i class="fas fa-redo"></i> Check Another
-              </button>
+              <div class="result-actions-group">
+                <button class="btn btn-secondary btn-sm" id="copyResultsBtn" title="Copy results to clipboard">
+                  <i class="fas fa-copy"></i> Copy Results
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="location.reload()">
+                  <i class="fas fa-redo"></i> Check Another
+                </button>
+              </div>
             </div>
 
             <div id="resultContent" class="result-content">
@@ -206,9 +211,10 @@ const apiUrl = '';
   }
 
   // Revenue calculator for ranking impact
+  // NOTE: These are ESTIMATES based on industry averages and may not reflect your actual results
   function calculateRankingImpact(currentRank, keyword) {
-    const avgConversion = 0.04; // 4% for local business
-    const avgOrderValue = 350; // AUD
+    const avgConversion = 0.04; // 4% estimated for local business - your rate may vary significantly
+    const avgOrderValue = 350; // AUD estimated average - varies by industry
 
     // CTR by position (2024 data)
     const ctrByPosition = {
@@ -220,7 +226,8 @@ const apiUrl = '';
     const currentCTR = ctrByPosition[currentRank] || (currentRank > 10 ? 0.01 : 0.02);
     const targetCTR = ctrByPosition[1]; // Position #1 benchmark
 
-    // Estimate monthly searches based on keyword
+    // Estimate monthly searches based on keyword length (rough approximation only)
+    // WARNING: This is a basic estimate. Use Google Keyword Planner for accurate data
     const words = keyword.trim().split(/\s+/).length;
     let baseVolume = words === 1 ? 8000 : words === 2 ? 3000 : words === 3 ? 1200 : 500;
     const hasLocation = /sydney|melbourne|brisbane|perth|adelaide|australia/i.test(keyword);
@@ -258,6 +265,50 @@ const apiUrl = '';
       const keyword = document.getElementById('keyword').value.trim();
       const domain = document.getElementById('domain').value.trim();
       const location = document.getElementById('location').value;
+
+      // Input validation
+      if (!keyword || keyword.length < 2) {
+        errorState.style.display = 'block';
+        errorMessage.textContent = 'Please enter a valid keyword (at least 2 characters)';
+        return;
+      }
+
+      if (keyword.length > 200) {
+        errorState.style.display = 'block';
+        errorMessage.textContent = 'Keywords must be under 200 characters';
+        return;
+      }
+
+      // Domain validation
+      const domainRegex = /^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$/i;
+      const cleanDomain = domain.toLowerCase()
+        .replace(/^https?:\/\//, '')
+        .replace(/^www\./, '')
+        .replace(/\/$/, '');
+
+      if (!domainRegex.test(cleanDomain)) {
+        errorState.style.display = 'block';
+        errorMessage.textContent = 'Please enter a valid domain (e.g., example.com or example.com.au)';
+        return;
+      }
+
+      // Rate limiting - prevent spam
+      const RATE_LIMIT_KEY = 'rank_check_last_request';
+      const RATE_LIMIT_SECONDS = 10;
+      const now = Date.now();
+      const lastRequest = localStorage.getItem(RATE_LIMIT_KEY);
+
+      if (lastRequest) {
+        const timeSinceLastRequest = (now - parseInt(lastRequest)) / 1000;
+        if (timeSinceLastRequest < RATE_LIMIT_SECONDS) {
+          const waitTime = Math.ceil(RATE_LIMIT_SECONDS - timeSinceLastRequest);
+          errorState.style.display = 'block';
+          errorMessage.textContent = `Please wait ${waitTime} seconds between checks to prevent spam`;
+          return;
+        }
+      }
+
+      localStorage.setItem(RATE_LIMIT_KEY, now.toString());
 
       // Track tool usage
       trackEvent('tool_started', {
@@ -314,7 +365,29 @@ const apiUrl = '';
         console.error('Rank check error:', error);
         loadingState.style.display = 'none';
         errorState.style.display = 'block';
-        errorMessage.textContent = error.message || 'Unable to check ranking. Please try again.';
+
+        // User-friendly error messages
+        const errorMsg = error.message || '';
+        if (errorMsg.includes('not yet available') || errorMsg.includes('not configured')) {
+          errorMessage.textContent = 'Rank tracker is currently offline. Please try again later or contact us for a manual check.';
+        } else if (errorMsg.includes('rate limit')) {
+          errorMessage.textContent = 'Too many requests. Please wait a few minutes and try again.';
+        } else if (errorMsg.includes('network') || errorMsg.includes('fetch')) {
+          errorMessage.textContent = 'Network error. Please check your connection and try again.';
+        } else if (errorMsg.includes('timeout')) {
+          errorMessage.textContent = 'Request timed out. This keyword may take longer to check. Please try again.';
+        } else {
+          errorMessage.textContent = 'Unable to check ranking. Please verify your domain is correct and try again.';
+        }
+
+        // Track errors in analytics
+        trackEvent('tool_error', {
+          tool_name: 'Rank Tracker',
+          error_type: errorMsg.substring(0, 100),
+          keyword: keyword,
+          domain: domain,
+          timestamp: Date.now()
+        });
       }
     });
 
@@ -500,10 +573,13 @@ const apiUrl = '';
               </div>
               <div class="impact-message">
                 ${revenueImpact.severity === 'critical' ?
-                  `<p>75% of users never scroll past page 1. You're invisible to <strong>${revenueImpact.lostVisitors.toLocaleString()} monthly visitors</strong>. Every month you wait costs you <strong>$${revenueImpact.monthlyLoss.toLocaleString()}</strong> in lost business.</p>` :
+                  `<p>75% of users never scroll past page 1. You're invisible to an estimated <strong>${revenueImpact.lostVisitors.toLocaleString()} monthly visitors</strong>. Every month you wait could cost you approximately <strong>$${revenueImpact.monthlyLoss.toLocaleString()}</strong> in lost business.</p>
+                  <p class="disclaimer-text"><em>⚠️ Revenue estimates based on industry averages (4% conversion, $350 AUD order value). Actual results vary significantly by industry, location, and competition. Search volume is estimated.</em></p>` :
                   revenueImpact.severity === 'warning' ?
-                  `<p>Moving from #${rank} to top 3 could generate <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong> more revenue. Position #1 gets 2.5x more clicks than position #${rank}. Let's get you there.</p>` :
-                  `<p>Top 3 ranking! You're capturing maximum traffic for this keyword. Maintain this position to protect <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong> from competitors.</p>`
+                  `<p>Moving from #${rank} to top 3 could generate approximately <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong> more revenue. Position #1 gets 2.5x more clicks than position #${rank}. Let's get you there.</p>
+                  <p class="disclaimer-text"><em>⚠️ Revenue estimates based on industry averages (4% conversion, $350 AUD order value). Actual results vary significantly by industry, location, and competition.</em></p>` :
+                  `<p>Top 3 ranking! You're capturing maximum traffic for this keyword. Maintain this position to protect approximately <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong> from competitors.</p>
+                  <p class="disclaimer-text"><em>⚠️ Revenue estimates based on industry averages (4% conversion, $350 AUD order value). Actual results vary by business.</em></p>`
                 }
               </div>
             </div>
@@ -517,12 +593,12 @@ const apiUrl = '';
                 <i class="fas fa-rocket"></i>
                 <span>EMERGENCY SEO SERVICE</span>
               </div>
-              <h3>Get to Page 1 in 60-90 Days (Guaranteed)</h3>
-              <p>Our emergency SEO service targets low-hanging fruit to get you visible fast. We've helped 127 Australian businesses escape page 2 purgatory.</p>
+              <h3>Get to Page 1 in 60-90 Days (Our Target)</h3>
+              <p>Our emergency SEO service targets low-hanging fruit to get you visible fast. We've helped over 100 Australian businesses improve their rankings significantly.</p>
               <div class="cta-benefits">
                 <div class="benefit">
                   <i class="fas fa-check"></i>
-                  <span>60-90 day page 1 guarantee</span>
+                  <span>60-90 day page 1 target</span>
                 </div>
                 <div class="benefit">
                   <i class="fas fa-check"></i>
@@ -637,7 +713,7 @@ const apiUrl = '';
                 </div>
                 <div class="benefit">
                   <i class="fas fa-check"></i>
-                  <span>Guaranteed results or refund</span>
+                  <span>Results-focused approach</span>
                 </div>
               </div>
               <div class="cta-buttons">
@@ -824,10 +900,70 @@ const apiUrl = '';
         </div>
       `;
     }
+
+    // Copy results functionality
+    const copyBtn = document.getElementById('copyResultsBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function() {
+        const keyword = document.getElementById('keyword')?.value || '';
+        const domain = document.getElementById('domain')?.value || '';
+        const rankElement = document.querySelector('.rank-number');
+        const rank = rankElement ? rankElement.textContent.replace('#', '').trim() : 'Not found';
+        const location = document.getElementById('location')?.value || '';
+
+        const resultText = `Google Rank Tracker Results
+═══════════════════════════
+Keyword: ${keyword}
+Domain: ${domain}
+Location: ${location}
+Ranking Position: #${rank}
+Date: ${new Date().toLocaleDateString()}
+
+Generated by The Profit Platform
+https://theprofitplatform.com.au/tools/rank-tracker/`;
+
+        // Copy to clipboard
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(resultText).then(() => {
+            const originalHTML = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            copyBtn.style.background = '#10b981';
+            copyBtn.style.borderColor = '#10b981';
+            setTimeout(() => {
+              copyBtn.innerHTML = originalHTML;
+              copyBtn.style.background = '';
+              copyBtn.style.borderColor = '';
+            }, 2000);
+          }).catch(err => {
+            console.error('Copy failed:', err);
+            alert('Failed to copy. Please try manually.');
+          });
+        } else {
+          // Fallback for older browsers
+          const textarea = document.createElement('textarea');
+          textarea.value = resultText;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand('copy');
+            const originalHTML = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            setTimeout(() => {
+              copyBtn.innerHTML = originalHTML;
+            }, 2000);
+          } catch (err) {
+            alert('Failed to copy. Please try manually.');
+          }
+          document.body.removeChild(textarea);
+        }
+      });
+    }
   });
 </script>
 
-<style>
+<style is:global>
   main#main-content section.rank-hero.rank-hero {
     padding: 180px 0 60px !important;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -946,9 +1082,25 @@ const apiUrl = '';
     height: 60px;
     border: 4px solid #e5e7eb;
     border-top-color: #667eea;
+    border-right-color: #764ba2;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 0.8s linear infinite;
     margin: 0 auto 1.5rem;
+    position: relative;
+  }
+
+  .spinner::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 4px solid transparent;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite reverse;
   }
 
   @keyframes spin {
@@ -993,11 +1145,19 @@ const apiUrl = '';
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid #e5e7eb;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
   .result-header h2 {
     font-size: 1.75rem;
     font-weight: 700;
+  }
+
+  .result-actions-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
 
   .rank-card {
@@ -1724,6 +1884,16 @@ const apiUrl = '';
     background: rgba(255, 251, 235, 0.6);
   }
 
+  .disclaimer-text {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(250, 250, 250, 0.8);
+    border-left: 3px solid #f59e0b;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
   /* CTA Badge */
   .cta-badge {
     display: inline-flex;
@@ -2328,15 +2498,37 @@ const apiUrl = '';
     }
 
     .position-track {
-      gap: 0.5rem;
+      gap: 0.4rem;
       overflow-x: auto;
       padding: 0.5rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 #f1f5f9;
+    }
+
+    .position-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .position-track::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 3px;
+    }
+
+    .position-track::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 3px;
     }
 
     .position-dot {
-      width: 40px;
-      height: 40px;
+      width: 36px;
+      height: 36px;
       flex-shrink: 0;
+      font-size: 0.75rem;
+    }
+
+    .position-dot.active {
+      transform: scale(1.2);
     }
 
     .quick-stats {
