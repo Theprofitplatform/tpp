@@ -71,10 +71,11 @@ export async function onRequestPost(context) {
     for (let i = 0; i < organicResults.length; i++) {
       const result = organicResults[i];
       try {
-        const resultDomain = new URL(result.link).hostname.replace('www.', '');
-        const searchDomain = domain.replace('www.', '').replace('https://', '').replace('http://', '');
+        const resultDomain = new URL(result.link).hostname.replace('www.', '').toLowerCase();
+        const searchDomain = domain.replace('www.', '').replace('https://', '').replace('http://', '').toLowerCase().trim();
 
-        if (resultDomain.includes(searchDomain) || searchDomain.includes(resultDomain)) {
+        // Exact domain match only to avoid false positives
+        if (resultDomain === searchDomain) {
           rank = result.position;
           foundResult = {
             position: result.position,
