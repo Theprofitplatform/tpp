@@ -15,7 +15,9 @@
     "blog:generate": "node automation/scripts/generate-blog-post.js",
     "blog:validate": "node automation/scripts/validate-content.js",
     "blog:plagiarism": "node automation/scripts/plagiarism-check.js",
-    "blog:test": "npm run blog:generate && npm run blog:validate"
+    "blog:images": "node automation/scripts/update-blog-images.mjs",
+    "blog:test": "npm run blog:generate && npm run blog:validate",
+    "test:blog": "npx playwright test tests/blog-verification.spec.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.65.0",

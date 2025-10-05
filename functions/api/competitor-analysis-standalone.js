@@ -297,7 +297,7 @@ export async function onRequestPost(context) {
     ]);
 
     // Optionally fetch PageSpeed data if API key is configured
-    const pageSpeedApiKey = env?.GOOGLE_PAGESPEED_API_KEY || null;
+    const pageSpeedApiKey = env?.GOOGLE_PAGESPEED_API_KEY || 'AIzaSyA308cZv0hNvZdC8VAM15v8CE12HEsHzCQ';
     if (pageSpeedApiKey) {
       console.log('Fetching PageSpeed data...');
       const [yourPS, compPS] = await Promise.all([
