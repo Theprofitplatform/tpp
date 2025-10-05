@@ -6,7 +6,7 @@ import Header from '../../components/Header.astro';
 const apiUrl = '';
 ---
 
-<BaseLayout title="Free Competitor Analysis Tool | Analyze Your Competition">
+<BaseLayout title="Free SEO Quick Compare Tool | Compare Website SEO Metrics | Sydney">
   <Header />
 
   <main id="main-content" role="main">
@@ -38,16 +38,16 @@ const apiUrl = '';
     <section class="competitor-hero">
       <div class="container">
         <div class="competitor-hero-content">
-          <span class="section-tag">🔍 Free Tool</span>
-          <h1>Competitor Analysis Tool</h1>
+          <span class="section-tag">🔍 Free SEO Comparison</span>
+          <h1>SEO Quick Compare Tool</h1>
           <p class="hero-subtitle">
-            Analyze your competitors' SEO strategy, keywords, backlinks, and content.
-            Get actionable insights to outrank them - 100% free.
+            Compare basic SEO metrics between your website and competitors.
+            Instant on-page analysis with educational estimates - 100% free, no signup required.
           </p>
           <div class="trust-badges">
-            <span class="badge"><i class="fas fa-chart-line"></i> Real-Time Data</span>
-            <span class="badge"><i class="fas fa-trophy"></i> Competitive Edge</span>
-            <span class="badge"><i class="fas fa-users"></i> 2,847+ Analyses Completed</span>
+            <span class="badge"><i class="fas fa-bolt"></i> Instant Analysis</span>
+            <span class="badge"><i class="fas fa-shield-alt"></i> No Signup Required</span>
+            <span class="badge"><i class="fas fa-eye"></i> Transparent Methodology</span>
           </div>
         </div>
       </div>
@@ -57,6 +57,17 @@ const apiUrl = '';
     <section class="competitor-section">
       <div class="container">
         <div class="competitor-card">
+          <!-- Transparency Notice -->
+          <div class="transparency-notice">
+            <div class="notice-icon">
+              <i class="fas fa-info-circle"></i>
+            </div>
+            <div class="notice-content">
+              <h4>Educational Estimates Only</h4>
+              <p>This tool provides instant on-page SEO analysis and <strong>estimated</strong> metrics based on publicly available data. Domain Authority, traffic, and backlink numbers are algorithmic approximations, not verified data. For accurate competitive intelligence, <a href="/contact">book a professional SEO audit</a>. <a href="/tools/competitor-analysis/methodology">View our methodology →</a></p>
+            </div>
+          </div>
+
           <form id="competitorForm" class="competitor-form">
             <div class="form-group">
               <label for="yourDomain">
@@ -130,7 +141,18 @@ const apiUrl = '';
           <!-- Results Section -->
           <div id="resultsContainer" style="display: none;">
             <div class="results-header">
-              <h2>Competitor Analysis Results</h2>
+              <h2>SEO Quick Compare Results</h2>
+
+              <!-- Data Source Attribution -->
+              <div class="data-source-badge">
+                <i class="fas fa-database"></i>
+                <span id="dataSourceText">Data Source: On-page Analysis + Estimates</span>
+                <button class="info-tooltip" onclick="alert(document.getElementById('metadataDisclaimer').textContent)">
+                  <i class="fas fa-info-circle"></i>
+                </button>
+              </div>
+              <span id="metadataDisclaimer" style="display: none;"></span>
+
               <div class="domain-comparison">
                 <div class="domain-box your-domain">
                   <i class="fas fa-home"></i>
@@ -260,23 +282,23 @@ const apiUrl = '';
         <h2>Frequently Asked Questions</h2>
         <div class="faq-grid">
           <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <summary itemprop="name">What is a competitor analysis tool?</summary>
+            <summary itemprop="name">What is the SEO Quick Compare tool?</summary>
             <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-              <p itemprop="text">A competitor analysis tool helps you compare your website's SEO performance against your competitors. Our free tool analyzes SEO metrics, keywords, backlinks, content strategy, and technical SEO to identify gaps and opportunities to outrank your competition in Sydney and beyond.</p>
+              <p itemprop="text">Our SEO Quick Compare tool provides instant on-page SEO analysis between your website and competitors. It shows real metrics (word count, images, meta tags) and educational estimates (traffic, backlinks) to help Sydney businesses identify basic SEO gaps. It's free, requires no signup, and provides results in seconds.</p>
             </div>
           </details>
 
           <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <summary itemprop="name">Is the competitor analysis tool really free?</summary>
+            <summary itemprop="name">Is the data accurate?</summary>
             <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-              <p itemprop="text">Yes! Our competitor analysis tool is 100% free with no signup required, no credit card needed, and no hidden fees. You can analyze as many competitors as you want. We offer this to help Sydney businesses improve their SEO and demonstrate the quality of our services.</p>
+              <p itemprop="text">Some metrics are 100% accurate (word count, images, HTTPS, meta tags scraped from HTML). Others are estimates only (Domain Authority, traffic, backlinks) and may vary ±30% from actual values. For verified competitive intelligence, we recommend professional audits using tools like SEMrush or Ahrefs. <a href="/tools/competitor-analysis/methodology">View our complete methodology</a>.</p>
             </div>
           </details>
 
           <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <summary itemprop="name">What metrics does the tool analyze?</summary>
+            <summary itemprop="name">Why are some metrics "estimated"?</summary>
             <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-              <p itemprop="text">The tool analyzes SEO metrics (domain authority, traffic estimates), keyword gaps (keywords they rank for that you don't), content analysis (word count, readability), backlink profiles (link quality and quantity), and technical SEO (page speed, mobile-friendliness, security).</p>
+              <p itemprop="text">Real metrics like Domain Authority, organic traffic, and backlinks require expensive API access to tools like Moz, SEMrush, or Ahrefs. Our free tool uses algorithmic estimates based on on-page factors to give you educational approximations. This helps you identify potential gaps without the cost of premium tools.</p>
             </div>
           </details>
 
@@ -295,9 +317,9 @@ const apiUrl = '';
           </details>
 
           <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-            <summary itemprop="name">How accurate is the competitor data?</summary>
+            <summary itemprop="name">Should I make business decisions based on this data?</summary>
             <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-              <p itemprop="text">We analyze publicly available data and provide real-time SEO metrics. Some estimates (like traffic) are approximations based on industry-standard algorithms. For the most accurate competitive intelligence, we recommend combining this tool with professional SEO analysis from our Sydney team.</p>
+              <p itemprop="text">Use this tool for quick insights and educational purposes, but not for critical business decisions. The estimates are helpful for identifying obvious content gaps and on-page issues, but you should validate findings with professional tools or audits before making major strategic investments. Think of it as a free "first look" rather than comprehensive competitive intelligence.</p>
             </div>
           </details>
 
@@ -472,6 +494,55 @@ const apiUrl = '';
     margin: 0 auto;
   }
 
+  /* Transparency Notice */
+  .transparency-notice {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border-left: 4px solid #3b82f6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .notice-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.25rem;
+  }
+
+  .notice-content h4 {
+    margin: 0 0 0.5rem 0;
+    color: #1e40af;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  .notice-content p {
+    margin: 0;
+    color: #1e3a8a;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .notice-content a {
+    color: #2563eb;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .notice-content a:hover {
+    color: #1d4ed8;
+  }
+
   /* Form */
   .competitor-form {
     margin-bottom: 2rem;
@@ -642,8 +713,43 @@ const apiUrl = '';
   .results-header h2 {
     font-size: 2.5rem;
     font-weight: 900;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: #1e293b;
+  }
+
+  .data-source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f1f5f9;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: #475569;
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+  }
+
+  .data-source-badge i {
+    color: #3b82f6;
+  }
+
+  .info-tooltip {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.75rem;
+  }
+
+  .info-tooltip:hover {
+    background: #2563eb;
   }
 
   /* Domain Comparison */
@@ -1491,6 +1597,15 @@ const apiUrl = '';
   function displayResults(data) {
     loadingState.style.display = 'none';
     resultsContainer.style.display = 'block';
+
+    // Display metadata if present
+    if (data.metadata) {
+      const dataSourceText = document.getElementById('dataSourceText');
+      const metadataDisclaimer = document.getElementById('metadataDisclaimer');
+
+      dataSourceText.textContent = `Data Source: ${data.metadata.dataSource}`;
+      metadataDisclaimer.textContent = `${data.metadata.disclaimer}\n\nReal Metrics: ${data.metadata.realMetrics.join(', ')}\n\nEstimated Metrics: ${data.metadata.estimatedMetrics.join(', ')}\n\nAnalysis Type: ${data.metadata.analysisType}\nLast Updated: ${new Date(data.metadata.lastUpdated).toLocaleString()}`;
+    }
 
     // Display estimation notice if present
     const estimationNotice = document.getElementById('estimationNotice');

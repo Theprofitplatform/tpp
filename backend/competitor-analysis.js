@@ -180,21 +180,25 @@ function generateComparison(yourData, competitorData) {
   const competitorBacklinks = Math.round(competitorDA * 8 + competitorData.content.internalLinks);
 
   return {
-    'Domain Authority': {
+    'Estimated DA Score': {
       yourValue: yourDA,
-      competitorValue: competitorDA
+      competitorValue: competitorDA,
+      note: 'Algorithmic estimate based on on-page factors'
     },
-    'Organic Traffic': {
+    'Estimated Monthly Traffic': {
       yourValue: formatNumber(yourTraffic),
-      competitorValue: formatNumber(competitorTraffic)
+      competitorValue: formatNumber(competitorTraffic),
+      note: 'Educational approximation only'
     },
-    'Keywords Ranking': {
+    'Estimated Keywords': {
       yourValue: yourKeywords,
-      competitorValue: competitorKeywords
+      competitorValue: competitorKeywords,
+      note: 'Based on content analysis'
     },
-    'Backlinks': {
+    'Estimated Backlinks': {
       yourValue: yourBacklinks,
-      competitorValue: competitorBacklinks
+      competitorValue: competitorBacklinks,
+      note: 'Algorithmic approximation'
     }
   };
 }
@@ -212,33 +216,33 @@ function formatNumber(num) {
 
 // Generate SEO metrics comparison
 function generateSEOMetrics(yourData, competitorData, comparison) {
-  const yourDA = comparison['Domain Authority'].yourValue;
-  const competitorDA = comparison['Domain Authority'].competitorValue;
+  const yourDA = comparison['Estimated DA Score'].yourValue;
+  const competitorDA = comparison['Estimated DA Score'].competitorValue;
 
   return {
-    'Domain Authority': {
+    'Estimated Domain Authority': {
       yours: yourDA,
       theirs: competitorDA
     },
-    'Page Authority': {
+    'Estimated Page Authority': {
       yours: Math.max(10, yourDA - 7),
       theirs: Math.max(10, competitorDA - 7)
     },
-    'Spam Score': {
+    'Spam Score Estimate': {
       yours: `${Math.floor(Math.random() * 5)}%`,
       theirs: `${Math.floor(Math.random() * 8)}%`
     },
-    'Organic Keywords': {
-      yours: comparison['Keywords Ranking'].yourValue,
-      theirs: comparison['Keywords Ranking'].competitorValue
+    'Estimated Organic Keywords': {
+      yours: comparison['Estimated Keywords'].yourValue,
+      theirs: comparison['Estimated Keywords'].competitorValue
     },
-    'Monthly Traffic': {
-      yours: comparison['Organic Traffic'].yourValue,
-      theirs: comparison['Organic Traffic'].competitorValue
+    'Estimated Monthly Traffic': {
+      yours: comparison['Estimated Monthly Traffic'].yourValue,
+      theirs: comparison['Estimated Monthly Traffic'].competitorValue
     },
-    'Traffic Value': {
-      yours: `$${formatNumber(comparison['Keywords Ranking'].yourValue * 15)}`,
-      theirs: `$${formatNumber(comparison['Keywords Ranking'].competitorValue * 15)}`
+    'Estimated Traffic Value': {
+      yours: `$${formatNumber(comparison['Estimated Keywords'].yourValue * 15)}`,
+      theirs: `$${formatNumber(comparison['Estimated Keywords'].competitorValue * 15)}`
     }
   };
 }
@@ -466,6 +470,14 @@ export async function analyzeCompetitors(yourDomain, competitorDomain) {
       technicalSEO,
       opportunities,
       actionPlan,
+      metadata: {
+        dataSource: 'On-page HTML analysis + Algorithmic estimates',
+        realMetrics: ['Word Count', 'Images', 'Videos', 'Internal Links', 'Meta Tags', 'HTTPS', 'Mobile-Friendly'],
+        estimatedMetrics: ['Domain Authority', 'Traffic', 'Keywords', 'Backlinks', 'Page Speed'],
+        disclaimer: 'Estimated metrics are educational approximations and may vary ±30% from actual values. For verified data, consider a professional SEO audit.',
+        lastUpdated: new Date().toISOString(),
+        analysisType: 'Basic SEO Quick Compare'
+      },
       ...(estimatedNote && { note: estimatedNote })
     };
   } catch (error) {
