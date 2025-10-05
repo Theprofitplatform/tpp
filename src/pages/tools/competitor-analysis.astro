@@ -2,8 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 
-// Use relative path for Cloudflare Pages Functions (permanent solution)
-const apiUrl = '';
+// Use standalone Cloudflare Function (no backend server needed)
+const apiUrl = '/api/competitor-analysis-standalone';
 ---
 
 <BaseLayout title="Free SEO Quick Compare Tool | Compare Website SEO Metrics | Sydney">
@@ -1758,7 +1758,7 @@ const apiUrl = '';
 
     try {
       // Start the analysis request
-      const analysisPromise = fetch(`${apiUrl}/api/competitor-analysis`, {
+      const analysisPromise = fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

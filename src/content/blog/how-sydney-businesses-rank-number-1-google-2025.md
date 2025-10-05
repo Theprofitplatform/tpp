@@ -8,6 +8,11 @@ tags: ["SEO", "Google Ranking", "Sydney Business", "Local SEO", "2025"]
 featured: true
 image: "/images/blog/google-ranking-2025.jpg"
 readTime: "12 min"
+coverImage: "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw1fHxIb3clMjBTeWRuZXklMjBCdXNpbmVzc2VzJTIwQ2FuJTIwUmFuayUyMCUyMzElMjBvbiUyMEdvb2dsZSUyMGluJTIwMjAyNXxlbnwxfDB8fHwxNzU5NjU5NDM5fDA&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "Google sign"
+coverImageCredit:
+  name: "Pawel Czerwinski"
+  link: "https://unsplash.com/@pawel_czerwinski"
 ---
 
 # How Sydney Businesses Can Rank #1 on Google in 2025

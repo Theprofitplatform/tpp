@@ -1,0 +1,1060 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - link "Skip to navigation" [ref=e3] [cursor=pointer]:
+    - /url: "#primary-navigation"
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "The Profit Platform - Home" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - img "The Profit Platform Logo" [ref=e9] [cursor=pointer]
+      - navigation "Main navigation" [ref=e10]:
+        - menubar [ref=e11]:
+          - menuitem "Home" [ref=e12] [cursor=pointer]:
+            - generic [ref=e13] [cursor=pointer]: 
+            - generic [ref=e14] [cursor=pointer]: Home
+          - menuitem "Services" [ref=e15] [cursor=pointer]:
+            - generic [ref=e16] [cursor=pointer]: 
+            - generic [ref=e17] [cursor=pointer]: Services
+            - generic [ref=e18] [cursor=pointer]: 
+          - menuitem "Pricing" [ref=e19] [cursor=pointer]:
+            - generic [ref=e20] [cursor=pointer]: $
+            - generic [ref=e21] [cursor=pointer]: Pricing
+          - menuitem "Tools" [ref=e22] [cursor=pointer]:
+            - generic [ref=e23] [cursor=pointer]: 
+            - generic [ref=e24] [cursor=pointer]: Tools
+            - generic [ref=e25] [cursor=pointer]: 
+          - menuitem "Contact" [ref=e26] [cursor=pointer]:
+            - generic [ref=e27] [cursor=pointer]: 
+            - generic [ref=e28] [cursor=pointer]: Contact
+      - link "Get Free Chat - Contact us" [ref=e30] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e31] [cursor=pointer]: 
+        - generic [ref=e32] [cursor=pointer]: Let's Chat
+  - text:      $    
+  - article [ref=e34]:
+    - navigation "Breadcrumb" [ref=e35]:
+      - list [ref=e37]:
+        - listitem [ref=e38]:
+          - link "Home" [ref=e39] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e40] [cursor=pointer]: Home
+          - text: ›
+        - listitem [ref=e41]:
+          - link "Blog" [ref=e42] [cursor=pointer]:
+            - /url: /blog
+            - generic [ref=e43] [cursor=pointer]: Blog
+          - text: ›
+        - listitem [ref=e44]:
+          - generic [ref=e45]: "How Sydney Businesses Can Rank #1 on Google in 2025"
+    - generic [ref=e47]:
+      - generic [ref=e49]: marketing
+      - 'heading "How Sydney Businesses Can Rank #1 on Google in 2025" [level=1] [ref=e50]'
+      - paragraph [ref=e51]: A comprehensive, step-by-step guide to dominating Google search results for Sydney businesses. Learn the exact SEO strategies that get results.
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - img [ref=e55]
+          - generic [ref=e57]:
+            - generic [ref=e58]: Avi Sharma
+            - generic [ref=e59]:
+              - time [ref=e60]: 15 Jan 2025
+              - generic [ref=e61]: •
+              - generic [ref=e62]: 13 min read
+              - generic [ref=e63]: •
+              - generic [ref=e64]: 2,588 words
+        - generic [ref=e65]:
+          - button "Share on Twitter" [ref=e66] [cursor=pointer]:
+            - img [ref=e67] [cursor=pointer]
+          - button "Share on LinkedIn" [ref=e69] [cursor=pointer]:
+            - img [ref=e70] [cursor=pointer]
+          - button "Share on Facebook" [ref=e72] [cursor=pointer]:
+            - img [ref=e73] [cursor=pointer]
+          - button "Copy link" [ref=e75] [cursor=pointer]:
+            - img [ref=e76] [cursor=pointer]
+      - generic [ref=e78]:
+        - link "#SEO" [ref=e79] [cursor=pointer]:
+          - /url: /blog?tag=SEO
+        - link "#Google Ranking" [ref=e80] [cursor=pointer]:
+          - /url: /blog?tag=Google%20Ranking
+        - link "#Sydney Business" [ref=e81] [cursor=pointer]:
+          - /url: /blog?tag=Sydney%20Business
+        - link "#Local SEO" [ref=e82] [cursor=pointer]:
+          - /url: /blog?tag=Local%20SEO
+        - link "#2025" [ref=e83] [cursor=pointer]:
+          - /url: /blog?tag=2025
+    - figure "Photo by Pawel Czerwinski on Unsplash" [ref=e85]:
+      - img "Google sign" [ref=e86]
+      - generic [ref=e87]:
+        - text: Photo by
+        - link "Pawel Czerwinski" [ref=e88] [cursor=pointer]:
+          - /url: https://unsplash.com/@pawel_czerwinski?utm_source=theprofitplatform&utm_medium=referral
+        - text: "on"
+        - link "Unsplash" [ref=e89] [cursor=pointer]:
+          - /url: https://unsplash.com?utm_source=theprofitplatform&utm_medium=referral
+    - generic [ref=e90]:
+      - complementary [ref=e91]:
+        - heading "📑 Table of Contents" [level=3] [ref=e92]
+        - navigation [ref=e93]:
+          - list [ref=e94]:
+            - listitem [ref=e95]:
+              - link "Table of Contents" [ref=e96] [cursor=pointer]:
+                - /url: "#heading-0"
+            - listitem [ref=e97]:
+              - 'link "Why Ranking #1 on Google Matters (Especially in Sydney)" [ref=e98] [cursor=pointer]':
+                - /url: "#heading-1"
+            - listitem [ref=e99]:
+              - 'link "Real Example: Parramatta Plumbing Company" [ref=e100] [cursor=pointer]':
+                - /url: "#heading-2"
+            - listitem [ref=e101]:
+              - link "The 2025 Google Ranking Factors That Actually Matter" [ref=e102] [cursor=pointer]:
+                - /url: "#heading-3"
+            - listitem [ref=e103]:
+              - link "1. E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)" [ref=e104] [cursor=pointer]:
+                - /url: "#heading-4"
+            - listitem [ref=e105]:
+              - link "2. Core Web Vitals (Site Speed & User Experience)" [ref=e106] [cursor=pointer]:
+                - /url: "#heading-5"
+            - listitem [ref=e107]:
+              - link "3. Mobile-First Indexing" [ref=e108] [cursor=pointer]:
+                - /url: "#heading-6"
+            - listitem [ref=e109]:
+              - link "4. Content Quality & Depth" [ref=e110] [cursor=pointer]:
+                - /url: "#heading-7"
+            - listitem [ref=e111]:
+              - link "5. Backlinks (But Quality Over Quantity)" [ref=e112] [cursor=pointer]:
+                - /url: "#heading-8"
+            - listitem [ref=e113]:
+              - link "6. Local Signals (Google My Business)" [ref=e114] [cursor=pointer]:
+                - /url: "#heading-9"
+            - listitem [ref=e115]:
+              - 'link "Step-by-Step: How to Rank #1 on Google in 2025" [ref=e116] [cursor=pointer]':
+                - /url: "#heading-10"
+            - listitem [ref=e117]:
+              - 'link "Step 1: Keyword Research (Foundation)" [ref=e118] [cursor=pointer]':
+                - /url: "#heading-11"
+            - listitem [ref=e119]:
+              - 'link "Step 2: On-Page SEO Optimization" [ref=e120] [cursor=pointer]':
+                - /url: "#heading-12"
+            - listitem [ref=e121]:
+              - 'link "Step 3: Create High-Quality Content" [ref=e122] [cursor=pointer]':
+                - /url: "#heading-13"
+            - listitem [ref=e123]:
+              - 'link "Step 4: Technical SEO (Don’t Ignore This)" [ref=e124] [cursor=pointer]':
+                - /url: "#heading-14"
+            - listitem [ref=e125]:
+              - 'link "Step 5: Build High-Quality Backlinks" [ref=e126] [cursor=pointer]':
+                - /url: "#heading-15"
+            - listitem [ref=e127]:
+              - link "Local SEO for Sydney Businesses (The Secret Weapon)" [ref=e128] [cursor=pointer]:
+                - /url: "#heading-16"
+            - listitem [ref=e129]:
+              - link "Google My Business Optimization (Non-Negotiable)" [ref=e130] [cursor=pointer]:
+                - /url: "#heading-17"
+            - listitem [ref=e131]:
+              - link "NAP Consistency (Name, Address, Phone)" [ref=e132] [cursor=pointer]:
+                - /url: "#heading-18"
+            - listitem [ref=e133]:
+              - link "Suburb-Specific Pages" [ref=e134] [cursor=pointer]:
+                - /url: "#heading-19"
+            - listitem [ref=e135]:
+              - link "Local Content Marketing" [ref=e136] [cursor=pointer]:
+                - /url: "#heading-20"
+            - listitem [ref=e137]:
+              - link "7 Common SEO Mistakes Sydney Businesses Make (And How to Avoid Them)" [ref=e138] [cursor=pointer]:
+                - /url: "#heading-21"
+            - listitem [ref=e139]:
+              - link "1. Targeting Keywords That Are Too Competitive" [ref=e140] [cursor=pointer]:
+                - /url: "#heading-22"
+            - listitem [ref=e141]:
+              - link "2. Ignoring Google My Business" [ref=e142] [cursor=pointer]:
+                - /url: "#heading-23"
+            - listitem [ref=e143]:
+              - link "3. Publishing Thin, Low-Quality Content" [ref=e144] [cursor=pointer]:
+                - /url: "#heading-24"
+            - listitem [ref=e145]:
+              - link "4. Buying Cheap Backlinks" [ref=e146] [cursor=pointer]:
+                - /url: "#heading-25"
+            - listitem [ref=e147]:
+              - link "5. Not Tracking Results" [ref=e148] [cursor=pointer]:
+                - /url: "#heading-26"
+            - listitem [ref=e149]:
+              - link "6. Expecting Overnight Results" [ref=e150] [cursor=pointer]:
+                - /url: "#heading-27"
+            - listitem [ref=e151]:
+              - link "7. Forgetting Mobile Users" [ref=e152] [cursor=pointer]:
+                - /url: "#heading-28"
+            - listitem [ref=e153]:
+              - 'link "Free Download: Sydney SEO Checklist (50-Point Checklist)" [ref=e154] [cursor=pointer]':
+                - /url: "#heading-29"
+            - listitem [ref=e155]:
+              - 'link "Final Thoughts: Ranking #1 is a Marathon, Not a Sprint" [ref=e156] [cursor=pointer]':
+                - /url: "#heading-30"
+            - listitem [ref=e157]:
+              - link "Need Help Ranking Your Sydney Business?" [ref=e158] [cursor=pointer]:
+                - /url: "#heading-31"
+            - listitem [ref=e159]:
+              - 'link "FAQs: Ranking on Google in 2025" [ref=e160] [cursor=pointer]':
+                - /url: "#heading-32"
+            - listitem [ref=e161]:
+              - 'link "How long does it take to rank #1 on Google?" [ref=e162] [cursor=pointer]':
+                - /url: "#heading-33"
+            - listitem [ref=e163]:
+              - link "How much does SEO cost for a Sydney business?" [ref=e164] [cursor=pointer]:
+                - /url: "#heading-34"
+            - listitem [ref=e165]:
+              - link "Can I rank without building backlinks?" [ref=e166] [cursor=pointer]:
+                - /url: "#heading-35"
+            - listitem [ref=e167]:
+              - link "Is SEO better than Google Ads?" [ref=e168] [cursor=pointer]:
+                - /url: "#heading-36"
+            - listitem [ref=e169]:
+              - link "How do I know if my SEO is working?" [ref=e170] [cursor=pointer]:
+                - /url: "#heading-37"
+            - listitem [ref=e171]:
+              - link "Do I need to hire an SEO agency?" [ref=e172] [cursor=pointer]:
+                - /url: "#heading-38"
+      - generic [ref=e173]:
+        - paragraph [ref=e174]: If you’re a Sydney business owner, you know the game has changed. Google’s algorithm updates in late 2024 and early 2025 have shifted the landscape. What worked last year might not work today.
+        - paragraph [ref=e175]:
+          - text: "But here’s the good news:"
+          - strong [ref=e176]: "ranking #1 on Google is still achievable for Sydney businesses"
+          - text: — if you know the right strategies.
+        - paragraph [ref=e177]: In this comprehensive guide, I’ll walk you through the exact steps we use to get our clients to the top of Google search results. No fluff, no outdated tactics — just proven strategies that work in 2025.
+        - heading "Table of Contents" [level=2] [ref=e178]
+        - list [ref=e179]:
+          - listitem [ref=e180]:
+            - link "Why Google Ranking Matters for Sydney Businesses" [ref=e181] [cursor=pointer]:
+              - /url: "#why-it-matters"
+          - listitem [ref=e182]:
+            - link "The 2025 Google Ranking Factors" [ref=e183] [cursor=pointer]:
+              - /url: "#ranking-factors"
+          - listitem [ref=e184]:
+            - 'link "Step-by-Step: How to Rank #1" [ref=e185] [cursor=pointer]':
+              - /url: "#step-by-step"
+          - listitem [ref=e186]:
+            - link "Local SEO for Sydney Businesses" [ref=e187] [cursor=pointer]:
+              - /url: "#local-seo"
+          - listitem [ref=e188]:
+            - link "Common Mistakes to Avoid" [ref=e189] [cursor=pointer]:
+              - /url: "#mistakes"
+          - listitem [ref=e190]:
+            - link "Free SEO Checklist" [ref=e191] [cursor=pointer]:
+              - /url: "#checklist"
+        - separator [ref=e192]
+        - paragraph
+        - 'heading "Why Ranking #1 on Google Matters (Especially in Sydney)" [level=2] [ref=e193]'
+        - paragraph [ref=e194]: "Let me hit you with some statistics:"
+        - list [ref=e195]:
+          - listitem [ref=e196]:
+            - strong [ref=e197]: 75% of users never scroll past the first page of Google
+          - listitem [ref=e198]:
+            - strong [ref=e199]: "The #1 result gets 31.7% of all clicks"
+          - listitem [ref=e200]:
+            - strong [ref=e201]: "The #2 result gets 24.7% of all clicks"
+          - listitem [ref=e202]:
+            - strong [ref=e203]: "The #3 result gets 18.7% of all clicks"
+        - paragraph [ref=e204]:
+          - strong [ref=e205]: "Translation:"
+          - text: If you’re not in the top 3, you’re missing out on 75% of potential traffic.
+        - paragraph [ref=e206]:
+          - text: For Sydney businesses competing in a market of 5+ million people, ranking on page 1 isn’t a luxury —
+          - strong [ref=e207]: it’s survival
+          - text: .
+        - 'heading "Real Example: Parramatta Plumbing Company" [level=3] [ref=e208]'
+        - paragraph [ref=e209]: One of our clients, a plumbing company in Parramatta, wasn’t even ranking in the top 50 for “plumber Parramatta” when they came to us in September 2024.
+        - paragraph [ref=e210]:
+          - strong [ref=e211]: "After 90 days of implementing the strategies in this guide:"
+        - list [ref=e212]:
+          - listitem [ref=e213]: "Ranked #2 for “plumber Parramatta” (1,300 searches/month)"
+          - listitem [ref=e214]: "Ranked #1 for “emergency plumber Parramatta” (720 searches/month)"
+          - listitem [ref=e215]: Increased organic traffic by 340%
+          - listitem [ref=e216]:
+            - strong [ref=e217]: 2.6x more phone calls from Google
+        - paragraph [ref=e218]: And we’ll show you exactly how to replicate this.
+        - separator [ref=e219]
+        - paragraph
+        - heading "The 2025 Google Ranking Factors That Actually Matter" [level=2] [ref=e220]
+        - paragraph [ref=e221]: "Google’s algorithm considers over 200 ranking factors. But in 2025, these are the ones that move the needle:"
+        - heading "1. E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)" [level=3] [ref=e222]:
+          - text: "1."
+          - strong [ref=e223]: E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness)
+        - paragraph [ref=e224]: Google added “Experience” to E-A-T in late 2022, and in 2025, it’s more important than ever.
+        - paragraph [ref=e225]:
+          - strong [ref=e226]: "What it means for you:"
+        - list [ref=e227]:
+          - listitem [ref=e228]: Show real experience (case studies, client results, behind-the-scenes)
+          - listitem [ref=e229]: Demonstrate expertise (comprehensive content, author bios)
+          - listitem [ref=e230]: Build authority (backlinks from reputable Sydney sites)
+          - listitem [ref=e231]: Establish trust (reviews, testimonials, transparent pricing)
+        - heading "2. Core Web Vitals (Site Speed & User Experience)" [level=3] [ref=e232]:
+          - text: "2."
+          - strong [ref=e233]: Core Web Vitals (Site Speed & User Experience)
+        - paragraph [ref=e234]: "Google’s Core Web Vitals are now critical ranking factors:"
+        - list [ref=e235]:
+          - listitem [ref=e236]:
+            - strong [ref=e237]: "LCP (Largest Contentful Paint):"
+            - text: Should be under 2.5 seconds
+          - listitem [ref=e238]:
+            - strong [ref=e239]: "FID (First Input Delay):"
+            - text: Should be under 100ms
+          - listitem [ref=e240]:
+            - strong [ref=e241]: "CLS (Cumulative Layout Shift):"
+            - text: Should be under 0.1
+        - paragraph [ref=e242]:
+          - strong [ref=e243]: Our site loads in 152ms
+          - text: — and it’s not by accident. Speed matters.
+        - heading "3. Mobile-First Indexing" [level=3] [ref=e244]:
+          - text: "3."
+          - strong [ref=e245]: Mobile-First Indexing
+        - paragraph [ref=e246]: Google now exclusively uses the mobile version of your site for ranking.
+        - paragraph [ref=e247]:
+          - strong [ref=e248]: "Key stats:"
+        - list [ref=e249]:
+          - listitem [ref=e250]: 75% of “near me” searches happen on mobile
+          - listitem [ref=e251]: 88% of local mobile searches result in a call or visit within 24 hours
+        - paragraph [ref=e252]: If your site isn’t mobile-optimized, you’re invisible to 60% of searchers.
+        - heading "4. Content Quality & Depth" [level=3] [ref=e253]:
+          - text: "4."
+          - strong [ref=e254]: Content Quality & Depth
+        - paragraph [ref=e255]: In 2025, thin content doesn’t cut it. Google rewards comprehensive, helpful content.
+        - paragraph [ref=e256]:
+          - strong [ref=e257]: "What works:"
+        - list [ref=e258]:
+          - listitem [ref=e259]: Long-form content (2,000+ words for pillar pages)
+          - listitem [ref=e260]: Original research and data
+          - listitem [ref=e261]: Multimedia (images, videos, infographics)
+          - listitem [ref=e262]: Clear structure (H2s, H3s, bullet points)
+          - listitem [ref=e263]: Practical, actionable advice
+        - heading "5. Backlinks (But Quality Over Quantity)" [level=3] [ref=e264]:
+          - text: "5."
+          - strong [ref=e265]: Backlinks (But Quality Over Quantity)
+        - paragraph [ref=e266]:
+          - text: Backlinks are still a top-3 ranking factor, but in 2025,
+          - strong [ref=e267]: one quality backlink beats 100 spammy links
+          - text: .
+        - paragraph [ref=e268]:
+          - strong [ref=e269]: "What Google values:"
+        - list [ref=e270]:
+          - listitem [ref=e271]: Links from high-authority Australian sites
+          - listitem [ref=e272]: Contextual links (within relevant content)
+          - listitem [ref=e273]: Diverse link sources
+          - listitem [ref=e274]: Natural anchor text variation
+        - heading "6. Local Signals (Google My Business)" [level=3] [ref=e275]:
+          - text: "6."
+          - strong [ref=e276]: Local Signals (Google My Business)
+        - paragraph [ref=e277]: For Sydney businesses, local SEO is everything.
+        - paragraph [ref=e278]:
+          - strong [ref=e279]: "Critical factors:"
+        - list [ref=e280]:
+          - listitem [ref=e281]: Google My Business optimization
+          - listitem [ref=e282]: NAP consistency (Name, Address, Phone)
+          - listitem [ref=e283]: Local citations (directories)
+          - listitem [ref=e284]: Reviews (quantity + quality)
+          - listitem [ref=e285]: Proximity to searcher
+        - separator [ref=e286]
+        - paragraph
+        - 'heading "Step-by-Step: How to Rank #1 on Google in 2025" [level=2] [ref=e287]'
+        - paragraph [ref=e288]: "Here’s the exact process we use for our clients:"
+        - 'heading "Step 1: Keyword Research (Foundation)" [level=3] [ref=e289]'
+        - paragraph [ref=e290]:
+          - strong [ref=e291]: Don’t skip this.
+          - text: Most businesses guess at keywords — we research.
+        - paragraph [ref=e292]:
+          - strong [ref=e293]: "How to do it:"
+        - list [ref=e294]:
+          - listitem [ref=e295]:
+            - paragraph [ref=e296]:
+              - strong [ref=e297]: Use Google Keyword Planner
+              - text: (free tool)
+            - list [ref=e298]:
+              - listitem [ref=e299]: Enter your service + “Sydney”
+              - listitem [ref=e300]: "Example: “plumber Sydney”, “lawyer Sydney”, “accountant Sydney”"
+              - listitem [ref=e301]: Export keywords with search volume
+          - listitem [ref=e302]:
+            - paragraph [ref=e303]:
+              - strong [ref=e304]: Analyze competitor keywords
+              - text: (use Ahrefs or Ubersuggest)
+            - list [ref=e305]:
+              - listitem [ref=e306]: "Find who’s ranking #1-3 for your target keywords"
+              - listitem [ref=e307]: See what keywords they rank for
+              - listitem [ref=e308]: Identify gaps you can exploit
+          - listitem [ref=e309]:
+            - paragraph [ref=e310]:
+              - strong [ref=e311]: Focus on long-tail keywords first
+            - list [ref=e312]:
+              - listitem [ref=e313]: Instead of “SEO Sydney” (high competition)
+              - listitem [ref=e314]: Target “affordable SEO for small business Sydney” (easier to rank)
+        - paragraph [ref=e315]:
+          - strong [ref=e316]: "Action Item:"
+          - text: Create a spreadsheet with 20-30 target keywords, sorted by search volume and difficulty.
+        - separator [ref=e317]
+        - 'heading "Step 2: On-Page SEO Optimization" [level=3] [ref=e318]'
+        - paragraph [ref=e319]: "Once you have your keywords, optimize every page:"
+        - paragraph [ref=e320]:
+          - strong [ref=e321]: Title Tags
+        - code [ref=e323]:
+          - generic [ref=e325]: "❌ Bad: \"Home | ABC Plumbing\""
+          - generic [ref=e327]: "✅ Good: \"Plumber Parramatta | 24/7 Emergency Plumbing | ABC Plumbing Sydney\""
+        - paragraph [ref=e328]:
+          - strong [ref=e329]: Meta Descriptions
+        - code [ref=e331]:
+          - generic [ref=e333]: "❌ Bad: \"We are a plumbing company in Sydney.\""
+          - generic [ref=e335]: "✅ Good: \"Need a plumber in Parramatta? 24/7 emergency service, upfront pricing, 5-star reviews. Call now: (02) 1234 5678\""
+        - paragraph [ref=e336]:
+          - strong [ref=e337]: H1 Tags
+          - text: (one per page, include primary keyword)
+        - code [ref=e339]:
+          - generic [ref=e341]: ✅ "Emergency Plumber Parramatta | Fast, Reliable, Affordable"
+        - paragraph [ref=e342]:
+          - strong [ref=e343]: H2/H3 Structure
+          - text: (use related keywords)
+        - code [ref=e345]:
+          - generic [ref=e347]: "H2: \"Why Choose Our Parramatta Plumbing Services\""
+          - generic [ref=e349]: "H3: \"Licensed & Insured Plumbers\""
+          - generic [ref=e351]: "H3: \"Same-Day Service Available\""
+        - paragraph [ref=e352]:
+          - strong [ref=e353]: URL Structure
+          - text: (short, keyword-rich)
+        - code [ref=e355]:
+          - generic [ref=e357]: "❌ Bad: yoursite.com/page123?id=456"
+          - generic [ref=e359]: "✅ Good: yoursite.com/plumber-parramatta"
+        - paragraph [ref=e360]:
+          - strong [ref=e361]: Image Optimization
+        - list [ref=e362]:
+          - listitem [ref=e363]:
+            - text: "File names:"
+            - code [ref=e364]: plumber-parramatta-emergency.jpg
+            - text: (not
+            - code [ref=e365]: IMG_1234.jpg
+            - text: )
+          - listitem [ref=e366]: "ALT tags: “Emergency plumber fixing burst pipe in Parramatta”"
+          - listitem [ref=e367]: Compress images (use TinyPNG or WebP format)
+        - separator [ref=e368]
+        - 'heading "Step 3: Create High-Quality Content" [level=3] [ref=e369]'
+        - paragraph [ref=e370]:
+          - text: Google’s 2025 algorithm rewards
+          - strong [ref=e371]: genuinely helpful content
+          - text: .
+        - paragraph [ref=e372]:
+          - strong [ref=e373]: "Content Framework (Works Every Time):"
+        - list [ref=e374]:
+          - listitem [ref=e375]:
+            - paragraph [ref=e376]:
+              - strong [ref=e377]: Hook
+              - text: (Address the pain point)
+            - list [ref=e378]:
+              - listitem [ref=e379]: “Burst pipe flooding your Parramatta home at 2am? Here’s what to do…”
+          - listitem [ref=e380]:
+            - paragraph [ref=e381]:
+              - strong [ref=e382]: Value
+              - text: (Provide actionable advice)
+            - list [ref=e383]:
+              - listitem [ref=e384]: Step-by-step instructions
+              - listitem [ref=e385]: Checklists
+              - listitem [ref=e386]: Examples
+          - listitem [ref=e387]:
+            - paragraph [ref=e388]:
+              - strong [ref=e389]: Proof
+              - text: (Show credibility)
+            - list [ref=e390]:
+              - listitem [ref=e391]: Case studies
+              - listitem [ref=e392]: Before/after photos
+              - listitem [ref=e393]: Client testimonials
+          - listitem [ref=e394]:
+            - paragraph [ref=e395]:
+              - strong [ref=e396]: CTA
+              - text: (Clear next step)
+            - list [ref=e397]:
+              - listitem [ref=e398]: "“Call us now for 24/7 emergency service: (02) 1234 5678”"
+        - paragraph [ref=e399]:
+          - strong [ref=e400]: "Content Length:"
+        - list [ref=e401]:
+          - listitem [ref=e402]: "Service pages: 1,000-1,500 words"
+          - listitem [ref=e403]: "Blog posts: 1,500-2,500 words"
+          - listitem [ref=e404]: "Pillar pages: 3,000+ words"
+        - paragraph [ref=e405]:
+          - strong [ref=e406]: "Publishing Frequency:"
+        - list [ref=e407]:
+          - listitem [ref=e408]: "Minimum: 1 blog post per week"
+          - listitem [ref=e409]: "Ideal: 2-3 blog posts per week"
+        - separator [ref=e410]
+        - 'heading "Step 4: Technical SEO (Don’t Ignore This)" [level=3] [ref=e411]'
+        - paragraph [ref=e412]: Technical SEO might sound boring, but it’s critical.
+        - paragraph [ref=e413]:
+          - strong [ref=e414]: "Essential Technical Fixes:"
+        - list [ref=e415]:
+          - listitem [ref=e416]:
+            - paragraph [ref=e417]:
+              - strong [ref=e418]: Site Speed
+            - list [ref=e419]:
+              - listitem [ref=e420]: Use Google PageSpeed Insights
+              - listitem [ref=e421]: Aim for 90+ score on mobile
+              - listitem [ref=e422]: Compress images, minify CSS/JS, use CDN
+          - listitem [ref=e423]:
+            - paragraph [ref=e424]:
+              - strong [ref=e425]: Mobile Optimization
+            - list [ref=e426]:
+              - listitem [ref=e427]: Responsive design (scales to any screen)
+              - listitem [ref=e428]: Large, tappable buttons
+              - listitem [ref=e429]: Fast loading on 4G/5G
+          - listitem [ref=e430]:
+            - paragraph [ref=e431]:
+              - strong [ref=e432]: HTTPS/SSL
+            - list [ref=e433]:
+              - listitem [ref=e434]: Google requires secure sites
+              - listitem [ref=e435]: Get free SSL from Cloudflare or Let’s Encrypt
+          - listitem [ref=e436]:
+            - paragraph [ref=e437]:
+              - strong [ref=e438]: XML Sitemap
+            - list [ref=e439]:
+              - listitem [ref=e440]: Create at yoursite.com/sitemap.xml
+              - listitem [ref=e441]: Submit to Google Search Console
+          - listitem [ref=e442]:
+            - paragraph [ref=e443]:
+              - strong [ref=e444]: Robots.txt
+            - list [ref=e445]:
+              - listitem [ref=e446]: Tell Google what to crawl
+              - listitem [ref=e447]: Located at yoursite.com/robots.txt
+          - listitem [ref=e448]:
+            - paragraph [ref=e449]:
+              - strong [ref=e450]: Structured Data (Schema)
+            - list [ref=e451]:
+              - listitem [ref=e452]: Add LocalBusiness schema
+              - listitem [ref=e453]: Add FAQ schema
+              - listitem [ref=e454]: Add Review schema
+              - listitem [ref=e455]: Use Google’s Structured Data Markup Helper
+        - paragraph [ref=e456]:
+          - strong [ref=e457]: "Quick Check:"
+          - text: "Run your site through:"
+        - list [ref=e458]:
+          - listitem [ref=e459]: Google PageSpeed Insights
+          - listitem [ref=e460]: Google Mobile-Friendly Test
+          - listitem [ref=e461]: Google Search Console
+        - separator [ref=e462]
+        - 'heading "Step 5: Build High-Quality Backlinks" [level=3] [ref=e463]'
+        - paragraph [ref=e464]: Backlinks = votes of confidence from other websites.
+        - paragraph [ref=e465]:
+          - strong [ref=e466]: "White-Hat Link Building Strategies for Sydney Businesses:"
+        - paragraph [ref=e467]:
+          - strong [ref=e468]: 1. Local Citations (Easy Wins)
+          - text: "Submit your business to:"
+        - list [ref=e469]:
+          - listitem [ref=e470]: Google My Business (critical!)
+          - listitem [ref=e471]: Yellow Pages Australia
+          - listitem [ref=e472]: True Local
+          - listitem [ref=e473]: Start Local
+          - listitem [ref=e474]: Yelp Australia
+          - listitem [ref=e475]: Hotfrog
+          - listitem [ref=e476]: Service NSW Business Directory
+        - paragraph [ref=e477]:
+          - strong [ref=e478]: 2. Local Partnerships
+        - list [ref=e479]:
+          - listitem [ref=e480]: Join Parramatta Chamber of Commerce (or your suburb)
+          - listitem [ref=e481]: Sponsor local sports teams
+          - listitem [ref=e482]: Partner with complementary businesses
+        - paragraph [ref=e483]:
+          - strong [ref=e484]: 3. Guest Posting
+        - list [ref=e485]:
+          - listitem [ref=e486]: Write for Sydney business blogs
+          - listitem [ref=e487]: Contribute to industry publications
+          - listitem [ref=e488]: LinkedIn articles
+        - paragraph [ref=e489]:
+          - strong [ref=e490]: 4. PR & Media
+        - list [ref=e491]:
+          - listitem [ref=e492]: HARO (Help A Reporter Out) for Australian journalists
+          - listitem [ref=e493]: Send newsworthy stories to Sydney Morning Herald
+          - listitem [ref=e494]: Local community news sites
+        - paragraph [ref=e495]:
+          - strong [ref=e496]: 5. Content That Earns Links
+        - list [ref=e497]:
+          - listitem [ref=e498]: Original research (surveys, data)
+          - listitem [ref=e499]: Infographics
+          - listitem [ref=e500]: Ultimate guides
+          - listitem [ref=e501]: Free tools/calculators
+        - paragraph [ref=e502]:
+          - strong [ref=e503]: "What NOT to do:"
+          - text: ❌ Buy links from Fiverr ❌ Link farms or PBNs ❌ Automated link building tools ❌ Spammy blog comments
+        - separator [ref=e504]
+        - paragraph
+        - heading "Local SEO for Sydney Businesses (The Secret Weapon)" [level=2] [ref=e505]
+        - paragraph [ref=e506]:
+          - text: If you’re targeting Sydney customers,
+          - strong [ref=e507]: local SEO is your unfair advantage
+          - text: .
+        - heading "Google My Business Optimization (Non-Negotiable)" [level=3] [ref=e508]
+        - paragraph [ref=e509]:
+          - strong [ref=e510]: "Step 1: Claim & Verify"
+        - list [ref=e511]:
+          - listitem [ref=e512]: Go to google.com/business
+          - listitem [ref=e513]: Search for your business
+          - listitem [ref=e514]: Claim it (verify by phone or postcard)
+        - paragraph [ref=e515]:
+          - strong [ref=e516]: "Step 2: Complete 100% of Your Profile"
+        - list [ref=e517]:
+          - listitem [ref=e518]: Business name (exact match to website)
+          - listitem [ref=e519]: Address (be specific)
+          - listitem [ref=e520]: Phone number (local Sydney number)
+          - listitem [ref=e521]: Website URL
+          - listitem [ref=e522]: Hours of operation
+          - listitem [ref=e523]: Business category (choose primary + secondary)
+        - paragraph [ref=e524]:
+          - strong [ref=e525]: "Step 3: Add Photos"
+        - list [ref=e526]:
+          - listitem [ref=e527]: Minimum 10 photos
+          - listitem [ref=e528]: "Include: storefront, team, products, before/after, happy customers"
+          - listitem [ref=e529]: Update monthly
+        - paragraph [ref=e530]:
+          - strong [ref=e531]: "Step 4: Post Weekly"
+        - list [ref=e532]:
+          - listitem [ref=e533]: Google Posts show up in search results
+          - listitem [ref=e534]: Share updates, offers, news
+          - listitem [ref=e535]: Include CTA and link
+        - paragraph [ref=e536]:
+          - strong [ref=e537]: "Step 5: Get Reviews"
+        - list [ref=e538]:
+          - listitem [ref=e539]: Ask every happy customer
+          - listitem [ref=e540]: Send follow-up email with Google review link
+          - listitem [ref=e541]: Respond to ALL reviews (positive and negative)
+        - paragraph [ref=e542]:
+          - strong [ref=e543]: "Target:"
+          - text: 50+ reviews with 4.5+ star average
+        - separator [ref=e544]
+        - heading "NAP Consistency (Name, Address, Phone)" [level=3] [ref=e545]
+        - paragraph [ref=e546]:
+          - text: Google cross-references your business info across the web.
+          - strong [ref=e547]: Inconsistencies hurt rankings.
+        - paragraph [ref=e548]:
+          - strong [ref=e549]: "Ensure NAP is identical across:"
+        - list [ref=e550]:
+          - listitem [ref=e551]: Your website
+          - listitem [ref=e552]: Google My Business
+          - listitem [ref=e553]: Facebook
+          - listitem [ref=e554]: Instagram
+          - listitem [ref=e555]: All directories (Yellow Pages, True Local, etc.)
+        - paragraph [ref=e556]:
+          - strong [ref=e557]: "Example:"
+        - code [ref=e559]:
+          - generic [ref=e561]: "❌ Inconsistent:"
+          - generic [ref=e563]: "- \"ABC Plumbing Pty Ltd\" (website)"
+          - generic [ref=e565]: "- \"ABC Plumbing\" (GMB)"
+          - generic [ref=e567]: "- \"ABC Plumbing Services\" (Yellow Pages)"
+          - generic [ref=e569]: "✅ Consistent:"
+          - generic [ref=e571]: "- \"ABC Plumbing\" (everywhere)"
+        - separator [ref=e572]
+        - heading "Suburb-Specific Pages" [level=3] [ref=e573]
+        - paragraph [ref=e574]: "Create dedicated pages for each Sydney suburb you serve:"
+        - paragraph [ref=e575]:
+          - strong [ref=e576]: "Example URL Structure:"
+        - list [ref=e577]:
+          - listitem [ref=e578]: yoursite.com/plumber-parramatta
+          - listitem [ref=e579]: yoursite.com/plumber-bondi
+          - listitem [ref=e580]: yoursite.com/plumber-manly
+          - listitem [ref=e581]: yoursite.com/plumber-chatswood
+        - paragraph [ref=e582]:
+          - strong [ref=e583]: "Each page should include:"
+        - list [ref=e584]:
+          - listitem [ref=e585]: "Suburb-specific title tag: “Plumber Parramatta | 24/7 Emergency Service”"
+          - listitem [ref=e586]: Local landmarks and references
+          - listitem [ref=e587]: Testimonials from customers in that suburb
+          - listitem [ref=e588]: Suburb-specific service areas map
+          - listitem [ref=e589]: Unique content (don’t duplicate!)
+        - paragraph [ref=e590]:
+          - strong [ref=e591]: "Pro Tip:"
+          - text: "Mention nearby suburbs too:"
+        - blockquote [ref=e592]:
+          - paragraph [ref=e593]: “We serve Parramatta, Westmead, Harris Park, Granville, and surrounding areas.”
+        - separator [ref=e594]
+        - heading "Local Content Marketing" [level=3] [ref=e595]
+        - paragraph [ref=e596]:
+          - strong [ref=e597]: "Blog Topic Ideas:"
+        - list [ref=e598]:
+          - listitem [ref=e599]: “Top 10 Plumbing Issues in Parramatta Homes”
+          - listitem [ref=e600]: “Why Bondi Homes Need Regular Plumbing Maintenance”
+          - listitem [ref=e601]: "“Emergency Plumber Near Me: What to Do Before We Arrive”"
+          - listitem [ref=e602]: "“Parramatta Plumbing Costs: What to Expect in 2025”"
+        - paragraph [ref=e603]:
+          - strong [ref=e604]: "Local Link Building:"
+        - list [ref=e605]:
+          - listitem [ref=e606]: Sponsor Parramatta Eels (or local team)
+          - listitem [ref=e607]: Partner with Parramatta real estate agents
+          - listitem [ref=e608]: Guest post on Parramatta local news sites
+        - separator [ref=e609]
+        - paragraph
+        - heading "7 Common SEO Mistakes Sydney Businesses Make (And How to Avoid Them)" [level=2] [ref=e610]
+        - heading "1. Targeting Keywords That Are Too Competitive" [level=3] [ref=e611]
+        - paragraph [ref=e612]:
+          - strong [ref=e613]: "Mistake:"
+          - text: Trying to rank for “plumber Sydney” (10,000+ searches/mo, insane competition)
+        - paragraph [ref=e614]:
+          - strong [ref=e615]: "Fix:"
+          - text: Start with “emergency plumber Parramatta” (720 searches/mo, lower competition)
+        - paragraph [ref=e616]: Once you dominate your suburb, expand to broader keywords.
+        - separator [ref=e617]
+        - heading "2. Ignoring Google My Business" [level=3] [ref=e618]
+        - paragraph [ref=e619]:
+          - strong [ref=e620]: "Mistake:"
+          - text: Incomplete GMB profile, no photos, no reviews
+        - paragraph [ref=e621]:
+          - strong [ref=e622]: "Fix:"
+          - text: Complete 100% of profile, add 10+ photos, get 50+ reviews
+        - paragraph [ref=e623]:
+          - strong [ref=e624]: "Impact:"
+          - text: GMB optimization alone can 2-3x your local visibility.
+        - separator [ref=e625]
+        - heading "3. Publishing Thin, Low-Quality Content" [level=3] [ref=e626]
+        - paragraph [ref=e627]:
+          - strong [ref=e628]: "Mistake:"
+          - text: 300-word blog posts with no real value
+        - paragraph [ref=e629]:
+          - strong [ref=e630]: "Fix:"
+          - text: Publish 1,500+ word comprehensive guides that actually help people
+        - paragraph [ref=e631]:
+          - strong [ref=e632]: "Example:"
+          - text: "❌ “Why You Need SEO” (generic, 400 words) ✅ “Complete SEO Guide for Sydney Small Businesses: 47 Steps to Rank #1” (comprehensive, 3,000 words)"
+        - separator [ref=e633]
+        - heading "4. Buying Cheap Backlinks" [level=3] [ref=e634]
+        - paragraph [ref=e635]:
+          - strong [ref=e636]: "Mistake:"
+          - text: Spending $50 on Fiverr for “1000 backlinks”
+        - paragraph [ref=e637]:
+          - strong [ref=e638]: "Result:"
+          - text: Google penalty, ranking drop, wasted money
+        - paragraph [ref=e639]:
+          - strong [ref=e640]: "Fix:"
+          - text: Build 10 quality backlinks from real Australian sites
+        - paragraph [ref=e641]:
+          - strong [ref=e642]: "Remember:"
+          - text: 1 link from Sydney Morning Herald > 1,000 spammy links
+        - separator [ref=e643]
+        - heading "5. Not Tracking Results" [level=3] [ref=e644]
+        - paragraph [ref=e645]:
+          - strong [ref=e646]: "Mistake:"
+          - text: Doing SEO but never checking if it’s working
+        - paragraph [ref=e647]:
+          - strong [ref=e648]: "Fix:"
+          - text: Set up Google Analytics + Google Search Console
+        - paragraph [ref=e649]:
+          - strong [ref=e650]: "Track These Metrics:"
+        - list [ref=e651]:
+          - listitem [ref=e652]: Organic traffic (monthly)
+          - listitem [ref=e653]: Keyword rankings (weekly)
+          - listitem [ref=e654]: Conversions from organic (calls, forms, sales)
+          - listitem [ref=e655]: Backlinks acquired
+        - separator [ref=e656]
+        - heading "6. Expecting Overnight Results" [level=3] [ref=e657]
+        - paragraph [ref=e658]:
+          - strong [ref=e659]: "Mistake:"
+          - text: "“We’ve been doing SEO for 2 weeks, why aren’t we #1?”"
+        - paragraph [ref=e660]:
+          - strong [ref=e661]: "Reality:"
+          - text: SEO takes 3-6 months to show significant results
+        - paragraph [ref=e662]:
+          - strong [ref=e663]: "Timeline:"
+        - list [ref=e664]:
+          - listitem [ref=e665]: "Month 1: Foundation (research, optimization)"
+          - listitem [ref=e666]: "Month 2-3: Early wins (long-tail keywords start ranking)"
+          - listitem [ref=e667]: "Month 4-6: Major gains (competitive keywords start ranking)"
+          - listitem [ref=e668]: "Month 7+: Compound growth (exponential traffic increases)"
+        - separator [ref=e669]
+        - heading "7. Forgetting Mobile Users" [level=3] [ref=e670]
+        - paragraph [ref=e671]:
+          - strong [ref=e672]: "Mistake:"
+          - text: Desktop-only focus
+        - paragraph [ref=e673]:
+          - strong [ref=e674]: "Reality:"
+          - text: 60%+ of searches happen on mobile
+        - paragraph [ref=e675]:
+          - strong [ref=e676]: "Fix:"
+        - list [ref=e677]:
+          - listitem [ref=e678]: Test your site on your phone
+          - listitem [ref=e679]: Use Google Mobile-Friendly Test
+          - listitem [ref=e680]: Ensure fast loading on mobile (under 3 seconds)
+        - separator [ref=e681]
+        - paragraph
+        - 'heading "Free Download: Sydney SEO Checklist (50-Point Checklist)" [level=2] [ref=e682]'
+        - paragraph [ref=e683]: Want the complete checklist we use for every client?
+        - paragraph [ref=e684]:
+          - strong [ref=e685]: Download our free “Sydney SEO Checklist” PDF
+          - text: "— a 50-point checklist covering:"
+        - list [ref=e686]:
+          - listitem [ref=e687]: ✅ Keyword research
+          - listitem [ref=e688]: ✅ On-page optimization
+          - listitem [ref=e689]: ✅ Technical SEO
+          - listitem [ref=e690]: ✅ Local SEO
+          - listitem [ref=e691]: ✅ Link building
+          - listitem [ref=e692]: ✅ Content strategy
+          - listitem [ref=e693]: ✅ Tracking & reporting
+        - paragraph [ref=e694]:
+          - strong [ref=e695]:
+            - link "Download Free SEO Checklist →" [ref=e696] [cursor=pointer]:
+              - /url: /seo-checklist
+        - separator [ref=e697]
+        - 'heading "Final Thoughts: Ranking #1 is a Marathon, Not a Sprint" [level=2] [ref=e698]'
+        - paragraph [ref=e699]:
+          - text: "Here’s the truth:"
+          - strong [ref=e700]: SEO takes time, effort, and consistency.
+        - paragraph [ref=e701]: "But the payoff is massive:"
+        - list [ref=e702]:
+          - listitem [ref=e703]:
+            - strong [ref=e704]: Free traffic
+            - text: (vs paying for ads forever)
+          - listitem [ref=e705]:
+            - strong [ref=e706]: Higher quality leads
+            - text: (people searching for your service)
+          - listitem [ref=e707]:
+            - strong [ref=e708]: Long-term ROI
+            - text: (rankings compound over time)
+          - listitem [ref=e709]:
+            - strong [ref=e710]: Credibility
+            - text: "(ranking #1 = instant trust)"
+        - paragraph [ref=e711]:
+          - strong [ref=e712]: Most businesses give up after 1-2 months.
+          - text: Don’t be most businesses.
+        - paragraph [ref=e713]: If you implement just 50% of what’s in this guide, you’ll outrank 90% of your competitors.
+        - separator [ref=e714]
+        - heading "Need Help Ranking Your Sydney Business?" [level=2] [ref=e715]
+        - paragraph [ref=e716]: "We’ve helped 100+ Sydney businesses rank #1 for their target keywords."
+        - paragraph [ref=e717]:
+          - strong [ref=e718]: "We offer:"
+        - list [ref=e719]:
+          - listitem [ref=e720]: Free SEO audit (we’ll analyze your site and show you exactly what to fix)
+          - listitem [ref=e721]: Custom SEO strategy (based on your business, goals, and budget)
+          - listitem [ref=e722]: Done-for-you SEO (we handle everything while you focus on running your business)
+        - paragraph [ref=e723]:
+          - strong [ref=e724]:
+            - link "Claim Your Free SEO Audit →" [ref=e725] [cursor=pointer]:
+              - /url: /contact
+        - paragraph [ref=e726]:
+          - text: "Or call us:"
+          - strong [ref=e727]: (02) 1234 5678
+          - text: (real number coming soon)
+        - separator [ref=e728]
+        - 'heading "FAQs: Ranking on Google in 2025" [level=2] [ref=e729]'
+        - 'heading "How long does it take to rank #1 on Google?" [level=3] [ref=e730]'
+        - paragraph [ref=e731]: Typically 3-6 months for competitive keywords in Sydney. Long-tail keywords can rank in 4-8 weeks. It depends on competition, your current authority, and how aggressively you implement SEO.
+        - heading "How much does SEO cost for a Sydney business?" [level=3] [ref=e732]
+        - paragraph [ref=e733]: DIY SEO costs $100-500/month (tools and time). Hiring an agency costs $1,500-$5,000/month depending on competition and scope. Our packages start at $1,200/month for small businesses.
+        - heading "Can I rank without building backlinks?" [level=3] [ref=e734]
+        - paragraph [ref=e735]: For very low-competition keywords, yes. But for most Sydney business keywords, you’ll need quality backlinks to compete.
+        - heading "Is SEO better than Google Ads?" [level=3] [ref=e736]
+        - paragraph [ref=e737]: "Both have pros/cons. SEO = long-term, free traffic. Google Ads = immediate traffic, but you pay forever. Best strategy: Do both."
+        - heading "How do I know if my SEO is working?" [level=3] [ref=e738]
+        - paragraph [ref=e739]: "Track these metrics in Google Analytics:"
+        - list [ref=e740]:
+          - listitem [ref=e741]: Organic traffic increasing month-over-month
+          - listitem [ref=e742]: Keyword rankings improving
+          - listitem [ref=e743]: More calls/forms from organic search
+          - listitem [ref=e744]: Lower bounce rate, higher time on site
+        - heading "Do I need to hire an SEO agency?" [level=3] [ref=e745]
+        - paragraph [ref=e746]: Not necessarily. Small businesses can DIY SEO using this guide. But if you’re time-poor or in a competitive industry, an agency can accelerate results.
+        - separator [ref=e747]
+        - paragraph [ref=e748]:
+          - strong [ref=e749]: "About the Author:"
+        - paragraph [ref=e750]: Avi Sharma is the founder of The Profit Platform, a Sydney digital marketing agency specializing in SEO, Google Ads, and web design. He’s helped 100+ Sydney businesses increase their online visibility and revenue.
+        - paragraph [ref=e751]:
+          - link "Connect on LinkedIn" [ref=e752] [cursor=pointer]:
+            - /url: "#"
+          - text: "|"
+          - link "Follow on Twitter" [ref=e753] [cursor=pointer]:
+            - /url: "#"
+        - separator [ref=e754]
+        - paragraph [ref=e755]:
+          - strong [ref=e756]: "Related Articles:"
+        - list [ref=e757]:
+          - listitem [ref=e758]:
+            - 'link "Google Ads vs SEO: Which is Better for Sydney Businesses?" [ref=e759] [cursor=pointer]':
+              - /url: "#"
+          - listitem [ref=e760]:
+            - 'link "Local SEO Checklist: 47 Steps to Dominate Sydney Search" [ref=e761] [cursor=pointer]':
+              - /url: "#"
+          - listitem [ref=e762]:
+            - link "How Much Should You Budget for Digital Marketing in Sydney?" [ref=e763] [cursor=pointer]:
+              - /url: "#"
+        - separator [ref=e764]
+        - paragraph [ref=e765]:
+          - emphasis [ref=e766]: "Published: January 15, 2025"
+          - emphasis [ref=e767]: "Last Updated: January 15, 2025"
+          - emphasis [ref=e768]: "Reading Time: 12 minutes"
+      - complementary [ref=e770]:
+        - img [ref=e772]
+        - generic [ref=e774]:
+          - heading "About Avi Sharma" [level=4] [ref=e775]
+          - paragraph [ref=e776]: We're a digital marketing agency specializing in scalable SEO and growth strategies for Australian businesses. Based in Sydney, we've helped hundreds of companies dominate local search results.
+          - link "Learn more about us →" [ref=e777] [cursor=pointer]:
+            - /url: /about
+      - complementary [ref=e778]:
+        - heading "Ready to grow your business?" [level=3] [ref=e779]
+        - paragraph [ref=e780]: Let's talk about how we can help you achieve results like these.
+        - link "Schedule a Free Consultation" [ref=e781] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e782]:
+        - heading "Comments & Discussion" [level=3] [ref=e783]
+        - paragraph [ref=e784]: Share your thoughts or ask questions about this article. Sign in with GitHub to comment.
+        - iframe [ref=e787]
+    - generic [ref=e789]:
+      - heading "Continue Reading" [level=3] [ref=e790]
+      - generic [ref=e791]:
+        - article [ref=e792]:
+          - link "SEO How to Optimise Your Google Business Profile for Sydney Local Search in 2025 Discover how to optimise your Google Business Profile Sydney listing for 2025. Get found first in local search and stop losing $30k+ annually to competitors. 4 Oct 2025" [ref=e793] [cursor=pointer]:
+            - /url: /blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025
+            - generic [ref=e794] [cursor=pointer]: SEO
+            - heading "How to Optimise Your Google Business Profile for Sydney Local Search in 2025" [level=4] [ref=e795] [cursor=pointer]
+            - paragraph [ref=e796] [cursor=pointer]: Discover how to optimise your Google Business Profile Sydney listing for 2025. Get found first in local search and stop losing $30k+ annually to competitors.
+            - time [ref=e798] [cursor=pointer]: 4 Oct 2025
+        - article [ref=e799]:
+          - link "marketing How to Scale Local SEO Across Multiple Locations A proven framework for businesses expanding to new cities and regions. Learn how to dominate local search at scale. 1 Oct 2025" [ref=e800] [cursor=pointer]:
+            - /url: /blog/how-to-scale-local-seo
+            - generic [ref=e801] [cursor=pointer]: marketing
+            - heading "How to Scale Local SEO Across Multiple Locations" [level=4] [ref=e802] [cursor=pointer]
+            - paragraph [ref=e803] [cursor=pointer]: A proven framework for businesses expanding to new cities and regions. Learn how to dominate local search at scale.
+            - time [ref=e805] [cursor=pointer]: 1 Oct 2025
+        - article [ref=e806]:
+          - 'link "Marketing Strategy Google Ads vs SEO: Which is Better for Sydney Small Businesses? The ultimate comparison guide for Sydney businesses deciding between Google Ads and SEO. Real data, pros/cons, and when to use each strategy. 22 Jan 2025" [ref=e807] [cursor=pointer]':
+            - /url: /blog/google-ads-vs-seo-sydney-businesses
+            - generic [ref=e808] [cursor=pointer]: Marketing Strategy
+            - 'heading "Google Ads vs SEO: Which is Better for Sydney Small Businesses?" [level=4] [ref=e809] [cursor=pointer]'
+            - paragraph [ref=e810] [cursor=pointer]: The ultimate comparison guide for Sydney businesses deciding between Google Ads and SEO. Real data, pros/cons, and when to use each strategy.
+            - time [ref=e812] [cursor=pointer]: 22 Jan 2025
+  - contentinfo [ref=e813]:
+    - generic [ref=e814]:
+      - generic [ref=e815]:
+        - generic [ref=e816]:
+          - heading "The Profit Platform" [level=3] [ref=e817]
+          - paragraph [ref=e818]: We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.
+          - list "Social media links" [ref=e819]:
+            - listitem "Follow us on Facebook" [ref=e820] [cursor=pointer]:
+              - generic [ref=e821] [cursor=pointer]: 
+            - listitem "Follow us on Instagram" [ref=e822] [cursor=pointer]:
+              - generic [ref=e823] [cursor=pointer]: 
+            - listitem "Connect with us on LinkedIn" [ref=e824] [cursor=pointer]:
+              - generic [ref=e825] [cursor=pointer]: 
+            - listitem "Follow us on Twitter" [ref=e826] [cursor=pointer]:
+              - generic [ref=e827] [cursor=pointer]: 
+            - listitem "Subscribe to our YouTube channel" [ref=e828] [cursor=pointer]:
+              - generic [ref=e829] [cursor=pointer]: 
+          - generic [ref=e830]:
+            - generic [ref=e831]:
+              - generic [ref=e832]: 
+              - link "0487 286 451" [ref=e833] [cursor=pointer]:
+                - /url: tel:+61487286451
+            - generic [ref=e834]:
+              - generic [ref=e835]: 
+              - link "avi@theprofitplatform.com.au" [ref=e836] [cursor=pointer]:
+                - /url: mailto:avi@theprofitplatform.com.au
+            - generic [ref=e837]:
+              - generic [ref=e838]: 
+              - generic [ref=e839]: Sydney, NSW, Australia
+        - generic [ref=e840]:
+          - heading "Services" [level=3] [ref=e841]
+          - list [ref=e842]:
+            - listitem [ref=e843]:
+              - link " SEO & Local Search" [ref=e844] [cursor=pointer]:
+                - /url: /seo
+                - generic [ref=e845] [cursor=pointer]: 
+                - text: SEO & Local Search
+            - listitem [ref=e846]:
+              - link " Google Ads Management" [ref=e847] [cursor=pointer]:
+                - /url: /google-ads
+                - generic [ref=e848] [cursor=pointer]: 
+                - text: Google Ads Management
+            - listitem [ref=e849]:
+              - link " Social Media Advertising" [ref=e850] [cursor=pointer]:
+                - /url: /google-ads
+                - generic [ref=e851] [cursor=pointer]: 
+                - text: Social Media Advertising
+            - listitem [ref=e852]:
+              - link " Website Design" [ref=e853] [cursor=pointer]:
+                - /url: /web-design
+                - generic [ref=e854] [cursor=pointer]: 
+                - text: Website Design
+            - listitem [ref=e855]:
+              - link " Conversion Optimization" [ref=e856] [cursor=pointer]:
+                - /url: /services#conversion
+                - generic [ref=e857] [cursor=pointer]: 
+                - text: Conversion Optimization
+            - listitem [ref=e858]:
+              - link "Analytics & Reporting" [ref=e859] [cursor=pointer]:
+                - /url: /services#analytics
+                - text: Analytics & Reporting
+        - generic [ref=e860]:
+          - heading "Company" [level=3] [ref=e861]
+          - list [ref=e862]:
+            - listitem [ref=e863]:
+              - link " About Us" [ref=e864] [cursor=pointer]:
+                - /url: /about
+                - generic [ref=e865] [cursor=pointer]: 
+                - text: About Us
+            - listitem [ref=e866]:
+              - link " Case Studies" [ref=e867] [cursor=pointer]:
+                - /url: /portfolio
+                - generic [ref=e868] [cursor=pointer]: 
+                - text: Case Studies
+            - listitem [ref=e869]:
+              - link " Blog" [ref=e870] [cursor=pointer]:
+                - /url: /blog
+                - generic [ref=e871] [cursor=pointer]: 
+                - text: Blog
+            - listitem [ref=e872]:
+              - link " Careers" [ref=e873] [cursor=pointer]:
+                - /url: /about#careers
+                - generic [ref=e874] [cursor=pointer]: 
+                - text: Careers
+            - listitem [ref=e875]:
+              - link " Partners" [ref=e876] [cursor=pointer]:
+                - /url: /about#partners
+                - generic [ref=e877] [cursor=pointer]: 
+                - text: Partners
+            - listitem [ref=e878]:
+              - link " Contact" [ref=e879] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e880] [cursor=pointer]: 
+                - text: Contact
+        - generic [ref=e881]:
+          - heading "Resources" [level=3] [ref=e882]
+          - list [ref=e883]:
+            - listitem [ref=e884]:
+              - link " Free Marketing Audit" [ref=e885] [cursor=pointer]:
+                - /url: /contact
+                - generic [ref=e886] [cursor=pointer]: 
+                - text: Free Marketing Audit
+            - listitem [ref=e887]:
+              - link " Free SEO Guide" [ref=e888] [cursor=pointer]:
+                - /url: /blog/seo-guide
+                - generic [ref=e889] [cursor=pointer]: 
+                - text: Free SEO Guide
+            - listitem [ref=e890]:
+              - link " Google Ads Guide" [ref=e891] [cursor=pointer]:
+                - /url: /blog/google-ads-guide
+                - generic [ref=e892] [cursor=pointer]: 
+                - text: Google Ads Guide
+            - listitem [ref=e893]:
+              - link " Local SEO Checklist" [ref=e894] [cursor=pointer]:
+                - /url: /local-seo-checklist
+                - generic [ref=e895] [cursor=pointer]: 
+                - text: Local SEO Checklist
+            - listitem [ref=e896]:
+              - link " Free Webinars" [ref=e897] [cursor=pointer]:
+                - /url: /webinars
+                - generic [ref=e898] [cursor=pointer]: 
+                - text: Free Webinars
+            - listitem [ref=e899]:
+              - link " Free Tools" [ref=e900] [cursor=pointer]:
+                - /url: /tools
+                - generic [ref=e901] [cursor=pointer]: 
+                - text: Free Tools
+      - generic [ref=e902]:
+        - paragraph [ref=e903]: © 2024 The Profit Platform. All rights reserved.
+        - list [ref=e904]:
+          - listitem [ref=e905]:
+            - link "Privacy Policy" [ref=e906] [cursor=pointer]:
+              - /url: /privacy-policy
+          - listitem [ref=e907]:
+            - link "Terms of Service" [ref=e908] [cursor=pointer]:
+              - /url: /terms-of-service
+          - listitem [ref=e909]:
+            - link "Sitemap" [ref=e910] [cursor=pointer]:
+              - /url: /sitemap
+```

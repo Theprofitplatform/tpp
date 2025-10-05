@@ -8,6 +8,11 @@ tags: ["Google Ads", "SEO", "PPC", "Sydney Business", "Marketing Budget"]
 featured: true
 image: "/images/blog/google-ads-vs-seo.jpg"
 readTime: "10 min"
+coverImage: "https://images.unsplash.com/photo-1582815642136-79414fb03910?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxHb29nbGUlMjBBZHMlMjB2cyUyMFNFTyUzQSUyMFdoaWNoJTIwaXMlMjBCZXR0ZXIlMjBmb3IlMjBTeWRuZXklMjBTbWFsbCUyMEJ1c2luZXNzZXMlM0Z8ZW58MXwwfHx8MTc1OTY1OTQzOHww&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "man in black jacket sitting on bench near white and red UNK store during daytime"
+coverImageCredit:
+  name: "Claudio Schwarz"
+  link: "https://unsplash.com/@purzlbaum"
 ---
 
 # Google Ads vs SEO: Which is Better for Sydney Small Businesses?
