@@ -1,21 +1,6 @@
 {
   "queue": [
     {
-      "id": 2,
-      "title": "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month",
-      "category": "Google Ads",
-      "tags": [
-        "PPC",
-        "Google Ads",
-        "Cost Optimization",
-        "Sydney"
-      ],
-      "targetKeyword": "google ads mistakes sydney",
-      "searchIntent": "commercial",
-      "priority": 1,
-      "status": "pending"
-    },
-    {
       "id": 3,
       "title": "Website Speed Optimization: How Sydney Businesses Can Improve Core Web Vitals",
       "category": "Web Design",
@@ -529,6 +514,25 @@
       "publishedSlug": "how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025",
       "wordCount": 3124,
       "author": "TPP Team"
+    },
+    {
+      "id": 2,
+      "title": "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month",
+      "category": "Google Ads",
+      "tags": [
+        "PPC",
+        "Google Ads",
+        "Cost Optimization",
+        "Sydney"
+      ],
+      "targetKeyword": "google ads mistakes sydney",
+      "searchIntent": "commercial",
+      "priority": 1,
+      "status": "published",
+      "publishedDate": "2025-10-05",
+      "publishedSlug": "7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month",
+      "wordCount": 2670,
+      "author": "Avi"
     }
   ],
   "config": {
