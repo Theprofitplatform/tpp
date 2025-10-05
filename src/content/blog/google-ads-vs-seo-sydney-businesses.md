@@ -2,7 +2,7 @@
 title: "Google Ads vs SEO: Which is Better for Sydney Small Businesses?"
 description: "The ultimate comparison guide for Sydney businesses deciding between Google Ads and SEO. Real data, pros/cons, and when to use each strategy."
 pubDate: 2025-01-22
-author: "Avi Sharma"
+author: "Avi"
 category: "Marketing Strategy"
 tags: ["Google Ads", "SEO", "PPC", "Sydney Business", "Marketing Budget"]
 featured: true
@@ -738,7 +738,7 @@ Over 12-24 months, SEO takes over as your primary lead source, and Google Ads be
 
 **About the Author:**
 
-Avi Sharma is the founder of The Profit Platform, a Sydney digital marketing agency specializing in Google Ads and SEO. He's managed over $2M in Google Ads spend for Sydney businesses and helped 100+ companies rank #1 on Google.
+Avi is the founder of The Profit Platform, a Sydney digital marketing agency specializing in Google Ads and SEO. He's managed over $2M in Google Ads spend for Sydney businesses and helped 100+ companies rank #1 on Google.
 
 [Connect on LinkedIn](#) | [Read More Articles](/blog)
 

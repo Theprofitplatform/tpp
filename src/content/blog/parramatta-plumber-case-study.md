@@ -2,7 +2,7 @@
 title: "Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days"
 description: "Real results from a local Parramatta plumbing business. See the exact digital marketing strategies that generated 160% more phone calls in one month."
 publishDate: 2025-01-29
-author: "Avi Sharma"
+author: "Avi"
 category: "case-studies"
 tags: ["Case Study", "Local SEO", "Google Ads", "Parramatta", "Results"]
 featured: true
@@ -567,7 +567,7 @@ Want to DIY this?
 
 **About the Author:**
 
-Avi Sharma is the founder of The Profit Platform, a Sydney digital marketing agency. He specializes in helping local service businesses generate more leads through Google Ads and SEO.
+Avi is the founder of The Profit Platform, a Sydney digital marketing agency. He specializes in helping local service businesses generate more leads through Google Ads and SEO.
 
 This case study represents a real client (anonymized for privacy). Results may vary based on market, competition, and execution.
 

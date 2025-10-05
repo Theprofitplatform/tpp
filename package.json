@@ -16,6 +16,8 @@
     "blog:validate": "node automation/scripts/validate-content.js",
     "blog:plagiarism": "node automation/scripts/plagiarism-check.js",
     "blog:images": "node automation/scripts/update-blog-images.mjs",
+    "blog:link-map": "node automation/scripts/build-internal-link-map.mjs",
+    "blog:performance": "node automation/scripts/track-performance.mjs",
     "blog:test": "npm run blog:generate && npm run blog:validate",
     "test:blog": "npx playwright test tests/blog-verification.spec.js"
   },

@@ -1,0 +1,133 @@
+{
+  "generatedAt": "2025-10-05T12:41:29.776Z",
+  "summary": {
+    "totalPosts": 8,
+    "avgWordCount": 2245,
+    "avgHeadings": 30.9,
+    "avgInternalLinks": 4,
+    "avgExternalLinks": 2.4,
+    "postsWithImages": 4
+  },
+  "categories": {
+    "Google Ads": 2,
+    "SEO": 1,
+    "marketing": 2,
+    "tools-resources": 1,
+    "case-studies": 1,
+    "Marketing Strategy": 1
+  },
+  "posts": [
+    {
+      "slug": "2025-10-05-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month",
+      "title": "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month",
+      "category": "Google Ads",
+      "publishDate": "2025-10-05T00:00:00.000Z",
+      "daysSince": 0,
+      "wordCount": 2671,
+      "quality": {
+        "headings": 35,
+        "internalLinks": 6,
+        "externalLinks": 3,
+        "hasImage": true
+      }
+    },
+    {
+      "slug": "2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST",
+      "title": "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month",
+      "category": "Google Ads",
+      "publishDate": "2025-10-04T00:00:00.000Z",
+      "daysSince": 1,
+      "wordCount": 222,
+      "quality": {
+        "headings": 9,
+        "internalLinks": 0,
+        "externalLinks": 0,
+        "hasImage": true
+      }
+    },
+    {
+      "slug": "2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025",
+      "title": "How to Optimise Your Google Business Profile for Sydney Local Search in 2025",
+      "category": "SEO",
+      "publishDate": "2025-10-04T00:00:00.000Z",
+      "daysSince": 1,
+      "wordCount": 3125,
+      "quality": {
+        "headings": 18,
+        "internalLinks": 2,
+        "externalLinks": 0,
+        "hasImage": true
+      }
+    },
+    {
+      "slug": "how-to-scale-local-seo",
+      "title": "How to Scale Local SEO Across Multiple Locations",
+      "category": "marketing",
+      "publishDate": "2025-10-01T00:00:00.000Z",
+      "daysSince": 4,
+      "wordCount": 413,
+      "quality": {
+        "headings": 10,
+        "internalLinks": 1,
+        "externalLinks": 0,
+        "hasImage": true
+      }
+    },
+    {
+      "slug": "15-free-digital-marketing-tools-sydney-business",
+      "title": "15 Free Digital Marketing Tools Every Sydney Business Needs in 2025",
+      "category": "tools-resources",
+      "publishDate": "2025-02-05T00:00:00.000Z",
+      "daysSince": 242,
+      "wordCount": 3050,
+      "quality": {
+        "headings": 39,
+        "internalLinks": 9,
+        "externalLinks": 16,
+        "hasImage": false
+      }
+    },
+    {
+      "slug": "parramatta-plumber-case-study",
+      "title": "Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days",
+      "category": "case-studies",
+      "publishDate": "2025-01-29T00:00:00.000Z",
+      "daysSince": 249,
+      "wordCount": 2543,
+      "quality": {
+        "headings": 37,
+        "internalLinks": 7,
+        "externalLinks": 0,
+        "hasImage": false
+      }
+    },
+    {
+      "slug": "google-ads-vs-seo-sydney-businesses",
+      "title": "Google Ads vs SEO: Which is Better for Sydney Small Businesses?",
+      "category": "Marketing Strategy",
+      "publishDate": "2025-01-22T00:00:00.000Z",
+      "daysSince": 256,
+      "wordCount": 3347,
+      "quality": {
+        "headings": 60,
+        "internalLinks": 5,
+        "externalLinks": 0,
+        "hasImage": false
+      }
+    },
+    {
+      "slug": "how-sydney-businesses-rank-number-1-google-2025",
+      "title": "How Sydney Businesses Can Rank #1 on Google in 2025",
+      "category": "marketing",
+      "publishDate": "2025-01-15T00:00:00.000Z",
+      "daysSince": 263,
+      "wordCount": 2589,
+      "quality": {
+        "headings": 39,
+        "internalLinks": 2,
+        "externalLinks": 0,
+        "hasImage": false
+      }
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 title: "How Sydney Businesses Can Rank #1 on Google in 2025"
 description: "A comprehensive, step-by-step guide to dominating Google search results for Sydney businesses. Learn the exact SEO strategies that get results."
 publishDate: 2025-01-15
-author: "Avi Sharma"
+author: "Avi"
 category: "marketing"
 tags: ["SEO", "Google Ranking", "Sydney Business", "Local SEO", "2025"]
 featured: true
@@ -573,7 +573,7 @@ Not necessarily. Small businesses can DIY SEO using this guide. But if you're ti
 
 **About the Author:**
 
-Avi Sharma is the founder of The Profit Platform, a Sydney digital marketing agency specializing in SEO, Google Ads, and web design. He's helped 100+ Sydney businesses increase their online visibility and revenue.
+Avi is the founder of The Profit Platform, a Sydney digital marketing agency specializing in SEO, Google Ads, and web design. He's helped 100+ Sydney businesses increase their online visibility and revenue.
 
 [Connect on LinkedIn](#) | [Follow on Twitter](#)
 

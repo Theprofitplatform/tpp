@@ -35,21 +35,86 @@ const publishDate = post.data.publishDate || post.data.pubDate || new Date();
 const wordCount = post.body.split(/\s+/).length;
 const readingTime = Math.ceil(wordCount / 200);
 
+// Author profiles for schema and bio
+const authorProfiles = {
+  "Avi": {
+    name: "Avi",
+    jobTitle: "Founder & SEO Strategist",
+    bio: "Avi is the founder of The Profit Platform with over 10 years of experience in digital marketing and SEO. He's helped hundreds of Australian businesses achieve first-page Google rankings and sustainable growth.",
+    email: "avi@theprofitplatform.com.au",
+    url: "https://theprofitplatform.com.au/about",
+    sameAs: [
+      "https://www.linkedin.com/company/theprofitplatform",
+      "https://twitter.com/profitplatform"
+    ]
+  },
+  "TPP Team": {
+    name: "The Profit Platform Team",
+    jobTitle: "Digital Marketing Experts",
+    bio: "Our team of digital marketing specialists brings together expertise in SEO, Google Ads, content marketing, and web design. We're passionate about helping Australian businesses grow through data-driven strategies.",
+    email: "team@theprofitplatform.com.au",
+    url: "https://theprofitplatform.com.au/about",
+    sameAs: [
+      "https://www.linkedin.com/company/theprofitplatform",
+      "https://twitter.com/profitplatform"
+    ]
+  },
+  "The Profit Platform": {
+    name: "The Profit Platform",
+    jobTitle: "Digital Marketing Agency",
+    bio: "We're a digital marketing agency specializing in scalable SEO and growth strategies for Australian businesses. Based in Sydney, we've helped hundreds of companies dominate local search results.",
+    email: "info@theprofitplatform.com.au",
+    url: "https://theprofitplatform.com.au/about",
+    sameAs: [
+      "https://www.linkedin.com/company/theprofitplatform",
+      "https://www.facebook.com/theprofitplatform",
+      "https://www.instagram.com/theprofitplatform"
+    ]
+  }
+};
+
+const currentAuthor = authorProfiles[post.data.author] || authorProfiles["The Profit Platform"];
+
 const schema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": post.data.title,
   "description": post.data.description,
+  "image": post.data.coverImage ? {
+    "@type": "ImageObject",
+    "url": post.data.coverImage,
+    "width": 1200,
+    "height": 630
+  } : undefined,
   "datePublished": publishDate.toISOString(),
   "dateModified": post.data.updatedDate ? post.data.updatedDate.toISOString() : publishDate.toISOString(),
   "author": {
-    "@type": "Organization",
-    "name": post.data.author
+    "@type": "Person",
+    "name": currentAuthor.name,
+    "jobTitle": currentAuthor.jobTitle,
+    "email": currentAuthor.email,
+    "url": currentAuthor.url,
+    "sameAs": currentAuthor.sameAs
   },
   "publisher": {
     "@type": "Organization",
-    "name": "The Profit Platform"
-  }
+    "name": "The Profit Platform",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://theprofitplatform.com.au/logo.png"
+    },
+    "url": "https://theprofitplatform.com.au"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://theprofitplatform.com.au/blog/${post.slug}/`
+  },
+  "wordCount": wordCount,
+  "articleSection": post.data.category,
+  "keywords": post.data.tags ? post.data.tags.join(', ') : undefined,
+  "inLanguage": "en-AU",
+  "isAccessibleForFree": true,
+  "timeRequired": `PT${readingTime}M`
 };
 ---
 
@@ -219,9 +284,10 @@ const schema = {
           </svg>
         </div>
         <div class="author-bio-content">
-          <h4>About {post.data.author}</h4>
-          <p>We're a digital marketing agency specializing in scalable SEO and growth strategies for Australian businesses. Based in Sydney, we've helped hundreds of companies dominate local search results.</p>
-          <a href="/about" class="author-bio-link">Learn more about us →</a>
+          <h4>About {currentAuthor.name}</h4>
+          <p class="author-job-title">{currentAuthor.jobTitle}</p>
+          <p>{currentAuthor.bio}</p>
+          <a href={currentAuthor.url} class="author-bio-link">Learn more →</a>
         </div>
       </aside>
 

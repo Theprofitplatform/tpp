@@ -2,7 +2,7 @@
 title: "15 Free Digital Marketing Tools Every Sydney Business Needs in 2025"
 description: "Save thousands on marketing tools. This curated list of free tools covers SEO, social media, design, analytics, and more for Sydney businesses."
 publishDate: 2025-02-05
-author: "Avi Sharma"
+author: "Avi"
 category: "tools-resources"
 tags: ["Marketing Tools", "Free Resources", "Productivity", "Sydney Business", "2025"]
 featured: true
@@ -777,7 +777,7 @@ Then add tools as you grow.
 
 **About the Author:**
 
-Avi Sharma is the founder of The Profit Platform, a Sydney digital marketing agency. He's tested 500+ marketing tools over 5 years and uses these free tools daily for client work.
+Avi is the founder of The Profit Platform, a Sydney digital marketing agency. He's tested 500+ marketing tools over 5 years and uses these free tools daily for client work.
 
 [Connect on LinkedIn](#) | [Read More Marketing Guides](/blog)
 

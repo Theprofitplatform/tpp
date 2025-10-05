@@ -40,6 +40,10 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
+      - name: 🔗 Build internal link map
+        run: npm run blog:link-map
+        continue-on-error: true  # Don't fail if link map fails (first post might not have links)
+
       - name: 🤖 Generate blog post
         id: generate
         run: node automation/scripts/generate-blog-post.js

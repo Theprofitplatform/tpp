@@ -80,6 +80,33 @@ async function generateBlogPost() {
       'utf-8'
     );
 
+    // 4.5 Load internal link map for intelligent linking
+    let relatedPosts = [];
+    try {
+      const linkMapPath = path.join(projectRoot, 'automation/internal-link-map.json');
+      const linkMap = JSON.parse(await fs.readFile(linkMapPath, 'utf-8'));
+
+      // Find posts related to this topic's category/tags
+      const relevantPosts = Object.values(linkMap)
+        .filter(post =>
+          post.category === topic.category ||
+          post.tags.some(tag => topic.tags.includes(tag))
+        )
+        .slice(0, 5);
+
+      relatedPosts = relevantPosts.map(p => ({
+        title: p.title,
+        url: p.url,
+        category: p.category
+      }));
+
+      if (relatedPosts.length > 0) {
+        console.log(`🔗 Found ${relatedPosts.length} related posts for internal linking`);
+      }
+    } catch (error) {
+      console.warn('⚠️  Internal link map not found, skipping intelligent linking');
+    }
+
     // 5. Build prompt with caching
     const systemPrompt = `You are an expert digital marketing content writer for The Profit Platform, a Sydney-based agency.
 
@@ -88,13 +115,25 @@ ${brandGuidelines}
 
 Follow these guidelines strictly to maintain brand voice and quality standards.`;
 
+    // Add related posts for internal linking
+    let relatedPostsSection = '';
+    if (relatedPosts.length > 0) {
+      relatedPostsSection = `\n\nRELATED POSTS FOR INTERNAL LINKING:
+Include 2-3 contextual internal links to these related blog posts:
+
+${relatedPosts.map(p => `- [${p.title}](${p.url}) - ${p.category}`).join('\n')}
+
+Link to these posts naturally where relevant in the content. Use contextual anchor text, not "click here".`;
+    }
+
     const userPrompt = template
       .replace('{brand_guidelines}', '(see system context)')
       .replace('{title}', topic.title)
       .replace('{target_keyword}', topic.targetKeyword)
       .replace('{category}', topic.category)
       .replace('{tags}', topic.tags.join(', '))
-      .replace('{search_intent}', topic.searchIntent);
+      .replace('{search_intent}', topic.searchIntent)
+      + relatedPostsSection;
 
     // 6. Generate content with Claude
     console.log('🧠 Generating content with Claude API...');
