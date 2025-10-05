@@ -53,11 +53,38 @@ import Header from '../components/Header.astro';
       <div class="container">
         <div class="tools-grid-modern">
 
-          <!-- SEO Opportunity Calculator - FEATURED -->
-          <a href="/tools/seo-opportunity" class="tool-card-modern featured hot-tool" style="opacity: 1 !important; visibility: visible !important;">
+          <!-- Keyword Gap Analyzer - FEATURED -->
+          <a href="/tools/keyword-gap" class="tool-card-modern featured hot-tool" style="opacity: 1 !important; visibility: visible !important;">
             <div class="tool-badge-modern featured-badge hot-badge">
               <i class="fas fa-fire"></i>
               <span>🔥 NEW & HOT</span>
+            </div>
+            <div class="tool-icon-modern">
+              <div class="icon-bg-gradient hot-gradient"></div>
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h2>Keyword Gap Analyzer</h2>
+            <p>
+              Discover keywords your competitors rank for that you don't. Get real Google SERP positions,
+              easy win opportunities, and calculate your potential revenue from missing keywords.
+            </p>
+            <div class="tool-features-modern">
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> Real SERP Data</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> Competitor Analysis</span>
+              <span class="feature-tag-modern"><i class="fas fa-check"></i> Revenue Calculator</span>
+            </div>
+            <div class="tool-cta-modern hot-cta">
+              <span>Find Keyword Gaps</span>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+            <div class="card-shine hot-shine"></div>
+          </a>
+
+          <!-- SEO Opportunity Calculator -->
+          <a href="/tools/seo-opportunity" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <div class="tool-badge-modern popular-badge">
+              <i class="fas fa-star"></i>
+              <span>POPULAR</span>
             </div>
             <div class="tool-icon-modern">
               <div class="icon-bg-gradient hot-gradient"></div>
@@ -269,33 +296,6 @@ import Header from '../components/Header.astro';
             <div class="card-shine"></div>
           </a>
 
-          <!-- n8n Workflow Triggers -->
-          <a href="/n8n" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
-            <div class="tool-badge-modern automation-badge">
-              <i class="fas fa-robot"></i>
-              <span>AUTOMATION</span>
-            </div>
-            <div class="tool-icon-modern">
-              <div class="icon-bg-gradient"></div>
-              <i class="fas fa-wand-magic-sparkles"></i>
-            </div>
-            <h2>n8n Workflow Triggers</h2>
-            <p>
-              Manually trigger your n8n automation workflows. Run AI agents,
-              data processing, and marketing automations on demand.
-            </p>
-            <div class="tool-features-modern">
-              <span class="feature-tag-modern"><i class="fas fa-check"></i> Custom Workflows</span>
-              <span class="feature-tag-modern"><i class="fas fa-check"></i> One-Click Trigger</span>
-              <span class="feature-tag-modern"><i class="fas fa-check"></i> Real-time Updates</span>
-            </div>
-            <div class="tool-cta-modern">
-              <span>Run Workflows</span>
-              <i class="fas fa-arrow-right"></i>
-            </div>
-            <div class="card-shine"></div>
-          </a>
-
         </div>
       </div>
     </section>
@@ -398,7 +398,7 @@ import Header from '../components/Header.astro';
     min-height: auto;
     display: flex;
     align-items: center;
-    padding: 140px 0 50px !important;
+    padding: 140px 0 80px !important;
     overflow: hidden;
     background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
   }
@@ -406,7 +406,7 @@ import Header from '../components/Header.astro';
   @media (min-width: 769px) {
     main#main-content section.tools-hero-modern.tools-hero-modern {
       min-height: auto;
-      padding: 180px 0 20px !important;
+      padding: 180px 0 100px !important;
     }
   }
 
@@ -504,21 +504,23 @@ import Header from '../components/Header.astro';
   }
 
   .hero-title-gradient {
-    font-size: 3.5rem;
-    font-weight: 900;
-    margin: 0.5rem 0 1rem;
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0.75rem 0 1.25rem;
     background: linear-gradient(135deg, #2c86f9 0%, #667eea 50%, #764ba2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.2;
   }
 
   .hero-subtitle-modern {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     color: #475569;
-    line-height: 1.8;
-    max-width: 700px;
-    margin: 0 auto 1.5rem;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: 0 auto 2rem;
+    font-weight: 400;
   }
 
   .highlight-text {
@@ -529,11 +531,11 @@ import Header from '../components/Header.astro';
   /* Hero Stats */
   .hero-stats-inline {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     opacity: 1 !important;
     visibility: visible !important;
   }
@@ -541,13 +543,13 @@ import Header from '../components/Header.astro';
   .stat-badge {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    background: rgba(255, 255, 255, 0.9);
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    padding: 0.75rem 1.25rem;
+    padding: 0.6rem 1rem;
     border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    font-size: 0.95rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    font-size: 0.9rem;
     color: #475569;
     transition: all 0.3s ease;
     opacity: 1 !important;
