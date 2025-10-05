@@ -468,7 +468,7 @@ export async function onRequestPost({ request, env }) {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-3-5-sonnet-20241022', // Sonnet 3.5 - better instruction following than Haiku
+        model: 'claude-3-5-sonnet-20240620', // Sonnet 3.5 - better instruction following than Haiku
         max_tokens: length === 'short' ? 1000 : length === 'medium' ? 2000 : 3000,
         temperature: 0.7,
         system: promptConfig.system,
@@ -556,7 +556,7 @@ export async function onRequestPost({ request, env }) {
           issues: validationIssues
         },
         metadata: {
-          model: 'claude-3-5-sonnet-20241022',
+          model: 'claude-3-5-sonnet-20240620',
           generated: new Date().toISOString()
         }
       }),
