@@ -1332,25 +1332,30 @@ const pageDescription = "Generate high-quality, SEO-optimized blog posts, produc
     // Display meta information
     document.getElementById('contentTypeDisplay').textContent =
       formData.contentType.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase());
-    document.getElementById('wordCountDisplay').textContent = data.wordCount || 0;
+    document.getElementById('wordCountDisplay').textContent = data.analysis?.wordCount || 0;
 
     // Display generated content
     document.getElementById('generatedText').textContent = data.content;
 
-    // Display SEO metrics
-    displaySEOMetrics(data.seoAnalysis);
+    // Display SEO metrics (new API returns 'analysis' instead of 'seoAnalysis')
+    displaySEOMetrics(data.analysis);
 
     // Display suggestions
     displaySuggestions(data.suggestions);
   }
 
-  function displaySEOMetrics(seoAnalysis) {
+  function displaySEOMetrics(analysis) {
     const container = document.getElementById('seoMetrics');
+    if (!analysis) {
+      container.innerHTML = '<p>Analysis not available</p>';
+      return;
+    }
+
     const metrics = [
-      { name: 'Keyword Density', value: seoAnalysis.keywordDensity || '2.5%', status: 'good' },
-      { name: 'Readability', value: seoAnalysis.readability || 'Good', status: 'good' },
-      { name: 'SEO Score', value: seoAnalysis.seoScore || '85/100', status: 'good' },
-      { name: 'Uniqueness', value: seoAnalysis.uniqueness || '100%', status: 'good' }
+      { name: 'Keyword Density', value: analysis.keywordDensity || 'N/A', status: analysis.keywordDensityStatus?.includes('Optimal') ? 'good' : 'warning' },
+      { name: 'Readability', value: analysis.readability || 'N/A', status: 'good' },
+      { name: 'Word Count', value: analysis.wordCount || 'N/A', status: 'good' },
+      { name: 'Flesch Score', value: analysis.readabilityScore || 'N/A', status: 'good' }
     ];
 
     container.innerHTML = metrics.map(metric => `
