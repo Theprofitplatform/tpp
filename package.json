@@ -31,6 +31,7 @@
     "google-ads-api": "^21.0.1",
     "google-search-results-nodejs": "^2.1.0",
     "gray-matter": "^4.0.3",
+    "nodemailer": "^7.0.6",
     "undici": "^7.16.0"
   },
   "devDependencies": {
