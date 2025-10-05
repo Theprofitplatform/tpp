@@ -56,6 +56,64 @@ export async function searchImages(query, perPage = 10) {
 }
 
 /**
+ * Convert abstract marketing keywords to concrete visual concepts
+ * @param {string} keyword - Abstract keyword or topic
+ * @param {string} category - Blog category
+ * @returns {Array<string>} Array of visual search queries
+ */
+function getVisualSearchQueries(keyword, category) {
+  const lowerKeyword = keyword.toLowerCase();
+
+  // Map abstract concepts to concrete visuals
+  const visualMappings = {
+    'seo': ['laptop analytics dashboard', 'business growth chart', 'marketing analytics screen'],
+    'local seo': ['business map location pins', 'local business storefront', 'city business district'],
+    'multi-location': ['franchise business map', 'multiple store locations', 'business expansion cities'],
+    'scale': ['business growth graph', 'team collaboration office', 'expanding business network'],
+    'google ads': ['digital advertising laptop', 'marketing campaign dashboard', 'online advertising workspace'],
+    'ranking': ['search results screen', 'analytics dashboard growth', 'first place podium business'],
+    'marketing tools': ['workspace laptop tools', 'digital marketing office', 'creative workspace desk'],
+    'case study': ['business success meeting', 'professional team presentation', 'growth chart presentation'],
+    'strategy': ['business planning whiteboard', 'team strategy meeting', 'office collaboration brainstorm'],
+    'business growth': ['upward business chart', 'successful team meeting', 'startup office workspace']
+  };
+
+  // Find matching visual concepts
+  let visualQueries = [];
+  for (const [concept, visuals] of Object.entries(visualMappings)) {
+    if (lowerKeyword.includes(concept)) {
+      visualQueries.push(...visuals);
+    }
+  }
+
+  // Fallback to category-based visuals
+  if (visualQueries.length === 0) {
+    const categoryVisuals = {
+      'seo': ['laptop analytics workspace', 'business data visualization', 'professional office desk'],
+      'google ads': ['digital marketing office', 'advertising workspace laptop', 'marketing team meeting'],
+      'marketing': ['creative workspace office', 'business strategy meeting', 'professional team collaboration'],
+      'business': ['modern office workspace', 'business meeting professional', 'startup office environment']
+    };
+
+    const categoryLower = category.toLowerCase();
+    for (const [cat, visuals] of Object.entries(categoryVisuals)) {
+      if (categoryLower.includes(cat)) {
+        visualQueries.push(...visuals);
+      }
+    }
+  }
+
+  // Always add general business fallbacks
+  visualQueries.push(
+    'professional business workspace',
+    'modern office environment',
+    'business team collaboration'
+  );
+
+  return [...new Set(visualQueries)]; // Remove duplicates
+}
+
+/**
  * Get the best image for a blog post
  * @param {string} keyword - Target keyword or topic
  * @param {string} category - Blog category (e.g., "SEO", "Google Ads")
@@ -65,27 +123,26 @@ export async function getBlogFeaturedImage(keyword, category) {
   console.log(`🖼️  Searching Unsplash for: "${keyword}"`);
 
   try {
-    // Try multiple search strategies
-    const searchQueries = [
-      keyword,
-      `${category} business`,
-      `${category} marketing`,
-      'digital marketing',
-      'business strategy'
-    ];
+    // Get visual search queries
+    const visualQueries = getVisualSearchQueries(keyword, category);
 
-    for (const query of searchQueries) {
-      const results = await searchImages(query, 5);
+    console.log(`   Trying ${visualQueries.length} visual search strategies...`);
+
+    for (const query of visualQueries) {
+      const results = await searchImages(query, 10);
 
       if (results.length > 0) {
-        // Pick the first high-quality result
+        // Pick the best high-quality result
         const bestImage = results.find(img =>
           img.width >= 1200 && img.height >= 600 &&
-          img.likes > 50
+          img.likes > 100
+        ) || results.find(img =>
+          img.width >= 1200 && img.height >= 600
         ) || results[0];
 
         if (bestImage) {
           console.log(`✓ Found image by ${bestImage.user.name} (${bestImage.likes} likes)`);
+          console.log(`   Query: "${query}"`);
 
           return {
             url: bestImage.urls.regular,

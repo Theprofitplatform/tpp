@@ -1,0 +1,217 @@
+{
+  "config": {
+    "configFile": "/mnt/c/Users/abhis/projects/atpp/tpp/playwright.config.js",
+    "rootDir": "/mnt/c/Users/abhis/projects/atpp/tpp/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "/mnt/c/Users/abhis/projects/atpp/tpp/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/mnt/c/Users/abhis/projects/atpp/tpp/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/mnt/c/Users/abhis/projects/atpp/tpp/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "mobile",
+        "name": "mobile",
+        "testDir": "/mnt/c/Users/abhis/projects/atpp/tpp/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.1",
+    "workers": 5,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "debug-hero-image.spec.js",
+      "file": "debug-hero-image.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Hero Image Debug",
+          "file": "debug-hero-image.spec.js",
+          "line": 10,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Debug hero image on scale-local-seo post",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4518,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "\n🔍 Starting hero image debug...\n\n"
+                        },
+                        {
+                          "text": "✓ Page loaded\n\n"
+                        },
+                        {
+                          "text": "1. Featured image container count: 1\n"
+                        },
+                        {
+                          "text": "   ✓ Container found\n\n"
+                        },
+                        {
+                          "text": "2. Image element count: 1\n"
+                        },
+                        {
+                          "text": "   ✓ Image element found\n\n"
+                        },
+                        {
+                          "text": "3. Image attributes:\n"
+                        },
+                        {
+                          "text": "   - src: https://images.unsplash.com/photo-1594935975218-a3596da034a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxmcmFuY2hpc2UlMjBidXNpbmVzcyUyMG1hcHxlbnwxfDB8fHwxNzU5NjYyMTAyfDA&ixlib=rb-4.1.0&q=80&w=1080\n"
+                        },
+                        {
+                          "text": "   - alt: person holding white printer paper\n"
+                        },
+                        {
+                          "text": "   - loading: eager\n\n"
+                        },
+                        {
+                          "text": "4. Image visible: true\n"
+                        },
+                        {
+                          "text": "5. Image load status:\n"
+                        },
+                        {
+                          "text": "   - naturalWidth: 1080\n"
+                        },
+                        {
+                          "text": "   - naturalHeight: 720\n"
+                        },
+                        {
+                          "text": "   - complete: true\n\n"
+                        },
+                        {
+                          "text": "   ✓ Image loaded successfully\n\n"
+                        },
+                        {
+                          "text": "6. Container CSS:\n"
+                        },
+                        {
+                          "text": "   - display: block\n"
+                        },
+                        {
+                          "text": "   - opacity: 1\n"
+                        },
+                        {
+                          "text": "   - height: 874.125px\n\n"
+                        },
+                        {
+                          "text": "7. Screenshot saved: debug-hero-image.png\n\n"
+                        },
+                        {
+                          "text": "8. Parent element styles:\n"
+                        },
+                        {
+                          "text": "   1. <ARTICLE class=\"blog-post\">\n"
+                        },
+                        {
+                          "text": "      display: block, opacity: 1, visibility: visible\n"
+                        },
+                        {
+                          "text": "\n✅ Debug complete!\n\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-05T11:03:02.182Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "052d696cd1ec058a3648-4c25f0d8dd7606f2df69",
+              "file": "debug-hero-image.spec.js",
+              "line": 12,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-10-05T11:02:57.130Z",
+    "duration": 9831.685999999998,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

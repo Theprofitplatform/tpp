@@ -8,11 +8,6 @@ tags: ["Case Study", "Local SEO", "Google Ads", "Parramatta", "Results"]
 featured: true
 image: "/images/blog/parramatta-plumber-case-study.jpg"
 readTime: "8 min"
-coverImage: "https://images.unsplash.com/photo-1559560934-0533533a54dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw0fHxDYXNlJTIwU3R1ZHklM0ElMjBIb3clMjBXZSUyMEdvdCUyMGElMjBQYXJyYW1hdHRhJTIwUGx1bWJlciUyMDIuNnglMjBNb3JlJTIwQ2FsbHMlMjBpbiUyMDMwJTIwRGF5c3xlbnwxfDB8fHwxNzU5NjU5NDQwfDA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "gray metal part"
-coverImageCredit:
-  name: "Pixo Mixo"
-  link: "https://unsplash.com/@mrpixo"
 ---
 
 # Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days

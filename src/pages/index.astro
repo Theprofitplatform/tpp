@@ -2,9 +2,13 @@
 // Updated to use BaseLayout while maintaining exact content structure
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+
+// SEO Optimization - Critical meta description
+const pageTitle = "Digital Marketing Sydney | SEO, Google Ads & Web Design | The Profit Platform";
+const pageDescription = "Leading digital marketing agency in Sydney. 247% average revenue increase. 127+ 5-star reviews. Expert SEO, Google Ads & Web Design. Free $997 audit - only 5 spots left.";
 ---
 
-<BaseLayout title="Digital Marketing Sydney | SEO, Google Ads & Web Design | The Profit Platform">
+<BaseLayout title={pageTitle} description={pageDescription}>
   <Header />
 
 <!-- Typing Animation CSS & Trust Section Fix -->

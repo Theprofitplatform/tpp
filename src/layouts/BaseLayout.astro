@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Structured Data - LocalBusiness -->
+<!-- Structured Data - LocalBusiness with AggregateRating -->
 <script type="application/ld+json" is:inline>
 {
   "@context": "https://schema.org",
@@ -188,6 +188,13 @@ document.addEventListener('DOMContentLoaded', function() {
   "url": "https://theprofitplatform.com.au/",
   "telephone": "+61487286451",
   "email": "avi@theprofitplatform.com.au",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Sydney",
@@ -195,6 +202,42 @@ document.addEventListener('DOMContentLoaded', function() {
     "addressCountry": "AU"
   },
   "areaServed": "Greater Sydney",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61574707582255",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://www.instagram.com/theprofitplatformau"
+  ]
+}
+</script>
+
+<!-- Structured Data - Organization -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "The Profit Platform",
+  "url": "https://theprofitplatform.com.au",
+  "logo": "https://theprofitplatform.com.au/images/logo-optimized.png",
+  "description": "Sydney's leading digital marketing agency specializing in SEO, Google Ads, and web design for small businesses",
+  "foundingDate": "2024",
+  "founder": {
+    "@type": "Person",
+    "name": "Avi"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sydney",
+    "addressRegion": "NSW",
+    "addressCountry": "AU"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+61487286451",
+    "contactType": "Customer Service",
+    "email": "avi@theprofitplatform.com.au",
+    "areaServed": "AU",
+    "availableLanguage": "English"
+  },
   "sameAs": [
     "https://www.facebook.com/profile.php?id=61574707582255",
     "https://www.linkedin.com/company/theprofitplatform",

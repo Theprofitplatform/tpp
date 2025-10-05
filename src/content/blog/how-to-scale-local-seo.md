@@ -7,11 +7,11 @@ category: "marketing"
 tags: ["Local SEO", "Multi-Location", "Google Business Profile", "Growth Strategy"]
 featured: true
 draft: false
-coverImage: "https://images.unsplash.com/photo-1432888622747-4eb9a8b2c4e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwyOXx8bG9jYWwlMjBzZW8lMjBtdWx0aXBsZSUyMGxvY2F0aW9uc3xlbnwxfDB8fHwxNzU5NjU5NzIwfDA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "notebook beside the iPhone on table"
+coverImage: "https://images.unsplash.com/photo-1594935975218-a3596da034a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxmcmFuY2hpc2UlMjBidXNpbmVzcyUyMG1hcHxlbnwxfDB8fHwxNzU5NjYyMTAyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "person holding white printer paper"
 coverImageCredit:
-  name: "T.H. Chia"
-  link: "https://unsplash.com/@teckhonc"
+  name: "José Martín Ramírez Carrasco"
+  link: "https://unsplash.com/@martinirc"
 seo:
   title: "Scale Local SEO: Multi-Location Business Growth Strategy 2025"
   description: "Step-by-step guide to scaling local SEO for multi-location businesses. Rank in every city you serve."

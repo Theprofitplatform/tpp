@@ -16,27 +16,27 @@ const projectRoot = path.resolve(__dirname, '../..');
 const postsToFix = [
   {
     file: 'how-to-scale-local-seo.md',
-    title: 'local SEO strategy',
+    title: 'multi-location business scale', // Will match: franchise business map, multiple store locations, business expansion
     category: 'SEO'
   },
   {
     file: 'how-sydney-businesses-rank-number-1-google-2025.md',
-    title: 'SEO ranking Google',
+    title: 'SEO ranking first place', // Will match: search results screen, analytics dashboard growth, first place podium
     category: 'SEO'
   },
   {
     file: 'google-ads-vs-seo-sydney-businesses.md',
-    title: 'Google Ads vs SEO',
+    title: 'google ads strategy', // Will match: digital advertising laptop, marketing campaign dashboard
     category: 'Marketing'
   },
   {
     file: '15-free-digital-marketing-tools-sydney-business.md',
-    title: 'digital marketing tools',
+    title: 'marketing tools workspace', // Will match: workspace laptop tools, digital marketing office
     category: 'Marketing'
   },
   {
     file: 'parramatta-plumber-case-study.md',
-    title: 'business growth case study',
+    title: 'business growth case study', // Will match: business success meeting, growth chart presentation
     category: 'Business'
   }
 ];
@@ -57,19 +57,22 @@ async function fixPost(post) {
   // Read current file
   const content = await readFile(filePath, 'utf-8');
 
-  // Remove old coverImage lines
-  let newContent = content.replace(/coverImage:.*\n/g, '');
-  newContent = newContent.replace(/coverImageAlt:.*\n/g, '');
-  newContent = newContent.replace(/coverImageCredit:\n  name:.*\n  link:.*\n/g, '');
+  // Remove old coverImage lines (handle both LF and CRLF line endings)
+  let newContent = content.replace(/coverImage:.*\r?\n/g, '');
+  newContent = newContent.replace(/coverImageAlt:.*\r?\n/g, '');
+  newContent = newContent.replace(/coverImageCredit:\r?\n  name:.*\r?\n  link:.*\r?\n/g, '');
 
-  // Add new image data after draft line
+  // Add new image data after draft line (detect line ending style)
+  const lineEndingMatch = content.match(/\r?\n/);
+  const lineEnding = lineEndingMatch && lineEndingMatch[0].includes('\r') ? '\r\n' : '\n';
+
   const imageLine = `coverImage: "${imageData.coverImage}"`;
   const altLine = `coverImageAlt: "${imageData.coverImageAlt}"`;
-  const creditLine = `coverImageCredit:\n  name: "${imageData.coverImageCredit.name}"\n  link: "${imageData.coverImageCredit.link}"`;
+  const creditLine = `coverImageCredit:${lineEnding}  name: "${imageData.coverImageCredit.name}"${lineEnding}  link: "${imageData.coverImageCredit.link}"`;
 
   newContent = newContent.replace(
-    /(draft:.*)\n/,
-    `$1\n${imageLine}\n${altLine}\n${creditLine}\n`
+    /(draft:.*)\r?\n/,
+    `$1${lineEnding}${imageLine}${lineEnding}${altLine}${lineEnding}${creditLine}${lineEnding}`
   );
 
   // Write back

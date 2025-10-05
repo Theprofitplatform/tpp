@@ -8,11 +8,6 @@ tags: ["Marketing Tools", "Free Resources", "Productivity", "Sydney Business", "
 featured: true
 image: "/images/blog/free-marketing-tools-2025.jpg"
 readTime: "11 min"
-coverImage: "https://images.unsplash.com/photo-1522124012782-163815c216f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwzfHwxNSUyMEZyZWUlMjBEaWdpdGFsJTIwTWFya2V0aW5nJTIwVG9vbHMlMjBFdmVyeSUyMFN5ZG5leSUyMEJ1c2luZXNzJTIwTmVlZHMlMjBpbiUyMDIwMjV8ZW58MXwwfHx8MTc1OTY1OTQzN3ww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "people walking in the city"
-coverImageCredit:
-  name: "Hugh Han"
-  link: "https://unsplash.com/@hughhan"
 ---
 
 # 15 Free Digital Marketing Tools Every Sydney Business Needs in 2025
