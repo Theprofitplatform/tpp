@@ -1,0 +1,99 @@
+{
+  "name": "Tool Improvement Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "minutes", "minutesInterval": 30}]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Every 30 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tool Improvement Agent - Tool Rotation Logic\nconst tools = [\n  'rank-tracker',\n  'revenue-leak-detector', \n  'speed-test',\n  'website-speed-test',\n  'keyword-difficulty-checker',\n  'local-rankings-map',\n  'seo-audit-tool'\n];\n\n// Use simple rotation based on current time\nconst now = new Date();\nconst minutesSinceEpoch = Math.floor(now.getTime() / (60 * 1000));\nconst currentToolIndex = minutesSinceEpoch % tools.length;\nconst currentTool = tools[currentToolIndex];\nconst nextTool = tools[(currentToolIndex + 1) % tools.length];\n\nreturn {\n  toolSlug: currentTool,\n  toolName: currentTool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),\n  nextTool: nextTool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),\n  cycleCount: minutesSinceEpoch,\n  timestamp: now.toISOString()\n};"
+      },
+      "id": "rotate-tools",
+      "name": "Rotate Tools",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Read Tool File\nconst fs = require('fs');\nconst toolSlug = $input.item.json.toolSlug;\nconst filePath = `/home/avi/projects/astro-site/src/pages/tools/${toolSlug}.astro`;\n\ntry {\n  const content = fs.readFileSync(filePath, 'utf8');\n  return {\n    ...($input.item.json),\n    fileContent: content,\n    filePath: filePath,\n    fileExists: true\n  };\n} catch (error) {\n  return {\n    ...($input.item.json),\n    fileContent: '',\n    filePath: filePath,\n    fileExists: false,\n    error: error.message\n  };\n}"
+      },
+      "id": "read-tool-file",
+      "name": "Read Tool File",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Analyze Tool\nconst content = $input.item.json.fileContent || '';\nconst toolName = $input.item.json.toolName;\nconst toolSlug = $input.item.json.toolSlug;\n\nif (!content || !$input.item.json.fileExists) {\n  return { skip: true, reason: 'File not found' };\n}\n\nconst hasMockData = content.includes('mockData') || content.includes('// Mock');\nconst hasCharts = content.includes('chart') || content.includes('history');\nconst hasExport = content.includes('export') || content.includes('download');\n\nconst improvements = [];\nif (hasMockData) {\n  improvements.push({\n    title: 'Replace Mock Data with Real API Integration',\n    priority: 'CRITICAL',\n    estimatedTime: '6-8 hours',\n    impact: 'Transforms tool from demo to production-ready',\n    roi: 'High - Converts demo to production tool'\n  });\n}\nif (!hasCharts) {\n  improvements.push({\n    title: 'Add Historical Tracking & Charts',\n    priority: 'HIGH',\n    estimatedTime: '4-6 hours',\n    impact: 'High - Enables ongoing value',\n    roi: 'Medium-High - Increases session time by 150%'\n  });\n}\nif (!hasExport) {\n  improvements.push({\n    title: 'Add Export/Download Functionality',\n    priority: 'MEDIUM',\n    estimatedTime: '3-4 hours',\n    impact: 'Medium - Increases tool utility',\n    roi: 'Medium - Increases sharing by 250%'\n  });\n}\n\nif (improvements.length === 0) {\n  return { skip: true, reason: 'No improvements needed' };\n}\n\nreturn {\n  toolName,\n  toolSlug,\n  type: 'seo',\n  status: 'active',\n  completeness: 45,\n  userValue: 50,\n  improvements,\n  cycleCount: $input.item.json.cycleCount,\n  nextTool: $input.item.json.nextTool,\n  timestamp: $input.item.json.timestamp\n};"
+      },
+      "id": "analyze-tool",
+      "name": "Analyze Tool",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {},
+          "conditions": [{"leftValue": "={{ $json.skip }}", "rightValue": "", "operator": {"type": "boolean", "operation": "notExists"}}],
+          "combinator": "and"
+        }
+      },
+      "id": "has-improvements",
+      "name": "Has Improvements?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate Email\nconst data = $input.item.json;\nconst html = `<html><body style=\"font-family: Arial;\"><h1>Tool Improvement Report</h1><h2>${data.toolName}</h2><p>Completeness: ${data.completeness}%</p><p>User Value: ${data.userValue}</p><p>Improvements: ${data.improvements.length}</p>${data.improvements.map((imp, i) => `<div style=\"margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px;\"><h3>${i + 1}. ${imp.title}</h3><p><strong>Priority:</strong> ${imp.priority}</p><p><strong>Time:</strong> ${imp.estimatedTime}</p><p><strong>Impact:</strong> ${imp.impact}</p><p><strong>ROI:</strong> ${imp.roi}</p></div>`).join('')}<p><strong>Next Tool:</strong> ${data.nextTool}</p></body></html>`;\n\nreturn {\n  ...data,\n  emailHtml: html,\n  emailSubject: `[Tool Agent] ${data.toolName} - ${data.improvements.length} Improvements`\n};"
+      },
+      "id": "generate-email",
+      "name": "Generate Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "authentication": "oauth2",
+        "sendTo": "abhishekmaharjan3737@gmail.com",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "html",
+        "message": "={{ $json.emailHtml }}"
+      },
+      "id": "send-email",
+      "name": "Send Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1450, 200],
+      "credentials": {"gmailOAuth2": {"id": "ODMN20le1QesvKAQ", "name": "Gmail account"}}
+    }
+  ],
+  "connections": {
+    "Every 30 Minutes": {"main": [[{"node": "Rotate Tools", "type": "main", "index": 0}]]},
+    "Rotate Tools": {"main": [[{"node": "Read Tool File", "type": "main", "index": 0}]]},
+    "Read Tool File": {"main": [[{"node": "Analyze Tool", "type": "main", "index": 0}]]},
+    "Analyze Tool": {"main": [[{"node": "Has Improvements?", "type": "main", "index": 0}]]},
+    "Has Improvements?": {"main": [[{"node": "Generate Email", "type": "main", "index": 0}], []]},
+    "Generate Email": {"main": [[{"node": "Send Gmail", "type": "main", "index": 0}]]}
+  },
+  "settings": {"executionOrder": "v1"},
+  "staticData": {},
+  "tags": [],
+  "pinData": {},
+  "versionId": "1"
+}

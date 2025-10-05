@@ -1,0 +1,355 @@
+{
+  "name": "SEO Optimization with Claude Code",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET,POST",
+        "path": "seo-optimization",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook - SEO Request",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "content_id",
+              "name": "content_id",
+              "value": "={{ $json.body.content_id }}",
+              "type": "string"
+            },
+            {
+              "id": "title",
+              "name": "title",
+              "value": "={{ $json.body.title }}",
+              "type": "string"
+            },
+            {
+              "id": "content",
+              "name": "content",
+              "value": "={{ $json.body.content }}",
+              "type": "string"
+            },
+            {
+              "id": "keywords",
+              "name": "keywords",
+              "value": "={{ $json.body.keywords }}",
+              "type": "array"
+            },
+            {
+              "id": "competitor_urls",
+              "name": "competitor_urls",
+              "value": "={{ $json.body.competitor_urls || [] }}",
+              "type": "array"
+            },
+            {
+              "id": "target_location",
+              "name": "target_location",
+              "value": "={{ $json.body.target_location || 'Australia' }}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "validate-input",
+      "name": "Validate & Parse Input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [470, 300]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:3100/v1/seo/analyze",
+        "method": "POST",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {\n  \"title\": $json.title,\n  \"content\": $json.content,\n  \"keywords\": $json.keywords,\n  \"target_location\": $json.target_location\n} }}",
+        "options": {}
+      },
+      "id": "claude-seo-analysis",
+      "name": "Claude SEO Analysis",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [690, 200]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:3100/v1/seo/keywords",
+        "method": "POST",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {\n  \"title\": $json.title,\n  \"content\": $json.content,\n  \"current_keywords\": $json.keywords,\n  \"target_location\": $json.target_location\n} }}",
+        "options": {}
+      },
+      "id": "claude-keyword-research",
+      "name": "Claude Keyword Research",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [690, 400]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT * FROM competitor_analysis WHERE {{ $json.competitor_urls && $json.competitor_urls.length > 0 ? `url = ANY(ARRAY[${$json.competitor_urls.map(u => \"'\" + u + \"'\").join(',')}])` : '1=0' }} LIMIT 10",
+        "options": {}
+      },
+      "id": "competitor-analysis",
+      "name": "Fetch Competitor Data",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [690, 600],
+      "credentials": {
+        "postgres": {
+          "id": "Un3iA15jdIDP2woL",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "multiplex",
+        "options": {}
+      },
+      "id": "merge-analysis",
+      "name": "Merge All Analysis",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [910, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get data from the current item (last executed node)\nconst data = $input.item.json;\n\n// Extract input data and API responses\nconst input = {\n  content_id: data.content_id || $('Validate & Parse Input').item.json.content_id,\n  title: data.title || $('Validate & Parse Input').item.json.title,\n  content: data.content || $('Validate & Parse Input').item.json.content,\n  keywords: data.keywords || $('Validate & Parse Input').item.json.keywords,\n  target_location: data.target_location || $('Validate & Parse Input').item.json.target_location\n};\n\n// Get SEO analysis from whichever node executed (could be SEO or Keyword)\nlet seoAnalysis = {};\nlet keywordResearch = {};\n\nif (data.response && data.response.keyword_density) {\n  // This is SEO analysis response\n  seoAnalysis = data.response;\n  // Try to get keyword research from previous execution\n  try { keywordResearch = $('Claude Keyword Research').item.json.response || {}; } catch(e) {}\n} else if (data.response && data.response.long_tail_keywords) {\n  // This is keyword research response\n  keywordResearch = data.response;\n  // Try to get SEO analysis from previous execution\n  try { seoAnalysis = $('Claude SEO Analysis').item.json.response || {}; } catch(e) {}\n}\n\nlet score = 0;\n\nconst keywordCount = input.keywords?.length || 0;\nconst hasLongTail = keywordResearch.long_tail_keywords?.length > 0;\nscore += Math.min(keywordCount * 5, 15);\nif (hasLongTail) score += 10;\n\nconst titleScore = seoAnalysis.title_optimization?.score || 0;\nscore += titleScore * 0.2;\n\nconst contentLength = input.content?.length || 0;\nconst readabilityScore = seoAnalysis.readability_score || 0;\nscore += Math.min(contentLength / 50, 10);\nscore += readabilityScore * 0.1;\n\nconst headingValid = seoAnalysis.heading_structure?.hierarchy_valid;\nif (headingValid) score += 15;\n\nconst hasAustralianKeywords = keywordResearch.australian_keywords?.length > 0;\nconst isAustralianTarget = input.target_location?.toLowerCase().includes('austral');\nif (hasAustralianKeywords) score += 5;\nif (isAustralianTarget) score += 5;\n\nconst isMobileFriendly = contentLength < 3000 && contentLength > 300;\nif (isMobileFriendly) score += 10;\n\nscore = Math.min(Math.round(score), 100);\n\nconst recommendations = [];\n\nif (titleScore < 80) recommendations.push('Optimize title tag for better CTR');\nif (keywordCount < 3) recommendations.push('Add more relevant keywords');\nif (!hasAustralianKeywords && isAustralianTarget) recommendations.push('Include Australian-specific keywords');\nif (contentLength < 500) recommendations.push('Increase content length to 500+ words');\nif (!seoAnalysis.heading_structure?.h1_count) recommendations.push('Add H1 heading');\nif (!hasLongTail) recommendations.push('Include long-tail keywords');\n\nreturn {\n  json: {\n    content_id: input.content_id,\n    seo_score: score,\n    needs_optimization: score < 80,\n    analysis: {\n      keyword_density: seoAnalysis.keyword_density,\n      title_optimization: seoAnalysis.title_optimization,\n      heading_structure: seoAnalysis.heading_structure,\n      readability_score: seoAnalysis.readability_score,\n      long_tail_keywords: keywordResearch.long_tail_keywords || [],\n      australian_seo: {\n        local_keywords: keywordResearch.australian_keywords || [],\n        local_relevance_score: hasAustralianKeywords ? 85 : 40\n      }\n    },\n    recommendations,\n    competitor_insights: {\n      avg_competitor_score: 75,\n      competitive_gaps: []\n    },\n    original_content: {\n      title: input.title,\n      content: input.content,\n      keywords: input.keywords\n    },\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "compile-report",
+      "name": "Compile SEO Report & Score",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1130, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.needs_optimization }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-optimization-needed",
+      "name": "Score < 80?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1350, 400]
+    },
+    {
+      "parameters": {
+        "url": "http://127.0.0.1:3100/v1/seo/optimize",
+        "method": "POST",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ {\n  \"original_title\": $json.original_content.title,\n  \"original_content\": $json.original_content.content,\n  \"keywords\": $json.original_content.keywords,\n  \"analysis\": $json.analysis,\n  \"recommendations\": $json.recommendations\n} }}",
+        "options": {}
+      },
+      "id": "claude-optimize",
+      "name": "Claude Content Optimization",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1570, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "merged_data",
+              "name": "content_id",
+              "value": "={{ $('Score < 80?').item.json.content_id }}",
+              "type": "string"
+            },
+            {
+              "id": "seo_score",
+              "name": "seo_score",
+              "value": "={{ $('Score < 80?').item.json.seo_score }}",
+              "type": "number"
+            },
+            {
+              "id": "needs_optimization",
+              "name": "needs_optimization",
+              "value": "={{ $('Score < 80?').item.json.needs_optimization }}",
+              "type": "boolean"
+            },
+            {
+              "id": "analysis",
+              "name": "analysis",
+              "value": "={{ $('Score < 80?').item.json.analysis }}",
+              "type": "object"
+            },
+            {
+              "id": "recommendations",
+              "name": "recommendations",
+              "value": "={{ $('Score < 80?').item.json.recommendations }}",
+              "type": "array"
+            },
+            {
+              "id": "competitor_insights",
+              "name": "competitor_insights",
+              "value": "={{ $('Score < 80?').item.json.competitor_insights }}",
+              "type": "object"
+            },
+            {
+              "id": "original_content",
+              "name": "original_content",
+              "value": "={{ $('Score < 80?').item.json.original_content }}",
+              "type": "object"
+            },
+            {
+              "id": "timestamp",
+              "name": "timestamp",
+              "value": "={{ $('Score < 80?').item.json.timestamp }}",
+              "type": "string"
+            },
+            {
+              "id": "optimized_content",
+              "name": "optimized_content",
+              "value": "={{ $json.response }}",
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "id": "merge-optimized-data",
+      "name": "Merge Optimized Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1680, 300]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "seo_analysis",
+          "mode": "list",
+          "cachedResultName": "seo_analysis"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "content_id": "={{ $json.content_id }}",
+            "seo_score": "={{ $json.seo_score }}",
+            "analysis_data": "={{ $json }}",
+            "created_at": "={{ $json.timestamp }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            { "id": "content_id", "displayName": "content_id", "required": false, "defaultMatch": false, "display": true, "type": "string", "canBeUsedToMatch": true },
+            { "id": "seo_score", "displayName": "seo_score", "required": false, "defaultMatch": false, "display": true, "type": "number", "canBeUsedToMatch": true },
+            { "id": "analysis_data", "displayName": "analysis_data", "required": false, "defaultMatch": false, "display": true, "type": "object", "canBeUsedToMatch": true },
+            { "id": "created_at", "displayName": "created_at", "required": false, "defaultMatch": false, "display": true, "type": "dateTime", "canBeUsedToMatch": true }
+          ]
+        },
+        "options": {}
+      },
+      "id": "store-analysis",
+      "name": "Store Analysis in DB",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [1790, 400],
+      "credentials": {
+        "postgres": {
+          "id": "Un3iA15jdIDP2woL",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "seo@theprofitplatform.com.au",
+        "toEmail": "avi@theprofitplatform.com.au",
+        "subject": "=SEO Analysis - {{ $json.content_id }} ({{ $json.seo_score }}/100)",
+        "emailFormat": "html",
+        "message": "=<h1>SEO Report</h1><p>Score: {{ $json.seo_score }}/100</p><h2>Recommendations:</h2><ul>{{ $json.recommendations.map(r => `<li>${r}</li>`).join('') }}</ul>",
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Send Email Report",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [2010, 400],
+      "credentials": {
+        "smtp": {
+          "id": "pTfdzVUnVuUz2kzs",
+          "name": "SMTP account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json, null, 2) }}",
+        "options": {}
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [2230, 400]
+    }
+  ],
+  "connections": {
+    "Webhook - SEO Request": {
+      "main": [[{"node": "Validate & Parse Input", "type": "main", "index": 0}]]
+    },
+    "Validate & Parse Input": {
+      "main": [[
+        {"node": "Claude SEO Analysis", "type": "main", "index": 0},
+        {"node": "Claude Keyword Research", "type": "main", "index": 0}
+      ]]
+    },
+    "Claude SEO Analysis": {
+      "main": [[{"node": "Compile SEO Report & Score", "type": "main", "index": 0}]]
+    },
+    "Claude Keyword Research": {
+      "main": [[{"node": "Compile SEO Report & Score", "type": "main", "index": 0}]]
+    },
+    "Compile SEO Report & Score": {
+      "main": [[{"node": "Score < 80?", "type": "main", "index": 0}]]
+    },
+    "Score < 80?": {
+      "main": [
+        [{"node": "Claude Content Optimization", "type": "main", "index": 0}],
+        [{"node": "Store Analysis in DB", "type": "main", "index": 0}]
+      ]
+    },
+    "Claude Content Optimization": {
+      "main": [[{"node": "Merge Optimized Data", "type": "main", "index": 0}]]
+    },
+    "Merge Optimized Data": {
+      "main": [[{"node": "Store Analysis in DB", "type": "main", "index": 0}]]
+    },
+    "Store Analysis in DB": {
+      "main": [[{"node": "Send Email Report", "type": "main", "index": 0}]]
+    },
+    "Send Email Report": {
+      "main": [[{"node": "Webhook Response", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {"executionOrder": "v1"},
+  "staticData": null,
+  "tags": []
+}

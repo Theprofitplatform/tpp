@@ -1,0 +1,100 @@
+{
+  "name": "Tool Improvement Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "minutes", "minutesInterval": 30}]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Every 30 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tool Rotation Logic - Dynamic file discovery\nconst fs = require('fs');\nconst path = require('path');\n\n// Scan for actual tool files\nconst toolsDir = '/home/avi/projects/astro-site/src/pages/tools';\nlet tools = [];\n\ntry {\n  const files = fs.readdirSync(toolsDir);\n  tools = files\n    .filter(f => f.endsWith('.astro'))\n    .map(f => f.replace('.astro', ''));\n} catch (err) {\n  // Fallback to known tool\n  tools = ['rank-tracker'];\n}\n\n// If no tools found, use default\nif (tools.length === 0) {\n  tools = ['rank-tracker'];\n}\n\nconst now = new Date();\nconst minutesSinceEpoch = Math.floor(now.getTime() / (60 * 1000));\nconst currentToolIndex = minutesSinceEpoch % tools.length;\nconst currentTool = tools[currentToolIndex];\nconst nextToolIndex = (currentToolIndex + 1) % tools.length;\nconst nextTool = tools[nextToolIndex];\n\nreturn {\n  toolSlug: currentTool,\n  toolName: currentTool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),\n  nextTool: nextTool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),\n  cycleCount: minutesSinceEpoch,\n  timestamp: now.toISOString(),\n  filePath: `/home/avi/projects/astro-site/src/pages/tools/${currentTool}.astro`,\n  totalTools: tools.length,\n  availableTools: tools.join(', ')\n};"
+      },
+      "id": "rotate-tools",
+      "name": "Rotate Tools",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "command": "=cat {{ $json.filePath }}",
+        "options": {}
+      },
+      "id": "read-tool-file",
+      "name": "Read Tool File",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Analyze Tool\nconst content = $input.first().json.stdout || '';\nconst prevData = $input.first().json;\n\nif (!content || content.includes('No such file')) {\n  return { skip: true, reason: 'File not found' };\n}\n\nconst hasMockData = content.includes('mockData') || content.includes('// Mock');\nconst hasCharts = content.includes('chart') || content.includes('history');\nconst hasExport = content.includes('export') || content.includes('download');\n\nconst improvements = [];\nif (hasMockData) {\n  improvements.push({\n    title: 'Replace Mock Data with Real API Integration',\n    priority: 'CRITICAL',\n    estimatedTime: '6-8 hours',\n    impact: 'Transforms tool from demo to production-ready',\n    roi: 'High - Converts demo to production tool'\n  });\n}\nif (!hasCharts) {\n  improvements.push({\n    title: 'Add Historical Tracking & Charts',\n    priority: 'HIGH',\n    estimatedTime: '4-6 hours',\n    impact: 'High - Enables ongoing value',\n    roi: 'Medium-High - Increases session time by 150%'\n  });\n}\nif (!hasExport) {\n  improvements.push({\n    title: 'Add Export/Download Functionality',\n    priority: 'MEDIUM',\n    estimatedTime: '3-4 hours',\n    impact: 'Medium - Increases tool utility',\n    roi: 'Medium - Increases sharing by 250%'\n  });\n}\n\nif (improvements.length === 0) {\n  return { skip: true, reason: 'No improvements needed' };\n}\n\nreturn {\n  toolName: prevData.toolName,\n  toolSlug: prevData.toolSlug,\n  type: 'seo',\n  status: 'active',\n  completeness: 45,\n  userValue: 50,\n  improvements,\n  cycleCount: prevData.cycleCount,\n  nextTool: prevData.nextTool,\n  timestamp: prevData.timestamp,\n  totalTools: prevData.totalTools,\n  availableTools: prevData.availableTools\n};"
+      },
+      "id": "analyze-tool",
+      "name": "Analyze Tool",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {},
+          "conditions": [{"leftValue": "={{ $json.skip }}", "rightValue": "", "operator": {"type": "boolean", "operation": "notExists"}}],
+          "combinator": "and"
+        }
+      },
+      "id": "has-improvements",
+      "name": "Has Improvements?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate Email HTML\nconst data = $input.item.json;\n\nconst html = `<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <style>\n    body { font-family: -apple-system, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 20px; background: #f5f5f5; }\n    .container { max-width: 700px; margin: 0 auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }\n    .header h1 { margin: 0; font-size: 24px; }\n    .stats { display: flex; justify-content: space-around; padding: 20px; background: #f8f9fa; border-bottom: 1px solid #e0e0e0; }\n    .stat { text-align: center; }\n    .stat-value { font-size: 28px; font-weight: bold; color: #667eea; }\n    .stat-label { font-size: 12px; color: #666; text-transform: uppercase; margin-top: 5px; }\n    .content { padding: 30px; }\n    .improvement { margin-bottom: 25px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background: #fafafa; }\n    .improvement h3 { margin: 0 0 10px 0; color: #333; }\n    .priority-critical { display: inline-block; background: #fee; color: #c00; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: bold; margin-left: 10px; }\n    .priority-high { display: inline-block; background: #fff3cd; color: #856404; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: bold; margin-left: 10px; }\n    .priority-medium { display: inline-block; background: #d1ecf1; color: #0c5460; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: bold; margin-left: 10px; }\n    .meta { color: #666; font-size: 14px; margin: 10px 0; }\n    .footer { background: #2d3748; color: white; padding: 20px; text-align: center; }\n    .info-box { background: #e3f2fd; padding: 15px; border-radius: 6px; margin: 20px 0; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <h1>🤖 Tool Improvement Agent</h1>\n      <p style=\"margin: 5px 0 0 0;\">Cycle ${data.cycleCount} • ${new Date(data.timestamp).toLocaleString()}</p>\n    </div>\n    \n    <div class=\"stats\">\n      <div class=\"stat\">\n        <div class=\"stat-value\">${data.completeness}%</div>\n        <div class=\"stat-label\">Completeness</div>\n      </div>\n      <div class=\"stat\">\n        <div class=\"stat-value\">${data.userValue}</div>\n        <div class=\"stat-label\">User Value</div>\n      </div>\n      <div class=\"stat\">\n        <div class=\"stat-value\">${data.improvements.length}</div>\n        <div class=\"stat-label\">Improvements</div>\n      </div>\n    </div>\n    \n    <div class=\"content\">\n      <h2 style=\"color: #333; margin-top: 0;\">Tool: ${data.toolName}</h2>\n      \n      <div class=\"info-box\">\n        <strong>📊 Tools Status:</strong> ${data.totalTools} active tool(s)<br>\n        <strong>🔄 Available:</strong> ${data.availableTools}\n      </div>\n      \n      ${data.improvements.map((imp, i) => `\n        <div class=\"improvement\">\n          <h3>${i + 1}. ${imp.title}<span class=\"priority-${imp.priority.toLowerCase()}\">${imp.priority}</span></h3>\n          <div class=\"meta\">\n            <strong>Estimated Time:</strong> ${imp.estimatedTime}<br>\n            <strong>Impact:</strong> ${imp.impact}<br>\n            <strong>ROI:</strong> ${imp.roi}\n          </div>\n        </div>\n      `).join('')}\n      \n      <p style=\"margin-top: 30px; padding: 15px; background: #fff3cd; border-radius: 6px;\">\n        <strong>⏭️ Next Tool:</strong> ${data.nextTool} (in ~30 minutes)\n      </p>\n    </div>\n    \n    <div class=\"footer\">\n      <p style=\"margin: 0;\">Automated by Tool Improvement Agent</p>\n      <p style=\"margin: 5px 0 0 0; font-size: 12px; opacity: 0.8;\">Running on n8n • theprofitplatform.com.au</p>\n    </div>\n  </div>\n</body>\n</html>`;\n\nreturn {\n  ...data,\n  emailHtml: html,\n  emailSubject: `[Tool Agent] ${data.toolName} - ${data.improvements.length} Improvements Found`\n};"
+      },
+      "id": "generate-email",
+      "name": "Generate Email",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "authentication": "oauth2",
+        "sendTo": "abhishekmaharjan3737@gmail.com",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "html",
+        "message": "={{ $json.emailHtml }}"
+      },
+      "id": "send-email",
+      "name": "Send Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1450, 200],
+      "credentials": {"gmailOAuth2": {"id": "ODMN20le1QesvKAQ", "name": "Gmail account"}}
+    }
+  ],
+  "connections": {
+    "Every 30 Minutes": {"main": [[{"node": "Rotate Tools", "type": "main", "index": 0}]]},
+    "Rotate Tools": {"main": [[{"node": "Read Tool File", "type": "main", "index": 0}]]},
+    "Read Tool File": {"main": [[{"node": "Analyze Tool", "type": "main", "index": 0}]]},
+    "Analyze Tool": {"main": [[{"node": "Has Improvements?", "type": "main", "index": 0}]]},
+    "Has Improvements?": {"main": [[{"node": "Generate Email", "type": "main", "index": 0}], []]},
+    "Generate Email": {"main": [[{"node": "Send Gmail", "type": "main", "index": 0}]]}
+  },
+  "settings": {"executionOrder": "v1"},
+  "staticData": {},
+  "tags": [],
+  "pinData": {},
+  "versionId": "1"
+}
