@@ -1,0 +1,17 @@
+{
+  "name": "TPP Backend Server",
+  "description": "Backend API for The Profit Platform keyword gap analyzer",
+  "repository": "https://github.com/yourusername/tpp-backend",
+  "keywords": ["express", "api", "seo", "keyword-analysis"],
+  "env": {
+    "SERPAPI_KEY": {
+      "description": "SerpApi API key for real SERP data (optional - uses mock data if not set)",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}

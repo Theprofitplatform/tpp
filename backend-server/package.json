@@ -1,0 +1,21 @@
+{
+  "name": "tpp-backend-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Backend server for TPP tools (keyword-gap, competitor-analysis)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "google-search-results-nodejs": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
