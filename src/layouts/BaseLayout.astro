@@ -1,6 +1,7 @@
 ---
 // BaseLayout.astro - Dynamic SEO with fallbacks to homepage defaults
 import '../styles/main.css';
+import Footer from '../components/Footer.astro';
 
 export interface Props {
   title?: string;
@@ -106,13 +107,86 @@ const ogDescription = description || "Transform your business with expert digita
 <!-- All local CSS is now bundled by Astro via import in frontmatter -->
 
 <!-- Analytics -->
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) - Enhanced with Conversion Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-FB947JWCFT');
+gtag('config', 'G-FB947JWCFT', {
+  'send_page_view': true,
+  'cookie_flags': 'SameSite=None;Secure'
+});
+
+// Helper function for tracking events
+window.trackEvent = function(eventName, eventParams) {
+  gtag('event', eventName, eventParams || {});
+};
+
+// Track phone clicks
+document.addEventListener('DOMContentLoaded', function() {
+  // Phone number click tracking
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      gtag('event', 'phone_call', {
+        'event_category': 'Contact',
+        'event_label': this.getAttribute('href'),
+        'value': 1
+      });
+    });
+  });
+
+  // Email click tracking
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      gtag('event', 'email_click', {
+        'event_category': 'Contact',
+        'event_label': this.getAttribute('href'),
+        'value': 1
+      });
+    });
+  });
+
+  // External link tracking
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('theprofitplatform.com.au')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          'event_category': 'Outbound',
+          'event_label': this.href
+        });
+      });
+    }
+  });
+
+  // Form submission tracking
+  document.querySelectorAll('form').forEach(function(form) {
+    form.addEventListener('submit', function(e) {
+      const formId = this.id || this.getAttribute('name') || 'unnamed_form';
+      gtag('event', 'form_submission', {
+        'event_category': 'Lead Generation',
+        'event_label': formId,
+        'value': 10
+      });
+    });
+  });
+
+  // Scroll depth tracking (25%, 50%, 75%, 100%)
+  let scrollMarks = {25: false, 50: false, 75: false, 100: false};
+  window.addEventListener('scroll', function() {
+    const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+    Object.keys(scrollMarks).forEach(function(mark) {
+      if (scrollPercent >= parseInt(mark) && !scrollMarks[mark]) {
+        scrollMarks[mark] = true;
+        gtag('event', 'scroll_depth', {
+          'event_category': 'Engagement',
+          'event_label': mark + '%',
+          'value': parseInt(mark)
+        });
+      }
+    });
+  });
+});
 </script>
 
 <!-- Hotjar Tracking Code -->
@@ -127,10 +201,24 @@ a.appendChild(r);
 })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 
+<!-- Microsoft Clarity - Free Heatmaps & Session Recording -->
+<!-- To activate: Sign up at https://clarity.microsoft.com and replace PROJECT_ID below -->
+<!--
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "PROJECT_ID");
+</script>
+-->
+
 </head>
 
 <body>
 <slot />
+
+<Footer />
 
 <!-- Critical initialization script - must run last -->
 <script is:inline>
@@ -175,69 +263,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Handle mobile navigation if present
-    const mobileToggle = document.getElementById('menuToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    const mobileOverlay = document.getElementById('mobileNavOverlay');
-    const mobileClose = document.getElementById('mobileNavClose');
-
-    function toggleMobileNav(show) {
-        if (mobileNav && mobileOverlay && mobileToggle) {
-            if (show) {
-                mobileNav.setAttribute('aria-hidden', 'false');
-                mobileNav.classList.add('active');
-                mobileOverlay.setAttribute('aria-hidden', 'false');
-                mobileOverlay.classList.add('active');
-                mobileToggle.setAttribute('aria-expanded', 'true');
-                document.body.style.setProperty('overflow', 'hidden', 'important');
-                document.body.style.setProperty('position', 'fixed', 'important');
-                document.body.style.setProperty('width', '100%', 'important');
-            } else {
-                mobileNav.setAttribute('aria-hidden', 'true');
-                mobileNav.classList.remove('active');
-                mobileOverlay.setAttribute('aria-hidden', 'true');
-                mobileOverlay.classList.remove('active');
-                mobileToggle.setAttribute('aria-expanded', 'false');
-                document.body.style.removeProperty('overflow');
-                document.body.style.removeProperty('position');
-                document.body.style.removeProperty('width');
-            }
-        }
-    }
-
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', () => {
-            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-            toggleMobileNav(!isExpanded);
-        });
-    }
-
-    if (mobileClose) {
-        mobileClose.addEventListener('click', () => toggleMobileNav(false));
-    }
-
-    if (mobileOverlay) {
-        mobileOverlay.addEventListener('click', () => toggleMobileNav(false));
-    }
-
-    // CRITICAL FIX: Ensure body overflow is never stuck
-    // Clear any lingering overflow hidden on page load
-    document.body.style.overflow = '';
-    document.body.style.overflowY = '';
-    document.documentElement.style.overflow = '';
-
-    // Add safeguard to clear overflow on visibility change (tab switch, etc.)
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') {
-            // Only clear if mobile nav is closed
-            const isNavOpen = mobileToggle && mobileToggle.getAttribute('aria-expanded') === 'true';
-            if (!isNavOpen) {
-                document.body.style.overflow = '';
-                document.body.style.overflowY = '';
-                document.documentElement.style.overflow = '';
-            }
-        }
-    });
+    // Mobile navigation is handled by Header.astro component
+    // Removed duplicate code to prevent conflicts
 });
 </script>
 

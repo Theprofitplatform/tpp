@@ -11,12 +11,20 @@
     "parity": "npm run fetch:prod && npm run assets:download && npm run build && npm run parity:scan",
     "fetch:prod": "node scripts/fetch-production.mjs",
     "assets:download": "node scripts/download-assets.mjs",
-    "parity:scan": "node scripts/parity-scan.mjs"
+    "parity:scan": "node scripts/parity-scan.mjs",
+    "blog:generate": "node automation/scripts/generate-blog-post.js",
+    "blog:validate": "node automation/scripts/validate-content.js",
+    "blog:plagiarism": "node automation/scripts/plagiarism-check.js",
+    "blog:test": "npm run blog:generate && npm run blog:validate"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.65.0",
     "@astrojs/cloudflare": "12.6.9",
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.14.1",
     "cheerio": "1.1.2",
+    "gray-matter": "^4.0.3",
     "undici": "^7.16.0"
   },
   "devDependencies": {

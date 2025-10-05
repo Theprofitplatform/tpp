@@ -187,10 +187,10 @@
         const result = await response.json();
 
         if (response.ok && result.success) {
-          alert('Thank you for your inquiry! We\\'ll contact you within 24 hours.');
+          alert(`Thank you for your inquiry! We'll contact you within 24 hours.`);
           newForm.reset();
         } else {
-          alert('Failed to submit: ' + (result.error || 'Please try again'));
+          alert(`Failed to submit: ${result.error || 'Please try again'}`);
         }
       } catch (error) {
         alert('Network error. Please try again or call us directly.');

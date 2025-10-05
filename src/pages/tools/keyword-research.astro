@@ -1,0 +1,1245 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+
+// Use relative path for Cloudflare Pages Functions
+const apiUrl = '';
+---
+
+<BaseLayout title="Free Keyword Research Tool | Find Profitable Keywords for Sydney">
+  <Header />
+
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section class="keyword-hero">
+      <div class="container">
+        <div class="keyword-hero-content">
+          <span class="section-tag">🔑 Free Tool</span>
+          <h1>Keyword Research Tool</h1>
+          <p class="hero-subtitle">
+            Discover profitable keywords for your Sydney business. Get search volume,
+            competition data, and keyword suggestions - 100% free.
+          </p>
+          <div class="trust-badges">
+            <span class="badge"><i class="fas fa-database"></i> Real Search Data</span>
+            <span class="badge"><i class="fas fa-location-dot"></i> Sydney Focused</span>
+            <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keyword Research Tool -->
+    <section class="keyword-section">
+      <div class="container">
+        <div class="keyword-card">
+          <form id="keywordForm" class="keyword-form">
+            <div class="form-group">
+              <label for="keyword">
+                <i class="fas fa-search"></i>
+                Enter Your Keyword or Topic
+              </label>
+              <input
+                type="text"
+                id="keyword"
+                name="keyword"
+                placeholder="e.g., digital marketing, SEO services, plumber"
+                required
+              />
+              <small>Enter a seed keyword to generate related keyword ideas</small>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  Location
+                </label>
+                <select id="location" name="location">
+                  <option value="Sydney, Australia">Sydney, Australia</option>
+                  <option value="Sydney CBD">Sydney CBD</option>
+                  <option value="Parramatta">Parramatta</option>
+                  <option value="Bondi">Bondi</option>
+                  <option value="Chatswood">Chatswood</option>
+                  <option value="Penrith">Penrith</option>
+                  <option value="Liverpool">Liverpool</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="intent">
+                  <i class="fas fa-bullseye"></i>
+                  Search Intent
+                </label>
+                <select id="intent" name="intent">
+                  <option value="all">All Intents</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="informational">Informational</option>
+                  <option value="transactional">Buyer Intent</option>
+                  <option value="navigational">Navigational</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary" id="researchButton">
+              <span class="btn-text">
+                <i class="fas fa-magic"></i>
+                Find Keywords
+              </span>
+              <span class="btn-loader" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                Researching...
+              </span>
+            </button>
+          </form>
+
+          <!-- Loading State -->
+          <div id="loadingState" class="loading-state" style="display: none;">
+            <div class="loader-animation">
+              <div class="scanning-line"></div>
+              <i class="fas fa-key fa-3x"></i>
+            </div>
+            <h3>Finding Keywords...</h3>
+            <div class="progress-steps">
+              <div class="step active" id="step1">
+                <i class="fas fa-check-circle"></i>
+                <span>Analyzing seed keyword</span>
+              </div>
+              <div class="step" id="step2">
+                <i class="fas fa-circle"></i>
+                <span>Gathering search data</span>
+              </div>
+              <div class="step" id="step3">
+                <i class="fas fa-circle"></i>
+                <span>Finding related keywords</span>
+              </div>
+              <div class="step" id="step4">
+                <i class="fas fa-circle"></i>
+                <span>Calculating metrics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Section -->
+          <div id="resultsContainer" style="display: none;">
+            <div class="results-header">
+              <h2>Keyword Results</h2>
+              <div class="results-summary" id="resultsSummary">
+                <div class="summary-stat">
+                  <span class="stat-number" id="totalKeywords">--</span>
+                  <span class="stat-label">Keywords Found</span>
+                </div>
+                <div class="summary-stat">
+                  <span class="stat-number" id="avgVolume">--</span>
+                  <span class="stat-label">Avg. Monthly Searches</span>
+                </div>
+                <div class="summary-stat">
+                  <span class="stat-number" id="highPriority">--</span>
+                  <span class="stat-label">High Priority</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+              <button class="tab-btn active" data-filter="all">
+                All Keywords
+              </button>
+              <button class="tab-btn" data-filter="high">
+                <i class="fas fa-star"></i> High Priority
+              </button>
+              <button class="tab-btn" data-filter="medium">
+                Medium Priority
+              </button>
+              <button class="tab-btn" data-filter="low">
+                Low Priority
+              </button>
+              <button class="tab-btn" data-filter="long-tail">
+                <i class="fas fa-spell-check"></i> Long-tail
+              </button>
+            </div>
+
+            <!-- Keywords Table -->
+            <div class="keywords-table-wrapper">
+              <table class="keywords-table" id="keywordsTable">
+                <thead>
+                  <tr>
+                    <th>Keyword</th>
+                    <th>
+                      <i class="fas fa-chart-bar"></i>
+                      Monthly Volume
+                    </th>
+                    <th>
+                      <i class="fas fa-signal"></i>
+                      Difficulty
+                    </th>
+                    <th>
+                      <i class="fas fa-crosshairs"></i>
+                      Intent
+                    </th>
+                    <th>
+                      <i class="fas fa-flag"></i>
+                      Priority
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="keywordsTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Keyword Clusters -->
+            <div class="keyword-clusters">
+              <h3><i class="fas fa-layer-group"></i> Keyword Clusters</h3>
+              <p class="cluster-subtitle">Group related keywords for better content strategy</p>
+              <div id="clustersContainer" class="clusters-grid">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Export Options -->
+            <div class="export-options">
+              <button class="btn-secondary" id="exportCSV">
+                <i class="fas fa-file-csv"></i> Export CSV
+              </button>
+              <button class="btn-secondary" id="exportPDF">
+                <i class="fas fa-file-pdf"></i> Export PDF
+              </button>
+              <button class="btn-secondary" id="copyKeywords">
+                <i class="fas fa-copy"></i> Copy to Clipboard
+              </button>
+            </div>
+          </div>
+
+          <!-- Error State -->
+          <div id="errorState" class="error-state" style="display: none;">
+            <i class="fas fa-exclamation-triangle fa-3x"></i>
+            <h3>Research Failed</h3>
+            <p id="errorMessage"></p>
+            <button class="btn-primary" onclick="location.reload()">
+              <i class="fas fa-redo"></i> Try Again
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Tips -->
+        <div class="tips-section">
+          <h3><i class="fas fa-lightbulb"></i> Keyword Research Tips</h3>
+          <div class="tips-grid">
+            <div class="tip-card">
+              <i class="fas fa-target"></i>
+              <h4>Focus on Intent</h4>
+              <p>Choose keywords that match what your customers are searching for - not just high volume.</p>
+            </div>
+            <div class="tip-card">
+              <i class="fas fa-location-dot"></i>
+              <h4>Go Local</h4>
+              <p>Add "Sydney" or suburb names to your keywords for better local SEO results.</p>
+            </div>
+            <div class="tip-card">
+              <i class="fas fa-spell-check"></i>
+              <h4>Use Long-tail</h4>
+              <p>Longer, specific keywords have less competition and higher conversion rates.</p>
+            </div>
+            <div class="tip-card">
+              <i class="fas fa-chart-line"></i>
+              <h4>Track Rankings</h4>
+              <p>Use our <a href="/tools/rank-tracker">Rank Tracker</a> to monitor your keyword positions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="tools-cta-modern">
+      <div class="container">
+        <div class="cta-content-modern">
+          <span class="section-tag white">🚀 Need Expert Help?</span>
+          <h2>Get Professional SEO Services</h2>
+          <p class="cta-subtitle">
+            Found great keywords? Let our Sydney-based experts help you rank for them on Google.
+          </p>
+          <div class="cta-buttons-modern">
+            <a href="/contact" class="cta-primary-modern">
+              <span class="cta-content">
+                <span class="cta-main">Get Free SEO Strategy</span>
+                <span class="cta-sub">Worth $997 • No obligation</span>
+              </span>
+              <span class="cta-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+            <a href="tel:+61487286451" class="cta-secondary-modern">
+              <span class="cta-icon-pulse">
+                <i class="fas fa-phone"></i>
+              </span>
+              <span class="cta-text">
+                <span class="cta-label">Call Avi directly</span>
+                <span class="cta-number">0487 286 451</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  /* ==========================================
+     KEYWORD RESEARCH TOOL STYLES
+     ========================================== */
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .section-tag.white {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Hero Section */
+  main#main-content section.keyword-hero.keyword-hero {
+    padding: 180px 0 60px !important;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .keyword-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 1rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .badge i {
+    font-size: 1.1rem;
+  }
+
+  /* Keyword Section */
+  .keyword-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .keyword-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+  }
+
+  /* Form */
+  .keyword-form {
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1e293b;
+    font-size: 1.1rem;
+  }
+
+  .form-group label i {
+    color: #10b981;
+    margin-right: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+  }
+
+  .form-group small {
+    display: block;
+    margin-top: 0.5rem;
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Buttons */
+  .btn-primary {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    padding: 0.875rem 1.5rem;
+    background: white;
+    color: #10b981;
+    border: 2px solid #10b981;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #10b981;
+    color: white;
+  }
+
+  /* Loading State */
+  .loading-state {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .loader-animation {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .loader-animation i {
+    color: #10b981;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .scanning-line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #10b981, transparent);
+    top: 50%;
+    animation: scan 2s linear infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-50%) translateX(-100%); }
+    100% { transform: translateY(-50%) translateX(100%); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+
+  .progress-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 2rem auto 0;
+    text-align: left;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #94a3b8;
+  }
+
+  .step.active {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+
+  .step.complete {
+    color: #10b981;
+  }
+
+  .step i {
+    font-size: 1.2rem;
+  }
+
+  /* Results */
+  .results-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .results-header h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: #1e293b;
+  }
+
+  .results-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .summary-stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #10b981;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  /* Filter Tabs */
+  .filter-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tab-btn:hover {
+    border-color: #10b981;
+    color: #10b981;
+  }
+
+  .tab-btn.active {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border-color: #10b981;
+  }
+
+  .tab-btn i {
+    margin-right: 0.5rem;
+  }
+
+  /* Keywords Table */
+  .keywords-table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 3rem;
+  }
+
+  .keywords-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .keywords-table thead {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  }
+
+  .keywords-table th {
+    padding: 1.25rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .keywords-table th i {
+    color: #10b981;
+    margin-right: 0.5rem;
+  }
+
+  .keywords-table tbody tr {
+    border-bottom: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+  }
+
+  .keywords-table tbody tr:hover {
+    background: #f8fafc;
+  }
+
+  .keywords-table td {
+    padding: 1.25rem 1rem;
+    color: #475569;
+  }
+
+  .keyword-text {
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .volume-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-radius: 8px;
+    font-weight: 700;
+    color: #1e40af;
+  }
+
+  .difficulty-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  .difficulty-low {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #065f46;
+  }
+
+  .difficulty-medium {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #92400e;
+  }
+
+  .difficulty-high {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+  }
+
+  .intent-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  .priority-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  .priority-high {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+  }
+
+  .priority-medium {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+  }
+
+  .priority-low {
+    background: linear-gradient(135deg, #6b7280, #4b5563);
+    color: white;
+  }
+
+  /* Keyword Clusters */
+  .keyword-clusters {
+    margin-bottom: 3rem;
+  }
+
+  .keyword-clusters h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .cluster-subtitle {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  .clusters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .cluster-card {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .cluster-card:hover {
+    border-color: #10b981;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.1);
+  }
+
+  .cluster-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1rem;
+  }
+
+  .cluster-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .cluster-keyword {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #475569;
+  }
+
+  /* Export Options */
+  .export-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 2px solid #f1f5f9;
+  }
+
+  /* Error State */
+  .error-state {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .error-state i {
+    color: #ef4444;
+    margin-bottom: 1.5rem;
+  }
+
+  .error-state h3 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+  }
+
+  .error-state p {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  /* Tips Section */
+  .tips-section {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .tips-section h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .tips-section h3 i {
+    color: #fbbf24;
+    margin-right: 0.5rem;
+  }
+
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tip-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .tip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .tip-card i {
+    font-size: 2.5rem;
+    color: #10b981;
+    margin-bottom: 1rem;
+  }
+
+  .tip-card h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+  }
+
+  .tip-card p {
+    color: #64748b;
+    line-height: 1.6;
+  }
+
+  .tip-card a {
+    color: #10b981;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .tip-card a:hover {
+    text-decoration: underline;
+  }
+
+  /* CTA Section */
+  .tools-cta-modern {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-content-modern h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 1.5rem 0 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons-modern {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary-modern {
+    background: white;
+    color: #1e40af;
+    padding: 1.25rem 2rem;
+    border-radius: 60px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-primary-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-main {
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .cta-sub {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  .cta-arrow {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .cta-secondary-modern {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 1.25rem 2rem;
+    border-radius: 60px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .cta-secondary-modern:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .cta-icon-pulse {
+    width: 45px;
+    height: 45px;
+    background: white;
+    color: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cta-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-label {
+    font-size: 0.85rem;
+  }
+
+  .cta-number {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    main#main-content section.keyword-hero.keyword-hero {
+      padding: 100px 0 60px !important;
+    }
+
+    .keyword-hero-content h1 {
+      font-size: 2.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .keyword-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .results-summary {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .filter-tabs {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+    }
+
+    .keywords-table {
+      font-size: 0.9rem;
+    }
+
+    .keywords-table th,
+    .keywords-table td {
+      padding: 0.75rem 0.5rem;
+    }
+
+    .cta-buttons-modern {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cta-primary-modern,
+    .cta-secondary-modern {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script define:vars={{ apiUrl }}>
+  const form = document.getElementById('keywordForm');
+  const loadingState = document.getElementById('loadingState');
+  const resultsContainer = document.getElementById('resultsContainer');
+  const errorState = document.getElementById('errorState');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const keyword = document.getElementById('keyword').value.trim();
+    const location = document.getElementById('location').value;
+    const intent = document.getElementById('intent').value;
+
+    // Show loading state
+    form.style.display = 'none';
+    loadingState.style.display = 'block';
+    resultsContainer.style.display = 'none';
+    errorState.style.display = 'none';
+
+    // Animate progress steps
+    animateProgressSteps();
+
+    try {
+      const response = await fetch(`${apiUrl}/api/keyword-research`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ keyword, location, intent }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to research keywords');
+      }
+
+      // Display results
+      displayResults(data);
+    } catch (error) {
+      console.error('Research error:', error);
+      showError(error.message);
+    }
+  });
+
+  function animateProgressSteps() {
+    const steps = ['step1', 'step2', 'step3', 'step4'];
+    steps.forEach((stepId, index) => {
+      setTimeout(() => {
+        const step = document.getElementById(stepId);
+        step.classList.add('active');
+        if (index > 0) {
+          const prevStep = document.getElementById(steps[index - 1]);
+          prevStep.classList.remove('active');
+          prevStep.classList.add('complete');
+          prevStep.querySelector('i').className = 'fas fa-check-circle';
+        }
+      }, index * 1200);
+    });
+  }
+
+  function displayResults(data) {
+    loadingState.style.display = 'none';
+    resultsContainer.style.display = 'block';
+
+    // Summary stats
+    document.getElementById('totalKeywords').textContent = data.keywords.length;
+    document.getElementById('avgVolume').textContent = data.avgVolume || 'N/A';
+    document.getElementById('highPriority').textContent =
+      data.keywords.filter(k => k.priority === 'high').length;
+
+    // Keywords table
+    displayKeywordsTable(data.keywords);
+
+    // Clusters
+    if (data.clusters && data.clusters.length > 0) {
+      displayClusters(data.clusters);
+    }
+
+    // Setup filter tabs
+    setupFilterTabs(data.keywords);
+  }
+
+  function displayKeywordsTable(keywords) {
+    const tbody = document.getElementById('keywordsTableBody');
+    tbody.innerHTML = keywords.map(keyword => `
+      <tr data-priority="${keyword.priority}" data-type="${keyword.type || 'short'}">
+        <td class="keyword-text">${keyword.keyword}</td>
+        <td><span class="volume-badge">${keyword.volume || 'N/A'}/mo</span></td>
+        <td><span class="difficulty-badge difficulty-${keyword.difficulty.toLowerCase()}">${keyword.difficulty}</span></td>
+        <td><span class="intent-badge">${keyword.intent}</span></td>
+        <td><span class="priority-badge priority-${keyword.priority}">${keyword.priority}</span></td>
+      </tr>
+    `).join('');
+  }
+
+  function displayClusters(clusters) {
+    const container = document.getElementById('clustersContainer');
+    container.innerHTML = clusters.map(cluster => `
+      <div class="cluster-card">
+        <h4>${cluster.name}</h4>
+        <div class="cluster-keywords">
+          ${cluster.keywords.map(kw => `<span class="cluster-keyword">${kw}</span>`).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function setupFilterTabs(keywords) {
+    const tabs = document.querySelectorAll('.tab-btn');
+    const rows = document.querySelectorAll('#keywordsTableBody tr');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filter = tab.dataset.filter;
+
+        // Filter rows
+        rows.forEach(row => {
+          if (filter === 'all') {
+            row.style.display = '';
+          } else if (filter === 'long-tail') {
+            row.style.display = row.dataset.type === 'long-tail' ? '' : 'none';
+          } else {
+            row.style.display = row.dataset.priority === filter ? '' : 'none';
+          }
+        });
+      });
+    });
+  }
+
+  function showError(message) {
+    loadingState.style.display = 'none';
+    errorState.style.display = 'block';
+    document.getElementById('errorMessage').textContent = message;
+  }
+
+  // Export CSV
+  document.getElementById('exportCSV')?.addEventListener('click', () => {
+    const rows = Array.from(document.querySelectorAll('#keywordsTableBody tr'));
+    const csv = [
+      ['Keyword', 'Monthly Volume', 'Difficulty', 'Intent', 'Priority'].join(','),
+      ...rows.map(row => {
+        const cells = Array.from(row.querySelectorAll('td'));
+        return cells.map(cell => `"${cell.textContent.trim()}"`).join(',');
+      })
+    ].join('\n');
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'keywords.csv';
+    a.click();
+  });
+
+  // Copy to clipboard
+  document.getElementById('copyKeywords')?.addEventListener('click', () => {
+    const keywords = Array.from(document.querySelectorAll('.keyword-text'))
+      .map(el => el.textContent.trim())
+      .join('\n');
+
+    navigator.clipboard.writeText(keywords);
+    alert('Keywords copied to clipboard!');
+  });
+
+  // Export PDF
+  document.getElementById('exportPDF')?.addEventListener('click', () => {
+    alert('PDF export feature coming soon!');
+  });
+</script>

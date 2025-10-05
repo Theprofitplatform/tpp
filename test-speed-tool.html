@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Test Tool - Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        button { background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #5568d3; }
+        pre { background: #f5f5f5; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+        .loading { color: #f59e0b; }
+    </style>
+</head>
+<body>
+    <h1>Speed Test Tool - Debug Interface</h1>
+
+    <div class="test-section">
+        <h2>Test Speed Test API</h2>
+        <label>
+            Enter URL to test:
+            <input type="url" id="testUrl" value="https://example.com" style="width: 400px; padding: 8px;">
+        </label>
+        <button onclick="testSpeedAPI()">Run Speed Test</button>
+        <div id="apiResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Email Report API</h2>
+        <label>
+            Email:
+            <input type="email" id="testEmail" value="test@example.com" style="width: 300px; padding: 8px;">
+        </label>
+        <button onclick="testEmailAPI()">Send Test Report</button>
+        <div id="emailResult"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test Results</h2>
+        <div id="testResults"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'https://theprofitplatform.com.au';
+
+        async function testSpeedAPI() {
+            const url = document.getElementById('testUrl').value;
+            const resultDiv = document.getElementById('apiResult');
+            const testDiv = document.getElementById('testResults');
+
+            resultDiv.innerHTML = '<p class="loading">⏳ Testing speed API...</p>';
+            testDiv.innerHTML = '';
+
+            try {
+                const response = await fetch(`${API_BASE}/api/speed-test`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ url, strategy: 'mobile' })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    resultDiv.innerHTML = '<p class="success">✅ API Working!</p>';
+
+                    const result = data.data;
+                    let html = `
+                        <h3>API Response Analysis</h3>
+                        <pre>${JSON.stringify(result, null, 2)}</pre>
+
+                        <h3>Feature Checklist</h3>
+                        <ul>
+                            <li>✅ Performance Score: ${result.scores.performance}</li>
+                            <li>${result.coreWebVitals ? '✅' : '❌'} Core Web Vitals: ${result.coreWebVitals ? 'Present' : 'Missing'}</li>
+                            <li>${result.deviceComparison ? '✅' : '❌'} Device Comparison: ${result.deviceComparison ? 'Present' : 'Missing'}</li>
+                            <li>${result.benchmarks ? '✅' : '❌'} Benchmarks: ${result.benchmarks ? 'Present' : 'Missing'}</li>
+                            <li>${result.recommendations ? '✅' : '❌'} Recommendations: ${result.recommendations ? 'Present' : 'Missing'}</li>
+                            <li>📊 Opportunities Found: ${result.opportunities?.length || 0}</li>
+                        </ul>
+                    `;
+
+                    if (result.opportunities && result.opportunities.length > 0) {
+                        html += `<h4>Sample Opportunity:</h4><pre>${JSON.stringify(result.opportunities[0], null, 2)}</pre>`;
+                    }
+
+                    testDiv.innerHTML = html;
+                } else {
+                    resultDiv.innerHTML = `<p class="error">❌ API Error: ${data.error}</p>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ Request Failed: ${error.message}</p>`;
+            }
+        }
+
+        async function testEmailAPI() {
+            const email = document.getElementById('testEmail').value;
+            const resultDiv = document.getElementById('emailResult');
+
+            resultDiv.innerHTML = '<p class="loading">⏳ Testing email API...</p>';
+
+            const mockResults = {
+                url: 'https://example.com',
+                scores: { performance: 100 },
+                coreWebVitals: {
+                    lcp: { displayValue: '0.8s', rating: 'good' },
+                    fid: { displayValue: '0ms', rating: 'good' },
+                    cls: { displayValue: '0', rating: 'good' }
+                }
+            };
+
+            try {
+                const response = await fetch(`${API_BASE}/api/send-report`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, results: mockResults })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    resultDiv.innerHTML = '<p class="success">✅ Email API Working!</p>';
+                } else {
+                    resultDiv.innerHTML = `<p class="error">❌ Email API Error: ${data.error}</p>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ Request Failed: ${error.message}</p>`;
+            }
+        }
+
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            console.log('Debug interface loaded. Click buttons to test APIs.');
+        });
+    </script>
+</body>
+</html>

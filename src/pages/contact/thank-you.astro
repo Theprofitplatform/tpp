@@ -1,0 +1,579 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../../public/css/contact-page-styles.css';
+
+const pageTitle = "Thank You - The Profit Platform";
+const pageDescription = "Thank you for contacting The Profit Platform. We'll be in touch within 24 hours.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <div class="thank-you-page">
+    <!-- Success Hero -->
+    <section class="thank-you-hero contact-hero-premium">
+      <div class="contact-hero-background">
+        <div class="contact-hero-orb contact-hero-orb-1"></div>
+        <div class="contact-hero-orb contact-hero-orb-2"></div>
+        <div class="contact-hero-orb contact-hero-orb-3"></div>
+      </div>
+
+      <div class="container contact-hero-container">
+        <div class="contact-hero-content">
+          <div class="success-checkmark-container">
+            <div class="success-checkmark">
+              <i class="fas fa-check-circle"></i>
+            </div>
+          </div>
+
+          <h1 class="contact-hero-title">Message Received! 🎉</h1>
+
+          <p class="contact-hero-description">
+            Thanks for reaching out! We've received your inquiry and our team will get back to you within 24 hours (usually much faster).
+          </p>
+
+          <div class="confirmation-details">
+            <div class="confirmation-item">
+              <i class="fas fa-envelope-open-text"></i>
+              <span>Confirmation email sent</span>
+            </div>
+            <div class="confirmation-item">
+              <i class="fas fa-clock"></i>
+              <span>Response within 24 hours</span>
+            </div>
+            <div class="confirmation-item">
+              <i class="fas fa-user-check"></i>
+              <span>Assigned to expert team</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Steps Section -->
+    <section class="next-steps-section">
+      <div class="container">
+        <h2 class="section-title">What Happens Next?</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-paper-plane"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>1. Immediate Confirmation</h3>
+              <p>You'll receive a confirmation email with your inquiry details. Check your inbox (and spam folder just in case).</p>
+              <span class="timeline-badge">Complete ✓</span>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>2. Expert Review</h3>
+              <p>Our digital marketing specialists will review your requirements and prepare a personalized response.</p>
+              <span class="timeline-badge">In Progress...</span>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>3. Personal Contact</h3>
+              <p>We'll reach out within 24 hours to discuss your needs and book a strategy call.</p>
+              <span class="timeline-badge">Next 24hrs</span>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <div class="timeline-content">
+              <h3>4. Strategy Session</h3>
+              <p>We'll analyze your business and create a custom growth plan tailored to your goals.</p>
+              <span class="timeline-badge">Upcoming</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Urgent CTA -->
+    <section class="urgent-cta-section">
+      <div class="container">
+        <div class="urgent-cta-box">
+          <h2>Need Help Right Now?</h2>
+          <p>Don't wait for our email - reach out directly for immediate assistance:</p>
+
+          <div class="urgent-cta-buttons">
+            <a href="https://wa.me/61487286451?text=Hi%2C%20I%20just%20submitted%20a%20contact%20form%20and%20need%20urgent%20help%21"
+               class="urgent-btn urgent-btn-primary">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp Now</span>
+            </a>
+
+            <a href="tel:+61487286451" class="urgent-btn urgent-btn-secondary">
+              <i class="fas fa-phone-alt"></i>
+              <span>Call: 0487 286 451</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- While You Wait -->
+    <section class="while-you-wait-section">
+      <div class="container">
+        <h2 class="section-title">While You Wait...</h2>
+
+        <div class="resources-grid">
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Check Out Our Case Studies</h3>
+            <p>See how we've helped Sydney businesses achieve 10x ROI with data-driven digital marketing.</p>
+            <a href="/portfolio" class="resource-link">
+              View Portfolio <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-blog"></i>
+            </div>
+            <h3>Read Our Latest Insights</h3>
+            <p>Stay ahead with cutting-edge marketing strategies and industry trends.</p>
+            <a href="/blog" class="resource-link">
+              Read Blog <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <div class="resource-card">
+            <div class="resource-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Try Our Free Tools</h3>
+            <p>Get instant insights with our SEO audit and website speed test tools.</p>
+            <a href="/tools" class="resource-link">
+              Explore Tools <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof-section">
+      <div class="container">
+        <h2 class="section-title">Join 15+ Growing Sydney Businesses</h2>
+
+        <div class="testimonials-carousel">
+          <div class="testimonial-card-thank-you">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"The response time was incredible. Within 3 hours of submitting the form, I was on a call with their team and had a complete strategy mapped out."</p>
+            <div class="testimonial-author-compact">
+              <strong>Sarah M.</strong> - E-commerce Owner
+            </div>
+          </div>
+
+          <div class="testimonial-card-thank-you">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"Best decision I made for my business. They delivered exactly what they promised during our initial consultation."</p>
+            <div class="testimonial-author-compact">
+              <strong>James T.</strong> - Service Business
+            </div>
+          </div>
+
+          <div class="testimonial-card-thank-you">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-quote">"From the first touchpoint, I knew I was dealing with professionals. The communication was clear, fast, and results-focused."</p>
+            <div class="testimonial-author-compact">
+              <strong>Linda K.</strong> - Tech Startup
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .thank-you-page {
+    background: var(--pp-gray-50);
+  }
+
+  .success-checkmark-container {
+    margin-bottom: 32px;
+  }
+
+  .success-checkmark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border-radius: 50%;
+    animation: scaleIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4);
+  }
+
+  .success-checkmark i {
+    font-size: 64px;
+    color: white;
+  }
+
+  @keyframes scaleIn {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .confirmation-details {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 48px;
+  }
+
+  .confirmation-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    color: white;
+  }
+
+  .confirmation-item i {
+    font-size: 24px;
+    color: #10b981;
+  }
+
+  /* Next Steps Section */
+  .next-steps-section {
+    padding: 80px 0;
+    background: white;
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+    color: var(--pp-gray-900);
+  }
+
+  .timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #10b981, #6366f1);
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .timeline-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    flex-shrink: 0;
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+    z-index: 2;
+  }
+
+  .timeline-content {
+    flex: 1;
+    padding: 24px;
+    background: var(--pp-gray-50);
+    border-radius: var(--border-radius-lg);
+    border-left: 4px solid #6366f1;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--pp-gray-900);
+  }
+
+  .timeline-content p {
+    color: var(--pp-gray-600);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .timeline-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  /* Urgent CTA Section */
+  .urgent-cta-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #fef3c7, #fed7aa);
+  }
+
+  .urgent-cta-box {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .urgent-cta-box h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: var(--pp-gray-900);
+  }
+
+  .urgent-cta-box p {
+    font-size: 1.2rem;
+    color: var(--pp-gray-700);
+    margin-bottom: 32px;
+  }
+
+  .urgent-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .urgent-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 40px;
+    border-radius: var(--border-radius-md);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .urgent-btn-primary {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .urgent-btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+  }
+
+  .urgent-btn-secondary {
+    background: white;
+    color: #6366f1;
+    border: 2px solid #6366f1;
+  }
+
+  .urgent-btn-secondary:hover {
+    background: #6366f1;
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* While You Wait Section */
+  .while-you-wait-section {
+    padding: 80px 0;
+    background: white;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .resource-card {
+    background: var(--pp-gray-50);
+    padding: 40px;
+    border-radius: var(--border-radius-xl);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+    border-color: #6366f1;
+  }
+
+  .resource-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 36px;
+  }
+
+  .resource-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--pp-gray-900);
+  }
+
+  .resource-card p {
+    color: var(--pp-gray-600);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .resource-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #6366f1;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .resource-link:hover {
+    gap: 12px;
+  }
+
+  .resource-link i {
+    transition: transform 0.3s ease;
+  }
+
+  .resource-link:hover i {
+    transform: translateX(4px);
+  }
+
+  /* Social Proof Section */
+  .social-proof-section {
+    padding: 80px 0;
+    background: var(--pp-gray-50);
+  }
+
+  .testimonials-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .testimonial-card-thank-you {
+    background: white;
+    padding: 32px;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card-thank-you:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .testimonial-rating {
+    color: #fbbf24;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-quote {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--pp-gray-700);
+    margin-bottom: 16px;
+    font-style: italic;
+  }
+
+  .testimonial-author-compact {
+    color: var(--pp-gray-600);
+    font-size: 14px;
+  }
+
+  @media (max-width: 768px) {
+    .timeline::before {
+      left: 20px;
+    }
+
+    .timeline-icon {
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+    }
+
+    .urgent-cta-buttons {
+      flex-direction: column;
+    }
+
+    .urgent-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

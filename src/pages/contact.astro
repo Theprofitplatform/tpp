@@ -2,14 +2,13 @@
 // Enhanced Contact Page with improved UX, accessibility, and conversion optimization
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import ContactForm from '../components/ContactForm.astro';
+import ExitIntentPopup from '../components/ExitIntentPopup.astro';
+import SocialProofWidget from '../components/SocialProofWidget.astro';
+import '../../public/css/contact-page-styles.css';
 ---
 
 <BaseLayout title="Contact The Profit Platform — Sydney Digital Marketing Experts">
-  <!-- Contact Page Specific Styles -->
-  <link slot="head" rel="stylesheet" href="/css/contact-page-styles.css?v=2">
-
   <!-- Enhanced SEO Meta Tags -->
   <Fragment slot="head">
     <!-- Primary Meta Tags -->
@@ -122,65 +121,70 @@ import ContactForm from '../components/ContactForm.astro';
   <!-- Main Content -->
   <main id="main-content" role="main">
     <!-- Premium Contact Hero Section -->
-    <section class="contact-hero premium-hero" role="banner" aria-labelledby="contactHeroHeading" style="padding: 150px 0 80px; background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%); position: relative; overflow: hidden;">
+    <section class="contact-hero-premium premium-hero" role="banner" aria-labelledby="contactHeroHeading">
       <!-- Hero Background Elements -->
-      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; opacity: 0.1;">
-        <div style="position: absolute; top: 20%; left: 10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
-        <div style="position: absolute; top: 60%; right: 15%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%); border-radius: 50%; animation: float 4s ease-in-out infinite reverse;"></div>
-        <div style="position: absolute; bottom: 20%; left: 20%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%); border-radius: 50%; animation: float 5s ease-in-out infinite;"></div>
+      <div class="contact-hero-background">
+        <div class="contact-hero-orb contact-hero-orb-1"></div>
+        <div class="contact-hero-orb contact-hero-orb-2"></div>
+        <div class="contact-hero-orb contact-hero-orb-3"></div>
       </div>
 
-      <div class="container" style="position: relative; z-index: 2;">
-        <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+      <div class="container contact-hero-container">
+        <div class="contact-hero-content">
           <!-- Response Time Guarantee Badge -->
-          <div style="display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; padding: 8px 20px; margin-bottom: 24px; font-size: 14px; font-weight: 600; color: white;">
+          <div class="contact-hero-badge">
             <i class="fas fa-clock" style="margin-right: 8px;"></i>
             <span style="color: #FFD700;">24-Hour Response Guarantee</span> • Free Marketing Audit Worth $997
           </div>
 
-          <h1 id="contactHeroHeading" style="font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 24px; color: white; letter-spacing: -0.02em; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+          <h1 id="contactHeroHeading" class="contact-hero-title">
             Let's Grow Your Business Together
           </h1>
-          <p style="font-size: 1.3rem; line-height: 1.6; color: rgba(255,255,255,0.95); margin-bottom: 48px; max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400;">
+          <p class="contact-hero-description">
             Ready to dominate your market? Get personalized strategies, expert guidance, and guaranteed results. Sydney's #1 digital marketing specialist is just one click away.
           </p>
 
           <!-- Premium Quick Contact Options -->
-          <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 40px;">
-            <a href="tel:+61487286451" class="hero-cta-btn" style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.15); backdrop-filter: blur(15px); color: white; padding: 18px 32px; border-radius: 14px; text-decoration: none; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.4s; position: relative; overflow: hidden;">
-              <i class="fas fa-phone-alt" style="font-size: 18px;"></i>
-              <span>Call Now: 0487 286 451</span>
+          <div class="contact-cta-container">
+            <!-- Primary CTA: WhatsApp -->
+            <a href="https://wa.me/61487286451?text=Hi%20Avi%2C%20I%27d%20like%20to%20book%20my%20free%20marketing%20audit%20for%20my%20Sydney%20business.%20When%20can%20we%20chat%3F" target="_blank" rel="noopener" class="hero-cta-btn-primary" style="display: inline-flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 24px 48px; border-radius: 16px; text-decoration: none; font-weight: 700; font-size: 1.25rem; transition: all 0.4s; box-shadow: 0 10px 35px rgba(37,211,102,0.5); position: relative; overflow: hidden;">
+              <i class="fab fa-whatsapp" style="font-size: 28px;"></i>
+              <span>Start Free WhatsApp Audit</span>
             </a>
-            <a href="mailto:avi@theprofitplatform.com.au" class="hero-cta-btn" style="display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.15); backdrop-filter: blur(15px); color: white; padding: 18px 32px; border-radius: 14px; text-decoration: none; font-weight: 600; border: 2px solid rgba(255,255,255,0.3); transition: all 0.4s; position: relative; overflow: hidden;">
-              <i class="fas fa-envelope-open" style="font-size: 18px;"></i>
-              <span>Email Strategy Session</span>
-            </a>
-            <a href="https://wa.me/61487286451?text=Hi%20Avi%2C%20I%27d%20like%20to%20book%20my%20free%20marketing%20audit%20for%20my%20Sydney%20business.%20When%20can%20we%20chat%3F" target="_blank" rel="noopener" class="hero-cta-btn" style="display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 18px 32px; border-radius: 14px; text-decoration: none; font-weight: 600; transition: all 0.4s; box-shadow: 0 8px 25px rgba(37,211,102,0.4); position: relative; overflow: hidden;">
-              <i class="fab fa-whatsapp" style="font-size: 20px;"></i>
-              <span>WhatsApp Chat</span>
-            </a>
+
+            <!-- Secondary CTAs: Phone & Email -->
+            <div class="contact-cta-secondary-group">
+              <a href="tel:+61487286451" class="hero-cta-btn-secondary" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; position: relative;">
+                <i class="fas fa-phone-alt" style="font-size: 16px;"></i>
+                <span>Call: 0487 286 451</span>
+              </a>
+              <a href="mailto:avi@theprofitplatform.com.au" class="hero-cta-btn-secondary" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; position: relative;">
+                <i class="fas fa-envelope" style="font-size: 16px;"></i>
+                <span>Email Us</span>
+              </a>
+            </div>
           </div>
 
           <!-- Trust Indicators -->
-          <div style="display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap; padding: 24px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 16px; border: 1px solid rgba(255,255,255,0.2);">
-            <div style="text-align: center;">
-              <div style="font-size: 1.8rem; font-weight: 800; color: #FFD700; margin-bottom: 4px;">⭐ 4.9/5</div>
-              <div style="font-size: 14px; color: rgba(255,255,255,0.9);">Google Reviews</div>
+          <div class="contact-trust-box">
+            <div class="contact-trust-item">
+              <div class="contact-trust-value">⭐ 4.9/5</div>
+              <div class="contact-trust-label">Google Reviews</div>
             </div>
-            <div style="width: 1px; height: 30px; background: rgba(255,255,255,0.3);"></div>
-            <div style="text-align: center;">
-              <div style="font-size: 1.8rem; font-weight: 800; color: #FFD700; margin-bottom: 4px;">24hr</div>
-              <div style="font-size: 14px; color: rgba(255,255,255,0.9);">Response Time</div>
+            <div class="contact-trust-divider"></div>
+            <div class="contact-trust-item">
+              <div class="contact-trust-value">24hr</div>
+              <div class="contact-trust-label">Response Time</div>
             </div>
-            <div style="width: 1px; height: 30px; background: rgba(255,255,255,0.3);"></div>
-            <div style="text-align: center;">
-              <div style="font-size: 1.8rem; font-weight: 800; color: #FFD700; margin-bottom: 4px;">15+</div>
-              <div style="font-size: 14px; color: rgba(255,255,255,0.9);">Sydney Businesses</div>
+            <div class="contact-trust-divider"></div>
+            <div class="contact-trust-item">
+              <div class="contact-trust-value">15+</div>
+              <div class="contact-trust-label">Sydney Businesses</div>
             </div>
-            <div style="width: 1px; height: 30px; background: rgba(255,255,255,0.3);"></div>
-            <div style="text-align: center;">
-              <div style="font-size: 1.8rem; font-weight: 800; color: #FFD700; margin-bottom: 4px;">$997</div>
-              <div style="font-size: 14px; color: rgba(255,255,255,0.9);">Free Audit Value</div>
+            <div class="contact-trust-divider"></div>
+            <div class="contact-trust-item">
+              <div class="contact-trust-value">$997</div>
+              <div class="contact-trust-label">Free Audit Value</div>
             </div>
           </div>
         </div>
@@ -276,7 +280,15 @@ import ContactForm from '../components/ContactForm.astro';
 
             <!-- Interactive Office Map -->
             <div class="map-container premium-map" style="position: relative;">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106441.99929454103!2d151.074982375!3d-33.868820225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae401e8b983f%3A0x5017d681632a850!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2s!4v1692180000000!5m2!1sen!2s" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="The Profit Platform Service Areas - Sydney, NSW" aria-label="Interactive map showing The Profit Platform service areas across Sydney" style="width: 100%; height: 350px; border: none; border-radius: 16px;"></iframe>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106441.99929454103!2d151.074982375!3d-33.868820225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae401e8b983f%3A0x5017d681632a850!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2s!4v1692180000000!5m2!1sen!2s"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="The Profit Platform Service Areas - Sydney, NSW"
+                aria-label="Interactive map showing The Profit Platform service areas across Sydney"
+                style="width: 100%; height: 350px; border: none; border-radius: 16px;">
+              </iframe>
             </div>
           </div>
         </div>
@@ -411,36 +423,9 @@ import ContactForm from '../components/ContactForm.astro';
             </div>
           </div>
         </div>
-
-        <!-- Trust Signals -->
-        <div style="text-align: center; margin-top: 60px; padding: 40px; background: white; border-radius: 20px; box-shadow: var(--pp-shadow);">
-          <div style="display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
-            <div style="text-align: center;">
-              <div style="font-size: 2.5rem; font-weight: 800; color: var(--pp-primary); margin-bottom: 4px;">4.9★</div>
-              <div style="color: var(--pp-gray-600); font-size: 14px;">Google Rating</div>
-            </div>
-            <div style="width: 1px; height: 40px; background: var(--pp-gray-200);"></div>
-            <div style="text-align: center;">
-              <div style="font-size: 2.5rem; font-weight: 800; color: var(--pp-primary); margin-bottom: 4px;">15+</div>
-              <div style="color: var(--pp-gray-600); font-size: 14px;">Sydney Businesses</div>
-            </div>
-            <div style="width: 1px; height: 40px; background: var(--pp-gray-200);"></div>
-            <div style="text-align: center;">
-              <div style="font-size: 2.5rem; font-weight: 800; color: var(--pp-primary); margin-bottom: 4px;">24hr</div>
-              <div style="color: var(--pp-gray-600); font-size: 14px;">Response Time</div>
-            </div>
-            <div style="width: 1px; height: 40px; background: var(--pp-gray-200);"></div>
-            <div style="text-align: center;">
-              <div style="font-size: 2.5rem; font-weight: 800; color: var(--pp-primary); margin-bottom: 4px;">No</div>
-              <div style="color: var(--pp-gray-600); font-size: 14px;">Lock-in Contracts</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   </main>
-
-  <Footer />
 
   <!-- WhatsApp Float Button -->
   <a href="https://wa.me/61487286451?text=Hi%20Avi,%20I'm%20interested%20in%20learning%20more%20about%20your%20digital%20marketing%20services" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
@@ -464,4 +449,10 @@ import ContactForm from '../components/ContactForm.astro';
       }
     }
   </script>
+
+  <!-- Exit Intent Popup -->
+  <ExitIntentPopup />
+
+  <!-- Social Proof Notifications -->
+  <SocialProofWidget />
 </BaseLayout>

@@ -7,6 +7,10 @@ import dotenv from 'dotenv';
 import axios from 'axios';
 import { saveRankCheck, getRankHistory, getTrackedKeywords, getRankComparison } from './database.js';
 import { runSpeedTest, getPerformanceGrade } from './speed-test.js';
+import { researchKeywords } from './keyword-research.js';
+import { analyzeCompetitors } from './competitor-analysis.js';
+import { generateContent } from './content-generator.js';
+import { generateMetaTags } from './meta-tag-generator.js';
 
 dotenv.config();
 
@@ -529,7 +533,17 @@ app.post('/api/seo-audit', seoAuditLimiter, async (req, res) => {
     const pageResponse = await axios.get(url, {
       timeout: 10000,
       headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; TPP-SEO-Audit/1.0; +https://theprofitplatform.com.au)'
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'DNT': '1',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1'
+      },
+      maxRedirects: 5,
+      validateStatus: function (status) {
+        return status >= 200 && status < 400; // Accept redirects
       }
     });
 
@@ -935,6 +949,22 @@ app.post('/api/seo-audit', seoAuditLimiter, async (req, res) => {
       });
     }
 
+    // Handle 403 Forbidden
+    if (error.response?.status === 403) {
+      return res.status(403).json({
+        success: false,
+        error: 'Access denied. The website is blocking automated requests. This is common for sites with strict bot protection (Cloudflare, etc).'
+      });
+    }
+
+    // Handle other HTTP errors
+    if (error.response?.status) {
+      return res.status(error.response.status).json({
+        success: false,
+        error: `Website returned error ${error.response.status}. The site may be temporarily unavailable or blocking requests.`
+      });
+    }
+
     res.status(500).json({
       success: false,
       error: 'Failed to audit website. Please try again.'
@@ -1019,6 +1049,270 @@ app.post('/api/speed-test', speedTestLimiter, async (req, res) => {
     res.status(500).json({
       success: false,
       error: 'Failed to run speed test. Please try again.'
+    });
+  }
+});
+
+// ==========================================
+// KEYWORD RESEARCH API
+// ==========================================
+const keywordResearchLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 10, // 10 keyword research per minute
+  message: { success: false, error: 'Too many keyword research requests. Please wait a minute before trying again.' }
+});
+
+app.post('/api/keyword-research', keywordResearchLimiter, async (req, res) => {
+  try {
+    const { keyword, location, intent } = req.body;
+
+    // Validation
+    if (!keyword || keyword.trim().length < 2) {
+      return res.status(400).json({
+        success: false,
+        error: 'Keyword is required and must be at least 2 characters'
+      });
+    }
+
+    if (!location) {
+      return res.status(400).json({
+        success: false,
+        error: 'Location is required'
+      });
+    }
+
+    console.log('🔑 Starting keyword research:', { keyword, location, intent });
+
+    // Research keywords
+    const results = researchKeywords(keyword, location, intent || 'all');
+
+    console.log('✅ Keyword research completed:', {
+      keyword,
+      totalKeywords: results.keywords.length,
+      clusters: results.clusters.length
+    });
+
+    res.json({
+      success: true,
+      ...results,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('❌ Keyword research error:', error.message);
+
+    res.status(500).json({
+      success: false,
+      error: 'Failed to research keywords. Please try again.',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
+  }
+});
+
+// Rate limiter for competitor analysis - 10 per hour
+const competitorAnalysisLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  max: 10,
+  message: { success: false, error: 'Too many competitor analysis requests. Please wait an hour before trying again.' }
+});
+
+app.post('/api/competitor-analysis', competitorAnalysisLimiter, async (req, res) => {
+  try {
+    const { yourDomain, competitorDomain } = req.body;
+
+    // Validation
+    if (!yourDomain || !competitorDomain) {
+      return res.status(400).json({
+        success: false,
+        error: 'Both your domain and competitor domain are required'
+      });
+    }
+
+    // Basic domain validation - allow any reasonable domain format
+    const domainRegex = /^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\.[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
+    const cleanYourDomain = yourDomain.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
+    const cleanCompetitorDomain = competitorDomain.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
+
+    if (!cleanYourDomain || !cleanCompetitorDomain) {
+      return res.status(400).json({
+        success: false,
+        error: 'Both your domain and competitor domain are required'
+      });
+    }
+
+    if (!domainRegex.test(cleanYourDomain) || !domainRegex.test(cleanCompetitorDomain)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid domain format. Please enter valid domain names.'
+      });
+    }
+
+    console.log('🔍 Starting competitor analysis:', {
+      yourDomain: cleanYourDomain,
+      competitorDomain: cleanCompetitorDomain
+    });
+
+    // Analyze competitors
+    const results = await analyzeCompetitors(yourDomain, competitorDomain);
+
+    console.log('✅ Competitor analysis completed:', {
+      yourDomain: results.yourDomain,
+      competitorDomain: results.competitorDomain,
+      opportunities: results.opportunities.length
+    });
+
+    res.json({
+      ...results,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('❌ Competitor analysis error:', error.message);
+
+    res.status(500).json({
+      success: false,
+      error: error.message || 'Failed to analyze competitor. Please check the domains and try again.'
+    });
+  }
+});
+
+// ==========================================
+// CONTENT GENERATOR API
+// ==========================================
+const contentGeneratorLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 5, // 5 content generations per minute
+  message: { success: false, error: 'Too many content generation requests. Please wait a minute before trying again.' }
+});
+
+app.post('/api/content-generator', contentGeneratorLimiter, async (req, res) => {
+  try {
+    const { contentType, topic, tone, length, targetAudience } = req.body;
+
+    // Validation
+    if (!contentType || !topic || !tone || !length) {
+      return res.status(400).json({
+        success: false,
+        error: 'Content type, topic, tone, and length are required'
+      });
+    }
+
+    // Validate content type
+    const validContentTypes = ['blog_post', 'product_description', 'meta_description', 'social_media', 'email', 'landing_page', 'article'];
+    if (!validContentTypes.includes(contentType)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid content type'
+      });
+    }
+
+    // Validate tone
+    const validTones = ['professional', 'friendly', 'casual', 'formal', 'persuasive', 'informative'];
+    if (!validTones.includes(tone)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid tone'
+      });
+    }
+
+    // Validate length
+    const validLengths = ['short', 'medium', 'long'];
+    if (!validLengths.includes(length)) {
+      return res.status(400).json({
+        success: false,
+        error: 'Invalid length'
+      });
+    }
+
+    console.log('🤖 Generating content:', { contentType, topic, tone, length, targetAudience });
+
+    // Generate content
+    const results = await generateContent(contentType, topic, tone, length, targetAudience);
+
+    console.log('✅ Content generated:', {
+      contentType,
+      topic,
+      wordCount: results.wordCount,
+      seoScore: results.seoAnalysis.seoScore
+    });
+
+    res.json({
+      ...results,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('❌ Content generation error:', error.message);
+
+    res.status(500).json({
+      success: false,
+      error: error.message || 'Failed to generate content. Please try again.'
+    });
+  }
+});
+
+// Meta Tag Generator endpoint - Rate limited
+const metaTagLimiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minute
+  max: 20, // 20 requests per minute
+  message: { success: false, error: 'Too many requests. Please try again in a minute.' }
+});
+
+app.post('/api/meta-tag-generator', metaTagLimiter, async (req, res) => {
+  try {
+    const {
+      topic,
+      businessName,
+      location,
+      pageType,
+      includeYear,
+      includeCTA,
+      canonicalUrl,
+      customTitle,
+      customDescription
+    } = req.body;
+
+    // Validate required fields
+    if (!topic && !customTitle) {
+      return res.status(400).json({
+        success: false,
+        error: 'Topic or custom title is required'
+      });
+    }
+
+    console.log('🏷️  Generating meta tags:', { topic, businessName, location, pageType });
+
+    // Generate meta tags
+    const results = await generateMetaTags({
+      topic,
+      businessName: businessName || '',
+      location: location || '',
+      pageType: pageType || 'general',
+      includeYear: includeYear || false,
+      includeCTA: includeCTA !== false, // default to true
+      canonicalUrl: canonicalUrl || '',
+      customTitle: customTitle || '',
+      customDescription: customDescription || ''
+    });
+
+    console.log('✅ Meta tags generated:', {
+      topic,
+      titleLength: results.metaTags.title.length,
+      descriptionLength: results.metaTags.description.length,
+      overallScore: results.analysis.overallScore
+    });
+
+    res.json({
+      ...results,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    console.error('❌ Meta tag generation error:', error.message);
+
+    res.status(500).json({
+      success: false,
+      error: error.message || 'Failed to generate meta tags. Please try again.'
     });
   }
 });

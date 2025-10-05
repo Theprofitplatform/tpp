@@ -400,8 +400,25 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 12px 20px;
   border-bottom: 1px solid var(--pp-gray-200);
+}
+
+.mobile-nav-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mobile-nav-logo .logo-img {
+  max-height: 40px;
+  width: auto;
+}
+
+.mobile-nav-tagline {
+  font-size: 0.75rem;
+  color: var(--pp-gray-600);
+  margin-top: 2px;
 }
 
 .mobile-nav-close {
@@ -410,10 +427,16 @@ footer {
   font-size: 24px;
   cursor: pointer;
   color: var(--pp-gray-700);
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-nav-links {
-  padding: 20px;
+  padding: 16px 20px;
 }
 
 .mobile-nav-link {
@@ -434,6 +457,18 @@ footer {
 .mobile-nav-icon {
   width: 20px;
   text-align: center;
+}
+
+.mobile-nav-submenu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0;
+}
+
+.mobile-nav-submenu .mobile-sub-item {
+  padding-left: 32px;
+  font-size: 0.9em;
+  color: var(--pp-gray-600);
 }
 
 /* Responsive Design */

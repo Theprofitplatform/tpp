@@ -36,7 +36,6 @@ logs/
 
 # Legacy files
 SETUP_STEPS.md
-ecosystem.config.cjs
 
 # ==========================================
 # NEW: Intelligent cleanup additions
@@ -107,3 +106,10 @@ ecosystem.config.cjs
 
 # Wrangler (keep wrangler.toml, ignore runtime)
 .wrangler/
+
+# Lighthouse cache files (Windows)
+**/lighthouse.*/
+C:\\Users\\
+
+# Speed test artifacts
+speed-test

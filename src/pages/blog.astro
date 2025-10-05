@@ -1,67 +1,383 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 
 const pageTitle = "Blog | The Profit Platform";
 const pageDescription = "Digital marketing tips, strategies, and insights for Sydney businesses.";
+
+// Fetch all published blog posts
+const allPosts = await getCollection('blog', ({ data }) => {
+  return !data.draft;
+});
+
+// Sort by date (newest first) - handle both pubDate and publishDate
+const sortedPosts = allPosts.sort((a, b) => {
+  const dateA = a.data.publishDate || a.data.pubDate;
+  const dateB = b.data.publishDate || b.data.pubDate;
+  return dateB.valueOf() - dateA.valueOf();
+});
+
+// Featured post (if marked, otherwise use newest)
+const featuredPost = sortedPosts.find(p => p.data.featured) || sortedPosts[0];
+
+// Recent posts for grid (exclude featured if it exists, otherwise take next 6)
+const recentPosts = featuredPost && sortedPosts.find(p => p.data.featured)
+  ? sortedPosts.filter(p => p !== featuredPost).slice(0, 6)
+  : sortedPosts.slice(1, 7);
+
+// Calculate category counts
+const categoryCount = {};
+sortedPosts.forEach(post => {
+  const cat = post.data.category;
+  categoryCount[cat] = (categoryCount[cat] || 0) + 1;
+});
+
+// Get unique categories
+const categories = Object.keys(categoryCount).sort();
+
+// Helper function to get gradient color for category
+function getCategoryGradient(category) {
+  const gradients = {
+    'SEO': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    'Google Ads': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    'Web Design': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    'Content Marketing': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    'Digital Marketing': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    'Analytics': 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
+  };
+  return gradients[category] || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+}
+
+// Helper function to format date (handles both pubDate and publishDate)
+function formatDate(post) {
+  const date = post.data.publishDate || post.data.pubDate;
+  return new Date(date).toLocaleDateString('en-AU', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
+
+// Helper function to calculate read time
+function getReadTime(post) {
+  return post.data.readTime || '5 min read';
+}
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <link rel="stylesheet" href="/css/blog.css">
   <style>
-    html {
+    /* Clean, modern blog listing design */
+    html, body {
       background: #ffffff !important;
       background-image: none !important;
-    }
-    body {
-      background: #ffffff !important;
-      background-color: #ffffff !important;
-      background-image: none !important;
-    }
-    body::before,
-    body::after,
-    html::before,
-    html::after {
-      display: none !important;
-    }
-    main::before,
-    main::after {
-      display: none !important;
-    }
-    body .blog-hero {
-      background: #ffffff !important;
-      background-color: #ffffff !important;
-      background-image: none !important;
-    }
-    #main-content {
-      background: #ffffff !important;
-      background-image: none !important;
-    }
-    .blog-hero {
-      background: #ffffff !important;
-      background-image: none !important;
-    }
-    .blog-hero::before,
-    .blog-hero::after {
-      display: none !important;
-    }
-    .hero-background,
-    .hero-gradient-mesh,
-    .hero-floating-elements,
-    .hero-grid-overlay,
-    .floating-orb,
-    .newsletter-gradient,
-    .newsletter-pattern {
-      display: none !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
     }
 
-    /* Remove any gradient backgrounds from hero section */
-    .hero,
-    [class*="hero"] {
-      background-image: none !important;
+    body::before, body::after,
+    html::before, html::after,
+    main::before, main::after {
+      display: none !important;
+    }
+
+    /* Hero Section - Clean Design */
+    .blog-hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+      padding: 6rem 0 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-background,
+    .hero-floating-elements,
+    .floating-orb {
+      display: none !important;
+    }
+
+    .hero-gradient-mesh {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(255,255,255,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-grid-overlay {
+      display: none !important;
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-title {
+      color: white;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      margin: 1.5rem 0 1rem;
+      line-height: 1.2;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #fff 0%, rgba(255,255,255,0.8) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.25rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 2.5rem;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .stat-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .stat-number {
+      display: block;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      display: block;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.875rem;
+    }
+
+    /* Featured Article - Modern Card */
+    .featured-section {
+      background: #f8fafc;
+      padding: 4rem 0;
+    }
+
+    .featured-article {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 0;
+    }
+
+    .featured-visual {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+    }
+
+    .visual-gradient,
+    .visual-icon {
+      position: absolute;
+    }
+
+    .visual-icon {
+      color: rgba(255, 255, 255, 0.15);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: white;
+      color: #667eea;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+
+    .featured-content {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin: 1rem 0;
+      line-height: 1.3;
+    }
+
+    .featured-excerpt {
+      color: #64748b;
+      font-size: 1.125rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .featured-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: all 0.3s;
+      width: fit-content;
+    }
+
+    .featured-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(102, 126, 234, 0.3);
+    }
+
+    /* Newsletter - Refined */
+    .newsletter-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 5rem 0;
+      position: relative;
+    }
+
+    .newsletter-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    .newsletter-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    }
+
+    .newsletter-pattern {
+      display: none;
+    }
+
+    .newsletter-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: white;
+    }
+
+    .newsletter-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .newsletter-description {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.125rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .newsletter-input {
+      background: white;
+      border: 2px solid transparent;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .newsletter-submit {
+      background: white;
+      color: #667eea;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 1rem;
+      transition: all 0.3s;
+    }
+
+    .newsletter-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .blog-hero {
+        padding: 4rem 0 3rem;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .featured-article {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-visual {
+        min-height: 250px;
+      }
+
+      .featured-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .newsletter-form .form-group {
+        flex-direction: column;
+      }
+
+      .newsletter-submit {
+        margin-left: 0;
+        margin-top: 1rem;
+        width: 100%;
+      }
     }
   </style>
 
@@ -156,20 +472,13 @@ const pageDescription = "Digital marketing tips, strategies, and insights for Sy
 
           <div class="filter-pills">
             <button class="filter-pill active" data-category="all">
-              All Posts <span class="pill-count">24</span>
+              All Posts <span class="pill-count">{sortedPosts.length}</span>
             </button>
-            <button class="filter-pill" data-category="seo">
-              SEO <span class="pill-count">8</span>
-            </button>
-            <button class="filter-pill" data-category="ads">
-              Google Ads <span class="pill-count">6</span>
-            </button>
-            <button class="filter-pill" data-category="design">
-              Web Design <span class="pill-count">5</span>
-            </button>
-            <button class="filter-pill" data-category="content">
-              Content <span class="pill-count">5</span>
-            </button>
+            {categories.map(category => (
+              <button class="filter-pill" data-category={category.toLowerCase().replace(/\s+/g, '-')}>
+                {category} <span class="pill-count">{categoryCount[category]}</span>
+              </button>
+            ))}
           </div>
         </div>
       </div>
@@ -185,49 +494,51 @@ const pageDescription = "Digital marketing tips, strategies, and insights for Sy
           Featured Article
         </div>
 
-        <article class="featured-article">
-          <div class="featured-visual">
-            <div class="visual-gradient"></div>
-            <div class="featured-badge">Must Read</div>
-            <div class="visual-icon">
-              <svg width="64" height="64" viewBox="0 0 64 64" fill="currentColor">
-                <path d="M32 8l4 8h10l-8 8 4 10-10-6-10 6 4-10-8-8h10l4-8zm0 24c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16z"/>
-              </svg>
-            </div>
-          </div>
-
-          <div class="featured-content">
-            <div class="article-meta-top">
-              <span class="category-badge seo">SEO Strategy</span>
-              <span class="read-time">12 min read</span>
+        {featuredPost && (
+          <article class="featured-article">
+            <div class="featured-visual">
+              <div class="visual-gradient"></div>
+              <div class="featured-badge">Must Read</div>
+              <div class="visual-icon">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="currentColor">
+                  <path d="M32 8l4 8h10l-8 8 4 10-10-6-10 6 4-10-8-8h10l4-8zm0 24c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16z"/>
+                </svg>
+              </div>
             </div>
 
-            <h2 class="featured-title">
-              How to Scale Local SEO for Multiple Locations in 2025
-            </h2>
-
-            <p class="featured-excerpt">
-              A comprehensive, step-by-step guide to dominating local search across Sydney suburbs and beyond. Learn the exact strategies we use to rank businesses in multiple locations.
-            </p>
-
-            <div class="article-meta-bottom">
-              <div class="author-info">
-                <div class="author-avatar">AS</div>
-                <div class="author-details">
-                  <span class="author-name">Avi Sharma</span>
-                  <span class="publish-date">January 15, 2025</span>
-                </div>
+            <div class="featured-content">
+              <div class="article-meta-top">
+                <span class="category-badge seo">{featuredPost.data.category}</span>
+                <span class="read-time">{getReadTime(featuredPost)}</span>
               </div>
 
-              <a href="/blog/how-to-scale-local-seo" class="featured-cta">
-                Read Article
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </a>
+              <h2 class="featured-title">
+                {featuredPost.data.title}
+              </h2>
+
+              <p class="featured-excerpt">
+                {featuredPost.data.description}
+              </p>
+
+              <div class="article-meta-bottom">
+                <div class="author-info">
+                  <div class="author-avatar">{featuredPost.data.author === 'Avi' ? 'A' : 'TPP'}</div>
+                  <div class="author-details">
+                    <span class="author-name">{featuredPost.data.author}</span>
+                    <span class="publish-date">{formatDate(featuredPost)}</span>
+                  </div>
+                </div>
+
+                <a href={`/blog/${featuredPost.slug}`} class="featured-cta">
+                  Read Article
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        )}
       </div>
     </section>
 
@@ -243,221 +554,45 @@ const pageDescription = "Digital marketing tips, strategies, and insights for Sy
         </div>
 
         <div class="articles-grid">
-          <!-- Article 1 -->
-          <article class="article-card">
-            <div class="article-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-              <div class="image-overlay"></div>
-              <div class="article-icon">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-                  <path d="M16 4l4 8 8 2-6 6 2 8-8-4-8 4 2-8-6-6 8-2z"/>
-                </svg>
-              </div>
-            </div>
-
-            <div class="article-body">
-              <span class="category-badge ads">Google Ads</span>
-
-              <h3 class="article-title">
-                <a href="#">5 Proven Ways to Cut Your Google Ads Costs in Half</a>
-              </h3>
-
-              <p class="article-excerpt">
-                Discover the exact optimization strategies that reduced our clients' cost-per-click by 50% while maintaining lead quality.
-              </p>
-
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span class="meta-date">Jan 12, 2025</span>
-                  <span class="meta-divider">•</span>
-                  <span class="meta-time">8 min read</span>
-                </div>
-                <div class="article-tags">
-                  <span class="tag">PPC</span>
-                  <span class="tag">Optimization</span>
+          {recentPosts.map(post => (
+            <article class="article-card">
+              <div class="article-image" style={`background: ${getCategoryGradient(post.data.category)};`}>
+                <div class="image-overlay"></div>
+                <div class="article-icon">
+                  <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                    <path d="M16 4l4 8 8 2-6 6 2 8-8-4-8 4 2-8-6-6 8-2z"/>
+                  </svg>
                 </div>
               </div>
-            </div>
-          </article>
 
-          <!-- Article 2 -->
-          <article class="article-card">
-            <div class="article-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-              <div class="image-overlay"></div>
-              <div class="article-icon">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-                  <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 4c1.105 0 2 .895 2 2s-.895 2-2 2-2-.895-2-2 .895-2 2-2zm4 18H12v-2h2v-6h-2v-2h4v8h2v2z"/>
-                </svg>
-              </div>
-            </div>
+              <div class="article-body">
+                <span class="category-badge">{post.data.category}</span>
 
-            <div class="article-body">
-              <span class="category-badge design">Web Design</span>
+                <h3 class="article-title">
+                  <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                </h3>
 
-              <h3 class="article-title">
-                <a href="#">Why Website Speed Matters More Than Ever for SEO</a>
-              </h3>
+                <p class="article-excerpt">
+                  {post.data.description}
+                </p>
 
-              <p class="article-excerpt">
-                Core Web Vitals are now ranking factors. Learn how to optimize your site speed and improve your search rankings.
-              </p>
-
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span class="meta-date">Jan 10, 2025</span>
-                  <span class="meta-divider">•</span>
-                  <span class="meta-time">6 min read</span>
-                </div>
-                <div class="article-tags">
-                  <span class="tag">Performance</span>
-                  <span class="tag">SEO</span>
+                <div class="article-footer">
+                  <div class="article-meta">
+                    <span class="meta-date">{formatDate(post)}</span>
+                    <span class="meta-divider">•</span>
+                    <span class="meta-time">{getReadTime(post)}</span>
+                  </div>
+                  {post.data.tags && post.data.tags.length > 0 && (
+                    <div class="article-tags">
+                      {post.data.tags.slice(0, 2).map(tag => (
+                        <span class="tag">{tag}</span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
-          </article>
-
-          <!-- Article 3 -->
-          <article class="article-card">
-            <div class="article-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-              <div class="image-overlay"></div>
-              <div class="article-icon">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-                  <path d="M26 4H6C4.895 4 4 4.895 4 6v20c0 1.105.895 2 2 2h20c1.105 0 2-.895 2-2V6c0-1.105-.895-2-2-2zM10 24H8V12h2v12zm8 0h-2V8h2v16zm8 0h-2V16h2v8z"/>
-                </svg>
-              </div>
-            </div>
-
-            <div class="article-body">
-              <span class="category-badge content">Content Marketing</span>
-
-              <h3 class="article-title">
-                <a href="#">Content That Converts: The Sydney Business Guide</a>
-              </h3>
-
-              <p class="article-excerpt">
-                Transform your website copy from boring to brilliant with these proven copywriting frameworks and examples.
-              </p>
-
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span class="meta-date">Jan 8, 2025</span>
-                  <span class="meta-divider">•</span>
-                  <span class="meta-time">10 min read</span>
-                </div>
-                <div class="article-tags">
-                  <span class="tag">Copywriting</span>
-                  <span class="tag">Conversion</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Article 4 -->
-          <article class="article-card">
-            <div class="article-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
-              <div class="image-overlay"></div>
-              <div class="article-icon">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-                  <path d="M16 2L4 9v11c0 7.732 5.373 14.95 12 16.5 6.627-1.55 12-8.768 12-16.5V9L16 2zm0 6l8 4.5v7.5c0 5.523-4.477 10-8 10s-8-4.477-8-10v-7.5L16 8z"/>
-                </svg>
-              </div>
-            </div>
-
-            <div class="article-body">
-              <span class="category-badge seo">SEO</span>
-
-              <h3 class="article-title">
-                <a href="#">Local SEO Checklist: 47 Steps to Dominate Sydney Search</a>
-              </h3>
-
-              <p class="article-excerpt">
-                The complete local SEO checklist used by top Sydney businesses to rank #1 in their suburbs.
-              </p>
-
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span class="meta-date">Jan 5, 2025</span>
-                  <span class="meta-divider">•</span>
-                  <span class="meta-time">15 min read</span>
-                </div>
-                <div class="article-tags">
-                  <span class="tag">Local SEO</span>
-                  <span class="tag">Checklist</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Article 5 -->
-          <article class="article-card">
-            <div class="article-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
-              <div class="image-overlay"></div>
-              <div class="article-icon">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-                  <path d="M16 4C9.373 4 4 9.373 4 16s5.373 12 12 12 12-5.373 12-12S22.627 4 16 4zm6 17l-8-5V8h2v7l6 4-2 2z"/>
-                </svg>
-              </div>
-            </div>
-
-            <div class="article-body">
-              <span class="category-badge ads">Marketing</span>
-
-              <h3 class="article-title">
-                <a href="#">Social Media Strategy for Small Business in 2025</a>
-              </h3>
-
-              <p class="article-excerpt">
-                Build a social presence that drives real business results without hiring a full-time social media manager.
-              </p>
-
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span class="meta-date">Jan 3, 2025</span>
-                  <span class="meta-divider">•</span>
-                  <span class="meta-time">7 min read</span>
-                </div>
-                <div class="article-tags">
-                  <span class="tag">Social Media</span>
-                  <span class="tag">Strategy</span>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- Article 6 -->
-          <article class="article-card">
-            <div class="article-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-              <div class="image-overlay"></div>
-              <div class="article-icon">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
-                  <path d="M16 2L2 16l14 14 14-14L16 2zm0 4.828L23.172 16 16 23.172 8.828 16 16 6.828z"/>
-                </svg>
-              </div>
-            </div>
-
-            <div class="article-body">
-              <span class="category-badge design">Analytics</span>
-
-              <h3 class="article-title">
-                <a href="#">Understanding GA4: The Complete Guide for Business Owners</a>
-              </h3>
-
-              <p class="article-excerpt">
-                Make sense of Google Analytics 4 and start making data-driven decisions for your Sydney business.
-              </p>
-
-              <div class="article-footer">
-                <div class="article-meta">
-                  <span class="meta-date">Dec 30, 2024</span>
-                  <span class="meta-divider">•</span>
-                  <span class="meta-time">12 min read</span>
-                </div>
-                <div class="article-tags">
-                  <span class="tag">Analytics</span>
-                  <span class="tag">GA4</span>
-                </div>
-              </div>
-            </div>
-          </article>
+            </article>
+          ))}
         </div>
 
         <div class="load-more-container">
@@ -536,6 +671,4 @@ const pageDescription = "Digital marketing tips, strategies, and insights for Sy
       </div>
     </section>
   </main>
-
-  <Footer />
 </BaseLayout>

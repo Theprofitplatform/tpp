@@ -1,0 +1,1730 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+
+// Use relative path for Cloudflare Pages Functions (permanent solution)
+const apiUrl = '';
+---
+
+<BaseLayout title="Free Competitor Analysis Tool | Analyze Your Competition">
+  <Header />
+
+  <main id="main-content" role="main">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/tools">
+              <span itemprop="name">Free Tools</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Competitor Analysis</span>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="competitor-hero">
+      <div class="container">
+        <div class="competitor-hero-content">
+          <span class="section-tag">🔍 Free Tool</span>
+          <h1>Competitor Analysis Tool</h1>
+          <p class="hero-subtitle">
+            Analyze your competitors' SEO strategy, keywords, backlinks, and content.
+            Get actionable insights to outrank them - 100% free.
+          </p>
+          <div class="trust-badges">
+            <span class="badge"><i class="fas fa-chart-line"></i> Real-Time Data</span>
+            <span class="badge"><i class="fas fa-trophy"></i> Competitive Edge</span>
+            <span class="badge"><i class="fas fa-users"></i> 2,847+ Analyses Completed</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competitor Analysis Tool -->
+    <section class="competitor-section">
+      <div class="container">
+        <div class="competitor-card">
+          <form id="competitorForm" class="competitor-form">
+            <div class="form-group">
+              <label for="yourDomain">
+                <i class="fas fa-globe"></i>
+                Your Website
+              </label>
+              <input
+                type="url"
+                id="yourDomain"
+                name="yourDomain"
+                placeholder="https://yourwebsite.com.au"
+                required
+              />
+              <small>Enter your website URL to compare against competitors</small>
+            </div>
+
+            <div class="form-group">
+              <label for="competitorDomain">
+                <i class="fas fa-users"></i>
+                Competitor Website
+              </label>
+              <input
+                type="url"
+                id="competitorDomain"
+                name="competitorDomain"
+                placeholder="https://competitor.com.au"
+                required
+              />
+              <small>Enter a competitor's website URL to analyze</small>
+            </div>
+
+            <button type="submit" class="btn-primary" id="analyzeButton">
+              <span class="btn-text">
+                <i class="fas fa-search"></i>
+                Analyze Competitor
+              </span>
+              <span class="btn-loader" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                Analyzing...
+              </span>
+            </button>
+          </form>
+
+          <!-- Loading State -->
+          <div id="loadingState" class="loading-state" style="display: none;">
+            <div class="loader-animation">
+              <div class="scanning-line"></div>
+              <i class="fas fa-chart-bar fa-3x"></i>
+            </div>
+            <h3>Analyzing Competitor...</h3>
+            <div class="progress-steps">
+              <div class="step active" id="step1">
+                <i class="fas fa-check-circle"></i>
+                <span>Fetching website data</span>
+              </div>
+              <div class="step" id="step2">
+                <i class="fas fa-circle"></i>
+                <span>Analyzing SEO metrics</span>
+              </div>
+              <div class="step" id="step3">
+                <i class="fas fa-circle"></i>
+                <span>Comparing rankings</span>
+              </div>
+              <div class="step" id="step4">
+                <i class="fas fa-circle"></i>
+                <span>Generating insights</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Section -->
+          <div id="resultsContainer" style="display: none;">
+            <div class="results-header">
+              <h2>Competitor Analysis Results</h2>
+              <div class="domain-comparison">
+                <div class="domain-box your-domain">
+                  <i class="fas fa-home"></i>
+                  <span class="domain-label">Your Website</span>
+                  <span class="domain-name" id="yourDomainDisplay">--</span>
+                </div>
+                <div class="vs-icon">VS</div>
+                <div class="domain-box competitor-domain">
+                  <i class="fas fa-crosshairs"></i>
+                  <span class="domain-label">Competitor</span>
+                  <span class="domain-name" id="competitorDomainDisplay">--</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Estimation Notice (shown when bot protection detected) -->
+            <div id="estimationNotice" style="display: none; background: linear-gradient(135deg, #fff7e6 0%, #ffe4b3 100%); border-left: 4px solid #ff9800; padding: 20px; border-radius: 12px; margin: 25px 0;">
+              <div style="display: flex; align-items: start; gap: 15px;">
+                <i class="fas fa-info-circle" style="color: #ff9800; font-size: 24px; margin-top: 2px;"></i>
+                <div>
+                  <h4 style="margin: 0 0 10px 0; color: #e65100; font-size: 18px;">Estimated Analysis</h4>
+                  <p id="estimationNoteText" style="margin: 0; color: #5d4037; line-height: 1.6; font-size: 15px;"></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Score Comparison -->
+            <div class="score-comparison">
+              <h3><i class="fas fa-trophy"></i> Overall Comparison</h3>
+              <div class="comparison-grid" id="comparisonGrid">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Analysis Sections -->
+            <div class="analysis-sections">
+              <!-- SEO Metrics -->
+              <div class="analysis-section">
+                <h3><i class="fas fa-chart-line"></i> SEO Metrics Comparison</h3>
+                <div id="seoMetrics" class="metrics-grid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Top Keywords -->
+              <div class="analysis-section">
+                <h3><i class="fas fa-key"></i> Top Keywords Gap</h3>
+                <div id="keywordGap" class="keywords-table">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Content Analysis -->
+              <div class="analysis-section">
+                <h3><i class="fas fa-file-alt"></i> Content Strategy</h3>
+                <div id="contentAnalysis" class="content-grid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Backlink Profile -->
+              <div class="analysis-section">
+                <h3><i class="fas fa-link"></i> Backlink Profile</h3>
+                <div id="backlinkProfile" class="backlink-grid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+
+              <!-- Technical SEO -->
+              <div class="analysis-section">
+                <h3><i class="fas fa-code"></i> Technical SEO</h3>
+                <div id="technicalSEO" class="technical-grid">
+                  <!-- Populated by JS -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Opportunities -->
+            <div class="opportunities">
+              <h3><i class="fas fa-lightbulb"></i> Opportunities to Outrank Them</h3>
+              <div id="opportunities" class="opportunities-list">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Action Plan -->
+            <div class="action-plan">
+              <h3><i class="fas fa-clipboard-check"></i> Your Action Plan</h3>
+              <div id="actionPlan" class="action-steps">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Export Options -->
+            <div class="export-options">
+              <button class="btn-primary" id="newAnalysisButton">
+                <i class="fas fa-plus"></i> New Analysis
+              </button>
+              <button class="btn-secondary" onclick="window.print()">
+                <i class="fas fa-print"></i> Print Report
+              </button>
+              <button class="btn-secondary" id="exportPDF">
+                <i class="fas fa-file-pdf"></i> Export PDF
+              </button>
+              <button class="btn-secondary" id="shareReport">
+                <i class="fas fa-share-alt"></i> Share Report
+              </button>
+            </div>
+          </div>
+
+          <!-- Error State -->
+          <div id="errorState" class="error-state" style="display: none;">
+            <i class="fas fa-exclamation-triangle fa-3x"></i>
+            <h3>Analysis Failed</h3>
+            <p id="errorMessage"></p>
+            <button class="btn-primary" id="tryAgainButton">
+              <i class="fas fa-redo"></i> Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">What is a competitor analysis tool?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">A competitor analysis tool helps you compare your website's SEO performance against your competitors. Our free tool analyzes SEO metrics, keywords, backlinks, content strategy, and technical SEO to identify gaps and opportunities to outrank your competition in Sydney and beyond.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Is the competitor analysis tool really free?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes! Our competitor analysis tool is 100% free with no signup required, no credit card needed, and no hidden fees. You can analyze as many competitors as you want. We offer this to help Sydney businesses improve their SEO and demonstrate the quality of our services.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">What metrics does the tool analyze?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">The tool analyzes SEO metrics (domain authority, traffic estimates), keyword gaps (keywords they rank for that you don't), content analysis (word count, readability), backlink profiles (link quality and quantity), and technical SEO (page speed, mobile-friendliness, security).</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">How do I find my competitors?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Your competitors are businesses ranking for your target keywords on Google. Search for your main keywords in Sydney and see who appears in the top 10 results. You can also use our keyword research tool to find who ranks for your industry terms, then analyze them here.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Can I analyze multiple competitors at once?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Currently, you can analyze one competitor at a time. However, you can run multiple analyses back-to-back and compare the results. We recommend analyzing your top 2-3 competitors to get a complete picture of your competitive landscape.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">How accurate is the competitor data?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">We analyze publicly available data and provide real-time SEO metrics. Some estimates (like traffic) are approximations based on industry-standard algorithms. For the most accurate competitive intelligence, we recommend combining this tool with professional SEO analysis from our Sydney team.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">What should I do with the analysis results?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Focus on the "Opportunities to Outrank Them" and "Your Action Plan" sections. These highlight quick wins like keyword gaps, content improvements, and technical fixes. Start with high-priority items that have the biggest potential impact on your rankings.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name">Can I export or save the analysis?</summary>
+            <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+              <p itemprop="text">Yes! After analyzing a competitor, you can print the report, export it as a PDF, or share it with your team. The report includes all metrics, opportunities, and action items in an easy-to-read format.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Tools -->
+    <section class="related-tools">
+      <div class="container">
+        <h2>More Free SEO Tools</h2>
+        <div class="tools-grid-compact">
+          <a href="/tools/seo-audit" class="tool-card-compact">
+            <i class="fas fa-search"></i>
+            <h3>SEO Audit Tool</h3>
+            <p>50+ checks for your website's SEO health</p>
+          </a>
+          <a href="/tools/keyword-research" class="tool-card-compact">
+            <i class="fas fa-key"></i>
+            <h3>Keyword Research</h3>
+            <p>Find profitable keywords to target</p>
+          </a>
+          <a href="/tools/rank-tracker" class="tool-card-compact">
+            <i class="fas fa-chart-line"></i>
+            <h3>Google Rank Tracker</h3>
+            <p>Track your Google rankings in real-time</p>
+          </a>
+          <a href="/tools/content-generator" class="tool-card-compact">
+            <i class="fas fa-robot"></i>
+            <h3>AI Content Generator</h3>
+            <p>Create SEO-optimized content instantly</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="tools-cta-modern">
+      <div class="container">
+        <div class="cta-content-modern">
+          <span class="section-tag white">🚀 Want to Beat Your Competitors?</span>
+          <h2>Get Expert Competitive Analysis</h2>
+          <p class="cta-subtitle">
+            Our Sydney-based SEO experts can create a custom strategy to help you outrank your competition.
+          </p>
+          <div class="cta-buttons-modern">
+            <a href="/contact" class="cta-primary-modern">
+              <span class="cta-content">
+                <span class="cta-main">Get Free Strategy Session</span>
+                <span class="cta-sub">Worth $997 • No obligation</span>
+              </span>
+              <span class="cta-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </span>
+            </a>
+            <a href="tel:+61487286451" class="cta-secondary-modern">
+              <span class="cta-icon-pulse">
+                <i class="fas fa-phone"></i>
+              </span>
+              <span class="cta-text">
+                <span class="cta-label">Call Avi directly</span>
+                <span class="cta-number">0487 286 451</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  /* ==========================================
+     COMPETITOR ANALYSIS TOOL STYLES
+     ========================================== */
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .section-tag.white {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  /* Hero Section */
+  main#main-content section.competitor-hero.competitor-hero {
+    padding: 180px 0 60px !important;
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .competitor-hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 1rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .badge i {
+    font-size: 1.1rem;
+  }
+
+  /* Competitor Section */
+  .competitor-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .competitor-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  /* Form */
+  .competitor-form {
+    margin-bottom: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1e293b;
+    font-size: 1.1rem;
+  }
+
+  .form-group label i {
+    color: #f59e0b;
+    margin-right: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+  }
+
+  .form-group small {
+    display: block;
+    margin-top: 0.5rem;
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    padding: 0.875rem 1.5rem;
+    background: white;
+    color: #f59e0b;
+    border: 2px solid #f59e0b;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #f59e0b;
+    color: white;
+  }
+
+  /* Loading State */
+  .loading-state {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .loader-animation {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+
+  .loader-animation i {
+    color: #f59e0b;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .scanning-line {
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #f59e0b, transparent);
+    top: 50%;
+    animation: scan 2s linear infinite;
+  }
+
+  @keyframes scan {
+    0% { transform: translateY(-50%) translateX(-100%); }
+    100% { transform: translateY(-50%) translateX(100%); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+  }
+
+  .progress-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+    margin: 2rem auto 0;
+    text-align: left;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #94a3b8;
+  }
+
+  .step.active {
+    background: rgba(245, 158, 11, 0.1);
+    color: #f59e0b;
+  }
+
+  .step.complete {
+    color: #10b981;
+  }
+
+  .step i {
+    font-size: 1.2rem;
+  }
+
+  /* Results Header */
+  .results-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #f1f5f9;
+  }
+
+  .results-header h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    color: #1e293b;
+  }
+
+  /* Domain Comparison */
+  .domain-comparison {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+  }
+
+  .domain-box {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 250px;
+  }
+
+  .domain-box i {
+    font-size: 2rem;
+    color: #f59e0b;
+  }
+
+  .domain-label {
+    font-size: 0.85rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .domain-name {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 1.1rem;
+  }
+
+  .vs-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.2rem;
+  }
+
+  /* Score Comparison */
+  .score-comparison {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .score-comparison h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .comparison-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 2px solid #f1f5f9;
+    transition: all 0.3s ease;
+  }
+
+  .comparison-item:hover {
+    border-color: #f59e0b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+  }
+
+  .comparison-item h4 {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .comparison-values {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .your-value {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #3b82f6;
+  }
+
+  .competitor-value {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #ef4444;
+  }
+
+  .comparison-values .separator {
+    color: #cbd5e1;
+    font-weight: 700;
+  }
+
+  .comparison-progress {
+    width: 100%;
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    border-radius: 10px;
+    transition: width 0.6s ease;
+  }
+
+  .progress-bar.winning {
+    background: linear-gradient(90deg, #10b981, #059669);
+  }
+
+  .progress-bar.losing {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+  }
+
+  .winner-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  }
+
+  .loser-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+  }
+
+  /* Analysis Sections */
+  .analysis-sections {
+    margin-bottom: 3rem;
+  }
+
+  .analysis-section {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .analysis-section h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .analysis-section h3 i {
+    color: #f59e0b;
+  }
+
+  .metrics-grid,
+  .content-grid,
+  .backlink-grid,
+  .technical-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .metric-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .metric-item h5 {
+    font-weight: 700;
+    color: #1e293b;
+  }
+
+  .metric-values {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .metric-your {
+    color: #3b82f6;
+    font-weight: 700;
+  }
+
+  .metric-competitor {
+    color: #ef4444;
+    font-weight: 700;
+  }
+
+  /* Keywords Table */
+  .keywords-table {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .keyword-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .keyword-row:last-child {
+    border-bottom: none;
+  }
+
+  .keyword-row.header {
+    background: #f8fafc;
+    font-weight: 700;
+    color: #64748b;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+  }
+
+  .keyword-name {
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .keyword-volume,
+  .keyword-difficulty {
+    color: #64748b;
+  }
+
+  .keyword-gap {
+    font-weight: 700;
+  }
+
+  .keyword-gap.opportunity {
+    color: #10b981;
+  }
+
+  .keyword-gap.losing {
+    color: #ef4444;
+  }
+
+  /* Opportunities */
+  .opportunities {
+    background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .opportunities h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #1e40af;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .opportunities-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .opportunity-item {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .opportunity-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .opportunity-content h5 {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .opportunity-content p {
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+
+  /* Action Plan */
+  .action-plan {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .action-plan h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .action-steps {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .action-step {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .step-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .step-content h5 {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .step-content p {
+    color: #64748b;
+    font-size: 0.95rem;
+  }
+
+  /* Export Options */
+  .export-options {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 2rem;
+    border-top: 2px solid #f1f5f9;
+  }
+
+  /* Error State */
+  .error-state {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+  .error-state i {
+    color: #ef4444;
+    margin-bottom: 1.5rem;
+  }
+
+  .error-state h3 {
+    font-size: 1.8rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+  }
+
+  .error-state p {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  /* CTA Section */
+  .tools-cta-modern {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .cta-content-modern h2 {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: 1.5rem 0 1rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons-modern {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-primary-modern {
+    background: white;
+    color: #1e40af;
+    padding: 1.25rem 2rem;
+    border-radius: 60px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-primary-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-main {
+    font-size: 1.1rem;
+    font-weight: 800;
+  }
+
+  .cta-sub {
+    font-size: 0.85rem;
+    color: #64748b;
+  }
+
+  .cta-arrow {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .cta-secondary-modern {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 1.25rem 2rem;
+    border-radius: 60px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .cta-secondary-modern:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .cta-icon-pulse {
+    width: 45px;
+    height: 45px;
+    background: white;
+    color: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cta-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-label {
+    font-size: 0.85rem;
+  }
+
+  .cta-number {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    padding: 140px 0 20px;
+    background: #f8fafc;
+  }
+
+  .breadcrumbs ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    color: #64748b;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: "›";
+    margin-left: 0.5rem;
+    color: #cbd5e1;
+    font-weight: bold;
+  }
+
+  .breadcrumbs a {
+    color: #f59e0b;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumbs a:hover {
+    color: #d97706;
+    text-decoration: underline;
+  }
+
+  .breadcrumbs li:last-child {
+    color: #1e293b;
+    font-weight: 600;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    padding: 80px 0;
+    background: white;
+  }
+
+  .faq-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: #1e293b;
+  }
+
+  .faq-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .faq-item {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .faq-item:hover {
+    border-color: #f59e0b;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.1);
+  }
+
+  .faq-item[open] {
+    background: white;
+    border-color: #f59e0b;
+  }
+
+  .faq-item summary {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1e293b;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.5rem;
+    color: #f59e0b;
+    font-weight: 700;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding-top: 1rem;
+    color: #475569;
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  /* Related Tools */
+  .related-tools {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  }
+
+  .related-tools h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+    color: #1e293b;
+  }
+
+  .tools-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .tool-card-compact {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+  }
+
+  .tool-card-compact:hover {
+    transform: translateY(-4px);
+    border-color: #f59e0b;
+    box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+  }
+
+  .tool-card-compact i {
+    font-size: 2.5rem;
+    color: #f59e0b;
+    margin-bottom: 1rem;
+  }
+
+  .tool-card-compact h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .tool-card-compact p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .breadcrumbs {
+      padding: 100px 0 20px;
+    }
+
+    .breadcrumbs ol {
+      font-size: 0.8rem;
+    }
+    main#main-content section.competitor-hero.competitor-hero {
+      padding: 100px 0 60px !important;
+    }
+
+    .competitor-hero-content h1 {
+      font-size: 2.25rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .competitor-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .domain-comparison {
+      flex-direction: column;
+    }
+
+    .keyword-row {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    .keyword-row.header {
+      display: none;
+    }
+
+    .cta-buttons-modern {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .cta-primary-modern,
+    .cta-secondary-modern {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .faq-section h2,
+    .related-tools h2 {
+      font-size: 2rem;
+    }
+
+    .tools-grid-compact {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script define:vars={{ apiUrl }}>
+  const form = document.getElementById('competitorForm');
+  const loadingState = document.getElementById('loadingState');
+  const resultsContainer = document.getElementById('resultsContainer');
+  const errorState = document.getElementById('errorState');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const yourDomain = document.getElementById('yourDomain').value.trim();
+    const competitorDomain = document.getElementById('competitorDomain').value.trim();
+
+    // Show loading state
+    form.style.display = 'none';
+    loadingState.style.display = 'block';
+    resultsContainer.style.display = 'none';
+    errorState.style.display = 'none';
+
+    // Animate progress steps
+    animateProgressSteps();
+
+    try {
+      const response = await fetch(`${apiUrl}/api/competitor-analysis`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ yourDomain, competitorDomain }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to analyze competitor');
+      }
+
+      // Display results
+      displayResults(data);
+    } catch (error) {
+      console.error('Analysis error:', error);
+      showError(error.message);
+    }
+  });
+
+  function animateProgressSteps() {
+    const steps = ['step1', 'step2', 'step3', 'step4'];
+    steps.forEach((stepId, index) => {
+      setTimeout(() => {
+        const step = document.getElementById(stepId);
+        step.classList.add('active');
+        if (index > 0) {
+          const prevStep = document.getElementById(steps[index - 1]);
+          prevStep.classList.remove('active');
+          prevStep.classList.add('complete');
+          prevStep.querySelector('i').className = 'fas fa-check-circle';
+        }
+      }, index * 1500);
+    });
+  }
+
+  function displayResults(data) {
+    loadingState.style.display = 'none';
+    resultsContainer.style.display = 'block';
+
+    // Display estimation notice if present
+    const estimationNotice = document.getElementById('estimationNotice');
+    const estimationNoteText = document.getElementById('estimationNoteText');
+    if (data.note) {
+      estimationNoteText.textContent = data.note;
+      estimationNotice.style.display = 'block';
+    } else {
+      estimationNotice.style.display = 'none';
+    }
+
+    // Display domains
+    document.getElementById('yourDomainDisplay').textContent = data.yourDomain;
+    document.getElementById('competitorDomainDisplay').textContent = data.competitorDomain;
+
+    // Comparison Grid
+    displayComparisonGrid(data.comparison);
+
+    // SEO Metrics
+    displaySEOMetrics(data.seoMetrics);
+
+    // Keyword Gap
+    displayKeywordGap(data.keywordGap);
+
+    // Content Analysis
+    displayContentAnalysis(data.contentAnalysis);
+
+    // Backlink Profile
+    displayBacklinkProfile(data.backlinkProfile);
+
+    // Technical SEO
+    displayTechnicalSEO(data.technicalSEO);
+
+    // Opportunities
+    displayOpportunities(data.opportunities);
+
+    // Action Plan
+    displayActionPlan(data.actionPlan);
+  }
+
+  function displayComparisonGrid(comparison) {
+    const grid = document.getElementById('comparisonGrid');
+    grid.innerHTML = Object.entries(comparison || {})
+      .map(([metric, data]) => {
+        const yourVal = parseFloat(data.yourValue) || 0;
+        const compVal = parseFloat(data.competitorValue) || 0;
+        const total = yourVal + compVal;
+        const yourPercent = total > 0 ? (yourVal / total) * 100 : 50;
+        const winner = yourVal > compVal ? 'you' : 'competitor';
+        const progressClass = yourVal > compVal ? 'winning' : 'losing';
+
+        return `
+          <div class="comparison-item">
+            <h4>${metric}</h4>
+            <div class="comparison-values">
+              <span class="your-value">${data.yourValue}</span>
+              <span class="separator">vs</span>
+              <span class="competitor-value">${data.competitorValue}</span>
+            </div>
+            <div class="comparison-progress">
+              <div class="progress-bar ${progressClass}" style="width: ${yourPercent}%"></div>
+            </div>
+            ${winner === 'you'
+              ? '<span class="winner-badge"><i class="fas fa-trophy"></i> You\'re Winning</span>'
+              : '<span class="loser-badge"><i class="fas fa-flag"></i> Opportunity</span>'}
+          </div>
+        `;
+      })
+      .join('');
+  }
+
+  function displaySEOMetrics(metrics) {
+    const container = document.getElementById('seoMetrics');
+    container.innerHTML = Object.entries(metrics || {})
+      .map(([name, values]) => `
+        <div class="metric-item">
+          <h5>${name}</h5>
+          <div class="metric-values">
+            <span class="metric-your">You: ${values.yours}</span>
+            <span class="metric-competitor">Them: ${values.theirs}</span>
+          </div>
+        </div>
+      `)
+      .join('');
+  }
+
+  function displayKeywordGap(keywords) {
+    const container = document.getElementById('keywordGap');
+    const header = `
+      <div class="keyword-row header">
+        <div>Keyword</div>
+        <div>Volume</div>
+        <div>Difficulty</div>
+        <div>Gap</div>
+      </div>
+    `;
+
+    const rows = (keywords || [])
+      .map(kw => `
+        <div class="keyword-row">
+          <div class="keyword-name">${kw.keyword}</div>
+          <div class="keyword-volume">${kw.volume}</div>
+          <div class="keyword-difficulty">${kw.difficulty}</div>
+          <div class="keyword-gap ${kw.gap > 0 ? 'opportunity' : 'losing'}">${kw.gap > 0 ? '+' : ''}${kw.gap}</div>
+        </div>
+      `)
+      .join('');
+
+    container.innerHTML = header + rows;
+  }
+
+  function displayContentAnalysis(content) {
+    const container = document.getElementById('contentAnalysis');
+    container.innerHTML = Object.entries(content || {})
+      .map(([name, values]) => `
+        <div class="metric-item">
+          <h5>${name}</h5>
+          <div class="metric-values">
+            <span class="metric-your">You: ${values.yours}</span>
+            <span class="metric-competitor">Them: ${values.theirs}</span>
+          </div>
+        </div>
+      `)
+      .join('');
+  }
+
+  function displayBacklinkProfile(backlinks) {
+    const container = document.getElementById('backlinkProfile');
+    container.innerHTML = Object.entries(backlinks || {})
+      .map(([name, values]) => `
+        <div class="metric-item">
+          <h5>${name}</h5>
+          <div class="metric-values">
+            <span class="metric-your">You: ${values.yours}</span>
+            <span class="metric-competitor">Them: ${values.theirs}</span>
+          </div>
+        </div>
+      `)
+      .join('');
+  }
+
+  function displayTechnicalSEO(technical) {
+    const container = document.getElementById('technicalSEO');
+    container.innerHTML = Object.entries(technical || {})
+      .map(([name, values]) => `
+        <div class="metric-item">
+          <h5>${name}</h5>
+          <div class="metric-values">
+            <span class="metric-your">You: ${values.yours}</span>
+            <span class="metric-competitor">Them: ${values.theirs}</span>
+          </div>
+        </div>
+      `)
+      .join('');
+  }
+
+  function displayOpportunities(opportunities) {
+    const container = document.getElementById('opportunities');
+    container.innerHTML = (opportunities || [])
+      .map(opp => `
+        <div class="opportunity-item">
+          <div class="opportunity-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <div class="opportunity-content">
+            <h5>${opp.title}</h5>
+            <p>${opp.description}</p>
+          </div>
+        </div>
+      `)
+      .join('');
+  }
+
+  function displayActionPlan(actionPlan) {
+    const container = document.getElementById('actionPlan');
+    container.innerHTML = (actionPlan || [])
+      .map((step, index) => `
+        <div class="action-step">
+          <div class="step-number">${index + 1}</div>
+          <div class="step-content">
+            <h5>${step.title}</h5>
+            <p>${step.description}</p>
+          </div>
+        </div>
+      `)
+      .join('');
+  }
+
+  function showError(message) {
+    loadingState.style.display = 'none';
+    errorState.style.display = 'block';
+    resultsContainer.style.display = 'none';
+    document.getElementById('errorMessage').textContent = message;
+  }
+
+  // Try Again button
+  document.getElementById('tryAgainButton')?.addEventListener('click', () => {
+    errorState.style.display = 'none';
+    form.style.display = 'block';
+    document.getElementById('yourDomain').value = '';
+    document.getElementById('competitorDomain').value = '';
+    document.getElementById('yourDomain').focus();
+  });
+
+  // New Analysis button
+  document.getElementById('newAnalysisButton')?.addEventListener('click', () => {
+    resultsContainer.style.display = 'none';
+    form.style.display = 'block';
+    document.getElementById('yourDomain').value = '';
+    document.getElementById('competitorDomain').value = '';
+    document.getElementById('yourDomain').focus();
+  });
+
+  // Export PDF
+  document.getElementById('exportPDF')?.addEventListener('click', () => {
+    alert('PDF export feature coming soon!');
+  });
+
+  // Share Report
+  document.getElementById('shareReport')?.addEventListener('click', async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: 'Competitor Analysis Report',
+          text: 'Check out my competitor analysis results',
+          url: url
+        });
+      } catch (err) {
+        console.log('Share failed:', err);
+      }
+    } else {
+      navigator.clipboard.writeText(url);
+      alert('Link copied to clipboard!');
+    }
+  });
+</script>

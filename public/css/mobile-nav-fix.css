@@ -1,0 +1,12 @@
+/* Mobile Navigation Flex Direction Fix */
+/* Remove flex-direction: row from mobile navigation */
+
+@media (max-width: 768px) {
+    /* More specific selector to override */
+    .premium-nav .nav-floating-container,
+    nav,
+    .premium-nav .nav-floating-container {
+        flex-direction: column !important;
+        flex-flow: column !important;
+    }
+}

@@ -26,11 +26,11 @@ main,
 }
 
 /* Ensure first section after nav has proper spacing */
-body > main > section:first-child,
-body > #main-content > section:first-child,
-main > section:first-child,
-#main-content > section:first-child {
-    padding-top: 0 !important;
+body > main > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero),
+body > #main-content > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero),
+main > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero),
+#main-content > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero) {
+    padding-top: 10px !important;
     margin-top: 0 !important;
 }
 
@@ -62,10 +62,10 @@ main > .container:first-child,
         padding-top: 0 !important;
     }
 
-    body > main > section:first-child,
-    body > #main-content > section:first-child,
-    main > section:first-child,
-    #main-content > section:first-child {
+    body > main > section:first-child:not(.tools-hero-modern),
+    body > #main-content > section:first-child:not(.tools-hero-modern),
+    main > section:first-child:not(.tools-hero-modern),
+    #main-content > section:first-child:not(.tools-hero-modern) {
         padding-top: 0 !important;
     }
 }
@@ -79,7 +79,7 @@ main > .container:first-child,
     }
 
     .hero,
-    .hero-modern,
+    .hero-modern:not(.tools-hero-modern),
     .about-hero,
     .pricing-hero,
     .pricing-hero-enhanced,
