@@ -1,0 +1,39 @@
+{
+  "name": "n8n-qa-harness",
+  "version": "1.0.0",
+  "description": "Automated test harness for n8n workflows with CI/CD integration",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:smoke": "vitest run -t smoke",
+    "test:contract": "vitest run -t contract",
+    "test:error": "vitest run -t error",
+    "test:schedule": "vitest run -t schedule",
+    "test:ci": "vitest run --reporter=verbose --reporter=json --outputFile=test-results.json",
+    "export:workflows": "tsx scripts/export-workflows.ts",
+    "validate:workflows": "tsx scripts/validate-workflows.ts",
+    "report": "tsx scripts/generate-report.ts",
+    "deploy:vps": "bash scripts/deploy-to-vps.sh",
+    "postman": "tsx scripts/generate-postman.ts",
+    "lint": "eslint src tests --ext .ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["n8n", "testing", "automation", "qa", "ci-cd"],
+  "author": "The Profit Platform",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "eslint": "^9.18.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.1"
+  }
+}

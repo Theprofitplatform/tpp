@@ -1,0 +1,143 @@
+[
+  {
+    "id": "b557c2ca652c49338e1f7a0e028c53a7",
+    "name": "Visual Monitoring",
+    "active": true,
+    "nodeCount": 6,
+    "hasWebhook": true,
+    "hasAI": false,
+    "aiNodes": [],
+    "issues": [],
+    "lastExecution": {
+      "startedAt": "2025-10-02T03:36:31.043Z"
+    }
+  },
+  {
+    "id": "nKWgFXBpYwCvTXhK",
+    "name": "Advanced Webhook System → Custom Integrations → API Gateway",
+    "active": true,
+    "nodeCount": 16,
+    "hasWebhook": true,
+    "hasAI": false,
+    "aiNodes": [],
+    "issues": []
+  },
+  {
+    "id": "raWp4HfY2I6g3EZd",
+    "name": "Competitor Analysis → Content Gap Identification → Strategic Planning",
+    "active": true,
+    "nodeCount": 12,
+    "hasWebhook": false,
+    "hasAI": true,
+    "aiNodes": [
+      "Send Competitive Intelligence Alert (n8n-nodes-base.emailSend)"
+    ],
+    "issues": [
+      "Uses AI nodes: Send Competitive Intelligence Alert (n8n-nodes-base.emailSend)"
+    ],
+    "lastExecution": {
+      "startedAt": "2025-09-21T14:00:08.034Z"
+    }
+  },
+  {
+    "id": "TIA1759450314",
+    "name": "Tool Improvement Agent - Comprehensive",
+    "active": true,
+    "nodeCount": 8,
+    "hasWebhook": true,
+    "hasAI": true,
+    "aiNodes": [
+      "Send a message (n8n-nodes-base.gmail)"
+    ],
+    "issues": [
+      "Uses AI nodes: Send a message (n8n-nodes-base.gmail)"
+    ],
+    "lastExecution": {
+      "startedAt": "2025-10-04T11:14:17.759Z"
+    }
+  },
+  {
+    "id": "iK1yvPvOxuvTwtWC",
+    "name": "Social Media Cross-Platform Publishing & Engagement Automation",
+    "active": true,
+    "nodeCount": 17,
+    "hasWebhook": true,
+    "hasAI": true,
+    "aiNodes": [
+      "Send Publishing Summary Report (n8n-nodes-base.emailSend)"
+    ],
+    "issues": [
+      "Uses AI nodes: Send Publishing Summary Report (n8n-nodes-base.emailSend)"
+    ]
+  },
+  {
+    "id": "bM4PQO8XBloDa3N2",
+    "name": "Performance Monitoring → Analytics → Report Generation → Client Delivery",
+    "active": true,
+    "nodeCount": 13,
+    "hasWebhook": false,
+    "hasAI": true,
+    "aiNodes": [
+      "Send Performance Reports to Clients (n8n-nodes-base.emailSend)",
+      "Send Internal Performance Summary (n8n-nodes-base.emailSend)"
+    ],
+    "issues": [
+      "Uses AI nodes: Send Performance Reports to Clients (n8n-nodes-base.emailSend), Send Internal Performance Summary (n8n-nodes-base.emailSend)"
+    ],
+    "lastExecution": {
+      "startedAt": "2025-09-21T14:00:59.023Z"
+    }
+  },
+  {
+    "id": "ueXKIrMfOUWoDyae",
+    "name": "Content Research → AI Generation → SEO → Publishing",
+    "active": true,
+    "nodeCount": 11,
+    "hasWebhook": false,
+    "hasAI": true,
+    "aiNodes": [
+      "Send High Priority Notification (n8n-nodes-base.emailSend)"
+    ],
+    "issues": [
+      "Uses AI nodes: Send High Priority Notification (n8n-nodes-base.emailSend)"
+    ],
+    "lastExecution": {
+      "startedAt": "2025-09-21T14:00:55.033Z"
+    }
+  },
+  {
+    "id": "fefa4ab2-72c7-4485-8356-e0eb7fd6a049",
+    "name": "SEO Optimization with Claude Code",
+    "active": true,
+    "nodeCount": 13,
+    "hasWebhook": true,
+    "hasAI": true,
+    "aiNodes": [
+      "Send Email Report (n8n-nodes-base.emailSend)"
+    ],
+    "issues": [
+      "Uses AI nodes: Send Email Report (n8n-nodes-base.emailSend)"
+    ],
+    "lastExecution": {
+      "startedAt": "2025-10-04T10:24:33.627Z"
+    }
+  },
+  {
+    "id": "ZR18rzRrRu6tBCNB",
+    "name": "Intelligent Client Notifications → Multi-Channel Alerts → Engagement Tracking",
+    "active": true,
+    "nodeCount": 15,
+    "hasWebhook": false,
+    "hasAI": true,
+    "aiNodes": [
+      "Send Email Notification (n8n-nodes-base.emailSend)",
+      "Alert Admin of Delivery Failure (n8n-nodes-base.emailSend)"
+    ],
+    "issues": [
+      "Uses AI nodes: Send Email Notification (n8n-nodes-base.emailSend), Alert Admin of Delivery Failure (n8n-nodes-base.emailSend)"
+    ],
+    "lastExecution": {
+      "startedAt": "2025-09-21T14:00:46.018Z"
+    }
+  }
+]

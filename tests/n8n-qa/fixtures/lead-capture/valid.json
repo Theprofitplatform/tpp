@@ -1,0 +1,20 @@
+{
+  "email": "lead@example.com",
+  "firstName": "Sarah",
+  "lastName": "Johnson",
+  "company": "Tech Innovations Ltd",
+  "phone": "+61412345678",
+  "jobTitle": "Marketing Director",
+  "industry": "Technology",
+  "companySize": "50-200",
+  "source": "linkedin",
+  "campaign": "Q4-2025-Lead-Gen",
+  "interests": ["automation", "workflow optimization", "n8n integration"],
+  "consent": true,
+  "metadata": {
+    "utmSource": "linkedin",
+    "utmMedium": "cpc",
+    "utmCampaign": "lead-gen-q4",
+    "landingPage": "https://theprofitplatform.com.au/solutions"
+  }
+}

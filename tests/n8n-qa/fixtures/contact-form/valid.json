@@ -1,0 +1,14 @@
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "phone": "+61487286451",
+  "company": "The Profit Platform",
+  "message": "I'm interested in learning more about your services. Please contact me at your earliest convenience.",
+  "source": "website",
+  "referrer": "https://theprofitplatform.com.au/contact",
+  "metadata": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+    "timestamp": "2025-10-04T12:00:00Z",
+    "ipAddress": "203.0.113.42"
+  }
+}
