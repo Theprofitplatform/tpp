@@ -75,9 +75,16 @@ CRITICAL REQUIREMENTS:
    - Share common mistakes we see clients make
    - Include "insider" knowledge about the industry
 
-8. EXTERNAL AUTHORITY:
-   - Reference 1-2 authoritative sources (mark with [Source: ...])
-   - These could be: Google official documentation, industry studies, government data, university research
+8. EXTERNAL AUTHORITY (MANDATORY):
+   - Include 2-3 external links to high-authority sources
+   - Acceptable domains: support.google.com, developers.google.com, searchengineland.com, moz.com, semrush.com, ahrefs.com, hubspot.com, neilpatel.com, backlinko.com
+   - Government/academic sources: .gov.au, .edu.au, abs.gov.au (Australian Bureau of Statistics)
+   - Link format: [Link text](https://authoritative-source.com/article) with [Source: Domain Name]
+   - Examples:
+     * "According to [Google's official documentation](https://support.google.com/google-ads), Quality Score is..." [Source: Google Support]
+     * "A [study by Search Engine Land](https://searchengineland.com/study) found that..." [Source: Search Engine Land]
+   - Links must be relevant to the topic and add genuine value
+   - Do NOT link to competitors or low-quality sites
 
 9. TONE & STYLE:
    - Conversational but professional
@@ -193,11 +200,13 @@ OUTPUT INSTRUCTIONS:
 - Write ONLY the markdown content (no frontmatter, I'll add that separately)
 - Start directly with an H2 heading (## Not H1) - the title is already in the frontmatter
 - Use Australian English spelling throughout
+- CRITICAL: Include 2-3 external authority links in markdown format: [text](URL)
 - Include [Source: ...] citations for any statistics or data
 - Mark places where internal links should go like this: [SEO](/seo) or [Google Ads](/google-ads)
 - Make it sound human, not AI-generated
 - Provide unique value in every section
 - Focus on practical, actionable advice
 - DO NOT include the post title as an H1 in the content
+- VALIDATION WILL FAIL if you don't include external authority links
 
 Write the blog post now:
