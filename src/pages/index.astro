@@ -2,6 +2,7 @@
 // Updated to use BaseLayout while maintaining exact content structure
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+import HomeBreadcrumb from '../components/HomeBreadcrumb.astro';
 
 // SEO Optimization - Critical meta description
 const pageTitle = "Digital Marketing Sydney | SEO, Google Ads & Web Design | The Profit Platform";
@@ -9,6 +10,7 @@ const pageDescription = "Leading digital marketing agency in Sydney. 247% averag
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
+  <HomeBreadcrumb />
   <Header />
 
 <!-- Typing Animation CSS & Trust Section Fix -->
