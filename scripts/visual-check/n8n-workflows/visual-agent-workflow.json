@@ -1,0 +1,477 @@
+{
+  "name": "Visual Quality Monitoring Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Schedule Every 15 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "visual-agent-webhook",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Manual Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 500],
+      "webhookId": "visual-agent-manual"
+    },
+    {
+      "parameters": {
+        "command": "cd /home/avi/projects/astro-site/scripts/visual-check && npx playwright test --config=playwright.config.js --reporter=json 2>&1",
+        "options": {}
+      },
+      "id": "run-playwright-tests",
+      "name": "Run Playwright Tests",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "test-success",
+              "leftValue": "={{ $json.exitCode }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-test-result",
+      "name": "Check Test Success",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "filePath": "/home/avi/projects/astro-site/scripts/visual-check/test-results/results.json",
+        "options": {}
+      },
+      "id": "read-test-results",
+      "name": "Read Test Results JSON",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "typeVersion": 1,
+      "position": [1000, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse Playwright test results\nconst resultsJson = JSON.parse($input.item.json.data.toString());\n\nconst stats = {\n  total: resultsJson.stats.expected + resultsJson.stats.unexpected,\n  passed: resultsJson.stats.expected,\n  failed: resultsJson.stats.unexpected,\n  duration: resultsJson.stats.duration,\n  failures: []\n};\n\n// Collect failure details\nfunction collectFailures(suite) {\n  if (suite.specs) {\n    suite.specs.forEach(spec => {\n      if (!spec.ok && spec.tests && spec.tests[0]) {\n        stats.failures.push({\n          title: spec.title,\n          file: spec.file,\n          error: spec.tests[0].results[0]?.error?.message || 'Unknown error'\n        });\n      }\n    });\n  }\n  if (suite.suites) {\n    suite.suites.forEach(collectFailures);\n  }\n}\n\nresultsJson.suites.forEach(collectFailures);\n\nreturn {\n  timestamp: new Date().toISOString(),\n  runId: Date.now(),\n  stats: stats,\n  hasFailures: stats.failed > 0\n};"
+      },
+      "id": "parse-results",
+      "name": "Parse Test Results",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "options": {
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "capture-screenshots-loop",
+      "name": "Loop Through Pages",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1500, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Define pages to screenshot - only actual production pages\nconst pages = [\n  { path: '/', name: 'home' },\n  { path: '/about/', name: 'about' },\n  { path: '/contact/', name: 'contact' },\n  { path: '/privacy/', name: 'privacy' },\n  { path: '/terms/', name: 'terms' }\n];\n\nconst baseUrl = 'https://theprofitplatform.com.au';\nconst timestamp = new Date().toISOString().replace(/:/g, '-').slice(0, 19);\n\nreturn pages.map(page => ({\n  ...page,\n  url: `${baseUrl}${page.path}`,\n  timestamp,\n  screenshotDir: `/home/avi/projects/astro-site/scripts/visual-check/screenshots/run-${timestamp}`\n}));"
+      },
+      "id": "prepare-pages",
+      "name": "Prepare Page List",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 400]
+    },
+    {
+      "parameters": {
+        "command": "=mkdir -p {{ $json.screenshotDir }}/_{{ $json.name }}/theprofitplatform-com-au-{{ $json.name }}/desktop && mkdir -p {{ $json.screenshotDir }}/_{{ $json.name }}/theprofitplatform-com-au-{{ $json.name }}/mobile && cd /home/avi/projects/astro-site/scripts/visual-check && node -e \"const { chromium } = require('playwright'); (async () => { const browser = await chromium.launch(); const page = await browser.newPage(); await page.setViewportSize({ width: 1920, height: 1080 }); await page.goto('{{ $json.url }}', { waitUntil: 'networkidle' }); await page.screenshot({ path: '{{ $json.screenshotDir }}/_{{ $json.name }}/theprofitplatform-com-au-{{ $json.name }}/desktop/viewport.png' }); await page.screenshot({ path: '{{ $json.screenshotDir }}/_{{ $json.name }}/theprofitplatform-com-au-{{ $json.name }}/desktop/full-page.png', fullPage: true }); await page.setViewportSize({ width: 375, height: 812 }); await page.goto('{{ $json.url }}', { waitUntil: 'networkidle' }); await page.screenshot({ path: '{{ $json.screenshotDir }}/_{{ $json.name }}/theprofitplatform-com-au-{{ $json.name }}/mobile/viewport.png' }); await page.screenshot({ path: '{{ $json.screenshotDir }}/_{{ $json.name }}/theprofitplatform-com-au-{{ $json.name }}/mobile/full-page.png', fullPage: true }); await browser.close(); })();\""
+      },
+      "id": "capture-page-screenshots",
+      "name": "Capture Page Screenshots",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [1500, 400]
+    },
+    {
+      "parameters": {
+        "filePath": "/home/avi/projects/astro-site/scripts/visual-check/logs/summary.json",
+        "options": {}
+      },
+      "id": "read-summary",
+      "name": "Read Previous Summary",
+      "type": "n8n-nodes-base.readBinaryFile",
+      "typeVersion": 1,
+      "position": [1750, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Update summary with new run data\nconst newStats = $('Parse Test Results').item.json.stats;\nconst newRunId = $('Parse Test Results').item.json.runId;\nconst newTimestamp = $('Parse Test Results').item.json.timestamp;\n\nlet summary = [];\ntry {\n  const summaryData = $input.item.json.data.toString();\n  summary = JSON.parse(summaryData);\n} catch (e) {\n  // New summary file\n  summary = [];\n}\n\nconst previousRun = summary.length > 0 ? summary[summary.length - 1] : null;\nconst issuesDelta = previousRun ? newStats.failed - previousRun.totalIssues : 0;\n\nconst status = previousRun\n  ? (issuesDelta < 0 ? 'improved' : issuesDelta > 0 ? 'degraded' : 'unchanged')\n  : 'initial';\n\nconst newEntry = {\n  runId: newRunId,\n  timestamp: newTimestamp,\n  totalIssues: newStats.failed,\n  fixesGenerated: 0,\n  status,\n  issuesDelta,\n  testsPassed: newStats.passed,\n  testsTotal: newStats.total,\n  duration: newStats.duration,\n  note: 'Playwright-based validation (n8n automated)'\n};\n\nsummary.push(newEntry);\n\n// Keep only last 100 runs\nif (summary.length > 100) {\n  summary = summary.slice(-100);\n}\n\nreturn {\n  summary,\n  latestRun: newEntry,\n  summaryJson: JSON.stringify(summary, null, 2)\n};"
+      },
+      "id": "update-summary",
+      "name": "Update Summary Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2000, 200]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/home/avi/projects/astro-site/scripts/visual-check/logs/summary.json",
+        "data": "={{ $json.summaryJson }}",
+        "options": {}
+      },
+      "id": "save-summary",
+      "name": "Save Summary JSON",
+      "type": "n8n-nodes-base.writeBinaryFile",
+      "typeVersion": 1,
+      "position": [2250, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate comprehensive HTML email report with updated monitoring configuration info\nconst runData = $('Update Summary Data').item.json;\nconst stats = $('Parse Test Results').item.json.stats;\nconst latestRun = runData.latestRun;\nconst summary = runData.summary || [];\n\n// Status emoji\nconst statusEmoji = latestRun.status === 'improved' ? '✅' :\n                   latestRun.status === 'degraded' ? '⚠️' : '📊';\n\n// Calculate pass rate\nconst passRate = Math.round((latestRun.testsPassed / latestRun.testsTotal) * 100);\n\n// Get trend data (last 5 runs)\nconst recentRuns = summary.slice(-5);\nconst trendData = recentRuns.map(r => ({\n  timestamp: new Date(r.timestamp).toLocaleTimeString(),\n  issues: r.totalIssues,\n  status: r.status\n}));\n\n// Categorize failures\nconst failureCategories = {\n  http: [],\n  html: [],\n  css: [],\n  js: []\n};\n\nstats.failures.forEach(f => {\n  if (f.title.includes('HTTP') || f.title.includes('returns 200')) {\n    failureCategories.http.push(f);\n  } else if (f.title.includes('<main>') || f.title.includes('<h1>')) {\n    failureCategories.html.push(f);\n  } else if (f.title.includes('CSS')) {\n    failureCategories.css.push(f);\n  } else if (f.title.includes('JavaScript') || f.title.includes('JS')) {\n    failureCategories.js.push(f);\n  }\n});\n\n// Build comprehensive HTML\nconst html = `\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <style>\n    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; margin: 0; padding: 20px; }\n    .container { max-width: 800px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); overflow: hidden; }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }\n    .header h1 { margin: 0; font-size: 28px; }\n    .header p { margin: 10px 0 0; opacity: 0.9; }\n    .info-banner { background: #cce5ff; border-left: 4px solid #004085; padding: 15px; margin: 20px; border-radius: 5px; }\n    .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; padding: 30px; }\n    .stat { background: #f8f9fa; padding: 20px; border-radius: 6px; text-align: center; }\n    .stat-value { font-size: 32px; font-weight: bold; color: #667eea; margin-bottom: 5px; }\n    .stat-label { font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 0.5px; }\n    .status-badge { display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; text-transform: uppercase; }\n    .status-improved { background: #d4edda; color: #155724; }\n    .status-degraded { background: #f8d7da; color: #721c24; }\n    .status-unchanged { background: #d1ecf1; color: #0c5460; }\n    .failures { padding: 0 30px 30px; }\n    .failure-item { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin-bottom: 10px; border-radius: 4px; }\n    .failure-title { font-weight: bold; color: #856404; margin-bottom: 5px; }\n    .failure-error { font-family: monospace; font-size: 12px; color: #666; }\n    .footer { background: #f8f9fa; padding: 20px; text-align: center; font-size: 12px; color: #666; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <h1>${statusEmoji} Visual Quality Report</h1>\n      <p>${new Date(latestRun.timestamp).toLocaleString()}</p>\n      <span class=\"status-badge status-${latestRun.status}\">${latestRun.status}</span>\n    </div>\n    \n    <div class=\"info-banner\">\n      <strong>📊 Optimized Monitoring:</strong> Tests validate bundled Astro CSS (/_astro/*.css), modern architecture, and production pages only. Legacy individual CSS checks removed.\n    </div>\n    \n    <div class=\"stats\">\n      <div class=\"stat\">\n        <div class=\"stat-value\">${latestRun.totalIssues}</div>\n        <div class=\"stat-label\">Real Issues</div>\n      </div>\n      <div class=\"stat\">\n        <div class=\"stat-value\">${latestRun.testsPassed}/${latestRun.testsTotal}</div>\n        <div class=\"stat-label\">Tests (${passRate}%)</div>\n      </div>\n      <div class=\"stat\">\n        <div class=\"stat-value\">${latestRun.issuesDelta >= 0 ? '+' : ''}${latestRun.issuesDelta}</div>\n        <div class=\"stat-label\">Delta</div>\n      </div>\n      <div class=\"stat\">\n        <div class=\"stat-value\">${(latestRun.duration / 1000).toFixed(1)}s</div>\n        <div class=\"stat-label\">Duration</div>\n      </div>\n    </div>\n    \n    ${stats.failures.length > 0 ? `\n    <div style=\"padding: 30px;\">\n      <h2 style=\"color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px;\">📋 Issue Breakdown</h2>\n      \n      ${failureCategories.http.length > 0 ? `\n      <div style=\"margin: 20px 0;\">\n        <h3 style=\"color: #dc3545;\">🔴 HTTP Errors (${failureCategories.http.length})</h3>\n        ${failureCategories.http.map(f => `\n          <div class=\"failure-item\">\n            <div class=\"failure-title\">${f.title}</div>\n            <div class=\"failure-error\">${f.error}</div>\n          </div>\n        `).join('')}\n      </div>\n      ` : ''}\n      \n      ${failureCategories.html.length > 0 ? `\n      <div style=\"margin: 20px 0;\">\n        <h3 style=\"color: #fd7e14;\">⚠️ Missing HTML Elements (${failureCategories.html.length})</h3>\n        ${failureCategories.html.map(f => `\n          <div class=\"failure-item\">\n            <div class=\"failure-title\">${f.title}</div>\n            <div class=\"failure-error\">${f.error}</div>\n          </div>\n        `).join('')}\n      </div>\n      ` : ''}\n      \n      ${failureCategories.css.length > 0 ? `\n      <div style=\"margin: 20px 0;\">\n        <h3 style=\"color: #17a2b8;\">🎨 CSS Issues (${failureCategories.css.length})</h3>\n        ${failureCategories.css.map(f => `\n          <div class=\"failure-item\">\n            <div class=\"failure-title\">${f.title}</div>\n            <div class=\"failure-error\">${f.error}</div>\n          </div>\n        `).join('')}\n      </div>\n      ` : ''}\n      \n      ${failureCategories.js.length > 0 ? `\n      <div style=\"margin: 20px 0;\">\n        <h3 style=\"color: #ffc107;\">⚡ JavaScript Issues (${failureCategories.js.length})</h3>\n        ${failureCategories.js.map(f => `\n          <div class=\"failure-item\">\n            <div class=\"failure-title\">${f.title}</div>\n            <div class=\"failure-error\">${f.error}</div>\n          </div>\n        `).join('')}\n      </div>\n      ` : ''}\n    </div>\n    ` : '<div style=\"padding: 30px; text-align: center; color: #28a745;\"><h3>✅ All tests passed!</h3></div>'}\n    \n    ${trendData.length > 1 ? `\n    <div style=\"padding: 30px; background: #f8f9fa;\">\n      <h2 style=\"color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px;\">📈 Recent Trend</h2>\n      <table style=\"width: 100%; margin-top: 15px; border-collapse: collapse;\">\n        <thead>\n          <tr style=\"background: #e9ecef;\">\n            <th style=\"padding: 10px; text-align: left;\">Time</th>\n            <th style=\"padding: 10px; text-align: center;\">Issues</th>\n            <th style=\"padding: 10px; text-align: center;\">Status</th>\n          </tr>\n        </thead>\n        <tbody>\n          ${trendData.map(d => `\n            <tr style=\"border-bottom: 1px solid #dee2e6;\">\n              <td style=\"padding: 10px;\">${d.timestamp}</td>\n              <td style=\"padding: 10px; text-align: center; font-weight: bold;\">${d.issues}</td>\n              <td style=\"padding: 10px; text-align: center;\">\n                <span class=\"status-badge status-${d.status}\">${d.status}</span>\n              </td>\n            </tr>\n          `).join('')}\n        </tbody>\n      </table>\n    </div>\n    ` : ''}\n    \n    <div style=\"padding: 30px;\">\n      <h2 style=\"color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px;\">🔍 What's Being Tested</h2>\n      <ul style=\"line-height: 1.8;\">\n        <li>✅ <strong>HTTP Status Codes:</strong> Validates all pages return 200</li>\n        <li>✅ <strong>Semantic HTML:</strong> Checks for &lt;main&gt; and &lt;h1&gt; elements</li>\n        <li>✅ <strong>Bundled CSS:</strong> Validates /_astro/*.css files load successfully</li>\n        <li>✅ <strong>JavaScript Loading:</strong> Confirms critical JS files are loaded</li>\n      </ul>\n    </div>\n    \n    <div class=\"footer\">\n      <strong>Automated by n8n Visual Quality Monitoring (Optimized Config)</strong><br>\n      Run ID: ${latestRun.runId} | ${new Date(latestRun.timestamp).toLocaleString()}<br>\n      <a href=\"https://theprofitplatform.com.au\" style=\"color: #667eea; text-decoration: none;\">theprofitplatform.com.au</a>\n    </div>\n  </div>\n</body>\n</html>\n`;\n\nreturn {\n  html,\n  subject: `${statusEmoji} Visual Check - ${latestRun.totalIssues} issues | ${passRate}% pass (${latestRun.status.toUpperCase()})`,\n  stats\n};"
+      },
+      "id": "generate-email-report",
+      "name": "Generate HTML Email Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [2500, 200]
+    },
+    {
+      "parameters": {
+        "authentication": "generic",
+        "fromEmail": "visual-agent@theprofitplatform.com.au",
+        "toEmail": "abhishekmaharjan3737@gmail.com",
+        "subject": "={{ $json.subject }}",
+        "emailFormat": "html",
+        "text": "={{ $json.html }}",
+        "options": {},
+        "credentials": {
+          "smtp": {
+            "user": "abhishekmaharjan3737@gmail.com",
+            "password": "tmhnofephrxbdaik",
+            "host": "smtp.gmail.com",
+            "port": 587,
+            "secure": false
+          }
+        }
+      },
+      "id": "send-email",
+      "name": "Send Email Notification",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [2750, 200],
+      "credentials": {
+        "smtp": {
+          "id": "gmail-smtp",
+          "name": "Gmail SMTP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { success: true, message: 'Visual quality check completed', timestamp: $('Parse Test Results').item.json.timestamp, stats: $('Parse Test Results').item.json.stats } }}",
+        "options": {}
+      },
+      "id": "webhook-response",
+      "name": "Webhook Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [3000, 200]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log error details\nconst error = $input.item.json;\nconsole.error('Visual Agent Error:', error);\n\nreturn {\n  error: true,\n  message: 'Test execution failed',\n  timestamp: new Date().toISOString(),\n  details: error\n};"
+      },
+      "id": "handle-error",
+      "name": "Handle Test Failure",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1000, 400]
+    },
+    {
+      "parameters": {
+        "authentication": "generic",
+        "fromEmail": "visual-agent@theprofitplatform.com.au",
+        "toEmail": "abhishekmaharjan3737@gmail.com",
+        "subject": "❌ Visual Agent - Test Execution Failed",
+        "emailFormat": "html",
+        "text": "=<html><body><h2>❌ Visual Agent Test Failure</h2><p>The visual quality monitoring tests failed to execute.</p><pre>{{ $json.details }}</pre><p>Timestamp: {{ $json.timestamp }}</p></body></html>",
+        "options": {},
+        "credentials": {
+          "smtp": {
+            "user": "abhishekmaharjan3737@gmail.com",
+            "password": "tmhnofephrxbdaik",
+            "host": "smtp.gmail.com",
+            "port": 587,
+            "secure": false
+          }
+        }
+      },
+      "id": "send-error-email",
+      "name": "Send Error Notification",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [1250, 500],
+      "credentials": {
+        "smtp": {
+          "id": "gmail-smtp",
+          "name": "Gmail SMTP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {
+          "responseCode": 500
+        }
+      },
+      "id": "webhook-error-response",
+      "name": "Webhook Error Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1500, 500]
+    }
+  ],
+  "connections": {
+    "Schedule Every 15 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Run Playwright Tests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Manual Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Run Playwright Tests",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run Playwright Tests": {
+      "main": [
+        [
+          {
+            "node": "Check Test Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Test Success": {
+      "main": [
+        [
+          {
+            "node": "Read Test Results JSON",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Prepare Page List",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Handle Test Failure",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Test Results JSON": {
+      "main": [
+        [
+          {
+            "node": "Parse Test Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Test Results": {
+      "main": [
+        [
+          {
+            "node": "Read Previous Summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Page List": {
+      "main": [
+        [
+          {
+            "node": "Loop Through Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Through Pages": {
+      "main": [
+        [
+          {
+            "node": "Capture Page Screenshots",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Capture Page Screenshots": {
+      "main": [
+        [
+          {
+            "node": "Loop Through Pages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Previous Summary": {
+      "main": [
+        [
+          {
+            "node": "Update Summary Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Summary Data": {
+      "main": [
+        [
+          {
+            "node": "Save Summary JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Summary JSON": {
+      "main": [
+        [
+          {
+            "node": "Generate HTML Email Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate HTML Email Report": {
+      "main": [
+        [
+          {
+            "node": "Send Email Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email Notification": {
+      "main": [
+        [
+          {
+            "node": "Webhook Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Handle Test Failure": {
+      "main": [
+        [
+          {
+            "node": "Send Error Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Error Notification": {
+      "main": [
+        [
+          {
+            "node": "Webhook Error Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2025-10-01T00:00:00.000Z",
+      "updatedAt": "2025-10-01T00:00:00.000Z",
+      "id": "visual-monitoring",
+      "name": "Visual Monitoring"
+    }
+  ],
+  "triggerCount": 2,
+  "updatedAt": "2025-10-01T00:00:00.000Z",
+  "versionId": "1"
+}
