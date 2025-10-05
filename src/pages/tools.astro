@@ -57,7 +57,7 @@ import Header from '../components/Header.astro';
           <a href="/tools/rank-tracker" class="tool-card-modern featured" style="opacity: 1 !important; visibility: visible !important;">
             <div class="tool-badge-modern featured-badge">
               <i class="fas fa-star"></i>
-              <span>Most Popular</span>
+              <span>MOST POPULAR</span>
             </div>
             <div class="tool-icon-modern">
               <div class="icon-bg-gradient"></div>
@@ -82,9 +82,9 @@ import Header from '../components/Header.astro';
 
           <!-- Website Speed Test Tool -->
           <a href="/tools/speed-test" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
-            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #10b981, #059669); color: white; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);">
-              <i class="fas fa-bolt"></i>
-              <span>NEW!</span>
+            <div class="tool-badge-modern new-badge">
+              <i class="fas fa-sparkles"></i>
+              <span>NEW</span>
             </div>
             <div class="tool-icon-modern">
               <div class="icon-bg-gradient"></div>
@@ -109,8 +109,8 @@ import Header from '../components/Header.astro';
 
           <!-- SEO Audit Tool -->
           <a href="/tools/seo-audit" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
-            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);">
-              <i class="fas fa-check"></i>
+            <div class="tool-badge-modern available-badge">
+              <i class="fas fa-check-circle"></i>
               <span>AVAILABLE</span>
             </div>
             <div class="tool-icon-modern">
@@ -136,8 +136,8 @@ import Header from '../components/Header.astro';
 
           <!-- Keyword Research Tool -->
           <a href="/tools/keyword-research" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
-            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);">
-              <i class="fas fa-check"></i>
+            <div class="tool-badge-modern available-badge">
+              <i class="fas fa-check-circle"></i>
               <span>AVAILABLE</span>
             </div>
             <div class="tool-icon-modern">
@@ -163,8 +163,8 @@ import Header from '../components/Header.astro';
 
           <!-- Competitor Analysis Tool -->
           <a href="/tools/competitor-analysis" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
-            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);">
-              <i class="fas fa-exclamation-circle"></i>
+            <div class="tool-badge-modern beta-badge">
+              <i class="fas fa-flask"></i>
               <span>BETA</span>
             </div>
             <div class="tool-icon-modern">
@@ -190,8 +190,8 @@ import Header from '../components/Header.astro';
 
           <!-- AI Content Generator Tool -->
           <a href="/tools/content-generator" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
-            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);">
-              <i class="fas fa-exclamation-circle"></i>
+            <div class="tool-badge-modern beta-badge">
+              <i class="fas fa-flask"></i>
               <span>BETA</span>
             </div>
             <div class="tool-icon-modern">
@@ -217,9 +217,9 @@ import Header from '../components/Header.astro';
 
           <!-- Meta Tag Generator Tool -->
           <a href="/tools/meta-tag-generator" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
-            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #10b981, #059669); color: white; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);">
+            <div class="tool-badge-modern new-badge">
               <i class="fas fa-sparkles"></i>
-              <span>NEW!</span>
+              <span>NEW</span>
             </div>
             <div class="tool-icon-modern">
               <div class="icon-bg-gradient"></div>
@@ -244,9 +244,9 @@ import Header from '../components/Header.astro';
 
           <!-- n8n Workflow Triggers -->
           <a href="/n8n" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
-            <div class="tool-badge-modern" style="background: linear-gradient(135deg, #8b5cf6, #6d28d9); color: white; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);">
+            <div class="tool-badge-modern automation-badge">
               <i class="fas fa-robot"></i>
-              <span>Automation</span>
+              <span>AUTOMATION</span>
             </div>
             <div class="tool-icon-modern">
               <div class="icon-bg-gradient"></div>
@@ -645,9 +645,34 @@ import Header from '../components/Header.astro';
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
   }
 
+  .new-badge {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  }
+
+  .available-badge {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  }
+
+  .beta-badge {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+  }
+
+  .automation-badge {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    color: white;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+  }
+
   .coming-soon-badge {
     background: linear-gradient(135deg, #6b7280, #4b5563);
     color: white;
+    box-shadow: 0 4px 12px rgba(107, 114, 128, 0.4);
   }
 
   /* Tool Icons */
