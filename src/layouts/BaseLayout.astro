@@ -252,6 +252,33 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 </script>
 
+<!-- Structured Data - WebSite with Sitelinks SearchBox -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "The Profit Platform",
+  "url": "https://theprofitplatform.com.au",
+  "description": "Sydney's leading digital marketing agency specializing in SEO, Google Ads, and web design for small businesses",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Profit Platform",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://theprofitplatform.com.au/images/logo-optimized.png"
+    }
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://theprofitplatform.com.au/blog?s={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
 <!-- Structured Data - FAQ -->
 <script type="application/ld+json" is:inline>
 {
