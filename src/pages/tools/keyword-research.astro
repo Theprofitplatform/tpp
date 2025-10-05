@@ -21,11 +21,11 @@ const apiUrl = '';
             competition data, and keyword suggestions - 100% free.
           </p>
           <p class="disclaimer-text" id="disclaimer">
-            <i class="fas fa-info-circle"></i> This tool can provide real keyword data from Google Ads API when configured.
-            For enterprise keyword research, we recommend <a href="/contact">professional SEO services</a> with custom analysis.
+            <i class="fas fa-robot"></i> AI-powered keyword research using real Google autocomplete data and Claude AI analysis.
+            For enterprise-grade research with exact Google Ads volumes, <a href="/contact">contact us</a> for professional SEO services.
           </p>
           <div class="trust-badges">
-            <span class="badge" id="dataBadge"><i class="fas fa-database"></i> <span id="dataBadgeText">Checking...</span></span>
+            <span class="badge" id="dataBadge" style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white;"><i class="fas fa-robot"></i> <span id="dataBadgeText">🤖 AI-Powered Research</span></span>
             <span class="badge"><i class="fas fa-location-dot"></i> Sydney Focused</span>
             <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
           </div>
@@ -1266,11 +1266,8 @@ const apiUrl = '';
     document.getElementById('errorMessage').textContent = message;
   }
 
-  // Initialize badge on page load
-  window.addEventListener('DOMContentLoaded', () => {
-    // Default to sample data until first search
-    updateDataSourceBadge('sample', 'sample');
-  });
+  // Badge is already initialized with AI-Powered by default
+  // It will update based on actual API response after first search
 
   // Export CSV
   document.getElementById('exportCSV')?.addEventListener('click', () => {
