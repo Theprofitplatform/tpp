@@ -468,7 +468,7 @@ export async function onRequestPost({ request, env }) {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-3-5-sonnet-20241022', // Latest Sonnet - vastly better at following complex instructions
+        model: 'claude-3-5-sonnet-20241022', // Sonnet 3.5 - better instruction following than Haiku
         max_tokens: length === 'short' ? 1000 : length === 'medium' ? 2000 : 3000,
         temperature: 0.7,
         system: promptConfig.system,
@@ -483,13 +483,26 @@ export async function onRequestPost({ request, env }) {
 
     if (!claudeResponse.ok) {
       const status = claudeResponse.status;
-      console.error('Claude API error:', status);
+      let errorBody = null;
+      try {
+        errorBody = await claudeResponse.json();
+        console.error('Claude API error:', status, errorBody);
+      } catch (e) {
+        console.error('Claude API error:', status);
+      }
 
       // Specific error messages
       if (status === 401) {
         return new Response(JSON.stringify({
           success: false,
           error: 'API authentication failed. Please contact support.'
+        }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
+      }
+
+      if (status === 400) {
+        return new Response(JSON.stringify({
+          success: false,
+          error: 'Invalid request format. ' + (errorBody?.error?.message || 'Please check parameters.')
         }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
       }
 
@@ -509,7 +522,7 @@ export async function onRequestPost({ request, env }) {
 
       return new Response(JSON.stringify({
         success: false,
-        error: 'Failed to generate content. Please try again.'
+        error: `Failed to generate content (status: ${status}). Please try again.`
       }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
     }
 
