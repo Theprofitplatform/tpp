@@ -42,6 +42,7 @@ const { testimonials } = Astro.props;
                       src={testimonial.avatar}
                       alt={testimonial.author}
                       class="testimonial-avatar"
+                      loading="lazy"
                     />
                   ) : (
                     <div class="testimonial-avatar-fallback">
