@@ -95,12 +95,15 @@ async function validateContent() {
     const h2Count = (markdown.match(/^## .+$/gm) || []).length;
     const h3Count = (markdown.match(/^### .+$/gm) || []).length;
 
-    console.log(`   H1: ${h1Count}, H2: ${h2Count}, H3: ${h3Count}`);
+    console.log(`   H1: (from frontmatter), H2: ${h2Count}, H3: ${h3Count}`);
 
-    if (h1Count === 0) {
-      errors.push('No H1 heading found');
-    } else if (h1Count > 1) {
-      warnings.push(`Multiple H1 headings found (${h1Count}). Should have only one.`);
+    // In Astro, the H1 is generated from frontmatter.title.
+    // The markdown content should start with H2.
+    if (!frontmatter.title) {
+      errors.push('No title found in frontmatter (this becomes the H1)');
+    }
+    if (h1Count > 0) {
+      warnings.push('H1 heading found in markdown body. This should be removed as the title from frontmatter is used as the H1.');
     }
 
     if (h2Count < 5) {
@@ -128,7 +131,7 @@ async function validateContent() {
     }
 
     if (externalLinks < 1) {
-      warnings.push('No external authority links (recommended for E-E-A-T)');
+      errors.push('No external authority links. At least 1 is required for E-E-A-T.');
     } else {
       console.log(`   ✓ Has external references`);
     }
@@ -209,20 +212,40 @@ async function validateContent() {
       console.log('\n🎯 Checking keyword usage...');
 
       const targetKeyword = frontmatter.seo.keywords[0].toLowerCase();
-      const keywordRegex = new RegExp(targetKeyword.replace(/\s+/g, '\\s+'), 'gi');
-      const keywordCount = (markdown.match(keywordRegex) || []).length;
-      const keywordDensity = (keywordCount / wordCount) * 100;
+      const contentLower = markdown.toLowerCase();
+      
+      // Flexible keyword check: count individual words from the phrase
+      const keywordParts = targetKeyword.split(/\s+/).filter(p => p.length > 2);
+      let totalOccurrences = 0;
+      const foundKeywords = new Set();
 
-      console.log(`   Target keyword: "${targetKeyword}"`);
-      console.log(`   Occurrences: ${keywordCount}`);
-      console.log(`   Density: ${keywordDensity.toFixed(2)}%`);
+      keywordParts.forEach(part => {
+        const partRegex = new RegExp(`\\b${part}\\b`, 'gi');
+        const count = (contentLower.match(partRegex) || []).length;
+        if (count > 0) {
+          foundKeywords.add(part);
+          totalOccurrences += count;
+        }
+      });
 
-      if (keywordDensity < 0.5) {
+      const keywordDensity = (totalOccurrences / wordCount) * 100;
+      const keywordCoverage = (foundKeywords.size / keywordParts.length) * 100;
+
+      console.log(`   Target keyword phrase: "${targetKeyword}"`);
+      console.log(`   Individual keyword parts found: ${foundKeywords.size} of ${keywordParts.length} (${[...foundKeywords].join(', ')})`);
+      console.log(`   Total occurrences of parts: ${totalOccurrences}`);
+      console.log(`   Keyword Density (based on parts): ${keywordDensity.toFixed(2)}%`);
+      console.log(`   Keyword Coverage: ${keywordCoverage.toFixed(0)}%`);
+
+      if (keywordCoverage < 75) {
+         warnings.push(`Low keyword coverage: Only ${keywordCoverage.toFixed(0)}% of keyword parts found. Aim for >75%.`);
+      }
+      if (keywordDensity < 0.8) {
         warnings.push(`Low keyword density: ${keywordDensity.toFixed(2)}% (aim for 1-2%)`);
       } else if (keywordDensity > 3) {
         warnings.push(`High keyword density: ${keywordDensity.toFixed(2)}% (may look like stuffing)`);
       } else {
-        console.log(`   ✓ Good keyword density`);
+        console.log(`   ✓ Good keyword density and coverage`);
       }
     }
 
