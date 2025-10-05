@@ -195,6 +195,12 @@ const schema = {
     )}
 
     <div class="container">
+      <!-- Table of Contents (will be populated by JavaScript) -->
+      <aside class="table-of-contents" id="toc-container" style="display: none;">
+        <h3 class="toc-title">Table of Contents</h3>
+        <nav id="toc-nav"></nav>
+      </aside>
+
       <div class="post-content">
         <Content />
       </div>
@@ -224,6 +230,36 @@ const schema = {
         <p>Let's talk about how we can help you achieve results like these.</p>
         <a href="/contact" class="cta-button">Schedule a Free Consultation</a>
       </aside>
+
+      <!-- Comments Section -->
+      <section class="comments-section">
+        <h3 class="comments-title">Comments & Discussion</h3>
+        <p class="comments-intro">Share your thoughts or ask questions about this article. Sign in with GitHub to comment.</p>
+        <div id="giscus-container">
+          <script
+            src="https://giscus.app/client.js"
+            data-repo="theprofitplatform/blog-comments"
+            data-repo-id="REPLACE_WITH_YOUR_REPO_ID"
+            data-category="General"
+            data-category-id="REPLACE_WITH_YOUR_CATEGORY_ID"
+            data-mapping="pathname"
+            data-strict="0"
+            data-reactions-enabled="1"
+            data-emit-metadata="0"
+            data-input-position="top"
+            data-theme="light"
+            data-lang="en"
+            data-loading="lazy"
+            crossorigin="anonymous"
+            async>
+          </script>
+        </div>
+        <noscript>
+          <p style="color: #64748b; text-align: center; padding: 2rem;">
+            Please enable JavaScript to view comments.
+          </p>
+        </noscript>
+      </section>
     </div>
 
     <!-- Related Posts -->
@@ -537,6 +573,69 @@ const schema = {
     padding: 0 1.5rem;
   }
 
+  /* Table of Contents */
+  .table-of-contents {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    position: sticky;
+    top: 120px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+  }
+
+  .toc-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .toc-title::before {
+    content: '📑';
+    font-size: 1.25rem;
+  }
+
+  #toc-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #toc-nav a {
+    display: block;
+    color: #64748b;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+    transition: all 0.2s;
+  }
+
+  #toc-nav a:hover {
+    color: #667eea;
+    border-left-color: #667eea;
+  }
+
+  #toc-nav a.active {
+    color: #667eea;
+    font-weight: 600;
+    border-left-color: #667eea;
+    background: rgba(102, 126, 234, 0.05);
+  }
+
+  #toc-nav .toc-h3 {
+    padding-left: 1.5rem;
+    font-size: 0.875rem;
+  }
+
   .post-content {
     max-width: 750px;
     margin: 3rem auto;
@@ -791,6 +890,34 @@ const schema = {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
 
+  /* Comments Section */
+  .comments-section {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin: 3rem auto;
+    max-width: 750px;
+  }
+
+  .comments-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .comments-intro {
+    color: #64748b;
+    font-size: 1rem;
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+  }
+
+  #giscus-container {
+    margin-top: 1.5rem;
+  }
+
   /* Related Posts */
   .related-posts {
     background: #f8fafc;
@@ -1009,6 +1136,96 @@ const schema = {
   window.addEventListener('scroll', updateReadingProgress, { passive: true });
   window.addEventListener('resize', updateReadingProgress, { passive: true });
   updateReadingProgress();
+
+  // Add lazy loading to all images in post content
+  document.addEventListener('DOMContentLoaded', () => {
+    const contentImages = document.querySelectorAll('.post-content img');
+    contentImages.forEach(img => {
+      if (!img.hasAttribute('loading')) {
+        img.setAttribute('loading', 'lazy');
+      }
+    });
+  });
+
+  // Track page views for popular posts
+  document.addEventListener('DOMContentLoaded', () => {
+    const slug = window.location.pathname.split('/').filter(Boolean).pop();
+    if (slug) {
+      const viewCounts = JSON.parse(localStorage.getItem('blogViewCounts') || '{}');
+      viewCounts[slug] = (viewCounts[slug] || 0) + 1;
+      localStorage.setItem('blogViewCounts', JSON.stringify(viewCounts));
+    }
+  });
+
+  // Generate Table of Contents
+  document.addEventListener('DOMContentLoaded', () => {
+    const postContent = document.querySelector('.post-content');
+    const tocContainer = document.getElementById('toc-container');
+    const tocNav = document.getElementById('toc-nav');
+
+    if (!postContent || !tocContainer || !tocNav) return;
+
+    const headings = postContent.querySelectorAll('h2, h3');
+
+    if (headings.length < 3) {
+      // Don't show TOC if there are fewer than 3 headings
+      return;
+    }
+
+    // Generate TOC
+    const tocList = document.createElement('ul');
+    tocList.style.listStyle = 'none';
+    tocList.style.padding = '0';
+    tocList.style.margin = '0';
+
+    headings.forEach((heading, index) => {
+      const id = `heading-${index}`;
+      heading.id = id;
+
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#${id}`;
+      a.textContent = heading.textContent;
+      a.className = heading.tagName === 'H3' ? 'toc-h3' : '';
+
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Update active state
+        tocList.querySelectorAll('a').forEach(link => link.classList.remove('active'));
+        a.classList.add('active');
+
+        // Update URL hash
+        history.pushState(null, null, `#${id}`);
+      });
+
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+
+    tocNav.appendChild(tocList);
+    tocContainer.style.display = 'block';
+
+    // Highlight active section on scroll
+    const observerOptions = {
+      rootMargin: '-100px 0px -80% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocList.querySelectorAll('a').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, observerOptions);
+
+    headings.forEach(heading => observer.observe(heading));
+  });
 
   // Social sharing functionality
   document.addEventListener('DOMContentLoaded', () => {

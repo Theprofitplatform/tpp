@@ -33,6 +33,16 @@ export async function onRequestPost(context) {
 
     console.log('Forwarding to backend:', backendUrl);
 
+    // Prepare request with optional PageSpeed API key
+    const requestBody = {
+      yourDomain,
+      competitorDomain,
+      options: {
+        includePageSpeed: true, // Enable PageSpeed by default
+        pageSpeedApiKey: env.GOOGLE_PAGESPEED_API_KEY || null // Optional API key from env
+      }
+    };
+
     // Forward request to backend
     const backendResponse = await fetch(`${backendUrl}/api/competitor-analysis`, {
       method: 'POST',
@@ -40,7 +50,7 @@ export async function onRequestPost(context) {
         'Content-Type': 'application/json',
         'User-Agent': 'CloudflareWorker/1.0',
       },
-      body: JSON.stringify({ yourDomain, competitorDomain }),
+      body: JSON.stringify(requestBody),
     });
 
     if (!backendResponse.ok) {

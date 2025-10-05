@@ -21,10 +21,13 @@ const sortedPosts = allPosts.sort((a, b) => {
 // Featured post (if marked, otherwise use newest)
 const featuredPost = sortedPosts.find(p => p.data.featured) || sortedPosts[0];
 
-// Recent posts for grid (exclude featured if it exists, otherwise take next 6)
+// Recent posts for grid (exclude featured if it exists)
 const recentPosts = featuredPost && sortedPosts.find(p => p.data.featured)
-  ? sortedPosts.filter(p => p !== featuredPost).slice(0, 6)
-  : sortedPosts.slice(1, 7);
+  ? sortedPosts.filter(p => p !== featuredPost)
+  : sortedPosts.slice(1);
+
+// Initial display count
+const INITIAL_POSTS = 6;
 
 // Calculate category counts
 const categoryCount = {};
@@ -428,7 +431,7 @@ function getReadTime(post) {
                 </svg>
               </div>
               <div class="stat-content">
-                <span class="stat-number">100+</span>
+                <span class="stat-number">{sortedPosts.length}+</span>
                 <span class="stat-label">Articles</span>
               </div>
             </div>
@@ -439,8 +442,8 @@ function getReadTime(post) {
                 </svg>
               </div>
               <div class="stat-content">
-                <span class="stat-number">50K+</span>
-                <span class="stat-label">Readers</span>
+                <span class="stat-number">{categories.length}</span>
+                <span class="stat-label">Topics</span>
               </div>
             </div>
             <div class="stat-item">
@@ -548,14 +551,14 @@ function getReadTime(post) {
         <div class="section-header">
           <h2 class="section-title">Latest Articles</h2>
           <div class="view-toggle">
-            <button class="view-btn active">Latest</button>
-            <button class="view-btn">Popular</button>
+            <button class="view-btn active" data-view="latest">Latest</button>
+            <button class="view-btn" data-view="popular">Popular</button>
           </div>
         </div>
 
         <div class="articles-grid">
-          {recentPosts.map(post => (
-            <article class="article-card">
+          {recentPosts.map((post, index) => (
+            <article class="article-card" data-index={index} data-slug={post.slug} data-original-index={index} style={index >= INITIAL_POSTS ? 'display: none;' : ''}>
               <div class="article-image" style={`background: ${getCategoryGradient(post.data.category)};`}>
                 <div class="image-overlay"></div>
                 <div class="article-icon">
@@ -626,10 +629,10 @@ function getReadTime(post) {
           </h2>
 
           <p class="newsletter-description">
-            Join 5,000+ Sydney business owners who receive actionable digital marketing tips every Tuesday. No fluff, just strategies that work.
+            Join Sydney business owners who receive actionable digital marketing tips every Tuesday. No fluff, just strategies that work.
           </p>
 
-          <form class="newsletter-form">
+          <form class="newsletter-form" id="newsletter-form">
             <div class="form-group">
               <input
                 type="email"
@@ -637,10 +640,11 @@ function getReadTime(post) {
                 placeholder="Enter your email address"
                 required
                 class="newsletter-input"
+                id="newsletter-email"
               >
-              <button type="submit" class="newsletter-submit">
-                Subscribe Free
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <button type="submit" class="newsletter-submit" id="newsletter-submit">
+                <span id="submit-text">Subscribe Free</span>
+                <svg id="submit-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
                   <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
@@ -651,16 +655,17 @@ function getReadTime(post) {
               </svg>
               No spam, ever. Unsubscribe with one click.
             </p>
+            <p id="newsletter-message" style="display: none; margin-top: 1rem; padding: 0.75rem; border-radius: 8px; font-size: 0.875rem;"></p>
           </form>
 
           <div class="newsletter-proof">
             <div class="proof-item">
-              <span class="proof-number">5K+</span>
-              <span class="proof-label">Subscribers</span>
+              <span class="proof-number">{sortedPosts.length}+</span>
+              <span class="proof-label">Articles</span>
             </div>
             <div class="proof-item">
-              <span class="proof-number">4.9★</span>
-              <span class="proof-label">Rating</span>
+              <span class="proof-number">{categories.length}</span>
+              <span class="proof-label">Topics</span>
             </div>
             <div class="proof-item">
               <span class="proof-number">Weekly</span>
@@ -671,4 +676,270 @@ function getReadTime(post) {
       </div>
     </section>
   </main>
+
+  <script define:vars={{ INITIAL_POSTS }}>
+    // Load More Pagination
+    let currentlyShown = INITIAL_POSTS;
+    const POSTS_PER_LOAD = 6;
+
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+    const searchInput = document.querySelector('.search-input');
+
+    function updateLoadMoreButton() {
+      const totalPosts = articleCards.length;
+      const visiblePosts = Array.from(articleCards).filter(card => card.style.display !== 'none').length;
+
+      if (visiblePosts >= totalPosts) {
+        loadMoreBtn.style.display = 'none';
+      } else {
+        loadMoreBtn.style.display = 'flex';
+      }
+    }
+
+    loadMoreBtn?.addEventListener('click', () => {
+      const hiddenCards = Array.from(articleCards).filter(card => card.style.display === 'none');
+      const cardsToShow = hiddenCards.slice(0, POSTS_PER_LOAD);
+
+      cardsToShow.forEach(card => {
+        card.style.display = '';
+        card.style.animation = 'fadeIn 0.5s ease-in';
+      });
+
+      currentlyShown += cardsToShow.length;
+      updateLoadMoreButton();
+    });
+
+    // Category filtering
+    const filterPills = document.querySelectorAll('.filter-pill');
+    let activeCategory = 'all';
+    let activeTag = null;
+
+    // Get category and tag from URL on page load
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    const tagParam = urlParams.get('tag');
+
+    if (categoryParam) {
+      activeCategory = categoryParam;
+      filterPills.forEach(pill => {
+        if (pill.dataset.category === categoryParam) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+    }
+
+    if (tagParam) {
+      activeTag = tagParam.toLowerCase();
+      // Show tag filter indicator
+      const filterContainer = document.querySelector('.filter-container');
+      const tagIndicator = document.createElement('div');
+      tagIndicator.className = 'active-tag-filter';
+      tagIndicator.innerHTML = `
+        <span>Filtering by tag: <strong>${tagParam}</strong></span>
+        <button onclick="window.location.href='/blog'" class="clear-tag">×</button>
+      `;
+      tagIndicator.style.cssText = 'display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #ede9fe; color: #6d28d9; border-radius: 8px; font-size: 0.875rem; margin-top: 1rem;';
+      filterContainer.appendChild(tagIndicator);
+    }
+
+    function applyFilters() {
+      const searchTerm = searchInput?.value.toLowerCase().trim() || '';
+
+      articleCards.forEach((card, index) => {
+        const title = card.querySelector('.article-title')?.textContent.toLowerCase() || '';
+        const excerpt = card.querySelector('.article-excerpt')?.textContent.toLowerCase() || '';
+        const category = card.querySelector('.category-badge')?.textContent.toLowerCase() || '';
+        const tags = Array.from(card.querySelectorAll('.tag')).map(t => t.textContent.toLowerCase());
+
+        const searchMatches = searchTerm === '' ||
+                             title.includes(searchTerm) ||
+                             excerpt.includes(searchTerm) ||
+                             category.includes(searchTerm);
+
+        const categoryMatches = activeCategory === 'all' ||
+                               category === activeCategory.replace(/-/g, ' ');
+
+        const tagMatches = !activeTag || tags.some(tag => tag.includes(activeTag));
+
+        if (searchMatches && categoryMatches && tagMatches) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      updateLoadMoreButton();
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const category = pill.dataset.category;
+
+        filterPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        activeCategory = category;
+
+        // Update URL without reload
+        const url = new URL(window.location);
+        if (category === 'all') {
+          url.searchParams.delete('category');
+        } else {
+          url.searchParams.set('category', category);
+        }
+        window.history.pushState({}, '', url);
+
+        applyFilters();
+      });
+    });
+
+    // Search functionality
+    searchInput?.addEventListener('input', () => {
+      applyFilters();
+    });
+
+    // Apply filters on load if category or tag is set
+    if (categoryParam || tagParam) {
+      applyFilters();
+    }
+
+    // Newsletter form submission
+    const newsletterForm = document.getElementById('newsletter-form');
+    const newsletterMessage = document.getElementById('newsletter-message');
+    const submitBtn = document.getElementById('newsletter-submit');
+    const submitText = document.getElementById('submit-text');
+
+    newsletterForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(newsletterForm);
+      submitBtn.disabled = true;
+      submitText.textContent = 'Subscribing...';
+
+      try {
+        const response = await fetch('/api/newsletter', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          newsletterMessage.style.display = 'block';
+          newsletterMessage.style.background = 'rgba(76, 175, 80, 0.2)';
+          newsletterMessage.style.color = '#2e7d32';
+          newsletterMessage.textContent = data.message;
+          newsletterForm.reset();
+          submitText.textContent = 'Subscribed!';
+
+          setTimeout(() => {
+            submitText.textContent = 'Subscribe Free';
+            newsletterMessage.style.display = 'none';
+          }, 3000);
+        } else {
+          newsletterMessage.style.display = 'block';
+          newsletterMessage.style.background = 'rgba(244, 67, 54, 0.2)';
+          newsletterMessage.style.color = '#c62828';
+          newsletterMessage.textContent = data.error || 'Subscription failed. Please try again.';
+          submitText.textContent = 'Subscribe Free';
+        }
+      } catch (error) {
+        newsletterMessage.style.display = 'block';
+        newsletterMessage.style.background = 'rgba(244, 67, 54, 0.2)';
+        newsletterMessage.style.color = '#c62828';
+        newsletterMessage.textContent = 'An error occurred. Please try again later.';
+        submitText.textContent = 'Subscribe Free';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    // Popular posts functionality
+    const viewButtons = document.querySelectorAll('.view-btn');
+    let currentView = 'latest';
+
+    // Get view counts from localStorage
+    function getViewCounts() {
+      const counts = localStorage.getItem('blogViewCounts');
+      return counts ? JSON.parse(counts) : {};
+    }
+
+    // Sort articles by popularity
+    function sortByPopularity() {
+      const viewCounts = getViewCounts();
+      const articlesGrid = document.querySelector('.articles-grid');
+      const cards = Array.from(articleCards);
+
+      cards.sort((a, b) => {
+        const slugA = a.dataset.slug;
+        const slugB = b.dataset.slug;
+        const viewsA = viewCounts[slugA] || 0;
+        const viewsB = viewCounts[slugB] || 0;
+        return viewsB - viewsA;
+      });
+
+      // Reorder in DOM
+      cards.forEach(card => articlesGrid.appendChild(card));
+
+      // Show first INITIAL_POSTS cards
+      cards.forEach((card, index) => {
+        card.dataset.index = index;
+        card.style.display = index < INITIAL_POSTS ? '' : 'none';
+      });
+    }
+
+    // Sort by latest (original order)
+    function sortByLatest() {
+      const articlesGrid = document.querySelector('.articles-grid');
+      const cards = Array.from(articleCards);
+
+      cards.sort((a, b) => {
+        return parseInt(a.dataset.originalIndex) - parseInt(b.dataset.originalIndex);
+      });
+
+      // Reorder in DOM
+      cards.forEach(card => articlesGrid.appendChild(card));
+
+      // Reset display
+      cards.forEach((card, index) => {
+        card.dataset.index = index;
+        card.style.display = index < INITIAL_POSTS ? '' : 'none';
+      });
+    }
+
+    viewButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.dataset.view;
+
+        viewButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        currentView = view;
+
+        if (view === 'popular') {
+          sortByPopularity();
+        } else {
+          sortByLatest();
+        }
+
+        updateLoadMoreButton();
+      });
+    });
+
+    // Initial check
+    updateLoadMoreButton();
+
+    // CSS animation for fade in
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </BaseLayout>

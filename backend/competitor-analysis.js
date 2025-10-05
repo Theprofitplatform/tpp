@@ -1,9 +1,11 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
+import { getPageSpeedData } from './utils/pagespeed.js';
 
 /**
  * Competitor Analysis Module
  * Compares two websites across SEO metrics, content, backlinks, and technical factors
+ * Now includes REAL PageSpeed Insights data via Google API
  */
 
 // Helper function to clean and normalize domain
@@ -320,15 +322,7 @@ function generateBacklinkProfile(yourData, competitorData, comparison) {
 
 // Generate technical SEO comparison
 function generateTechnicalSEO(yourData, competitorData) {
-  return {
-    'Page Speed (Mobile)': {
-      yours: `${(Math.random() * 2 + 2).toFixed(1)}s`,
-      theirs: `${(Math.random() * 2 + 2).toFixed(1)}s`
-    },
-    'Core Web Vitals': {
-      yours: yourData.technical.isHttps ? 'Good' : 'Poor',
-      theirs: competitorData.technical.isHttps ? 'Good' : 'Poor'
-    },
+  const technical = {
     'HTTPS': {
       yours: yourData.technical.isHttps ? 'Yes' : 'No',
       theirs: competitorData.technical.isHttps ? 'Yes' : 'No'
@@ -346,6 +340,42 @@ function generateTechnicalSEO(yourData, competitorData) {
       theirs: 'Yes'
     }
   };
+
+  // Add real PageSpeed data if available
+  if (yourData.pageSpeed && competitorData.pageSpeed) {
+    technical['Performance Score'] = {
+      yours: yourData.pageSpeed.performanceScore !== null ? `${yourData.pageSpeed.performanceScore}/100` : 'N/A',
+      theirs: competitorData.pageSpeed.performanceScore !== null ? `${competitorData.pageSpeed.performanceScore}/100` : 'N/A',
+      dataSource: 'Google PageSpeed Insights API'
+    };
+
+    technical['Core Web Vitals'] = {
+      yours: yourData.pageSpeed.coreWebVitals.assessment,
+      theirs: competitorData.pageSpeed.coreWebVitals.assessment,
+      dataSource: 'Google PageSpeed Insights API'
+    };
+
+    technical['Largest Contentful Paint'] = {
+      yours: yourData.pageSpeed.coreWebVitals.lcp,
+      theirs: competitorData.pageSpeed.coreWebVitals.lcp,
+      dataSource: 'Real measurement'
+    };
+  } else {
+    // Fallback to estimated values if PageSpeed data unavailable
+    technical['Page Speed (Estimated)'] = {
+      yours: `${(Math.random() * 2 + 2).toFixed(1)}s`,
+      theirs: `${(Math.random() * 2 + 2).toFixed(1)}s`,
+      note: 'Estimate only - enable PageSpeed API for real data'
+    };
+
+    technical['Core Web Vitals'] = {
+      yours: yourData.technical.isHttps ? 'Good' : 'Poor',
+      theirs: competitorData.technical.isHttps ? 'Good' : 'Poor',
+      note: 'Estimate based on HTTPS - not actual measurement'
+    };
+  }
+
+  return technical;
 }
 
 // Generate opportunities based on analysis
@@ -433,13 +463,30 @@ function generateActionPlan(opportunities, yourData, competitorData) {
 }
 
 // Main analysis function
-export async function analyzeCompetitors(yourDomain, competitorDomain) {
+export async function analyzeCompetitors(yourDomain, competitorDomain, options = {}) {
   try {
     // Analyze both websites
     const [yourData, competitorData] = await Promise.all([
       analyzeWebsite(yourDomain),
       analyzeWebsite(competitorDomain)
     ]);
+
+    // Optionally fetch PageSpeed data (can be disabled to save API quota)
+    if (options.includePageSpeed !== false) {
+      console.log('Fetching PageSpeed data...');
+      try {
+        const [yourPageSpeed, competitorPageSpeed] = await Promise.all([
+          getPageSpeedData(yourDomain, options.pageSpeedApiKey),
+          getPageSpeedData(competitorDomain, options.pageSpeedApiKey)
+        ]);
+
+        yourData.pageSpeed = yourPageSpeed;
+        competitorData.pageSpeed = competitorPageSpeed;
+      } catch (error) {
+        console.error('PageSpeed fetch failed:', error.message);
+        // Continue without PageSpeed data
+      }
+    }
 
     // Generate comparison metrics
     const comparison = generateComparison(yourData, competitorData);
@@ -458,6 +505,21 @@ export async function analyzeCompetitors(yourDomain, competitorDomain) {
       ? `Note: ${yourData.estimated && competitorData.estimated ? 'Both domains have' : yourData.estimated ? 'Your domain has' : 'Competitor domain has'} bot protection enabled. Analysis uses estimated industry-standard metrics.`
       : null;
 
+    // Determine which metrics are real vs estimated
+    const realMetrics = ['Word Count', 'Images', 'Videos', 'Internal Links', 'Meta Tags', 'HTTPS', 'Mobile-Friendly'];
+    const estimatedMetrics = ['Domain Authority', 'Traffic', 'Keywords', 'Backlinks'];
+
+    // If PageSpeed data was fetched, add it to real metrics
+    if (yourData.pageSpeed && competitorData.pageSpeed) {
+      realMetrics.push('Performance Score', 'Core Web Vitals', 'Largest Contentful Paint');
+    } else {
+      estimatedMetrics.push('Page Speed');
+    }
+
+    const dataSource = yourData.pageSpeed
+      ? 'On-page HTML analysis + Google PageSpeed Insights API + Algorithmic estimates'
+      : 'On-page HTML analysis + Algorithmic estimates';
+
     return {
       success: true,
       yourDomain: yourData.domain,
@@ -471,12 +533,13 @@ export async function analyzeCompetitors(yourDomain, competitorDomain) {
       opportunities,
       actionPlan,
       metadata: {
-        dataSource: 'On-page HTML analysis + Algorithmic estimates',
-        realMetrics: ['Word Count', 'Images', 'Videos', 'Internal Links', 'Meta Tags', 'HTTPS', 'Mobile-Friendly'],
-        estimatedMetrics: ['Domain Authority', 'Traffic', 'Keywords', 'Backlinks', 'Page Speed'],
+        dataSource,
+        realMetrics,
+        estimatedMetrics,
         disclaimer: 'Estimated metrics are educational approximations and may vary ±30% from actual values. For verified data, consider a professional SEO audit.',
         lastUpdated: new Date().toISOString(),
-        analysisType: 'Basic SEO Quick Compare'
+        analysisType: 'Basic SEO Quick Compare',
+        hasRealPageSpeed: !!(yourData.pageSpeed && competitorData.pageSpeed)
       },
       ...(estimatedNote && { note: estimatedNote })
     };
