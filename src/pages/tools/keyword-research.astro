@@ -20,8 +20,12 @@ const apiUrl = '';
             Discover profitable keywords for your Sydney business. Get search volume,
             competition data, and keyword suggestions - 100% free.
           </p>
+          <p class="disclaimer-text" id="disclaimer">
+            <i class="fas fa-info-circle"></i> This tool can provide real keyword data from Google Ads API when configured.
+            For enterprise keyword research, we recommend <a href="/contact">professional SEO services</a> with custom analysis.
+          </p>
           <div class="trust-badges">
-            <span class="badge"><i class="fas fa-database"></i> Real Search Data</span>
+            <span class="badge" id="dataBadge"><i class="fas fa-database"></i> <span id="dataBadgeText">Checking...</span></span>
             <span class="badge"><i class="fas fa-location-dot"></i> Sydney Focused</span>
             <span class="badge"><i class="fas fa-lock"></i> No Signup Required</span>
           </div>
@@ -335,8 +339,29 @@ const apiUrl = '';
     font-size: 1.3rem;
     opacity: 0.95;
     max-width: 700px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 1rem;
     line-height: 1.6;
+  }
+
+  .disclaimer-text {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    border-left: 3px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .disclaimer-text i {
+    margin-right: 0.5rem;
+  }
+
+  .disclaimer-text a {
+    color: white;
+    text-decoration: underline;
+    font-weight: 600;
   }
 
   .trust-badges {
@@ -1134,6 +1159,9 @@ const apiUrl = '';
     loadingState.style.display = 'none';
     resultsContainer.style.display = 'block';
 
+    // Update data source badge based on API response
+    updateDataSourceBadge(data.dataSource || 'sample', data.dataQuality || 'sample');
+
     // Summary stats
     document.getElementById('totalKeywords').textContent = data.keywords.length;
     document.getElementById('avgVolume').textContent = data.avgVolume || 'N/A';
@@ -1203,11 +1231,46 @@ const apiUrl = '';
     });
   }
 
+  function updateDataSourceBadge(dataSource, dataQuality) {
+    const badge = document.getElementById('dataBadge');
+    const badgeText = document.getElementById('dataBadgeText');
+    const disclaimer = document.getElementById('disclaimer');
+
+    if (dataSource === 'dataforseo' && dataQuality === 'real') {
+      // DataForSEO - Real Google Ads data
+      badge.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+      badge.style.color = 'white';
+      badgeText.innerHTML = '✓ Real Search Data';
+      disclaimer.innerHTML = '<i class="fas fa-check-circle"></i> Using real keyword data from Google Ads API via DataForSEO. ' +
+        'For enterprise keyword research with custom analysis, <a href="/contact">contact us</a>.';
+    } else if (dataQuality === 'ai-enhanced' || dataSource.includes('claude')) {
+      // Claude AI - Intelligent estimates with real autocomplete
+      badge.style.background = 'linear-gradient(135deg, #3b82f6, #2563eb)';
+      badge.style.color = 'white';
+      badgeText.innerHTML = '🤖 AI-Powered Research';
+      disclaimer.innerHTML = '<i class="fas fa-robot"></i> Using Claude AI with real Google autocomplete data for intelligent keyword suggestions. ' +
+        'Volume estimates are AI-generated predictions. For exact search volumes, <a href="/contact">contact us</a> for professional research.';
+    } else {
+      // Sample data fallback
+      badge.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+      badge.style.color = 'white';
+      badgeText.innerHTML = 'Sample Data for Demo';
+      disclaimer.innerHTML = '<i class="fas fa-info-circle"></i> Currently using sample keyword data for demonstration purposes. ' +
+        'For production keyword research with real data, we recommend <a href="/contact">professional SEO services</a> with access to live Google Ads data.';
+    }
+  }
+
   function showError(message) {
     loadingState.style.display = 'none';
     errorState.style.display = 'block';
     document.getElementById('errorMessage').textContent = message;
   }
+
+  // Initialize badge on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    // Default to sample data until first search
+    updateDataSourceBadge('sample', 'sample');
+  });
 
   // Export CSV
   document.getElementById('exportCSV')?.addEventListener('click', () => {

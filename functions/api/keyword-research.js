@@ -1,9 +1,17 @@
 /**
  * Cloudflare Pages Function for Keyword Research
  * Analyzes seed keywords and returns relevant keyword suggestions
+ *
+ * Data sources (in priority order):
+ * 1. Claude AI + Google Autocomplete (FREE - uses your Anthropic API key)
+ * 2. DataForSEO API (paid - requires credentials)
+ * 3. Sample data (fallback for demo/preview)
  */
 
-// Static keyword database
+import { generateKeywordsWithClaude } from './keyword-research-claude.js';
+import { fetchDataForSEOKeywords } from './keyword-research-dataforseo-direct.js';
+
+// Static keyword database (fallback)
 const defaultKeywords = [
   // Primary SEO Services Keywords
   { keyword: 'digital marketing Sydney', volume: '2900', difficulty: 'Medium', intent: 'Commercial', priority: 'high', type: 'short' },
@@ -185,7 +193,7 @@ function researchKeywords(seedKeyword, location, intent) {
   }
 }
 
-export async function onRequestPost({ request }) {
+export async function onRequestPost({ request, env }) {
   const corsHeaders = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -206,8 +214,43 @@ export async function onRequestPost({ request }) {
       );
     }
 
-    // Perform keyword research
-    const result = researchKeywords(keyword, location || 'Sydney, Australia', intent || 'all');
+    let result;
+    let dataSource = 'sample';
+
+    // Priority 1: Try Claude AI (FREE - uses your Anthropic API key)
+    try {
+      if (env.ANTHROPIC_API_KEY) {
+        console.log('🤖 Using Claude AI + Google Autocomplete (FREE)');
+        result = await generateKeywordsWithClaude(env, keyword, location || 'Sydney, Australia', intent || 'all');
+        dataSource = result.dataSource || 'claude-ai';
+      } else if (env.DATAFORSEO_LOGIN && env.DATAFORSEO_PASSWORD) {
+        // Priority 2: DataForSEO API (paid fallback)
+        console.log('📊 Using DataForSEO API (paid)');
+        result = await fetchDataForSEOKeywords(env, keyword, location || 'Sydney, Australia');
+        dataSource = 'dataforseo';
+      } else {
+        // Priority 3: Sample data
+        console.log('⚠️ No API keys configured, using sample data');
+        throw new Error('NO_API_KEYS_CONFIGURED');
+      }
+    } catch (apiError) {
+      // Fallback to sample data on any error
+      console.log('⚠️ API error, falling back to sample data:', apiError.message);
+      result = researchKeywords(keyword, location || 'Sydney, Australia', intent || 'all');
+      dataSource = 'sample';
+    }
+
+    // Add metadata about data source
+    result.dataSource = dataSource;
+
+    // Set data quality label
+    if (dataSource === 'dataforseo') {
+      result.dataQuality = 'real';
+    } else if (dataSource === 'claude-ai' || dataSource.includes('claude')) {
+      result.dataQuality = 'ai-enhanced';
+    } else {
+      result.dataQuality = 'sample';
+    }
 
     return new Response(
       JSON.stringify(result),
@@ -216,7 +259,9 @@ export async function onRequestPost({ request }) {
         headers: {
           ...corsHeaders,
           'Content-Type': 'application/json',
-          'Cache-Control': 'public, max-age=300'
+          'Cache-Control': dataSource.includes('claude') ? 'public, max-age=1800' : dataSource === 'dataforseo' ? 'public, max-age=3600' : 'public, max-age=300',
+          'X-Data-Source': dataSource,
+          'X-Data-Quality': result.dataQuality,
         }
       }
     );

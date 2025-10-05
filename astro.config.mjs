@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// Static site configuration for Cloudflare Pages
-// Note: No adapter needed for static deployment to Cloudflare Pages
+// Static mode for Cloudflare Pages
+// API endpoints handled by Cloudflare Pages Functions (functions/ directory)
 export default defineConfig({
   output: 'static',
   site: 'https://theprofitplatform.com.au',

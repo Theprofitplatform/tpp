@@ -1,0 +1,10 @@
+name = "tpp-keyword-gap-api"
+main = "keyword-gap-worker.js"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "tpp-keyword-gap-api-production"
+routes = [
+  { pattern = "api.theprofitplatform.com.au/*", zone_name = "theprofitplatform.com.au" }
+]
