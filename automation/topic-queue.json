@@ -16,21 +16,6 @@
       "status": "pending"
     },
     {
-      "id": 4,
-      "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
-      "category": "SEO",
-      "tags": [
-        "Local SEO",
-        "Checklist",
-        "Sydney",
-        "Rankings"
-      ],
-      "targetKeyword": "local seo sydney",
-      "searchIntent": "informational",
-      "priority": 1,
-      "status": "pending"
-    },
-    {
       "id": 5,
       "title": "Google Ads vs SEO: Which Should Sydney Small Businesses Invest in First?",
       "category": "Digital Marketing",
@@ -532,6 +517,25 @@
       "publishedDate": "2025-10-05",
       "publishedSlug": "7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month",
       "wordCount": 2670,
+      "author": "Avi"
+    },
+    {
+      "id": 4,
+      "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
+      "category": "SEO",
+      "tags": [
+        "Local SEO",
+        "Checklist",
+        "Sydney",
+        "Rankings"
+      ],
+      "targetKeyword": "local seo sydney",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "published",
+      "publishedDate": "2025-10-05",
+      "publishedSlug": "local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results",
+      "wordCount": 2236,
       "author": "Avi"
     }
   ],
