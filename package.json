@@ -3,33 +3,21 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host --port 3001",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "parity:scan": "node scripts/parity-scan.mjs",
-    "deploy": "npm run build && npx wrangler pages deploy dist --project-name=tpp-new",
-    "deploy:auto": "npm run parity && npx wrangler pages deploy dist --project-name=tpp-new",
-    "deploy:prod": "npm run build && npx wrangler pages deploy dist --project-name=tpp",
-    "backend:dev": "node --watch backend/server.js",
-    "backend:start": "node backend/server.js",
-    "pm2:start": "pm2 start ecosystem.config.cjs",
-    "pm2:stop": "pm2 stop tpp-backend",
-    "pm2:restart": "pm2 restart tpp-backend",
-    "pm2:logs": "pm2 logs tpp-backend",
-    "pm2:status": "pm2 status"
+    "deploy": "npm run build && wrangler pages deploy dist",
+    "deploy:auto": "npm run parity && npm run deploy",
+    "parity": "npm run fetch:prod && npm run assets:download && npm run build && npm run parity:scan",
+    "fetch:prod": "node scripts/fetch-production.mjs",
+    "assets:download": "node scripts/download-assets.mjs",
+    "parity:scan": "node scripts/parity-scan.mjs"
   },
   "dependencies": {
     "@astrojs/cloudflare": "12.6.9",
     "astro": "^5.14.1",
     "cheerio": "1.1.2",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.1.0",
-    "express-rate-limit": "^8.1.0",
-    "helmet": "^8.1.0",
-    "nodemailer": "^7.0.6",
-    "undici": "6.21.3"
+    "undici": "^7.16.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.1",

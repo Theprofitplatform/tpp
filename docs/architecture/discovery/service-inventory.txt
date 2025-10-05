@@ -1,0 +1,24 @@
+=== SERVICE INVENTORY ===
+Date: Sun Oct  5 01:22:07 UTC 2025
+
+--- Package.json Files ---
+
+--- Running Processes ---
+avi       715102  0.1  0.9 11858320 152384 ?     Ssl  Oct03   3:05 node /home/avi/projects/tpp-website/backend/server.js
+mahar    2027147  0.0  0.0   7872   256 ?        Ss   Sep26   0:00 /bin/bash -c -l source /home/mahar/.claude/shell-snapshots/snapshot-bash-1758864716337-wp2dc8.sh && eval 'node https-server.js' \< /dev/null && pwd -P >| /home/mahar/.claude-tmp/claude-884d-cwd
+mahar    2027169  0.0  0.0 1016540 9864 ?        Sl   Sep26   0:06 node https-server.js
+avi      3565235  0.0  0.4 1189252 76580 ?       Ssl  Sep30   1:52 PM2 v6.0.11: God Daemon (/home/avi/.pm2)
+
+--- PM2 Status ---
+┌────┬────────────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+│ id │ name           │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+├────┼────────────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+│ 0  │ tpp-backend    │ default     │ 1.0.0   │ fork    │ 715102   │ 33h    │ 17   │ online    │ 0%       │ 148.8mb  │ avi      │ disabled │
+└────┴────────────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+
+--- Systemd Timers ---
+No systemd access or no timers found
+
+--- Port Listeners ---
+tcp   LISTEN 0      511                *:4321             *:*    users:(("node /home/avi/",pid=715102,fd=26))
+tcp   LISTEN 0      511                *:5678             *:*                                                

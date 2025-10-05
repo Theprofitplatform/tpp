@@ -1,0 +1,14 @@
+node_modules
+dist
+.env
+.env.local
+test-results.json
+coverage
+*.log
+.DS_Store
+.vscode
+.idea
+
+# Test artifacts
+fixtures/generated/*.json
+docs/TEST-REPORT-*.md

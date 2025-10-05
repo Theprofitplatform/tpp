@@ -1,0 +1,154 @@
+{
+  "name": "Tool Improvement Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Every 30 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Tool Improvement Agent - Tool Rotation Logic\nconst tools = [\n  'rank-tracker',\n  'revenue-leak-detector', \n  'speed-test',\n  'website-speed-test',\n  'keyword-difficulty-checker',\n  'local-rankings-map',\n  'seo-audit-tool'\n];\n\n// Get current cycle from workflow static data or start at 0\nconst currentCycle = $workflow.staticData.cycleCount || 0;\nconst currentToolIndex = currentCycle % tools.length;\nconst currentTool = tools[currentToolIndex];\nconst nextTool = tools[(currentToolIndex + 1) % tools.length];\n\n// Increment cycle count\n$workflow.staticData.cycleCount = currentCycle + 1;\n\nreturn {\n  toolSlug: currentTool,\n  toolName: currentTool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),\n  nextTool: nextTool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),\n  cycleCount: currentCycle + 1,\n  timestamp: new Date().toISOString()\n};"
+      },
+      "id": "rotate-tools",
+      "name": "Rotate Tools",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Read Tool File using Node.js fs module\nconst fs = require('fs');\nconst toolSlug = $input.item.json.toolSlug;\nconst filePath = `/home/avi/projects/astro-site/src/pages/tools/${toolSlug}.astro`;\n\ntry {\n  const content = fs.readFileSync(filePath, 'utf8');\n  return {\n    ...($input.item.json),\n    fileContent: content,\n    filePath: filePath,\n    fileExists: true\n  };\n} catch (error) {\n  return {\n    ...($input.item.json),\n    fileContent: '',\n    filePath: filePath,\n    fileExists: false,\n    error: error.message\n  };\n}"
+      },
+      "id": "read-tool-file",
+      "name": "Read Tool File",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Analyze Tool Content\nconst content = $input.item.json.fileContent || '';\nconst toolName = $input.item.json.toolName;\nconst toolSlug = $input.item.json.toolSlug;\n\nif (!content || !$input.item.json.fileExists) {\n  return { skip: true, reason: 'File not found' };\n}\n\n// Detect tool type\nfunction detectType(name, content) {\n  if (content.includes('ranking') || content.includes('SERP')) return 'seo';\n  if (content.includes('speed') || content.includes('performance')) return 'performance';\n  if (content.includes('revenue') || content.includes('leak')) return 'analytics';\n  if (content.includes('keyword')) return 'seo';\n  return 'utility';\n}\n\n// Calculate completeness score\nfunction calculateCompleteness(content) {\n  let score = 30;\n  if (content.includes('export') || content.includes('download')) score += 8;\n  if (content.includes('localStorage') || content.includes('database')) score += 8;\n  if (content.includes('chart') || content.includes('graph')) score += 8;\n  if (content.includes('api') || content.includes('fetch') && !content.includes('mockData')) score += 8;\n  if (content.includes('PDF') || content.includes('CSV')) score += 8;\n  if (content.includes('authentication') || content.includes('auth')) score += 10;\n  if (content.includes('real-time') || content.includes('websocket')) score += 10;\n  if (content.includes('try') && content.includes('catch')) score += 5;\n  if (content.includes('loading') && content.includes('error')) score += 5;\n  if (content.includes('aria-')) score += 5;\n  return Math.min(score, 100);\n}\n\n// Calculate user value score\nfunction calculateUserValue(content) {\n  let score = 40;\n  if (content.includes('real-time') || content.includes('live')) score += 15;\n  if (content.includes('export') || content.includes('download')) score += 10;\n  if (content.includes('share') || content.includes('email')) score += 8;\n  if (content.includes('historical') || content.includes('trend')) score += 12;\n  if (content.includes('save') || content.includes('bookmark')) score += 5;\n  if (content.includes('tutorial') || content.includes('help')) score += 5;\n  return Math.min(score, 100);\n}\n\n// Suggest APIs\nfunction suggestAPIs(toolSlug) {\n  if (toolSlug.includes('rank') || toolSlug.includes('serp')) {\n    return [\n      'SerpAPI: Google search result scraping',\n      'DataForSEO: SERP data + competitor analysis',\n      'ValueSERP: Cost-effective SERP data'\n    ];\n  }\n  if (toolSlug.includes('speed') || toolSlug.includes('performance')) {\n    return [\n      'PageSpeed Insights API: Core Web Vitals',\n      'Lighthouse CI: Performance audits',\n      'WebPageTest API: Advanced testing'\n    ];\n  }\n  if (toolSlug.includes('keyword')) {\n    return [\n      'SEMrush API: Keyword difficulty',\n      'Ahrefs API: Keyword metrics',\n      'Moz API: Domain authority'\n    ];\n  }\n  return ['Custom API integration'];\n}\n\n// Generate improvements\nconst improvements = [];\n\n// Check for mock data\nif (content.includes('mockData') || content.includes('// Mock') || content.includes('const data = [')) {\n  const apis = suggestAPIs(toolSlug);\n  improvements.push({\n    title: 'Replace Mock Data with Real API Integration',\n    priority: 'CRITICAL',\n    category: 'API Integration',\n    effort: 'high',\n    estimatedTime: '6-8 hours',\n    impact: 'Transforms tool from demo to production-ready',\n    description: 'Replace hardcoded mock data with live API integration.',\n    apis: apis,\n    steps: [\n      'Sign up for ' + (apis[0]?.split(':')[0] || 'API service'),\n      'Create .env file with API keys',\n      'Install required packages: npm install axios dotenv',\n      'Create /src/services/api-client.js with error handling',\n      'Replace all mockData arrays with API calls',\n      'Add loading skeletons and error states'\n    ],\n    roi: 'High - Converts demo to production tool'\n  });\n}\n\n// Check for historical tracking\nif (!content.includes('chart') && !content.includes('history') && !content.includes('trend')) {\n  improvements.push({\n    title: 'Add Historical Tracking & Charts',\n    priority: 'HIGH',\n    category: 'Feature Addition',\n    effort: 'high',\n    estimatedTime: '4-6 hours',\n    impact: 'High - Enables ongoing value',\n    description: 'Implement historical tracking with charts.',\n    steps: [\n      'Design UI/UX for historical charts',\n      'Set up data persistence layer',\n      'Create date range selector',\n      'Add chart visualization component'\n    ],\n    roi: 'Medium-High - Increases session time by 150%'\n  });\n}\n\n// Check for export functionality\nif (!content.includes('export') && !content.includes('download') && !content.includes('PDF')) {\n  improvements.push({\n    title: 'Add Export/Download Functionality',\n    priority: 'MEDIUM',\n    category: 'Feature Addition',\n    effort: 'medium',\n    estimatedTime: '3-4 hours',\n    impact: 'Medium - Increases tool utility',\n    description: 'Add ability to export data in multiple formats.',\n    steps: [\n      'Install jsPDF and html2canvas',\n      'Create export button component',\n      'Implement CSV export',\n      'Add PNG screenshot export'\n    ],\n    roi: 'Medium - Increases sharing by 250%'\n  });\n}\n\nconst analysis = {\n  toolName: toolName,\n  toolSlug: toolSlug,\n  type: detectType(toolName, content),\n  status: 'active',\n  priority: 'high',\n  completeness: calculateCompleteness(content),\n  userValue: calculateUserValue(content),\n  improvements: improvements.slice(0, 4),\n  cycleCount: $input.item.json.cycleCount,\n  nextTool: $input.item.json.nextTool,\n  timestamp: $input.item.json.timestamp\n};\n\nif (improvements.length === 0) {\n  return { skip: true, reason: 'No improvements needed' };\n}\n\nreturn analysis;"
+      },
+      "id": "analyze-tool",
+      "name": "Analyze Tool",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "skip-check",
+              "leftValue": "={{ $json.skip }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "notExists"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "has-improvements",
+      "name": "Has Improvements?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Generate Professional HTML Email\nconst data = $input.item.json;\n\nconst html = `<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <style>\n    body { font-family: -apple-system, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; margin: 0; padding: 0; }\n    .container { max-width: 700px; margin: 20px auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }\n    .header h1 { margin: 0; font-size: 24px; }\n    .stats { display: flex; justify-content: space-around; padding: 20px; background: #f8f9fa; }\n    .stat-value { font-size: 28px; font-weight: bold; color: #667eea; }\n    .content { padding: 30px; }\n    .improvement { margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; }\n    .priority-critical { background: #fee; color: #c00; padding: 4px 12px; border-radius: 12px; font-size: 11px; }\n    .priority-high { background: #fff3cd; color: #856404; padding: 4px 12px; border-radius: 12px; font-size: 11px; }\n    .priority-medium { background: #d1ecf1; color: #0c5460; padding: 4px 12px; border-radius: 12px; font-size: 11px; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <h1>🤖 Tool Improvement Agent</h1>\n      <p>Cycle ${data.cycleCount}</p>\n    </div>\n    <div class=\"stats\">\n      <div><div class=\"stat-value\">${data.completeness}%</div><div>Completeness</div></div>\n      <div><div class=\"stat-value\">${data.userValue}</div><div>User Value</div></div>\n      <div><div class=\"stat-value\">${data.improvements.length}</div><div>Improvements</div></div>\n    </div>\n    <div class=\"content\">\n      <h2>Tool: ${data.toolName}</h2>\n      ${data.improvements.map((imp, i) => `\n        <div class=\"improvement\">\n          <h3>${i + 1}. ${imp.title} <span class=\"priority-${imp.priority.toLowerCase()}\">${imp.priority}</span></h3>\n          <p><strong>Impact:</strong> ${imp.impact}</p>\n          <p>${imp.description}</p>\n          <p><strong>Estimated Time:</strong> ${imp.estimatedTime}</p>\n          <p><strong>ROI:</strong> ${imp.roi}</p>\n        </div>\n      `).join('')}\n      <p><strong>Next Tool:</strong> ${data.nextTool} in 30 minutes</p>\n    </div>\n  </div>\n</body>\n</html>`;\n\nreturn {\n  ...data,\n  emailHtml: html,\n  emailSubject: `[Tool Agent] ${data.toolName} - ${data.improvements.length} Improvements`\n};"
+      },
+      "id": "generate-email",
+      "name": "Generate Email HTML",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "authentication": "oauth2",
+        "sendTo": "={{ $json.EMAIL_TO || 'abhishekmaharjan3737@gmail.com' }}",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "html",
+        "message": "={{ $json.emailHtml }}",
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Send Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1450, 200],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gmail-oauth",
+          "name": "Gmail OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Log skipped tool\nconst reason = $input.item.json.reason || 'Unknown';\nconst tool = $input.item.json.toolName || 'Unknown tool';\nconsole.log(`⏭️ Skipped ${tool}: ${reason}`);\nreturn [];"
+      },
+      "id": "log-skip",
+      "name": "Log Skip",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 400]
+    }
+  ],
+  "connections": {
+    "Every 30 Minutes": {
+      "main": [[{"node": "Rotate Tools", "type": "main", "index": 0}]]
+    },
+    "Rotate Tools": {
+      "main": [[{"node": "Read Tool File", "type": "main", "index": 0}]]
+    },
+    "Read Tool File": {
+      "main": [[{"node": "Analyze Tool", "type": "main", "index": 0}]]
+    },
+    "Analyze Tool": {
+      "main": [[{"node": "Has Improvements?", "type": "main", "index": 0}]]
+    },
+    "Has Improvements?": {
+      "main": [
+        [{"node": "Generate Email HTML", "type": "main", "index": 0}],
+        [{"node": "Log Skip", "type": "main", "index": 0}]
+      ]
+    },
+    "Generate Email HTML": {
+      "main": [[{"node": "Send Gmail", "type": "main", "index": 0}]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "cycleCount": 0
+  },
+  "tags": [],
+  "pinData": {},
+  "versionId": "1"
+}

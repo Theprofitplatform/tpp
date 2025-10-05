@@ -1,0 +1,400 @@
+{
+  "name": "Advanced SEO Optimization & Analysis Chain",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "seo-optimization",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook - SEO Request",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "webhookId": "seo-optimization-webhook"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "content_id",
+              "name": "content_id",
+              "value": "={{ $json.body.content_id }}",
+              "type": "string"
+            },
+            {
+              "id": "title",
+              "name": "title",
+              "value": "={{ $json.body.title }}",
+              "type": "string"
+            },
+            {
+              "id": "content",
+              "name": "content",
+              "value": "={{ $json.body.content }}",
+              "type": "string"
+            },
+            {
+              "id": "keywords",
+              "name": "keywords",
+              "value": "={{ $json.body.keywords }}",
+              "type": "array"
+            },
+            {
+              "id": "competitor_urls",
+              "name": "competitor_urls",
+              "value": "={{ $json.body.competitor_urls || [] }}",
+              "type": "array"
+            },
+            {
+              "id": "target_location",
+              "name": "target_location",
+              "value": "={{ $json.body.target_location || 'Australia' }}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "validate-input",
+      "name": "Validate & Parse Input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [470, 300]
+    },
+    {
+      "parameters": {
+        "model": "mistral:7b",
+        "prompt": "=Analyze the following content for SEO optimization:\n\nTitle: {{ $json.title }}\nContent: {{ $json.content }}\nKeywords: {{ $json.keywords.join(', ') }}\nTarget Location: {{ $json.target_location }}\n\nProvide detailed analysis including:\n1. Keyword density and distribution\n2. Title optimization score (0-100)\n3. Heading structure recommendations\n4. Meta description suggestions\n5. Content readability score\n\nRespond ONLY with valid JSON in this format:\n{\n  \"keyword_density\": {\"primary_keywords\": [], \"density_percentage\": 0, \"recommendation\": \"\"},\n  \"title_optimization\": {\"current_title\": \"\", \"score\": 0, \"suggestions\": []},\n  \"heading_structure\": {\"h1_count\": 0, \"h2_count\": 0, \"hierarchy_valid\": true},\n  \"readability_score\": 0,\n  \"meta_description\": \"\"\n}",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 2000
+        }
+      },
+      "id": "content-seo-analysis",
+      "name": "Content SEO Analysis (Mistral)",
+      "type": "n8n-nodes-base.ollamaModel",
+      "typeVersion": 1,
+      "position": [690, 200]
+    },
+    {
+      "parameters": {
+        "model": "llama3.2:1b",
+        "prompt": "=Generate advanced keyword research for:\n\nTitle: {{ $json.title }}\nContent: {{ $json.content }}\nCurrent Keywords: {{ $json.keywords.join(', ') }}\nTarget Location: {{ $json.target_location }}\n\nProvide:\n1. Long-tail keyword suggestions\n2. Australian-specific keyword opportunities\n3. Search intent analysis\n4. Related keyword suggestions\n5. Local SEO optimization keywords\n\nRespond ONLY with valid JSON in this format:\n{\n  \"long_tail_keywords\": [],\n  \"australian_keywords\": [],\n  \"search_intent\": \"\",\n  \"related_keywords\": [],\n  \"local_seo_keywords\": []\n}",
+        "options": {
+          "temperature": 0.5,
+          "maxTokens": 1500
+        }
+      },
+      "id": "keyword-research",
+      "name": "Keyword Research (Llama3.2)",
+      "type": "n8n-nodes-base.ollamaModel",
+      "typeVersion": 1,
+      "position": [690, 400]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "=SELECT * FROM competitor_analysis WHERE url = ANY(ARRAY[{{ $json.competitor_urls.map(u => `'${u}'`).join(',') }}]) LIMIT 10",
+        "options": {}
+      },
+      "id": "competitor-analysis",
+      "name": "Fetch Competitor Data",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [690, 600],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-main",
+          "name": "PostgreSQL - Main DB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combinationMode": "mergeByPosition",
+        "options": {}
+      },
+      "id": "merge-analysis",
+      "name": "Merge All Analysis",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [910, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Compile comprehensive SEO report and calculate score\nconst items = $input.all();\n\nconst input = items[0].json;\nconst seoAnalysis = JSON.parse(items[1].json.response || '{}');\nconst keywordResearch = JSON.parse(items[2].json.response || '{}');\nconst competitorData = items[3]?.json || {};\n\n// Calculate SEO Score (0-100)\nlet score = 0;\n\n// Keyword optimization (25 points)\nconst keywordCount = input.keywords?.length || 0;\nconst hasLongTail = keywordResearch.long_tail_keywords?.length > 0;\nscore += Math.min(keywordCount * 5, 15);\nif (hasLongTail) score += 10;\n\n// Title optimization (20 points)\nconst titleScore = seoAnalysis.title_optimization?.score || 0;\nscore += titleScore * 0.2;\n\n// Content quality (20 points)\nconst contentLength = input.content?.length || 0;\nconst readabilityScore = seoAnalysis.readability_score || 0;\nscore += Math.min(contentLength / 50, 10); // Max 10 points for length\nscore += readabilityScore * 0.1; // Max 10 points for readability\n\n// Heading structure (15 points)\nconst headingValid = seoAnalysis.heading_structure?.hierarchy_valid;\nif (headingValid) score += 15;\n\n// Australian SEO (10 points)\nconst hasAustralianKeywords = keywordResearch.australian_keywords?.length > 0;\nconst isAustralianTarget = input.target_location?.toLowerCase().includes('austral');\nif (hasAustralianKeywords) score += 5;\nif (isAustralianTarget) score += 5;\n\n// Mobile optimization (10 points) - basic check\nconst isMobileFriendly = contentLength < 3000 && contentLength > 300;\nif (isMobileFriendly) score += 10;\n\n// Cap at 100\nscore = Math.min(Math.round(score), 100);\n\n// Compile recommendations\nconst recommendations = [];\n\nif (titleScore < 80) recommendations.push('Optimize title tag for better click-through rate');\nif (keywordCount < 3) recommendations.push('Add more relevant keywords');\nif (!hasAustralianKeywords && isAustralianTarget) recommendations.push('Include Australian-specific keywords');\nif (contentLength < 500) recommendations.push('Increase content length to at least 500 words');\nif (!seoAnalysis.heading_structure?.h1_count) recommendations.push('Add H1 heading');\nif (!hasLongTail) recommendations.push('Include long-tail keywords for better ranking');\n\nreturn {\n  json: {\n    content_id: input.content_id,\n    seo_score: score,\n    needs_optimization: score < 80,\n    analysis: {\n      keyword_density: seoAnalysis.keyword_density,\n      title_optimization: seoAnalysis.title_optimization,\n      heading_structure: seoAnalysis.heading_structure,\n      readability_score: seoAnalysis.readability_score,\n      long_tail_keywords: keywordResearch.long_tail_keywords || [],\n      australian_seo: {\n        local_keywords: keywordResearch.australian_keywords || [],\n        local_relevance_score: hasAustralianKeywords ? 85 : 40\n      }\n    },\n    recommendations,\n    competitor_insights: {\n      avg_competitor_score: competitorData.avg_score || 75,\n      competitive_gaps: competitorData.gaps || []\n    },\n    original_content: {\n      title: input.title,\n      content: input.content,\n      keywords: input.keywords\n    },\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "compile-report",
+      "name": "Compile SEO Report & Score",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1130, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.needs_optimization }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-optimization-needed",
+      "name": "Score < 80?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1350, 400]
+    },
+    {
+      "parameters": {
+        "model": "mistral:7b",
+        "prompt": "=Rewrite and optimize the following content to achieve an SEO score above 80:\n\nOriginal Title: {{ $json.original_content.title }}\nOriginal Content: {{ $json.original_content.content }}\nTarget Keywords: {{ $json.original_content.keywords.join(', ') }}\n\nSEO Analysis:\n{{ JSON.stringify($json.analysis, null, 2) }}\n\nRecommendations:\n{{ $json.recommendations.join('\\n') }}\n\nProvide optimized content with:\n1. Improved title (60-70 characters)\n2. Enhanced content with better keyword density\n3. Proper heading structure (H1, H2, H3)\n4. Meta description (150-160 characters)\n5. Australian market relevance (if applicable)\n\nRespond ONLY with valid JSON in this format:\n{\n  \"optimized_title\": \"\",\n  \"optimized_content\": \"\",\n  \"meta_description\": \"\",\n  \"improvements_made\": []\n}",
+        "options": {
+          "temperature": 0.7,
+          "maxTokens": 3000
+        }
+      },
+      "id": "ai-optimize-content",
+      "name": "AI Content Optimization",
+      "type": "n8n-nodes-base.ollamaModel",
+      "typeVersion": 1,
+      "position": [1570, 300]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "schema": "public",
+        "table": "seo_analysis",
+        "columns": {
+          "mappingMode": "defineBelow",
+          "values": [
+            {
+              "column": "content_id",
+              "value": "={{ $json.content_id }}"
+            },
+            {
+              "column": "seo_score",
+              "value": "={{ $json.seo_score }}"
+            },
+            {
+              "column": "analysis_data",
+              "value": "={{ JSON.stringify($json) }}"
+            },
+            {
+              "column": "created_at",
+              "value": "={{ $json.timestamp }}"
+            }
+          ]
+        }
+      },
+      "id": "store-analysis",
+      "name": "Store Analysis in DB",
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.5,
+      "position": [1790, 400],
+      "credentials": {
+        "postgres": {
+          "id": "postgres-main",
+          "name": "PostgreSQL - Main DB"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "fromEmail": "seo@theprofitplatform.com.au",
+        "toEmail": "avi@theprofitplatform.com.au",
+        "subject": "=SEO Analysis Report - {{ $json.content_id }} (Score: {{ $json.seo_score }}/100)",
+        "emailFormat": "html",
+        "message": "=<!DOCTYPE html>\n<html>\n<head>\n  <style>\n    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }\n    .header { background: #0066cc; color: white; padding: 20px; text-align: center; }\n    .score { font-size: 48px; font-weight: bold; margin: 20px 0; }\n    .score.high { color: #28a745; }\n    .score.medium { color: #ffc107; }\n    .score.low { color: #dc3545; }\n    .section { margin: 20px 0; padding: 15px; border-left: 4px solid #0066cc; }\n    .recommendations { background: #f8f9fa; padding: 15px; border-radius: 5px; }\n    ul { padding-left: 20px; }\n  </style>\n</head>\n<body>\n  <div class=\"header\">\n    <h1>SEO Analysis Report</h1>\n    <p>Content ID: {{ $json.content_id }}</p>\n  </div>\n  \n  <div class=\"score {{ $json.seo_score >= 80 ? 'high' : $json.seo_score >= 60 ? 'medium' : 'low' }}\">\n    {{ $json.seo_score }}/100\n  </div>\n  \n  <div class=\"section\">\n    <h2>Analysis Summary</h2>\n    <p><strong>Title Optimization Score:</strong> {{ $json.analysis.title_optimization?.score || 'N/A' }}/100</p>\n    <p><strong>Readability Score:</strong> {{ $json.analysis.readability_score || 'N/A' }}/100</p>\n    <p><strong>Australian SEO Relevance:</strong> {{ $json.analysis.australian_seo?.local_relevance_score || 'N/A' }}/100</p>\n  </div>\n  \n  <div class=\"section\">\n    <h2>Key Findings</h2>\n    <p><strong>Long-tail Keywords Found:</strong> {{ $json.analysis.long_tail_keywords?.length || 0 }}</p>\n    <p><strong>Australian Keywords:</strong> {{ $json.analysis.australian_seo?.local_keywords?.join(', ') || 'None' }}</p>\n  </div>\n  \n  <div class=\"recommendations\">\n    <h2>Recommendations</h2>\n    <ul>\n      {{ $json.recommendations.map(r => `<li>${r}</li>`).join('') }}\n    </ul>\n  </div>\n  \n  {{ $json.optimized_content ? '<div class=\"section\"><h2>Auto-Optimization Applied</h2><p>Content has been automatically optimized to improve SEO score.</p></div>' : '' }}\n  \n  <div class=\"section\">\n    <p><em>Generated: {{ $json.timestamp }}</em></p>\n  </div>\n</body>\n</html>",
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Send Email Report",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [2010, 400],
+      "credentials": {
+        "smtp": {
+          "id": "smtp-main",
+          "name": "SMTP - TPP"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json, null, 2) }}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "id": "webhook-response",
+      "name": "Webhook Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [2230, 400]
+    }
+  ],
+  "connections": {
+    "Webhook - SEO Request": {
+      "main": [
+        [
+          {
+            "node": "Validate & Parse Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate & Parse Input": {
+      "main": [
+        [
+          {
+            "node": "Content SEO Analysis (Mistral)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Keyword Research (Llama3.2)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Fetch Competitor Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Content SEO Analysis (Mistral)": {
+      "main": [
+        [
+          {
+            "node": "Merge All Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Keyword Research (Llama3.2)": {
+      "main": [
+        [
+          {
+            "node": "Merge All Analysis",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Fetch Competitor Data": {
+      "main": [
+        [
+          {
+            "node": "Merge All Analysis",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "Merge All Analysis": {
+      "main": [
+        [
+          {
+            "node": "Compile SEO Report & Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compile SEO Report & Score": {
+      "main": [
+        [
+          {
+            "node": "Score < 80?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Score < 80?": {
+      "main": [
+        [
+          {
+            "node": "AI Content Optimization",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Store Analysis in DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Content Optimization": {
+      "main": [
+        [
+          {
+            "node": "Store Analysis in DB",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Store Analysis in DB": {
+      "main": [
+        [
+          {
+            "node": "Send Email Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email Report": {
+      "main": [
+        [
+          {
+            "node": "Webhook Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-04T09:54:00.000Z",
+  "versionId": "1"
+}

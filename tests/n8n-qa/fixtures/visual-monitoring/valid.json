@@ -1,0 +1,14 @@
+{
+  "url": "https://theprofitplatform.com.au",
+  "timestamp": "2025-10-04T12:00:00Z",
+  "checkType": "visual",
+  "browser": "chromium",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "options": {
+    "fullPage": true,
+    "animations": "disabled"
+  }
+}

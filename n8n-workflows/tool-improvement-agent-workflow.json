@@ -1,0 +1,216 @@
+{
+  "name": "Tool Improvement Agent",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Every 30 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Tool Improvement Agent - Tool Rotation Logic\nconst tools = [\n  'rank-tracker',\n  'revenue-leak-detector', \n  'speed-test',\n  'website-speed-test',\n  'keyword-difficulty-checker',\n  'local-rankings-map',\n  'seo-audit-tool'\n];\n\n// Get current cycle from workflow static data or start at 0\nconst currentCycle = $workflow.staticData.cycleCount || 0;\nconst currentToolIndex = currentCycle % tools.length;\nconst currentTool = tools[currentToolIndex];\nconst nextTool = tools[(currentToolIndex + 1) % tools.length];\n\n// Increment cycle count\n$workflow.staticData.cycleCount = currentCycle + 1;\n\nreturn {\n  json: {\n    toolSlug: currentTool,\n    toolName: currentTool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),\n    nextTool: nextTool.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' '),\n    cycleCount: currentCycle + 1,\n    timestamp: new Date().toISOString()\n  }\n};"
+      },
+      "id": "rotate-tools",
+      "name": "Rotate Tools",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "filePath": "=/home/avi/projects/astro-site/src/pages/tools/{{ $json.toolSlug }}.astro",
+        "options": {}
+      },
+      "id": "read-tool-file",
+      "name": "Read Tool File",
+      "type": "n8n-nodes-base.readFile",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "functionCode": "// Analyze Tool Content\nconst content = $input.item.binary?.data ? Buffer.from($input.item.binary.data.data).toString('utf-8') : '';\nconst toolName = $json.toolName;\nconst toolSlug = $json.toolSlug;\n\nif (!content) {\n  return { json: { skip: true, reason: 'File not found' } };\n}\n\n// Detect tool type\nfunction detectType(name, content) {\n  if (content.includes('ranking') || content.includes('SERP')) return 'seo';\n  if (content.includes('speed') || content.includes('performance')) return 'performance';\n  if (content.includes('revenue') || content.includes('leak')) return 'analytics';\n  if (content.includes('keyword')) return 'seo';\n  return 'utility';\n}\n\n// Calculate completeness score\nfunction calculateCompleteness(content) {\n  let score = 30;\n  if (content.includes('export') || content.includes('download')) score += 8;\n  if (content.includes('localStorage') || content.includes('database')) score += 8;\n  if (content.includes('chart') || content.includes('graph')) score += 8;\n  if (content.includes('api') || content.includes('fetch') && !content.includes('mockData')) score += 8;\n  if (content.includes('PDF') || content.includes('CSV')) score += 8;\n  if (content.includes('authentication') || content.includes('auth')) score += 10;\n  if (content.includes('real-time') || content.includes('websocket')) score += 10;\n  if (content.includes('try') && content.includes('catch')) score += 5;\n  if (content.includes('loading') && content.includes('error')) score += 5;\n  if (content.includes('aria-')) score += 5;\n  return Math.min(score, 100);\n}\n\n// Calculate user value score\nfunction calculateUserValue(content) {\n  let score = 40;\n  if (content.includes('real-time') || content.includes('live')) score += 15;\n  if (content.includes('export') || content.includes('download')) score += 10;\n  if (content.includes('share') || content.includes('email')) score += 8;\n  if (content.includes('historical') || content.includes('trend')) score += 12;\n  if (content.includes('save') || content.includes('bookmark')) score += 5;\n  if (content.includes('tutorial') || content.includes('help')) score += 5;\n  return Math.min(score, 100);\n}\n\n// Suggest APIs based on tool type\nfunction suggestAPIs(toolSlug) {\n  if (toolSlug.includes('rank') || toolSlug.includes('serp')) {\n    return [\n      'SerpAPI: Google search result scraping',\n      'DataForSEO: SERP data + competitor analysis',\n      'ValueSERP: Cost-effective SERP data'\n    ];\n  }\n  if (toolSlug.includes('speed') || toolSlug.includes('performance')) {\n    return [\n      'PageSpeed Insights API: Core Web Vitals',\n      'Lighthouse CI: Performance audits',\n      'WebPageTest API: Advanced testing'\n    ];\n  }\n  if (toolSlug.includes('keyword')) {\n    return [\n      'SEMrush API: Keyword difficulty',\n      'Ahrefs API: Keyword metrics',\n      'Moz API: Domain authority'\n    ];\n  }\n  return ['Custom API integration'];\n}\n\n// Generate improvements\nconst improvements = [];\n\n// Check for mock data\nif (content.includes('mockData') || content.includes('// Mock') || content.includes('const data = [')) {\n  const apis = suggestAPIs(toolSlug);\n  improvements.push({\n    title: 'Replace Mock Data with Real API Integration',\n    priority: 'CRITICAL',\n    category: 'API Integration',\n    effort: 'high',\n    estimatedTime: '6-8 hours',\n    impact: 'Transforms tool from demo to production-ready',\n    description: `Replace hardcoded mock data with live API integration. This will provide:\\n- Real-time, accurate data that updates automatically\\n- Professional credibility and user trust\\n- Actual value to users instead of a demo\\n- Competitive advantage over static tools`,\n    apis: apis,\n    steps: [\n      `Sign up for ${apis[0]?.split(':')[0] || 'API service'}`,\n      'Create .env file with API keys (never commit to git)',\n      'Install required packages: npm install axios dotenv',\n      'Create /src/services/api-client.js with error handling',\n      'Implement rate limiting (respect API quotas)',\n      'Replace all mockData arrays with API calls',\n      'Add loading skeletons and error states',\n      'Implement response caching (reduce API costs)',\n      'Add retry logic for failed requests',\n      'Test edge cases: no data, API down, rate limits'\n    ],\n    roi: 'High - Converts demo to production tool, increases user retention by 300%+'\n  });\n}\n\n// Check for historical tracking\nif (!content.includes('chart') && !content.includes('history') && !content.includes('trend')) {\n  improvements.push({\n    title: 'Add Historical Tracking & Charts',\n    priority: 'HIGH',\n    category: 'Feature Addition',\n    effort: 'high',\n    estimatedTime: '4-6 hours',\n    impact: 'High - Enables ongoing value and user retention',\n    description: `Implement historical tracking with visual charts to show trends over time. This feature will:\\n- Increase user engagement and return visits\\n- Provide valuable insights into changes\\n- Differentiate from competitors\\n- Enable data-driven decision making`,\n    steps: [\n      'Design UI/UX for historical charts (use Chart.js or Recharts)',\n      'Set up data persistence layer (localStorage or database)',\n      'Create date range selector component',\n      'Implement data aggregation logic',\n      'Add chart visualization component',\n      'Create export chart as image functionality',\n      'Write tests for data persistence',\n      'Update documentation'\n    ],\n    roi: 'Medium-High - Increases session time by 150%, return rate by 200%'\n  });\n}\n\n// Check for export functionality\nif (!content.includes('export') && !content.includes('download') && !content.includes('PDF')) {\n  improvements.push({\n    title: 'Add Export/Download Functionality',\n    priority: 'MEDIUM',\n    category: 'Feature Addition',\n    effort: 'medium',\n    estimatedTime: '3-4 hours',\n    impact: 'Medium - Increases tool utility and shareability',\n    description: `Add ability to export data in multiple formats (PDF, CSV, PNG). This enables:\\n- Users to share results with team/clients\\n- Integration into reports and presentations\\n- Offline access to data\\n- Increased perceived value`,\n    steps: [\n      'Install jsPDF and html2canvas for PDF generation',\n      'Create export button component',\n      'Implement CSV export with proper formatting',\n      'Add PNG screenshot export using html2canvas',\n      'Create export options modal',\n      'Add filename customization',\n      'Test exports across browsers',\n      'Add export to feature list on landing page'\n    ],\n    roi: 'Medium - Increases sharing by 250%, word-of-mouth referrals'\n  });\n}\n\n// Check for batch processing\nif ((toolSlug.includes('tracker') || toolSlug.includes('checker')) && !content.includes('batch') && !content.includes('multiple')) {\n  improvements.push({\n    title: 'Add Batch Processing',\n    priority: 'MEDIUM',\n    category: 'Feature Addition',\n    effort: 'high',\n    estimatedTime: '5-7 hours',\n    impact: 'High - Enables power users and enterprise use',\n    description: `Implement batch processing to analyze multiple items simultaneously. This provides:\\n- Massive time savings for users\\n- Enterprise-level functionality\\n- Competitive advantage\\n- Higher perceived value`,\n    steps: [\n      'Design bulk input UI (textarea or CSV upload)',\n      'Implement queue system for API calls',\n      'Add progress indicator for batch jobs',\n      'Create results table with sortable columns',\n      'Implement batch export functionality',\n      'Add pause/resume batch processing',\n      'Handle API rate limits gracefully',\n      'Write batch processing tests'\n    ],\n    roi: 'High - Attracts enterprise users, potential for premium tier'\n  });\n}\n\nconst analysis = {\n  toolName: toolName,\n  toolSlug: toolSlug,\n  type: detectType(toolName, content),\n  status: 'active',\n  priority: 'high',\n  completeness: calculateCompleteness(content),\n  userValue: calculateUserValue(content),\n  improvements: improvements.slice(0, 4),\n  cycleCount: $json.cycleCount,\n  nextTool: $json.nextTool,\n  timestamp: $json.timestamp\n};\n\n// Only continue if there are improvements\nif (improvements.length === 0) {\n  return { json: { skip: true, reason: 'No improvements needed' } };\n}\n\nreturn { json: analysis };"
+      },
+      "id": "analyze-tool",
+      "name": "Analyze Tool",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "skip-check",
+              "leftValue": "={{ $json.skip }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "notExists"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "has-improvements",
+      "name": "Has Improvements?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Generate Professional HTML Email\nconst data = $json;\n\nconst html = `\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <style>\n    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; margin: 0; padding: 0; }\n    .container { max-width: 700px; margin: 20px auto; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }\n    .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; }\n    .header h1 { margin: 0; font-size: 24px; }\n    .header .cycle { font-size: 14px; opacity: 0.9; margin-top: 5px; }\n    .stats { display: flex; justify-content: space-around; padding: 20px; background: #f8f9fa; border-bottom: 1px solid #e0e0e0; }\n    .stat { text-align: center; }\n    .stat-value { font-size: 28px; font-weight: bold; color: #667eea; }\n    .stat-label { font-size: 12px; color: #666; text-transform: uppercase; }\n    .progress-bar { background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden; margin: 10px 0; }\n    .progress-fill { background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; }\n    .content { padding: 30px; }\n    .meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 30px; }\n    .meta-item { padding: 15px; background: #f8f9fa; border-radius: 6px; border-left: 4px solid #667eea; }\n    .meta-label { font-size: 12px; color: #666; text-transform: uppercase; margin-bottom: 5px; }\n    .meta-value { font-size: 16px; font-weight: 600; color: #333; }\n    .improvement { margin-bottom: 30px; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; background: #fafafa; }\n    .improvement-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 15px; }\n    .improvement-title { font-size: 18px; font-weight: 700; color: #333; margin: 0; }\n    .priority { padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; }\n    .priority-critical { background: #fee; color: #c00; }\n    .priority-high { background: #fff3cd; color: #856404; }\n    .priority-medium { background: #d1ecf1; color: #0c5460; }\n    .improvement-meta { display: flex; gap: 15px; margin-bottom: 15px; font-size: 13px; flex-wrap: wrap; }\n    .improvement-meta span { padding: 5px 10px; background: white; border-radius: 4px; }\n    .description { margin: 15px 0; color: #555; line-height: 1.8; white-space: pre-line; }\n    .apis { background: #e8f4f8; padding: 15px; border-radius: 6px; margin: 15px 0; }\n    .apis-title { font-weight: 700; color: #0066cc; margin-bottom: 10px; }\n    .api-list { list-style: none; padding: 0; margin: 0; }\n    .api-list li { padding: 8px 0; padding-left: 25px; position: relative; }\n    .api-list li:before { content: '→'; position: absolute; left: 0; color: #0066cc; font-weight: bold; }\n    .steps { background: #f0f7ff; padding: 20px; border-radius: 6px; margin: 15px 0; }\n    .steps-title { font-weight: 700; color: #0066cc; margin-bottom: 15px; }\n    .steps ol { margin: 0; padding-left: 20px; }\n    .steps li { padding: 8px 0; color: #333; }\n    .roi-box { background: #d4edda; border: 1px solid #c3e6cb; padding: 15px; border-radius: 6px; margin: 15px 0; }\n    .roi-box strong { color: #155724; }\n    .footer { background: #2d3748; color: white; padding: 25px; text-align: center; }\n    .footer-links { margin: 15px 0; }\n    .footer-links a { color: #90cdf4; text-decoration: none; margin: 0 10px; }\n    .next-cycle { background: #fff3cd; padding: 20px; margin-top: 20px; border-radius: 6px; text-align: center; }\n  </style>\n</head>\n<body>\n  <div class=\"container\">\n    <div class=\"header\">\n      <h1>🤖 Tool Improvement Agent</h1>\n      <div class=\"cycle\">Cycle ${data.cycleCount} • ${new Date(data.timestamp).toLocaleString()}</div>\n    </div>\n\n    <div class=\"stats\">\n      <div class=\"stat\">\n        <div class=\"stat-value\">${data.completeness}%</div>\n        <div class=\"stat-label\">Completeness</div>\n        <div class=\"progress-bar\"><div class=\"progress-fill\" style=\"width: ${data.completeness}%\"></div></div>\n      </div>\n      <div class=\"stat\">\n        <div class=\"stat-value\">${data.userValue}</div>\n        <div class=\"stat-label\">User Value</div>\n        <div class=\"progress-bar\"><div class=\"progress-fill\" style=\"width: ${data.userValue}%\"></div></div>\n      </div>\n      <div class=\"stat\">\n        <div class=\"stat-value\">${data.improvements.length}</div>\n        <div class=\"stat-label\">Improvements</div>\n      </div>\n    </div>\n\n    <div class=\"content\">\n      <div class=\"meta\">\n        <div class=\"meta-item\">\n          <div class=\"meta-label\">Tool Analyzed</div>\n          <div class=\"meta-value\">${data.toolName}</div>\n        </div>\n        <div class=\"meta-item\">\n          <div class=\"meta-label\">Type</div>\n          <div class=\"meta-value\">${data.type.toUpperCase()}</div>\n        </div>\n        <div class=\"meta-item\">\n          <div class=\"meta-label\">Status</div>\n          <div class=\"meta-value\">✅ ${data.status}</div>\n        </div>\n        <div class=\"meta-item\">\n          <div class=\"meta-label\">Priority</div>\n          <div class=\"meta-value\">🔥 ${data.priority}</div>\n        </div>\n      </div>\n\n      <h2 style=\"color: #333; border-bottom: 2px solid #667eea; padding-bottom: 10px;\">💡 ${data.improvements.length} Improvements Suggested</h2>\n\n      ${data.improvements.map((imp, i) => `\n        <div class=\"improvement\">\n          <div class=\"improvement-header\">\n            <h3 class=\"improvement-title\">${i + 1}. ${imp.title}</h3>\n            <span class=\"priority priority-${imp.priority.toLowerCase()}\">${imp.priority}</span>\n          </div>\n\n          <div class=\"improvement-meta\">\n            <span>📁 ${imp.category}</span>\n            <span>⚡ Effort: ${imp.effort}</span>\n            ${imp.estimatedTime ? `<span>⏱️ ${imp.estimatedTime}</span>` : ''}\n          </div>\n\n          <div class=\"description\">\n            <strong>Impact:</strong> ${imp.impact}<br><br>\n            ${imp.description}\n          </div>\n\n          ${imp.apis ? `\n            <div class=\"apis\">\n              <div class=\"apis-title\">🔌 Required APIs</div>\n              <ul class=\"api-list\">\n                ${imp.apis.map(api => `<li>${api}</li>`).join('')}\n              </ul>\n            </div>\n          ` : ''}\n\n          <div class=\"steps\">\n            <div class=\"steps-title\">📋 Implementation Steps</div>\n            <ol>\n              ${imp.steps.map(step => `<li>${step}</li>`).join('')}\n            </ol>\n          </div>\n\n          ${imp.roi ? `\n            <div class=\"roi-box\">\n              <strong>💰 ROI:</strong> ${imp.roi}\n            </div>\n          ` : ''}\n        </div>\n      `).join('')}\n\n      <div class=\"next-cycle\">\n        <strong>⏭️ Next Tool:</strong> ${data.nextTool}<br>\n        <small>Next cycle in approximately 30 minutes</small>\n      </div>\n    </div>\n\n    <div class=\"footer\">\n      <div>This email was automatically generated by the Tool Improvement Agent</div>\n      <div style=\"margin-top: 10px; font-size: 12px; opacity: 0.8;\">\n        Total cycles completed: ${data.cycleCount} | Running on n8n: astro-site\n      </div>\n      <div class=\"footer-links\">\n        <a href=\"https://theprofitplatform.com.au\">Visit Site</a>\n        <a href=\"#\">View Dashboard</a>\n        <a href=\"#\">Settings</a>\n      </div>\n    </div>\n  </div>\n</body>\n</html>\n`;\n\nreturn {\n  json: {\n    ...data,\n    emailHtml: html,\n    emailSubject: `[Tool Agent Update] ${data.toolName} - ${data.improvements.length} Improvements Found`\n  }\n};"
+      },
+      "id": "generate-email",
+      "name": "Generate Email HTML",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 200]
+    },
+    {
+      "parameters": {
+        "authentication": "oauth2",
+        "sendTo": "={{ $env.EMAIL_TO || 'abhishekmaharjan3737@gmail.com' }}",
+        "subject": "={{ $json.emailSubject }}",
+        "emailType": "html",
+        "message": "={{ $json.emailHtml }}",
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Send Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1450, 200],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "gmail-oauth",
+          "name": "Gmail OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Log skipped tool\nconst reason = $input.item.json.reason || 'Unknown';\nconst tool = $input.item.json.toolName || 'Unknown tool';\nconsole.log(`⏭️ Skipped ${tool}: ${reason}`);\nreturn [];"
+      },
+      "id": "log-skip",
+      "name": "Log Skip",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1250, 400]
+    }
+  ],
+  "connections": {
+    "Every 30 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Rotate Tools",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rotate Tools": {
+      "main": [
+        [
+          {
+            "node": "Read Tool File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Tool File": {
+      "main": [
+        [
+          {
+            "node": "Analyze Tool",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Tool": {
+      "main": [
+        [
+          {
+            "node": "Has Improvements?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has Improvements?": {
+      "main": [
+        [
+          {
+            "node": "Generate Email HTML",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Skip",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Email HTML": {
+      "main": [
+        [
+          {
+            "node": "Send Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "cycleCount": 0
+  },
+  "tags": [
+    {
+      "createdAt": "2025-01-03T00:00:00.000Z",
+      "updatedAt": "2025-01-03T00:00:00.000Z",
+      "id": "tool-agent",
+      "name": "Tool Agent"
+    }
+  ],
+  "pinData": {},
+  "versionId": "1"
+}
