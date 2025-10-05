@@ -111,6 +111,28 @@ function getReadTime(post) {
       display: none !important;
     }
 
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 968px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero-illustration {
+        order: -1;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+
     .hero-badge {
       background: rgba(255, 255, 255, 0.2);
       color: #ffffff;
@@ -138,20 +160,50 @@ function getReadTime(post) {
       display: inline;
     }
 
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
     .hero-description {
       color: rgba(255, 255, 255, 0.95);
       font-size: 1.125rem;
-      max-width: 650px;
+      max-width: 550px;
       line-height: 1.65;
-      margin: 0 auto;
+      margin: 0;
     }
 
     .hero-stats {
       display: flex;
-      gap: 2rem;
-      margin-top: 2.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .hero-illustration {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-illustration svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
     }
 
     .stat-item {
@@ -159,9 +211,16 @@ function getReadTime(post) {
       align-items: center;
       gap: 1rem;
       background: rgba(255, 255, 255, 0.15);
-      padding: 1rem 1.5rem;
-      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
       backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(4px);
     }
 
     .stat-icon-wrapper {
@@ -715,57 +774,97 @@ function getReadTime(post) {
       </div>
 
       <div class="container">
-        <div class="hero-content">
-          <span class="hero-badge">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="hero-badge">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+              </svg>
+              Digital Marketing Insights
+            </span>
+
+            <h1 class="hero-title">
+              Master Digital Marketing.<br/>
+              <span class="gradient-text">Grow Your Business.</span>
+            </h1>
+
+            <p class="hero-description">
+              Actionable strategies, proven tactics, and real-world case studies from Sydney's top digital marketing experts.
+            </p>
+
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                  </svg>
+                </div>
+                <div class="stat-content">
+                  <span class="stat-number">{sortedPosts.length}+</span>
+                  <span class="stat-label">Articles</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  </svg>
+                </div>
+                <div class="stat-content">
+                  <span class="stat-number">{categories.length}</span>
+                  <span class="stat-label">Topics</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div class="stat-content">
+                  <span class="stat-number">Weekly</span>
+                  <span class="stat-label">Updates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-illustration">
+            <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Laptop/Screen -->
+              <rect x="100" y="80" width="300" height="200" rx="8" fill="white" opacity="0.95"/>
+              <rect x="100" y="80" width="300" height="160" rx="8" fill="#1f2937"/>
+              <rect x="115" y="95" width="270" height="130" rx="4" fill="white"/>
+
+              <!-- Content Lines (representing blog post) -->
+              <rect x="130" y="110" width="80" height="8" rx="4" fill="#5568d3"/>
+              <rect x="130" y="130" width="200" height="6" rx="3" fill="#e5e7eb"/>
+              <rect x="130" y="145" width="220" height="6" rx="3" fill="#e5e7eb"/>
+              <rect x="130" y="160" width="180" height="6" rx="3" fill="#e5e7eb"/>
+
+              <!-- Decorative elements -->
+              <circle cx="350" cy="120" r="6" fill="#6941a8"/>
+              <circle cx="370" cy="130" r="4" fill="#5568d3" opacity="0.6"/>
+
+              <!-- Laptop base -->
+              <path d="M80 280 L85 285 L415 285 L420 280 Z" fill="white" opacity="0.9"/>
+
+              <!-- Floating elements around screen -->
+              <circle cx="60" cy="150" r="20" fill="white" opacity="0.2"/>
+              <circle cx="450" cy="180" r="30" fill="white" opacity="0.15"/>
+              <circle cx="70" cy="250" r="15" fill="white" opacity="0.25"/>
+
+              <!-- Icons -->
+              <g transform="translate(330, 190)">
+                <circle cx="15" cy="15" r="15" fill="white" opacity="0.3"/>
+                <path d="M15 10 L15 20 M10 15 L20 15" stroke="#5568d3" stroke-width="2" stroke-linecap="round"/>
+              </g>
+
+              <g transform="translate(130, 180)">
+                <rect x="0" y="0" width="30" height="30" rx="4" fill="#f3f4f6"/>
+                <path d="M8 12 L14 18 L22 10" stroke="#5568d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </g>
             </svg>
-            Digital Marketing Insights
-          </span>
-
-          <h1 class="hero-title">
-            Master Digital Marketing.<br/>
-            <span class="gradient-text">Grow Your Business.</span>
-          </h1>
-
-          <p class="hero-description">
-            Actionable strategies, proven tactics, and real-world case studies from Sydney's top digital marketing experts.
-          </p>
-
-          <div class="hero-stats">
-            <div class="stat-item">
-              <div class="stat-icon-wrapper">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                </svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-number">{sortedPosts.length}+</span>
-                <span class="stat-label">Articles</span>
-              </div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-icon-wrapper">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                </svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-number">{categories.length}</span>
-                <span class="stat-label">Topics</span>
-              </div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-icon-wrapper">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <div class="stat-content">
-                <span class="stat-number">Weekly</span>
-                <span class="stat-label">Updates</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
