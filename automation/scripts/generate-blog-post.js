@@ -350,11 +350,14 @@ seo:
     await fs.writeFile(queuePath, JSON.stringify(queue, null, 2));
 
     // 15. Output for GitHub Actions (special format for workflow)
+    // Note: URLs use clean slugs (no date prefix)
+    const cleanUrl = `https://theprofitplatform.com.au/blog/${slug}`;
+
     if (process.env.GITHUB_OUTPUT) {
       await fs.appendFile(
         process.env.GITHUB_OUTPUT,
         `title=${topic.title}\n` +
-        `url=https://theprofitplatform.com.au/blog/${slug}\n` +
+        `url=${cleanUrl}\n` +
         `filepath=${filepath}\n` +
         `slug=${slug}\n` +
         `wordcount=${wordCount}\n`
@@ -370,7 +373,7 @@ seo:
    - Author: ${author}
    - Category: ${topic.category}
    - Tags: ${topic.tags.join(', ')}`);
-    console.log(`🔗 URL: https://theprofitplatform.com.au/blog/${slug}`);
+    console.log(`🔗 URL: ${cleanUrl}`);
     console.log(`\n📋 Remaining topics in queue: ${queue.queue.length}`);
 
     return {

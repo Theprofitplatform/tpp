@@ -6,6 +6,9 @@ import Header from '../components/Header.astro';
 const pageTitle = "Blog | The Profit Platform";
 const pageDescription = "Digital marketing tips, strategies, and insights for Sydney businesses.";
 
+// Helper function to strip date prefix from slug
+const getCleanSlug = (slug) => slug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+
 // Fetch all published blog posts
 const allPosts = await getCollection('blog', ({ data }) => {
   return !data.draft;
@@ -946,7 +949,7 @@ function getReadTime(post) {
                   </div>
                 </div>
 
-                <a href={`/blog/${featuredPost.slug}`} class="featured-cta">
+                <a href={`/blog/${getCleanSlug(featuredPost.slug)}`} class="featured-cta">
                   Read Article
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -972,8 +975,8 @@ function getReadTime(post) {
 
         <div class="articles-grid">
           {recentPosts.map((post, index) => (
-            <article class="article-card" data-index={index} data-slug={post.slug} data-original-index={index} style={index >= INITIAL_POSTS ? 'display: none;' : ''}>
-              <a href={`/blog/${post.slug}`} class="article-link">
+            <article class="article-card" data-index={index} data-slug={getCleanSlug(post.slug)} data-original-index={index} style={index >= INITIAL_POSTS ? 'display: none;' : ''}>
+              <a href={`/blog/${getCleanSlug(post.slug)}`} class="article-link">
                 <div class="article-image" style={`background: ${getCategoryGradient(post.data.category)};`}>
                   <div class="image-overlay"></div>
                   <span class="category-badge-img">{post.data.category}</span>

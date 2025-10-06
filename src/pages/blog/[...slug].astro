@@ -9,6 +9,9 @@ export async function getStaticPaths() {
   });
 
   return posts.map(post => {
+    // Strip date prefix from slug (YYYY-MM-DD-)
+    const cleanSlug = post.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+
     // Get related posts (same category or tags, excluding current post)
     const relatedPosts = posts
       .filter(p => p.slug !== post.slug && !p.data.draft)
@@ -19,7 +22,7 @@ export async function getStaticPaths() {
       .slice(0, 3);
 
     return {
-      params: { slug: post.slug },
+      params: { slug: cleanSlug },
       props: { post, relatedPosts },
     };
   });
@@ -27,6 +30,9 @@ export async function getStaticPaths() {
 
 const { post, relatedPosts } = Astro.props;
 const { Content } = await post.render();
+
+// Strip date prefix from slug for clean URLs
+const cleanSlug = post.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
 
 // Handle both pubDate and publishDate for backwards compatibility
 const publishDate = post.data.publishDate || post.data.pubDate || new Date();
@@ -107,7 +113,7 @@ const schema = {
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `https://theprofitplatform.com.au/blog/${post.slug}/`
+    "@id": `https://theprofitplatform.com.au/blog/${cleanSlug}/`
   },
   "wordCount": wordCount,
   "articleSection": post.data.category,
@@ -392,7 +398,7 @@ const schema = {
               const relatedPublishDate = relatedPost.data.publishDate || relatedPost.data.pubDate || new Date();
               return (
                 <article class="related-post-card">
-                  <a href={`/blog/${relatedPost.slug}`} class="related-post-link">
+                  <a href={`/blog/${relatedPost.slug.replace(/^\d{4}-\d{2}-\d{2}-/, '')}`} class="related-post-link">
                     <div class="related-post-category">{relatedPost.data.category}</div>
                     <h4 class="related-post-title">{relatedPost.data.title}</h4>
                     <p class="related-post-excerpt">{relatedPost.data.description}</p>
