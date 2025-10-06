@@ -10,6 +10,7 @@ import { generateVisualSuggestions, generateVisualReport } from './visual-sugges
 import { analyzeReadability, generateReadabilityReport } from './readability-analyzer.js';
 import { enhanceInternalLinks, generateLinkingReport } from './smart-linker.js';
 import { enhanceReadability, generateEnhancementReport } from './readability-enhancer.js';
+import { generateCharts, generateChartReport } from './chart-generator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -313,9 +314,36 @@ Return only the meta description text.`
       console.log('⚠️  Readability enhancement disabled (set ENABLE_READABILITY_ENHANCEMENT=true to enable)');
     }
 
+    // 8.5. Generate charts from statistics (Phase 2 Week 2)
+    let contentWithCharts = readableContent;
+    let chartsGenerated = [];
+
+    if (process.env.ENABLE_CHART_GENERATION !== 'false') {
+      console.log('📊 Generating charts from statistics...');
+      try {
+        const chartResult = await generateCharts(readableContent, {
+          title: topic.title,
+          category: topic.category,
+          tags: topic.tags
+        });
+
+        if (chartResult.success && chartResult.charts.length > 0) {
+          contentWithCharts = chartResult.content;
+          chartsGenerated = chartResult.charts;
+          console.log(generateChartReport(chartResult));
+        } else {
+          console.log('   No charts generated (no suitable statistics found)');
+        }
+      } catch (error) {
+        console.warn('⚠️  Chart generation error:', error.message);
+      }
+    } else {
+      console.log('⚠️  Chart generation disabled');
+    }
+
     // 9. Add internal links (now using smart linker)
     console.log('🔗 Adding internal links...');
-    let contentWithLinks = readableContent;
+    let contentWithLinks = contentWithCharts;
 
     try {
       const linkMapPath = path.join(projectRoot, 'automation/internal-link-map.json');

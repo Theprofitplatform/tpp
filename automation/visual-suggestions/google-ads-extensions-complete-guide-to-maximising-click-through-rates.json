@@ -1,0 +1,117 @@
+[
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 1,
+    "title": "Screenshot: The Hidden Truth About [Google Ads](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) Extensions Most Sydney Businesses Don't Know",
+    "description": "Screenshot of: ## The Hidden Truth About [Google Ads](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) Extensions Most S",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "67%",
+        "context": "Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Parramatta café that was spending $2,800 monthly on ads but only using location extensions. After implementing our complete extensions strategy, their click-through rate jumped from 2.1% to 6.8% – without spending an extra dollar.",
+        "line": "Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Parramatta café that was spending $2,800 monthly on ads but only using location extensions. After implementing our complete extensions strategy, their click-through rate jumped from 2.1% to 6.8% – without spending an extra dollar."
+      },
+      {
+        "lineNumber": 3,
+        "value": "$2,800",
+        "context": "Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Parramatta café that was spending $2,800 monthly on ads but only using location extensions. After implementing our complete extensions strategy, their click-through rate jumped from 2.1% to 6.8% – without spending an extra dollar.",
+        "line": "Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Parramatta café that was spending $2,800 monthly on ads but only using location extensions. After implementing our complete extensions strategy, their click-through rate jumped from 2.1% to 6.8% – without spending an extra dollar."
+      },
+      {
+        "lineNumber": 3,
+        "value": "2.1%",
+        "context": "Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Parramatta café that was spending $2,800 monthly on ads but only using location extensions. After implementing our complete extensions strategy, their click-through rate jumped from 2.1% to 6.8% – without spending an extra dollar.",
+        "line": "Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Parramatta café that was spending $2,800 monthly on ads but only using location extensions. After implementing our complete extensions strategy, their click-through rate jumped from 2.1% to 6.8% – without spending an extra dollar."
+      },
+      {
+        "lineNumber": 3,
+        "value": "6.8%",
+        "context": "Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Parramatta café that was spending $2,800 monthly on ads but only using location extensions. After implementing our complete extensions strategy, their click-through rate jumped from 2.1% to 6.8% – without spending an extra dollar.",
+        "line": "Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Parramatta café that was spending $2,800 monthly on ads but only using location extensions. After implementing our complete extensions strategy, their click-through rate jumped from 2.1% to 6.8% – without spending an extra dollar."
+      },
+      {
+        "lineNumber": 15,
+        "value": "43%",
+        "context": "When we analysed 150 Sydney Google Ads accounts in 2024, businesses using five or more extension types averaged 43% higher click-through rates than those using just basic sitelinks. The difference in conversion rates? Even more dramatic – 38% higher on average.",
+        "line": "When we analysed 150 Sydney Google Ads accounts in 2024, businesses using five or more extension types averaged 43% higher click-through rates than those using just basic sitelinks. The difference in conversion rates? Even more dramatic – 38% higher on average."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 67%, $2,800, 2.1%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 3,
+    "title": "Screenshot: Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Parramatta café that was spending $2,800 monthly on ads but only using location extensions. After implementing our complete extensions strategy, their click-through rate jumped from 2.1% to 6.8% – without spending an extra dollar.",
+    "description": "Screenshot of: Here's a shocking statistic: 67% of Sydney businesses we audit are leaving money on the table with Google Ads extensions. We recently worked with a Pa",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 5,
+    "title": "Screenshot: The problem? Most [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) business owners think Google Ads extensions are just \"nice-to-have\" add-ons. The reality is they're your secret weapon for dominating search results from Double Bay (2028) to Blacktown (2148).",
+    "description": "Screenshot of: The problem? Most [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) business owners think Google ",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 7,
+    "title": "Before/After: This guide reveals the exact extensions framework we use to maximise click-through rates for our clients, complete with real [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) examples and step-by-step implementation instructions.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "43%",
+      "38%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 11,
+    "title": "Before/After: Google ads extensions are additional pieces of information that expand your standard text ads, making them more prominent and informative in search results. Think of them as free real estate that makes your ad take up more space on the page – crucial when you're competing against established [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) businesses in crowded markets.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "43%",
+      "38%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 36,
+    "title": "Manual vs Automatic Extensions",
+    "description": "Create comparison table/diagram for: Manual vs Automatic Extensions",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 112,
+    "title": "We A/B tested callouts for a Mosman dental practice and found that \"Emergency Appointments Available\" increased clicks by 34% compared to \"Experienced Dentists.\"",
+    "description": "Create comparison table/diagram for: We vs Mosman vs Emergency Appointments Available",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  }
+]

@@ -61,21 +61,6 @@
       "status": "pending"
     },
     {
-      "id": 22,
-      "title": "Google Ads Extensions: Complete Guide to Maximising Click-Through Rates",
-      "category": "Google Ads",
-      "tags": [
-        "Ad Extensions",
-        "CTR",
-        "PPC",
-        "Optimization"
-      ],
-      "targetKeyword": "google ads extensions",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 24,
       "title": "Social Media Marketing for Sydney Small Businesses: What Actually Works",
       "category": "Digital Marketing",
@@ -604,6 +589,25 @@
       "publishedDate": "2025-10-06",
       "publishedSlug": "conversion-rate-optimization-9-quick-wins-for-sydney-service-businesses",
       "wordCount": 2632,
+      "author": "TPP Team"
+    },
+    {
+      "id": 22,
+      "title": "Google Ads Extensions: Complete Guide to Maximising Click-Through Rates",
+      "category": "Google Ads",
+      "tags": [
+        "Ad Extensions",
+        "CTR",
+        "PPC",
+        "Optimization"
+      ],
+      "targetKeyword": "google ads extensions",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "google-ads-extensions-complete-guide-to-maximising-click-through-rates",
+      "wordCount": 3005,
       "author": "TPP Team"
     }
   ],
