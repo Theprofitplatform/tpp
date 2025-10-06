@@ -16,21 +16,6 @@
       "status": "pending"
     },
     {
-      "id": 14,
-      "title": "Link Building Strategies That Actually Work for Sydney Businesses",
-      "category": "SEO",
-      "tags": [
-        "Link Building",
-        "SEO",
-        "Backlinks",
-        "Authority"
-      ],
-      "targetKeyword": "link building sydney",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 15,
       "title": "Google Ads Quality Score: How to Improve It and Lower Your Costs",
       "category": "Google Ads",
@@ -585,6 +570,25 @@
       "publishedSlug": "mobile-first-web-design-why-sydney-businesses-can-t-ignore-it-in-2025",
       "wordCount": 3034,
       "author": "TPP Team"
+    },
+    {
+      "id": 14,
+      "title": "Link Building Strategies That Actually Work for Sydney Businesses",
+      "category": "SEO",
+      "tags": [
+        "Link Building",
+        "SEO",
+        "Backlinks",
+        "Authority"
+      ],
+      "targetKeyword": "link building sydney",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "link-building-strategies-that-actually-work-for-sydney-businesses",
+      "wordCount": 2213,
+      "author": "Avi"
     }
   ],
   "config": {

@@ -1,0 +1,81 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "67%",
+        "context": "67% of Sydney businesses we audit have fewer than 10 quality backlinks pointing to their website. Meanwhile, their page-one competitors average 127 quality links each. That's not just a statistic – it's a $73,000 annual revenue gap for the average [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) business.",
+        "line": "67% of Sydney businesses we audit have fewer than 10 quality backlinks pointing to their website. Meanwhile, their page-one competitors average 127 quality links each. That's not just a statistic – it's a $73,000 annual revenue gap for the average [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) business."
+      },
+      {
+        "lineNumber": 3,
+        "value": "$73,000",
+        "context": "67% of Sydney businesses we audit have fewer than 10 quality backlinks pointing to their website. Meanwhile, their page-one competitors average 127 quality links each. That's not just a statistic – it's a $73,000 annual revenue gap for the average [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) business.",
+        "line": "67% of Sydney businesses we audit have fewer than 10 quality backlinks pointing to their website. Meanwhile, their page-one competitors average 127 quality links each. That's not just a statistic – it's a $73,000 annual revenue gap for the average [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) business."
+      },
+      {
+        "lineNumber": 7,
+        "value": "340%",
+        "context": "This post reveals the exact link building strategies that helped a Parramatta accounting firm increase their organic traffic by 340% and a Bondi Beach restaurant secure the #1 ranking for \"best seafood restaurant [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/)\" within eight months.",
+        "line": "This post reveals the exact link building strategies that helped a Parramatta accounting firm increase their organic traffic by 340% and a Bondi Beach restaurant secure the #1 ranking for \"best seafood restaurant [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/)\" within eight months."
+      },
+      {
+        "lineNumber": 23,
+        "value": "$8,000",
+        "context": "When a Pyrmont tech startup came to us, they'd paid $8,000 for \"300 high-quality backlinks.\" Analysis revealed 276 were from overseas link farms. Google had actually penalised their rankings. It took six months to disavow the toxic links and rebuild their authority properly.",
+        "line": "When a Pyrmont tech startup came to us, they'd paid $8,000 for \"300 high-quality backlinks.\" Analysis revealed 276 were from overseas link farms. Google had actually penalised their rankings. It took six months to disavow the toxic links and rebuild their authority properly."
+      },
+      {
+        "lineNumber": 157,
+        "value": "290%",
+        "context": "- 290% increase in organic traffic",
+        "line": "- 290% increase in organic traffic"
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 67%, $73,000, 340%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 5,
+    "title": "Screenshot: Most local businesses treat **link building sydney** strategies like an afterthought, focusing solely on Google Ads or basic [SEO](/seo) tactics. But here's what we've discovered after building over 2,400 quality backlinks for Sydney clients: the right link building approach doesn't just improve your search [Rankings](/blog/2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/) – it transforms your entire digital presence.",
+    "description": "Screenshot of: Most local businesses treat **link building sydney** strategies like an afterthought, focusing solely on Google Ads or basic [SEO](/seo) tactics. But ",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 154,
+    "title": "Before/After: **Results After 8 Months**:",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "290%",
+      "156%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 216,
+    "title": "Before/After: A: Quality link building typically costs $2,000-$5,000 monthly for comprehensive campaigns, or $1,000-$2,500 for targeted freelancer support. Cheaper options often deliver poor results or penalties.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "$2,000",
+      "$5,000",
+      "$1,000",
+      "$2,500"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  }
+]
