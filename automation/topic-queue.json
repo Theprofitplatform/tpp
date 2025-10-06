@@ -1,21 +1,6 @@
 {
   "queue": [
     {
-      "id": 6,
-      "title": "How to Write Google Ads Copy That Converts for Sydney Service Businesses",
-      "category": "Google Ads",
-      "tags": [
-        "Ad Copywriting",
-        "PPC",
-        "Conversions",
-        "Service Business"
-      ],
-      "targetKeyword": "google ads copywriting",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 8,
       "title": "Landing Page Design That Converts: 11 Sydney Success Stories",
       "category": "Web Design",
@@ -568,6 +553,25 @@
       "publishedDate": "2025-10-06",
       "publishedSlug": "google-ads-vs-seo-which-should-sydney-small-businesses-invest-in-first",
       "wordCount": 2247,
+      "author": "TPP Team"
+    },
+    {
+      "id": 6,
+      "title": "How to Write Google Ads Copy That Converts for Sydney Service Businesses",
+      "category": "Google Ads",
+      "tags": [
+        "Ad Copywriting",
+        "PPC",
+        "Conversions",
+        "Service Business"
+      ],
+      "targetKeyword": "google ads copywriting",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses",
+      "wordCount": 2580,
       "author": "TPP Team"
     }
   ],
