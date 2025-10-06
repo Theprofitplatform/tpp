@@ -1,0 +1,90 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "17%",
+        "context": "Here's a shocking statistic: only 17% of Sydney businesses use schema markup on their websites. [Source: Local Search Association]",
+        "line": "Here's a shocking statistic: only 17% of Sydney businesses use schema markup on their websites. [Source: Local Search Association]"
+      },
+      {
+        "lineNumber": 5,
+        "value": "83%",
+        "context": "That means 83% are invisible to Google's rich results features that could display their star ratings, opening hours, and contact details directly in search results. For a Bondi café competing against 47 other coffee shops within a 2km radius, this difference can mean the gap between thriving and just surviving.",
+        "line": "That means 83% are invisible to Google's rich results features that could display their star ratings, opening hours, and contact details directly in search results. For a Bondi café competing against 47 other coffee shops within a 2km radius, this difference can mean the gap between thriving and just surviving."
+      },
+      {
+        "lineNumber": 7,
+        "value": "35%",
+        "context": "Schema markup for local business isn't just technical SEO jargon – it's the code that tells Google exactly what your business does, where you're located, and why customers should choose you. When implemented correctly, it can increase click-through rates by up to 35% and help you dominate [Local Search](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) results across Sydney's competitive market.",
+        "line": "Schema markup for local business isn't just technical SEO jargon – it's the code that tells Google exactly what your business does, where you're located, and why customers should choose you. When implemented correctly, it can increase click-through rates by up to 35% and help you dominate [Local Search](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) results across Sydney's competitive market."
+      },
+      {
+        "lineNumber": 23,
+        "value": "42%",
+        "context": "We recently implemented comprehensive schema markup for a dental practice in Chatswood. Within 30 days, their [Local Search](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) visibility increased by 42%, and they saw a 28% boost in phone calls from Google searches.",
+        "line": "We recently implemented comprehensive schema markup for a dental practice in Chatswood. Within 30 days, their [Local Search](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) visibility increased by 42%, and they saw a 28% boost in phone calls from Google searches."
+      },
+      {
+        "lineNumber": 23,
+        "value": "28%",
+        "context": "We recently implemented comprehensive schema markup for a dental practice in Chatswood. Within 30 days, their [Local Search](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) visibility increased by 42%, and they saw a 28% boost in phone calls from Google searches.",
+        "line": "We recently implemented comprehensive schema markup for a dental practice in Chatswood. Within 30 days, their [Local Search](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) visibility increased by 42%, and they saw a 28% boost in phone calls from Google searches."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 17%, 83%, 35%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 15,
+    "title": "Screenshot: For local businesses in [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/), schema markup is particularly powerful because it enables rich results in [Local Search](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/). When someone searches for \"plumber Parramatta 2150\" or \"best coffee Bondi Junction 2022\", properly implemented schema can display:",
+    "description": "Screenshot of: For local businesses in [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/), schema markup is par",
+    "example": "Interface screenshot",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 1,
+    "title": "Before/After: Why 83% of [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) Businesses Are Missing Out on Rich Results",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "83%",
+      "17%",
+      "83%",
+      "35%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 5,
+    "title": "Before/After: That means 83% are invisible to Google's rich results features that could display their star ratings, opening hours, and contact details directly in search results. For a Bondi café competing against 47 other coffee shops within a 2km radius, this difference can mean the gap between thriving and just surviving.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "83%",
+      "35%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 56,
+    "title": "We've found that Sydney businesses using detailed LocalBusiness schema rank an average of 1.3 positions higher in local pack results compared to those without it.",
+    "description": "Create comparison table/diagram for: We vs Sydney vs Local",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  }
+]

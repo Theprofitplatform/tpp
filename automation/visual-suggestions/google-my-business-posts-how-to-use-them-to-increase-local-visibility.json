@@ -1,0 +1,119 @@
+[
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 3,
+    "title": "Screenshot: Here's a shocking truth: Most Sydney businesses spend thousands on [Google Ads](/google-ads) while completely ignoring a free feature that could double their local visibility. We're talking about Google My Business posts.",
+    "description": "Screenshot of: Here's a shocking truth: Most Sydney businesses spend thousands on [Google Ads](/google-ads) while completely ignoring a free feature that could doubl",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 5,
+    "data": [
+      {
+        "lineNumber": 5,
+        "value": "89%",
+        "context": "In our analysis of 200+ [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) businesses across suburbs from Parramatta (2150) to Bondi (2026), we found that 89% never use Google My Business posts. Yet the businesses that do post consistently see 67% more customer actions on their profiles.",
+        "line": "In our analysis of 200+ [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) businesses across suburbs from Parramatta (2150) to Bondi (2026), we found that 89% never use Google My Business posts. Yet the businesses that do post consistently see 67% more customer actions on their profiles."
+      },
+      {
+        "lineNumber": 5,
+        "value": "67%",
+        "context": "In our analysis of 200+ [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) businesses across suburbs from Parramatta (2150) to Bondi (2026), we found that 89% never use Google My Business posts. Yet the businesses that do post consistently see 67% more customer actions on their profiles.",
+        "line": "In our analysis of 200+ [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) businesses across suburbs from Parramatta (2150) to Bondi (2026), we found that 89% never use Google My Business posts. Yet the businesses that do post consistently see 67% more customer actions on their profiles."
+      },
+      {
+        "lineNumber": 31,
+        "value": "89%",
+        "context": "\"found that 89% never use Google My Busin...\",",
+        "line": "\"found that 89% never use Google My Busin...\","
+      },
+      {
+        "lineNumber": 277,
+        "value": "200%",
+        "context": "Here's what makes them powerful: [Google's own documentation confirms](https://support.google.com/business/answer/7342169) that posts can influence your [Local Search](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-[Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/)-local-search-in-2025/) rankings and increase customer engagement by up to 200% [Source: Google Business Support].",
+        "line": "Here's what makes them powerful: [Google's own documentation confirms](https://support.google.com/business/answer/7342169) that posts can influence your [Local Search](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-[Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/)-local-search-in-2025/) rankings and increase customer engagement by up to 200% [Source: Google Business Support]."
+      },
+      {
+        "lineNumber": 309,
+        "value": "40%",
+        "context": "**What's New Posts** work best for announcements, new services, or time-sensitive offers. We use these for 40% of our clients' posts because they drive immediate action.",
+        "line": "**What's New Posts** work best for announcements, new services, or time-sensitive offers. We use these for 40% of our clients' posts because they drive immediate action."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 89%, 67%, 89%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 382,
+    "title": "Screenshot: - \"Behind the scenes: Our head chef selecting produce at 5am this morning at Flemington Markets\" (shared 45 times)",
+    "description": "Screenshot of: - \"Behind the scenes: Our head chef selecting produce at 5am this morning at Flemington Markets\" (shared 45 times)  **Results after 90 days:**",
+    "example": "Interface screenshot",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 451,
+    "title": "Screenshot: - Google Analytics (for tracking website traffic from posts)",
+    "description": "Screenshot of: - Google Analytics (for tracking website traffic from posts)  **Paid tools we recommend:**",
+    "example": "Google Analytics 4 interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 319,
+    "title": "Before/After: **Pro tip:** Rotate between post types to keep your profile dynamic. We typically use a 40% What's New, 30% Product, 20% Offer, 10% Event split for most Sydney clients.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "40%",
+      "30%",
+      "20%",
+      "10%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 342,
+    "title": "Before/After: > \"Relaxation massage available today. Online booking in 30 seconds, located 2 minutes from Circular Quay station. New client special: $89 (normally $120).\"",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "$89",
+      "$120"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 420,
+    "title": "Comparison Table",
+    "description": "Create comparison table/diagram for: Bondi posts vs Parramatta posts vs CBD posts vs Northern Beaches posts",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 421,
+    "title": "Comparison Table",
+    "description": "Create comparison table/diagram for: Parramatta posts vs CBD posts vs Northern Beaches posts",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  }
+]

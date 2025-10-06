@@ -320,14 +320,19 @@ const schema = {
     </div>
 
     <div class="container">
-      <!-- Table of Contents (will be populated by JavaScript) -->
-      <aside class="table-of-contents" id="toc-container" style="display: none;">
-        <h3 class="toc-title">Table of Contents</h3>
-        <nav id="toc-nav"></nav>
-      </aside>
+      <div class="blog-layout">
+        <!-- Main Content -->
+        <div class="post-content">
+          <Content />
+        </div>
 
-      <div class="post-content">
-        <Content />
+        <!-- Table of Contents Sidebar (will be populated by JavaScript) -->
+        <aside class="table-of-contents" id="toc-container" style="display: none;">
+          <div class="toc-sticky">
+            <h3 class="toc-title">Table of Contents</h3>
+            <nav id="toc-nav"></nav>
+          </div>
+        </aside>
       </div>
 
       <div class="post-footer">
@@ -677,18 +682,34 @@ const schema = {
   }
 
   .container {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
-  /* Table of Contents */
+  /* Blog Layout - Two Column with Sidebar */
+  .blog-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+
+  /* Table of Contents - Sticky Sidebar */
   .table-of-contents {
+    order: 2;
+  }
+
+  .toc-sticky {
+    position: sticky;
+    top: 120px;
     background: #f8fafc;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
     padding: 1.5rem;
-    margin: 2rem 0;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
   }
 
   .toc-title {
@@ -745,6 +766,8 @@ const schema = {
     line-height: 1.75;
     font-size: 1.1875rem;
     color: #334155;
+    max-width: 800px;
+    order: 1;
   }
 
   /* Hide duplicate H1 from markdown content */
@@ -1079,14 +1102,28 @@ const schema = {
     color: #667eea;
   }
 
+  /* Tablet */
+  @media (max-width: 1024px) {
+    .blog-layout {
+      grid-template-columns: 1fr 280px;
+      gap: 2rem;
+    }
+
+    .post-content {
+      max-width: 100%;
+    }
+  }
+
   /* Mobile */
   @media (max-width: 768px) {
+    .container,
     .container-narrow {
       padding: 0 1.25rem;
     }
 
     .breadcrumbs {
       padding: 0.75rem 0;
+      margin-top: 80px;
     }
 
     .breadcrumbs li {
@@ -1094,11 +1131,22 @@ const schema = {
     }
 
     .post-header {
-      padding: 2.5rem 0;
+      padding: 1.5rem 0 1rem;
     }
 
     .post-title {
       margin: 1rem 0 0.75rem;
+      font-size: 1.75rem;
+    }
+
+    .post-lead {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .category-badge {
+      font-size: 0.7rem;
+      padding: 0.35rem 0.85rem;
     }
 
     .post-meta {
@@ -1115,9 +1163,22 @@ const schema = {
       margin-top: 1rem;
     }
 
+    /* Stack layout on mobile - Hide TOC */
+    .blog-layout {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .table-of-contents {
+      display: none;
+    }
+
     .post-content {
+      order: 1;
       font-size: 1.125rem;
       line-height: 1.7;
+      max-width: 100%;
     }
 
     .post-content :global(h2) {
@@ -1136,15 +1197,23 @@ const schema = {
     }
 
     .featured-image-container {
-      padding: 2rem 0 1.5rem;
+      padding: 0;
+      margin: 0 0 2rem 0;
+      background: transparent;
     }
 
     .featured-image {
-      padding: 0 1.25rem;
+      padding: 0;
+      margin: 0;
     }
 
     .featured-image img {
-      border-radius: 8px;
+      border-radius: 0;
+      width: 100%;
+    }
+
+    .featured-image.default-hero svg {
+      border-radius: 0;
     }
 
     .author-bio-card {

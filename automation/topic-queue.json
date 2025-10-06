@@ -76,21 +76,6 @@
       "status": "pending"
     },
     {
-      "id": 25,
-      "title": "Google My Business Posts: How to Use Them to Increase Local Visibility",
-      "category": "SEO",
-      "tags": [
-        "Google Business Profile",
-        "Local SEO",
-        "Posts",
-        "Engagement"
-      ],
-      "targetKeyword": "google my business posts",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 26,
       "title": "Email Marketing Automation for Sydney Service-Based Businesses",
       "category": "Digital Marketing",
@@ -106,36 +91,6 @@
       "status": "pending"
     },
     {
-      "id": 27,
-      "title": "Google Analytics 4: Complete Setup Guide for Sydney Business Owners",
-      "category": "Analytics",
-      "tags": [
-        "Google Analytics",
-        "GA4",
-        "Setup",
-        "Tracking"
-      ],
-      "targetKeyword": "google analytics 4 setup",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
-      "id": 29,
-      "title": "Schema Markup for Local Sydney Businesses: Implementation Guide",
-      "category": "SEO",
-      "tags": [
-        "Schema Markup",
-        "Structured Data",
-        "Local SEO",
-        "Rich Results"
-      ],
-      "targetKeyword": "schema markup local business",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 30,
       "title": "Website Accessibility: Legal Requirements and SEO Benefits for Sydney Sites",
       "category": "Web Design",
@@ -148,36 +103,6 @@
       "targetKeyword": "website accessibility",
       "searchIntent": "informational",
       "priority": 3,
-      "status": "pending"
-    },
-    {
-      "id": 31,
-      "title": "Local Citations: Building Authority for Sydney Multi-Location Businesses",
-      "category": "SEO",
-      "tags": [
-        "Citations",
-        "Local SEO",
-        "NAP",
-        "Directory Listings"
-      ],
-      "targetKeyword": "local citations sydney",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
-      "id": 32,
-      "title": "Google Ads Bidding Strategies: Which One is Right for Your Sydney Business?",
-      "category": "Google Ads",
-      "tags": [
-        "Bidding Strategies",
-        "PPC",
-        "Automation",
-        "ROI"
-      ],
-      "targetKeyword": "google ads bidding strategies",
-      "searchIntent": "commercial",
-      "priority": 2,
       "status": "pending"
     },
     {
@@ -608,6 +533,101 @@
       "publishedDate": "2025-10-06",
       "publishedSlug": "google-ads-extensions-complete-guide-to-maximising-click-through-rates",
       "wordCount": 3005,
+      "author": "TPP Team"
+    },
+    {
+      "id": 25,
+      "title": "Google My Business Posts: How to Use Them to Increase Local Visibility",
+      "category": "SEO",
+      "tags": [
+        "Google Business Profile",
+        "Local SEO",
+        "Posts",
+        "Engagement"
+      ],
+      "targetKeyword": "google my business posts",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "google-my-business-posts-how-to-use-them-to-increase-local-visibility",
+      "wordCount": 2420,
+      "author": "Avi"
+    },
+    {
+      "id": 27,
+      "title": "Google Analytics 4: Complete Setup Guide for Sydney Business Owners",
+      "category": "Analytics",
+      "tags": [
+        "Google Analytics",
+        "GA4",
+        "Setup",
+        "Tracking"
+      ],
+      "targetKeyword": "google analytics 4 setup",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "google-analytics-4-complete-setup-guide-for-sydney-business-owners",
+      "wordCount": 2208,
+      "author": "Avi"
+    },
+    {
+      "id": 29,
+      "title": "Schema Markup for Local Sydney Businesses: Implementation Guide",
+      "category": "SEO",
+      "tags": [
+        "Schema Markup",
+        "Structured Data",
+        "Local SEO",
+        "Rich Results"
+      ],
+      "targetKeyword": "schema markup local business",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "schema-markup-for-local-sydney-businesses-implementation-guide",
+      "wordCount": 2601,
+      "author": "Avi"
+    },
+    {
+      "id": 31,
+      "title": "Local Citations: Building Authority for Sydney Multi-Location Businesses",
+      "category": "SEO",
+      "tags": [
+        "Citations",
+        "Local SEO",
+        "NAP",
+        "Directory Listings"
+      ],
+      "targetKeyword": "local citations sydney",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "local-citations-building-authority-for-sydney-multi-location-businesses",
+      "wordCount": 2585,
+      "author": "Avi"
+    },
+    {
+      "id": 32,
+      "title": "Google Ads Bidding Strategies: Which One is Right for Your Sydney Business?",
+      "category": "Google Ads",
+      "tags": [
+        "Bidding Strategies",
+        "PPC",
+        "Automation",
+        "ROI"
+      ],
+      "targetKeyword": "google ads bidding strategies",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "google-ads-bidding-strategies-which-one-is-right-for-your-sydney-business",
+      "wordCount": 3888,
       "author": "TPP Team"
     }
   ],

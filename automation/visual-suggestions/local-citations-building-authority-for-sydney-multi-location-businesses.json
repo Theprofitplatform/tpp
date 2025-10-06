@@ -1,0 +1,84 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "67%",
+        "context": "67% of Sydney businesses with multiple locations are unknowingly sabotaging their search rankings. They've got their [Google Business Profile](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) set up, they're posting content, but they're missing the foundation that makes everything else work: consistent local citations.",
+        "line": "67% of Sydney businesses with multiple locations are unknowingly sabotaging their search rankings. They've got their [Google Business Profile](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) set up, they're posting content, but they're missing the foundation that makes everything else work: consistent local citations."
+      },
+      {
+        "lineNumber": 5,
+        "value": "$4,500",
+        "context": "We recently audited a fitness chain with 8 locations across [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) suburbs (2000, 2088, 2026, 2060, and others). Despite spending $4,500/month on [digital marketing](/services), only 2 locations ranked in the top 3 for local searches. The culprit? Their business information appeared in 147 different variations across directories. Same business, but Google couldn't figure out which locations were legitimate.",
+        "line": "We recently audited a fitness chain with 8 locations across [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) suburbs (2000, 2088, 2026, 2060, and others). Despite spending $4,500/month on [digital marketing](/services), only 2 locations ranked in the top 3 for local searches. The culprit? Their business information appeared in 147 different variations across directories. Same business, but Google couldn't figure out which locations were legitimate."
+      },
+      {
+        "lineNumber": 15,
+        "value": "73%",
+        "context": "In [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/)'s competitive market, we've found that businesses with consistent citations across 50+ directories rank 73% higher in local search results than those with inconsistent information [Source: Moz Local Search Ranking Factors Study](https://moz.com/local-search-ranking-factors).",
+        "line": "In [Sydney](/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/)'s competitive market, we've found that businesses with consistent citations across 50+ directories rank 73% higher in local search results than those with inconsistent information [Source: Moz Local Search Ranking Factors Study](https://moz.com/local-search-ranking-factors)."
+      },
+      {
+        "lineNumber": 57,
+        "value": "34%",
+        "context": "For a Parramatta accounting firm (2150), we found competitors consistently appeared on 12 industry-specific directories we hadn't considered. Adding those citations resulted in a 34% increase in local search visibility within 3 months.",
+        "line": "For a Parramatta accounting firm (2150), we found competitors consistently appeared on 12 industry-specific directories we hadn't considered. Adding those citations resulted in a 34% increase in local search visibility within 3 months."
+      },
+      {
+        "lineNumber": 179,
+        "value": "127%",
+        "context": "- Organic local traffic increased 127% across all locations",
+        "line": "- Organic local traffic increased 127% across all locations"
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 67%, $4,500, 73%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 273,
+    "title": "Screenshot: - **Google Analytics:** Location-based traffic analysis with UTM parameters",
+    "description": "Screenshot of: - **Google Analytics:** Location-based traffic analysis with UTM parameters - **Google Search Console:** Local search query performance ",
+    "example": "Google Analytics 4 interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 24,
+    "title": "- Phone numbers formatted differently (+61 vs 02 vs international format)",
+    "description": "Create comparison table/diagram for: Phone",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 177,
+    "title": "Before/After: **Results After 4 Months:**",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "127%",
+      "89%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 180,
+    "title": "- New Bondi location generated 43 leads in month 4 vs 2 in month 1",
+    "description": "Create comparison table/diagram for: New Bondi",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  }
+]

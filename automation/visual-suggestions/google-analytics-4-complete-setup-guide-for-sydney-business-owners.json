@@ -1,0 +1,108 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "15%",
+        "context": "Here's a shocking reality: We recently audited 50 Sydney businesses across Parramatta, Bondi, and the CBD. Only 15% had Google Analytics 4 properly configured. The rest? They're flying blind, missing critical insights about their customers' behaviour, and potentially losing thousands in revenue.",
+        "line": "Here's a shocking reality: We recently audited 50 Sydney businesses across Parramatta, Bondi, and the CBD. Only 15% had Google Analytics 4 properly configured. The rest? They're flying blind, missing critical insights about their customers' behaviour, and potentially losing thousands in revenue."
+      },
+      {
+        "lineNumber": 13,
+        "value": "78%",
+        "context": "For Sydney businesses, this matters more than you might think. With 78% of Australians using multiple devices to research purchases [Source: Australian Bureau of Statistics], the improved cross-device tracking in GA4 gives you a clearer picture of your customer journey.",
+        "line": "For Sydney businesses, this matters more than you might think. With 78% of Australians using multiple devices to research purchases [Source: Australian Bureau of Statistics], the improved cross-device tracking in GA4 gives you a clearer picture of your customer journey."
+      },
+      {
+        "lineNumber": 60,
+        "value": "43%",
+        "context": "**For WordPress sites** (which 43% of our Sydney clients use):",
+        "line": "**For WordPress sites** (which 43% of our Sydney clients use):"
+      },
+      {
+        "lineNumber": 92,
+        "value": "340%",
+        "context": "**Real example**: A Parramatta plumber we work with increased their lead tracking accuracy by 340% simply by properly setting up phone call conversions. They discovered that 60% of their leads came from mobile users calling directly from Google search results.",
+        "line": "**Real example**: A Parramatta plumber we work with increased their lead tracking accuracy by 340% simply by properly setting up phone call conversions. They discovered that 60% of their leads came from mobile users calling directly from Google search results."
+      },
+      {
+        "lineNumber": 92,
+        "value": "60%",
+        "context": "**Real example**: A Parramatta plumber we work with increased their lead tracking accuracy by 340% simply by properly setting up phone call conversions. They discovered that 60% of their leads came from mobile users calling directly from Google search results.",
+        "line": "**Real example**: A Parramatta plumber we work with increased their lead tracking accuracy by 340% simply by properly setting up phone call conversions. They discovered that 60% of their leads came from mobile users calling directly from Google search results."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 15%, 78%, 43%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 3,
+    "title": "Screenshot: Here's a shocking reality: We recently audited 50 Sydney businesses across Parramatta, Bondi, and the CBD. Only 15% had Google Analytics 4 properly configured. The rest? They're flying blind, missing critical insights about their customers' behaviour, and potentially losing thousands in revenue.",
+    "description": "Screenshot of: Here's a shocking reality: We recently audited 50 Sydney businesses across Parramatta, Bondi, and the CBD. Only 15% had Google Analytics 4 properly co",
+    "example": "Google Analytics 4 interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 5,
+    "title": "Screenshot: If you're still using Universal Analytics (which Google shut down in July 2023), or if you've hastily switched to GA4 without proper [Setup](/blog/google-ads-for-service-businesses-campaign-structure-that-converts/), you're probably one of them. The good news? Google Analytics 4 setup doesn't have to be complicated when you know the exact steps.",
+    "description": "Screenshot of: If you're still using Universal Analytics (which Google shut down in July 2023), or if you've hastily switched to GA4 without proper [Setup](/blog/goo",
+    "example": "Google Analytics 4 interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 7,
+    "title": "Screenshot: In this comprehensive guide, we'll walk you through the complete Google Analytics 4 [Setup](/blog/google-ads-for-service-businesses-campaign-structure-that-converts/) process that we use for our Sydney clients. You'll learn not just how to install it, but how to configure it properly to track what actually matters for your business growth.",
+    "description": "Screenshot of: In this comprehensive guide, we'll walk you through the complete Google Analytics 4 [Setup](/blog/google-ads-for-service-businesses-campaign-structure",
+    "example": "Google Analytics 4 interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 92,
+    "title": "Before/After: **Real example**: A Parramatta plumber we work with increased their lead tracking accuracy by 340% simply by properly setting up phone call conversions. They discovered that 60% of their leads came from mobile users calling directly from Google search results.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "340%",
+      "60%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 149,
+    "title": "Before/After: **The Results**: Within three months of proper GA4 implementation:",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "45%",
+      "28%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "flowchart",
+    "priority": "low",
+    "location": 26,
+    "title": "Flowchart: The Complete Google Analytics 4 [Setup](/blog/google-ads-for-service-businesses-campaign-structure-that-converts/) Process",
+    "description": "Create process flowchart showing: Step 1: Create Your GA4 Property → Go to [analytics.google.com](https://analytics.goo → Click \"Create\" and select \"Property\" → Enter your property name (use your business name f → Select your reporting time zone (Australia/Sydney  → Choose your currency (Australian Dollar)",
+    "tool": "Lucidchart, Miro, or Excalidraw",
+    "estimatedTime": "20-30 minutes"
+  }
+]

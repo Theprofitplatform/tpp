@@ -1,0 +1,120 @@
+[
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 1,
+    "title": "Screenshot: The $47,000 Mistake: Why Most [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) Businesses Get Google Ads Bidding Wrong",
+    "description": "Screenshot of: ## The $47,000 Mistake: Why Most [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) Businesses Get",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "$3,900",
+        "context": "Last month, we checked a law firm in Bondi Junction. They spent $3,900 each month on Google Ads. They used automated bidding (Google picks your bids for you).",
+        "line": "Last month, we checked a law firm in Bondi Junction. They spent $3,900 each month on Google Ads. They used automated bidding (Google picks your bids for you)."
+      },
+      {
+        "lineNumber": 208,
+        "value": "87%",
+        "context": "Here's the truth: **87% of [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) businesses use Google Ads bidding strategies that hurt their goals**. You might own a shop in Double Bay. Or you might be a tradie in Parramatta. Pick the wrong bidding strategy and it drains your budget fast.",
+        "line": "Here's the truth: **87% of [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) businesses use Google Ads bidding strategies that hurt their goals**. You might own a shop in Double Bay. Or you might be a tradie in Parramatta. Pick the wrong bidding strategy and it drains your budget fast."
+      },
+      {
+        "lineNumber": 233,
+        "value": "87%",
+        "context": "\"Here's the truth: **87% of [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) busine...\",",
+        "line": "\"Here's the truth: **87% of [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) busine...\","
+      },
+      {
+        "lineNumber": 234,
+        "value": "70%",
+        "context": "\"1. **Start Low**: Begin with 70% of Goog...\",",
+        "line": "\"1. **Start Low**: Begin with 70% of Goog...\","
+      },
+      {
+        "lineNumber": 235,
+        "value": "30%",
+        "context": "\"4. **Bid by Location**: Bid 20-30% highe...\",",
+        "line": "\"4. **Bid by Location**: Bid 20-30% highe...\","
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: $3,900, 87%, 87%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 3,
+    "title": "Screenshot: Last month, we checked a law firm in Bondi Junction. They spent $3,900 each month on Google Ads. They used automated bidding (Google picks your bids for you).",
+    "description": "Screenshot of: Last month, we checked a law firm in Bondi Junction. They spent $3,900 each month on Google Ads. They used automated bidding (Google picks your bids f",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 208,
+    "title": "Screenshot: Here's the truth: **87% of [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) businesses use Google Ads bidding strategies that hurt their goals**. You might own a shop in Double Bay. Or you might be a tradie in Parramatta. Pick the wrong bidding strategy and it drains your budget fast.",
+    "description": "Screenshot of: Here's the truth: **87% of [Sydney](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) businesses use Googl",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 337,
+    "title": "Before/After: **Real Example:** A dental practice in Neutral Bay started with manual CPC bidding. They paid $2.80 per click for \"emergency dentist neutral bay\".",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "$2",
+      "$1",
+      "$4",
+      "70%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 344,
+    "title": "2. **Bid by Intent**: Bid higher on keywords like \"plumber near me\" vs info terms",
+    "description": "Create comparison table/diagram for: Bid vs Intent vs Bid",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 364,
+    "title": "Before/After: **Case Study:** A fitness studio in Manly switched from manual CPC to Enhanced CPC after 4 months. Their cost per gym membership enquiry dropped from $23 to $16 in 6 weeks. Lead quality stayed the same.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "$23",
+      "$16",
+      "40%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 458,
+    "title": "Smart Bidding vs Traditional: The Sydney Market Reality",
+    "description": "Create comparison table/diagram for: Smart Bidding vs Traditional vs The Sydney Market Reality",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  }
+]
