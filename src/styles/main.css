@@ -44,3 +44,6 @@
 
 /* Mobile nav flex fix - MUST be last to override bundled CSS */
 @import url('/css/mobile-nav-fix.css');
+
+/* CRITICAL: globals.css MUST load LAST to override old CSS files */
+@import './globals.css';
