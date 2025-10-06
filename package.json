@@ -20,6 +20,7 @@
     "blog:plagiarism": "node tools/blog-cli.mjs plagiarism",
     "blog:images": "node tools/blog-cli.mjs images",
     "blog:link-map": "node tools/blog-cli.mjs link-map",
+    "blog:update-link-map": "node automation/scripts/update-link-map.js",
     "blog:performance": "node tools/blog-cli.mjs performance",
     "blog:insights": "node tools/blog-cli.mjs insights",
     "blog:optimize": "node tools/blog-cli.mjs optimize",
