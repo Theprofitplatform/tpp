@@ -273,7 +273,7 @@ Your website needs to match Chatswood expectations:
 
 ## Get Started
 
-📞 **Phone:** [(02) 1234 5678](tel:+61487286451)
+📞 **Phone:** [+61 487 286 451](tel:+61487286451)
 📧 **Email:** [avi@theprofitplatform.com.au](mailto:avi@theprofitplatform.com.au)
 
 [Book Your Free Strategy Call →](/contact)

@@ -123,6 +123,11 @@ schema: [
 
 87% of Sydney consumers now use their mobile devices as their primary gateway to local businesses. Yet when we audit websites across Parramatta, Bondi, and the CBD, we consistently find that 6 out of 10 businesses are still designing for desktop first—then awkwardly squeezing their content onto mobile screens as an afterthought.
 
+<!-- TODO: Insert Key Statistics Chart Here
+![Sydney Mobile Usage Statistics 2025](/images/blog/mobile-first-design/sydney-mobile-stats-2025.webp)
+*Key mobile usage statistics across Sydney: 87% use mobile as primary gateway, 70% of local searches on mobile, 85% peak mobile traffic in inner suburbs*
+-->
+
 This backwards approach is costing Sydney businesses thousands of potential customers every month. Google's mobile-first indexing means your mobile site now determines your search rankings, and with over 70% of local searches happening on mobile devices, there's never been a higher cost for getting this wrong.
 
 In this guide, I'll walk you through the exact mobile first web design framework we use to help Sydney businesses capture more leads, improve their search rankings, and create websites that actually convert mobile visitors into paying customers.
@@ -141,11 +146,21 @@ Sydney's unique geography and lifestyle patterns create specific mobile usage be
 
 We've seen this firsthand with a Manly café client who redesigned their site with mobile-first principles. Their mobile conversion rate jumped from 1.2% to 4.7% within three months, directly translating to an additional $18,000 in monthly revenue during their peak summer period.
 
+<!-- TODO: Insert Before/After Conversion Chart Here
+![Manly Café Mobile Conversion Improvement](/images/blog/mobile-first-design/conversion-before-after.webp)
+*Before and after mobile conversion rates: 1.2% increased to 4.7% (292% improvement) resulting in $18,000 additional monthly revenue*
+-->
+
 ## The Real Problem with Desktop-First Design in 2025
 
 When businesses design for desktop first, they typically fall into what we call the "feature creep trap." Desktop sites have unlimited real estate, so designers pack in every possible feature, navigation option, and piece of content they can imagine.
 
 Then comes the mobile adaptation process—and suddenly you're trying to fit a mansion into a studio apartment. The result? Cluttered interfaces, slow loading times, and frustrated users who abandon ship before making a purchase.
+
+<!-- TODO: Insert Desktop vs Mobile Interface Comparison Here
+![Cluttered desktop-first design versus clean mobile-first design](/images/blog/mobile-first-design/cluttered-interface-comparison.webp)
+*Side-by-side comparison: cramped desktop-first mobile design (left) versus clean, user-friendly mobile-first design (right)*
+-->
 
 ### The Hidden Costs of Poor Mobile Experience
 
@@ -157,9 +172,19 @@ In our experience auditing Sydney websites, poor mobile design creates a cascade
 
 **Increased Marketing Costs**: When your website doesn't convert mobile traffic well, your [Google Ads](/google-ads) costs skyrocket. You're paying the same amount for clicks but getting fewer customers, effectively making every lead more expensive.
 
+<!-- TODO: Insert Google Ads Cost Impact Screenshot Here
+![Google Ads dashboard showing mobile performance disparity](/images/blog/mobile-first-design/google-ads-mobile-cost.webp)
+*Google Ads dashboard highlighting higher costs and lower conversions for mobile traffic on non-optimized websites*
+-->
+
 ## The Mobile-First Design Framework We Use for Sydney Businesses
 
 After optimising hundreds of Sydney websites for mobile-first performance, we've developed a systematic approach that consistently delivers results. Here's the exact framework we follow:
+
+<!-- TODO: Insert Mobile-First Process Flowchart Here
+![Mobile-First Design Process Flowchart](/images/blog/mobile-first-design/mobile-first-process-flow.svg)
+*Step-by-step mobile-first design process: Content hierarchy → Touch interactions → Performance → Progressive enhancement → Testing*
+-->
 
 ### Step 1: Start with Mobile Content Hierarchy
 
@@ -306,6 +331,11 @@ Implementing effective mobile-first design requires the right tools and resource
 - **Figma**: Excellent for designing mobile-first user interfaces with collaborative features
 - **Adobe XD**: Strong prototyping capabilities for mobile interactions
 - **Sketch**: Popular among designers, with good mobile design templates
+
+<!-- TODO: Insert Figma Workflow Screenshot Here
+![Figma mobile-first design workflow](/images/blog/mobile-first-design/figma-mobile-first-workflow.webp)
+*Figma interface showing mobile-first design process with mobile frame, components library, and prototype connections*
+-->
 
 **Mobile Testing Tools:**
 - **Google's Mobile-Friendly Test**: Free tool to check mobile optimisation

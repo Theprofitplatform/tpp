@@ -442,7 +442,7 @@ We recommend starting with Google Ads for immediate results while building SEO f
 **The Profit Platform**
 Digital Marketing Services Bondi & Eastern Suburbs
 
-📞 **Phone:** [(02) 1234 5678](tel:+61487286451)
+📞 **Phone:** [+61 487 286 451](tel:+61487286451)
 📧 **Email:** [avi@theprofitplatform.com.au](mailto:avi@theprofitplatform.com.au)
 🌐 **Website:** [theprofitplatform.com.au](https://theprofitplatform.com.au)
 

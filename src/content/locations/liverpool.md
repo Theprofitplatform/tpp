@@ -263,7 +263,7 @@ Liverpool's rapid growth means huge opportunity for businesses with strong onlin
 
 ## Get Started
 
-📞 **Phone:** [(02) 1234 5678](tel:+61487286451)
+📞 **Phone:** [+61 487 286 451](tel:+61487286451)
 📧 **Email:** [avi@theprofitplatform.com.au](mailto:avi@theprofitplatform.com.au)
 
 [Book Your Free Strategy Call →](/contact)
