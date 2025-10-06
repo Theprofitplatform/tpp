@@ -300,21 +300,6 @@
       "status": "pending"
     },
     {
-      "id": 28,
-      "title": "Negative Keywords: How to Stop Wasting Money on Google Ads",
-      "category": "Google Ads",
-      "tags": [
-        "Negative Keywords",
-        "PPC Optimization",
-        "Cost Reduction",
-        "Targeting"
-      ],
-      "targetKeyword": "negative keywords google ads",
-      "searchIntent": "informational",
-      "priority": 1,
-      "status": "pending"
-    },
-    {
       "id": 29,
       "title": "Schema Markup for Local Sydney Businesses: Implementation Guide",
       "category": "SEO",
@@ -553,6 +538,25 @@
       "publishedSlug": "technical-seo-audit-checklist-for-sydney-business-websites",
       "wordCount": 2053,
       "author": "Avi"
+    },
+    {
+      "id": 28,
+      "title": "Negative Keywords: How to Stop Wasting Money on Google Ads",
+      "category": "Google Ads",
+      "tags": [
+        "Negative Keywords",
+        "PPC Optimization",
+        "Cost Reduction",
+        "Targeting"
+      ],
+      "targetKeyword": "negative keywords google ads",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "negative-keywords-how-to-stop-wasting-money-on-google-ads",
+      "wordCount": 1988,
+      "author": "TPP Team"
     }
   ],
   "config": {
