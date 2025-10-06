@@ -1,0 +1,99 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "67%",
+        "context": "Here's a startling fact from our analysis of 500 Sydney business websites: 67% of WordPress sites rank on page 3 or lower of Google search results. That means they're practically invisible to potential customers searching for their services in suburbs like Parramatta, Bondi, or the CBD.",
+        "line": "Here's a startling fact from our analysis of 500 Sydney business websites: 67% of WordPress sites rank on page 3 or lower of Google search results. That means they're practically invisible to potential customers searching for their services in suburbs like Parramatta, Bondi, or the CBD."
+      },
+      {
+        "lineNumber": 11,
+        "value": "43%",
+        "context": "WordPress powers 43% of all websites globally, but in our experience working with Sydney businesses, most aren't leveraging its SEO potential [Source: W3Techs].",
+        "line": "WordPress powers 43% of all websites globally, but in our experience working with Sydney businesses, most aren't leveraging its SEO potential [Source: W3Techs]."
+      },
+      {
+        "lineNumber": 19,
+        "value": "78%",
+        "context": "Local search behaviour in Sydney is unique. Customers often search with location modifiers like \"near me\" or specific suburb names. When we analysed search data for postcodes 2000 (CBD), 2026 (Bondi), and 2060 (North Sydney), we found that 78% of local searches included location terms.",
+        "line": "Local search behaviour in Sydney is unique. Customers often search with location modifiers like \"near me\" or specific suburb names. When we analysed search data for postcodes 2000 (CBD), 2026 (Bondi), and 2060 (North Sydney), we found that 78% of local searches included location terms."
+      },
+      {
+        "lineNumber": 37,
+        "value": "30%",
+        "context": "**Reality**: Plugins handle maybe 30% of WordPress SEO requirements. The real gains come from technical optimisation.",
+        "line": "**Reality**: Plugins handle maybe 30% of WordPress SEO requirements. The real gains come from technical optimisation."
+      },
+      {
+        "lineNumber": 88,
+        "value": "68%",
+        "context": "With 68% of Sydney local searches happening on mobile devices, your WordPress site must be mobile-perfect [Source: Google Mobile Search Statistics].",
+        "line": "With 68% of Sydney local searches happening on mobile devices, your WordPress site must be mobile-perfect [Source: Google Mobile Search Statistics]."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 67%, 43%, 78%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 41,
+    "title": "Screenshot: Before diving into advanced strategies, your WordPress site needs these fundamental elements configured correctly. We'll cover each in detail.",
+    "description": "Screenshot of: Before diving into advanced strategies, your WordPress site needs these fundamental elements configured correctly. We'll cover each in detail.  ### Ch",
+    "example": "Settings/configuration panel",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 53,
+    "title": "Screenshot: Essential WordPress SEO Settings",
+    "description": "Screenshot of: ### Essential WordPress SEO Settings  **Permalink Structure**: Use \"Post name\" structure (`domain.com/your-page-title`) rather than default numbers. T",
+    "example": "Settings/configuration panel",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 57,
+    "title": "Screenshot: Search Engine Visibility**: Ensure \"Discourage search engines from indexing this site\" is unchecked under Settings > Reading. We've seen this simple checkbox cost Sydney businesses thousands in lost traffic.",
+    "description": "Screenshot of: **Search Engine Visibility**: Ensure \"Discourage search engines from indexing this site\" is unchecked under Settings > Reading. We've seen this simple",
+    "example": "Settings/configuration panel",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 3,
+    "title": "Before/After: Here's a startling fact from our analysis of 500 Sydney business websites: 67% of WordPress sites rank on page 3 or lower of Google search results. That means they're practically invisible to potential customers searching for their services in suburbs like Parramatta, Bondi, or the CBD.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "67%",
+      "43%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 244,
+    "title": "Before/After: **Results After 90 Days**:",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "6x",
+      "40%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  }
+]

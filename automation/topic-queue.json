@@ -46,36 +46,6 @@
       "status": "pending"
     },
     {
-      "id": 19,
-      "title": "WordPress SEO: Complete Optimization Guide for Sydney Websites",
-      "category": "SEO",
-      "tags": [
-        "WordPress",
-        "SEO",
-        "CMS",
-        "Optimization"
-      ],
-      "targetKeyword": "wordpress seo",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
-      "id": 20,
-      "title": "Conversion Rate Optimization: 9 Quick Wins for Sydney Service Businesses",
-      "category": "Web Design",
-      "tags": [
-        "CRO",
-        "Conversions",
-        "Optimization",
-        "Service Business"
-      ],
-      "targetKeyword": "conversion rate optimization",
-      "searchIntent": "commercial",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 21,
       "title": "Voice Search SEO: Optimising for Sydney Local Voice Queries in 2025",
       "category": "SEO",
@@ -597,6 +567,44 @@
       "publishedSlug": "google-search-console-the-complete-guide-for-sydney-business-owners",
       "wordCount": 1942,
       "author": "Avi"
+    },
+    {
+      "id": 19,
+      "title": "WordPress SEO: Complete Optimization Guide for Sydney Websites",
+      "category": "SEO",
+      "tags": [
+        "WordPress",
+        "SEO",
+        "CMS",
+        "Optimization"
+      ],
+      "targetKeyword": "wordpress seo",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "wordpress-seo-complete-optimization-guide-for-sydney-websites",
+      "wordCount": 2889,
+      "author": "Avi"
+    },
+    {
+      "id": 20,
+      "title": "Conversion Rate Optimization: 9 Quick Wins for Sydney Service Businesses",
+      "category": "Web Design",
+      "tags": [
+        "CRO",
+        "Conversions",
+        "Optimization",
+        "Service Business"
+      ],
+      "targetKeyword": "conversion rate optimization",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "conversion-rate-optimization-9-quick-wins-for-sydney-service-businesses",
+      "wordCount": 2632,
+      "author": "TPP Team"
     }
   ],
   "config": {

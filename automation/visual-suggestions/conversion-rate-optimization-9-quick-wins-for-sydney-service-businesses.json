@@ -1,0 +1,118 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "2.3%",
+        "context": "Here's a statistic that should keep you awake at night: The average Sydney [Service Business](/blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/) converts just 2.3% of their website visitors into enquiries. That means for every 100 potential customers who visit your site, 97 leave without taking any action.",
+        "line": "Here's a statistic that should keep you awake at night: The average Sydney [Service Business](/blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/) converts just 2.3% of their website visitors into enquiries. That means for every 100 potential customers who visit your site, 97 leave without taking any action."
+      },
+      {
+        "lineNumber": 7,
+        "value": "400%",
+        "context": "The good news? Conversion rate optimization isn't rocket science. We've helped Sydney service businesses increase their conversion rates by 300-400% using the exact strategies I'm about to share. You don't need a complete website rebuild or massive budget. You need the right approach.",
+        "line": "The good news? Conversion rate optimization isn't rocket science. We've helped Sydney service businesses increase their conversion rates by 300-400% using the exact strategies I'm about to share. You don't need a complete website rebuild or massive budget. You need the right approach."
+      },
+      {
+        "lineNumber": 20,
+        "value": "$500",
+        "context": "- The average service call is worth $500-$5,000+",
+        "line": "- The average service call is worth $500-$5,000+"
+      },
+      {
+        "lineNumber": 20,
+        "value": "$5,000",
+        "context": "- The average service call is worth $500-$5,000+",
+        "line": "- The average service call is worth $500-$5,000+"
+      },
+      {
+        "lineNumber": 29,
+        "value": "78%",
+        "context": "- 78% had no clear value proposition above the fold",
+        "line": "- 78% had no clear value proposition above the fold"
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 2.3%, 400%, $500",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 94,
+    "title": "Screenshot: Advanced tip:** Use conditional logic. Start with just name and phone, then reveal additional fields based on their service selection. A Cronulla (2230) HVAC company increased form completions by 156% using this approach.",
+    "description": "Screenshot of: **Advanced tip:** Use conditional logic. Start with just name and phone, then reveal additional fields based on their service selection. A Cronulla (2",
+    "example": "Interface screenshot",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 149,
+    "title": "Screenshot: - Enable browser caching",
+    "description": "Screenshot of: - Enable browser caching - Minify CSS and JavaScript - Use a Content Delivery Network (CDN)",
+    "example": "Interface screenshot",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 193,
+    "title": "Screenshot: A family-owned electrical business in Leichhardt (2040) came to us with a beautiful but non-converting website. They were spending $2,800/month on [Google Ads](/google-ads) but only getting 8-12 enquiries per month.",
+    "description": "Screenshot of: A family-owned electrical business in Leichhardt (2040) came to us with a beautiful but non-converting website. They were spending $2,800/month on [Go",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 22,
+    "title": "Before/After: In our experience working with Sydney businesses across the Northern Beaches (2086), Inner West (2040), and Eastern Suburbs (2026), we've identified nine specific optimizations that consistently deliver results within 30-60 days.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "78%",
+      "65%",
+      "43%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 78,
+    "title": "Before/After: Result: 89% increase in enquiry form completions.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "89%",
+      "15%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 118,
+    "title": "Comparison Table",
+    "description": "Create comparison table/diagram for: Real-time availability vs Response time guarantees vs Same-day service badges vs Limited-time offers",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 119,
+    "title": "Comparison Table",
+    "description": "Create comparison table/diagram for: Response time guarantees vs Same-day service badges vs Limited-time offers",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  }
+]

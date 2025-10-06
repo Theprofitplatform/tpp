@@ -323,7 +323,8 @@ function estimateFleschScore(content) {
   const words = plainText.split(/\s+/).filter(w => w.length > 0).length;
 
   // Estimate syllables (rough approximation)
-  const syllables = words.split(/\s+/).reduce((count, word) => {
+  const wordArray = plainText.split(/\s+/).filter(w => w.length > 0);
+  const syllables = wordArray.reduce((count, word) => {
     return count + estimateSyllables(word);
   }, 0);
 
