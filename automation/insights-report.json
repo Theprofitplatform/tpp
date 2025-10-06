@@ -58,11 +58,7 @@
   "contentOpportunities": [
     {
       "opportunity": "Double down on top-performing categories",
-      "topCategories": [
-        "marketing",
-        "Google Ads",
-        "SEO"
-      ],
+      "topCategories": ["marketing", "Google Ads", "SEO"],
       "action": "Create 2-3 more posts in: marketing, Google Ads, SEO",
       "reasoning": "These categories show highest engagement and traffic potential",
       "expectedImpact": "Could increase total traffic by 40-60%"

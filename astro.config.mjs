@@ -14,10 +14,8 @@ export default defineConfig({
       priority: 0.7,
       lastmod: new Date(),
       // Exclude admin, thank-you pages, etc
-      filter: (page) =>
-        !page.includes('/admin') &&
-        !page.includes('/thank-you') &&
-        !page.includes('/404'),
+      filter: page =>
+        !page.includes('/admin') && !page.includes('/thank-you') && !page.includes('/404'),
       // Custom entries for priority pages
       customPages: [
         'https://theprofitplatform.com.au/', // Homepage - highest priority

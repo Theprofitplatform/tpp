@@ -1,9 +1,11 @@
 # Pull Request - Swarm Configuration
 
 ## 📋 Description
+
 Brief description of changes and purpose.
 
 ## 🤖 Swarm Configuration
+
 - **Topology**: `[mesh/hierarchical/ring/star]`
 - **Max Agents**: `[1-10]`
 - **Auto-spawn**: `[yes/no]`
@@ -11,6 +13,7 @@ Brief description of changes and purpose.
 - **Estimated Complexity**: `[small/medium/large]`
 
 ## 🎯 Tasks for Swarm
+
 - [ ] Code review and quality analysis
 - [ ] Security vulnerability scanning
 - [ ] Performance optimization review
@@ -21,7 +24,9 @@ Brief description of changes and purpose.
 - [ ] Documentation updates
 
 ## 🏷️ Swarm Agent Labels
+
 Add labels to auto-assign specialized agents:
+
 - `bug` → debugger, tester
 - `feature` → architect, coder, tester
 - `refactor` → analyst, coder
@@ -32,6 +37,7 @@ Add labels to auto-assign specialized agents:
 - `accessibility` → a11y-specialist
 
 ## 🧪 Testing Requirements
+
 - [ ] Unit tests pass
 - [ ] Integration tests pass
 - [ ] E2E tests pass
@@ -40,12 +46,14 @@ Add labels to auto-assign specialized agents:
 - [ ] Accessibility tests pass
 
 ## 📚 Documentation
+
 - [ ] Code comments updated
 - [ ] README updated if needed
 - [ ] API documentation updated
 - [ ] Changelog entry added
 
 ## ✅ Pre-merge Checklist
+
 - [ ] All swarm tasks completed
 - [ ] Required reviews approved
 - [ ] CI/CD pipeline passes
@@ -55,6 +63,7 @@ Add labels to auto-assign specialized agents:
 ---
 
 ### Swarm Commands
+
 Use these commands in comments to manage the swarm:
 
 - `/swarm init [topology] [max-agents]` - Initialize swarm
@@ -67,6 +76,7 @@ Use these commands in comments to manage the swarm:
 - `/swarm deploy` - Prepare for deployment
 
 **Example:**
+
 ```
 /swarm init mesh 5
 /swarm spawn security "Review authentication implementation"

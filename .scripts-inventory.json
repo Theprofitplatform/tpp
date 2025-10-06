@@ -10,13 +10,7 @@
   "categorization": {
     "testing_verification": {
       "purpose": "Manual testing and verification scripts",
-      "files": [
-        "check-*.mjs",
-        "test-*.mjs",
-        "verify-*.mjs",
-        "debug-*.mjs",
-        "final-*.mjs"
-      ],
+      "files": ["check-*.mjs", "test-*.mjs", "verify-*.mjs", "debug-*.mjs", "final-*.mjs"],
       "count": 25,
       "action": "Move to tests/manual/ directory",
       "breaking_risk": "LOW - these are standalone test scripts"
@@ -65,23 +59,14 @@
     },
     "configuration": {
       "purpose": "Build and framework configuration",
-      "files": [
-        "astro.config.mjs",
-        "playwright.config.js",
-        "wrangler.toml"
-      ],
+      "files": ["astro.config.mjs", "playwright.config.js", "wrangler.toml"],
       "count": 3,
       "action": "Keep in root (standard locations)",
       "breaking_risk": "CRITICAL - must not move"
     },
     "obsolete_candidates": {
       "purpose": "Likely temporary or debugging files",
-      "files": [
-        "check-final.js",
-        "debug-header.mjs",
-        "debug-mobile.mjs",
-        "test-local-mobile.mjs"
-      ],
+      "files": ["check-final.js", "debug-header.mjs", "debug-mobile.mjs", "test-local-mobile.mjs"],
       "count": 30,
       "action": "Move to archive/debugging/ for safe keeping",
       "breaking_risk": "NONE - not referenced in package.json"

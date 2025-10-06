@@ -60,7 +60,7 @@ async function fixPost(post) {
   // Remove old coverImage lines (handle both LF and CRLF line endings)
   let newContent = content.replace(/coverImage:.*\r?\n/g, '');
   newContent = newContent.replace(/coverImageAlt:.*\r?\n/g, '');
-  newContent = newContent.replace(/coverImageCredit:\r?\n  name:.*\r?\n  link:.*\r?\n/g, '');
+  newContent = newContent.replace(/coverImageCredit:\r?\n {2}name:.*\r?\n {2}link:.*\r?\n/g, '');
 
   // Add new image data after draft line (detect line ending style)
   const lineEndingMatch = content.match(/\r?\n/);

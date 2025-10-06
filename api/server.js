@@ -37,8 +37,8 @@ app.post('/api/rank-check', async (req, res) => {
     const { keyword, website, location = 'Australia', device = 'desktop' } = req.body;
 
     if (!keyword || !website) {
-      return res.status(400).json({ 
-        error: 'Missing required fields: keyword and website are required' 
+      return res.status(400).json({
+        error: 'Missing required fields: keyword and website are required',
       });
     }
 
@@ -64,8 +64,12 @@ app.post('/api/rank-check', async (req, res) => {
     }
 
     // Find rankings
-    const desktopRank = desktopResults ? findRanking(desktopResults.organic_results, normalizedWebsite) : null;
-    const mobileRank = mobileResults ? findRanking(mobileResults.organic_results, normalizedWebsite) : null;
+    const desktopRank = desktopResults
+      ? findRanking(desktopResults.organic_results, normalizedWebsite)
+      : null;
+    const mobileRank = mobileResults
+      ? findRanking(mobileResults.organic_results, normalizedWebsite)
+      : null;
 
     // Extract top 10
     const top10 = extractTop10(desktopResults || mobileResults, normalizedWebsite);
@@ -85,7 +89,7 @@ app.post('/api/rank-check', async (req, res) => {
       top10,
       serpFeatures,
       topCompetitor,
-      timestamp
+      timestamp,
     };
 
     // Save to history
@@ -97,7 +101,7 @@ app.post('/api/rank-check', async (req, res) => {
         device,
         desktopRank,
         mobileRank,
-        timestamp
+        timestamp,
       });
     } catch (historyError) {
       console.error('Failed to save history:', historyError.message);
@@ -106,14 +110,13 @@ app.post('/api/rank-check', async (req, res) => {
 
     res.json({
       success: true,
-      data: responseData
+      data: responseData,
     });
-
   } catch (error) {
     console.error('Rank check error:', error.message);
-    res.status(500).json({ 
+    res.status(500).json({
       error: 'Failed to check rankings',
-      message: error.message 
+      message: error.message,
     });
   }
 });
@@ -126,7 +129,7 @@ async function searchGoogle(keyword, location, device, apiKey) {
     location: location,
     device: device,
     api_key: apiKey,
-    num: 100  // Get top 100 results
+    num: 100, // Get top 100 results
   };
 
   const response = await axios.get('https://serpapi.com/search', { params });
@@ -145,11 +148,11 @@ function findRanking(organicResults, targetWebsite) {
       .split('/')[0];
 
     if (resultDomain.includes(targetWebsite) || targetWebsite.includes(resultDomain)) {
-      return i + 1;  // Position is index + 1
+      return i + 1; // Position is index + 1
     }
   }
 
-  return null;  // Not found in top 100
+  return null; // Not found in top 100
 }
 
 // Helper function to extract top 10 results
@@ -167,25 +170,30 @@ function extractTop10(results, userWebsite) {
       url: domain,
       title: result.title || 'Unknown',
       snippet: result.snippet || '',
-      isUser: domain.includes(userWebsite) || userWebsite.includes(domain)
+      isUser: domain.includes(userWebsite) || userWebsite.includes(domain),
     };
   });
 }
 
 // Helper function to extract SERP features
 function extractSerpFeatures(results) {
-  if (!results) return {
-    featuredSnippet: false,
-    peopleAlsoAsk: false,
-    localPack: false,
-    imagePack: false
-  };
+  if (!results)
+    return {
+      featuredSnippet: false,
+      peopleAlsoAsk: false,
+      localPack: false,
+      imagePack: false,
+    };
 
   return {
     featuredSnippet: !!(results.answer_box || results.featured_snippet),
     peopleAlsoAsk: !!(results.related_questions && results.related_questions.length > 0),
-    localPack: !!(results.local_results && results.local_results.places && results.local_results.places.length > 0),
-    imagePack: !!(results.inline_images && results.inline_images.length > 0)
+    localPack: !!(
+      results.local_results &&
+      results.local_results.places &&
+      results.local_results.places.length > 0
+    ),
+    imagePack: !!(results.inline_images && results.inline_images.length > 0),
   };
 }
 
@@ -205,7 +213,7 @@ app.post('/api/speed-test', async (req, res) => {
 
     if (!url) {
       return res.status(400).json({
-        error: 'Missing required field: url is required'
+        error: 'Missing required field: url is required',
       });
     }
 
@@ -220,7 +228,7 @@ app.post('/api/speed-test', async (req, res) => {
       url: url,
       key: pageSpeedKey,
       strategy: strategy,
-      category: ['performance', 'accessibility', 'best-practices', 'seo']
+      category: ['performance', 'accessibility', 'best-practices', 'seo'],
     };
 
     const response = await axios.get(apiUrl, { params });
@@ -238,7 +246,7 @@ app.post('/api/speed-test', async (req, res) => {
       tbt: audits['total-blocking-time']?.displayValue || 'N/A',
       cls: audits['cumulative-layout-shift']?.displayValue || 'N/A',
       si: audits['speed-index']?.displayValue || 'N/A',
-      tti: audits['interactive']?.displayValue || 'N/A'
+      tti: audits['interactive']?.displayValue || 'N/A',
     };
 
     // Extract scores
@@ -246,17 +254,22 @@ app.post('/api/speed-test', async (req, res) => {
       performance: Math.round((categories.performance?.score || 0) * 100),
       accessibility: Math.round((categories.accessibility?.score || 0) * 100),
       bestPractices: Math.round((categories['best-practices']?.score || 0) * 100),
-      seo: Math.round((categories.seo?.score || 0) * 100)
+      seo: Math.round((categories.seo?.score || 0) * 100),
     };
 
     // Extract opportunities
     const opportunities = Object.entries(audits)
-      .filter(([key, audit]) => audit.score !== null && audit.score < 0.9 && audit.details?.overallSavingsMs > 0)
+      .filter(
+        ([key, audit]) =>
+          audit.score !== null && audit.score < 0.9 && audit.details?.overallSavingsMs > 0
+      )
       .map(([key, audit]) => ({
         title: audit.title,
         description: audit.description,
-        savings: audit.details?.overallSavingsMs ? `${(audit.details.overallSavingsMs / 1000).toFixed(2)}s` : 'N/A',
-        score: Math.round((audit.score || 0) * 100)
+        savings: audit.details?.overallSavingsMs
+          ? `${(audit.details.overallSavingsMs / 1000).toFixed(2)}s`
+          : 'N/A',
+        score: Math.round((audit.score || 0) * 100),
       }))
       .slice(0, 5);
 
@@ -268,15 +281,14 @@ app.post('/api/speed-test', async (req, res) => {
         scores: scores,
         metrics: metrics,
         opportunities: opportunities,
-        timestamp: new Date().toISOString()
-      }
+        timestamp: new Date().toISOString(),
+      },
     });
-
   } catch (error) {
     console.error('Speed test error:', error.message);
     res.status(500).json({
       error: 'Failed to run speed test',
-      message: error.message
+      message: error.message,
     });
   }
 });
@@ -288,7 +300,7 @@ app.get('/api/ranking-history', (req, res) => {
 
     if (!keyword || !website) {
       return res.status(400).json({
-        error: 'Missing required parameters: keyword and website are required'
+        error: 'Missing required parameters: keyword and website are required',
       });
     }
 
@@ -301,14 +313,14 @@ app.get('/api/ranking-history', (req, res) => {
         keyword,
         website: normalizedWebsite,
         history: history,
-        count: history.length
-      }
+        count: history.length,
+      },
     });
   } catch (error) {
     console.error('History retrieval error:', error.message);
     res.status(500).json({
       error: 'Failed to retrieve ranking history',
-      message: error.message
+      message: error.message,
     });
   }
 });
@@ -319,7 +331,7 @@ app.delete('/api/ranking-history', (req, res) => {
 
     if (!keyword || !website) {
       return res.status(400).json({
-        error: 'Missing required parameters: keyword and website are required'
+        error: 'Missing required parameters: keyword and website are required',
       });
     }
 
@@ -328,13 +340,13 @@ app.delete('/api/ranking-history', (req, res) => {
 
     res.json({
       success: true,
-      message: 'History deleted successfully'
+      message: 'History deleted successfully',
     });
   } catch (error) {
     console.error('History deletion error:', error.message);
     res.status(500).json({
       error: 'Failed to delete ranking history',
-      message: error.message
+      message: error.message,
     });
   }
 });
@@ -370,9 +382,7 @@ function getRankingHistory(keyword, website) {
 function deleteRankingHistory(keyword, website) {
   const history = JSON.parse(fs.readFileSync(HISTORY_FILE, 'utf8'));
 
-  history.checks = history.checks.filter(
-    c => !(c.keyword === keyword && c.website === website)
-  );
+  history.checks = history.checks.filter(c => !(c.keyword === keyword && c.website === website));
 
   fs.writeFileSync(HISTORY_FILE, JSON.stringify(history, null, 2));
 }
