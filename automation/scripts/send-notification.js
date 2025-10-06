@@ -24,6 +24,13 @@ async function sendNotification() {
       ? `${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}`
       : '';
 
+    // Send to Discord
+    if (process.env.DISCORD_WEBHOOK_URL) {
+      await sendDiscordNotification(workflowUrl);
+    } else {
+      console.log('⚠️  No DISCORD_WEBHOOK_URL configured, skipping Discord notification');
+    }
+
     // Send to Slack
     if (process.env.SLACK_WEBHOOK_URL) {
       await sendSlackNotification(workflowUrl);
@@ -45,6 +52,84 @@ async function sendNotification() {
     // Don't fail the workflow if notifications fail
     console.warn('⚠️  Continuing anyway (notifications are non-critical)\n');
   }
+}
+
+/**
+ * Send Discord notification with rich embed
+ */
+async function sendDiscordNotification(workflowUrl) {
+  const webhook = process.env.DISCORD_WEBHOOK_URL;
+
+  if (!webhook) return;
+
+  console.log('📤 Sending Discord notification...');
+
+  const embed = STATUS === 'success'
+    ? {
+        title: '✅ New Blog Post Published!',
+        description: POST_TITLE,
+        color: 0x3b82f6, // Blue
+        fields: [
+          {
+            name: '📊 Word Count',
+            value: `${WORD_COUNT} words`,
+            inline: true
+          },
+          {
+            name: '📂 Category',
+            value: SLUG.split('-').slice(0, 2).join(' ').toUpperCase(),
+            inline: true
+          },
+          {
+            name: '⏱️ Status',
+            value: '🔄 Building on Cloudflare...',
+            inline: true
+          },
+          {
+            name: '🔗 URL',
+            value: POST_URL,
+            inline: false
+          }
+        ],
+        footer: {
+          text: '🤖 Blog Automation Bot'
+        },
+        timestamp: new Date().toISOString()
+      }
+    : {
+        title: '❌ Blog Post Generation Failed',
+        description: POST_TITLE && POST_TITLE !== 'Unknown Post' ? `Failed to generate: ${POST_TITLE}` : 'Blog post generation workflow failed',
+        color: 0xef4444, // Red
+        fields: workflowUrl ? [
+          {
+            name: '🔍 Action Required',
+            value: `[View Workflow Logs](${workflowUrl})`,
+            inline: false
+          }
+        ] : [],
+        footer: {
+          text: '🤖 Blog Automation Alert'
+        },
+        timestamp: new Date().toISOString()
+      };
+
+  const payload = {
+    username: 'Blog Bot',
+    avatar_url: 'https://cdn-icons-png.flaticon.com/512/6134/6134346.png',
+    embeds: [embed]
+  };
+
+  const response = await fetch(webhook, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    throw new Error(`Discord API error: ${response.statusText}`);
+  }
+
+  console.log('   ✓ Discord notification sent');
 }
 
 /**
