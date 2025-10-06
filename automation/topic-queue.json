@@ -240,21 +240,6 @@
       "status": "pending"
     },
     {
-      "id": 23,
-      "title": "Technical SEO Audit Checklist for Sydney Business Websites",
-      "category": "SEO",
-      "tags": [
-        "Technical SEO",
-        "Audit",
-        "Checklist",
-        "Site Health"
-      ],
-      "targetKeyword": "technical seo audit",
-      "searchIntent": "informational",
-      "priority": 1,
-      "status": "pending"
-    },
-    {
       "id": 24,
       "title": "Social Media Marketing for Sydney Small Businesses: What Actually Works",
       "category": "Digital Marketing",
@@ -549,6 +534,25 @@
       "publishedSlug": "how-to-reduce-google-ads-cost-per-click-without-sacrificing-quality",
       "wordCount": 2345,
       "author": "TPP Team"
+    },
+    {
+      "id": 23,
+      "title": "Technical SEO Audit Checklist for Sydney Business Websites",
+      "category": "SEO",
+      "tags": [
+        "Technical SEO",
+        "Audit",
+        "Checklist",
+        "Site Health"
+      ],
+      "targetKeyword": "technical seo audit",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "technical-seo-audit-checklist-for-sydney-business-websites",
+      "wordCount": 2053,
+      "author": "Avi"
     }
   ],
   "config": {

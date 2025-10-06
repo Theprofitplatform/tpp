@@ -7,6 +7,9 @@ const apiUrl = '';
 
 <BaseLayout title="SEO Opportunity Calculator | Discover Your Revenue Potential">
   <Header />
+  
+  <!-- Tool Analytics Tracker -->
+  <script is:inline src="/js/tool-analytics.js"></script>
 
   <main id="main-content" role="main">
     <!-- Breadcrumbs -->
@@ -1798,6 +1801,11 @@ const apiUrl = '';
         avgDealValue: document.getElementById('avgDealValue').value,
         primaryGoal: document.getElementById('primaryGoal').value,
       };
+
+      // Track tool usage (Discord notification)
+      if (window.trackToolUsage) {
+        window.trackToolUsage('SEO Opportunity Calculator', { website: formData.website, industry: formData.industry });
+      }
 
       // Track start
       trackEvent('calculator_started', {

@@ -12,6 +12,9 @@ const pageDescription = "Generate optimized meta titles and descriptions for bet
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <Header />
+  
+  <!-- Tool Analytics Tracker -->
+  <script is:inline src="/js/tool-analytics.js"></script>
 
   <main id="main-content" role="main">
     <!-- Hero Section -->
@@ -1184,6 +1187,11 @@ const pageDescription = "Generate optimized meta titles and descriptions for bet
       includeCTA: document.getElementById('includeCTA').checked,
       canonicalUrl: document.getElementById('canonicalUrl').value.trim()
     };
+
+    // Track tool usage (Discord notification)
+    if (window.trackToolUsage) {
+      window.trackToolUsage('Meta Tag Generator', { topic: formData.topic, businessName: formData.businessName, location: formData.location, pageType: formData.pageType });
+    }
 
     // Show loading state
     form.style.display = 'none';
