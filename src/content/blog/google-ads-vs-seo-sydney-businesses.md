@@ -38,7 +38,7 @@ So in this comprehensive guide, I'll break down exactly when to use Google Ads, 
 | Factor | Google Ads | SEO |
 |--------|-----------|-----|
 | **Speed to Results** | Immediate (hours) | 3-6 months |
-| **Cost** | Pay per click (ongoing) | Upfront investment, then "free" |
+| **Cost** | [Pay per click](/google-ads) (ongoing) | Upfront investment, then "free" |
 | **ROI Timeline** | Instant (if profitable) | Long-term compound growth |
 | **Click-Through Rate** | ~3-5% (ads) | 31% (#1 organic result) |
 | **Trust Factor** | Medium (people know it's an ad) | High (earned ranking) |
@@ -86,7 +86,7 @@ They click → you pay $12 → they call → you book a $500 job → **profit**.
 <a name="what-is-seo"></a>
 ## What is SEO? (Organic Search Explained)
 
-SEO (Search Engine Optimization) is the practice of **ranking your website organically** (for free) on Google.
+SEO ([Search Engine Optimization](/seo)) is the practice of **ranking your website organically** (for free) on Google.
 
 ### How It Works:
 
@@ -112,7 +112,7 @@ They click → you pay $0 → they call → you book a $500 job → **100% profi
 ### Key Components of SEO:
 - **On-Page SEO:** Optimizing title tags, meta descriptions, content, URLs
 - **Technical SEO:** Site speed, mobile-friendliness, security (HTTPS)
-- **Local SEO:** Google My Business, NAP consistency, local citations
+- **Local SEO:** [Google My Business](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025), NAP consistency, local citations
 - **Content Marketing:** Blog posts, guides, resources that attract traffic
 - **Link Building:** Earning backlinks from other reputable websites
 
@@ -405,7 +405,7 @@ SEO makes sense when:
 - Build trust and credibility
 - Long-term business (not quick flip)
 
-**Example:** Boutique Sydney digital marketing agency (us!) invests heavily in SEO content to become thought leaders.
+**Example:** Boutique Sydney [digital marketing](/services) agency (us!) invests heavily in SEO content to become thought leaders.
 
 ---
 
@@ -615,7 +615,7 @@ Use this framework to decide:
 
 **What we see:**
 - Run Google Ads with terrible landing pages (waste money)
-- Do SEO without keyword research (rank for nothing useful)
+- Do SEO without [keyword research](/tools/keyword-research) (rank for nothing useful)
 - Give up on either after 2 months (not enough time)
 
 **Better approach:** If you choose one, do it properly. Hire experts if needed.

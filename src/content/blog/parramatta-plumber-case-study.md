@@ -54,7 +54,7 @@ In August 2024, a Parramatta plumbing company reached out to us with a problem t
 - ❌ Receiving 62 calls per month from online sources
 - ❌ Ranking #8-12 for "plumber Parramatta" (page 2)
 - ❌ Zero rankings for emergency keywords
-- ❌ Google My Business listing was incomplete
+- ❌ [Google My Business](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025) listing was incomplete
 - ❌ Website was slow (7.2 second load time)
 - ❌ Running Google Ads inefficiently ($2,800/month, poor ROI)
 - ❌ Only 12 Google reviews (4.2 stars)
@@ -160,7 +160,7 @@ Week 3: "Meet the Team: Our Licensed Parramatta Plumbers"
 
 **Our Analysis:**
 ❌ Broad match keywords wasting budget on irrelevant searches
-❌ No negative keywords (paying for "DIY plumbing", "plumbing courses", etc.)
+❌ No [negative keywords](/blog/negative-keywords-how-to-stop-wasting-money-on-google-ads) (paying for "DIY plumbing", "plumbing courses", etc.)
 ❌ Ads showing 24/7 across all of Sydney (too broad)
 ❌ Landing page had 7.2 second load time
 ❌ No call tracking to know which keywords convert
@@ -592,7 +592,7 @@ Want to DIY this?
 
 **About the Author:**
 
-Avi is the founder of The Profit Platform, a Sydney digital marketing agency. He specializes in helping local service businesses generate more leads through Google Ads and SEO.
+Avi is the founder of The Profit Platform, a Sydney [digital marketing](/services) agency. He specializes in helping local service businesses generate more leads through Google Ads and SEO.
 
 This case study represents a real client (anonymized for privacy). Results may vary based on market, competition, and execution.
 

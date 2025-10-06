@@ -107,8 +107,8 @@ Backlinks are still a top-3 ranking factor, but in 2025, **one quality backlink 
 - Diverse link sources
 - Natural anchor text variation
 
-### 6. **Local Signals (Google My Business)**
-For Sydney businesses, local SEO is everything.
+### 6. **Local Signals ([Google My Business](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025))**
+For Sydney businesses, [local SEO](/seo) is everything.
 
 **Critical factors:**
 - Google My Business optimization
@@ -124,7 +124,7 @@ For Sydney businesses, local SEO is everything.
 
 Here's the exact process we use for our clients:
 
-### Step 1: Keyword Research (Foundation)
+### Step 1: [Keyword Research](/tools/keyword-research) (Foundation)
 
 **Don't skip this.** Most businesses guess at keywords — we research.
 
@@ -234,7 +234,7 @@ Technical SEO might sound boring, but it's critical.
    - Compress images, minify CSS/JS, use CDN
 
 2. **Mobile Optimization**
-   - Responsive design (scales to any screen)
+   - [Responsive design](/web-design) (scales to any screen)
    - Large, tappable buttons
    - Fast loading on 4G/5G
 
@@ -535,7 +535,7 @@ If you implement just 50% of what's in this guide, you'll outrank 90% of your co
 We've helped 100+ Sydney businesses rank #1 for their target keywords.
 
 **We offer:**
-- Free SEO audit (we'll analyze your site and show you exactly what to fix)
+- Free [SEO audit](/tools/seo-audit) (we'll analyze your site and show you exactly what to fix)
 - Custom SEO strategy (based on your business, goals, and budget)
 - Done-for-you SEO (we handle everything while you focus on running your business)
 
@@ -556,7 +556,7 @@ DIY SEO costs $100-500/month (tools and time). Hiring an agency costs $1,500-$5,
 ### Can I rank without building backlinks?
 For very low-competition keywords, yes. But for most Sydney business keywords, you'll need quality backlinks to compete.
 
-### Is SEO better than Google Ads?
+### Is SEO better than [Google Ads](/google-ads)?
 Both have pros/cons. SEO = long-term, free traffic. Google Ads = immediate traffic, but you pay forever. Best strategy: Do both.
 
 ### How do I know if my SEO is working?
@@ -573,7 +573,7 @@ Not necessarily. Small businesses can DIY SEO using this guide. But if you're ti
 
 **About the Author:**
 
-Avi is the founder of The Profit Platform, a Sydney digital marketing agency specializing in SEO, Google Ads, and web design. He's helped 100+ Sydney businesses increase their online visibility and revenue.
+Avi is the founder of The Profit Platform, a Sydney [digital marketing](/services) agency specializing in SEO, Google Ads, and web design. He's helped 100+ Sydney businesses increase their online visibility and revenue.
 
 [Connect on LinkedIn](#) | [Follow on Twitter](#)
 

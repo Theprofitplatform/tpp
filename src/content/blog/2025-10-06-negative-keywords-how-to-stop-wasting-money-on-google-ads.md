@@ -222,7 +222,7 @@ A Chatswood dentist was blocking "emergency dentist" as a negative keyword, thin
 
 ### Mistake 3: Not Updating Negative Keywords Lists
 
-Search behaviour changes constantly. The [7 Google Ads mistakes costing Sydney businesses thousands every month](/blog/2025-10-05-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/) include treating negative keywords as a "set and forget" task.
+Search behaviour changes constantly. The [7 [Google Ads mistakes](/blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month) costing Sydney businesses thousands every month](/blog/2025-10-05-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/) include treating negative keywords as a "set and forget" task.
 
 **Best practice**: Review search query reports monthly and update negative keywords accordingly.
 

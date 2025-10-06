@@ -62,7 +62,7 @@ Always bid on your brand name, but do it strategically:
 
 The café I mentioned earlier? After implementing proper brand bidding, their cost per branded click dropped from $0 (because they weren't bidding) to $0.85, but their overall conversion rate improved by 40% because they weren't losing prospects to competitors.
 
-## Mistake #2: Using Broad Match Keywords Without Negative Keywords
+## Mistake #2: Using Broad Match Keywords Without [Negative Keywords](/blog/negative-keywords-how-to-stop-wasting-money-on-google-ads)
 
 This is the mistake that burns through budgets fastest. Broad match keywords can trigger your ads for completely irrelevant searches, and without proper negative keywords, you're paying for clicks that will never convert.
 

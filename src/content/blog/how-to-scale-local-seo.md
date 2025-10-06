@@ -18,7 +18,7 @@ seo:
   keywords: ["local SEO", "multi-location SEO", "local search strategy", "Google Business Profile"]
 ---
 
-## The Challenge of Multi-Location SEO
+## The Challenge of [Multi-Location SEO](/blog/complete-guide-to-multi-location-seo-for-sydney-business-owners)
 
 You've dominated search in your home city. Now you're expanding to new locations. But how do you replicate that success at scale?
 
@@ -79,7 +79,7 @@ For each location, build:
 
 Monitor each location separately:
 
-- Google Business Profile insights
+- [Google Business Profile](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025) insights
 - Local keyword rankings
 - City-specific traffic and conversions
 - Phone calls and direction requests
@@ -101,7 +101,7 @@ Using this framework, our clients typically see:
 ❌ Building links only to the homepage
 ❌ Not tracking location-specific metrics
 
-## Ready to Scale Your Local SEO?
+## Ready to Scale Your [Local SEO](/seo)?
 
 We help businesses expand their local search presence to new markets. Our proven framework has helped dozens of companies dominate local search in multiple cities.
 
@@ -111,4 +111,4 @@ We help businesses expand their local search presence to new markets. Our proven
 
 **About The Profit Platform**
 
-We're a digital marketing agency specializing in scalable SEO and growth strategies for expanding businesses. Based in Australia, serving clients nationwide.
+We're a [digital marketing](/services) agency specializing in scalable SEO and growth strategies for expanding businesses. Based in Australia, serving clients nationwide.

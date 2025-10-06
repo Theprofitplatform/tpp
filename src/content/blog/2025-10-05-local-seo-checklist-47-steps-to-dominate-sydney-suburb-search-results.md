@@ -56,7 +56,7 @@ Before optimising anything, you need to know where you stand. Use tools like Goo
 **What to check:**
 - Rankings for "[service] + [your suburb]"
 - Rankings for "[service] + nearby suburbs"
-- Google Business Profile visibility
+- [Google Business Profile](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025) visibility
 - Local pack appearances
 
 We recently worked with a Cronulla café that thought they were "doing well" because they ranked #3 for "café Cronulla." But they weren't showing up for "coffee Cronulla" (300 searches/month) or "breakfast Cronulla" (450 searches/month). That audit revealed $2,800 in monthly lost revenue.

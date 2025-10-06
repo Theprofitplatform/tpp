@@ -294,7 +294,7 @@ Create Google Posts that reference multiple Sydney locations in a natural way. E
 **Review Keyword Optimisation:**
 Train your team to naturally guide happy customers toward mentioning specific services in reviews. Instead of asking "Can you leave us a review?", try "If you're happy with your kitchen renovation, we'd appreciate if you could share your experience online."
 
-**Competitor Analysis Integration:**
+**[Competitor Analysis](/tools/competitor-analysis) Integration:**
 Monthly, analyse your top 3 local competitors' profiles. What categories are they using? How often do they post? What photos perform best? Use this intelligence to refine your strategy.
 
 **Seasonal Optimisation Calendar:**
