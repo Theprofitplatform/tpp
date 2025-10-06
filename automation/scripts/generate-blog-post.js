@@ -349,13 +349,13 @@ Return only the meta description text.`
       const linkMapPath = path.join(projectRoot, 'automation/internal-link-map.json');
       const linkMap = JSON.parse(await fs.readFile(linkMapPath, 'utf-8'));
 
-      const linkingResult = enhanceInternalLinks(content, linkMap, topic.title, topic);
+      const linkingResult = enhanceInternalLinks(contentWithCharts, linkMap, topic.title, topic);
       contentWithLinks = linkingResult.content;
 
       console.log(generateLinkingReport(linkingResult));
     } catch (error) {
       console.warn('⚠️  Smart linking failed, using basic internal links:', error.message);
-      contentWithLinks = await addInternalLinks(content);
+      contentWithLinks = await addInternalLinks(contentWithCharts);
     }
 
     // 10. Analyze readability

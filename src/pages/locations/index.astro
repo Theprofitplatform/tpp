@@ -333,6 +333,7 @@ const otherLocations = locations.filter(loc => !loc.data.featured);
     font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 700;
     line-height: 1.2;
+    opacity: 0.9;
   }
 
   .title-gradient {
@@ -349,21 +350,25 @@ const otherLocations = locations.filter(loc => !loc.data.featured);
   .hero-subtitle {
     font-size: 1.25rem;
     line-height: 1.6;
-    opacity: 0.95;
+    opacity: 0.8;
     margin-bottom: 40px;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: 400;
   }
 
   .hero-stats {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
     margin-top: 40px;
+    flex-wrap: wrap;
   }
 
   .stat-item {
     text-align: center;
-    margin-bottom: 24px;
   }
 
   .stat-item:last-child {
@@ -383,7 +388,9 @@ const otherLocations = locations.filter(loc => !loc.data.featured);
   }
 
   .stat-divider {
-    display: none;
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.3);
   }
 
   /* Featured Locations */
