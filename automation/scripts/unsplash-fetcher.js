@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { withCache, retryWithBackoff } from '../utils/api-helpers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, '../..');
@@ -17,43 +18,61 @@ dotenv.config({ path: path.join(projectRoot, '.env.local') });
 const UNSPLASH_ACCESS_KEY = process.env.UNSPLASH_ACCESS_KEY;
 const UNSPLASH_API_URL = 'https://api.unsplash.com';
 
+// Cache for Unsplash searches (1 hour TTL)
+const imageSearchCache = {};
+
 if (!UNSPLASH_ACCESS_KEY) {
   console.error('❌ UNSPLASH_ACCESS_KEY not found in environment variables');
   process.exit(1);
 }
 
 /**
- * Search for images on Unsplash
+ * Internal search function (with retry logic)
+ */
+async function _searchImagesInternal(query, perPage = 10) {
+  return await retryWithBackoff(
+    async () => {
+      const url = new URL(`${UNSPLASH_API_URL}/search/photos`);
+      url.searchParams.set('query', query);
+      url.searchParams.set('per_page', perPage);
+      url.searchParams.set('orientation', 'landscape');
+      url.searchParams.set('content_filter', 'high');
+
+      const response = await fetch(url, {
+        headers: {
+          'Authorization': `Client-ID ${UNSPLASH_ACCESS_KEY}`,
+          'Accept-Version': 'v1'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`Unsplash API error: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      return data.results || [];
+    },
+    {
+      maxRetries: 3,
+      initialDelay: 1000,
+      maxDelay: 15000,
+      backoffMultiplier: 2
+    }
+  );
+}
+
+/**
+ * Search for images on Unsplash (cached)
  * @param {string} query - Search query
  * @param {number} perPage - Number of results (default: 10)
  * @returns {Promise<Array>} Array of image objects
  */
-export async function searchImages(query, perPage = 10) {
-  try {
-    const url = new URL(`${UNSPLASH_API_URL}/search/photos`);
-    url.searchParams.set('query', query);
-    url.searchParams.set('per_page', perPage);
-    url.searchParams.set('orientation', 'landscape');
-    url.searchParams.set('content_filter', 'high');
-
-    const response = await fetch(url, {
-      headers: {
-        'Authorization': `Client-ID ${UNSPLASH_ACCESS_KEY}`,
-        'Accept-Version': 'v1'
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error(`Unsplash API error: ${response.status} ${response.statusText}`);
-    }
-
-    const data = await response.json();
-    return data.results || [];
-  } catch (error) {
-    console.error('❌ Error searching Unsplash:', error.message);
-    throw error;
-  }
-}
+export const searchImages = withCache(
+  _searchImagesInternal,
+  imageSearchCache,
+  (query, perPage = 10) => `${query}-${perPage}`, // Cache key
+  3600000 // 1 hour TTL
+);
 
 /**
  * Convert abstract marketing keywords to concrete visual concepts

@@ -118,6 +118,14 @@
     "url": "/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/",
     "relatedPosts": [
       {
+        "slug": "2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results",
+        "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
+        "url": "/blog/2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/",
+        "category": "SEO",
+        "similarity": 36,
+        "reason": "Same category"
+      },
+      {
         "slug": "how-to-scale-local-seo",
         "title": "How to Scale Local SEO Across Multiple Locations",
         "url": "/blog/how-to-scale-local-seo/",
@@ -147,14 +155,6 @@
         "url": "/blog/2025-10-05-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/",
         "category": "Google Ads",
         "similarity": 15,
-        "reason": "Shared tags/keywords"
-      },
-      {
-        "slug": "parramatta-plumber-case-study",
-        "title": "Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days",
-        "url": "/blog/parramatta-plumber-case-study/",
-        "category": "case-studies",
-        "similarity": 9,
         "reason": "Shared tags/keywords"
       }
     ]
@@ -203,11 +203,64 @@
         "reason": "Shared tags/keywords"
       },
       {
-        "slug": "15-free-digital-marketing-tools-sydney-business",
-        "title": "15 Free Digital Marketing Tools Every Sydney Business Needs in 2025",
-        "url": "/blog/15-free-digital-marketing-tools-sydney-business/",
-        "category": "tools-resources",
-        "similarity": 10,
+        "slug": "2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results",
+        "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
+        "url": "/blog/2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/",
+        "category": "SEO",
+        "similarity": 11,
+        "reason": "Shared tags/keywords"
+      }
+    ]
+  },
+  "2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results": {
+    "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
+    "category": "SEO",
+    "tags": [
+      "Local SEO",
+      "Checklist",
+      "Sydney",
+      "Rankings"
+    ],
+    "url": "/blog/2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/",
+    "relatedPosts": [
+      {
+        "slug": "2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025",
+        "title": "How to Optimise Your Google Business Profile for Sydney Local Search in 2025",
+        "url": "/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/",
+        "category": "SEO",
+        "similarity": 38,
+        "reason": "Same category"
+      },
+      {
+        "slug": "how-sydney-businesses-rank-number-1-google-2025",
+        "title": "How Sydney Businesses Can Rank #1 on Google in 2025",
+        "url": "/blog/how-sydney-businesses-rank-number-1-google-2025/",
+        "category": "marketing",
+        "similarity": 21,
+        "reason": "Shared tags/keywords"
+      },
+      {
+        "slug": "how-to-scale-local-seo",
+        "title": "How to Scale Local SEO Across Multiple Locations",
+        "url": "/blog/how-to-scale-local-seo/",
+        "category": "marketing",
+        "similarity": 21,
+        "reason": "Shared tags/keywords"
+      },
+      {
+        "slug": "parramatta-plumber-case-study",
+        "title": "Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days",
+        "url": "/blog/parramatta-plumber-case-study/",
+        "category": "case-studies",
+        "similarity": 17,
+        "reason": "Shared tags/keywords"
+      },
+      {
+        "slug": "2025-10-05-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month",
+        "title": "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month",
+        "url": "/blog/2025-10-05-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/",
+        "category": "Google Ads",
+        "similarity": 13,
         "reason": "Shared tags/keywords"
       }
     ]
@@ -311,11 +364,11 @@
         "reason": "Shared tags/keywords"
       },
       {
-        "slug": "2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST",
-        "title": "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month",
-        "url": "/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/",
-        "category": "Google Ads",
-        "similarity": 12,
+        "slug": "2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results",
+        "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
+        "url": "/blog/2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/",
+        "category": "SEO",
+        "similarity": 15,
         "reason": "Shared tags/keywords"
       }
     ]
@@ -348,6 +401,14 @@
         "reason": "Shared tags/keywords"
       },
       {
+        "slug": "2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results",
+        "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
+        "url": "/blog/2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/",
+        "category": "SEO",
+        "similarity": 15,
+        "reason": "Shared tags/keywords"
+      },
+      {
         "slug": "parramatta-plumber-case-study",
         "title": "Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days",
         "url": "/blog/parramatta-plumber-case-study/",
@@ -369,6 +430,14 @@
     ],
     "url": "/blog/parramatta-plumber-case-study/",
     "relatedPosts": [
+      {
+        "slug": "2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results",
+        "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
+        "url": "/blog/2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/",
+        "category": "SEO",
+        "similarity": 11,
+        "reason": "Shared tags/keywords"
+      },
       {
         "slug": "how-sydney-businesses-rank-number-1-google-2025",
         "title": "How Sydney Businesses Can Rank #1 on Google in 2025",

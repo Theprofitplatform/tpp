@@ -106,6 +106,7 @@ ecosystem.config.cjs
 
 # Wrangler (keep wrangler.toml, ignore runtime)
 .wrangler/
+.dev.vars
 
 # Lighthouse cache files (Windows)
 **/lighthouse.*/

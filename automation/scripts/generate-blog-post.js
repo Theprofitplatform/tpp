@@ -4,6 +4,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchAndSaveFeaturedImage } from './unsplash-fetcher.js';
+import { retryWithBackoff, RateLimiter } from '../utils/api-helpers.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,6 +16,68 @@ dotenv.config({ path: path.join(projectRoot, '.env.local') });
 const anthropic = new Anthropic({
   apiKey: process.env.CLAUDE_API_KEY
 });
+
+// Rate limiter: 5 requests per minute (Claude tier limits)
+const rateLimiter = new RateLimiter(5, 5 / 60); // 5 tokens, refill 5 per 60 seconds
+
+/**
+ * Assign author based on topic expertise and category
+ * @param {string} category - Blog post category
+ * @param {Array<string>} tags - Post tags
+ * @returns {string} Author name
+ */
+function assignAuthorByExpertise(category, tags = []) {
+  // Avi Sharma - Founder & SEO Strategist
+  // Expertise: SEO, Local SEO, Technical SEO, Strategy
+  const aviExpertise = {
+    categories: ['SEO', 'Analytics', 'Marketing Strategy'],
+    tags: ['Local SEO', 'Technical SEO', 'SEO Tools', 'Keyword Research',
+           'Link Building', 'Schema Markup', 'Voice Search', 'Multi-Location SEO',
+           'SEO', 'Rankings', 'Google Business Profile', 'Local Search']
+  };
+
+  // TPP Team - Digital Marketing Experts
+  // Expertise: Google Ads, PPC, Web Design, Paid Advertising
+  const tppExpertise = {
+    categories: ['Google Ads', 'Web Design', 'Digital Marketing', 'Content Marketing'],
+    tags: ['PPC', 'Google Ads', 'Ad Copywriting', 'CPC', 'Quality Score',
+           'Bidding Strategies', 'Remarketing', 'Landing Pages', 'Web Design',
+           'CRO', 'Conversions', 'Page Speed', 'Mobile Design', 'Accessibility']
+  };
+
+  // Check category match first (higher weight)
+  if (aviExpertise.categories.some(cat => category.toLowerCase().includes(cat.toLowerCase()))) {
+    return 'Avi';
+  }
+  if (tppExpertise.categories.some(cat => category.toLowerCase().includes(cat.toLowerCase()))) {
+    return 'TPP Team';
+  }
+
+  // Check tag overlap (count matches)
+  const aviTagMatches = tags.filter(tag =>
+    aviExpertise.tags.some(expertTag =>
+      tag.toLowerCase().includes(expertTag.toLowerCase()) ||
+      expertTag.toLowerCase().includes(tag.toLowerCase())
+    )
+  ).length;
+
+  const tppTagMatches = tags.filter(tag =>
+    tppExpertise.tags.some(expertTag =>
+      tag.toLowerCase().includes(expertTag.toLowerCase()) ||
+      expertTag.toLowerCase().includes(tag.toLowerCase())
+    )
+  ).length;
+
+  // Assign based on tag matches
+  if (aviTagMatches > tppTagMatches) {
+    return 'Avi';
+  } else if (tppTagMatches > aviTagMatches) {
+    return 'TPP Team';
+  }
+
+  // Default to Avi for general content (founder adds more E-E-A-T weight)
+  return 'Avi';
+}
 
 /**
  * Main blog post generation function
@@ -135,40 +198,55 @@ Link to these posts naturally where relevant in the content. Use contextual anch
       .replace('{search_intent}', topic.searchIntent)
       + relatedPostsSection;
 
-    // 6. Generate content with Claude
+    // 6. Generate content with Claude (with retry + rate limiting)
     console.log('🧠 Generating content with Claude API...');
 
-    const message = await anthropic.messages.create({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 8000,
-      system: [
+    const message = await rateLimiter.execute(() =>
+      retryWithBackoff(
+        async () => {
+          return await anthropic.messages.create({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 8000,
+            system: [
+              {
+                type: 'text',
+                text: systemPrompt,
+                cache_control: { type: 'ephemeral' } // Cache brand guidelines
+              }
+            ],
+            messages: [
+              {
+                role: 'user',
+                content: userPrompt
+              }
+            ]
+          });
+        },
         {
-          type: 'text',
-          text: systemPrompt,
-          cache_control: { type: 'ephemeral' } // Cache brand guidelines
+          maxRetries: 3,
+          initialDelay: 2000,
+          maxDelay: 30000,
+          backoffMultiplier: 2
         }
-      ],
-      messages: [
-        {
-          role: 'user',
-          content: userPrompt
-        }
-      ]
-    });
+      )
+    );
 
     const content = message.content[0].text;
     console.log(`✅ Content generated (${content.split(/\s+/).length} words)\n`);
 
-    // 7. Generate SEO meta description
+    // 7. Generate SEO meta description (with retry + rate limiting)
     console.log('🔍 Generating SEO meta description...');
 
-    const metaMessage = await anthropic.messages.create({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 200,
-      messages: [
-        {
-          role: 'user',
-          content: `Write a compelling meta description (150-160 characters) for this blog post.
+    const metaMessage = await rateLimiter.execute(() =>
+      retryWithBackoff(
+        async () => {
+          return await anthropic.messages.create({
+            model: 'claude-sonnet-4-20250514',
+            max_tokens: 200,
+            messages: [
+              {
+                role: 'user',
+                content: `Write a compelling meta description (150-160 characters) for this blog post.
 
 Title: ${topic.title}
 Target Keyword: ${topic.targetKeyword}
@@ -183,9 +261,18 @@ Requirements:
 - No quotation marks
 
 Return only the meta description text.`
+              }
+            ]
+          });
+        },
+        {
+          maxRetries: 3,
+          initialDelay: 2000,
+          maxDelay: 30000,
+          backoffMultiplier: 2
         }
-      ]
-    });
+      )
+    );
 
     const metaDescription = metaMessage.content[0].text
       .trim()
@@ -208,8 +295,8 @@ Return only the meta description text.`
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
 
-    // 11. Determine author
-    const author = Math.random() > 0.5 ? 'Avi' : 'TPP Team';
+    // 11. Determine author based on topic expertise
+    const author = assignAuthorByExpertise(topic.category, topic.tags);
 
     // 12. Create frontmatter with image data
     const today = new Date().toISOString().split('T')[0];

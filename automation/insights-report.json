@@ -1,0 +1,106 @@
+{
+  "generatedAt": "2025-10-05T16:08:01.093Z",
+  "summary": {
+    "totalPosts": 9,
+    "totalPageviews": 50,
+    "avgEngagementRate": 73.33333333333333,
+    "totalClicks": 0,
+    "totalImpressions": 0
+  },
+  "criticalActions": [
+    {
+      "priority": "HIGH",
+      "category": "Content Quality",
+      "issue": "2 posts have <1500 words",
+      "impact": "Low word count hurts SEO rankings and user engagement",
+      "action": "Expand these posts to 1500+ words with more detailed content",
+      "posts": [
+        "2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST",
+        "how-to-scale-local-seo"
+      ]
+    },
+    {
+      "priority": "HIGH",
+      "category": "Internal Linking",
+      "issue": "1 posts have NO internal links",
+      "impact": "Missing internal links reduces time on site and SEO authority flow",
+      "action": "Add 3-5 relevant internal links to each post",
+      "posts": [
+        "2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST"
+      ]
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "Content Authority",
+      "issue": "6 posts have NO external links",
+      "impact": "External links to authority sites improve content credibility and SEO",
+      "action": "Add 2-3 external links to authoritative sources (e.g., Google, industry studies)",
+      "posts": [
+        "2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST",
+        "2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025",
+        "how-to-scale-local-seo"
+      ]
+    }
+  ],
+  "quickWins": [
+    {
+      "opportunity": "Add images to text-only posts",
+      "currentState": "4 posts have no images",
+      "action": "Add hero image, infographics, or screenshots to improve engagement",
+      "expectedImpact": "30-40% improvement in engagement rate",
+      "posts": [
+        "15-free-digital-marketing-tools-sydney-business",
+        "parramatta-plumber-case-study",
+        "google-ads-vs-seo-sydney-businesses"
+      ]
+    }
+  ],
+  "contentOpportunities": [
+    {
+      "opportunity": "Double down on top-performing categories",
+      "topCategories": [
+        "marketing",
+        "Google Ads",
+        "SEO"
+      ],
+      "action": "Create 2-3 more posts in: marketing, Google Ads, SEO",
+      "reasoning": "These categories show highest engagement and traffic potential",
+      "expectedImpact": "Could increase total traffic by 40-60%"
+    },
+    {
+      "opportunity": "Update old content for freshness",
+      "oldPosts": 4,
+      "action": "Update 4 oldest posts with 2025 data, new stats, and current best practices",
+      "reasoning": "Fresh content ranks better and shows expertise",
+      "expectedImpact": "Could improve rankings by 10-20 positions",
+      "posts": [
+        {
+          "slug": "how-sydney-businesses-rank-number-1-google-2025",
+          "daysOld": 263
+        },
+        {
+          "slug": "google-ads-vs-seo-sydney-businesses",
+          "daysOld": 256
+        },
+        {
+          "slug": "parramatta-plumber-case-study",
+          "daysOld": 249
+        },
+        {
+          "slug": "15-free-digital-marketing-tools-sydney-business",
+          "daysOld": 242
+        }
+      ]
+    }
+  ],
+  "technicalIssues": [],
+  "growthStrategies": [
+    {
+      "strategy": "Increase content velocity",
+      "currentState": "5 posts in last 30 days",
+      "recommendation": "Maintain current publishing pace, focus on quality and promotion",
+      "expectedImpact": "Consistent publishing improves domain authority and organic traffic growth",
+      "timeline": "90 days"
+    }
+  ]
+}

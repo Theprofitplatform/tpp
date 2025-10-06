@@ -1,16 +1,28 @@
 {
-  "generatedAt": "2025-10-05T12:41:29.776Z",
+  "generatedAt": "2025-10-05T16:07:59.936Z",
   "summary": {
-    "totalPosts": 8,
-    "avgWordCount": 2245,
-    "avgHeadings": 30.9,
-    "avgInternalLinks": 4,
-    "avgExternalLinks": 2.4,
-    "postsWithImages": 4
+    "totalPosts": 9,
+    "avgWordCount": 2244,
+    "avgHeadings": 31.1,
+    "avgInternalLinks": 4.1,
+    "avgExternalLinks": 2.6,
+    "postsWithImages": 5
+  },
+  "analytics": {
+    "totalPageviews": 50,
+    "avgEngagementRate": 73.33333333333333,
+    "period": "30 days"
+  },
+  "searchConsole": {
+    "totalClicks": 0,
+    "totalImpressions": 0,
+    "avgCTR": 0,
+    "avgPosition": 0,
+    "period": "30 days"
   },
   "categories": {
     "Google Ads": 2,
-    "SEO": 1,
+    "SEO": 2,
     "marketing": 2,
     "tools-resources": 1,
     "case-studies": 1,
@@ -29,6 +41,50 @@
         "internalLinks": 6,
         "externalLinks": 3,
         "hasImage": true
+      },
+      "analytics": {
+        "pageviews": 0,
+        "avgSessionDuration": 0,
+        "bounceRate": 0,
+        "engagementRate": 0,
+        "hasData": false
+      },
+      "searchConsole": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "topKeywords": [],
+        "hasData": false
+      }
+    },
+    {
+      "slug": "2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results",
+      "title": "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results",
+      "category": "SEO",
+      "publishDate": "2025-10-05T00:00:00.000Z",
+      "daysSince": 0,
+      "wordCount": 2237,
+      "quality": {
+        "headings": 33,
+        "internalLinks": 5,
+        "externalLinks": 4,
+        "hasImage": true
+      },
+      "analytics": {
+        "pageviews": 0,
+        "avgSessionDuration": 0,
+        "bounceRate": 0,
+        "engagementRate": 0,
+        "hasData": false
+      },
+      "searchConsole": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "topKeywords": [],
+        "hasData": false
       }
     },
     {
@@ -43,6 +99,22 @@
         "internalLinks": 0,
         "externalLinks": 0,
         "hasImage": true
+      },
+      "analytics": {
+        "pageviews": 1,
+        "avgSessionDuration": 34.893882,
+        "bounceRate": 0,
+        "engagementRate": 100,
+        "hasData": true,
+        "period": "30 days"
+      },
+      "searchConsole": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "topKeywords": [],
+        "hasData": false
       }
     },
     {
@@ -57,6 +129,22 @@
         "internalLinks": 2,
         "externalLinks": 0,
         "hasImage": true
+      },
+      "analytics": {
+        "pageviews": 2,
+        "avgSessionDuration": 1187.123064,
+        "bounceRate": 0,
+        "engagementRate": 100,
+        "hasData": true,
+        "period": "30 days"
+      },
+      "searchConsole": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "topKeywords": [],
+        "hasData": false
       }
     },
     {
@@ -71,6 +159,22 @@
         "internalLinks": 1,
         "externalLinks": 0,
         "hasImage": true
+      },
+      "analytics": {
+        "pageviews": 41,
+        "avgSessionDuration": 1050.9446699,
+        "bounceRate": 40,
+        "engagementRate": 60,
+        "hasData": true,
+        "period": "30 days"
+      },
+      "searchConsole": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "topKeywords": [],
+        "hasData": false
       }
     },
     {
@@ -85,6 +189,22 @@
         "internalLinks": 9,
         "externalLinks": 16,
         "hasImage": false
+      },
+      "analytics": {
+        "pageviews": 1,
+        "avgSessionDuration": 0,
+        "bounceRate": 0,
+        "engagementRate": 100,
+        "hasData": true,
+        "period": "30 days"
+      },
+      "searchConsole": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "topKeywords": [],
+        "hasData": false
       }
     },
     {
@@ -99,6 +219,22 @@
         "internalLinks": 7,
         "externalLinks": 0,
         "hasImage": false
+      },
+      "analytics": {
+        "pageviews": 1,
+        "avgSessionDuration": 48.906826,
+        "bounceRate": 0,
+        "engagementRate": 100,
+        "hasData": true,
+        "period": "30 days"
+      },
+      "searchConsole": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "topKeywords": [],
+        "hasData": false
       }
     },
     {
@@ -113,6 +249,22 @@
         "internalLinks": 5,
         "externalLinks": 0,
         "hasImage": false
+      },
+      "analytics": {
+        "pageviews": 1,
+        "avgSessionDuration": 355.187884,
+        "bounceRate": 0,
+        "engagementRate": 100,
+        "hasData": true,
+        "period": "30 days"
+      },
+      "searchConsole": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "topKeywords": [],
+        "hasData": false
       }
     },
     {
@@ -127,6 +279,22 @@
         "internalLinks": 2,
         "externalLinks": 0,
         "hasImage": false
+      },
+      "analytics": {
+        "pageviews": 3,
+        "avgSessionDuration": 75.4942405,
+        "bounceRate": 0,
+        "engagementRate": 100,
+        "hasData": true,
+        "period": "30 days"
+      },
+      "searchConsole": {
+        "clicks": 0,
+        "impressions": 0,
+        "ctr": 0,
+        "position": 0,
+        "topKeywords": [],
+        "hasData": false
       }
     }
   ]

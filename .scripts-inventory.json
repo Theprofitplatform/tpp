@@ -1,0 +1,154 @@
+{
+  "inventory_date": "2025-10-06",
+  "total_scripts": 132,
+  "breakdown": {
+    "root_directory": 36,
+    "scripts_directory": 66,
+    "automation_scripts": 29,
+    "other_locations": 1
+  },
+  "categorization": {
+    "testing_verification": {
+      "purpose": "Manual testing and verification scripts",
+      "files": [
+        "check-*.mjs",
+        "test-*.mjs",
+        "verify-*.mjs",
+        "debug-*.mjs",
+        "final-*.mjs"
+      ],
+      "count": 25,
+      "action": "Move to tests/manual/ directory",
+      "breaking_risk": "LOW - these are standalone test scripts"
+    },
+    "blog_automation": {
+      "purpose": "Blog content generation and SEO automation",
+      "npm_scripts": [
+        "blog:generate",
+        "blog:validate",
+        "blog:validate-schema",
+        "blog:validate-authors",
+        "blog:check-links",
+        "blog:plagiarism",
+        "blog:images",
+        "blog:link-map",
+        "blog:performance",
+        "blog:insights",
+        "blog:optimize",
+        "blog:opportunities",
+        "blog:competitor",
+        "blog:calendar",
+        "blog:alerts",
+        "blog:keyword-research",
+        "blog:dashboard",
+        "blog:ab-test",
+        "blog:master",
+        "blog:verify",
+        "blog:test"
+      ],
+      "files_location": "automation/scripts/",
+      "count": 20,
+      "action": "Create unified CLI tool: tools/blog-cli.mjs",
+      "breaking_risk": "MEDIUM - need to preserve npm script interface"
+    },
+    "deployment": {
+      "purpose": "Deployment and production verification",
+      "files": [
+        "deploy-backend.sh",
+        "scripts/parity-scan.mjs",
+        "scripts/fetch-production.mjs",
+        "scripts/download-assets.mjs"
+      ],
+      "count": 4,
+      "action": "Keep in scripts/ but organize into deployment/ subdirectory",
+      "breaking_risk": "HIGH - referenced in package.json"
+    },
+    "configuration": {
+      "purpose": "Build and framework configuration",
+      "files": [
+        "astro.config.mjs",
+        "playwright.config.js",
+        "wrangler.toml"
+      ],
+      "count": 3,
+      "action": "Keep in root (standard locations)",
+      "breaking_risk": "CRITICAL - must not move"
+    },
+    "obsolete_candidates": {
+      "purpose": "Likely temporary or debugging files",
+      "files": [
+        "check-final.js",
+        "debug-header.mjs",
+        "debug-mobile.mjs",
+        "test-local-mobile.mjs"
+      ],
+      "count": 30,
+      "action": "Move to archive/debugging/ for safe keeping",
+      "breaking_risk": "NONE - not referenced in package.json"
+    }
+  },
+  "migration_strategy": {
+    "phase_1": {
+      "name": "Security and Quick Wins",
+      "tasks": [
+        "Add .dev.vars to .gitignore ✓",
+        "Remove .dev.vars and .env.local from git tracking ✓",
+        "Add eslint and prettier",
+        "Create .prettierrc and .eslintrc.json"
+      ],
+      "risk": "LOW"
+    },
+    "phase_2": {
+      "name": "Directory Structure (Non-Breaking)",
+      "tasks": [
+        "Create new directories: tools/, tests/manual/, archive/debugging/, docs/",
+        "Move screenshots to archive/screenshots/",
+        "Move obsolete test scripts to archive/debugging/",
+        "Consolidate markdown docs into docs/"
+      ],
+      "risk": "LOW"
+    },
+    "phase_3": {
+      "name": "Preserve Existing Scripts (Backward Compatible)",
+      "tasks": [
+        "Create tools/blog-cli.mjs (unified CLI)",
+        "Update package.json to use new CLI but keep all existing npm script names",
+        "Test all blog:* commands work identically"
+      ],
+      "risk": "MEDIUM - requires thorough testing"
+    },
+    "phase_4": {
+      "name": "Documentation and Testing",
+      "tasks": [
+        "Create MIGRATION_GUIDE.md",
+        "Document new structure in README",
+        "Add npm run test:all script",
+        "Verify all workflows still function"
+      ],
+      "risk": "LOW"
+    }
+  },
+  "preservation_rules": {
+    "do_not_move": [
+      "astro.config.mjs",
+      "playwright.config.js",
+      "wrangler.toml",
+      "package.json",
+      "package-lock.json",
+      ".gitignore"
+    ],
+    "do_not_delete": [
+      "All scripts referenced in package.json",
+      "automation/scripts/* (keep for backward compatibility)",
+      "scripts/parity-scan.mjs (referenced in package.json)"
+    ],
+    "safe_to_archive": [
+      "Root-level check-*.mjs files",
+      "Root-level test-*.mjs files",
+      "Root-level debug-*.mjs files",
+      "Root-level verify-*.mjs files",
+      "PNG screenshots",
+      "Redundant markdown documentation"
+    ]
+  }
+}

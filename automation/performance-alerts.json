@@ -1,0 +1,38 @@
+{
+  "generatedAt": "2025-10-05T16:08:02.599Z",
+  "summary": {
+    "total": 3,
+    "critical": 0,
+    "warnings": 3,
+    "successes": 0
+  },
+  "alerts": [
+    {
+      "type": "LOW_WORD_COUNT",
+      "severity": "warning",
+      "post": "2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST",
+      "title": "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month",
+      "message": "📝 Low word count: 222 words",
+      "action": "Expand to 1500+ words for better SEO performance",
+      "timestamp": "2025-10-05T16:08:02.598Z"
+    },
+    {
+      "type": "NO_INTERNAL_LINKS",
+      "severity": "warning",
+      "post": "2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST",
+      "title": "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month",
+      "message": "🔗 No internal links",
+      "action": "Add 3-5 relevant internal links to improve SEO and user engagement",
+      "timestamp": "2025-10-05T16:08:02.599Z"
+    },
+    {
+      "type": "LOW_WORD_COUNT",
+      "severity": "warning",
+      "post": "how-to-scale-local-seo",
+      "title": "How to Scale Local SEO Across Multiple Locations",
+      "message": "📝 Low word count: 413 words",
+      "action": "Expand to 1500+ words for better SEO performance",
+      "timestamp": "2025-10-05T16:08:02.599Z"
+    }
+  ]
+}

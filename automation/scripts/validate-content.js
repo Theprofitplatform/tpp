@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import path from 'path';
 import matter from 'gray-matter';
 import { fileURLToPath } from 'url';
+import { analyzeReadability } from '../utils/readability.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -124,6 +125,46 @@ async function validateContent() {
 
     console.log(`   Internal: ${internalLinks}, External: ${externalLinks}`);
 
+    // Check if suggested internal links were actually used
+    try {
+      const linkMapPath = path.join(projectRoot, 'automation/internal-link-map.json');
+      const linkMapContent = await fs.readFile(linkMapPath, 'utf-8');
+      const linkMap = JSON.parse(linkMapContent);
+
+      // Find current post's slug
+      const currentSlug = todayFile.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, '');
+
+      // Check if link map has suggestions for this post
+      let suggestedLinksUsed = 0;
+      let totalSuggestedLinks = 0;
+
+      for (const [slug, postData] of Object.entries(linkMap)) {
+        if (postData.relatedPosts && postData.relatedPosts.length > 0) {
+          // Check if any of the related posts are linked in content
+          postData.relatedPosts.forEach(related => {
+            totalSuggestedLinks++;
+            if (markdown.includes(related.url)) {
+              suggestedLinksUsed++;
+            }
+          });
+        }
+      }
+
+      if (totalSuggestedLinks > 0) {
+        const usagePercentage = (suggestedLinksUsed / totalSuggestedLinks) * 100;
+        console.log(`   Suggested link usage: ${suggestedLinksUsed}/${totalSuggestedLinks} (${usagePercentage.toFixed(0)}%)`);
+
+        if (suggestedLinksUsed === 0) {
+          warnings.push('No suggested internal links from link map were used. Claude may be ignoring suggestions.');
+        } else if (suggestedLinksUsed < 2) {
+          warnings.push(`Only ${suggestedLinksUsed} suggested internal link(s) used. Consider using more related post links.`);
+        }
+      }
+    } catch (linkMapError) {
+      // Link map may not exist yet, skip this check
+      console.log(`   ⚠️  Link map not found, skipping suggested link validation`);
+    }
+
     if (internalLinks < 2) {
       warnings.push(`Few internal links: ${internalLinks} (recommended: 2-3 for SEO)`);
     } else {
@@ -205,6 +246,24 @@ async function validateContent() {
       warnings.push(`Long sentences detected (avg ${avgWordsPerSentence.toFixed(1)} words). Keep under 20 for readability.`);
     } else {
       console.log(`   ✓ Sentences are readable`);
+    }
+
+    // Flesch-Kincaid readability analysis
+    const readabilityAnalysis = analyzeReadability(markdown);
+    console.log(`\n📖 Flesch Reading Ease Score: ${readabilityAnalysis.fleschReadingEase.score}/100 (${readabilityAnalysis.fleschReadingEase.interpretation})`);
+    console.log(`   Grade Level: ${readabilityAnalysis.fleschKincaidGrade.gradeLevel} (${readabilityAnalysis.fleschKincaidGrade.interpretation})`);
+    console.log(`   Metrics: ${readabilityAnalysis.fleschReadingEase.metrics.avgWordsPerSentence} words/sentence, ${readabilityAnalysis.fleschReadingEase.metrics.avgSyllablesPerWord} syllables/word`);
+
+    if (!readabilityAnalysis.blogAppropriate) {
+      warnings.push(`Readability issue: ${readabilityAnalysis.reason}`);
+    } else {
+      console.log(`   ✓ Readability appropriate for blog content`);
+    }
+
+    if (readabilityAnalysis.recommendations.length > 0) {
+      readabilityAnalysis.recommendations.forEach(rec => {
+        warnings.push(`Readability: ${rec}`);
+      });
     }
 
     // === KEYWORD DENSITY CHECK ===

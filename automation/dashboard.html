@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Analytics Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      color: #333;
+    }
+    .container { max-width: 1400px; margin: 0 auto; }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+    .header h1 { font-size: 32px; margin-bottom: 10px; }
+    .header p { opacity: 0.9; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .stat-card {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .stat-value {
+      font-size: 36px;
+      font-weight: bold;
+      color: #667eea;
+      margin: 10px 0;
+    }
+    .stat-label {
+      color: #666;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .chart-container {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    .chart-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .table-container {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      background: #667eea;
+      color: white;
+      padding: 15px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 15px;
+      border-bottom: 1px solid #eee;
+    }
+    tr:hover {
+      background: #f9f9f9;
+    }
+    .alert {
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    .alert-critical { background: #fee; border-left: 4px solid #c00; }
+    .alert-warning { background: #ffc; border-left: 4px solid #fa0; }
+    .alert-success { background: #efe; border-left: 4px solid #0a0; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .badge-high { background: #fee; color: #c00; }
+    .badge-medium { background: #ffc; color: #850; }
+    .badge-low { background: #efe; color: #050; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📊 Blog Analytics Dashboard</h1>
+      <p>Generated: 10/6/2025, 3:08:07 AM</p>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">Total Posts</div>
+        <div class="stat-value">9</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Total Pageviews</div>
+        <div class="stat-value">50</div>
+        <div class="stat-label">Last 30 days</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Engagement Rate</div>
+        <div class="stat-value">73.3%</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Avg Word Count</div>
+        <div class="stat-value">2244</div>
+      </div>
+    </div>
+
+    
+    <div class="chart-container">
+      <h2>🔔 Active Alerts</h2>
+      
+        <div class="alert alert-warning">
+          <strong>📝 Low word count: 222 words</strong><br>
+          <small>7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month</small>
+        </div>
+      
+        <div class="alert alert-warning">
+          <strong>🔗 No internal links</strong><br>
+          <small>7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month</small>
+        </div>
+      
+        <div class="alert alert-warning">
+          <strong>📝 Low word count: 413 words</strong><br>
+          <small>How to Scale Local SEO Across Multiple Locations</small>
+        </div>
+      
+    </div>
+    
+
+    <div class="grid-2">
+      <div class="chart-container">
+        <h2>Posts by Category</h2>
+        <canvas id="categoryChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h2>Traffic by Category</h2>
+        <canvas id="trafficChart"></canvas>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <h2 style="padding: 20px 20px 0;">🏆 Top 10 Posts by Traffic</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Pageviews</th>
+            <th>Engagement</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              <td><strong>1</strong></td>
+              <td>How to Scale Local SEO Across Multiple Locations</td>
+              <td><span class="badge badge-low">marketing</span></td>
+              <td>41</td>
+              <td>60.0%</td>
+              <td>4 days</td>
+            </tr>
+          
+            <tr>
+              <td><strong>2</strong></td>
+              <td>How Sydney Businesses Can Rank #1 on Google in 2025</td>
+              <td><span class="badge badge-low">marketing</span></td>
+              <td>3</td>
+              <td>100.0%</td>
+              <td>263 days</td>
+            </tr>
+          
+            <tr>
+              <td><strong>3</strong></td>
+              <td>How to Optimise Your Google Business Profile for Sydney Local Search in 2025</td>
+              <td><span class="badge badge-low">SEO</span></td>
+              <td>2</td>
+              <td>100.0%</td>
+              <td>1 days</td>
+            </tr>
+          
+            <tr>
+              <td><strong>4</strong></td>
+              <td>7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month</td>
+              <td><span class="badge badge-low">Google Ads</span></td>
+              <td>1</td>
+              <td>100.0%</td>
+              <td>1 days</td>
+            </tr>
+          
+            <tr>
+              <td><strong>5</strong></td>
+              <td>15 Free Digital Marketing Tools Every Sydney Business Needs in 2025</td>
+              <td><span class="badge badge-low">tools-resources</span></td>
+              <td>1</td>
+              <td>100.0%</td>
+              <td>242 days</td>
+            </tr>
+          
+            <tr>
+              <td><strong>6</strong></td>
+              <td>Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days</td>
+              <td><span class="badge badge-low">case-studies</span></td>
+              <td>1</td>
+              <td>100.0%</td>
+              <td>249 days</td>
+            </tr>
+          
+            <tr>
+              <td><strong>7</strong></td>
+              <td>Google Ads vs SEO: Which is Better for Sydney Small Businesses?</td>
+              <td><span class="badge badge-low">Marketing Strategy</span></td>
+              <td>1</td>
+              <td>100.0%</td>
+              <td>256 days</td>
+            </tr>
+          
+            <tr>
+              <td><strong>8</strong></td>
+              <td>7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month</td>
+              <td><span class="badge badge-low">Google Ads</span></td>
+              <td>0</td>
+              <td>0.0%</td>
+              <td>0 days</td>
+            </tr>
+          
+            <tr>
+              <td><strong>9</strong></td>
+              <td>Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results</td>
+              <td><span class="badge badge-low">SEO</span></td>
+              <td>0</td>
+              <td>0.0%</td>
+              <td>0 days</td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+
+    
+    <div class="chart-container">
+      <h2>💡 Key Insights</h2>
+      <h3 style="margin-top: 20px; margin-bottom: 10px;">Critical Actions</h3>
+      
+        <div class="alert alert-critical">
+          <strong>2 posts have <1500 words</strong><br>
+          <small>Action: Expand these posts to 1500+ words with more detailed content</small>
+        </div>
+      
+        <div class="alert alert-critical">
+          <strong>1 posts have NO internal links</strong><br>
+          <small>Action: Add 3-5 relevant internal links to each post</small>
+        </div>
+      
+        <div class="alert alert-critical">
+          <strong>6 posts have NO external links</strong><br>
+          <small>Action: Add 2-3 external links to authoritative sources (e.g., Google, industry studies)</small>
+        </div>
+      
+
+      <h3 style="margin-top: 20px; margin-bottom: 10px;">Quick Wins</h3>
+      
+        <div class="alert alert-success">
+          <strong>Add images to text-only posts</strong><br>
+          <small>Add hero image, infographics, or screenshots to improve engagement</small>
+        </div>
+      
+    </div>
+    
+
+  </div>
+
+  <script>
+    // Category distribution chart
+    new Chart(document.getElementById('categoryChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ["Google Ads","SEO","marketing","tools-resources","case-studies","Marketing Strategy"],
+        datasets: [{
+          data: [2,2,2,1,1,1],
+          backgroundColor: [
+            '#667eea', '#764ba2', '#f093fb', '#4facfe',
+            '#43e97b', '#fa709a', '#fee140', '#30cfd0'
+          ]
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: { position: 'right' }
+        }
+      }
+    });
+
+    // Traffic by category chart
+    new Chart(document.getElementById('trafficChart'), {
+      type: 'bar',
+      data: {
+        labels: ["Google Ads","SEO","marketing","tools-resources","case-studies","Marketing Strategy"],
+        datasets: [{
+          label: 'Pageviews',
+          data: [1,2,44,1,1,1],
+          backgroundColor: '#667eea'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
