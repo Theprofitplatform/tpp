@@ -149,7 +149,7 @@ schema: [
   ]
 ---
 
-## What Is [google](/blog/how-to-reduce-google-ads-cost-per-click-without-sacrificing-[quality](/blog/how-to-reduce-google-ads-cost-per-click-without-sacrificing-quality/)/) Ads Quality Score and Why Sydney Businesses Can't Afford to Ignore It
+## What Is Google Ads Quality Score and Why Sydney Businesses Can't Afford to Ignore It
 
 89% of Sydney businesses running Google Ads are paying 40-60% more than they should for the same clicks. The culprit? Poor Quality Scores that Google uses to determine how much you pay per click and where your ads appear.
 
@@ -179,7 +179,7 @@ Each component receives a rating of "Below average," "Average," or "Above averag
 
 We recently audited a Surry Hills café (2010) spending $2,800 monthly on Google Ads with an average Quality Score of 4. Their cost-per-click for "best coffee Sydney" was $4.20, while a competitor with a Quality Score of 8 was paying just $2.10 for the same keyword.
 
-Over 12 months, that difference cost them an extra $8,400 in ad spend – enough to hire part-time staff or invest in [web design](/web-design) improvements that could boost conversions.
+Over 12 months, that difference cost them an extra $8,400 in ad spend – enough to hire part-time staff or invest in [web design](/web-design) improvements that could boost [conversions](/blog/how-to-track-google-ads-roi-a-sydney-business-owner-s-guide/).
 
 But the financial impact goes deeper than inflated costs. Poor Quality Scores also mean:
 
