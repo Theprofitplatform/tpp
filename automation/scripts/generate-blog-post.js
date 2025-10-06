@@ -9,6 +9,7 @@ import { generateSchemas, analyzeSchemas } from './schema-generator.js';
 import { generateVisualSuggestions, generateVisualReport } from './visual-suggester.js';
 import { analyzeReadability, generateReadabilityReport } from './readability-analyzer.js';
 import { enhanceInternalLinks, generateLinkingReport } from './smart-linker.js';
+import { enhanceReadability, generateEnhancementReport } from './readability-enhancer.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -285,9 +286,36 @@ Return only the meta description text.`
 
     console.log(`✅ Meta description: ${metaDescription.length} chars\n`);
 
-    // 8. Add internal links (now using smart linker)
+    // 8. Enhance readability (Phase 2)
+    console.log('📝 Enhancing readability for business owners...');
+    let readableContent = content;
+    let readabilityImprovements = null;
+
+    if (process.env.ENABLE_READABILITY_ENHANCEMENT !== 'false') {
+      try {
+        const enhancementResult = await enhanceReadability(content, {
+          title: topic.title,
+          category: topic.category,
+          tags: topic.tags
+        });
+
+        if (enhancementResult.success) {
+          readableContent = enhancementResult.content;
+          readabilityImprovements = enhancementResult.improvements;
+          console.log(generateEnhancementReport(readabilityImprovements));
+        } else {
+          console.warn('⚠️  Readability enhancement failed, using original content');
+        }
+      } catch (error) {
+        console.warn('⚠️  Readability enhancement error:', error.message);
+      }
+    } else {
+      console.log('⚠️  Readability enhancement disabled (set ENABLE_READABILITY_ENHANCEMENT=true to enable)');
+    }
+
+    // 9. Add internal links (now using smart linker)
     console.log('🔗 Adding internal links...');
-    let contentWithLinks = content;
+    let contentWithLinks = readableContent;
 
     try {
       const linkMapPath = path.join(projectRoot, 'automation/internal-link-map.json');
@@ -302,12 +330,12 @@ Return only the meta description text.`
       contentWithLinks = await addInternalLinks(content);
     }
 
-    // 8.5. Analyze readability
+    // 10. Analyze readability
     console.log('\n📖 Analyzing readability...');
     const readabilityAnalysis = analyzeReadability(contentWithLinks);
     console.log(generateReadabilityReport(readabilityAnalysis));
 
-    // 8.6. Generate visual content suggestions
+    // 11. Generate visual content suggestions
     console.log('\n🎨 Generating visual content suggestions...');
     const visualSuggestions = generateVisualSuggestions(contentWithLinks, {
       title: topic.title,

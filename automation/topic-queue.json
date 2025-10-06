@@ -31,21 +31,6 @@
       "status": "pending"
     },
     {
-      "id": 17,
-      "title": "Google Search Console: The Complete Guide for Sydney Business Owners",
-      "category": "SEO",
-      "tags": [
-        "Google Search Console",
-        "SEO Tools",
-        "Analytics",
-        "Tracking"
-      ],
-      "targetKeyword": "google search console guide",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 18,
       "title": "Remarketing Campaigns That Actually Convert for Sydney eCommerce",
       "category": "Google Ads",
@@ -593,6 +578,25 @@
       "publishedSlug": "google-ads-quality-score-how-to-improve-it-and-lower-your-costs",
       "wordCount": 2660,
       "author": "TPP Team"
+    },
+    {
+      "id": 17,
+      "title": "Google Search Console: The Complete Guide for Sydney Business Owners",
+      "category": "SEO",
+      "tags": [
+        "Google Search Console",
+        "SEO Tools",
+        "Analytics",
+        "Tracking"
+      ],
+      "targetKeyword": "google search console guide",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "google-search-console-the-complete-guide-for-sydney-business-owners",
+      "wordCount": 1942,
+      "author": "Avi"
     }
   ],
   "config": {

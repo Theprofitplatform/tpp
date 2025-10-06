@@ -1,0 +1,130 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "89%",
+        "context": "Here's a sobering reality: we recently audited 47 Sydney businesses across Parramatta (2150), Bondi Junction (2022), and North Sydney (2060), and found that 89% weren't using Google Search Console properly. Some weren't using it at all.",
+        "line": "Here's a sobering reality: we recently audited 47 Sydney businesses across Parramatta (2150), Bondi Junction (2022), and North Sydney (2060), and found that 89% weren't using Google Search Console properly. Some weren't using it at all."
+      },
+      {
+        "lineNumber": 19,
+        "value": "340%",
+        "context": "We've seen Sydney businesses increase their organic traffic by 340% within six months simply by acting on Google Search Console insights they'd been ignoring.",
+        "line": "We've seen Sydney businesses increase their organic traffic by 340% within six months simply by acting on Google Search Console insights they'd been ignoring."
+      },
+      {
+        "lineNumber": 33,
+        "value": ".x",
+        "context": "Navigate to 'Sitemaps' in the left menu and submit your XML sitemap. Most WordPress sites have sitemaps at yourwebsite.com/sitemap.xml.",
+        "line": "Navigate to 'Sitemaps' in the left menu and submit your XML sitemap. Most WordPress sites have sitemaps at yourwebsite.com/sitemap.xml."
+      },
+      {
+        "lineNumber": 49,
+        "value": "3%",
+        "context": "**Clicks**: The number of people who actually visit your site from search. A Double Bay boutique (2028) we worked with had 15,000 monthly impressions but only 450 clicks—a 3% click-through rate that we improved to 12% through better title tags.",
+        "line": "**Clicks**: The number of people who actually visit your site from search. A Double Bay boutique (2028) we worked with had 15,000 monthly impressions but only 450 clicks—a 3% click-through rate that we improved to 12% through better title tags."
+      },
+      {
+        "lineNumber": 49,
+        "value": "12%",
+        "context": "**Clicks**: The number of people who actually visit your site from search. A Double Bay boutique (2028) we worked with had 15,000 monthly impressions but only 450 clicks—a 3% click-through rate that we improved to 12% through better title tags.",
+        "line": "**Clicks**: The number of people who actually visit your site from search. A Double Bay boutique (2028) we worked with had 15,000 monthly impressions but only 450 clicks—a 3% click-through rate that we improved to 12% through better title tags."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 89%, 340%, .x",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 33,
+    "title": "Screenshot: Navigate to 'Sitemaps' in the left menu and submit your XML sitemap. Most WordPress sites have sitemaps at yourwebsite.com/sitemap.xml.",
+    "description": "Screenshot of: Navigate to 'Sitemaps' in the left menu and submit your XML sitemap. Most WordPress sites have sitemaps at yourwebsite.com/sitemap.xml.  We recently h",
+    "example": "Interface screenshot",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 37,
+    "title": "Screenshot: Step 3: Connect Google Analytics",
+    "description": "Screenshot of: ### Step 3: Connect Google Analytics  Link your Google Analytics account through the 'Settings' menu. This integration provides deeper insights into u",
+    "example": "Google Analytics 4 interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 39,
+    "title": "Screenshot: Link your Google Analytics account through the 'Settings' menu. This integration provides deeper insights into user behaviour after they click through from search results.",
+    "description": "Screenshot of: Link your Google Analytics account through the 'Settings' menu. This integration provides deeper insights into user behaviour after they click through",
+    "example": "Google Analytics 4 interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 29,
+    "title": "**Pro tip from our North Shore clients**: If you have location-specific landing pages (like separate pages for services in Chatswood 2067 vs. Hornsby 2077), verify each subdirectory as a separate property for granular insights.",
+    "description": "Create comparison table/diagram for: Pro vs North Shore vs If",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 47,
+    "title": "Before/After: **Impressions**: How often your site appears in Sydney search results. We've seen Newtown restaurants (2042) with high impressions but low clicks—usually indicating weak meta descriptions.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "3%",
+      "12%",
+      "75%",
+      "1%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 49,
+    "title": "Before/After: **Clicks**: The number of people who actually visit your site from search. A Double Bay boutique (2028) we worked with had 15,000 monthly impressions but only 450 clicks—a 3% click-through rate that we improved to 12% through better title tags.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "3%",
+      "12%",
+      "75%",
+      "1%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 57,
+    "title": "Use the 'Query' filter to search for terms like \"Sydney,\" your suburb name, or \"near me\" queries. This reveals how locals find your business versus general searchers.",
+    "description": "Create comparison table/diagram for: Use vs Query vs Sydney",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "flowchart",
+    "priority": "low",
+    "location": 25,
+    "title": "Flowchart: Step 1: Verify Your Website Property",
+    "description": "Create process flowchart showing: Step 1: Verify Your Website Property → Step 2: Submit Your Sitemap → Step 3: Connect Google Analytics",
+    "tool": "Lucidchart, Miro, or Excalidraw",
+    "estimatedTime": "20-30 minutes"
+  }
+]
