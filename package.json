@@ -53,6 +53,7 @@
     "dotenv": "^17.2.3",
     "google-ads-api": "^21.0.1",
     "google-search-results-nodejs": "^2.1.0",
+    "googleapis": "^161.0.0",
     "gray-matter": "^4.0.3",
     "jsonwebtoken": "^9.0.2",
     "nodemailer": "^7.0.6",
