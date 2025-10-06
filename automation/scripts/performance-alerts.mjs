@@ -8,19 +8,24 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import nodemailer from 'nodemailer';
+import { createTransport } from 'nodemailer';
+import dotenv from 'dotenv';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '../..');
 
+// Load environment variables
+dotenv.config({ path: path.join(projectRoot, '.env.local') });
+
 // Alert thresholds
 const THRESHOLDS = {
-  HIGH_TRAFFIC: 100,        // Alert when post gets 100+ views
-  LOW_ENGAGEMENT: 40,       // Alert when engagement < 40%
-  HIGH_BOUNCE: 60,          // Alert when bounce rate > 60%
-  RANKING_OPPORTUNITY: 10,  // Alert when ranking 5-10
-  VIRAL_POST: 500,          // Alert when post goes viral (500+ views)
-  NO_TRAFFIC_DAYS: 30       // Alert when post has 0 views after 30 days
+  HIGH_TRAFFIC: 100, // Alert when post gets 100+ views
+  LOW_ENGAGEMENT: 40, // Alert when engagement < 40%
+  HIGH_BOUNCE: 60, // Alert when bounce rate > 60%
+  RANKING_OPPORTUNITY: 10, // Alert when ranking 5-10
+  VIRAL_POST: 500, // Alert when post goes viral (500+ views)
+  NO_TRAFFIC_DAYS: 30, // Alert when post has 0 views after 30 days
 };
 
 class AlertSystem {
@@ -36,7 +41,7 @@ class AlertSystem {
       title: post.title,
       message,
       action,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
     });
   }
 
@@ -92,8 +97,10 @@ class AlertSystem {
       }
 
       // Critical: No traffic after 30 days
-      if (post.daysSince >= THRESHOLDS.NO_TRAFFIC_DAYS &&
-          (!post.analytics || post.analytics.pageviews === 0)) {
+      if (
+        post.daysSince >= THRESHOLDS.NO_TRAFFIC_DAYS &&
+        (!post.analytics || post.analytics.pageviews === 0)
+      ) {
         this.addAlert(
           'NO_TRAFFIC',
           'critical',
@@ -104,9 +111,11 @@ class AlertSystem {
       }
 
       // Opportunity: Good ranking potential
-      if (post.searchConsole?.position > 5 &&
-          post.searchConsole?.position <= THRESHOLDS.RANKING_OPPORTUNITY &&
-          post.searchConsole?.impressions > 50) {
+      if (
+        post.searchConsole?.position > 5 &&
+        post.searchConsole?.position <= THRESHOLDS.RANKING_OPPORTUNITY &&
+        post.searchConsole?.impressions > 50
+      ) {
         this.addAlert(
           'RANKING_OPPORTUNITY',
           'success',
@@ -143,18 +152,20 @@ class AlertSystem {
 
   async sendEmailAlerts(alerts) {
     if (!process.env.EMAIL_HOST || !process.env.EMAIL_USER) {
-      console.log('\n📧 Email not configured. Set EMAIL_HOST, EMAIL_USER, EMAIL_PASS in .env.local\n');
+      console.log(
+        '\n📧 Email not configured. Set EMAIL_HOST, EMAIL_USER, EMAIL_PASS in .env.local\n'
+      );
       return;
     }
 
-    const transporter = nodemailer.createTransporter({
+    const transporter = createTransport({
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT || 587,
       secure: false,
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-      }
+        pass: process.env.EMAIL_PASS,
+      },
     });
 
     const critical = alerts.filter(a => a.severity === 'critical');
@@ -179,38 +190,62 @@ class AlertSystem {
   <h2>🔔 Blog Performance Alerts</h2>
   <p>Generated: ${new Date().toLocaleString()}</p>
 
-  ${critical.length > 0 ? `
+  ${
+    critical.length > 0
+      ? `
   <h3>🚨 Critical Issues (${critical.length})</h3>
-  ${critical.map(a => `
+  ${critical
+    .map(
+      a => `
     <div class="alert critical">
       <div class="alert-title">${a.message}</div>
       <div>Post: ${a.title}</div>
       <div class="action"><strong>Action:</strong> ${a.action}</div>
     </div>
-  `).join('')}
-  ` : ''}
+  `
+    )
+    .join('')}
+  `
+      : ''
+  }
 
-  ${warnings.length > 0 ? `
+  ${
+    warnings.length > 0
+      ? `
   <h3>⚠️ Warnings (${warnings.length})</h3>
-  ${warnings.map(a => `
+  ${warnings
+    .map(
+      a => `
     <div class="alert warning">
       <div class="alert-title">${a.message}</div>
       <div>Post: ${a.title}</div>
       <div class="action"><strong>Action:</strong> ${a.action}</div>
     </div>
-  `).join('')}
-  ` : ''}
+  `
+    )
+    .join('')}
+  `
+      : ''
+  }
 
-  ${successes.length > 0 ? `
+  ${
+    successes.length > 0
+      ? `
   <h3>🎉 Wins & Opportunities (${successes.length})</h3>
-  ${successes.map(a => `
+  ${successes
+    .map(
+      a => `
     <div class="alert success">
       <div class="alert-title">${a.message}</div>
       <div>Post: ${a.title}</div>
       <div class="action"><strong>Action:</strong> ${a.action}</div>
     </div>
-  `).join('')}
-  ` : ''}
+  `
+    )
+    .join('')}
+  `
+      : ''
+  }
 </body>
 </html>
     `;
@@ -220,7 +255,7 @@ class AlertSystem {
         from: process.env.EMAIL_FROM || process.env.EMAIL_USER,
         to: process.env.EMAIL_TO || process.env.EMAIL_USER,
         subject: `Blog Performance: ${critical.length} Critical, ${warnings.length} Warnings, ${successes.length} Wins`,
-        html
+        html,
       });
 
       console.log('✅ Email alert sent successfully\n');
@@ -245,21 +280,101 @@ class AlertSystem {
 
 ${critical.length > 0 ? `*🚨 Critical Issues:*\n${critical.map(a => `• ${a.message}\n  _${a.title}_\n  → ${a.action}`).join('\n\n')}` : ''}
 
-${warnings.length > 0 ? `\n*⚠️ Warnings:*\n${warnings.slice(0, 3).map(a => `• ${a.message}\n  _${a.title}_`).join('\n\n')}` : ''}
+${
+  warnings.length > 0
+    ? `\n*⚠️ Warnings:*\n${warnings
+        .slice(0, 3)
+        .map(a => `• ${a.message}\n  _${a.title}_`)
+        .join('\n\n')}`
+    : ''
+}
 
-${successes.length > 0 ? `\n*🎉 Wins:*\n${successes.slice(0, 3).map(a => `• ${a.message}\n  _${a.title}_`).join('\n\n')}` : ''}
+${
+  successes.length > 0
+    ? `\n*🎉 Wins:*\n${successes
+        .slice(0, 3)
+        .map(a => `• ${a.message}\n  _${a.title}_`)
+        .join('\n\n')}`
+    : ''
+}
 `;
 
     try {
       await fetch(process.env.SLACK_WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text })
+        body: JSON.stringify({ text }),
       });
 
       console.log('✅ Slack alert sent successfully\n');
     } catch (err) {
       console.error('❌ Failed to send Slack alert:', err.message);
+    }
+  }
+
+  async sendDiscordAlert(alerts) {
+    if (!process.env.DISCORD_WEBHOOK_URL) {
+      console.log('💬 Discord not configured. Set DISCORD_WEBHOOK_URL in .env.local\n');
+      return;
+    }
+
+    const critical = alerts.filter(a => a.severity === 'critical');
+    const warnings = alerts.filter(a => a.severity === 'warning');
+    const successes = alerts.filter(a => a.severity === 'success');
+
+    // Discord embed format
+    const embeds = [];
+
+    // Critical alerts
+    if (critical.length > 0) {
+      embeds.push({
+        title: '🚨 Critical Issues',
+        description: critical
+          .slice(0, 5)
+          .map(a => `**${a.message}**\n_${a.title}_\n→ ${a.action}`)
+          .join('\n\n'),
+        color: 0xff0000, // Red
+        timestamp: new Date().toISOString(),
+      });
+    }
+
+    // Warnings
+    if (warnings.length > 0) {
+      embeds.push({
+        title: '⚠️ Warnings',
+        description: warnings
+          .slice(0, 5)
+          .map(a => `**${a.message}**\n_${a.title}_`)
+          .join('\n\n'),
+        color: 0xffa500, // Orange
+      });
+    }
+
+    // Successes
+    if (successes.length > 0) {
+      embeds.push({
+        title: '🎉 Wins & Opportunities',
+        description: successes
+          .slice(0, 5)
+          .map(a => `**${a.message}**\n_${a.title}_`)
+          .join('\n\n'),
+        color: 0x00ff00, // Green
+      });
+    }
+
+    try {
+      await fetch(process.env.DISCORD_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          content: `**Blog Performance Alerts** 🔔\n**Critical:** ${critical.length} | **Warnings:** ${warnings.length} | **Wins:** ${successes.length}`,
+          embeds: embeds.slice(0, 10), // Discord limit
+        }),
+      });
+
+      console.log('✅ Discord alert sent successfully\n');
+    } catch (err) {
+      console.error('❌ Failed to send Discord alert:', err.message);
     }
   }
 
@@ -302,21 +417,30 @@ ${successes.length > 0 ? `\n*🎉 Wins:*\n${successes.slice(0, 3).map(a => `• 
     }
 
     console.log('━'.repeat(60));
-    console.log(`\nTotal alerts: ${this.alerts.length} (${critical.length} critical, ${warnings.length} warnings, ${successes.length} wins)\n`);
+    console.log(
+      `\nTotal alerts: ${this.alerts.length} (${critical.length} critical, ${warnings.length} warnings, ${successes.length} wins)\n`
+    );
   }
 
   async save() {
     const alertsPath = path.join(projectRoot, 'automation/performance-alerts.json');
-    await fs.writeFile(alertsPath, JSON.stringify({
-      generatedAt: new Date().toISOString(),
-      summary: {
-        total: this.alerts.length,
-        critical: this.alerts.filter(a => a.severity === 'critical').length,
-        warnings: this.alerts.filter(a => a.severity === 'warning').length,
-        successes: this.alerts.filter(a => a.severity === 'success').length
-      },
-      alerts: this.alerts
-    }, null, 2));
+    await fs.writeFile(
+      alertsPath,
+      JSON.stringify(
+        {
+          generatedAt: new Date().toISOString(),
+          summary: {
+            total: this.alerts.length,
+            critical: this.alerts.filter(a => a.severity === 'critical').length,
+            warnings: this.alerts.filter(a => a.severity === 'warning').length,
+            successes: this.alerts.filter(a => a.severity === 'success').length,
+          },
+          alerts: this.alerts,
+        },
+        null,
+        2
+      )
+    );
 
     console.log(`✅ Alerts saved to: automation/performance-alerts.json\n`);
   }
@@ -336,6 +460,10 @@ async function runAlerts() {
 
   if (process.env.SLACK_WEBHOOK_URL && alerts.length > 0) {
     await alertSystem.sendSlackAlert(alerts);
+  }
+
+  if (process.env.DISCORD_WEBHOOK_URL && alerts.length > 0) {
+    await alertSystem.sendDiscordAlert(alerts);
   }
 
   console.log('━'.repeat(60) + '\n');
