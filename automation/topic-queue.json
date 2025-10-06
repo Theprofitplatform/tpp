@@ -1,36 +1,6 @@
 {
   "queue": [
     {
-      "id": 3,
-      "title": "Website Speed Optimization: How Sydney Businesses Can Improve Core Web Vitals",
-      "category": "Web Design",
-      "tags": [
-        "Page Speed",
-        "Core Web Vitals",
-        "SEO",
-        "User Experience"
-      ],
-      "targetKeyword": "website speed optimization sydney",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
-      "id": 5,
-      "title": "Google Ads vs SEO: Which Should Sydney Small Businesses Invest in First?",
-      "category": "Digital Marketing",
-      "tags": [
-        "Google Ads",
-        "SEO",
-        "ROI",
-        "Strategy"
-      ],
-      "targetKeyword": "google ads vs seo",
-      "searchIntent": "commercial",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 6,
       "title": "How to Write Google Ads Copy That Converts for Sydney Service Businesses",
       "category": "Google Ads",
@@ -388,21 +358,6 @@
       "searchIntent": "commercial",
       "priority": 2,
       "status": "pending"
-    },
-    {
-      "id": 35,
-      "title": "Google Ads for Service Businesses: Campaign Structure That Converts",
-      "category": "Google Ads",
-      "tags": [
-        "Campaign Structure",
-        "Service Business",
-        "PPC",
-        "Setup"
-      ],
-      "targetKeyword": "google ads service business",
-      "searchIntent": "commercial",
-      "priority": 1,
-      "status": "pending"
     }
   ],
   "published": [
@@ -556,6 +511,63 @@
       "publishedDate": "2025-10-06",
       "publishedSlug": "negative-keywords-how-to-stop-wasting-money-on-google-ads",
       "wordCount": 1988,
+      "author": "TPP Team"
+    },
+    {
+      "id": 35,
+      "title": "Google Ads for Service Businesses: Campaign Structure That Converts",
+      "category": "Google Ads",
+      "tags": [
+        "Campaign Structure",
+        "Service Business",
+        "PPC",
+        "Setup"
+      ],
+      "targetKeyword": "google ads service business",
+      "searchIntent": "commercial",
+      "priority": 1,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "google-ads-for-service-businesses-campaign-structure-that-converts",
+      "wordCount": 2614,
+      "author": "TPP Team"
+    },
+    {
+      "id": 3,
+      "title": "Website Speed Optimization: How Sydney Businesses Can Improve Core Web Vitals",
+      "category": "Web Design",
+      "tags": [
+        "Page Speed",
+        "Core Web Vitals",
+        "SEO",
+        "User Experience"
+      ],
+      "targetKeyword": "website speed optimization sydney",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "website-speed-optimization-how-sydney-businesses-can-improve-core-web-vitals",
+      "wordCount": 2082,
+      "author": "TPP Team"
+    },
+    {
+      "id": 5,
+      "title": "Google Ads vs SEO: Which Should Sydney Small Businesses Invest in First?",
+      "category": "Digital Marketing",
+      "tags": [
+        "Google Ads",
+        "SEO",
+        "ROI",
+        "Strategy"
+      ],
+      "targetKeyword": "google ads vs seo",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "google-ads-vs-seo-which-should-sydney-small-businesses-invest-in-first",
+      "wordCount": 2247,
       "author": "TPP Team"
     }
   ],
