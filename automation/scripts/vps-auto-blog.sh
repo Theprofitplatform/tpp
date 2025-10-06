@@ -161,6 +161,7 @@ main() {
     fi
 
     # -----------------------------------------
+    # -----------------------------------------
     # 2.5. UPDATE INTERNAL LINK MAP
     # -----------------------------------------
     log "Step 2.5: Updating internal link map..."
@@ -171,7 +172,6 @@ main() {
         log "⚠️  Link map update failed, continuing anyway"
     fi
 
-    # -----------------------------------------
     # 3. GENERATE BLOG POST
     # -----------------------------------------
     log "Step 3: Generating blog post..."

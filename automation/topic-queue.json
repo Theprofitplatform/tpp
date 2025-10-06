@@ -1,21 +1,6 @@
 {
   "queue": [
     {
-      "id": 8,
-      "title": "Landing Page Design That Converts: 11 Sydney Success Stories",
-      "category": "Web Design",
-      "tags": [
-        "Landing Pages",
-        "Conversion Optimization",
-        "Web Design",
-        "Case Studies"
-      ],
-      "targetKeyword": "landing page design sydney",
-      "searchIntent": "commercial",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 9,
       "title": "How to Track Google Ads ROI: A Sydney Business Owner's Guide",
       "category": "Google Ads",
@@ -572,6 +557,25 @@
       "publishedDate": "2025-10-06",
       "publishedSlug": "how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses",
       "wordCount": 2580,
+      "author": "TPP Team"
+    },
+    {
+      "id": 8,
+      "title": "Landing Page Design That Converts: 11 Sydney Success Stories",
+      "category": "Web Design",
+      "tags": [
+        "Landing Pages",
+        "Conversion Optimization",
+        "Web Design",
+        "Case Studies"
+      ],
+      "targetKeyword": "landing page design sydney",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "landing-page-design-that-converts-11-sydney-success-stories",
+      "wordCount": 2348,
       "author": "TPP Team"
     }
   ],
