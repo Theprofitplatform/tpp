@@ -46,21 +46,6 @@
       "status": "pending"
     },
     {
-      "id": 7,
-      "title": "Complete Guide to Multi-Location SEO for Sydney Business Owners",
-      "category": "SEO",
-      "tags": [
-        "Multi-Location SEO",
-        "Local SEO",
-        "Scaling",
-        "Sydney"
-      ],
-      "targetKeyword": "multi location seo sydney",
-      "searchIntent": "informational",
-      "priority": 1,
-      "status": "pending"
-    },
-    {
       "id": 8,
       "title": "Landing Page Design That Converts: 11 Sydney Success Stories",
       "category": "Web Design",
@@ -536,6 +521,25 @@
       "publishedDate": "2025-10-05",
       "publishedSlug": "local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results",
       "wordCount": 2236,
+      "author": "Avi"
+    },
+    {
+      "id": 7,
+      "title": "Complete Guide to Multi-Location SEO for Sydney Business Owners",
+      "category": "SEO",
+      "tags": [
+        "Multi-Location SEO",
+        "Local SEO",
+        "Scaling",
+        "Sydney"
+      ],
+      "targetKeyword": "multi location seo sydney",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "complete-guide-to-multi-location-seo-for-sydney-business-owners",
+      "wordCount": 2316,
       "author": "Avi"
     }
   ],
