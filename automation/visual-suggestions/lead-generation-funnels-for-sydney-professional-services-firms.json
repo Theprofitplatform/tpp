@@ -1,0 +1,121 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "68%",
+        "context": "Here's a scary fact: 68% of professional services firms in Sydney's CBD and North Shore lose potential clients every day. Their lead generation funnel has more holes than a colander.",
+        "line": "Here's a scary fact: 68% of professional services firms in Sydney's CBD and North Shore lose potential clients every day. Their lead generation funnel has more holes than a colander."
+      },
+      {
+        "lineNumber": 28,
+        "value": "68%",
+        "context": "\"Here's a scary fact: 68% of professional...\",",
+        "line": "\"Here's a scary fact: 68% of professional...\","
+      },
+      {
+        "lineNumber": 30,
+        "value": "73%",
+        "context": "\"- **Referral-Dependent Culture**: 73% of...\",",
+        "line": "\"- **Referral-Dependent Culture**: 73% of...\","
+      },
+      {
+        "lineNumber": 31,
+        "value": "$8,000",
+        "context": "\"y come to us spending $8,000+ per month ...\",",
+        "line": "\"y come to us spending $8,000+ per month ...\","
+      },
+      {
+        "lineNumber": 98,
+        "value": "45%",
+        "context": "This post breaks down the exact **lead generation professional services** framework we use. We help Sydney firms convert 35-45% of their website visitors into qualified leads.",
+        "line": "This post breaks down the exact **lead generation professional services** framework we use. We help Sydney firms convert 35-45% of their website visitors into qualified leads."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 68%, 68%, 73%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 96,
+    "title": "Screenshot: They throw money at [Google Ads](/blog/google-ads-vs-seo-which-should-sydney-small-businesses-invest-in-first/). They post sporadically on LinkedIn. Then they wonder why their phone isn't ringing with quality enquiries.",
+    "description": "Screenshot of: They throw money at [Google Ads](/blog/google-ads-vs-seo-which-should-sydney-small-businesses-invest-in-first/). They post sporadically on LinkedIn. T",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 112,
+    "title": "Screenshot: The challenge is that traditional marketing methods don't translate directly to professional services. Cold calling doesn't work when you're selling $50,000 legal services. Generic [Google Ads](/blog/google-ads-vs-seo-which-should-sydney-small-businesses-invest-in-first/) waste money when your ideal client is searching for highly specific expertise.",
+    "description": "Screenshot of: The challenge is that traditional marketing methods don't translate directly to professional services. Cold calling doesn't work when you're selling $",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 314,
+    "title": "Screenshot: The average [Google Ads](/blog/google-ads-vs-seo-which-should-sydney-small-businesses-invest-in-first/) conversion rate in Australia for 2024 is approximately **6.96%**, with a typical good conversion rate range between 2% and 7.5% depending on industry; conversion rates as low as 2-3% are considered below average but still within a common range for some sectors. [7]",
+    "description": "Screenshot of: The average [Google Ads](/blog/google-ads-vs-seo-which-should-sydney-small-businesses-invest-in-first/) conversion rate in Australia for 2024 is appro",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 96,
+    "title": "They throw money at [Google Ads](/blog/google-ads-vs-seo-which-should-sydney-small-businesses-invest-in-first/). They post sporadically on LinkedIn. Then they wonder why their phone isn't ringing with quality enquiries.",
+    "description": "Create comparison table/diagram for: They vs Google Ads vs They",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 112,
+    "title": "The challenge is that traditional marketing methods don't translate directly to professional services. Cold calling doesn't work when you're selling $50,000 legal services. Generic [Google Ads](/blog/google-ads-vs-seo-which-should-sydney-small-businesses-invest-in-first/) waste money when your ideal client is searching for highly specific expertise.",
+    "description": "Create comparison table/diagram for: The vs Cold vs Generic",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 305,
+    "title": "Before/After: - **Higher Stakes Decisions**: Clients are often dealing with big legal, financial, or business issues",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "73%",
+      "6.96%",
+      "2%",
+      "7.5%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 307,
+    "title": "Before/After: - **Referral-Dependent Culture**: 73% of new clients come through referrals. But most firms don't have systems to maximize this.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "73%",
+      "6.96%",
+      "2%",
+      "7.5%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  }
+]

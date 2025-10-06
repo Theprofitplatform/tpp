@@ -119,21 +119,6 @@
       "searchIntent": "informational",
       "priority": 3,
       "status": "pending"
-    },
-    {
-      "id": 34,
-      "title": "Lead Generation Funnels for Sydney Professional Services Firms",
-      "category": "Digital Marketing",
-      "tags": [
-        "Lead Generation",
-        "Funnels",
-        "Professional Services",
-        "Conversion"
-      ],
-      "targetKeyword": "lead generation professional services",
-      "searchIntent": "commercial",
-      "priority": 2,
-      "status": "pending"
     }
   ],
   "published": [
@@ -628,6 +613,25 @@
       "publishedDate": "2025-10-06",
       "publishedSlug": "google-ads-bidding-strategies-which-one-is-right-for-your-sydney-business",
       "wordCount": 3888,
+      "author": "TPP Team"
+    },
+    {
+      "id": 34,
+      "title": "Lead Generation Funnels for Sydney Professional Services Firms",
+      "category": "Digital Marketing",
+      "tags": [
+        "Lead Generation",
+        "Funnels",
+        "Professional Services",
+        "Conversion"
+      ],
+      "targetKeyword": "lead generation professional services",
+      "searchIntent": "commercial",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "lead-generation-funnels-for-sydney-professional-services-firms",
+      "wordCount": 3024,
       "author": "TPP Team"
     }
   ],
