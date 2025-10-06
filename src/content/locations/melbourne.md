@@ -137,46 +137,260 @@ We work with businesses throughout Greater Melbourne:
 - **Expanded to 5 locations** based on increased demand
 - Reduced reliance on expensive food delivery platforms
 
-### Melbourne Marketing Trends 2025
+### Why Digital Marketing Matters for Melbourne Businesses
 
-Melbourne's digital landscape is evolving:
+### The Melbourne Opportunity
 
-1. **Hyper-Local Targeting** - Targeting specific Melbourne suburbs and precincts
-2. **Voice Search Optimization** - "Near me" searches dominating mobile
-3. **Video Content** - Reels and TikTok gaining traction in Melbourne market
-4. **Sustainability Messaging** - Melbourne consumers value eco-conscious businesses
-5. **Mobile-First Everything** - Most Melbourne searches happen on mobile devices
+Melbourne is Australia's cultural and commercial capital with unique digital opportunities:
 
-### Get Started Today
+**📊 Melbourne by the Numbers:**
+- Population: 5.1+ million (Greater Melbourne)
+- Businesses: 330,000+ registered businesses
+- Digital Economy: Highly competitive with sophisticated consumers
+- Search Volume: High monthly searches for local services across all suburbs
 
-Ready to grow your Melbourne business with proven digital marketing strategies?
+**What This Means:**
+- ✅ High search volume across diverse industries
+- ✅ Sophisticated customers researching online before purchasing
+- ✅ Strong competition requiring professional digital marketing
+- ✅ Multiple micro-markets across different suburbs and precincts
 
-**Call:** [+61 487 286 451](tel:+61487286451)
-**Email:** [avi@theprofitplatform.com.au](mailto:avi@theprofitplatform.com.au)
+### The Challenge
 
-[Book a Free Strategy Session](/contact)
+**Most Melbourne consumers search for local businesses online before making a purchase decision.**
 
----
+If you're not visible on Google:
+- ❌ Your competitors are capturing those customers
+- ❌ You're missing thousands of potential leads per month
+- ❌ You're overpaying for directories and aggregator platforms
 
-### Frequently Asked Questions
+### The Solution
 
-**Q: Do you only work with Melbourne businesses?**
-While we serve clients across Australia, we have deep expertise in Melbourne's market and competitive landscape.
+**Strategic digital marketing = predictable lead flow.**
 
-**Q: Can we meet in person in Melbourne?**
-Yes! We can meet at your office or a convenient Melbourne CBD location for initial consultations.
-
-**Q: How do you differ from other Melbourne marketing agencies?**
-We focus on measurable ROI, not vanity metrics. Every strategy is custom-built for your business and Melbourne market.
-
-**Q: What's your typical engagement length?**
-Most Melbourne clients work with us for 6-12 months to see significant results. No lock-in contracts.
-
-**Q: Do you understand Melbourne's seasonal business patterns?**
-Absolutely. We account for Melbourne's events calendar, weather patterns, and seasonal demand in our strategies.
+Rank #1 for "your service + Melbourne/suburb" → Get consistent leads → Grow your business.
 
 ---
 
-**Office Hours:** Monday - Friday, 9am - 5pm AEST
+## Free Resources for Melbourne Businesses
 
-Proudly serving Melbourne businesses since 2020.
+### 📥 Free SEO Checklist
+50-point checklist to rank your Melbourne business on Google.
+[Download Free Checklist →](/seo-checklist)
+
+### 📊 Free Marketing Audit
+We'll analyze your website, SEO, Google Ads and show you exactly what to improve.
+[Claim Free Audit →](/contact)
+
+### 📚 Free Marketing Guides
+- [How Sydney Businesses Rank #1 on Google](/blog/how-sydney-businesses-rank-number-1-google-2025)
+- [Google Ads vs SEO: Which is Better?](/blog/google-ads-vs-seo-sydney-businesses)
+- [15 Free Marketing Tools Every Business Needs](/blog/15-free-digital-marketing-tools-sydney-business)
+
+---
+
+## How We Work: Our Process
+
+### 1. Free Strategy Call (30 min)
+- Understand your business, goals, challenges
+- Review current digital presence
+- Identify biggest opportunities
+- No sales pressure, just honest advice
+
+### 2. Custom Proposal
+- We create a tailored strategy for YOUR business
+- Clear pricing, timelines, expected results
+- You decide if it's a good fit
+
+### 3. Onboarding & Setup (Week 1)
+- Access to tools & platforms
+- Keyword research & competitor analysis
+- Strategy document & roadmap
+
+### 4. Execution (Month 1+)
+- Implement SEO, Google Ads, or both
+- Weekly updates & communication
+- Monthly reporting with data & insights
+
+### 5. Optimization & Growth
+- Continuous testing & improvement
+- Scale what works, cut what doesn't
+- Compound results over time
+
+---
+
+## Pricing for Melbourne Businesses
+
+### SEO Services
+**Starter:** $1,500/month
+- 5-10 keywords tracked
+- On-page optimization
+- Content creation (1-2 posts/month)
+- Google My Business optimization
+- Monthly reporting
+
+**Growth:** $3,000/month
+- 15-20 keywords tracked
+- Advanced technical SEO
+- Content strategy (3-4 posts/month)
+- Link building (5-10 links/month)
+- Competitor analysis
+- Bi-weekly calls
+
+**Enterprise:** $5,500/month
+- Unlimited keywords
+- Full-service SEO
+- Aggressive content (6-10 posts/month)
+- Link building (15-20 links/month)
+- Weekly strategy calls
+- Dedicated account manager
+
+---
+
+### Google Ads Management
+**Management Fee:** $1,000-$2,000/month (based on ad spend)
+**Minimum Ad Budget:** $2,500/month
+
+**What's Included:**
+- Campaign setup & optimization
+- Keyword research & strategy
+- Ad copywriting (multiple variations)
+- Landing page recommendations
+- Conversion tracking
+- Monthly reporting & strategy calls
+
+**Typical Investment:**
+- Small business: $2,500-$4,000/month (ads) + $1,000/month (management)
+- Medium business: $6,000-$10,000/month (ads) + $1,500/month (management)
+
+---
+
+### Web Design
+**Business Website:** $4,500-$8,500
+- 5-10 pages
+- Mobile-responsive
+- SEO-optimized
+- Contact forms
+- Google Analytics setup
+- 3-4 week delivery
+
+**E-commerce Website:** $8,500-$18,000
+- Online store setup
+- Product pages
+- Payment integration
+- Inventory management
+- SEO & speed optimization
+- 6-8 week delivery
+
+---
+
+## Frequently Asked Questions
+
+### How long does SEO take to work in Melbourne?
+**3-6 months for significant results.** Quick wins (long-tail keywords) can rank in 4-8 weeks. Competitive keywords in Melbourne CBD take 5-8 months. SEO is a long-term investment that compounds over time.
+
+### Do you guarantee first-page rankings?
+**No one can guarantee rankings** (Google's algorithm changes constantly). However, we follow proven strategies that consistently get results. We focus on ROI (leads, revenue) rather than just rankings.
+
+### What's the difference between SEO and Google Ads?
+**SEO = long-term, "free" traffic.** Takes months but lasts for years.
+**Google Ads = immediate paid traffic.** Instant results but costs ongoing.
+[Read our detailed comparison →](/blog/google-ads-vs-seo-sydney-businesses)
+
+### Do you work with businesses outside Melbourne?
+**Yes!** While we specialize in Melbourne, we help businesses across VIC, Australia, and internationally.
+
+### Can I do SEO myself?
+**Yes, but it's time-consuming.** If you have 10-15 hours per week and are willing to learn, our [free SEO checklist](/seo-checklist) will guide you. Most businesses find it more cost-effective to hire experts.
+
+### What industries do you NOT work with?
+We don't work with: adult content, gambling, get-rich-quick schemes, or anything unethical. Otherwise, we're open to all industries.
+
+### How much should I spend on Google Ads in Melbourne?
+**Depends on your industry and goals.** Most Melbourne service businesses start with $2,500-$5,000/month in ad spend. Competitive industries in Melbourne CBD may need $8,000-$15,000/month.
+
+### Do I need a new website?
+**Not always.** If your current website is modern, fast, and mobile-friendly, we can optimize it. If it's outdated, slow, or non-responsive, a new website will significantly improve results.
+
+---
+
+## Get Started Today
+
+### Option 1: Free Strategy Call
+**30-minute call to discuss your goals and create a custom plan.**
+
+- No cost, no obligation
+- Honest assessment of your situation
+- Clear recommendations
+- Custom proposal if it's a good fit
+
+[Book Your Free Call →](/contact)
+
+---
+
+### Option 2: Free Marketing Audit
+**We'll analyze your website, SEO, Google Ads and identify opportunities.**
+
+What you'll get:
+- Technical SEO audit report
+- Keyword opportunity analysis
+- Competitor comparison
+- Actionable recommendations
+- Custom pricing proposal
+
+[Claim Your Free Audit →](/contact)
+
+---
+
+### Option 3: Download Free Resources
+**Start learning and DIY your marketing.**
+
+- [Free SEO Checklist (50 points)](/seo-checklist)
+- [How to Rank #1 on Google (Complete Guide)](/blog/how-sydney-businesses-rank-number-1-google-2025)
+- [15 Free Marketing Tools](/blog/15-free-digital-marketing-tools-sydney-business)
+
+---
+
+## Contact Us
+
+**The Profit Platform**
+Digital Marketing Services Melbourne
+
+📞 **Phone:** [+61 487 286 451](tel:+61487286451)
+📧 **Email:** [avi@theprofitplatform.com.au](mailto:avi@theprofitplatform.com.au)
+🌐 **Website:** [theprofitplatform.com.au](https://theprofitplatform.com.au)
+
+**Office Hours:**
+Monday - Friday: 9am - 6pm AEST
+Saturday: By appointment
+Sunday: Closed
+
+**Servicing:**
+Melbourne CBD, South Melbourne, Richmond, St Kilda, Carlton, Fitzroy, Southbank, Docklands & all Greater Melbourne areas.
+
+---
+
+## Melbourne Landmarks & Business Districts
+
+We're proud to serve businesses near:
+- Melbourne CBD & Collins Street
+- Southbank & Crown Casino precinct
+- St Kilda Beach & Acland Street
+- Chapel Street shopping district
+- Queen Victoria Market
+- Docklands & Waterfront City
+- Federation Square
+- Bourke Street Mall
+- South Melbourne Market
+- Melbourne Cricket Ground (MCG) precinct
+
+---
+
+**Ready to dominate Google and grow your Melbourne business?**
+
+[Get Your Free Marketing Strategy Call →](/contact)
+
+---
+
+*Last Updated: 2025-01-15*
+*Servicing all Melbourne suburbs and Greater Melbourne areas*
