@@ -6,6 +6,16 @@
  */
 
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.resolve(__dirname, '../..');
+
+// Load environment variables
+dotenv.config({ path: path.join(projectRoot, '.env.local') });
 
 const STATUS = process.env.STATUS || 'unknown';
 const POST_TITLE = process.env.POST_TITLE || 'Unknown Post';
