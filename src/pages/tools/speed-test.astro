@@ -299,6 +299,13 @@ const apiUrl = '';
         urlInput.value = url;
       }
 
+      // Track tool usage (Discord notification)
+      if (window.trackToolUsage) {
+        window.trackToolUsage('Speed Test', {
+          url: url
+        });
+      }
+
       // Track tool usage
       trackEvent('tool_started', {
         tool_name: 'Speed Test',
