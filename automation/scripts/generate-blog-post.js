@@ -11,6 +11,7 @@ import { analyzeReadability, generateReadabilityReport } from './readability-ana
 import { enhanceInternalLinks, generateLinkingReport } from './smart-linker.js';
 import { enhanceReadability, generateEnhancementReport } from './readability-enhancer.js';
 import { generateCharts, generateChartReport } from './chart-generator.js';
+import { enrichStatistics, generateEnrichmentReport } from './statistics-enrichment.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -341,21 +342,46 @@ Return only the meta description text.`
       console.log('⚠️  Chart generation disabled');
     }
 
+    // 8.6. Enrich statistics with real-time data (Perplexity)
+    let contentWithEnrichment = contentWithCharts;
+    let enrichmentResult = null;
+
+    if (process.env.ENABLE_STATISTICS_ENRICHMENT !== 'false') {
+      try {
+        enrichmentResult = await enrichStatistics(contentWithCharts, {
+          title: topic.title,
+          category: topic.category,
+          tags: topic.tags
+        });
+
+        if (enrichmentResult.success && enrichmentResult.enriched > 0) {
+          contentWithEnrichment = enrichmentResult.content;
+          console.log(generateEnrichmentReport(enrichmentResult));
+        } else {
+          console.log('   ⚠️  No statistics enriched (Perplexity data unavailable or no matches)');
+        }
+      } catch (error) {
+        console.warn('⚠️  Statistics enrichment error:', error.message);
+      }
+    } else {
+      console.log('⚠️  Statistics enrichment disabled');
+    }
+
     // 9. Add internal links (now using smart linker)
     console.log('🔗 Adding internal links...');
-    let contentWithLinks = contentWithCharts;
+    let contentWithLinks = contentWithEnrichment;
 
     try {
       const linkMapPath = path.join(projectRoot, 'automation/internal-link-map.json');
       const linkMap = JSON.parse(await fs.readFile(linkMapPath, 'utf-8'));
 
-      const linkingResult = enhanceInternalLinks(contentWithCharts, linkMap, topic.title, topic);
+      const linkingResult = enhanceInternalLinks(contentWithEnrichment, linkMap, topic.title, topic);
       contentWithLinks = linkingResult.content;
 
       console.log(generateLinkingReport(linkingResult));
     } catch (error) {
       console.warn('⚠️  Smart linking failed, using basic internal links:', error.message);
-      contentWithLinks = await addInternalLinks(contentWithCharts);
+      contentWithLinks = await addInternalLinks(contentWithEnrichment);
     }
 
     // 10. Analyze readability
