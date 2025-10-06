@@ -389,7 +389,7 @@ Return only the meta description text.`
     }
 
     // 9. Calculate read time
-    const wordCount = content.split(/\s+/).length;
+    const wordCount = contentWithLinks.split(/\s+/).length;
     const readTime = Math.ceil(wordCount / 200); // Average reading speed: 200 wpm
 
     // 10. Generate slug

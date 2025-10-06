@@ -49,7 +49,10 @@ export async function generateCharts(content, metadata) {
       charts.push(chart);
 
       // Insert chart into content
+      const beforeLength = updatedContent.length;
       updatedContent = insertChartIntoContent(updatedContent, chart, group);
+      const afterLength = updatedContent.length;
+      console.log(`   Chart ${chart.id} inserted: +${afterLength - beforeLength} chars`);
     }
 
     console.log(`   Generated ${charts.length} charts`);
