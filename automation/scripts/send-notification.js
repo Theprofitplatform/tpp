@@ -74,54 +74,107 @@ async function sendDiscordNotification(workflowUrl) {
 
   console.log('📤 Sending Discord notification...');
 
-  const embed = STATUS === 'success'
-    ? {
-        title: '✅ New Blog Post Published!',
-        description: POST_TITLE,
-        color: 0x3b82f6, // Blue
-        fields: [
-          {
-            name: '📊 Word Count',
-            value: `${WORD_COUNT} words`,
-            inline: true
-          },
-          {
-            name: '📂 Category',
-            value: SLUG.split('-').slice(0, 2).join(' ').toUpperCase(),
-            inline: true
-          },
-          {
-            name: '⏱️ Status',
-            value: '🔄 Building on Cloudflare...',
-            inline: true
-          },
-          {
-            name: '🔗 URL',
-            value: POST_URL,
-            inline: false
-          }
-        ],
-        footer: {
-          text: '🤖 Blog Automation Bot'
+  let embed;
+
+  if (STATUS === 'success') {
+    // Success: Blog post published
+    embed = {
+      title: '✅ New Blog Post Published!',
+      description: POST_TITLE,
+      color: 0x3b82f6, // Blue
+      fields: [
+        {
+          name: '📊 Word Count',
+          value: `${WORD_COUNT} words`,
+          inline: true
         },
-        timestamp: new Date().toISOString()
-      }
-    : {
-        title: '❌ Blog Post Generation Failed',
-        description: POST_TITLE && POST_TITLE !== 'Unknown Post' ? `Failed to generate: ${POST_TITLE}` : 'Blog post generation workflow failed',
-        color: 0xef4444, // Red
-        fields: workflowUrl ? [
-          {
-            name: '🔍 Action Required',
-            value: `[View Workflow Logs](${workflowUrl})`,
-            inline: false
-          }
-        ] : [],
-        footer: {
-          text: '🤖 Blog Automation Alert'
+        {
+          name: '📂 Category',
+          value: SLUG.split('-').slice(0, 2).join(' ').toUpperCase(),
+          inline: true
         },
-        timestamp: new Date().toISOString()
-      };
+        {
+          name: '⏱️ Status',
+          value: '🔄 Building on Cloudflare...',
+          inline: true
+        },
+        {
+          name: '🔗 URL',
+          value: POST_URL,
+          inline: false
+        }
+      ],
+      footer: {
+        text: '🤖 Blog Automation Bot'
+      },
+      timestamp: new Date().toISOString()
+    };
+  } else if (STATUS === 'warning') {
+    // Warning: Low quality post needs manual review
+    embed = {
+      title: '⚠️ Blog Post Needs Review',
+      description: POST_TITLE,
+      color: 0xfbbf24, // Yellow/Amber
+      fields: [
+        {
+          name: '📊 Details',
+          value: POST_URL || 'Quality score below threshold',
+          inline: false
+        },
+        {
+          name: '🔍 Action Required',
+          value: 'Manual review and approval needed before publishing',
+          inline: false
+        }
+      ],
+      footer: {
+        text: '🤖 Blog Automation Alert'
+      },
+      timestamp: new Date().toISOString()
+    };
+  } else if (STATUS === 'info') {
+    // Info: No action needed (e.g., queue empty, already generated today)
+    embed = {
+      title: 'ℹ️ Blog Automation Info',
+      description: POST_TITLE,
+      color: 0x6b7280, // Gray
+      fields: POST_URL ? [
+        {
+          name: 'Details',
+          value: POST_URL,
+          inline: false
+        }
+      ] : [],
+      footer: {
+        text: '🤖 Blog Automation Bot'
+      },
+      timestamp: new Date().toISOString()
+    };
+  } else {
+    // Failed: Error occurred
+    embed = {
+      title: '❌ Blog Post Generation Failed',
+      description: POST_TITLE && POST_TITLE !== 'Unknown Post' ? `Failed to generate: ${POST_TITLE}` : 'Blog post generation workflow failed',
+      color: 0xef4444, // Red
+      fields: workflowUrl ? [
+        {
+          name: '🔍 Action Required',
+          value: `[View Workflow Logs](${workflowUrl})`,
+          inline: false
+        }
+      ] : POST_URL ? [
+        {
+          name: '📋 Error Details',
+          value: POST_URL,
+          inline: false
+        }
+      ] : [],
+      footer: {
+        text: '🤖 Blog Automation Alert'
+      },
+      timestamp: new Date().toISOString()
+    };
+  }
 
   const payload = {
     username: 'Blog Bot',
