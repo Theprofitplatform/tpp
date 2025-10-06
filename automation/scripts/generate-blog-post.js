@@ -14,7 +14,7 @@ const projectRoot = path.resolve(__dirname, '../..');
 dotenv.config({ path: path.join(projectRoot, '.env.local') });
 
 const anthropic = new Anthropic({
-  apiKey: process.env.CLAUDE_API_KEY
+  apiKey: process.env.CLAUDE_API_KEY || process.env.ANTHROPIC_API_KEY
 });
 
 // Rate limiter: 5 requests per minute (Claude tier limits)

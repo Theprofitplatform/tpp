@@ -91,36 +91,6 @@
       "status": "pending"
     },
     {
-      "id": 11,
-      "title": "Keyword Research for Local Sydney Businesses: The Complete Framework",
-      "category": "SEO",
-      "tags": [
-        "Keyword Research",
-        "Local SEO",
-        "Sydney",
-        "Content Strategy"
-      ],
-      "targetKeyword": "keyword research sydney",
-      "searchIntent": "informational",
-      "priority": 1,
-      "status": "pending"
-    },
-    {
-      "id": 12,
-      "title": "How to Reduce Google Ads Cost Per Click Without Sacrificing Quality",
-      "category": "Google Ads",
-      "tags": [
-        "Cost Reduction",
-        "CPC",
-        "PPC Optimization",
-        "Budget"
-      ],
-      "targetKeyword": "reduce google ads cost",
-      "searchIntent": "commercial",
-      "priority": 1,
-      "status": "pending"
-    },
-    {
       "id": 13,
       "title": "Mobile-First Web Design: Why Sydney Businesses Can't Ignore It in 2025",
       "category": "Web Design",
@@ -541,6 +511,44 @@
       "publishedSlug": "complete-guide-to-multi-location-seo-for-sydney-business-owners",
       "wordCount": 2316,
       "author": "Avi"
+    },
+    {
+      "id": 11,
+      "title": "Keyword Research for Local Sydney Businesses: The Complete Framework",
+      "category": "SEO",
+      "tags": [
+        "Keyword Research",
+        "Local SEO",
+        "Sydney",
+        "Content Strategy"
+      ],
+      "targetKeyword": "keyword research sydney",
+      "searchIntent": "informational",
+      "priority": 1,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "keyword-research-for-local-sydney-businesses-the-complete-framework",
+      "wordCount": 2015,
+      "author": "Avi"
+    },
+    {
+      "id": 12,
+      "title": "How to Reduce Google Ads Cost Per Click Without Sacrificing Quality",
+      "category": "Google Ads",
+      "tags": [
+        "Cost Reduction",
+        "CPC",
+        "PPC Optimization",
+        "Budget"
+      ],
+      "targetKeyword": "reduce google ads cost",
+      "searchIntent": "commercial",
+      "priority": 1,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "how-to-reduce-google-ads-cost-per-click-without-sacrificing-quality",
+      "wordCount": 2345,
+      "author": "TPP Team"
     }
   ],
   "config": {

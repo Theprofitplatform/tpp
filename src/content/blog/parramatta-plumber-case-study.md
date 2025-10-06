@@ -1,13 +1,38 @@
 ---
 title: "Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days"
 description: "Real results from a local Parramatta plumbing business. See the exact digital marketing strategies that generated 160% more phone calls in one month."
-publishDate: 2025-01-29
 author: "Avi"
+publishDate: 2025-01-29
 category: "case-studies"
-tags: ["Case Study", "Local SEO", "Google Ads", "Parramatta", "Results"]
+tags: ["\"Case Study\", \"Local SEO\", \"Google Ads\", \"Parramatta\", \"Results\""]
 featured: true
-image: "/images/blog/parramatta-plumber-case-study.jpg"
+draft: false
 readTime: "8 min"
+coverImage: "undefined"
+coverImageAlt: "undefined"
+coverImageCredit:
+  name: "undefined"
+  link: ""
+seo:
+  title: "Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days | The Profit Platform"
+  description: "Real results from a local Parramatta plumbing business. See the exact digital marketing strategies that generated 160% more phone calls in one month."
+  keywords: []
+schema:
+  type: "Article"
+  headline: "Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days"
+  datePublished: "2025-01-29"
+  dateModified: "2025-01-29"
+  author:
+    type: "Person"
+    name: "Avi"
+  publisher:
+    type: "Organization"
+    name: "The Profit Platform"
+    url: "https://theprofitplatform.com.au"
+  image: ""
+  mainEntityOfPage:
+    type: "WebPage"
+    url: "https://theprofitplatform.com.au/blog/"
 ---
 
 # Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days

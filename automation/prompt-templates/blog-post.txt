@@ -48,15 +48,22 @@ CRITICAL REQUIREMENTS:
    - Add unique insights that demonstrate deep expertise
    - Be honest about challenges and limitations
 
-5. SEO OPTIMIZATION:
-   - Include target keyword naturally in:
-     * Title (H1)
-     * First 100 words
-     * At least one H2 heading
-     * Throughout content (naturally, max 2% density)
-   - Use LSI keywords and semantic variations
-   - Include related questions readers might ask
-   - Add opportunities for internal linking (mention "SEO", "Google Ads", "web design", "digital marketing")
+5. SEO OPTIMIZATION (STRICTLY ENFORCED):
+   - **CRITICAL**: Include exact target keyword "{target_keyword}" in:
+     * First H2 heading (MANDATORY - include the full keyword phrase)
+     * First 100 words of content (MANDATORY - use it naturally in intro)
+     * At least 2 additional H2 headings (naturally)
+     * Throughout content (naturally, 1.5-2% density)
+   - Use LSI keywords and semantic variations (20+ related terms)
+   - Add 5-8 internal links to:
+     * [SEO](/seo) or [local SEO](/seo)
+     * [Google Ads](/google-ads)
+     * [web design](/web-design) or [website design](/web-design)
+     * [digital marketing](/services) or [marketing services](/services)
+     * [contact us](/contact) for CTAs
+     * [tools](/tools/keyword-research) or other relevant tools
+     * Related blog posts when naturally relevant
+   - Include 3-5 specific Sydney postcodes (e.g., 2000, 2088, 2026, 2060)
 
 6. CONTENT QUALITY:
    - Provide actionable, step-by-step frameworks
@@ -173,11 +180,22 @@ EXAMPLE STRUCTURE:
 
 ## Frequently Asked Questions
 
-**Q: [Common question]?**
-A: [Detailed answer with specifics]
+**MANDATORY: Include exactly 5 FAQ questions related to {target_keyword}**
 
-**Q: [Common question]?**
-A: [Detailed answer with specifics]
+**Q: [Most common question about the topic]?**
+A: [Detailed answer with specifics, 2-3 sentences]
+
+**Q: [Second common question]?**
+A: [Detailed answer with specifics, 2-3 sentences]
+
+**Q: [Third common question]?**
+A: [Detailed answer with specifics, 2-3 sentences]
+
+**Q: [Fourth common question]?**
+A: [Detailed answer with specifics, 2-3 sentences]
+
+**Q: [Fifth common question - often about cost/time]?**
+A: [Detailed answer with specifics, 2-3 sentences]
 
 ## What to Do Next
 

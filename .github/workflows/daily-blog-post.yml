@@ -49,8 +49,13 @@ jobs:
         run: node automation/scripts/generate-blog-post.js
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TOPIC_ID: ${{ github.event.inputs.topic_id }}
           GITHUB_OUTPUT: ${{ github.output }}
+
+      - name: ⚡ Auto-optimize SEO (A+ grade)
+        run: node automation/scripts/post-process-blog.js
+        continue-on-error: true  # Don't fail if post-processing has issues
 
       - name: ✅ Validate generated content
         run: node automation/scripts/validate-content.js
