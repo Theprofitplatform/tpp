@@ -145,7 +145,7 @@ Melbourne's digital landscape is evolving:
 2. **Voice Search Optimization** - "Near me" searches dominating mobile
 3. **Video Content** - Reels and TikTok gaining traction in Melbourne market
 4. **Sustainability Messaging** - Melbourne consumers value eco-conscious businesses
-5. **Mobile-First Everything** - 70%+ of Melbourne searches happen on mobile
+5. **Mobile-First Everything** - Most Melbourne searches happen on mobile devices
 
 ### Get Started Today
 

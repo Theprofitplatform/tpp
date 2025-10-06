@@ -282,7 +282,7 @@ Sydney is Australia's economic powerhouse and most competitive digital marketpla
 
 ### The Challenge
 
-**78% of Sydney consumers search for local businesses online before making a purchase decision.**
+**Most Sydney consumers search for local businesses online before making a purchase decision.**
 
 If you're not visible on Google:
 - ❌ Your competitors are capturing those customers

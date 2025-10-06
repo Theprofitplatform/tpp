@@ -237,7 +237,7 @@ Parramatta is Sydney's second CBD and one of Australia's fastest-growing busines
 
 ### The Challenge
 
-**73% of Parramatta residents search for local businesses online before visiting or calling.**
+**Most Parramatta residents search for local businesses online before visiting or calling.**
 
 If you're not visible on Google:
 - ❌ Your competitors are getting those customers

@@ -178,7 +178,7 @@ From local boutiques to national brands:
 - Local landmarks in content
 
 **Mobile-First**
-- 75%+ Brisbane searches on mobile
+- Most Brisbane searches happen on mobile
 - Click-to-call critical for service businesses
 - Fast-loading mobile sites essential
 
