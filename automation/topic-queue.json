@@ -16,20 +16,6 @@
       "status": "pending"
     },
     {
-      "id": 15,
-      "title": "Google Ads Quality Score: How to Improve It and Lower Your Costs",
-      "category": "Google Ads",
-      "tags": [
-        "Quality Score",
-        "PPC Optimization",
-        "Cost Reduction"
-      ],
-      "targetKeyword": "google ads quality score",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 16,
       "title": "Content Marketing Strategy for Sydney B2B Companies in 2025",
       "category": "Content Marketing",
@@ -589,6 +575,24 @@
       "publishedSlug": "link-building-strategies-that-actually-work-for-sydney-businesses",
       "wordCount": 2213,
       "author": "Avi"
+    },
+    {
+      "id": 15,
+      "title": "Google Ads Quality Score: How to Improve It and Lower Your Costs",
+      "category": "Google Ads",
+      "tags": [
+        "Quality Score",
+        "PPC Optimization",
+        "Cost Reduction"
+      ],
+      "targetKeyword": "google ads quality score",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "google-ads-quality-score-how-to-improve-it-and-lower-your-costs",
+      "wordCount": 2660,
+      "author": "TPP Team"
     }
   ],
   "config": {

@@ -1,0 +1,110 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "89%",
+        "context": "89% of Sydney businesses running Google Ads are paying 40-60% more than they should for the same clicks. The culprit? Poor Quality Scores that Google uses to determine how much you pay per click and where your ads appear.",
+        "line": "89% of Sydney businesses running Google Ads are paying 40-60% more than they should for the same clicks. The culprit? Poor Quality Scores that Google uses to determine how much you pay per click and where your ads appear."
+      },
+      {
+        "lineNumber": 3,
+        "value": "60%",
+        "context": "89% of Sydney businesses running Google Ads are paying 40-60% more than they should for the same clicks. The culprit? Poor Quality Scores that Google uses to determine how much you pay per click and where your ads appear.",
+        "line": "89% of Sydney businesses running Google Ads are paying 40-60% more than they should for the same clicks. The culprit? Poor Quality Scores that Google uses to determine how much you pay per click and where your ads appear."
+      },
+      {
+        "lineNumber": 7,
+        "value": "50%",
+        "context": "This comprehensive guide reveals the exact framework we use to boost Quality Scores for Sydney businesses from average ratings of 4-5 up to 8-10, typically reducing cost-per-click by 30-50% within 8 weeks.",
+        "line": "This comprehensive guide reveals the exact framework we use to boost Quality Scores for Sydney businesses from average ratings of 4-5 up to 8-10, typically reducing cost-per-click by 30-50% within 8 weeks."
+      },
+      {
+        "lineNumber": 29,
+        "value": "$2,800",
+        "context": "We recently audited a Surry Hills café (2010) spending $2,800 monthly on Google Ads with an average Quality Score of 4. Their cost-per-click for \"best coffee Sydney\" was $4.20, while a competitor with a Quality Score of 8 was paying just $2.10 for the same keyword.",
+        "line": "We recently audited a Surry Hills café (2010) spending $2,800 monthly on Google Ads with an average Quality Score of 4. Their cost-per-click for \"best coffee Sydney\" was $4.20, while a competitor with a Quality Score of 8 was paying just $2.10 for the same keyword."
+      },
+      {
+        "lineNumber": 29,
+        "value": "$4",
+        "context": "We recently audited a Surry Hills café (2010) spending $2,800 monthly on Google Ads with an average Quality Score of 4. Their cost-per-click for \"best coffee Sydney\" was $4.20, while a competitor with a Quality Score of 8 was paying just $2.10 for the same keyword.",
+        "line": "We recently audited a Surry Hills café (2010) spending $2,800 monthly on Google Ads with an average Quality Score of 4. Their cost-per-click for \"best coffee Sydney\" was $4.20, while a competitor with a Quality Score of 8 was paying just $2.10 for the same keyword."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 89%, 60%, 50%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 3,
+    "title": "Screenshot: 89% of Sydney businesses running Google Ads are paying 40-60% more than they should for the same clicks. The culprit? Poor Quality Scores that Google uses to determine how much you pay per click and where your ads appear.",
+    "description": "Screenshot of: 89% of Sydney businesses running Google Ads are paying 40-60% more than they should for the same clicks. The culprit? Poor Quality Scores that Google ",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 9,
+    "title": "Screenshot: Understanding Google Ads Quality Score: The Algorithm That Controls Your Ad Spend",
+    "description": "Screenshot of: ## Understanding Google Ads Quality Score: The Algorithm That Controls Your Ad Spend  Google ads quality score is a 1-10 rating system that Google use",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 11,
+    "title": "Screenshot: Google ads quality score is a 1-10 rating system that Google uses to measure the relevance and quality of your ads, keywords, and landing pages. According to [Google's official documentation](https://support.google.com/google-ads/answer/140351), this score directly impacts your ad rank and cost-per-click [Source: Google Support].",
+    "description": "Screenshot of: Google ads quality score is a 1-10 rating system that Google uses to measure the relevance and quality of your ads, keywords, and landing pages. Accor",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 66,
+    "title": "Before/After: Here's a before-and-after example from a Mosman electrician:",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "1.2%",
+      "4.7%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 174,
+    "title": "Before/After: **The Results After 12 Weeks**:",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "$8,400",
+      "30%",
+      "89%",
+      "$247"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 267,
+    "title": "A: Quality Score 7+ is considered good and will keep your costs competitive. Scores of 8-10 provide the best cost advantages, but the effort to move from 8 to 10 often has diminishing returns compared to other optimisation efforts.",
+    "description": "Create comparison table/diagram for: Quality Score vs Scores",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  }
+]

@@ -447,6 +447,16 @@ schema: ${JSON.stringify(schemaAnalysis.schemas, null, 2).split('\n').map((line,
     console.log(`🔗 URL: ${cleanUrl}`);
     console.log(`\n📋 Remaining topics in queue: ${queue.queue.length}`);
 
+    // 17. Send Discord notification (if webhook configured)
+    await sendDiscordNotification({
+      title: topic.title,
+      url: cleanUrl,
+      wordCount,
+      author,
+      category: topic.category,
+      slug
+    });
+
     return {
       success: true,
       topic,
@@ -527,6 +537,77 @@ async function addInternalLinks(content) {
 
   console.log(`   Total internal links: ${linksAdded}`);
   return linkedContent;
+}
+
+/**
+ * Send Discord notification about new blog post
+ * @param {Object} data - Blog post data
+ */
+async function sendDiscordNotification(data) {
+  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+
+  if (!webhookUrl) {
+    console.log('\n⚠️  Discord webhook not configured, skipping notification');
+    return;
+  }
+
+  console.log('\n📤 Sending Discord notification...');
+
+  try {
+    const embed = {
+      title: '✅ New Blog Post Generated!',
+      description: data.title,
+      color: 0x3b82f6, // Blue
+      fields: [
+        {
+          name: '📊 Word Count',
+          value: `${data.wordCount} words`,
+          inline: true
+        },
+        {
+          name: '✍️ Author',
+          value: data.author,
+          inline: true
+        },
+        {
+          name: '📁 Category',
+          value: data.category,
+          inline: true
+        },
+        {
+          name: '🔗 URL',
+          value: data.url,
+          inline: false
+        }
+      ],
+      footer: {
+        text: '🤖 Local Blog Generation'
+      },
+      timestamp: new Date().toISOString()
+    };
+
+    const payload = {
+      username: 'Blog Bot (Local)',
+      avatar_url: 'https://cdn-icons-png.flaticon.com/512/6134/6134346.png',
+      embeds: [embed]
+    };
+
+    const response = await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`Discord API error: ${response.status} ${errorText}`);
+    }
+
+    console.log('   ✓ Discord notification sent successfully');
+  } catch (error) {
+    console.error('   ✗ Failed to send Discord notification:', error.message);
+    // Don't fail the whole process for notification errors
+  }
 }
 
 // Run if called directly
