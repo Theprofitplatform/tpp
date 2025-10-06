@@ -5,6 +5,10 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { fetchAndSaveFeaturedImage } from './unsplash-fetcher.js';
 import { retryWithBackoff, RateLimiter } from '../utils/api-helpers.mjs';
+import { generateSchemas, analyzeSchemas } from './schema-generator.js';
+import { generateVisualSuggestions, generateVisualReport } from './visual-suggester.js';
+import { analyzeReadability, generateReadabilityReport } from './readability-analyzer.js';
+import { enhanceInternalLinks, generateLinkingReport } from './smart-linker.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -281,9 +285,52 @@ Return only the meta description text.`
 
     console.log(`✅ Meta description: ${metaDescription.length} chars\n`);
 
-    // 8. Add internal links
+    // 8. Add internal links (now using smart linker)
     console.log('🔗 Adding internal links...');
-    const contentWithLinks = await addInternalLinks(content);
+    let contentWithLinks = content;
+
+    try {
+      const linkMapPath = path.join(projectRoot, 'automation/internal-link-map.json');
+      const linkMap = JSON.parse(await fs.readFile(linkMapPath, 'utf-8'));
+
+      const linkingResult = enhanceInternalLinks(content, linkMap, topic.title, topic);
+      contentWithLinks = linkingResult.content;
+
+      console.log(generateLinkingReport(linkingResult));
+    } catch (error) {
+      console.warn('⚠️  Smart linking failed, using basic internal links:', error.message);
+      contentWithLinks = await addInternalLinks(content);
+    }
+
+    // 8.5. Analyze readability
+    console.log('\n📖 Analyzing readability...');
+    const readabilityAnalysis = analyzeReadability(contentWithLinks);
+    console.log(generateReadabilityReport(readabilityAnalysis));
+
+    // 8.6. Generate visual content suggestions
+    console.log('\n🎨 Generating visual content suggestions...');
+    const visualSuggestions = generateVisualSuggestions(contentWithLinks, {
+      title: topic.title,
+      category: topic.category,
+      tags: topic.tags
+    });
+
+    const visualReport = generateVisualReport(visualSuggestions);
+    console.log(`Found ${visualReport.totalSuggestions} visual opportunities:`);
+    console.log(`  High priority: ${visualReport.byPriority.high}`);
+    console.log(`  Medium priority: ${visualReport.byPriority.medium}`);
+    console.log(`  Estimated time: ${visualReport.estimatedTotalTime}`);
+
+    // Save visual suggestions for later reference
+    const suggestionsDir = path.join(projectRoot, 'automation/visual-suggestions');
+    try {
+      await fs.mkdir(suggestionsDir, { recursive: true });
+      const suggestionsFile = path.join(suggestionsDir, `${topic.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.json`);
+      await fs.writeFile(suggestionsFile, JSON.stringify(visualSuggestions, null, 2));
+      console.log(`  💾 Saved suggestions to: ${path.basename(suggestionsFile)}`);
+    } catch (err) {
+      console.warn('  ⚠️  Could not save visual suggestions:', err.message);
+    }
 
     // 9. Calculate read time
     const wordCount = content.split(/\s+/).length;
@@ -297,6 +344,22 @@ Return only the meta description text.`
 
     // 11. Determine author based on topic expertise
     const author = assignAuthorByExpertise(topic.category, topic.tags);
+
+    // 11.5. Generate schema markup
+    console.log('\n🔍 Generating schema markup...');
+    const schemaAnalysis = analyzeSchemas(contentWithLinks, {
+      title: topic.title,
+      description: metaDescription,
+      author,
+      publishDate: new Date().toISOString().split('T')[0],
+      slug,
+      coverImage: imageData?.coverImage || ''
+    });
+
+    console.log(`Generated ${schemaAnalysis.schemasGenerated} schemas:`);
+    schemaAnalysis.schemaTypes.forEach(type => console.log(`  ✓ ${type}`));
+    if (schemaAnalysis.faqCount > 0) console.log(`  📋 ${schemaAnalysis.faqCount} FAQs detected`);
+    if (schemaAnalysis.stepCount > 0) console.log(`  📝 ${schemaAnalysis.stepCount} steps detected`);
 
     // 12. Create frontmatter with image data
     const today = new Date().toISOString().split('T')[0];
@@ -325,7 +388,15 @@ coverImageCredit:
 seo:
   title: "${topic.title} | The Profit Platform"
   description: "${metaDescription}"
-  keywords: ${JSON.stringify([topic.targetKeyword, ...topic.tags.slice(0, 3)])}
+  keywords: ${JSON.stringify([topic.targetKeyword, ...topic.tags.slice(0, 3)])}`;
+
+    // Add schema markup
+    if (schemaAnalysis.schemas.length > 0) {
+      frontmatter += `
+schema: ${JSON.stringify(schemaAnalysis.schemas, null, 2).split('\n').map((line, i) => i === 0 ? line : '  ' + line).join('\n')}`;
+    }
+
+    frontmatter += `
 ---
 
 `;

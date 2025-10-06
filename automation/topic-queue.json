@@ -16,21 +16,6 @@
       "status": "pending"
     },
     {
-      "id": 13,
-      "title": "Mobile-First Web Design: Why Sydney Businesses Can't Ignore It in 2025",
-      "category": "Web Design",
-      "tags": [
-        "Mobile Design",
-        "Responsive Design",
-        "User Experience",
-        "SEO"
-      ],
-      "targetKeyword": "mobile first web design",
-      "searchIntent": "informational",
-      "priority": 2,
-      "status": "pending"
-    },
-    {
       "id": 14,
       "title": "Link Building Strategies That Actually Work for Sydney Businesses",
       "category": "SEO",
@@ -580,6 +565,25 @@
       "publishedDate": "2025-10-06",
       "publishedSlug": "how-to-track-google-ads-roi-a-sydney-business-owner-s-guide",
       "wordCount": 2341,
+      "author": "TPP Team"
+    },
+    {
+      "id": 13,
+      "title": "Mobile-First Web Design: Why Sydney Businesses Can't Ignore It in 2025",
+      "category": "Web Design",
+      "tags": [
+        "Mobile Design",
+        "Responsive Design",
+        "User Experience",
+        "SEO"
+      ],
+      "targetKeyword": "mobile first web design",
+      "searchIntent": "informational",
+      "priority": 2,
+      "status": "published",
+      "publishedDate": "2025-10-06",
+      "publishedSlug": "mobile-first-web-design-why-sydney-businesses-can-t-ignore-it-in-2025",
+      "wordCount": 3034,
       "author": "TPP Team"
     }
   ],
