@@ -19,7 +19,7 @@ You already have Claude Code Max subscription, so:
 2. Sign in with your Anthropic account
 3. Navigate to **API Keys**
 4. Click **Create Key**
-5. Copy your API key (starts with `sk-ant-...`)
+5. Copy your API key (starts with `sk-ant-YOUR_KEY_HERE...`)
 
 **Note**: Your Claude Code Max subscription includes API credits!
 
@@ -29,7 +29,7 @@ You already have Claude Code Max subscription, so:
 2. Navigate to **Pages** → **tpp** → **Settings** → **Environment Variables**
 3. Add new variable:
    - **Name**: `ANTHROPIC_API_KEY`
-   - **Value**: `sk-ant-api03-...` (your API key)
+   - **Value**: `sk-ant-YOUR_KEY_HERE...` (your API key)
    - **Environment**: Production & Preview
 
 ### Step 3: Deploy
@@ -384,7 +384,7 @@ Monitor user feedback:
 
 **Solution**:
 1. Verify key is in **Production** environment
-2. Key should start with `sk-ant-api03-`
+2. Key should start with `sk-ant-YOUR_KEY_HERE`
 3. Redeploy: `npm run deploy`
 
 ### Issue: Claude API errors

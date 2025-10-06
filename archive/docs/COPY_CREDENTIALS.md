@@ -27,7 +27,7 @@ Since you already have Claude API and email credentials set up in other tools, h
 # Add after line 22 (after Search Console config):
 
 # Claude AI (for content generation features)
-ANTHROPIC_API_KEY=sk-ant-your-key-here
+ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
 
 # Email Alerts (if you want email notifications)
 # Already configured on lines 28-33, just update with your values
@@ -42,7 +42,7 @@ ANTHROPIC_API_KEY=sk-ant-your-key-here
 cat >> .env.local << 'EOF'
 
 # Claude AI
-ANTHROPIC_API_KEY=sk-ant-your-actual-key-here
+ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
 EOF
 ```
 
@@ -86,7 +86,7 @@ npm run blog:alerts
 
 Just copy these values from your other tools:
 
-1. **Claude API Key** (starts with `sk-ant-`)
+1. **Claude API Key** (starts with `sk-ant-YOUR_KEY_HERE`)
    - From: Anthropic console or other project
 
 2. **Email Settings** (if you want alerts)

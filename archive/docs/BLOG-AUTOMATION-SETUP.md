@@ -85,7 +85,7 @@ Live Blog Post + Slack Notification
 2. Sign up or log in
 3. Navigate to **API Keys**
 4. Click **Create Key**
-5. Copy the key (starts with `sk-ant-api03-...`)
+5. Copy the key (starts with `sk-ant-YOUR_KEY_HERE...`)
 6. **Save it securely** - you'll need it in Step 3
 
 ### Step 2: Set Up Slack Webhook (Optional)
@@ -131,7 +131,7 @@ Expected output: Build should complete successfully with no errors.
 
 ```bash
 # Set your API key (temporary, for testing)
-export CLAUDE_API_KEY="sk-ant-api03-YOUR-KEY-HERE"
+export CLAUDE_API_KEY="sk-ant-YOUR_KEY_HERE"
 
 # Generate a blog post (uses first topic in queue)
 npm run blog:generate

@@ -14,7 +14,7 @@ Use your existing **Claude Code Max subscription** instead - **$0 additional cos
 
 1. Visit: https://console.anthropic.com/settings/keys
 2. Click **"Create Key"**
-3. Copy the key (starts with `sk-ant-api03-...`)
+3. Copy the key (starts with `sk-ant-YOUR_KEY_HERE...`)
 
 ### Step 2: Add to Cloudflare (1 min)
 

@@ -35,7 +35,7 @@ The content generator has been successfully upgraded to Claude 3.5 Sonnet with a
 3. Click "Add variable" under Production environment
 4. Add:
    - **Name**: `ANTHROPIC_API_KEY`
-   - **Value**: `sk-ant-api03-...` (your API key)
+   - **Value**: `sk-ant-YOUR_KEY_HERE...` (your API key)
    - **Type**: Production
 5. Click "Save"
 

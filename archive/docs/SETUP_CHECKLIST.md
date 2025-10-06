@@ -57,7 +57,7 @@
 # Get API key from: https://console.anthropic.com/
 
 # Add to .env.local:
-ANTHROPIC_API_KEY=sk-ant-...your-key-here
+ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
 ```
 
 **Cost:** ~$0.01-0.05 per post
@@ -182,7 +182,7 @@ Review: `automation/insights-report.json`
 2. **Add to .env.local**
    ```bash
    # Claude AI
-   ANTHROPIC_API_KEY=sk-ant-your-key-here
+   ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
    ```
 
 3. **Verify**

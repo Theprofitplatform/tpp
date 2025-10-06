@@ -23,7 +23,7 @@ CONTACT_EMAIL=avi@theprofitplatform.com.au
 ### SERP API Configuration
 
 ```
-SERP_API_KEY=6da08486e3daea8a615380933814ba9485da9e71713985b14460fc6256eecc71
+SERP_API_KEY=your_key_here
 ```
 
 ### n8n Workflow Configuration (Optional)

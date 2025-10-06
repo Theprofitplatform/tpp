@@ -71,7 +71,7 @@
 2. Sign in with your account
 3. Navigate to **API Keys**
 4. Create a new key
-5. Copy it (starts with `sk-ant-api03-...`)
+5. Copy it (starts with `sk-ant-YOUR_KEY_HERE...`)
 
 ### Step 2: Add to Cloudflare
 
@@ -79,7 +79,7 @@
 2. Settings → **Environment Variables**
 3. Add variable:
    - Name: `ANTHROPIC_API_KEY`
-   - Value: `sk-ant-api03-...`
+   - Value: `sk-ant-YOUR_KEY_HERE...`
    - Environment: **Production** & **Preview**
 
 ### Step 3: Redeploy

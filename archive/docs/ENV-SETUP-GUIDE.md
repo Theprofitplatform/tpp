@@ -115,7 +115,7 @@ For local development, create a `.env` file in the project root:
 
 ```bash
 # .env (for local development only)
-SERP_API_KEY=your_serpapi_key_here
+SERP_API_KEY=your_key_here
 BACKEND_API_URL=https://api.theprofitplatform.com.au
 ```
 

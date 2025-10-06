@@ -31,7 +31,7 @@ Since you set them up before, you likely have them saved somewhere. Add to `.env
 
 ```bash
 # Claude AI
-ANTHROPIC_API_KEY=sk-ant-your-key-here
+ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
 
 # Email (if configured)
 EMAIL_USER=your-email@gmail.com
@@ -85,7 +85,7 @@ nano .env.local
 Add after line 22:
 ```bash
 # Claude AI
-ANTHROPIC_API_KEY=sk-ant-your-actual-key
+ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
 
 # Email Alerts
 EMAIL_USER=your-email@gmail.com
@@ -96,7 +96,7 @@ EMAIL_TO=your-email@gmail.com
 **Method 2: Command Line**
 ```bash
 # Add Claude API
-echo "ANTHROPIC_API_KEY=sk-ant-your-key" >> .env.local
+echo "ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
 
 # Add Email
 echo "EMAIL_USER=your-email@gmail.com" >> .env.local
@@ -128,7 +128,7 @@ gh secret list -R your-username/your-repo
 1. Go to: https://console.anthropic.com/settings/keys
 2. Click "Create Key"
 3. Name it: "TPP Blog Automation"
-4. Copy the key (starts with `sk-ant-`)
+4. Copy the key (starts with `sk-ant-YOUR_KEY_HERE`)
 5. Add to `.env.local`
 
 ### Get New Email App Password:

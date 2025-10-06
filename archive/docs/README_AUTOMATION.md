@@ -278,7 +278,7 @@ npm run blog:performance
 ### AI features not working?
 ```bash
 # Add Anthropic API key to .env.local
-ANTHROPIC_API_KEY=sk-ant-your-key-here
+ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
 ```
 
 ---
