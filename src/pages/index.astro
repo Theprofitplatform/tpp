@@ -304,11 +304,24 @@ Get My Free Strategy Session →
       const formData = new FormData(newForm);
       const data = Object.fromEntries(formData.entries());
 
+      // Transform form data to match API expectations
+      const transformedData = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        company: data.business || '', // Map business to company
+        service: data.service,
+        budget: data.budget || '',
+        message: data.message,
+        consent: true, // Default to true since form doesn't have consent checkbox
+        _gotcha: data.website || '' // Map honeypot field
+      };
+
       try {
         const response = await fetch('/api/contact', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          body: JSON.stringify(transformedData)
         });
 
         const result = await response.json();
