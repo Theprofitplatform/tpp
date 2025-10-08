@@ -1,0 +1,46 @@
+{
+  "automation": {
+    "primaryEnvironment": "vps",
+    "vps": {
+      "hostname": "tpp-vps",
+      "user": "avi",
+      "projectPath": "/home/avi/projects/tpp",
+      "cronSchedule": "0 9 * * 1-5",
+      "enabled": true,
+      "scripts": [
+        "vps-auto-blog.sh",
+        "vps-auto-blog-advanced.sh",
+        "vps-auto-blog-fixed.sh"
+      ]
+    },
+    "local": {
+      "enabled": false,
+      "purpose": "development",
+      "restrictions": [
+        "no_automation",
+        "manual_testing_only",
+        "pull_before_development"
+      ]
+    },
+    "conflictPrevention": {
+      "rules": [
+        "vps_primary_automation",
+        "local_development_only",
+        "no_simultaneous_automation",
+        "git_sync_before_development"
+      ],
+      "checkpoints": [
+        "check_git_sync_before_local_work",
+        "verify_no_duplicate_posts",
+        "validate_topic_queue_consistency"
+      ]
+    },
+    "git": {
+      "primaryCommits": "vps",
+      "syncProtocol": "pull_before_work",
+      "conflictResolution": "vps_wins"
+    }
+  },
+  "lastUpdated": "2025-10-08",
+  "version": "1.0"
+}
