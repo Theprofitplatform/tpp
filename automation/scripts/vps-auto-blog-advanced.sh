@@ -337,9 +337,35 @@ Via VPS automation system (Advanced Version)"
     fi
 
     # -----------------------------------------
-    # 6. SUCCESS NOTIFICATION
+    # 6. DEPLOY TO CLOUDFLARE PAGES
     # -----------------------------------------
-    log "Step 6: Sending notifications..."
+    log "Step 6: Deploying to Cloudflare Pages..."
+
+    DEPLOY_RETRY=0
+    DEPLOY_SUCCESS=false
+
+    while [ $DEPLOY_RETRY -lt 3 ]; do
+        if npm run deploy >> "$LOG_FILE" 2>&1; then
+            log_success "Deployed to Cloudflare Pages"
+            DEPLOY_SUCCESS=true
+            break
+        else
+            DEPLOY_RETRY=$((DEPLOY_RETRY + 1))
+            log "Deploy failed, retry $DEPLOY_RETRY/3"
+            sleep 30
+        fi
+    done
+
+    if [ "$DEPLOY_SUCCESS" = false ]; then
+        log_error "Failed to deploy after 3 attempts"
+        send_notification "warning" "Deploy Failed: $POST_TITLE" "Blog post pushed but deploy failed - Manual deploy needed"
+        # Don't exit here - post is still published to GitHub
+    fi
+
+    # -----------------------------------------
+    # 7. SUCCESS NOTIFICATION
+    # -----------------------------------------
+    log "Step 7: Sending notifications..."
 
     POST_URL="https://theprofitplatform.com.au/blog/${POST_SLUG#????-??-??-}"
 
