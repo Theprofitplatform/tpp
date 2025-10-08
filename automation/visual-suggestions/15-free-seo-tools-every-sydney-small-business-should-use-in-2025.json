@@ -1,0 +1,89 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "87%",
+        "context": "87% of Sydney small businesses in postcodes like 2000 (CBD), 2088 (Mosman), and 2026 (Bondi) are invisible on Google's first page. The shocking truth? They're not using the **free [SEO Tools](/blog/google-search-console-the-complete-guide-for-sydney-business-owners/)** that could change everything.",
+        "line": "87% of Sydney small businesses in postcodes like 2000 (CBD), 2088 (Mosman), and 2026 (Bondi) are invisible on Google's first page. The shocking truth? They're not using the **free [SEO Tools](/blog/google-search-console-the-complete-guide-for-sydney-business-owners/)** that could change everything."
+      },
+      {
+        "lineNumber": 11,
+        "value": "$800",
+        "context": "When we started working with a Bondi Junction café in early 2024, they were paying $800/month for basic SEO reports that barely moved the needle. Six months later, using only free [SEO Tools](/blog/google-search-console-the-complete-guide-for-sydney-business-owners/) and smart strategy, they're ranking #1 for \"best coffee Bondi Junction\" and generating 40% more foot traffic.",
+        "line": "When we started working with a Bondi Junction café in early 2024, they were paying $800/month for basic SEO reports that barely moved the needle. Six months later, using only free [SEO Tools](/blog/google-search-console-the-complete-guide-for-sydney-business-owners/) and smart strategy, they're ranking #1 for \"best coffee Bondi Junction\" and generating 40% more foot traffic."
+      },
+      {
+        "lineNumber": 11,
+        "value": "40%",
+        "context": "When we started working with a Bondi Junction café in early 2024, they were paying $800/month for basic SEO reports that barely moved the needle. Six months later, using only free [SEO Tools](/blog/google-search-console-the-complete-guide-for-sydney-business-owners/) and smart strategy, they're ranking #1 for \"best coffee Bondi Junction\" and generating 40% more foot traffic.",
+        "line": "When we started working with a Bondi Junction café in early 2024, they were paying $800/month for basic SEO reports that barely moved the needle. Six months later, using only free [SEO Tools](/blog/google-search-console-the-complete-guide-for-sydney-business-owners/) and smart strategy, they're ranking #1 for \"best coffee Bondi Junction\" and generating 40% more foot traffic."
+      },
+      {
+        "lineNumber": 26,
+        "value": "3x",
+        "context": "**Pro tip from our experience:** Set your location targeting to specific Sydney councils. We discovered that \"coffee shop Surry Hills\" has 3x higher search volume than \"coffee shop Sydney CBD\" – a game-changer for local positioning.",
+        "line": "**Pro tip from our experience:** Set your location targeting to specific Sydney councils. We discovered that \"coffee shop Surry Hills\" has 3x higher search volume than \"coffee shop Sydney CBD\" – a game-changer for local positioning."
+      },
+      {
+        "lineNumber": 53,
+        "value": "60%",
+        "context": "**Real example:** A Mosman real estate agent discovered through Search Console that 60% of their traffic came from \"Mosman house prices 2024\" – a keyword they weren't even targeting. This insight led to creating dedicated content that tripled their organic leads.",
+        "line": "**Real example:** A Mosman real estate agent discovered through Search Console that 60% of their traffic came from \"Mosman house prices 2024\" – a keyword they weren't even targeting. This insight led to creating dedicated content that tripled their organic leads."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 87%, $800, 40%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 19,
+    "title": "Screenshot: [Google Keyword Planner](https://ads.google.com/home/tools/keyword-planner/) remains the gold standard for Sydney businesses. It's completely free with a Google Ads account (you don't need to run ads) and provides search volume data specific to Australian locations. [Source: Google Ads]",
+    "description": "Screenshot of: [Google Keyword Planner](https://ads.google.com/home/tools/keyword-planner/) remains the gold standard for Sydney businesses. It's completely free wit",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 228,
+    "title": "Screenshot: A: Check Google Search Console weekly, Google Analytics monthly for trend analysis, and use keyword research tools quarterly for content planning. Daily checking leads to over-optimisation and wasted time.",
+    "description": "Screenshot of: A: Check Google Search Console weekly, Google Analytics monthly for trend analysis, and use keyword research tools quarterly for content planning. Dai",
+    "example": "Google Analytics 4 interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 7,
+    "title": "Before/After: Here's what you'll discover in this guide: 15 powerful free [SEO Tools](/blog/google-search-console-the-complete-guide-for-sydney-business-owners/) that can transform your Sydney business's online visibility, plus the exact strategies we use to help our clients dominate local search results.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "$800",
+      "40%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 170,
+    "title": "Before/After: **The results:**",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "340%",
+      "$0"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  }
+]
