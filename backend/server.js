@@ -147,7 +147,8 @@ IP: ${req.ip}
     `.trim();
 
     // Send email to business
-    await transporter.sendMail({
+    console.log('📧 Sending business notification email...');
+    const businessEmail = await transporter.sendMail({
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: process.env.CONTACT_EMAIL || 'avi@theprofitplatform.com.au',
       replyTo: email,
@@ -155,9 +156,11 @@ IP: ${req.ip}
       text: emailContent,
       html: `<pre style="font-family: monospace; font-size: 14px;">${emailContent}</pre>`
     });
+    console.log('✅ Business email sent:', businessEmail.messageId);
 
     // Send auto-reply to customer
-    await transporter.sendMail({
+    console.log('📧 Sending customer auto-reply email...');
+    const customerEmail = await transporter.sendMail({
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: email,
       subject: 'Thank you for contacting The Profit Platform',
@@ -179,6 +182,7 @@ IP: ${req.ip}
         </div>
       `
     });
+    console.log('✅ Customer auto-reply sent:', customerEmail.messageId);
 
     // Log successful submission
     console.log('✅ Contact form submission:', {

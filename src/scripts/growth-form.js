@@ -620,8 +620,11 @@ class GrowthForm {
       // Add UTM parameters
       this.addUtmParameters(formData);
 
-      // Submit to existing endpoint
-      const response = await fetch('/api/contact', {
+      // Submit to API endpoint using environment variable
+      const apiUrl = import.meta.env?.PUBLIC_API_URL || '';
+      const contactEndpoint = apiUrl ? `${apiUrl}/api/contact` : '/api/contact';
+
+      const response = await fetch(contactEndpoint, {
         method: 'POST',
         body: formData
       });

@@ -11,7 +11,7 @@
     "grepInvert": null,
     "maxFailures": 0,
     "metadata": {
-      "actualWorkers": 1
+      "actualWorkers": 5
     },
     "preserveOutput": "always",
     "reporter": [
@@ -41,7 +41,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 5
         },
         "id": "chromium",
         "name": "chromium",
@@ -57,7 +57,7 @@
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
-          "actualWorkers": 1
+          "actualWorkers": 5
         },
         "id": "mobile",
         "name": "mobile",
@@ -78,20 +78,20 @@
   },
   "suites": [
     {
-      "title": "debug-hero-image.spec.js",
-      "file": "debug-hero-image.spec.js",
+      "title": "contact-form.spec.js",
+      "file": "contact-form.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Hero Image Debug",
-          "file": "debug-hero-image.spec.js",
-          "line": 10,
+          "title": "Homepage Contact Form",
+          "file": "contact-form.spec.js",
+          "line": 14,
           "column": 6,
           "specs": [
             {
-              "title": "Debug hero image on scale-local-seo post",
+              "title": "should render contact form correctly",
               "ok": true,
               "tags": [],
               "tests": [
@@ -106,88 +106,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 4518,
+                      "duration": 7846,
                       "errors": [],
-                      "stdout": [
-                        {
-                          "text": "\n🔍 Starting hero image debug...\n\n"
-                        },
-                        {
-                          "text": "✓ Page loaded\n\n"
-                        },
-                        {
-                          "text": "1. Featured image container count: 1\n"
-                        },
-                        {
-                          "text": "   ✓ Container found\n\n"
-                        },
-                        {
-                          "text": "2. Image element count: 1\n"
-                        },
-                        {
-                          "text": "   ✓ Image element found\n\n"
-                        },
-                        {
-                          "text": "3. Image attributes:\n"
-                        },
-                        {
-                          "text": "   - src: https://images.unsplash.com/photo-1594935975218-a3596da034a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxmcmFuY2hpc2UlMjBidXNpbmVzcyUyMG1hcHxlbnwxfDB8fHwxNzU5NjYyMTAyfDA&ixlib=rb-4.1.0&q=80&w=1080\n"
-                        },
-                        {
-                          "text": "   - alt: person holding white printer paper\n"
-                        },
-                        {
-                          "text": "   - loading: eager\n\n"
-                        },
-                        {
-                          "text": "4. Image visible: true\n"
-                        },
-                        {
-                          "text": "5. Image load status:\n"
-                        },
-                        {
-                          "text": "   - naturalWidth: 1080\n"
-                        },
-                        {
-                          "text": "   - naturalHeight: 720\n"
-                        },
-                        {
-                          "text": "   - complete: true\n\n"
-                        },
-                        {
-                          "text": "   ✓ Image loaded successfully\n\n"
-                        },
-                        {
-                          "text": "6. Container CSS:\n"
-                        },
-                        {
-                          "text": "   - display: block\n"
-                        },
-                        {
-                          "text": "   - opacity: 1\n"
-                        },
-                        {
-                          "text": "   - height: 874.125px\n\n"
-                        },
-                        {
-                          "text": "7. Screenshot saved: debug-hero-image.png\n\n"
-                        },
-                        {
-                          "text": "8. Parent element styles:\n"
-                        },
-                        {
-                          "text": "   1. <ARTICLE class=\"blog-post\">\n"
-                        },
-                        {
-                          "text": "      display: block, opacity: 1, visibility: visible\n"
-                        },
-                        {
-                          "text": "\n✅ Debug complete!\n\n"
-                        }
-                      ],
+                      "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-05T11:03:02.182Z",
+                      "startTime": "2025-10-08T13:25:52.881Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -195,9 +119,549 @@
                   "status": "expected"
                 }
               ],
-              "id": "052d696cd1ec058a3648-4c25f0d8dd7606f2df69",
-              "file": "debug-hero-image.spec.js",
-              "line": 12,
+              "id": "97203e29c2f9ea68820f-7e7329689d10b5abb811",
+              "file": "contact-form.spec.js",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "should submit form with valid data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 10466,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:25:53.114Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-705588e052330ea1fef4",
+              "file": "contact-form.spec.js",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "should validate required fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 8071,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:25:52.880Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-edbd07c31af6cfd570fa",
+              "file": "contact-form.spec.js",
+              "line": 76,
+              "column": 3
+            },
+            {
+              "title": "should validate email format",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 8457,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:25:55.249Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-e0f8c17a0e533d17250c",
+              "file": "contact-form.spec.js",
+              "line": 93,
+              "column": 3
+            },
+            {
+              "title": "should handle form submission errors gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 10462,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Form was reset - checking if error was handled via alert\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:25:54.691Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-a0ef0d1ad5d15f8e606c",
+              "file": "contact-form.spec.js",
+              "line": 111,
+              "column": 3
+            },
+            {
+              "title": "should have accessible form labels",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6022,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:01.112Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-3dce9773c7b521d91442",
+              "file": "contact-form.spec.js",
+              "line": 154,
+              "column": 3
+            },
+            {
+              "title": "should work on mobile viewport",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 7483,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:01.405Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-f358dba988e0969381f2",
+              "file": "contact-form.spec.js",
+              "line": 175,
+              "column": 3
+            },
+            {
+              "title": "should render contact form correctly",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 5312,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:11.039Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-09a1683957dfa5b0bdc6",
+              "file": "contact-form.spec.js",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "should submit form with valid data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 9155,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:11.159Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-e20badc383930d090668",
+              "file": "contact-form.spec.js",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "should validate required fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4908,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:12.262Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-1ce029f92af321a77932",
+              "file": "contact-form.spec.js",
+              "line": 76,
+              "column": 3
+            },
+            {
+              "title": "should validate email format",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 7938,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:13.930Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-82c8d8becd3ed42d1b79",
+              "file": "contact-form.spec.js",
+              "line": 93,
+              "column": 3
+            },
+            {
+              "title": "should handle form submission errors gracefully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 8142,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Form was reset - checking if error was handled via alert\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:15.528Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-252d50cf932cd25cdc0d",
+              "file": "contact-form.spec.js",
+              "line": 111,
+              "column": 3
+            },
+            {
+              "title": "should have accessible form labels",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 5222,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:16.648Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-2c90afe34862a34dd495",
+              "file": "contact-form.spec.js",
+              "line": 154,
+              "column": 3
+            },
+            {
+              "title": "should work on mobile viewport",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8885,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:17.473Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-95d1a95f98eb0a0510db",
+              "file": "contact-form.spec.js",
+              "line": 175,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Contact Form API Integration",
+          "file": "contact-form.spec.js",
+          "line": 205,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should use correct API endpoint",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5445,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Captured requests: []\n"
+                        },
+                        {
+                          "text": "No local API requests captured - form is likely using Cloudflare backend URL\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:04.262Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-10ddd408fd53fd894a56",
+              "file": "contact-form.spec.js",
+              "line": 206,
+              "column": 3
+            },
+            {
+              "title": "should use correct API endpoint",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "mobile",
+                  "projectName": "mobile",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 5898,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Captured requests: []\n"
+                        },
+                        {
+                          "text": "No local API requests captured - form is likely using Cloudflare backend URL\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-08T13:26:20.611Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "97203e29c2f9ea68820f-5821170259e97eefacc9",
+              "file": "contact-form.spec.js",
+              "line": 206,
               "column": 3
             }
           ]
@@ -207,9 +671,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-05T11:02:57.130Z",
-    "duration": 9831.685999999998,
-    "expected": 1,
+    "startTime": "2025-10-08T13:25:50.562Z",
+    "duration": 36143.600000000006,
+    "expected": 16,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

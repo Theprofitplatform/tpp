@@ -551,7 +551,10 @@ const { variant = 'default' } = Astro.props;
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('/api/contact', {
+      const apiUrl = import.meta.env.PUBLIC_API_URL || '';
+      const contactEndpoint = apiUrl ? `${apiUrl}/api/contact` : '/api/contact';
+
+      const response = await fetch(contactEndpoint, {
         method: 'POST',
         body: JSON.stringify(data),
         headers: {

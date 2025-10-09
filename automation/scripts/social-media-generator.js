@@ -11,6 +11,7 @@ import { fileURLToPath } from 'url';
 import { generateLinkedInPost, formatLinkedInPost } from './linkedin-generator.js';
 import { generateTwitterThread, formatThreadForCopy } from './twitter-generator.js';
 import { generateEmailNewsletter, generatePlainTextVersion } from './email-generator.js';
+import { generateFacebookPost, formatFacebookPost } from './facebook-generator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -41,10 +42,11 @@ export async function generateAllVariants(blogSlug, options = {}) {
     // 2. Generate all variants in parallel
     console.log('🎨 Generating content variants...');
 
-    const [linkedIn, twitter, email] = await Promise.all([
+    const [linkedIn, twitter, email, facebook] = await Promise.all([
       generateLinkedInPost(blogPost.content, blogPost.metadata),
       generateTwitterThread(blogPost.content, blogPost.metadata),
-      generateEmailNewsletter(blogPost.content, blogPost.metadata)
+      generateEmailNewsletter(blogPost.content, blogPost.metadata),
+      generateFacebookPost(blogPost.content, blogPost.metadata)
     ]);
 
     // 3. Format with actual blog URL
@@ -60,6 +62,10 @@ export async function generateAllVariants(blogSlug, options = {}) {
 
     const formattedEmail = email.success
       ? generatePlainTextVersion(email, blogUrl)
+      : null;
+
+    const formattedFacebook = facebook.success
+      ? formatFacebookPost(facebook, blogUrl)
       : null;
 
     // 4. Compile results
@@ -84,12 +90,17 @@ export async function generateAllVariants(blogSlug, options = {}) {
         email: email.success ? {
           ...email,
           formatted: formattedEmail
-        } : { success: false, error: email.error }
+        } : { success: false, error: email.error },
+
+        facebook: facebook.success ? {
+          ...facebook,
+          formatted: formattedFacebook
+        } : { success: false, error: facebook.error }
       },
       summary: {
-        total: 3,
-        successful: [linkedIn.success, twitter.success, email.success].filter(Boolean).length,
-        failed: [linkedIn.success, twitter.success, email.success].filter(s => !s).length
+        total: 4,
+        successful: [linkedIn.success, twitter.success, email.success, facebook.success].filter(Boolean).length,
+        failed: [linkedIn.success, twitter.success, email.success, facebook.success].filter(s => !s).length
       }
     };
 
@@ -227,6 +238,15 @@ async function saveVariants(slug, results) {
       );
     }
 
+    // Save Facebook
+    if (results.variants.facebook.success) {
+      await fs.writeFile(
+        path.join(outputDir, 'facebook.txt'),
+        results.variants.facebook.formatted,
+        'utf-8'
+      );
+    }
+
     // Save metadata
     await fs.writeFile(
       path.join(outputDir, 'metadata.json'),
@@ -279,6 +299,16 @@ function printSummary(results) {
     console.log(`   ${results.variants.email.charCount} characters`);
   } else {
     console.log('\n❌ Email: Failed');
+  }
+
+  // Facebook
+  if (results.variants.facebook.success) {
+    console.log('\n📘 Facebook:');
+    console.log(`   ${results.variants.facebook.wordCount} words`);
+    console.log(`   ${results.variants.facebook.charCount} characters`);
+    console.log(`   ${results.variants.facebook.hashtags.length} hashtags: ${results.variants.facebook.hashtags.join(', ')}`);
+  } else {
+    console.log('\n❌ Facebook: Failed');
   }
 
   console.log('\n' + '='.repeat(60));
