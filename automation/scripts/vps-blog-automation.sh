@@ -189,10 +189,10 @@ main() {
         log_warning "API limit check unavailable"
     fi
 
-    # Check if we already generated today
-    local today=$(date +%Y-%m-%d)
-    if ls "$PROJECT_DIR/src/content/blog/${today}-"*.md 1> /dev/null 2>&1; then
-        log "Already generated post today, skipping"
+    # Check if we already generated today (use UTC date to match blog generation script)
+    local utc_date=$(date -u +%Y-%m-%d)
+    if ls "$PROJECT_DIR/src/content/blog/${utc_date}-"*.md 1> /dev/null 2>&1; then
+        log "Already generated post today (UTC), skipping"
         send_notification "info" "Already Generated" "Blog post already exists for today"
         exit 0
     fi
@@ -260,8 +260,14 @@ main() {
         exit 1
     fi
 
-    # Get the generated post filename
-    local latest_post=$(ls -t "$PROJECT_DIR/src/content/blog/${today}-"*.md 2>/dev/null | head -1)
+    # Get the generated post filename (use UTC date to match blog generation script)
+    local latest_post=$(ls -t "$PROJECT_DIR/src/content/blog/${utc_date}-"*.md 2>/dev/null | head -1)
+
+    # If no post found with UTC date, try yesterday's date (timezone edge case)
+    if [ -z "$latest_post" ]; then
+        local yesterday_utc=$(date -u -d "yesterday" +%Y-%m-%d)
+        latest_post=$(ls -t "$PROJECT_DIR/src/content/blog/${yesterday_utc}-"*.md 2>/dev/null | head -1)
+    fi
 
     if [ -z "$latest_post" ]; then
         log_error "No post file found after generation"
