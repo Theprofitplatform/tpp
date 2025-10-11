@@ -1,21 +1,6 @@
 {
   "queue": [
     {
-      "id": 16,
-      "title": "Content Marketing Strategy for Sydney B2B Companies in 2025",
-      "category": "Content Marketing",
-      "tags": [
-        "Content Strategy",
-        "B2B",
-        "Marketing",
-        "Sydney"
-      ],
-      "targetKeyword": "content marketing strategy b2b",
-      "searchIntent": "commercial",
-      "priority": 3,
-      "status": "pending"
-    },
-    {
       "id": 18,
       "title": "Remarketing Campaigns That Actually Convert for Sydney eCommerce",
       "category": "Google Ads",
@@ -637,6 +622,25 @@
       "publishedSlug": "15-free-seo-tools-every-sydney-small-business-should-use-in-2025",
       "wordCount": 2156,
       "author": "Avi"
+    },
+    {
+      "id": 16,
+      "title": "Content Marketing Strategy for Sydney B2B Companies in 2025",
+      "category": "Content Marketing",
+      "tags": [
+        "Content Strategy",
+        "B2B",
+        "Marketing",
+        "Sydney"
+      ],
+      "targetKeyword": "content marketing strategy b2b",
+      "searchIntent": "commercial",
+      "priority": 3,
+      "status": "published",
+      "publishedDate": "2025-10-11",
+      "publishedSlug": "content-marketing-strategy-for-sydney-b2b-companies-in-2025",
+      "wordCount": 3035,
+      "author": "TPP Team"
     }
   ],
   "config": {
