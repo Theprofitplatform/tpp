@@ -321,6 +321,76 @@ const pageDescription = "Free SEO and marketing tools for Sydney businesses. Key
       </div>
     </section>
 
+    <!-- Helpful Guides Section -->
+    <section class="tools-guides-section">
+      <div class="container">
+        <div class="guides-header">
+          <h2>Learn How to Use These Tools Effectively</h2>
+          <p>Master digital marketing with our comprehensive guides and tutorials</p>
+        </div>
+
+        <div class="guides-grid">
+          <article class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>
+              <a href="/blog/15-free-seo-tools-every-sydney-small-business-should-use-in-2025/">15 Free SEO Tools Every Sydney Business Should Use</a>
+            </h3>
+            <p>Complete guide to the best free SEO tools and how to use them effectively</p>
+            <a href="/blog/15-free-seo-tools-every-sydney-small-business-should-use-in-2025/" class="guide-link">
+              Read Guide <i class="fas fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>
+              <a href="/blog/google-search-console-the-complete-guide-for-sydney-business-owners/">Google Search Console Complete Guide</a>
+            </h3>
+            <p>Learn how to track your rankings and optimize your SEO strategy</p>
+            <a href="/blog/google-search-console-the-complete-guide-for-sydney-business-owners/" class="guide-link">
+              Read Guide <i class="fas fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3>
+              <a href="/blog/mobile-first-web-design-why-sydney-businesses-can-t-ignore-it-in-2025/">Mobile-First Web Design Guide</a>
+            </h3>
+            <p>Why website speed and mobile optimization matter for Sydney businesses</p>
+            <a href="/blog/mobile-first-web-design-why-sydney-businesses-can-t-ignore-it-in-2025/" class="guide-link">
+              Read Guide <i class="fas fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <article class="guide-card">
+            <div class="guide-icon">
+              <i class="fas fa-key"></i>
+            </div>
+            <h3>
+              <a href="/blog/how-sydney-businesses-rank-number-1-google-2025/">How to Rank #1 on Google in 2025</a>
+            </h3>
+            <p>Complete SEO strategy from keyword research to ranking domination</p>
+            <a href="/blog/how-sydney-businesses-rank-number-1-google-2025/" class="guide-link">
+              Read Guide <i class="fas fa-arrow-right"></i>
+            </a>
+          </article>
+        </div>
+
+        <div class="guides-cta">
+          <a href="/blog/" class="btn-view-all">
+            View All Marketing Guides <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Enhanced CTA Section -->
     <section class="tools-cta-modern">
       <div class="cta-background" aria-hidden="true">
@@ -338,6 +408,26 @@ const pageDescription = "Free SEO and marketing tools for Sydney businesses. Key
             These tools are great for DIY, but if you want expert help
             dominating Google, we're here for you.
           </p>
+
+          <!-- Services Quick Links -->
+          <div class="services-quick-links">
+            <a href="/services/seo-optimization/" class="service-quick-link">
+              <i class="fas fa-search"></i>
+              <span>SEO Services</span>
+            </a>
+            <a href="/services/google-ads-management/" class="service-quick-link">
+              <i class="fas fa-bullhorn"></i>
+              <span>Google Ads</span>
+            </a>
+            <a href="/services/web-development/" class="service-quick-link">
+              <i class="fas fa-laptop-code"></i>
+              <span>Web Design</span>
+            </a>
+            <a href="/services/" class="service-quick-link">
+              <i class="fas fa-th"></i>
+              <span>All Services</span>
+            </a>
+          </div>
 
           <!-- Social Proof -->
           <div class="cta-social-proof">
@@ -1228,6 +1318,186 @@ const pageDescription = "Free SEO and marketing tools for Sydney businesses. Key
   /* Counter Animation */
   .counter {
     display: inline-block;
+  }
+
+  /* Helpful Guides Section */
+  .tools-guides-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+  }
+
+  .guides-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .guides-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .guides-header p {
+    font-size: 1.125rem;
+    color: #6b7280;
+  }
+
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .guide-card {
+    background: white;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 30px;
+    transition: all 0.3s ease;
+  }
+
+  .guide-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+  }
+
+  .guide-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .guide-icon i {
+    font-size: 24px;
+    color: white;
+  }
+
+  .guide-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .guide-card h3 a {
+    color: #111827;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .guide-card h3 a:hover {
+    color: #2563eb;
+  }
+
+  .guide-card p {
+    color: #6b7280;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .guide-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+
+  .guide-link:hover {
+    gap: 12px;
+  }
+
+  .guides-cta {
+    text-align: center;
+  }
+
+  .btn-view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+    color: white;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+
+  .btn-view-all:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+  }
+
+  /* Services Quick Links */
+  .services-quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin: 32px 0;
+  }
+
+  .service-quick-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .service-quick-link:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .service-quick-link i {
+    font-size: 18px;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .guides-header h2 {
+      font-size: 1.875rem;
+    }
+
+    .guides-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .services-quick-links {
+      flex-direction: column;
+    }
+
+    .service-quick-link {
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
 
