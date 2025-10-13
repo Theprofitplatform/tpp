@@ -7,7 +7,7 @@ export default defineConfig({
   output: 'static',
   site: 'https://theprofitplatform.com.au',
   base: '/',
-  trailingSlash: 'never', // Enforces no trailing slashes - matches all internal links
+  trailingSlash: 'always', // Always use trailing slashes to match Cloudflare Pages behavior
   integrations: [
     sitemap({
       changefreq: 'weekly',
