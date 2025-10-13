@@ -69,6 +69,65 @@ function formatDate(post) {
 function getReadTime(post) {
   return post.data.readTime || '5 min read';
 }
+
+// Extract all unique tags from all posts
+const allTags = [...new Set(
+  sortedPosts
+    .filter(post => post.data.tags && Array.isArray(post.data.tags))
+    .flatMap(post => post.data.tags)
+)].sort();
+
+// Calculate tag counts for sizing
+const tagCount = {};
+allTags.forEach(tag => {
+  tagCount[tag] = sortedPosts.filter(post =>
+    post.data.tags && post.data.tags.includes(tag)
+  ).length;
+});
+
+// Get min and max counts for tag cloud sizing
+const tagCounts = Object.values(tagCount);
+const minCount = Math.min(...tagCounts);
+const maxCount = Math.max(...tagCounts);
+
+// Helper function to calculate tag font size based on usage
+function getTagSize(tag) {
+  const count = tagCount[tag];
+  if (maxCount === minCount) return 1;
+  return 0.75 + (count - minCount) / (maxCount - minCount) * 0.75; // Range: 0.75em to 1.5em
+}
+
+// Calculate related tags (tags that appear together on posts)
+function getRelatedTags(targetTag, limit = 8) {
+  // Find all posts with the target tag
+  const postsWithTag = sortedPosts.filter(post =>
+    post.data.tags && post.data.tags.includes(targetTag)
+  );
+
+  // Count co-occurrences of other tags
+  const coOccurrence = {};
+  postsWithTag.forEach(post => {
+    if (post.data.tags) {
+      post.data.tags.forEach(tag => {
+        if (tag !== targetTag) {
+          coOccurrence[tag] = (coOccurrence[tag] || 0) + 1;
+        }
+      });
+    }
+  });
+
+  // Sort by co-occurrence count and return top N
+  return Object.entries(coOccurrence)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([tag]) => tag);
+}
+
+// Create related tags map for all tags (for client-side use)
+const relatedTagsMap = {};
+allTags.forEach(tag => {
+  relatedTagsMap[tag] = getRelatedTags(tag, 8);
+});
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -705,6 +764,204 @@ function getReadTime(post) {
       animation: fadeIn 0.5s ease-out;
     }
 
+    /* Tag Cloud Section */
+    .tag-cloud-section {
+      background: #f9fafb;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .tag-cloud-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag-cloud-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+
+    .tag-cloud-icon {
+      color: #6b7280;
+    }
+
+    .tag-cloud-description {
+      color: #6b7280;
+      font-size: 0.9375rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .tag-cloud-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.5rem 1rem;
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      color: #374151;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+
+    .tag-cloud-item:hover {
+      background: #5568d3;
+      border-color: #5568d3;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(85, 104, 211, 0.25);
+    }
+
+    .tag-cloud-item:focus {
+      outline: 2px solid #5568d3;
+      outline-offset: 2px;
+    }
+
+    .tag-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 0.375rem;
+      background: #f3f4f6;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #6b7280;
+      transition: all 0.2s ease;
+    }
+
+    .tag-cloud-item:hover .tag-count {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+    }
+
+    /* Related Tags Section */
+    .related-tags-section {
+      background: linear-gradient(135deg, #ede9fe 0%, #e0e7ff 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      border: 2px solid #c4b5fd;
+      display: none; /* Hidden by default, shown via JavaScript */
+    }
+
+    .related-tags-section.active {
+      display: block;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .related-tags-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .related-tags-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .related-tags-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #5b21b6;
+      margin: 0;
+    }
+
+    .current-tag-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.625rem;
+      background: white;
+      border: 2px solid #8b5cf6;
+      border-radius: 6px;
+      color: #5b21b6;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .clear-tag-btn {
+      padding: 0.375rem 0.875rem;
+      background: white;
+      border: 2px solid #d1d5db;
+      border-radius: 6px;
+      color: #374151;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    .clear-tag-btn:hover {
+      background: #f3f4f6;
+      border-color: #9ca3af;
+    }
+
+    .related-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .related-tag-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.375rem 0.75rem;
+      background: white;
+      border: 2px solid #c4b5fd;
+      border-radius: 6px;
+      color: #5b21b6;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .related-tag-item:hover {
+      background: #8b5cf6;
+      border-color: #8b5cf6;
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+    }
+
+    .related-tag-item:focus {
+      outline: 2px solid #8b5cf6;
+      outline-offset: 2px;
+    }
+
     /* Mobile Responsive */
     @media (max-width: 768px) {
       .blog-hero {
@@ -904,6 +1161,60 @@ function getReadTime(post) {
       </div>
     </section>
 
+    <!-- Tag Cloud Section -->
+    {allTags.length > 0 && (
+      <section class="tag-cloud-section" aria-label="Browse articles by topic">
+        <div class="container">
+          <div class="tag-cloud-header">
+            <svg class="tag-cloud-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+              <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 0v14h14V5H5z" clip-rule="evenodd"/>
+            </svg>
+            <h2 class="tag-cloud-title">Browse by Topic</h2>
+          </div>
+
+          <p class="tag-cloud-description">
+            Explore our {allTags.length} topics covering digital marketing, SEO, Google Ads, web design, and more.
+          </p>
+
+          <nav class="tag-cloud" aria-label="Article topics">
+            {allTags.map(tag => (
+              <a
+                href={`/blog/?tag=${encodeURIComponent(tag)}`}
+                class="tag-cloud-item"
+                style={`font-size: ${getTagSize(tag)}em;`}
+                aria-label={`View ${tagCount[tag]} articles tagged with ${tag}`}
+              >
+                <span>{tag}</span>
+                <span class="tag-count" aria-hidden="true">{tagCount[tag]}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      </section>
+    )}
+
+    <!-- Related Tags Section (shown when tag filter is active) -->
+    <section class="articles-section" style="padding-top: 2rem;">
+      <div class="container">
+        <div id="related-tags-section" class="related-tags-section" role="region" aria-label="Related topics">
+          <div class="related-tags-header">
+            <div class="related-tags-title-wrapper">
+              <h3 class="related-tags-title">Related Topics for</h3>
+              <span id="current-tag-display" class="current-tag-badge"></span>
+            </div>
+            <button id="clear-tag-filter" class="clear-tag-btn" aria-label="Clear tag filter">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 4l8 8m0-8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Show All Posts
+            </button>
+          </div>
+          <nav id="related-tags-list" class="related-tags-list" aria-label="Related topics"></nav>
+        </div>
+      </div>
+    </section>
+
     <!-- Featured Article -->
     <section class="featured-section">
       <div class="container">
@@ -1090,7 +1401,7 @@ function getReadTime(post) {
     </section>
   </main>
 
-  <script define:vars={{ INITIAL_POSTS }}>
+  <script define:vars={{ INITIAL_POSTS, relatedTagsMap, tagCount }}>
     // Optimized Load More Pagination
     const POSTS_PER_LOAD = 6;
     const loadMoreBtn = document.querySelector('.load-more-btn');
@@ -1152,18 +1463,66 @@ function getReadTime(post) {
       });
     }
 
+    // Related Tags functionality
+    const relatedTagsSection = document.getElementById('related-tags-section');
+    const relatedTagsList = document.getElementById('related-tags-list');
+    const currentTagDisplay = document.getElementById('current-tag-display');
+    const clearTagBtn = document.getElementById('clear-tag-filter');
+
+    function showRelatedTags(tag) {
+      const relatedTags = relatedTagsMap[tag] || [];
+
+      if (relatedTags.length > 0) {
+        // Update current tag display
+        currentTagDisplay.textContent = tag;
+
+        // Clear and populate related tags list
+        relatedTagsList.innerHTML = '';
+        relatedTags.forEach(relatedTag => {
+          const count = tagCount[relatedTag] || 0;
+          const link = document.createElement('a');
+          link.href = `/blog/?tag=${encodeURIComponent(relatedTag)}`;
+          link.className = 'related-tag-item';
+          link.setAttribute('aria-label', `View ${count} articles tagged with ${relatedTag}`);
+          link.innerHTML = `
+            <span>${relatedTag}</span>
+            <span class="tag-count" style="background: #e0e7ff; color: #5b21b6;">${count}</span>
+          `;
+          relatedTagsList.appendChild(link);
+        });
+
+        // Show the section
+        relatedTagsSection.classList.add('active');
+      }
+    }
+
+    function hideRelatedTags() {
+      relatedTagsSection.classList.remove('active');
+    }
+
+    // Clear tag filter button
+    clearTagBtn?.addEventListener('click', () => {
+      window.location.href = '/blog/';
+    });
+
     if (tagParam) {
       activeTag = tagParam.toLowerCase();
-      // Show tag filter indicator
+
+      // Show related tags for this tag
+      showRelatedTags(tagParam);
+
+      // Show tag filter indicator (kept for backwards compatibility)
       const filterContainer = document.querySelector('.filter-container');
       const tagIndicator = document.createElement('div');
       tagIndicator.className = 'active-tag-filter';
       tagIndicator.innerHTML = `
         <span>Filtering by tag: <strong>${tagParam}</strong></span>
-        <button onclick="window.location.href='/blog'" class="clear-tag">×</button>
+        <button onclick="window.location.href='/blog/'" class="clear-tag">×</button>
       `;
       tagIndicator.style.cssText = 'display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #ede9fe; color: #6d28d9; border-radius: 8px; font-size: 0.875rem; margin-top: 1rem;';
       filterContainer.appendChild(tagIndicator);
+    } else {
+      hideRelatedTags();
     }
 
     function applyFilters() {
