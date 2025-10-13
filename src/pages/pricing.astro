@@ -16,6 +16,30 @@ const pageDescription = "Transparent digital marketing pricing for Sydney busine
   <!-- AOS Animation Library -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
+  <!-- Fallback styles to ensure hero is visible -->
+  <style>
+    /* Ensure hero content is visible by default (fallback) */
+    .hero-content-enhanced,
+    .hero-badge,
+    .hero-title-enhanced,
+    .hero-description-enhanced,
+    .hero-actions-enhanced,
+    .trust-indicators {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    /* AOS will override these when it loads */
+    [data-aos] {
+      opacity: 1;
+    }
+
+    /* Only apply animations when AOS is initialized */
+    html.aos-initialized [data-aos="fade-up"] {
+      opacity: 0;
+    }
+  </style>
+
   <!-- Main Content -->
   <main id="main-content" role="main">
     <!-- Enhanced Modern Hero Section -->
@@ -450,8 +474,8 @@ const pageDescription = "Transparent digital marketing pricing for Sydney busine
   </main>
 
 
-  <!-- Scripts -->
+  <!-- Scripts - Load AOS library first -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" is:inline></script>
   <script src="/js/pricing-enhanced.js" defer is:inline></script>
   <script src="/js/pricing-ultra.js" defer is:inline></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" is:inline></script>
 </BaseLayout>
