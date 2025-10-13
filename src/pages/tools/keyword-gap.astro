@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 const apiUrl = '';
 ---
 
-<BaseLayout title="Free Keyword Gap Analyzer | Find Keywords You're Missing">
+<BaseLayout
+  title="Free Keyword Gap Analyzer | Find Keywords You're Missing"
+  description="Discover keyword opportunities your competitors are ranking for that you're not. Free keyword gap analysis tool reveals untapped SEO opportunities for Sydney businesses."
+>
   <Header />
   
   <!-- Tool Analytics Tracker -->
@@ -266,6 +270,12 @@ const apiUrl = '';
       </div>
     </section>
 
+    <RelatedContent
+      category="SEO"
+      tags={['SEO', 'Keyword Research', 'Competitor Analysis']}
+      showBlogPosts={true}
+      showServices={true}
+    />
   </main>
 </BaseLayout>
 

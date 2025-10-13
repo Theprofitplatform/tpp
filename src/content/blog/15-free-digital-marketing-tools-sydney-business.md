@@ -10,7 +10,7 @@ image: "/images/blog/free-marketing-tools-2025.jpg"
 readTime: "11 min"
 ---
 
-# 15 Free Digital Marketing Tools Every Sydney Business Needs in 2025
+## 15 Free Digital Marketing Tools Every Sydney Business Needs in 2025
 
 **Running a Sydney business on a tight budget?**
 
@@ -37,8 +37,7 @@ Let's dive in.
 
 ---
 
-<a name="seo-tools"></a>
-## SEO & Keyword Research Tools
+<h2 id="seo-tools">SEO & Keyword Research Tools</h2>
 
 ### 1. **Google Search Console** (Free Forever)
 
@@ -136,8 +135,7 @@ Each question = potential blog post!
 
 ---
 
-<a name="analytics-tools"></a>
-## Website Analytics Tools
+<h2 id="analytics-tools">Website Analytics Tools</h2>
 
 ### 4. **Google Analytics 4** (Free Forever)
 
@@ -202,8 +200,7 @@ We used Clarity for a Sydney law firm and discovered:
 
 ---
 
-<a name="design-tools"></a>
-## Design & Graphics Tools
+<h2 id="design-tools">Design & Graphics Tools</h2>
 
 ### 6. **Canva** (Free Plan Available)
 
@@ -274,8 +271,7 @@ Search "Sydney" on Unsplash for local imagery:
 
 ---
 
-<a name="social-media-tools"></a>
-## Social Media Management Tools
+<h2 id="social-media-tools">Social Media Management Tools</h2>
 
 ### 8. **Meta Business Suite** (Free Forever)
 
@@ -337,8 +333,7 @@ Search "Sydney" on Unsplash for local imagery:
 
 ---
 
-<a name="email-tools"></a>
-## Email Marketing Tools
+<h2 id="email-tools">Email Marketing Tools</h2>
 
 ### 10. **Mailchimp** (Free Plan Available)
 
@@ -411,8 +406,7 @@ Search "Sydney" on Unsplash for local imagery:
 
 ---
 
-<a name="project-tools"></a>
-## Project Management & Productivity Tools
+<h2 id="project-tools">Project Management & Productivity Tools</h2>
 
 ### 12. **Trello** (Free Plan Available)
 
@@ -500,8 +494,7 @@ Search "Sydney" on Unsplash for local imagery:
 
 ---
 
-<a name="bonus-tools"></a>
-## Bonus Tools (Game-Changers)
+<h2 id="bonus-tools">Bonus Tools (Game-Changers)</h2>
 
 ### 14. **ChatGPT** (Free Plan Available)
 
@@ -779,7 +772,7 @@ Then add tools as you grow.
 
 Avi is the founder of The Profit Platform, a Sydney digital marketing agency. He's tested 500+ marketing tools over 5 years and uses these free tools daily for client work.
 
-[Connect on LinkedIn](#) | [Read More Marketing Guides](/blog)
+[Browse more digital marketing guides](/blog)
 
 ---
 

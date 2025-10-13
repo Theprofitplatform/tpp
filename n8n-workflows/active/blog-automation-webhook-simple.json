@@ -1,0 +1,103 @@
+{
+  "name": "Blog Automation Webhook (Simple Test)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "blog-test",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        48,
+        304
+      ],
+      "typeVersion": 2,
+      "webhookId": "blog-test"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Simple test - just pass through the data with timestamp\nconst webhookData = $input.first().json;\nreturn {\n  success: true,\n  workflow: 'Blog Automation Webhook Test',\n  timestamp: new Date().toISOString(),\n  message: 'Webhook triggered successfully!',\n  receivedData: webhookData.body || webhookData,\n  headers: webhookData.headers,\n  query: webhookData.query\n};"
+      },
+      "id": "process-data",
+      "name": "Process Data",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        280,
+        304
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "webhookUri": "https://discord.com/api/webhooks/1424580081195683890/TJMeZ_R3BZGA2VoAawVu2Xg-AGFgkvBpKACjFHqwT50aHT7fagHmKqOFZ3-88zjViBLS",
+        "text": "✅ **Blog Automation Webhook Test Successful!**\n\n📋 Workflow: {{ $json.workflow }}\n⏰ Timestamp: {{ $json.timestamp }}\n📨 Received Data: ```{{ JSON.stringify($json.receivedData, null, 2) }}```\n\n🎉 The webhook is working correctly!",
+        "options": {}
+      },
+      "id": "success-notification",
+      "name": "Discord Notification",
+      "type": "n8n-nodes-base.discord",
+      "position": [
+        512,
+        304
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "id": "respond-to-webhook",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [
+        744,
+        304
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Process Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Data": {
+      "main": [
+        [
+          {
+            "node": "Discord Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Discord Notification": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "id": "54xYxJPXqDOV40L3"
+}

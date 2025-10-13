@@ -2,12 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import ToolBadge from '../../components/ToolBadge.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 // Use relative path for Cloudflare Pages Functions
 const apiUrl = '';
 ---
 
-<BaseLayout title="Free SEO Audit Tool | Comprehensive Website Analysis">
+<BaseLayout
+  title="Free SEO Audit Tool | Comprehensive Website Analysis"
+  description="Get a comprehensive SEO audit of your website in seconds. Analyze technical SEO, on-page optimization, performance, and get actionable recommendations. Free SEO audit tool."
+>
   <Header />
   
   <!-- Tool Analytics Tracker -->
@@ -290,6 +294,13 @@ const apiUrl = '';
         </div>
       </div>
     </section>
+
+    <RelatedContent
+      category="SEO"
+      tags={['SEO', 'Technical SEO', 'Google']}
+      showBlogPosts={true}
+      showServices={true}
+    />
   </main>
 </BaseLayout>
 

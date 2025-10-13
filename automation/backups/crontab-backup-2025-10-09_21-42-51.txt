@@ -1,0 +1,85 @@
+# ============================================
+# VPS Blog Automation - Production Cron Jobs
+# Project: The Profit Platform
+# Directory: /mnt/c/Users/abhis/projects/atpp/tpp
+# Generated: $(date)
+# ============================================
+
+# Environment variables
+PROJECT_DIR="/mnt/c/Users/abhis/projects/atpp/tpp"
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
+
+# ============================================
+# BLOG AUTOMATION - Daily Content Generation
+# ============================================
+
+# Daily blog generation at 6:00 AM (staging workflow)
+# Generates content to staging directory for manual review
+0 6 * * * cd "$PROJECT_DIR" && timeout 3600 ./automation/scripts/vps-blog-staging.sh >> "$PROJECT_DIR/automation/logs/cron-staging.log" 2>&1
+
+# ============================================
+# MONITORING & HEALTH CHECKS
+# ============================================
+
+# Health monitoring every 30 minutes
+# Checks disk space, memory, processes, API health, git status
+*/30 * * * * cd "$PROJECT_DIR" && timeout 300 ./automation/scripts/vps-monitor.sh >> "$PROJECT_DIR/automation/logs/cron-monitor.log" 2>&1
+
+# Daily system health report at 8:00 AM
+0 8 * * * cd "$PROJECT_DIR" && ./automation/scripts/check-status.sh >> "$PROJECT_DIR/automation/logs/daily-status.log" 2>&1
+
+# ============================================
+# MAINTENANCE & CLEANUP
+# ============================================
+
+# Weekly log cleanup on Sunday at 3:00 AM
+# Removes old logs and backup files
+0 3 * * 0 cd "$PROJECT_DIR" && find "automation/logs" -name "*.log" -mtime +30 -delete 2>/dev/null || true
+
+# Monthly backup cleanup on 1st of month at 4:00 AM
+0 4 1 * * cd "$PROJECT_DIR" && find "automation/backups" -name "*.md" -mtime +90 -delete 2>/dev/null || true
+
+# Weekly system cleanup on Saturday at 2:00 AM
+0 2 * * 6 cd "$PROJECT_DIR" && find "/tmp" -name "tpp-*" -mtime +7 -delete 2>/dev/null || true
+
+# ============================================
+# GIT SYNC & BACKUP
+# ============================================
+
+# Daily git sync at 2:00 AM
+# Pulls latest changes and ensures git is up to date
+0 2 * * * cd "$PROJECT_DIR" && timeout 600 bash -c 'git fetch origin && git pull origin main' >> "$PROJECT_DIR/automation/logs/cron-git.log" 2>&1
+
+# Weekly git backup verification on Sunday at 1:00 AM
+0 1 * * 0 cd "$PROJECT_DIR" && git status >> "$PROJECT_DIR/automation/logs/git-status.log" 2>&1
+
+# ============================================
+# FACEBOOK AUTOMATION (if enabled)
+# ============================================
+
+# Facebook scheduler - check every 5 minutes (commented out by default)
+# */5 * * * * cd "$PROJECT_DIR" && timeout 300 node automation/scripts/facebook-scheduler.js force >> "$PROJECT_DIR/automation/logs/cron-facebook.log" 2>&1
+
+# ============================================
+# PERFORMANCE MONITORING
+# ============================================
+
+# Weekly performance tracking on Monday at 8:00 AM
+# 0 8 * * 1 cd "$PROJECT_DIR" && timeout 300 node automation/scripts/performance-tracker.js >> "$PROJECT_DIR/automation/logs/cron-performance.log" 2>&1
+
+# ============================================
+# NOTIFICATION TEST
+# ============================================
+
+# Test notification every Monday at 9:00 AM (optional)
+# 0 9 * * 1 cd "$PROJECT_DIR" && echo "Weekly VPS automation test - $(date)" >> "$PROJECT_DIR/automation/logs/cron-test.log" 2>&1
+
+# ============================================
+# SYSTEM CHECKS
+# ============================================
+
+# Daily disk space check at 7:00 AM
+0 7 * * * cd "$PROJECT_DIR" && df -h >> "$PROJECT_DIR/automation/logs/disk-usage.log" 2>&1
+
+# Weekly memory usage report on Monday at 6:00 AM
+0 6 * * 1 cd "$PROJECT_DIR" && free -h >> "$PROJECT_DIR/automation/logs/memory-usage.log" 2>&1

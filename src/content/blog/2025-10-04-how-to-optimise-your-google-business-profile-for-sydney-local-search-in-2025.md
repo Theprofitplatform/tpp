@@ -19,7 +19,7 @@ seo:
   keywords: ["google business profile sydney","Local SEO","Google Business Profile","Sydney"]
 ---
 
-# How to Optimise Your Google Business Profile for Sydney Local Search in 2025
+## How to Optimise Your Google Business Profile for Sydney Local Search in 2025
 
 67% of Sydney businesses have incomplete Google Business Profiles that are costing them over $30,000 in lost revenue annually. 
 

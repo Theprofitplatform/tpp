@@ -1,0 +1,62 @@
+{
+  "authors": [
+    {
+      "id": "abhishek-maharjan",
+      "name": "Abhishek Maharjan",
+      "role": "SEO Specialist & Content Strategist",
+      "bio": "Abhishek specializes in local SEO and content marketing for Sydney businesses. With expertise in Google algorithms and search trends, he helps companies rank higher and convert better.",
+      "expertise": ["SEO", "Local Marketing", "Content Strategy"],
+      "social": {
+        "linkedin": ""
+      }
+    },
+    {
+      "id": "abhilekh-maharjan",
+      "name": "Abhilekh Maharjan",
+      "role": "Digital Marketing Consultant",
+      "bio": "Abhilekh focuses on comprehensive digital marketing strategies for Sydney B2B companies. His data-driven approach helps businesses maximize ROI across all digital channels.",
+      "expertise": ["Digital Marketing", "Analytics", "Strategy"],
+      "social": {
+        "linkedin": ""
+      }
+    },
+    {
+      "id": "aayush-shrestha",
+      "name": "Aayush Shrestha",
+      "role": "Google Ads Specialist",
+      "bio": "Aayush manages Google Ads campaigns for Sydney businesses, optimizing for maximum ROI. His expertise in bid strategies and ad copy has helped clients reduce costs by up to 40%.",
+      "expertise": ["Google Ads", "PPC", "Conversion Optimization"],
+      "social": {
+        "linkedin": ""
+      }
+    },
+    {
+      "id": "finjo-sherpa",
+      "name": "Finjo Sherpa",
+      "role": "Web Developer & Technical SEO",
+      "bio": "Finjo combines web development expertise with technical SEO knowledge. He ensures Sydney business websites are fast, mobile-friendly, and optimized for search engines.",
+      "expertise": ["Web Development", "Technical SEO", "Performance Optimization"],
+      "social": {
+        "linkedin": ""
+      }
+    },
+    {
+      "id": "avi",
+      "name": "Avi",
+      "role": "Founder & Lead Strategist",
+      "bio": "Avi founded The Profit Platform to help Sydney businesses grow through strategic digital marketing. With years of experience, he provides hands-on consulting and strategy development.",
+      "expertise": ["Business Strategy", "Marketing Leadership", "Growth Consulting"],
+      "social": {
+        "linkedin": ""
+      }
+    },
+    {
+      "id": "tpp-team",
+      "name": "TPP Team",
+      "role": "Collaborative Content",
+      "bio": "Written collaboratively by The Profit Platform team, combining expertise across SEO, Google Ads, content marketing, and web development for Sydney businesses.",
+      "expertise": ["All Services"],
+      "social": {}
+    }
+  ]
+}

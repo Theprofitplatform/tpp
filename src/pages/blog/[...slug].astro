@@ -81,6 +81,16 @@ const authorProfiles = {
 
 const currentAuthor = authorProfiles[post.data.author] || authorProfiles["The Profit Platform"];
 
+// Smart title optimization for SEO (remove branding if too long)
+const rawTitle = post.data.seo?.title || post.data.title;
+const maxTitleLength = 60;
+const brandSuffix = " | The Profit Platform";
+
+// Remove branding suffix if title exceeds optimal length
+const optimizedTitle = rawTitle.length > maxTitleLength && rawTitle.endsWith(brandSuffix)
+  ? rawTitle.replace(brandSuffix, '')
+  : rawTitle;
+
 const schema = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -125,7 +135,7 @@ const schema = {
 ---
 
 <BaseLayout
-  title={post.data.seo?.title || post.data.title}
+  title={optimizedTitle}
   description={post.data.seo?.description || post.data.description}
 >
   <Header />
@@ -352,7 +362,7 @@ const schema = {
           <h4>About {currentAuthor.name}</h4>
           <p class="author-job-title">{currentAuthor.jobTitle}</p>
           <p>{currentAuthor.bio}</p>
-          <a href={currentAuthor.url} class="author-bio-link">Learn more →</a>
+          <a href={currentAuthor.url} class="author-bio-link">Learn more about {currentAuthor.name} →</a>
         </div>
       </aside>
 

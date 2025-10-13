@@ -117,3 +117,4 @@ speed-test
 
 # Blog testing artifacts (historical)
 archive/blog-testing-*/
+.env.vps

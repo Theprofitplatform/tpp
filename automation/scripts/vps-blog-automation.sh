@@ -197,6 +197,25 @@ main() {
         exit 0
     fi
 
+    # Natural publishing variation - skip some days to appear more human
+    local day_of_week=$(date +%u)  # 1=Monday, 7=Sunday
+    local random_skip=$((RANDOM % 100))
+
+    # Skip weekends 70% of the time
+    if [ $day_of_week -eq 6 ] || [ $day_of_week -eq 7 ]; then
+        if [ $random_skip -lt 70 ]; then
+            log "Skipping weekend post for natural publishing pattern"
+            send_notification "info" "Natural Skip" "Weekend post skipped (appears more human)"
+            exit 0
+        fi
+    fi
+
+    # Skip random weekdays 15% of the time (simulates busy periods)
+    if [ $random_skip -lt 15 ]; then
+        log "Skipping post for natural variation (random busy day)"
+        exit 0
+    fi
+
     # -----------------------------------------
     # 2. TOPIC SELECTION
     # -----------------------------------------

@@ -1,11 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 const apiUrl = '';
 ---
 
-<BaseLayout title="SEO Opportunity Calculator | Discover Your Revenue Potential">
+<BaseLayout
+  title="SEO Opportunity Calculator | Discover Your Revenue Potential"
+  description="Calculate potential revenue from improved Google rankings. See how much traffic and sales you're missing out on. Free SEO ROI calculator for Sydney businesses."
+>
   <Header />
   
   <!-- Tool Analytics Tracker -->
@@ -345,6 +349,12 @@ const apiUrl = '';
         </div>
       </div>
     </section>
+    <RelatedContent
+      category="SEO"
+      tags={['SEO', 'ROI', 'Google Ads']}
+      showBlogPosts={true}
+      showServices={true}
+    />
   </main>
 </BaseLayout>
 

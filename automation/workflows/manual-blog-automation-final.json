@@ -1,0 +1,176 @@
+{
+  "name": "Manual Blog Automation - PRODUCTION READY",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        240,
+        300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:4321/api/automation/blog-automation",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "automation-key-2025"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "json",
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "force",
+              "value": false
+            },
+            {
+              "name": "enableGitCommit",
+              "value": true
+            },
+            {
+              "name": "enableDeployment",
+              "value": true
+            }
+          ]
+        },
+        "options": {
+          "timeout": 7200000
+        }
+      },
+      "id": "trigger-automation",
+      "name": "Trigger Blog Automation",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        460,
+        300
+      ],
+      "typeVersion": 4.1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": false,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "success-check",
+              "leftValue": "={{ $json.success }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-success",
+      "name": "Check Success",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        680,
+        300
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "webhookUri": "https://discord.com/api/webhooks/1424580081195683890/TJMeZ_R3BZGA2VoAawVu2Xg-AGFgkvBpKACjFHqwT50aHT7fagHmKqOFZ3-88zjViBLS",
+        "text": "=✅ **Blog Automation Successful!**\n\n**Workflow**: Manual Blog Automation\n**Timestamp**: {{ $now }}\n**Status**: Success\n\n📝 New blog post generated and published!\n🚀 Deployed to Cloudflare Pages",
+        "options": {}
+      },
+      "id": "success-notification",
+      "name": "Success Notification",
+      "type": "n8n-nodes-base.discord",
+      "position": [
+        900,
+        220
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "webhookUri": "https://discord.com/api/webhooks/1424580081195683890/TJMeZ_R3BZGA2VoAawVu2Xg-AGFgkvBpKACjFHqwT50aHT7fagHmKqOFZ3-88zjViBLS",
+        "text": "=❌ **Blog Automation Failed!**\n\n**Workflow**: Manual Blog Automation\n**Timestamp**: {{ $now }}\n**Status**: Failed\n**Error**: {{ $json.error || $json.message || 'Unknown error' }}\n\n⚠️ Manual review required",
+        "options": {}
+      },
+      "id": "error-notification",
+      "name": "Error Notification",
+      "type": "n8n-nodes-base.discord",
+      "position": [
+        900,
+        380
+      ],
+      "typeVersion": 2
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [
+        [
+          {
+            "node": "Trigger Blog Automation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Blog Automation": {
+      "main": [
+        [
+          {
+            "node": "Check Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Success": {
+      "main": [
+        [
+          {
+            "node": "Success Notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-10-10T10:20:00.000Z",
+  "versionId": "1"
+}

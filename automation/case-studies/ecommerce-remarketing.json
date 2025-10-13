@@ -1,0 +1,33 @@
+{
+  "id": "ecommerce-remarketing-2024",
+  "category": "Google Ads",
+  "business_type": "Fashion eCommerce",
+  "location": "Bondi",
+  "postcode": "2026",
+  "challenge": "High cart abandonment rate and poor remarketing ROI",
+  "solution": "Audience segmentation and dynamic remarketing with Sydney-specific messaging",
+  "results": [
+    {
+      "metric": "4.7% conversion rate",
+      "type": "conversion rate",
+      "timeframe": "60 days",
+      "improvement": "from 0.3%"
+    },
+    {
+      "metric": "580% ROAS",
+      "type": "return on ad spend",
+      "timeframe": "60 days",
+      "improvement": "from 210%"
+    },
+    {
+      "metric": "63% reduction",
+      "type": "cost per acquisition",
+      "timeframe": "60 days"
+    }
+  ],
+  "quote": "We went from losing money on remarketing to it being our most profitable channel.",
+  "verified": true,
+  "date_added": "2025-10-10",
+  "use_for": ["social", "email", "blog"],
+  "tags": ["eCommerce", "remarketing", "Google Ads", "conversion optimization"]
+}

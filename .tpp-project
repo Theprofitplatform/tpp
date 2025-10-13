@@ -1,0 +1,15 @@
+# TPP Project Configuration Marker
+# This file identifies this directory as a TPP project for Claude Code automation
+
+project_type=tpp-astro
+framework=astro
+deployment=cloudflare-pages
+blog_system=enabled
+automation_level=advanced
+
+# Specialized workflows available:
+# - Content validation and SEO optimization
+# - Production parity checking
+# - Automated deployment pipeline
+# - Blog post verification and testing
+# - Performance monitoring

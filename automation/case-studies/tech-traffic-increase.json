@@ -1,0 +1,26 @@
+{
+  "id": "tech-traffic-increase-2024",
+  "category": "Content Marketing",
+  "business_type": "Tech consultancy",
+  "location": "Sydney CBD",
+  "postcode": "2000",
+  "challenge": "Low website traffic and poor lead generation from content",
+  "solution": "Implemented strategic B2B content framework with local SEO focus",
+  "results": [
+    {
+      "metric": "47% increase",
+      "type": "website traffic",
+      "timeframe": "4 months"
+    },
+    {
+      "metric": "240 qualified leads",
+      "type": "leads",
+      "timeframe": "Q3 2024"
+    }
+  ],
+  "quote": "The content strategy transformed our lead generation. We're now attracting the right decision-makers.",
+  "verified": true,
+  "date_added": "2025-10-10",
+  "use_for": ["social", "email", "blog"],
+  "tags": ["B2B", "content marketing", "lead generation", "Sydney"]
+}

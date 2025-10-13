@@ -1,0 +1,90 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "68%",
+        "context": "Did you know that 68% of Sydney B2B companies are actively investing in content marketing, yet only 23% have a documented strategy that actually drives measurable results? If you're part of the 77% winging it, you're likely leaving significant revenue opportunities on the table.",
+        "line": "Did you know that 68% of Sydney B2B companies are actively investing in content marketing, yet only 23% have a documented strategy that actually drives measurable results? If you're part of the 77% winging it, you're likely leaving significant revenue opportunities on the table."
+      },
+      {
+        "lineNumber": 3,
+        "value": "23%",
+        "context": "Did you know that 68% of Sydney B2B companies are actively investing in content marketing, yet only 23% have a documented strategy that actually drives measurable results? If you're part of the 77% winging it, you're likely leaving significant revenue opportunities on the table.",
+        "line": "Did you know that 68% of Sydney B2B companies are actively investing in content marketing, yet only 23% have a documented strategy that actually drives measurable results? If you're part of the 77% winging it, you're likely leaving significant revenue opportunities on the table."
+      },
+      {
+        "lineNumber": 3,
+        "value": "77%",
+        "context": "Did you know that 68% of Sydney B2B companies are actively investing in content marketing, yet only 23% have a documented strategy that actually drives measurable results? If you're part of the 77% winging it, you're likely leaving significant revenue opportunities on the table.",
+        "line": "Did you know that 68% of Sydney B2B companies are actively investing in content marketing, yet only 23% have a documented strategy that actually drives measurable results? If you're part of the 77% winging it, you're likely leaving significant revenue opportunities on the table."
+      },
+      {
+        "lineNumber": 15,
+        "value": "73%",
+        "context": "> \"Companies with documented content strategies achieve 73% more marketing effectiveness than those without.\" - Content Marketing Institute",
+        "line": "> \"Companies with documented content strategies achieve 73% more marketing effectiveness than those without.\" - Content Marketing Institute"
+      },
+      {
+        "lineNumber": 99,
+        "value": "80%",
+        "context": "Your content should focus 80% on customer challenges and 20% on your solutions. Decision-makers care about their problems, not your company history.",
+        "line": "Your content should focus 80% on customer challenges and 20% on your solutions. Decision-makers care about their problems, not your company history."
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 68%, 23%, 77%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 92,
+    "title": "Screenshot: If your content isn't driving measurable business outcomes, it's time to rethink your approach. This is where many companies benefit from professional guidance—we've helped numerous Sydney B2B firms [optimise their Google Ads campaigns](/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/) to complement their content efforts.",
+    "description": "Screenshot of: If your content isn't driving measurable business outcomes, it's time to rethink your approach. This is where many companies benefit from professional",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 3,
+    "title": "Before/After: Did you know that 68% of Sydney B2B companies are actively investing in content marketing, yet only 23% have a documented strategy that actually drives measurable results? If you're part of the 77% winging it, you're likely leaving significant revenue opportunities on the table.",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "68%",
+      "23%",
+      "77%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 89,
+    "title": "- **Customer acquisition cost** compared to other channels",
+    "description": "Create comparison table/diagram for: Customer",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 96,
+    "title": "Before/After: Through our work with Sydney B2B clients, we've identified several recurring mistakes that undermine content effectiveness:",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "80%",
+      "20%",
+      "50%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  }
+]

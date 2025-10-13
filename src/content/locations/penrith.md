@@ -14,7 +14,7 @@ featured: true
 draft: false
 ---
 
-# Digital Marketing Services in Penrith, NSW
+## Digital Marketing Services in Penrith, NSW
 
 Looking for a **digital marketing agency in Penrith** that understands Western Sydney?
 

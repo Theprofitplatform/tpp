@@ -7,7 +7,7 @@ export default defineConfig({
   output: 'static',
   site: 'https://theprofitplatform.com.au',
   base: '/',
-  trailingSlash: 'ignore',
+  trailingSlash: 'never', // Enforces no trailing slashes - matches all internal links
   integrations: [
     sitemap({
       changefreq: 'weekly',
@@ -16,16 +16,27 @@ export default defineConfig({
       // Exclude admin, thank-you pages, etc
       filter: page =>
         !page.includes('/admin') && !page.includes('/thank-you') && !page.includes('/404'),
-      // Custom entries for priority pages
-      customPages: [
-        'https://theprofitplatform.com.au/', // Homepage - highest priority
-        'https://theprofitplatform.com.au/seo',
-        'https://theprofitplatform.com.au/google-ads',
-        'https://theprofitplatform.com.au/web-design',
-        'https://theprofitplatform.com.au/contact',
-        'https://theprofitplatform.com.au/blog',
-        'https://theprofitplatform.com.au/seo-checklist',
-      ],
+      // Note: Removed customPages that were causing redirects
+      // Astro will auto-generate correct URLs from pages/
     }),
   ],
+  vite: {
+    build: {
+      minify: 'terser',
+      terserOptions: {
+        compress: {
+          drop_console: true, // Remove console.logs in production
+        },
+      },
+      cssMinify: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Split large vendor chunks for better caching
+            vendor: ['astro'],
+          },
+        },
+      },
+    },
+  },
 });

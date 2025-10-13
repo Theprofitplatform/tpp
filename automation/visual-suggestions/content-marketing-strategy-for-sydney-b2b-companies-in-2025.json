@@ -1,0 +1,118 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "76%",
+        "context": "Here's a stat that'll shock you: 76% of Sydney B2B companies create content that gets zero leads. We're talking about businesses in Parramatta, North [Sydney](/blog/keyword-research-for-local-sydney-businesses-the-complete-framework/), and the CBD. They spend $30,000+ each year on content that might as well be invisible.",
+        "line": "Here's a stat that'll shock you: 76% of Sydney B2B companies create content that gets zero leads. We're talking about businesses in Parramatta, North [Sydney](/blog/keyword-research-for-local-sydney-businesses-the-complete-framework/), and the CBD. They spend $30,000+ each year on content that might as well be invisible."
+      },
+      {
+        "lineNumber": 3,
+        "value": "$30,000",
+        "context": "Here's a stat that'll shock you: 76% of Sydney B2B companies create content that gets zero leads. We're talking about businesses in Parramatta, North [Sydney](/blog/keyword-research-for-local-sydney-businesses-the-complete-framework/), and the CBD. They spend $30,000+ each year on content that might as well be invisible.",
+        "line": "Here's a stat that'll shock you: 76% of Sydney B2B companies create content that gets zero leads. We're talking about businesses in Parramatta, North [Sydney](/blog/keyword-research-for-local-sydney-businesses-the-complete-framework/), and the CBD. They spend $30,000+ each year on content that might as well be invisible."
+      },
+      {
+        "lineNumber": 28,
+        "value": "76%",
+        "context": "\"Here's a stat that'll shock you: 76% of ...\",",
+        "line": "\"Here's a stat that'll shock you: 76% of ...\","
+      },
+      {
+        "lineNumber": 29,
+        "value": "68%",
+        "context": "\"- 68% couldn't identify their target buy...\",",
+        "line": "\"- 68% couldn't identify their target buy...\","
+      },
+      {
+        "lineNumber": 30,
+        "value": "84%",
+        "context": "\"- 84% had no plan to share content beyon...\",",
+        "line": "\"- 84% had no plan to share content beyon...\","
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: 76%, $30,000, 76%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 432,
+    "title": "Screenshot: - [Google Ads](/google-ads) for high-intent keywords",
+    "description": "Screenshot of: - [Google Ads](/google-ads) for high-intent keywords - Retargeting campaigns - Industry publication sponsorships",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 481,
+    "title": "Screenshot: - Spending $8,000/month on [Google Ads](/google-ads) with poor results",
+    "description": "Screenshot of: - Spending $8,000/month on [Google Ads](/google-ads) with poor results - No organic traffic or thought leadership presence - 6-month average sales cyc",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 496,
+    "title": "Screenshot: - Google Ads budget reallocated to content amplification",
+    "description": "Screenshot of: - Google Ads budget reallocated to content amplification  The key insight: they stopped creating content about their services. Instead, they started s",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 275,
+    "title": "Before/After: We checked 47 Sydney B2B companies across industries. This included fintech startups in Surry Hills and manufacturing firms in Alexandria. The results were shocking:",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "68%",
+      "84%",
+      "91%"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "before-after-chart",
+    "priority": "medium",
+    "location": 373,
+    "title": "Before/After: Vague content gets vague results. Instead of \"How to Improve Your Marketing,\" create \"How North Sydney Fintech Companies Reduce Customer Acquisition Costs by 47%.\"",
+    "description": "Visualize improvement metrics",
+    "data": [
+      "47%",
+      "23x"
+    ],
+    "tool": "Chart.js, Google Charts, or Canva",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 533,
+    "title": "Comparison Table",
+    "description": "Create comparison table/diagram for: SEMrush or Ahrefs vs AnswerThePublic vs BuzzSumo vs Google Trends",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 534,
+    "title": "Comparison Table",
+    "description": "Create comparison table/diagram for: AnswerThePublic vs BuzzSumo vs Google Trends",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  }
+]

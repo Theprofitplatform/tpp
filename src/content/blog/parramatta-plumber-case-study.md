@@ -35,7 +35,7 @@ schema:
     url: "https://theprofitplatform.com.au/blog/"
 ---
 
-# Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days
+## Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days
 
 **Client:** Local plumbing business (name withheld for privacy)
 **Location:** Parramatta, NSW

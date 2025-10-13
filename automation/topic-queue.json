@@ -1,21 +1,6 @@
 {
   "queue": [
     {
-      "id": 18,
-      "title": "Remarketing Campaigns That Actually Convert for Sydney eCommerce",
-      "category": "Google Ads",
-      "tags": [
-        "Remarketing",
-        "Retargeting",
-        "eCommerce",
-        "Conversions"
-      ],
-      "targetKeyword": "remarketing campaigns",
-      "searchIntent": "commercial",
-      "priority": 3,
-      "status": "pending"
-    },
-    {
       "id": 21,
       "title": "Voice Search SEO: Optimising for Sydney Local Voice Queries in 2025",
       "category": "SEO",
@@ -641,6 +626,25 @@
       "publishedSlug": "content-marketing-strategy-for-sydney-b2b-companies-in-2025",
       "wordCount": 3035,
       "author": "TPP Team"
+    },
+    {
+      "id": 18,
+      "title": "Remarketing Campaigns That Actually Convert for Sydney eCommerce",
+      "category": "Google Ads",
+      "tags": [
+        "Remarketing",
+        "Retargeting",
+        "eCommerce",
+        "Conversions"
+      ],
+      "targetKeyword": "remarketing campaigns",
+      "searchIntent": "commercial",
+      "priority": 3,
+      "status": "published",
+      "publishedDate": "2025-10-11",
+      "publishedSlug": "remarketing-campaigns-that-actually-convert-for-sydney-ecommerce",
+      "wordCount": 3700,
+      "author": "Aayush Shrestha"
     }
   ],
   "config": {

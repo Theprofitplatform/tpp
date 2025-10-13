@@ -1,12 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 // Use relative path for Cloudflare Pages Functions
 const apiUrl = '';
 ---
 
-<BaseLayout title="Free Keyword Research Tool | Find Profitable Keywords for Sydney">
+<BaseLayout
+  title="Free Keyword Research Tool | Find Profitable Keywords for Sydney"
+  description="Find profitable keywords for your Sydney business. Get search volume, competition, and keyword difficulty data instantly. Free keyword research tool with local insights."
+>
   <Header />
   
   <!-- Tool Analytics Tracker -->
@@ -291,6 +295,13 @@ const apiUrl = '';
         </div>
       </div>
     </section>
+
+    <RelatedContent
+      category="SEO"
+      tags={['SEO', 'Keyword Research', 'Google']}
+      showBlogPosts={true}
+      showServices={true}
+    />
   </main>
 </BaseLayout>
 

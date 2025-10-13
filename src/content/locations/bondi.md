@@ -14,7 +14,7 @@ featured: true
 draft: false
 ---
 
-# Digital Marketing Services in Bondi & Eastern Suburbs
+## Digital Marketing Services in Bondi & Eastern Suburbs
 
 Looking for a **digital marketing agency in Bondi** that delivers real results?
 

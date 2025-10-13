@@ -1,0 +1,12 @@
+✅ Database initialized successfully
+[dotenv@17.2.3] injecting env (11) from .env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚀 TPP Backend API Server Running
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📡 Port: 4321
+🌍 Environment: production
+⏰ Started: 10/10/2025, 11:57:16 pm
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  
+✅ Email server is ready to send messages

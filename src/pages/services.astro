@@ -3,10 +3,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 
 const pageTitle = "Services | The Profit Platform - Sydney Digital Marketing";
-const pageDescription = "Leading Services services in Sydney. Get results with The Profit Platform. ✓ Proven ROI ✓ 127+ Reviews ✓ Free Consultation";
+const pageDescription = "Full-service digital marketing agency in Sydney. SEO, Google Ads, web design, social media marketing, and conversion optimization. Customized strategies that deliver real ROI.";
 ---
 
-<BaseLayout title={pageTitle}>
+<BaseLayout title={pageTitle} description={pageDescription}>
   <link rel="stylesheet" href="/css/services-page-styles.css">
 
   <!-- Preconnect to external resources -->
@@ -78,7 +78,7 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
             </div>
           </div>
 
-          <div class="hero-stats">
+          <figure class="hero-stats">
             <div class="stat-item">
               <div class="stat-number">6</div>
               <div class="stat-label">Core Services</div>
@@ -91,7 +91,7 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
               <div class="stat-number">180%</div>
               <div class="stat-label">Average ROI</div>
             </div>
-          </div>
+          </figure>
 
           <div class="hero-cta-section">
             <div class="hero-buttons">
@@ -122,7 +122,7 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
 
         <div class="services-grid">
           <!-- SEO Services -->
-          <div class="service-card featured" data-service="seo">
+          <article class="service-card featured" data-service="seo">
             <div class="service-icon">
               <i class="fas fa-search"></i>
             </div>
@@ -170,10 +170,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
                 <i class="fas fa-arrow-right"></i>
               </a>
             </div>
-          </div>
+          </article>
 
           <!-- Google Ads Management -->
-          <div class="service-card" data-service="google-ads">
+          <article class="service-card" data-service="google-ads">
             <div class="service-icon">
               <i class="fab fa-google"></i>
             </div>
@@ -221,10 +221,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
                 <i class="fas fa-arrow-right"></i>
               </a>
             </div>
-          </div>
+          </article>
 
           <!-- Web Design & Development -->
-          <div class="service-card" data-service="web-design">
+          <article class="service-card" data-service="web-design">
             <div class="service-icon">
               <i class="fas fa-laptop-code"></i>
             </div>
@@ -272,10 +272,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
                 <i class="fas fa-arrow-right"></i>
               </a>
             </div>
-          </div>
+          </article>
 
           <!-- Social Media Marketing -->
-          <div class="service-card" data-service="social-media">
+          <article class="service-card" data-service="social-media">
             <div class="service-icon">
               <i class="fas fa-share-alt"></i>
             </div>
@@ -323,10 +323,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
                 <i class="fas fa-arrow-right"></i>
               </a>
             </div>
-          </div>
+          </article>
 
           <!-- Content Marketing -->
-          <div class="service-card" data-service="content-marketing">
+          <article class="service-card" data-service="content-marketing">
             <div class="service-icon">
               <i class="fas fa-pen-fancy"></i>
             </div>
@@ -374,10 +374,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
                 <i class="fas fa-arrow-right"></i>
               </a>
             </div>
-          </div>
+          </article>
 
           <!-- Analytics & Reporting -->
-          <div class="service-card" data-service="analytics">
+          <article class="service-card" data-service="analytics">
             <div class="service-icon">
               <i class="fas fa-chart-bar"></i>
             </div>
@@ -425,7 +425,7 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
                 <i class="fas fa-arrow-right"></i>
               </a>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -440,7 +440,7 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
 
         <div class="packages-grid">
           <!-- Starter Package -->
-          <div class="package-card">
+          <article class="package-card">
             <div class="package-header">
               <div class="package-name">Starter</div>
               <div class="package-subtitle">Perfect for new businesses</div>
@@ -477,10 +477,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
               Choose Starter
               <i class="fas fa-arrow-right"></i>
             </a>
-          </div>
+          </article>
 
           <!-- Growth Package -->
-          <div class="package-card featured">
+          <article class="package-card featured">
             <div class="package-badge">Most Popular</div>
             <div class="package-header">
               <div class="package-name">Growth</div>
@@ -526,10 +526,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
               Choose Growth
               <i class="fas fa-arrow-right"></i>
             </a>
-          </div>
+          </article>
 
           <!-- Enterprise Package -->
-          <div class="package-card">
+          <article class="package-card">
             <div class="package-header">
               <div class="package-name">Enterprise</div>
               <div class="package-subtitle">For established businesses</div>
@@ -578,10 +578,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
               Choose Enterprise
               <i class="fas fa-arrow-right"></i>
             </a>
-          </div>
+          </article>
         </div>
 
-        <div class="package-guarantee">
+        <aside class="package-guarantee">
           <div class="guarantee-content">
             <div class="guarantee-icon">
               <i class="fas fa-shield-alt"></i>
@@ -591,7 +591,7 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
               <p>Not satisfied with the results? Get your money back, no questions asked.</p>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
@@ -605,7 +605,7 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
 
         <div class="case-studies-grid">
           <!-- Case Study 1 -->
-          <div class="case-study-card">
+          <article class="case-study-card">
             <div class="case-study-header">
               <div class="client-info">
                 <div class="client-logo">
@@ -655,10 +655,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
                 <span>Results in 4 months</span>
               </div>
             </div>
-          </div>
+          </article>
 
           <!-- Case Study 2 -->
-          <div class="case-study-card">
+          <article class="case-study-card">
             <div class="case-study-header">
               <div class="client-info">
                 <div class="client-logo">
@@ -708,10 +708,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
                 <span>Results in 3 months</span>
               </div>
             </div>
-          </div>
+          </article>
 
           <!-- Case Study 3 -->
-          <div class="case-study-card">
+          <article class="case-study-card">
             <div class="case-study-header">
               <div class="client-info">
                 <div class="client-logo">
@@ -761,10 +761,10 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
                 <span>Results in 6 months</span>
               </div>
             </div>
-          </div>
+          </article>
         </div>
 
-        <div class="case-studies-cta">
+        <aside class="case-studies-cta">
           <div class="cta-content">
             <h3>Ready to Be Our Next Success Story?</h3>
             <p>Join Sydney businesses that are transforming their online presence</p>
@@ -773,7 +773,7 @@ const pageDescription = "Leading Services services in Sydney. Get results with T
               <i class="fas fa-arrow-right"></i>
             </a>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 

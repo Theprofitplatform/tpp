@@ -35,6 +35,8 @@
     "blog:verify": "node tools/blog-cli.mjs verify",
     "blog:test": "node tools/blog-cli.mjs test",
     "blog": "node tools/blog-cli.mjs",
+    "topics:generate": "node automation/scripts/generate-topics.mjs",
+    "topics:check": "node automation/scripts/check-topic-queue.mjs",
     "test:blog": "npx playwright test tests/blog-verification.spec.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -65,6 +67,7 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.3.1",
     "playwright": "^1.55.1",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "terser": "^5.44.0"
   }
 }

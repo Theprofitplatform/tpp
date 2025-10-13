@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
+
+const pageTitle = "Free Marketing Tools | The Profit Platform";
+const pageDescription = "Free SEO and marketing tools for Sydney businesses. Keyword research, competitor analysis, SEO audits, rank tracking, and more. No registration required.";
 ---
 
-<BaseLayout title="Free Marketing Tools | The Profit Platform">
+<BaseLayout title={pageTitle} description={pageDescription}>
   <Header />
 
   <main id="main-content" role="main">
@@ -30,7 +33,7 @@ import Header from '../components/Header.astro';
           </p>
 
           <!-- Trust Stats -->
-          <div class="hero-stats-inline">
+          <figure class="hero-stats-inline">
             <div class="stat-badge">
               <i class="fas fa-check-circle"></i>
               <span><strong>100% Free</strong> - No signup required</span>
@@ -43,7 +46,7 @@ import Header from '../components/Header.astro';
               <i class="fas fa-bolt"></i>
               <span><strong>Real-time</strong> results</span>
             </div>
-          </div>
+          </figure>
         </div>
       </div>
     </section>
@@ -55,6 +58,7 @@ import Header from '../components/Header.astro';
 
           <!-- Keyword Gap Analyzer - FEATURED -->
           <a href="/tools/keyword-gap" class="tool-card-modern featured hot-tool" style="opacity: 1 !important; visibility: visible !important;">
+            <article>
             <div class="tool-badge-modern featured-badge hot-badge">
               <i class="fas fa-fire"></i>
               <span>🔥 NEW & HOT</span>
@@ -78,10 +82,12 @@ import Header from '../components/Header.astro';
               <i class="fas fa-arrow-right"></i>
             </div>
             <div class="card-shine hot-shine"></div>
+            </article>
           </a>
 
           <!-- SEO Opportunity Calculator -->
           <a href="/tools/seo-opportunity" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <article>
             <div class="tool-badge-modern popular-badge">
               <i class="fas fa-star"></i>
               <span>POPULAR</span>
@@ -105,10 +111,12 @@ import Header from '../components/Header.astro';
               <i class="fas fa-arrow-right"></i>
             </div>
             <div class="card-shine hot-shine"></div>
+            </article>
           </a>
 
           <!-- Rank Tracker Tool -->
           <a href="/tools/rank-tracker" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <article>
             <div class="tool-badge-modern popular-badge">
               <i class="fas fa-star"></i>
               <span>POPULAR</span>
@@ -132,10 +140,12 @@ import Header from '../components/Header.astro';
               <i class="fas fa-arrow-right"></i>
             </div>
             <div class="card-shine"></div>
+            </article>
           </a>
 
           <!-- Website Speed Test Tool -->
           <a href="/tools/speed-test" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <article>
             <div class="tool-badge-modern new-badge">
               <i class="fas fa-sparkles"></i>
               <span>NEW</span>
@@ -159,10 +169,12 @@ import Header from '../components/Header.astro';
               <i class="fas fa-arrow-right"></i>
             </div>
             <div class="card-shine"></div>
+            </article>
           </a>
 
           <!-- SEO Audit Tool -->
           <a href="/tools/seo-audit" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <article>
             <div class="tool-badge-modern available-badge">
               <i class="fas fa-check-circle"></i>
               <span>AVAILABLE</span>
@@ -186,10 +198,12 @@ import Header from '../components/Header.astro';
               <i class="fas fa-arrow-right"></i>
             </div>
             <div class="card-shine"></div>
+            </article>
           </a>
 
           <!-- Keyword Research Tool -->
           <a href="/tools/keyword-research" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <article>
             <div class="tool-badge-modern available-badge">
               <i class="fas fa-check-circle"></i>
               <span>AVAILABLE</span>
@@ -213,10 +227,12 @@ import Header from '../components/Header.astro';
               <i class="fas fa-arrow-right"></i>
             </div>
             <div class="card-shine"></div>
+            </article>
           </a>
 
           <!-- Competitor Analysis Tool -->
           <a href="/tools/competitor-analysis" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <article>
             <div class="tool-badge-modern beta-badge">
               <i class="fas fa-flask"></i>
               <span>BETA</span>
@@ -240,10 +256,12 @@ import Header from '../components/Header.astro';
               <i class="fas fa-arrow-right"></i>
             </div>
             <div class="card-shine"></div>
+            </article>
           </a>
 
           <!-- AI Content Generator Tool -->
           <a href="/tools/content-generator" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <article>
             <div class="tool-badge-modern beta-badge">
               <i class="fas fa-flask"></i>
               <span>BETA</span>
@@ -267,10 +285,12 @@ import Header from '../components/Header.astro';
               <i class="fas fa-arrow-right"></i>
             </div>
             <div class="card-shine"></div>
+            </article>
           </a>
 
           <!-- Meta Tag Generator Tool -->
           <a href="/tools/meta-tag-generator" class="tool-card-modern" style="opacity: 1 !important; visibility: visible !important;">
+            <article>
             <div class="tool-badge-modern new-badge">
               <i class="fas fa-sparkles"></i>
               <span>NEW</span>
@@ -294,6 +314,7 @@ import Header from '../components/Header.astro';
               <i class="fas fa-arrow-right"></i>
             </div>
             <div class="card-shine"></div>
+            </article>
           </a>
 
         </div>
@@ -310,7 +331,7 @@ import Header from '../components/Header.astro';
         </div>
       </div>
       <div class="container">
-        <div class="cta-content-modern">
+        <aside class="cta-content-modern">
           <span class="section-tag white">🚀 Take It To The Next Level</span>
           <h2>Want Professional Help?</h2>
           <p class="cta-subtitle">
@@ -354,7 +375,7 @@ import Header from '../components/Header.astro';
           <p class="cta-urgency">
             <i class="fas fa-phone"></i> Call today for a free consultation
           </p>
-        </div>
+        </aside>
       </div>
     </section>
 

@@ -1,0 +1,135 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:4321/api/automation/blog-automation",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-api-key",
+              "value": "automation-key-2025"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "force",
+              "value": false
+            },
+            {
+              "name": "enableGitCommit",
+              "value": true
+            },
+            {
+              "name": "enableDeployment",
+              "value": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "blog-automation-trigger",
+      "name": "Trigger Blog Automation",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [240, 304],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": [
+            {
+              "name": "success",
+              "value": "={{ $json.success === true }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "check-success",
+      "name": "Check Success",
+      "type": "n8n-nodes-base.if",
+      "position": [464, 304],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "webhookUri": "https://discord.com/api/webhooks/1424580081195683890/TJMeZ_R3BZGA2VoAawVu2Xg-AGFgkvBpKACjFHqwT50aHT7fagHmKqOFZ3-88zjViBLS",
+        "text": "✅ Blog Automation Triggered Successfully!\n\n**Workflow**: Manual Blog Automation\n**Timestamp**: {{ $now }}\n**Status**: ✅ Success\n\n🤖 *Manual Blog Automation*\n📅 {{ $now }}",
+        "options": {}
+      },
+      "id": "success-notification",
+      "name": "Success Notification",
+      "type": "n8n-nodes-base.discord",
+      "position": [688, 240],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "webhookUri": "https://discord.com/api/webhooks/1424580081195683890/TJMeZ_R3BZGA2VoAawVu2Xg-AGFgkvBpKACjFHqwT50aHT7fagHmKqOFZ3-88zjViBLS",
+        "text": "❌ Blog Automation Failed!\n\n**Workflow**: Manual Blog Automation\n**Timestamp**: {{ $now }}\n**Error**: {{ $json.error || \"Unknown error\" }}\n\n🤖 *Manual Blog Automation*\n📅 {{ $now }}",
+        "options": {}
+      },
+      "id": "error-notification",
+      "name": "Error Notification",
+      "type": "n8n-nodes-base.discord",
+      "position": [688, 384],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "manual-trigger",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [48, 304],
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "Manual Trigger": {
+      "main": [[
+        {
+          "node": "Trigger Blog Automation",
+          "type": "main",
+          "index": 0
+        }
+      ]]
+    },
+    "Trigger Blog Automation": {
+      "main": [[
+        {
+          "node": "Check Success",
+          "type": "main",
+          "index": 0
+        }
+      ]]
+    },
+    "Check Success": {
+      "main": [[
+        {
+          "node": "Success Notification",
+          "type": "main",
+          "index": 0
+        }
+      ], [
+        {
+          "node": "Error Notification",
+          "type": "main",
+          "index": 0
+        }
+      ]]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "meta": null,
+  "pinData": {},
+  "versionId": "243a5e9a-ccd9-44a6-94c6-0298064b4b2d",
+  "triggerCount": 0
+}

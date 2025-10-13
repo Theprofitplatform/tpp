@@ -1,0 +1,91 @@
+[
+  {
+    "type": "chart",
+    "priority": "high",
+    "location": 3,
+    "data": [
+      {
+        "lineNumber": 3,
+        "value": "$2,000",
+        "context": "Here's what happens to most Sydney online stores: A customer visits your Bondi Junction store's website. They look at your products. They leave without buying. You set up a remarketing campaign. You expect to win them back. After spending $2,000 over three months, you get maybe two sales.",
+        "line": "Here's what happens to most Sydney online stores: A customer visits your Bondi Junction store's website. They look at your products. They leave without buying. You set up a remarketing campaign. You expect to win them back. After spending $2,000 over three months, you get maybe two sales."
+      },
+      {
+        "lineNumber": 116,
+        "value": "20%",
+        "context": "The problem isn't remarketing itself. It's that Sydney businesses use old methods. These methods ignore how people actually shop online today. When someone leaves your Parramatta warehouse's product page, they're not ready for the same \"20% off\" banner they see everywhere.",
+        "line": "The problem isn't remarketing itself. It's that Sydney businesses use old methods. These methods ignore how people actually shop online today. When someone leaves your Parramatta warehouse's product page, they're not ready for the same \"20% off\" banner they see everywhere."
+      },
+      {
+        "lineNumber": 211,
+        "value": "2.3%",
+        "context": "A person who spent five minutes on your product pages in Chatswood has different reasons for buying. Compare this to someone who left after ten seconds from Manly. Yet most remarketing campaigns treat them the same. This explains why the average remarketing conversion rate across Australian online stores sits at just 2.3%.",
+        "line": "A person who spent five minutes on your product pages in Chatswood has different reasons for buying. Compare this to someone who left after ten seconds from Manly. Yet most remarketing campaigns treat them the same. This explains why the average remarketing conversion rate across Australian online stores sits at just 2.3%."
+      },
+      {
+        "lineNumber": 231,
+        "value": "53%",
+        "context": "53% of Australian online shoppers prefer a more personalised shopping experience from retailers, indicating that generic marketing like \"Come back and save 10%\" banners may feel impersonal or spammy to well-researched consumers. Additionally, 19.5% of Australian customers consulted price comparison websites before making a purchase, showing that Sydney consumers actively research and compare options. [1]",
+        "line": "53% of Australian online shoppers prefer a more personalised shopping experience from retailers, indicating that generic marketing like \"Come back and save 10%\" banners may feel impersonal or spammy to well-researched consumers. Additionally, 19.5% of Australian customers consulted price comparison websites before making a purchase, showing that Sydney consumers actively research and compare options. [1]"
+      },
+      {
+        "lineNumber": 231,
+        "value": "10%",
+        "context": "53% of Australian online shoppers prefer a more personalised shopping experience from retailers, indicating that generic marketing like \"Come back and save 10%\" banners may feel impersonal or spammy to well-researched consumers. Additionally, 19.5% of Australian customers consulted price comparison websites before making a purchase, showing that Sydney consumers actively research and compare options. [1]",
+        "line": "53% of Australian online shoppers prefer a more personalised shopping experience from retailers, indicating that generic marketing like \"Come back and save 10%\" banners may feel impersonal or spammy to well-researched consumers. Additionally, 19.5% of Australian customers consulted price comparison websites before making a purchase, showing that Sydney consumers actively research and compare options. [1]"
+      }
+    ],
+    "title": "Key Statistics Visualization",
+    "description": "Create a bar chart or infographic showing: $2,000, 20%, 2.3%",
+    "tool": "Canva, Google Charts, or Chart.js",
+    "estimatedTime": "15-20 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 221,
+    "title": "Screenshot: After reviewing dozens of Sydney online store [Google Ads](/google-ads) accounts, we found three big mistakes that kill campaign performance:",
+    "description": "Screenshot of: After reviewing dozens of Sydney online store [Google Ads](/google-ads) accounts, we found three big mistakes that kill campaign performance:  **First",
+    "example": "Google Ads dashboard/interface",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 392,
+    "title": "Screenshot: Cross-Device Tracking:** Enable Google's cross-device reporting. This follows users from mobile research to desktop purchase.",
+    "description": "Screenshot of: **Cross-Device Tracking:** Enable Google's cross-device reporting. This follows users from mobile research to desktop purchase.  Many [web design](/we",
+    "example": "Conversion tracking setup screen",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "screenshot",
+    "priority": "high",
+    "location": 413,
+    "title": "Screenshot: For Cart Abandoners:** Use streamlined checkout process with their previously selected items pre-populated.",
+    "description": "Screenshot of: **For Cart Abandoners:** Use streamlined checkout process with their previously selected items pre-populated.  **For Category Browsers:** Show curated",
+    "example": "Interface screenshot",
+    "tool": "Snagit, Lightshot, or built-in screenshot",
+    "estimatedTime": "5-10 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 327,
+    "title": "Sydney commuters behave differently on mobile versus desktop. Mobile users often browse during commutes but purchase later on desktop. Create device-specific remarketing flows:",
+    "description": "Create comparison table/diagram for: Sydney vs Mobile vs Create",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  },
+  {
+    "type": "comparison-table",
+    "priority": "medium",
+    "location": 517,
+    "title": "- Mobile vs desktop visitors",
+    "description": "Create comparison table/diagram for: Mobile",
+    "tool": "Google Sheets, Canva, or HTML table",
+    "estimatedTime": "10-15 minutes"
+  }
+]

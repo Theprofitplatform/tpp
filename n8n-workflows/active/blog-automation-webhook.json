@@ -1,0 +1,190 @@
+{
+  "name": "Blog Automation Trigger (Webhook)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "blog-automation-trigger",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "position": [
+        48,
+        304
+      ],
+      "typeVersion": 2,
+      "webhookId": "blog-automation-trigger"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://127.0.0.1:4321/api/automation/blog-automation",
+        "authentication": "none",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "force",
+              "value": "={{ $json.body.force || false }}"
+            },
+            {
+              "name": "enableGitCommit",
+              "value": "={{ $json.body.enableGitCommit !== false }}"
+            },
+            {
+              "name": "enableDeployment",
+              "value": "={{ $json.body.enableDeployment !== false }}"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "blog-automation-trigger",
+      "name": "Trigger Blog Automation",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [
+        280,
+        304
+      ],
+      "typeVersion": 4
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": [
+            {
+              "name": "success",
+              "value": "={{ $json.success === true }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "check-success",
+      "name": "Check Success",
+      "type": "n8n-nodes-base.if",
+      "position": [
+        504,
+        304
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "webhookUri": "https://discord.com/api/webhooks/1424580081195683890/TJMeZ_R3BZGA2VoAawVu2Xg-AGFgkvBpKACjFHqwT50aHT7fagHmKqOFZ3-88zjViBLS",
+        "text": "✅ Blog automation triggered successfully via webhook!\n\nWorkflow: {{ $json.workflow }}\nTimestamp: {{ $json.timestamp }}\nTriggered from: n8n webhook",
+        "options": {}
+      },
+      "id": "success-notification",
+      "name": "Success Notification",
+      "type": "n8n-nodes-base.discord",
+      "position": [
+        728,
+        240
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "webhookUri": "https://discord.com/api/webhooks/1424580081195683890/TJMeZ_R3BZGA2VoAawVu2Xg-AGFgkvBpKACjFHqwT50aHT7fagHmKqOFZ3-88zjViBLS",
+        "text": "❌ Blog automation failed via webhook!\n\nError: {{ $json.error }}\nTimestamp: {{ $json.timestamp }}\nTriggered from: n8n webhook",
+        "options": {}
+      },
+      "id": "error-notification",
+      "name": "Error Notification",
+      "type": "n8n-nodes-base.discord",
+      "position": [
+        728,
+        384
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "respondWith": "allIncomingItems",
+        "options": {}
+      },
+      "id": "respond-to-webhook",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "position": [
+        952,
+        304
+      ],
+      "typeVersion": 1
+    }
+  ],
+  "connections": {
+    "Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Trigger Blog Automation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger Blog Automation": {
+      "main": [
+        [
+          {
+            "node": "Check Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Success": {
+      "main": [
+        [
+          {
+            "node": "Success Notification",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Error Notification",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Success Notification": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Error Notification": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "id": "ocIhahMuBNMy1hNs"
+}

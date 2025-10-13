@@ -1,14 +1,18 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 import ToolBadge from '../../components/ToolBadge.astro';
 // import '../../public/css/speed-test-page-styles.css'; // Removed - not needed
 
 // Use Cloudflare Pages Function (serverless API on same domain)
 const apiUrl = '';
+
+const pageTitle = "Website Speed Test | Free Page Speed Checker";
+const pageDescription = "Test your website speed and Core Web Vitals instantly. Get performance scores, loading times, and optimization recommendations. Free website speed test tool.";
 ---
 
-<BaseLayout title="Free Website Speed Test | Lighthouse Performance Audit">
+<BaseLayout title={pageTitle} description={pageDescription}>
   <link rel="stylesheet" href="/css/speed-test-page-styles.css">
   <Header />
 
@@ -235,6 +239,12 @@ const apiUrl = '';
     </section>
 
 
+    <RelatedContent
+      category="Technical SEO"
+      tags={['Technical SEO', 'Performance', 'SEO']}
+      showBlogPosts={true}
+      showServices={true}
+    />
   </main>
 </BaseLayout>
 

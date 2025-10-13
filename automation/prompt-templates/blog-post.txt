@@ -15,12 +15,16 @@ BLOG POST DETAILS:
 
 CRITICAL REQUIREMENTS:
 
-1. LENGTH: 1800-2200 words (substantive, not fluff)
+1. LENGTH: 2500-3500 words (substantive, deeply valuable content)
+   - Quality over quantity - every sentence must provide value
+   - No fluff, filler, or generic statements
+   - Each section should teach something specific
 
 2. STRUCTURE:
-   - Attention-grabbing introduction (100-150 words)
-     * Hook with surprising statistic, bold claim, or compelling question
-     * Clearly state the problem or challenge
+   - Attention-grabbing introduction (150-200 words)
+     * Hook with a verified statistic, specific problem, or compelling insight
+     * BANNED PHRASES: "Here's what'll shock you", "game-changer", "secrets", "hidden tricks"
+     * Clearly state the problem Sydney businesses face
      * Promise a specific, actionable solution
 
    - Main content (1400-1800 words)
@@ -40,13 +44,34 @@ CRITICAL REQUIREMENTS:
    - Mention Sydney business context or challenges
    - Include local landmarks or business districts when relevant
 
-4. E-E-A-T SIGNALS (Make it human and expert):
-   - Share specific experiences from working with clients
-   - Include concrete examples with real numbers/results
-   - Use phrases like "In our experience...", "We've seen...", "When we worked with..."
-   - Reference specific timeframes and metrics
-   - Add unique insights that demonstrate deep expertise
-   - Be honest about challenges and limitations
+4. E-E-A-T SIGNALS (Demonstrate GENUINE expertise - CRITICAL FOR GOOGLE):
+
+   **ABSOLUTELY BANNED - DO NOT USE:**
+   - Fabricated statistics - ESPECIALLY these patterns:
+     * "X% of Sydney businesses/companies/stores..."
+     * "90% of [anything] fail/struggle/make mistakes..."
+     * Specific percentages without citations (e.g., "76% of...")
+     * Revenue claims without evidence (e.g., "$500K+ revenue")
+   - Made-up case studies (e.g., "A Bondi Junction café we worked with...")
+   - Invented before/after numbers without real data
+   - Fake client testimonials or quotes
+   - Unverifiable claims about "our clients" without context
+
+   **CRITICAL: If you use a percentage or statistic, you MUST cite a source immediately after in [Source: Name] format**
+
+   **REQUIRED - Use ONLY these approaches:**
+   - Share general observations: "We've noticed Sydney businesses often struggle with..."
+   - Use industry data with citations: "According to [Source], X% of businesses..."
+   - Describe typical scenarios: "A common challenge we see is..."
+   - Reference your team's expertise: "Based on our experience in SEO/Google Ads..."
+   - Be specific about YOUR methodology: "Our approach involves..."
+   - Admit limitations: "This works well for X, but may not suit Y..."
+
+   **Unique TPP Framework Required:**
+   - Create ONE original framework/methodology for this topic
+   - Name it: "The TPP [Topic] Framework" or "[X]-Step [Topic] Method"
+   - Make it visually describable (readers should be able to picture it)
+   - Example: "TPP Local SEO Pyramid", "5-Phase Content Strategy", "SCALE Framework"
 
 5. SEO OPTIMIZATION (STRICTLY ENFORCED):
    - **CRITICAL**: Include exact target keyword "{target_keyword}" in:
@@ -65,22 +90,38 @@ CRITICAL REQUIREMENTS:
      * Related blog posts when naturally relevant
    - Include 3-5 specific Sydney postcodes (e.g., 2000, 2088, 2026, 2060)
 
-6. CONTENT QUALITY:
+6. CONTENT QUALITY & DATA INTEGRITY:
+
+   **Statistics & Data Requirements:**
+   - ONLY use statistics from verified sources (Google, industry reports, government data)
+   - ALWAYS cite sources: "According to [Source Name], X% of..." [Source: Domain]
+   - If no data exists, describe observations: "Many Sydney businesses struggle with..."
+   - Use Perplexity-enriched statistics where available (system will add these)
+   - Never invent percentages, revenue figures, or case study results
+
+   **Content Structure:**
    - Provide actionable, step-by-step frameworks
-   - Include specific examples for every major point
-   - Cite data and statistics (with sources noted in brackets)
+   - Include specific examples for every major point (without fabrication)
    - Use bullet points and numbered lists for scannability
    - Short paragraphs (2-3 sentences maximum)
    - Include rhetorical questions to maintain engagement
-   - Add blockquotes for key insights or statistics
+   - Add blockquotes for key insights from authoritative sources
 
-7. UNIQUE VALUE (Critical for AI content):
-   - Provide contrarian or non-obvious advice
-   - Include specific local Sydney market knowledge
-   - Reference 2025 trends and current best practices
-   - Add personal insights from agency experience
-   - Share common mistakes we see clients make
-   - Include "insider" knowledge about the industry
+7. UNIQUE VALUE (Differentiate from generic AI content):
+
+   **Required Elements:**
+   - ONE unique TPP framework/methodology (named and original)
+   - Contrarian or non-obvious advice (question common assumptions)
+   - Specific Sydney market observations (not generic "Sydney" mentions)
+   - 2025 trends with authoritative sources
+   - Common mistakes observed in the industry
+   - Tactical how-to advice (not theoretical concepts)
+
+   **Make it Unmistakably Human:**
+   - Use conversational phrases: "Here's the thing...", "Look...", "To be honest..."
+   - Admit when something is difficult or uncertain
+   - Share real challenges (without specific client details)
+   - Use Sydney-specific examples that AI wouldn't know
 
 8. EXTERNAL AUTHORITY (MANDATORY):
    - Include 2-3 external links to high-authority sources
@@ -102,13 +143,30 @@ CRITICAL REQUIREMENTS:
    - Educational not promotional
    - Honest about what works and what doesn't
 
-10. AVOID:
+10. STRICTLY AVOID (Will fail quality check):
+
+    **AI Clichés & Red Flags - NEVER USE THESE:**
+    - "Here's what'll shock you", "This will surprise you", "Shocking truth"
+    - "Game-changer", "Revolutionary", "Secret weapon"
+    - "Hidden tricks", "Insider secrets", "The secret is", "Secret to"
+    - "Hack", "Life hack", "Growth hack"
+    - "Mind-blowing", "Crushing it", "Next level"
+    - "Holy grail", "Silver bullet", "Magic formula"
+    - "X% of [Sydney/businesses] fail/struggle/make mistakes"
+    - Fabricated statistics without sources
+    - Made-up case studies or client stories
+    - Invented revenue numbers or ROI claims
+
+    **If you accidentally use these words, the content will be rejected**
+
+    **Generic Content Issues:**
     - Generic advice available everywhere
     - Keyword stuffing or unnatural phrasing
     - Overly salesy language
-    - Corporate jargon and clichés
+    - Corporate jargon and buzzwords
     - Vague statements without specifics
     - Template-style content that looks automated
+    - Lists without context or explanation
 
 EXAMPLE STRUCTURE:
 

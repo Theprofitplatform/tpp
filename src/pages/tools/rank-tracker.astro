@@ -1,13 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 import ToolBadge from '../../components/ToolBadge.astro';
 
 // Use relative path for Cloudflare Pages Functions
 const apiUrl = '/api/serp';
 ---
 
-<BaseLayout title="Free Google Rank Tracker | Check Your Rankings Now">
+<BaseLayout
+  title="Free Google Rank Tracker | Check Your Rankings Now"
+  description="Track your Google search rankings instantly. Monitor keyword positions, track competitors, and measure SEO progress. Free rank tracking tool for Sydney businesses."
+>
   <Header />
   
   <!-- Tool Analytics Tracker -->
@@ -286,6 +290,12 @@ const apiUrl = '/api/serp';
       </div>
     </section>
 
+    <RelatedContent
+      category="SEO"
+      tags={['SEO', 'Rankings', 'Google']}
+      showBlogPosts={true}
+      showServices={true}
+    />
   </main>
 </BaseLayout>
 

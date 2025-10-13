@@ -1,12 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 // Use standalone Cloudflare Function (no backend server needed)
 const apiUrl = '/api/competitor-analysis-standalone';
 ---
 
-<BaseLayout title="Free SEO Quick Compare Tool | Compare Website SEO Metrics | Sydney">
+<BaseLayout
+  title="Free SEO Quick Compare Tool | Compare Website SEO Metrics | Sydney"
+  description="Compare your website's SEO against competitors instantly. Analyze domain authority, backlinks, keywords, and traffic. Free SEO comparison tool for Sydney businesses."
+>
   <Header />
   
   <!-- Tool Analytics Tracker -->
@@ -446,6 +450,12 @@ const apiUrl = '/api/competitor-analysis-standalone';
         </div>
       </div>
     </section>
+    <RelatedContent
+      category="SEO"
+      tags={['SEO', 'Competitor Analysis', 'Marketing']}
+      showBlogPosts={true}
+      showServices={true}
+    />
   </main>
 </BaseLayout>
 

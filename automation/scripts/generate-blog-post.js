@@ -29,61 +29,82 @@ const rateLimiter = new RateLimiter(5, 5 / 60); // 5 tokens, refill 5 per 60 sec
 
 /**
  * Assign author based on topic expertise and category
+ * Randomly selects from team members to appear more natural
  * @param {string} category - Blog post category
  * @param {Array<string>} tags - Post tags
  * @returns {string} Author name
  */
 function assignAuthorByExpertise(category, tags = []) {
-  // Avi Sharma - Founder & SEO Strategist
-  // Expertise: SEO, Local SEO, Technical SEO, Strategy
-  const aviExpertise = {
-    categories: ['SEO', 'Analytics', 'Marketing Strategy'],
-    tags: ['Local SEO', 'Technical SEO', 'SEO Tools', 'Keyword Research',
-           'Link Building', 'Schema Markup', 'Voice Search', 'Multi-Location SEO',
-           'SEO', 'Rankings', 'Google Business Profile', 'Local Search']
+  // Define team expertise areas
+  const authors = {
+    'Abhishek Maharjan': {
+      categories: ['SEO', 'Content Marketing'],
+      tags: ['Local SEO', 'Technical SEO', 'SEO Tools', 'Keyword Research',
+             'Link Building', 'Schema Markup', 'Voice Search', 'Content Strategy',
+             'SEO', 'Rankings', 'Google Business Profile', 'Local Search']
+    },
+    'Abhilekh Maharjan': {
+      categories: ['Digital Marketing', 'Marketing Strategy', 'Analytics'],
+      tags: ['Digital Marketing', 'Analytics', 'Strategy', 'ROI', 'Lead Generation',
+             'Marketing Automation', 'Email Marketing', 'Social Media']
+    },
+    'Aayush Shrestha': {
+      categories: ['Google Ads'],
+      tags: ['PPC', 'Google Ads', 'Ad Copywriting', 'CPC', 'Quality Score',
+             'Bidding Strategies', 'Remarketing', 'Retargeting', 'Ad Extensions']
+    },
+    'Finjo Sherpa': {
+      categories: ['Web Design'],
+      tags: ['Web Design', 'Web Development', 'Technical SEO', 'CRO', 'Conversions',
+             'Page Speed', 'Mobile Design', 'Accessibility', 'Performance', 'Core Web Vitals']
+    },
+    'Avi': {
+      categories: ['Business Strategy', 'Marketing Strategy'],
+      tags: ['Strategy', 'Growth', 'Business', 'Consulting', 'Leadership',
+             'Planning', 'ROI', 'Multi-Channel']
+    },
+    'TPP Team': {
+      categories: ['General', 'Digital Marketing', 'Content Marketing'],
+      tags: ['Marketing', 'Content', 'Social Media', 'Email', 'Automation']
+    }
   };
 
-  // TPP Team - Digital Marketing Experts
-  // Expertise: Google Ads, PPC, Web Design, Paid Advertising
-  const tppExpertise = {
-    categories: ['Google Ads', 'Web Design', 'Digital Marketing', 'Content Marketing'],
-    tags: ['PPC', 'Google Ads', 'Ad Copywriting', 'CPC', 'Quality Score',
-           'Bidding Strategies', 'Remarketing', 'Landing Pages', 'Web Design',
-           'CRO', 'Conversions', 'Page Speed', 'Mobile Design', 'Accessibility']
-  };
+  // Calculate match scores for each author
+  const authorScores = {};
 
-  // Check category match first (higher weight)
-  if (aviExpertise.categories.some(cat => category.toLowerCase().includes(cat.toLowerCase()))) {
-    return 'Avi';
-  }
-  if (tppExpertise.categories.some(cat => category.toLowerCase().includes(cat.toLowerCase()))) {
-    return 'TPP Team';
-  }
+  Object.keys(authors).forEach(authorName => {
+    const author = authors[authorName];
+    let score = 0;
 
-  // Check tag overlap (count matches)
-  const aviTagMatches = tags.filter(tag =>
-    aviExpertise.tags.some(expertTag =>
-      tag.toLowerCase().includes(expertTag.toLowerCase()) ||
-      expertTag.toLowerCase().includes(tag.toLowerCase())
-    )
-  ).length;
+    // Category match (highest weight = 10 points)
+    if (author.categories.some(cat => category.toLowerCase().includes(cat.toLowerCase()))) {
+      score += 10;
+    }
 
-  const tppTagMatches = tags.filter(tag =>
-    tppExpertise.tags.some(expertTag =>
-      tag.toLowerCase().includes(expertTag.toLowerCase()) ||
-      expertTag.toLowerCase().includes(tag.toLowerCase())
-    )
-  ).length;
+    // Tag matches (1 point each)
+    const tagMatches = tags.filter(tag =>
+      author.tags.some(expertTag =>
+        tag.toLowerCase().includes(expertTag.toLowerCase()) ||
+        expertTag.toLowerCase().includes(tag.toLowerCase())
+      )
+    ).length;
+    score += tagMatches;
 
-  // Assign based on tag matches
-  if (aviTagMatches > tppTagMatches) {
-    return 'Avi';
-  } else if (tppTagMatches > aviTagMatches) {
-    return 'TPP Team';
+    authorScores[authorName] = score;
+  });
+
+  // Find authors with highest score
+  const maxScore = Math.max(...Object.values(authorScores));
+  const topAuthors = Object.keys(authorScores).filter(name => authorScores[name] === maxScore);
+
+  // If multiple matches, randomly select (adds natural variation)
+  if (topAuthors.length > 1) {
+    const randomIndex = Math.floor(Math.random() * topAuthors.length);
+    return topAuthors[randomIndex];
   }
 
-  // Default to Avi for general content (founder adds more E-E-A-T weight)
-  return 'Avi';
+  // Return top match
+  return topAuthors[0] || 'TPP Team';
 }
 
 /**
@@ -414,22 +435,26 @@ Return only the meta description text.`
       console.warn('  ⚠️  Could not save visual suggestions:', err.message);
     }
 
-    // 9. Calculate read time
-    const wordCount = contentWithLinks.split(/\s+/).length;
-    const readTime = Math.ceil(wordCount / 200); // Average reading speed: 200 wpm
-
-    // 10. Generate slug
+    // 9. Generate slug
     const slug = topic.title
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-|-$/g, '');
 
-    // 11. Determine author based on topic expertise
+    // 10. Determine author based on topic expertise
     const author = assignAuthorByExpertise(topic.category, topic.tags);
 
-    // 11.5. Generate schema markup
+    // 11. Add author bio section
+    console.log('\n✍️  Adding author bio...');
+    const contentWithAuthorBio = await addAuthorBio(contentWithLinks, author);
+
+    // 12. Calculate read time (after author bio is added)
+    const wordCount = contentWithAuthorBio.split(/\s+/).length;
+    const readTime = Math.ceil(wordCount / 200); // Average reading speed: 200 wpm
+
+    // 13. Generate schema markup
     console.log('\n🔍 Generating schema markup...');
-    const schemaAnalysis = analyzeSchemas(contentWithLinks, {
+    const schemaAnalysis = analyzeSchemas(contentWithAuthorBio, {
       title: topic.title,
       description: metaDescription,
       author,
@@ -443,7 +468,7 @@ Return only the meta description text.`
     if (schemaAnalysis.faqCount > 0) console.log(`  📋 ${schemaAnalysis.faqCount} FAQs detected`);
     if (schemaAnalysis.stepCount > 0) console.log(`  📝 ${schemaAnalysis.stepCount} steps detected`);
 
-    // 12. Create frontmatter with image data
+    // 14. Create frontmatter with image data
     const today = new Date().toISOString().split('T')[0];
     let frontmatter = `---
 title: "${topic.title}"
@@ -483,14 +508,14 @@ schema: ${JSON.stringify(schemaAnalysis.schemas, null, 2).split('\n').map((line,
 
 `;
 
-    // 13. Combine and save
-    const fullContent = frontmatter + contentWithLinks;
+    // 15. Combine and save
+    const fullContent = frontmatter + contentWithAuthorBio;
     const filename = `${today}-${slug}.md`;
     const filepath = path.join(projectRoot, 'src/content/blog', filename);
 
     await fs.writeFile(filepath, fullContent, 'utf-8');
 
-    // 14. Update queue (mark as published)
+    // 16. Update queue (mark as published)
     topic.status = 'published';
     topic.publishedDate = today;
     topic.publishedSlug = slug;
@@ -502,7 +527,7 @@ schema: ${JSON.stringify(schemaAnalysis.schemas, null, 2).split('\n').map((line,
 
     await fs.writeFile(queuePath, JSON.stringify(queue, null, 2));
 
-    // 15. Output for GitHub Actions (special format for workflow)
+    // 17. Output for GitHub Actions (special format for workflow)
     // Note: URLs use clean slugs (no date prefix)
     const cleanUrl = `https://theprofitplatform.com.au/blog/${slug}`;
 
@@ -517,7 +542,7 @@ schema: ${JSON.stringify(schemaAnalysis.schemas, null, 2).split('\n').map((line,
       );
     }
 
-    // 16. Success summary
+    // 18. Success summary
     console.log('\n✅ Blog post generated successfully!');
     console.log(`📄 File: ${filename}`);
     console.log(`📊 Stats:
@@ -529,7 +554,7 @@ schema: ${JSON.stringify(schemaAnalysis.schemas, null, 2).split('\n').map((line,
     console.log(`🔗 URL: ${cleanUrl}`);
     console.log(`\n📋 Remaining topics in queue: ${queue.queue.length}`);
 
-    // 17. Send Discord notification (if webhook configured)
+    // 19. Send Discord notification (if webhook configured)
     await sendDiscordNotification({
       title: topic.title,
       url: cleanUrl,
@@ -552,6 +577,50 @@ schema: ${JSON.stringify(schemaAnalysis.schemas, null, 2).split('\n').map((line,
     console.error('\n❌ Error generating blog post:', error.message);
     console.error(error.stack);
     process.exit(1);
+  }
+}
+
+/**
+ * Add author bio section to content
+ * @param {string} content - Blog post content
+ * @param {string} authorName - Author name
+ * @returns {string} Content with author bio
+ */
+async function addAuthorBio(content, authorName) {
+  try {
+    // Load authors data
+    const authorsPath = path.join(projectRoot, 'src/data/authors.json');
+    const authorsData = JSON.parse(await fs.readFile(authorsPath, 'utf-8'));
+
+    // Find author
+    const author = authorsData.authors.find(a => a.name === authorName);
+
+    if (!author) {
+      console.log(`   ⚠️  Author "${authorName}" not found in authors.json, skipping bio`);
+      return content;
+    }
+
+    // Build author bio section
+    const bioSection = `
+
+---
+
+## About the Author
+
+**${author.name}** is a ${author.role} at The Profit Platform. ${author.bio}
+
+${author.expertise.length > 0 ? `**Areas of Expertise:** ${author.expertise.join(', ')}` : ''}
+
+${author.social.linkedin ? `[Connect on LinkedIn](${author.social.linkedin})` : ''}
+`;
+
+    console.log(`   ✓ Added ${author.name}'s bio (${author.role})`);
+
+    return content + bioSection;
+
+  } catch (error) {
+    console.warn(`   ⚠️  Failed to add author bio: ${error.message}`);
+    return content;
   }
 }
 
