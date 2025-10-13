@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev --host --port 3001",
-    "build": "astro build",
+    "build": "astro build && node scripts/add-trailing-slashes.mjs",
     "preview": "astro preview",
     "deploy": "npm run build && wrangler pages deploy dist",
     "deploy:auto": "npm run parity && npm run deploy",
