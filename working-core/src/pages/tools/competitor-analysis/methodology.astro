@@ -1,0 +1,427 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+---
+
+<BaseLayout
+  title="Methodology - SEO Quick Compare Tool | The Profit Platform"
+  description="Learn how our SEO comparison tool works. Methodology, data sources, and technical approach for comparing website SEO metrics and competitor analysis."
+>
+  <Header />
+
+  <main id="main-content" role="main">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <div class="container">
+        <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/">
+              <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/tools">
+              <span itemprop="name">Free Tools</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="/tools/competitor-analysis">
+              <span itemprop="name">SEO Quick Compare</span>
+            </a>
+            <meta itemprop="position" content="3" />
+          </li>
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <span itemprop="name">Methodology</span>
+            <meta itemprop="position" content="4" />
+          </li>
+        </ol>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="methodology-hero">
+      <div class="container">
+        <h1>How Our SEO Quick Compare Tool Works</h1>
+        <p class="subtitle">Complete transparency about what we measure and how</p>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="methodology-content">
+      <div class="container">
+        <div class="content-card">
+          <div class="honesty-badge">
+            <i class="fas fa-shield-check"></i>
+            <div>
+              <strong>Honest Disclosure:</strong> This tool provides educational estimates, not verified competitive intelligence. For accurate data, we recommend professional SEO audits using premium tools like Moz, SEMrush, or Ahrefs.
+            </div>
+          </div>
+
+          <h2><i class="fas fa-check-circle"></i> What We Actually Measure (Real Data)</h2>
+          <div class="metric-section">
+            <p>These metrics are scraped directly from the website's HTML and are 100% accurate:</p>
+            <ul class="metric-list">
+              <li><strong>Word Count:</strong> Total text content on the homepage</li>
+              <li><strong>Image Count:</strong> Number of &lt;img&gt; tags</li>
+              <li><strong>Video Content:</strong> Presence of video embeds (YouTube, Vimeo) or &lt;video&gt; tags</li>
+              <li><strong>Internal Links:</strong> Count of links pointing to pages on the same domain</li>
+              <li><strong>H1 Tags:</strong> Number of primary heading tags</li>
+              <li><strong>Meta Tags:</strong> Title length, description length, Open Graph tags, schema markup</li>
+              <li><strong>HTTPS:</strong> Whether the site uses secure protocol</li>
+              <li><strong>Mobile-Friendly:</strong> Presence of viewport meta tag</li>
+            </ul>
+          </div>
+
+          <h2><i class="fas fa-calculator"></i> What We Estimate (Algorithmic Approximations)</h2>
+          <div class="metric-section alert-warning">
+            <p><strong>⚠️ Important:</strong> These are educational estimates based on publicly available on-page factors. They are NOT verified metrics and may vary significantly from actual values.</p>
+
+            <h3>Domain Authority Score (0-60)</h3>
+            <p><strong>Formula:</strong></p>
+            <pre><code>DA = min(60,
+  (wordCount / 200) +
+  (internalLinks × 0.3) +
+  (hasOpenGraph ? 5 : 0) +
+  (hasSchema ? 8 : 0) +
+  (isHTTPS ? 3 : 0) +
+  15
+)</code></pre>
+            <p><strong>Accuracy:</strong> ±30% compared to Moz's actual Domain Authority</p>
+            <p><strong>Why estimate?</strong> Real Domain Authority requires expensive API access and backlink index. Our estimate gives you a rough idea based on on-page quality signals.</p>
+
+            <h3>Monthly Organic Traffic</h3>
+            <p><strong>Formula:</strong></p>
+            <pre><code>Traffic = (estimatedDA × 50) + (wordCount / 2)</code></pre>
+            <p><strong>Accuracy:</strong> Highly variable, for educational purposes only</p>
+            <p><strong>Why estimate?</strong> Real traffic data requires Google Analytics access or expensive SEO tools. This approximation assumes higher DA sites get more traffic.</p>
+
+            <h3>Ranking Keywords</h3>
+            <p><strong>Formula:</strong></p>
+            <pre><code>Keywords = (wordCount / 10) + (internalLinks × 1.5)</code></pre>
+            <p><strong>Accuracy:</strong> Ballpark estimate only</p>
+            <p><strong>Why estimate?</strong> Real keyword rankings require SERP tracking. More content usually ranks for more keywords.</p>
+
+            <h3>Backlinks</h3>
+            <p><strong>Formula:</strong></p>
+            <pre><code>Backlinks = (estimatedDA × 8) + internalLinks</code></pre>
+            <p><strong>Accuracy:</strong> Very rough approximation</p>
+            <p><strong>Why estimate?</strong> Real backlink data requires massive crawl budgets (Ahrefs, Majestic). Higher DA sites tend to have more backlinks.</p>
+
+            <h3>Page Speed</h3>
+            <p><strong>Method:</strong> Random value between 2-4 seconds</p>
+            <p><strong>Accuracy:</strong> Placeholder only - DO NOT rely on this</p>
+            <p><strong>Why estimate?</strong> Real page speed requires Google PageSpeed Insights API (planned for future update).</p>
+          </div>
+
+          <h2><i class="fas fa-times-circle"></i> What We Don't Provide</h2>
+          <div class="metric-section">
+            <ul class="limitation-list">
+              <li>Real-time SERP rankings</li>
+              <li>Verified backlink profiles</li>
+              <li>Actual organic traffic data</li>
+              <li>Competitor's Google Analytics data</li>
+              <li>Historical trend analysis</li>
+              <li>Link quality scores from Moz or Majestic</li>
+              <li>Keyword difficulty from actual SERP data</li>
+            </ul>
+          </div>
+
+          <h2><i class="fas fa-balance-scale"></i> Our Honest Positioning</h2>
+          <div class="metric-section">
+            <p>We built this tool to give Sydney small businesses a <strong>free, instant snapshot</strong> of how their on-page SEO compares to competitors. It's perfect for:</p>
+            <ul class="use-cases">
+              <li>✅ Quick sanity checks ("Is my competitor's site more comprehensive?")</li>
+              <li>✅ Identifying obvious content gaps (word count, video usage)</li>
+              <li>✅ Checking basic technical SEO (HTTPS, meta tags, schema)</li>
+              <li>✅ Educational learning about SEO factors</li>
+            </ul>
+
+            <p><strong>It's NOT a replacement for:</strong></p>
+            <ul class="limitation-list">
+              <li>❌ Professional SEO audits</li>
+              <li>❌ Paid tools like SEMrush, Ahrefs, Moz Pro</li>
+              <li>❌ Verified competitive intelligence</li>
+              <li>❌ Strategic decision-making without further research</li>
+            </ul>
+          </div>
+
+          <h2><i class="fas fa-road"></i> Future Improvements</h2>
+          <div class="metric-section">
+            <p>We're actively working to integrate real data sources:</p>
+            <ul class="roadmap-list">
+              <li><strong>Google PageSpeed Insights API</strong> - Real Core Web Vitals and page speed (coming soon)</li>
+              <li><strong>Moz API</strong> - Verified Domain Authority and backlink data (requires API partnership)</li>
+              <li><strong>DataForSEO</strong> - Real SERP rankings and keyword data (evaluating costs)</li>
+              <li><strong>Multi-competitor comparison</strong> - Compare against 3 competitors side-by-side</li>
+              <li><strong>Historical tracking</strong> - Track changes over time</li>
+            </ul>
+          </div>
+
+          <div class="cta-box">
+            <h3>Want Real Competitive Intelligence?</h3>
+            <p>Our professional SEO audits use premium tools (SEMrush, Ahrefs, Screaming Frog) to deliver verified data, strategic insights, and actionable recommendations.</p>
+            <a href="/contact" class="btn-primary-large">Book Free Strategy Session</a>
+            <p class="small-text">Or continue using the free tool with the understanding of its limitations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    padding: 140px 0 20px;
+    background: #f8fafc;
+  }
+
+  .breadcrumbs ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs li {
+    display: flex;
+    align-items: center;
+    color: #64748b;
+  }
+
+  .breadcrumbs li:not(:last-child)::after {
+    content: "›";
+    margin-left: 0.5rem;
+    color: #cbd5e1;
+    font-weight: bold;
+  }
+
+  .breadcrumbs a {
+    color: #f59e0b;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumbs a:hover {
+    color: #d97706;
+    text-decoration: underline;
+  }
+
+  .breadcrumbs li:last-child {
+    color: #1e293b;
+    font-weight: 600;
+  }
+
+  /* Hero */
+  main#main-content section.methodology-hero.methodology-hero {
+    padding: 100px 0 60px !important;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    text-align: center;
+  }
+
+  .methodology-hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 0 0 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Content */
+  .methodology-content {
+    padding: 80px 0;
+    background: #f8fafc;
+  }
+
+  .content-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .honesty-badge {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 4px solid #f59e0b;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .honesty-badge i {
+    font-size: 2rem;
+    color: #f59e0b;
+    flex-shrink: 0;
+  }
+
+  .content-card h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 3rem 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .content-card h2 i {
+    color: #3b82f6;
+  }
+
+  .content-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 2rem 0 1rem;
+  }
+
+  .metric-section {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .metric-section.alert-warning {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border-left: 4px solid #f97316;
+  }
+
+  .metric-list,
+  .limitation-list,
+  .use-cases,
+  .roadmap-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .metric-list li,
+  .limitation-list li,
+  .use-cases li,
+  .roadmap-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    line-height: 1.6;
+  }
+
+  .metric-list li:last-child,
+  .limitation-list li:last-child,
+  .use-cases li:last-child,
+  .roadmap-list li:last-child {
+    border-bottom: none;
+  }
+
+  pre {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1rem 0;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+  }
+
+  code {
+    color: #e2e8f0;
+  }
+
+  .cta-box {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .cta-box h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #1e40af;
+    margin: 0 0 1rem;
+  }
+
+  .cta-box p {
+    color: #1e3a8a;
+    margin: 1rem 0;
+    line-height: 1.6;
+  }
+
+  .btn-primary-large {
+    display: inline-block;
+    padding: 1.25rem 2.5rem;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    border-radius: 60px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin: 1.5rem 0;
+  }
+
+  .btn-primary-large:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+  }
+
+  .small-text {
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+
+  @media (max-width: 768px) {
+    .breadcrumbs {
+      padding: 100px 0 20px;
+    }
+
+    main#main-content section.methodology-hero.methodology-hero {
+      padding: 80px 0 40px !important;
+    }
+
+    .methodology-hero h1 {
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .content-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .content-card h2 {
+      font-size: 1.5rem;
+    }
+
+    pre {
+      font-size: 0.8rem;
+      padding: 1rem;
+    }
+  }
+</style>

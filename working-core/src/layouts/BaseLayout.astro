@@ -1,0 +1,322 @@
+---
+// BaseLayout.astro - Dynamic SEO with fallbacks to homepage defaults
+import '../styles/main.css';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  noindex?: boolean;
+}
+
+const { title, description, noindex = false } = Astro.props;
+
+// Get current page URL for canonical and OpenGraph
+const currentPath = Astro.url.pathname;
+const canonicalURL = `https://theprofitplatform.com.au${currentPath === '/' ? '' : currentPath}`;
+
+// SEO defaults (fallback to homepage values)
+const pageTitle = title || "The Profit Platform | Sydney Digital Marketing";
+const pageDescription = description || "Leading digital marketing services in Sydney. Get results with The Profit Platform. ✓ Proven ROI ✓ 127+ Reviews ✓ Free Consultation";
+const ogTitle = title || "The Profit Platform | Sydney Digital Marketing";
+const ogDescription = description || "Transform your business with expert digital marketing services";
+---
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- SEO Meta Tags -->
+<!-- Primary Meta Tags -->
+<title>{pageTitle}</title>
+<meta name="title" content={pageTitle}>
+<meta name="description" content={pageDescription}>
+<meta name="keywords" content="digital marketing, sydney, seo, google ads, web design">
+<meta name="author" content="The Profit Platform">
+<meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}>
+<meta name="language" content="English">
+<meta name="geo.region" content="AU-NSW">
+<meta name="geo.placename" content="Sydney">
+<meta name="geo.position" content="-33.8688;151.2093">
+<meta name="ICBM" content="-33.8688, 151.2093">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content={canonicalURL}>
+<meta property="og:title" content={ogTitle}>
+<meta property="og:description" content={ogDescription}>
+<meta property="og:image" content="https://theprofitplatform.com.au/images/dashboard-optimized.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Profit Platform - Digital Marketing Dashboard showing growth results">
+<meta property="og:site_name" content="The Profit Platform">
+<meta property="og:locale" content="en_AU">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content={canonicalURL}>
+<meta property="twitter:title" content={ogTitle}>
+<meta property="twitter:description" content={ogDescription}>
+<meta property="twitter:image" content="https://theprofitplatform.com.au/images/dashboard-optimized.png">
+<meta property="twitter:image:alt" content="The Profit Platform - Digital Marketing Dashboard showing growth results">
+<meta property="twitter:creator" content="@profitplatform">
+<meta property="twitter:site" content="@profitplatform">
+
+<!-- Additional Meta Tags -->
+<meta name="theme-color" content="#4F46E5">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="The Profit Platform">
+<meta name="format-detection" content="telephone=yes">
+<meta name="msapplication-tap-highlight" content="no">
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL}>
+
+<!-- Hreflang Tags for Language/Region Targeting -->
+<link rel="alternate" hreflang="en" href={canonicalURL}>
+<link rel="alternate" hreflang="en-AU" href={canonicalURL}>
+<link rel="alternate" hreflang="x-default" href={canonicalURL}>
+
+<!-- RSS Feed -->
+<link rel="alternate" type="application/rss+xml" title="The Profit Platform Blog RSS Feed" href="https://theprofitplatform.com.au/rss.xml">
+
+<!-- Favicons -->
+<link rel="icon" type="image/x-icon" href="https://theprofitplatform.com.au/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://theprofitplatform.com.au/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://theprofitplatform.com.au/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://theprofitplatform.com.au/apple-touch-icon.png">
+<link rel="manifest" href="/assets/manifest.json">
+
+<!-- Performance and Resource Hints -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://www.google.com">
+
+<!-- Preload Critical Resources -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<!-- Fallback for preload -->
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"></noscript>
+
+<!-- External Resources - Deferred to prevent render blocking -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+<!-- All local CSS is now bundled by Astro via import in frontmatter -->
+
+<!-- Analytics - Deferred for performance (loaded in footer) -->
+<!-- Google Tag Manager script loaded via /js/analytics.js -->
+
+<!-- Microsoft Clarity - Free Heatmaps & Session Recording -->
+<script type="text/javascript" is:inline>
+(function(c,l,a,r,i,t,y){
+  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "tlekti56kh");
+</script>
+
+</head>
+
+<body>
+<slot />
+
+<Footer />
+
+<!-- Critical initialization script - must run last -->
+<script is:inline>
+// Counter animation functionality
+document.addEventListener("DOMContentLoaded",()=>{
+    const c=document.querySelectorAll(".counter"),
+    a=200,
+    i=t=>{
+        const e=parseInt(t.getAttribute("data-target")||"0"),
+        n=e/a;
+        let o=0;
+        const s=()=>{
+            o+=n,o<e?(t.textContent=Math.ceil(o).toString(),requestAnimationFrame(s)):t.textContent=e.toString()
+        };
+        s()
+    },
+    u={threshold:.5,rootMargin:"0px"},
+    r=new IntersectionObserver(t=>{
+        t.forEach(e=>{
+            if(e.isIntersecting){
+                const n=e.target;
+                i(n),r.unobserve(n)
+            }
+        })
+    },u);
+    c.forEach(t=>{r.observe(t)})
+});
+
+// Navigation toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('nav-toggle');
+    const primaryNav = document.getElementById('primary-nav');
+
+    if (menuToggle && primaryNav) {
+        menuToggle.addEventListener('click', function() {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+
+            // Toggle ARIA states
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            primaryNav.hidden = isExpanded;
+            primaryNav.setAttribute('aria-hidden', isExpanded);
+        });
+    }
+
+    // Mobile navigation is handled by Header.astro component
+    // Removed duplicate code to prevent conflicts
+});
+</script>
+
+<!-- Structured Data - LocalBusiness with AggregateRating -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "The Profit Platform",
+  "url": "https://theprofitplatform.com.au/",
+  "image": "https://theprofitplatform.com.au/images/dashboard-optimized.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://theprofitplatform.com.au/images/logo-optimized.png"
+  },
+  "telephone": "+61487286451",
+  "email": "avi@theprofitplatform.com.au",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "127",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sydney",
+    "addressRegion": "NSW",
+    "addressCountry": "AU"
+  },
+  "areaServed": "Greater Sydney",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61574707582255",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://www.instagram.com/theprofitplatformau"
+  ]
+}
+</script>
+
+<!-- Structured Data - Organization -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "The Profit Platform",
+  "url": "https://theprofitplatform.com.au",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://theprofitplatform.com.au/images/logo-optimized.png"
+  },
+  "description": "Sydney's leading digital marketing agency specializing in SEO, Google Ads, and web design for small businesses",
+  "foundingDate": "2024",
+  "founder": {
+    "@type": "Person",
+    "name": "Avi"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sydney",
+    "addressRegion": "NSW",
+    "addressCountry": "AU"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+61487286451",
+    "contactType": "Customer Service",
+    "email": "avi@theprofitplatform.com.au",
+    "areaServed": "AU",
+    "availableLanguage": "English"
+  },
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61574707582255",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://www.instagram.com/theprofitplatformau"
+  ]
+}
+</script>
+
+<!-- Structured Data - WebSite with Sitelinks SearchBox -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "The Profit Platform",
+  "url": "https://theprofitplatform.com.au",
+  "description": "Sydney's leading digital marketing agency specializing in SEO, Google Ads, and web design for small businesses",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Profit Platform",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://theprofitplatform.com.au/images/logo-optimized.png"
+    }
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://theprofitplatform.com.au/blog?s={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- Structured Data - FAQ -->
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How is your pricing structured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer Starter ($990/mo), Professional ($1,990/mo), Enterprise ($3,990/mo) with all plans including dedicated account management, monthly reporting, and no lock-in contracts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What areas of Sydney do you service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All of Greater Sydney including CBD, Eastern Suburbs, North Shore, Inner West, Western and Southern Sydney."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to see results?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most clients see improvements within 3-6 months for SEO, while Google Ads can generate leads immediately after setup."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Analytics - Deferred loading (Google Analytics + Hotjar + Event Tracking) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FB947JWCFT"></script>
+<script defer src="/js/analytics.js"></script>
+
+</body>
+</html>

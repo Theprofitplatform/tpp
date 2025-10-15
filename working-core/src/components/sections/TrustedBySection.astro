@@ -1,0 +1,131 @@
+---
+// Trusted By Section Component
+---
+
+<section class="trust-signals-section" aria-labelledby="trust-title">
+  <div class="trust-bg-pattern"></div>
+  <div class="container">
+    <!-- Section Title -->
+    <div class="trust-title">
+      <h2 id="trust-title" style="color: #1e293b; background: none; -webkit-text-fill-color: unset;">
+        Trusted by Sydney's Growing Businesses
+      </h2>
+      <p class="trust-subtitle">Real results that speak for themselves</p>
+    </div>
+    <!-- Key Metrics -->
+    <div class="metrics-grid">
+      <!-- ROI Metric -->
+      <div class="metric-card">
+        <div class="metric-icon">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="metric-value">
+          <span class="counter" data-target="312">0</span>%
+        </div>
+        <div class="metric-label">Average ROI</div>
+        <div class="metric-sublabel">Last 6 Months</div>
+      </div>
+      <!-- Active Clients -->
+      <div class="metric-card featured">
+        <span class="featured-badge">Growing Fast</span>
+        <div class="metric-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="metric-value">
+          <span class="counter" data-target="23">0</span>+
+        </div>
+        <div class="metric-label">Active Clients</div>
+        <div class="metric-sublabel">Sydney Businesses</div>
+        <div class="growth-indicator">
+          <i class="fas fa-arrow-trend-up"></i> +45%
+        </div>
+      </div>
+      <!-- Leads Generated -->
+      <div class="metric-card">
+        <div class="metric-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="metric-value">
+          <span class="counter" data-target="847">0</span>+
+        </div>
+        <div class="metric-label">Leads Generated</div>
+        <div class="metric-sublabel">This Quarter</div>
+      </div>
+      <!-- Response Time -->
+      <div class="metric-card">
+        <div class="metric-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <div class="metric-value">
+          <span class="counter" data-target="15">0</span>min
+        </div>
+        <div class="metric-label">Response Time</div>
+        <div class="metric-sublabel">Business Hours</div>
+      </div>
+    </div>
+    <!-- Reviews & Trust Badges -->
+    <div class="reviews-section">
+      <div class="reviews-grid">
+        <!-- Google Reviews -->
+        <div class="review-block">
+          <div class="review-source">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" class="source-logo" loading="lazy">
+            <div class="review-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <span class="review-rating">5.0</span>
+          </div>
+          <p class="review-text">"Best marketing investment" - Sarah M.</p>
+        </div>
+        <!-- Trust Badge -->
+        <div class="trust-badge">
+          <div class="badge-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="badge-content">
+            <div class="badge-title">100% Transparent</div>
+            <div class="badge-subtitle">No Hidden Fees Ever</div>
+          </div>
+        </div>
+        <!-- Guarantee Badge -->
+        <div class="trust-badge">
+          <div class="badge-icon">
+            <i class="fas fa-award"></i>
+          </div>
+          <div class="badge-content">
+            <div class="badge-title">30-Day Guarantee</div>
+            <div class="badge-subtitle">Risk-Free Trial</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+document.addEventListener("DOMContentLoaded", () => {
+  const c = document.querySelectorAll(".counter"),
+    a = 200,
+    i = t => {
+      const e = parseInt(t.getAttribute("data-target") || "0"),
+        n = e / a;
+      let o = 0;
+      const s = () => {
+        o += n, o < e ? (t.textContent = Math.ceil(o).toString(), requestAnimationFrame(s)) : t.textContent = e.toString()
+      };
+      s()
+    },
+    u = { threshold: .5, rootMargin: "0px" },
+    r = new IntersectionObserver(t => {
+      t.forEach(e => {
+        if (e.isIntersecting) {
+          const n = e.target;
+          i(n), r.unobserve(n)
+        }
+      })
+    }, u);
+  c.forEach(t => {
+    r.observe(t)
+  })
+});
+</script>

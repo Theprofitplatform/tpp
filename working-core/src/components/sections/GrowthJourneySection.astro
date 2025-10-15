@@ -1,0 +1,490 @@
+---
+/**
+ * Production-grade Growth Journey Section
+ *
+ * Features:
+ * - Modular architecture with subcomponents
+ * - WCAG AA accessibility compliance
+ * - Two-step form with validation and error summary
+ * - Data persistence across steps
+ * - Australian phone formatting
+ * - Website preview with favicon
+ * - Spam protection (honeypot + optional Turnstile)
+ * - Mobile sticky bar with safe-area padding
+ * - UTM tracking and service auto-preselection
+ * - Focus management and keyboard navigation
+ * - Responsive design with consistent alignment
+ */
+
+import Stepper from './Stepper.astro';
+import FormStep1 from './FormStep1.astro';
+import FormStep2 from './FormStep2.astro';
+import ContactCard from './ContactCard.astro';
+import NextTimeline from './NextTimeline.astro';
+import MobileStickyBar from './MobileStickyBar.astro';
+---
+
+<!-- Import growth form styles -->
+<style>
+@import '/src/styles/growth-form.css';
+</style>
+
+<section
+  class="growth-journey-section section"
+  id="growth-journey"
+  aria-labelledby="growth-journey-title"
+>
+  <div class="gf-container">
+    <!-- Section Header -->
+    <header class="section-header">
+      <h2 class="gf-section-title" id="growth-journey-title">
+        Let's Start Your Growth Journey
+      </h2>
+      <p class="gf-section-subtitle">
+        Get your free consultation and custom growth strategy within 24 hours
+      </p>
+    </header>
+
+    <!-- Main Content Grid -->
+    <div class="gf-two-column">
+      <!-- Left Column: Form -->
+      <div class="form-column">
+        <div class="gf-form-card">
+          <!-- Stepper -->
+          <Stepper currentStep={1} totalSteps={2} />
+
+          <!-- Success/Error Messages -->
+          <div
+            id="form-success"
+            class="gf-form-message success"
+            style="display: none;"
+            role="alert"
+            aria-live="polite"
+          >
+            <div class="gf-message-icon">
+              <i class="fas fa-check-circle" aria-hidden="true"></i>
+            </div>
+            <div class="gf-message-content">
+              <h3>Thank you for reaching out!</h3>
+              <p>We've received your information and will respond within 15 minutes during business hours.</p>
+              <p>For urgent inquiries, call us directly at <a href="tel:+61487286451">0487 286 451</a></p>
+            </div>
+          </div>
+
+          <div
+            id="form-error"
+            class="gf-form-message error"
+            style="display: none;"
+            role="alert"
+            aria-live="polite"
+          >
+            <div class="gf-message-icon">
+              <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+            </div>
+            <div class="gf-message-content">
+              <h3>Oops! Something went wrong</h3>
+              <p>Please try again or contact us directly at <a href="mailto:avi@theprofitplatform.com.au">avi@theprofitplatform.com.au</a></p>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form
+            id="growth-form"
+            class="growth-form"
+            method="POST"
+            action="/api/contact"
+            novalidate
+            aria-labelledby="growth-journey-title"
+          >
+            <!-- Honeypot Field -->
+            <input
+              type="text"
+              name="company_website"
+              class="gf-sr-only"
+              tabindex="-1"
+              aria-hidden="true"
+              autocomplete="off"
+            />
+
+            <!-- Hidden UTM Fields -->
+            <input type="hidden" name="utm_source" id="utm_source" />
+            <input type="hidden" name="utm_medium" id="utm_medium" />
+            <input type="hidden" name="utm_campaign" id="utm_campaign" />
+            <input type="hidden" name="utm_content" id="utm_content" />
+            <input type="hidden" name="utm_term" id="utm_term" />
+
+            <!-- Form Steps -->
+            <FormStep1 />
+            <FormStep2 />
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Column: Contact Info -->
+      <div class="contact-column">
+        <ContactCard />
+      </div>
+    </div>
+
+    <!-- What Happens Next Timeline -->
+    <NextTimeline />
+  </div>
+
+  <!-- Mobile Sticky Bar -->
+  <MobileStickyBar />
+</section>
+
+<style>
+/* Section-specific overrides and enhancements */
+.growth-journey-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle background pattern */
+.growth-journey-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gf-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section header enhancements */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+  border-radius: 2px;
+}
+
+/* Form column specific styles */
+.form-column {
+  position: relative;
+}
+
+/* Contact column alignment */
+.contact-column {
+  position: relative;
+}
+
+/* Enhanced form card with subtle animation */
+.gf-form-card {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.gf-form-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* CRITICAL FIX: Form step transitions with proper visibility */
+/* By default Step 1 is visible, Step 2 is hidden */
+/* Using highest specificity to override any other rules */
+.growth-journey-section .form-step {
+  display: none;
+  animation: fadeInUp 0.4s ease;
+}
+
+.growth-journey-section .form-step.active {
+  display: block !important;
+}
+
+/* CRITICAL: Ensure Step 1 is ALWAYS visible by default, even if JS fails */
+/* Using ID selector with highest specificity */
+.growth-journey-section #step1,
+.growth-journey-section .form-step#step1 {
+  display: block !important;
+}
+
+/* Step 2 hidden by default, only shown when .active is added */
+.growth-journey-section #step2,
+.growth-journey-section .form-step#step2 {
+  display: none !important;
+}
+
+.growth-journey-section #step2.active,
+.growth-journey-section .form-step#step2.active {
+  display: block !important;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading state for form submission */
+.growth-form.submitting {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.growth-form.submitting::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Form success/error states */
+.gf-form-message {
+  animation: slideInDown 0.4s ease;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced focus management */
+.growth-form:focus-within .gf-form-card {
+  box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.2);
+}
+
+/* Responsive enhancements */
+@media (max-width: 1024px) {
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .growth-journey-section {
+    padding: 2rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  .gf-two-column {
+    gap: 2rem;
+  }
+
+  /* Stack contact card below form on mobile */
+  .contact-column {
+    order: 2;
+  }
+
+  .form-column {
+    order: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .growth-journey-section {
+    padding: 1.5rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-header::after {
+    width: 60px;
+    height: 2px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .growth-journey-section::before {
+    display: none;
+  }
+
+  .gf-form-card {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .form-step.active {
+    animation: none;
+  }
+
+  .gf-form-message {
+    animation: none;
+  }
+
+  .gf-form-card {
+    transition: none;
+  }
+
+  .gf-form-card:hover {
+    box-shadow: var(--gf-shadow-xl);
+  }
+}
+
+/* Print styles */
+@media print {
+  .growth-journey-section::before {
+    display: none;
+  }
+
+  .growth-journey-section {
+    background: white;
+    padding: 1rem 0;
+  }
+
+  .gf-form-card {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  /* Hide interactive elements in print */
+  .mobile-sticky-bar,
+  .gf-form-message,
+  button {
+    display: none !important;
+  }
+}
+
+/* Dark mode support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+  .growth-journey-section {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    color: #f9fafb;
+  }
+
+  .gf-form-card {
+    background: #1f2937;
+    border-color: #374151;
+  }
+}
+
+/* Performance optimizations */
+.growth-journey-section * {
+  box-sizing: border-box;
+}
+
+/* GPU acceleration for animations */
+.form-step.active,
+.gf-form-message {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+.form-step:not(.active) {
+  will-change: auto;
+}
+</style>
+
+<script>
+// Growth form will be loaded via module script
+// See script tag at bottom of component
+
+// Additional section-specific enhancements
+document.addEventListener('DOMContentLoaded', function() {
+  // Add enhanced form interaction tracking
+  const formCard = document.querySelector('.gf-form-card');
+  const form = document.getElementById('growth-form');
+
+  if (formCard && form) {
+    // Add visual feedback for form interaction
+    form.addEventListener('focusin', () => {
+      formCard.classList.add('focused');
+    });
+
+    form.addEventListener('focusout', (e) => {
+      // Only remove focus if focus is moving outside the form
+      if (!form.contains(e.relatedTarget)) {
+        formCard.classList.remove('focused');
+      }
+    });
+
+    // Add loading state during submission
+    form.addEventListener('submit', () => {
+      form.classList.add('submitting');
+    });
+
+    // Remove loading state on form errors
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+          const target = mutation.target;
+          if (target.id === 'form-error' && target.style.display !== 'none') {
+            form.classList.remove('submitting');
+          }
+        }
+      });
+    });
+
+    const errorMessage = document.getElementById('form-error');
+    if (errorMessage) {
+      observer.observe(errorMessage, { attributes: true });
+    }
+  }
+
+  // Enhanced accessibility for form steps
+  const stepElements = document.querySelectorAll('.form-step');
+  stepElements.forEach((step, index) => {
+    step.setAttribute('role', 'tabpanel');
+    step.setAttribute('aria-labelledby', `step-${index + 1}-title`);
+  });
+
+  // Performance: Preload next step assets
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+      // Preload any additional resources for step 2
+      const step2 = document.getElementById('step2');
+      if (step2) {
+        step2.style.visibility = 'hidden';
+        step2.style.display = 'block';
+        step2.offsetHeight; // Force layout
+        step2.style.display = 'none';
+        step2.style.visibility = 'visible';
+      }
+    });
+  }
+
+  console.log('Growth Journey Section: Enhanced functionality initialized');
+});
+</script>
+
+<!-- Load Growth Form JavaScript -->
+<script>
+  // Import growth form functionality
+  import '../../scripts/growth-form.js';
+</script>

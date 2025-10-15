@@ -1,0 +1,2664 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import RelatedContent from '../../components/RelatedContent.astro';
+import ToolBadge from '../../components/ToolBadge.astro';
+// import '../../public/css/speed-test-page-styles.css'; // Removed - not needed
+
+// Use Cloudflare Pages Function (serverless API on same domain)
+const apiUrl = '';
+
+const pageTitle = "Website Speed Test | Free Page Speed Checker";
+const pageDescription = "Test your website speed and Core Web Vitals instantly. Get performance scores, loading times, and optimization recommendations. Free website speed test tool.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <link rel="stylesheet" href="/css/speed-test-page-styles.css">
+  <Header />
+
+  <!-- Tool Analytics Tracker -->
+  <script is:inline src="/js/tool-analytics.js"></script>
+
+  <main id="main-content" role="main">
+    <!-- Enhanced Hero Section -->
+    <section class="speed-hero-enhanced" data-tool-name="speed-test">
+      <div class="hero-background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
+      </div>
+
+      <div class="container">
+        <div class="speed-hero-content-new">
+          <!-- Badge -->
+          <div class="hero-badge">
+            <span class="badge-icon">⚡</span>
+            <span class="badge-text">100% Free • Powered by Lighthouse</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 class="hero-title-new">
+            <span class="title-line-1">Test Your Website</span>
+            <span class="title-line-2">Performance</span>
+            <span class="title-accent">In Seconds</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="hero-description-new">
+            Get a complete Google Lighthouse audit with Core Web Vitals, performance scores,
+            and actionable recommendations. Know exactly how fast your site loads for real users.
+          </p>
+
+          <!-- Feature Pills -->
+          <div class="feature-pills-new">
+            <div class="pill">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Core Web Vitals</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-mobile-alt"></i>
+              <span>Mobile + Desktop</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-lightbulb"></i>
+              <span>Actionable Insights</span>
+            </div>
+            <div class="pill">
+              <i class="fas fa-chart-line"></i>
+              <span>Real User Metrics</span>
+            </div>
+          </div>
+
+          <!-- Trust Indicators (Honest) -->
+          <div class="trust-indicators-new">
+            <div class="trust-item">
+              <i class="fas fa-google"></i>
+              <span>Google Lighthouse</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-bolt"></i>
+              <span>Instant Results</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>Detailed Reports</span>
+            </div>
+          </div>
+
+          <!-- Scroll Indicator -->
+          <div class="scroll-indicator">
+            <span class="scroll-text">Start testing your speed ↓</span>
+            <div class="scroll-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speed Test Tool -->
+    <section class="speed-test-section">
+      <div class="container">
+        <div class="test-card">
+          <form id="speedTestForm" class="test-form">
+            <div class="form-group-large">
+              <label for="url">
+                <i class="fas fa-globe"></i>
+                Enter Your Website URL
+              </label>
+              <div class="input-with-button">
+                <input
+                  type="url"
+                  id="url"
+                  name="url"
+                  placeholder="https://yourwebsite.com"
+                  required
+                />
+                <button type="submit" class="btn btn-primary btn-lg" id="testButton">
+                  <i class="fas fa-bolt"></i>
+                  Analyze Speed
+                </button>
+              </div>
+              <small>Enter the full URL including https://</small>
+            </div>
+          </form>
+
+          <!-- Loading State -->
+          <div id="loadingState" class="loading-state" style="display: none;">
+            <div class="loading-animation">
+              <div class="lighthouse-beam"></div>
+              <div class="lighthouse-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+            </div>
+            <p class="loading-text" id="loadingText">Running Lighthouse audit...</p>
+            <p class="loading-subtext" id="loadingSubtext">This may take 30-60 seconds</p>
+            <div class="loading-progress">
+              <div class="progress-step active" data-step="1">
+                <i class="fas fa-download"></i>
+                <span>Loading page</span>
+              </div>
+              <div class="progress-step" data-step="2">
+                <i class="fas fa-mobile-alt"></i>
+                <span>Testing mobile</span>
+              </div>
+              <div class="progress-step" data-step="3">
+                <i class="fas fa-desktop"></i>
+                <span>Testing desktop</span>
+              </div>
+              <div class="progress-step" data-step="4">
+                <i class="fas fa-chart-bar"></i>
+                <span>Analyzing metrics</span>
+              </div>
+              <div class="progress-step" data-step="5">
+                <i class="fas fa-check"></i>
+                <span>Complete</span>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <!-- Error State -->
+          <div id="errorState" class="error-state" style="display: none;">
+            <i class="fas fa-exclamation-circle"></i>
+            <h3>Oops! Something went wrong</h3>
+            <p id="errorMessage"></p>
+            <div class="error-actions">
+              <button class="btn-secondary" onclick="location.reload()">
+                <i class="fas fa-redo"></i> Try Again
+              </button>
+              <a href="/contact" class="btn-primary">
+                <i class="fas fa-comment"></i> Get Manual Audit
+              </a>
+            </div>
+            <p class="error-help">Need help? Call us at <a href="tel:+61487286451" class="phone-link">0487 286 451</a></p>
+          </div>
+
+          <!-- Results Section -->
+          <div id="resultsSection" class="results-section" style="display: none;">
+            <div class="result-header">
+              <h2>Performance Report</h2>
+              <div class="result-actions">
+                <button class="btn btn-secondary btn-sm" onclick="shareResults()">
+                  <i class="fas fa-share-alt"></i> Share
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="saveResults()">
+                  <i class="fas fa-envelope"></i> Email Report
+                </button>
+                <button class="btn btn-secondary btn-sm" onclick="location.reload()">
+                  <i class="fas fa-redo"></i> Test Another
+                </button>
+              </div>
+            </div>
+
+            <div id="resultContent" class="result-content">
+              <!-- Results will be inserted here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-tachometer-alt"></i>
+            </div>
+            <h3>Why Speed Matters</h3>
+            <p>
+              53% of mobile users abandon sites that take over 3 seconds to load.
+              Faster sites rank better in Google and convert more visitors.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>Core Web Vitals</h3>
+            <p>
+              Google uses speed metrics (LCP, FID, CLS) as ranking factors.
+              Our test shows exactly how you measure up.
+            </p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Get Expert Help</h3>
+            <p>
+              Not sure how to fix the issues? Our speed optimization service
+              can make your site blazing fast in days.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <RelatedContent
+      category="Technical SEO"
+      tags={['Technical SEO', 'Performance', 'SEO']}
+      showBlogPosts={true}
+      showServices={true}
+    />
+  </main>
+</BaseLayout>
+
+<script define:vars={{ apiUrl }}>
+  // Analytics tracking (inline version)
+  function trackEvent(eventName, params = {}) {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', eventName, params);
+    }
+    if (typeof window !== 'undefined' && window.fbq) {
+      if (eventName === 'tool_started') {
+        window.fbq('track', 'InitiateCheckout', { content_name: 'Speed Test' });
+      } else if (eventName === 'cta_clicked') {
+        window.fbq('track', 'Lead', { value: 500, currency: 'AUD' });
+      }
+    }
+  }
+
+  // Revenue calculator (simplified inline version)
+  function calculateSpeedImpact(speedScore) {
+    const visitors = 5000; // Conservative estimate
+    const avgConversion = 0.04; // 4% for local business
+    const avgOrderValue = 350; // AUD
+
+    const secondsDelay = speedScore >= 90 ? 0.5 : (100 - speedScore) / 10;
+    const conversionLossPercent = Math.min(secondsDelay * 7, 70);
+
+    const actualConversionRate = avgConversion * (1 - conversionLossPercent / 100);
+    const optimalConversionRate = avgConversion;
+
+    const lostConversions = visitors * (optimalConversionRate - actualConversionRate);
+    const monthlyLoss = lostConversions * avgOrderValue;
+
+    return {
+      monthlyLoss: Math.round(monthlyLoss),
+      yearlyLoss: Math.round(monthlyLoss * 12),
+      lostConversions: Math.round(lostConversions),
+      conversionLossPercent: Math.round(conversionLossPercent),
+      secondsDelay: secondsDelay.toFixed(1),
+      severity: speedScore < 50 ? 'critical' : speedScore < 75 ? 'warning' : 'info'
+    };
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('speedTestForm');
+    const loadingState = document.getElementById('loadingState');
+    const errorState = document.getElementById('errorState');
+    const resultsSection = document.getElementById('resultsSection');
+    const resultContent = document.getElementById('resultContent');
+    const errorMessage = document.getElementById('errorMessage');
+    const testButton = document.getElementById('testButton');
+
+    let progressInterval;
+    let currentResults = null;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const urlInput = document.getElementById('url');
+      let url = urlInput.value.trim();
+
+      // Add https:// if not present
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+        urlInput.value = url;
+      }
+
+      // Track tool usage (Discord notification)
+      if (window.trackToolUsage) {
+        window.trackToolUsage('Speed Test', {
+          url: url
+        });
+      }
+
+      // Track tool usage
+      trackEvent('tool_started', {
+        tool_name: 'Speed Test',
+        url_tested: url,
+        timestamp: Date.now()
+      });
+
+      // Hide all states
+      form.style.display = 'none';
+      errorState.style.display = 'none';
+      resultsSection.style.display = 'none';
+      loadingState.style.display = 'block';
+      testButton.disabled = true;
+
+      // Animate progress steps with detailed messages
+      startEnhancedProgressAnimation();
+
+      try {
+        const response = await fetch(`${apiUrl}/api/speed-test`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ url, strategy: 'mobile' })
+        });
+
+        // Check if response is JSON
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+          throw new Error('Speed test API is not yet available. Please contact us for a manual speed audit.');
+        }
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.error || 'Failed to run speed test');
+        }
+
+        // Show results
+        clearInterval(progressInterval);
+        currentResults = data.data;
+        loadingState.style.display = 'none';
+        resultsSection.style.display = 'block';
+        displayResults(data.data);
+
+      } catch (error) {
+        console.error('Speed test error:', error);
+        clearInterval(progressInterval);
+        loadingState.style.display = 'none';
+        errorState.style.display = 'block';
+        errorMessage.textContent = error.message || 'Unable to run speed test. Please try again.';
+      } finally {
+        testButton.disabled = false;
+      }
+    });
+
+    function startEnhancedProgressAnimation() {
+      const steps = document.querySelectorAll('.progress-step');
+      const loadingText = document.getElementById('loadingText');
+      const loadingSubtext = document.getElementById('loadingSubtext');
+      const progressFill = document.getElementById('progressFill');
+      let currentStep = 0;
+
+      const messages = [
+        { text: 'Analyzing page structure...', subtext: 'Loading your website', progress: 20 },
+        { text: 'Testing mobile performance...', subtext: 'Running Lighthouse on mobile', progress: 40 },
+        { text: 'Testing desktop performance...', subtext: 'Running Lighthouse on desktop', progress: 60 },
+        { text: 'Analyzing Core Web Vitals...', subtext: 'Calculating metrics and opportunities', progress: 80 },
+        { text: 'Finalizing report...', subtext: 'Preparing your detailed analysis', progress: 95 }
+      ];
+
+      progressInterval = setInterval(() => {
+        if (currentStep < steps.length) {
+          steps[currentStep].classList.add('active');
+          if (messages[currentStep]) {
+            loadingText.textContent = messages[currentStep].text;
+            loadingSubtext.textContent = messages[currentStep].subtext;
+            progressFill.style.width = messages[currentStep].progress + '%';
+          }
+          currentStep++;
+        }
+      }, 8000); // Each step after 8s
+    }
+
+    function displayResults(data) {
+      const {
+        url, scores, metrics, performanceGrade, opportunities,
+        coreWebVitals, deviceComparison, benchmarks, recommendations
+      } = data;
+
+      // Calculate revenue impact
+      const revenueImpact = calculateSpeedImpact(scores.performance);
+
+      // Track results viewed
+      trackEvent('tool_completed', {
+        tool_name: 'Speed Test',
+        performance_score: scores.performance,
+        severity: revenueImpact.severity
+      });
+
+      // Ensure performanceGrade is an object
+      const gradeObj = typeof performanceGrade === 'string'
+        ? { grade: performanceGrade, label: performanceGrade, color: '#667eea' }
+        : performanceGrade;
+
+      let html = `
+        <!-- Score Cards -->
+        <div class="score-cards">
+          <div class="score-card main-score score-${gradeObj.grade.toLowerCase()}">
+            <div class="score-icon">
+              <div class="score-circle">
+                <svg viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="#e5e7eb" stroke-width="8"/>
+                  <circle cx="50" cy="50" r="45" fill="none" stroke="${gradeObj.color}"
+                    stroke-width="8" stroke-dasharray="${scores.performance * 2.83} 283"
+                    transform="rotate(-90 50 50)"/>
+                </svg>
+                <div class="score-value">${scores.performance}</div>
+              </div>
+            </div>
+            <div class="score-info">
+              <h3>Performance Score</h3>
+              <div class="score-grade">
+                <span class="grade-letter">${gradeObj.grade}</span>
+                <span class="grade-label">${gradeObj.label}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="score-card">
+            <div class="score-mini">${scores.accessibility}</div>
+            <div class="score-label">Accessibility</div>
+          </div>
+
+          <div class="score-card">
+            <div class="score-mini">${scores.bestPractices}</div>
+            <div class="score-label">Best Practices</div>
+          </div>
+
+          <div class="score-card">
+            <div class="score-mini">${scores.seo}</div>
+            <div class="score-label">SEO</div>
+          </div>
+        </div>
+
+        <!-- Mobile vs Desktop Comparison -->
+        ${deviceComparison ? `
+        <div class="device-comparison-section">
+          <h3><i class="fas fa-mobile-alt"></i> Device Performance Comparison</h3>
+          <div class="device-comparison-grid">
+            <div class="device-score ${deviceComparison.mobile >= 75 ? 'good' : deviceComparison.mobile >= 50 ? 'fair' : 'poor'}">
+              <div class="device-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="device-label">Mobile</div>
+              <div class="device-value">${deviceComparison.mobile}</div>
+            </div>
+            <div class="comparison-arrow">
+              ${deviceComparison.difference > 0 ? '<i class="fas fa-arrow-right"></i>' : '<i class="fas fa-arrows-alt-h"></i>'}
+              <div class="difference ${Math.abs(deviceComparison.difference) > 10 ? 'significant' : ''}">${deviceComparison.difference > 0 ? '+' : ''}${deviceComparison.difference}</div>
+            </div>
+            <div class="device-score ${deviceComparison.desktop >= 75 ? 'good' : deviceComparison.desktop >= 50 ? 'fair' : 'poor'}">
+              <div class="device-icon">
+                <i class="fas fa-desktop"></i>
+              </div>
+              <div class="device-label">Desktop</div>
+              <div class="device-value">${deviceComparison.desktop}</div>
+            </div>
+          </div>
+          <p class="comparison-note"><i class="fas fa-info-circle"></i> ${deviceComparison.recommendation}</p>
+        </div>
+        ` : ''}
+
+        <!-- Industry Benchmarks -->
+        ${benchmarks ? `
+        <div class="benchmarks-section">
+          <h3><i class="fas fa-trophy"></i> Industry Comparison</h3>
+          <div class="benchmark-card">
+            <div class="benchmark-stat">
+              <div class="benchmark-label">Your Score</div>
+              <div class="benchmark-value your-score">${benchmarks.yourScore}</div>
+            </div>
+            <div class="benchmark-stat">
+              <div class="benchmark-label">Industry Average</div>
+              <div class="benchmark-value">${benchmarks.industryAverage}</div>
+            </div>
+            <div class="benchmark-stat">
+              <div class="benchmark-label">Top Performers</div>
+              <div class="benchmark-value">${benchmarks.topPerformers}</div>
+            </div>
+          </div>
+          <div class="percentile-badge ${benchmarks.competitive ? 'competitive' : 'non-competitive'}">
+            <i class="fas ${benchmarks.competitive ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i>
+            ${benchmarks.percentile} - ${benchmarks.competitive ? 'Competitive Performance' : 'Improvement Needed'}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- Core Web Vitals (Enhanced) -->
+        <div class="metrics-section core-vitals-enhanced">
+          <h3><i class="fas fa-heartbeat"></i> Core Web Vitals (Google Ranking Factors)</h3>
+          ${coreWebVitals ? `
+          <div class="cwv-grid">
+            <div class="cwv-card cwv-${coreWebVitals.lcp.rating}">
+              <div class="cwv-header">
+                <h4>Largest Contentful Paint (LCP)</h4>
+                <div class="cwv-rating">${coreWebVitals.lcp.rating}</div>
+              </div>
+              <div class="cwv-value">${coreWebVitals.lcp.displayValue}</div>
+              <div class="cwv-benchmark">Target: ≤ 2.5s</div>
+            </div>
+            <div class="cwv-card cwv-${coreWebVitals.fid.rating}">
+              <div class="cwv-header">
+                <h4>First Input Delay (FID)</h4>
+                <div class="cwv-rating">${coreWebVitals.fid.rating}</div>
+              </div>
+              <div class="cwv-value">${coreWebVitals.fid.displayValue}</div>
+              <div class="cwv-benchmark">Target: ≤ 200ms</div>
+            </div>
+            <div class="cwv-card cwv-${coreWebVitals.cls.rating}">
+              <div class="cwv-header">
+                <h4>Cumulative Layout Shift (CLS)</h4>
+                <div class="cwv-rating">${coreWebVitals.cls.rating}</div>
+              </div>
+              <div class="cwv-value">${coreWebVitals.cls.displayValue}</div>
+              <div class="cwv-benchmark">Target: ≤ 0.1</div>
+            </div>
+          </div>
+          ` : `
+          <div class="metrics-grid">
+            ${buildMetric('Largest Contentful Paint', metrics.largestContentfulPaint, 2500, 4000, 'LCP')}
+            ${buildMetric('First Contentful Paint', metrics.firstContentfulPaint, 1800, 3000, 'FCP')}
+            ${buildMetric('Total Blocking Time', metrics.totalBlockingTime, 200, 600, 'TBT')}
+            ${buildMetric('Cumulative Layout Shift', metrics.cumulativeLayoutShift, 0.1, 0.25, 'CLS', true)}
+            ${buildMetric('Speed Index', metrics.speedIndex, 3400, 5800, 'SI')}
+            ${buildMetric('Time to Interactive', metrics.timeToInteractive, 3800, 7300, 'TTI')}
+          </div>
+          `}
+        </div>
+
+        <!-- Opportunities with Code Examples -->
+        ${opportunities && opportunities.length > 0 ? `
+        <div class="opportunities-section">
+          <h3><i class="fas fa-lightbulb"></i> Performance Opportunities with Fix Examples</h3>
+          <p class="section-subtitle">Prioritized fixes with code you can implement today:</p>
+          <div class="opportunities-list">
+            ${opportunities.map(opp => `
+              <div class="opportunity-item opportunity-${opp.priority || 'medium'}">
+                <div class="opportunity-header">
+                  <div class="opportunity-badge">
+                    <span class="priority-badge priority-${opp.priority || 'medium'}">${opp.priority || 'medium'} priority</span>
+                  </div>
+                  <div class="opportunity-icon">
+                    <i class="fas fa-bolt"></i>
+                  </div>
+                  <div class="opportunity-info">
+                    <h4>${opp.title}</h4>
+                    <p>${opp.description}</p>
+                  </div>
+                  <div class="opportunity-savings">
+                    <div class="savings-value">${formatTime(opp.savingsMs)}</div>
+                    <div class="savings-label">potential savings</div>
+                  </div>
+                </div>
+                ${opp.codeExample ? `
+                <div class="code-example-section">
+                  <button class="toggle-code" onclick="toggleCode(this)">
+                    <i class="fas fa-code"></i> View Fix Example
+                  </button>
+                  <div class="code-example" style="display: none;">
+                    <pre><code>${escapeHtml(opp.codeExample)}</code></pre>
+                  </div>
+                </div>
+                ` : ''}
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- Personalized Recommendations -->
+        ${recommendations && recommendations.length > 0 ? `
+        <div class="recommendations-section">
+          <h3><i class="fas fa-magic"></i> Personalized Action Plan</h3>
+          <div class="recommendations-list">
+            ${recommendations.map((rec, index) => `
+              <div class="recommendation-card">
+                <div class="rec-number">${index + 1}</div>
+                <div class="rec-content">
+                  <h4>${rec.title}</h4>
+                  <p>${rec.description}</p>
+                  <a href="/contact?service=${rec.action}" class="rec-link">Get Help with This <i class="fas fa-arrow-right"></i></a>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        ` : ''}
+
+        <!-- Revenue Impact Section -->
+        <div class="revenue-impact-section">
+          <div class="impact-card impact-${revenueImpact.severity}">
+            <div class="impact-header">
+              <div class="impact-icon">
+                ${revenueImpact.severity === 'critical' ? '<i class="fas fa-exclamation-triangle"></i>' :
+                  revenueImpact.severity === 'warning' ? '<i class="fas fa-chart-line"></i>' :
+                  '<i class="fas fa-check-circle"></i>'}
+              </div>
+              <h3>${revenueImpact.severity === 'critical' ? '🚨 CRITICAL: Your Slow Site is Hemorrhaging Revenue' :
+                  revenueImpact.severity === 'warning' ? '⚠️ Revenue Opportunity Detected' :
+                  '✅ Your Speed Protects Your Revenue'}</h3>
+            </div>
+            <div class="impact-stats">
+              <div class="impact-stat">
+                <div class="stat-value">$${revenueImpact.monthlyLoss.toLocaleString()}</div>
+                <div class="stat-label">${revenueImpact.severity === 'info' ? 'Protected Monthly' : 'Lost Monthly'}</div>
+              </div>
+              <div class="impact-stat">
+                <div class="stat-value">$${revenueImpact.yearlyLoss.toLocaleString()}</div>
+                <div class="stat-label">${revenueImpact.severity === 'info' ? 'Protected Yearly' : 'Lost Yearly'}</div>
+              </div>
+              <div class="impact-stat">
+                <div class="stat-value">${revenueImpact.lostConversions}</div>
+                <div class="stat-label">${revenueImpact.severity === 'info' ? 'Conversions Preserved' : 'Lost Conversions/Month'}</div>
+              </div>
+            </div>
+            <div class="impact-message">
+              ${revenueImpact.severity === 'critical' ?
+                `<p><strong>Your site loads in ~${revenueImpact.secondsDelay}s</strong> - you're losing <strong>${revenueImpact.conversionLossPercent}% of potential conversions</strong>. ${Math.round((revenueImpact.secondsDelay - 2) * 20)}% of mobile users abandon before seeing your content. Every day you wait costs you <strong>$${Math.round(revenueImpact.monthlyLoss / 30).toLocaleString()}</strong>.</p>` :
+                revenueImpact.severity === 'warning' ?
+                `<p>Your ${revenueImpact.secondsDelay}s load time is costing you <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong>. Research shows a 1-second improvement can recover 50% of this loss. Small optimizations = big revenue gains.</p>` :
+                `<p>Excellent! Your fast site is protecting you from losing <strong>$${revenueImpact.monthlyLoss.toLocaleString()}/month</strong>. Maintain this speed as your site grows to keep conversion rates high.</p>`
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic CTA based on severity -->
+        ${revenueImpact.severity === 'critical' ? `
+        <div class="result-cta cta-emergency">
+          <div class="cta-content">
+            <div class="cta-badge">
+              <i class="fas fa-bolt"></i>
+              <span>EMERGENCY SPEED FIX</span>
+            </div>
+            <h3>Stop Losing $${Math.round(revenueImpact.monthlyLoss / 30).toLocaleString()} Per Day</h3>
+            <p>Our emergency speed optimization service can fix critical issues in 24-48 hours. We guarantee 2-3x faster load times or your money back.</p>
+            <div class="cta-benefits">
+              <div class="benefit">
+                <i class="fas fa-check"></i>
+                <span>24-48 hour turnaround</span>
+              </div>
+              <div class="benefit">
+                <i class="fas fa-check"></i>
+                <span>2-3x speed improvement guaranteed</span>
+              </div>
+              <div class="benefit">
+                <i class="fas fa-check"></i>
+                <span>Recover lost conversions immediately</span>
+              </div>
+            </div>
+            <div class="cta-buttons">
+              <a href="/contact" class="btn-emergency" onclick="trackEvent('cta_clicked', {cta_type: 'emergency', tool: 'Speed Test', position: 'results'})">
+                <i class="fas fa-rocket"></i>
+                <span class="btn-main">Get Emergency Speed Fix Now</span>
+                <span class="btn-sub">Free Analysis & Quote</span>
+              </a>
+              <a href="tel:+61487286451" class="btn-phone-large" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Speed Test', position: 'results'})">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call Now: 0487 286 451</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        ` : revenueImpact.severity === 'warning' ? `
+        <div class="result-cta cta-warning">
+          <div class="cta-content">
+            <div class="cta-badge">
+              <i class="fas fa-chart-line"></i>
+              <span>OPTIMIZATION OPPORTUNITY</span>
+            </div>
+            <h3>Unlock $${revenueImpact.monthlyLoss.toLocaleString()}/Month in Lost Revenue</h3>
+            <p>Your site is reasonably fast, but optimization could recover 50-70% of your lost conversions. Our experts identify and fix the bottlenecks holding you back.</p>
+            <div class="cta-benefits">
+              <div class="benefit">
+                <i class="fas fa-check"></i>
+                <span>Detailed performance audit</span>
+              </div>
+              <div class="benefit">
+                <i class="fas fa-check"></i>
+                <span>Custom optimization roadmap</span>
+              </div>
+              <div class="benefit">
+                <i class="fas fa-check"></i>
+                <span>Ongoing speed monitoring</span>
+              </div>
+            </div>
+            <div class="cta-buttons">
+              <a href="/contact" class="btn-primary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'primary', tool: 'Speed Test', position: 'results'})">
+                <i class="fas fa-rocket"></i>
+                Get Free Speed Optimization Quote
+              </a>
+              <a href="tel:+61487286451" class="btn-secondary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Speed Test', position: 'results'})">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call: 0487 286 451</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        ` : `
+        <div class="result-cta cta-success">
+          <div class="cta-content">
+            <div class="cta-badge">
+              <i class="fas fa-shield-check"></i>
+              <span>EXCELLENT PERFORMANCE</span>
+            </div>
+            <h3>Keep Your Competitive Speed Advantage</h3>
+            <p>Your site is fast! Protect your revenue with ongoing monitoring and maintenance. We'll ensure you stay ahead as your site grows.</p>
+            <div class="cta-benefits">
+              <div class="benefit">
+                <i class="fas fa-check"></i>
+                <span>Monthly performance monitoring</span>
+              </div>
+              <div class="benefit">
+                <i class="fas fa-check"></i>
+                <span>Proactive optimization alerts</span>
+              </div>
+              <div class="benefit">
+                <i class="fas fa-check"></i>
+                <span>Scale without slowdown</span>
+              </div>
+            </div>
+            <div class="cta-buttons">
+              <a href="/contact" class="btn-primary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'primary', tool: 'Speed Test', position: 'results'})">
+                <i class="fas fa-shield-check"></i>
+                Get Speed Monitoring Quote
+              </a>
+              <a href="tel:+61487286451" class="btn-secondary btn-lg" onclick="trackEvent('cta_clicked', {cta_type: 'phone', tool: 'Speed Test', position: 'results'})">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call: 0487 286 451</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        `}
+      `;
+
+      resultContent.innerHTML = html;
+    }
+
+    function buildMetric(name, value, goodThreshold, poorThreshold, abbreviation, isRatio = false) {
+      const displayValue = isRatio ? value.toFixed(3) : formatTime(value);
+      let status = 'good';
+
+      if (!isRatio) {
+        if (value > poorThreshold) status = 'poor';
+        else if (value > goodThreshold) status = 'fair';
+      } else {
+        if (value > poorThreshold) status = 'poor';
+        else if (value > goodThreshold) status = 'fair';
+      }
+
+      return `
+        <div class="metric-card metric-${status}">
+          <div class="metric-value">${displayValue}</div>
+          <div class="metric-label">${name}</div>
+          <div class="metric-abbr">${abbreviation}</div>
+        </div>
+      `;
+    }
+
+    function formatTime(ms) {
+      if (ms < 1000) return `${Math.round(ms)}ms`;
+      return `${(ms / 1000).toFixed(2)}s`;
+    }
+
+    function escapeHtml(text) {
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+      return text.replace(/[&<>"']/g, m => map[m]);
+    }
+
+    // Global functions for results actions
+    window.toggleCode = function(button) {
+      const codeSection = button.nextElementSibling;
+      if (codeSection.style.display === 'none') {
+        codeSection.style.display = 'block';
+        button.innerHTML = '<i class="fas fa-code"></i> Hide Fix Example';
+      } else {
+        codeSection.style.display = 'none';
+        button.innerHTML = '<i class="fas fa-code"></i> View Fix Example';
+      }
+    };
+
+
+    window.shareResults = async function() {
+      if (!currentResults) return;
+
+      trackEvent('share_results', {
+        tool_name: 'Speed Test',
+        url: currentResults.url
+      });
+
+      const shareData = {
+        title: `Speed Test Results - ${currentResults.url}`,
+        text: `Performance Score: ${currentResults.scores.performance}/100`,
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+        } catch (err) {
+          copyToClipboard(window.location.href);
+        }
+      } else {
+        copyToClipboard(window.location.href);
+      }
+    };
+
+    window.saveResults = function() {
+      if (!currentResults) return;
+
+      trackEvent('email_report', {
+        tool_name: 'Speed Test',
+        url: currentResults.url
+      });
+
+      // Show email capture modal
+      const email = prompt('Enter your email to receive the detailed report:');
+      if (email && validateEmail(email)) {
+        sendEmailReport(email, currentResults);
+      }
+    };
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Link copied to clipboard!');
+      });
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    async function sendEmailReport(email, results) {
+      try {
+        const response = await fetch('/api/send-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, results })
+        });
+
+        if (response.ok) {
+          alert('Report sent successfully! Check your email.');
+        } else {
+          alert('Failed to send report. Please try again or contact us directly.');
+        }
+      } catch (error) {
+        console.error('Email send error:', error);
+        alert('Failed to send report. Please contact us at avi@theprofitplatform.com.au');
+      }
+    }
+  });
+</script>
+
+<style is:global>
+  /* Same styling patterns as rank-tracker for consistency */
+  main#main-content section.speed-hero.speed-hero {
+    padding: 180px 0 60px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    main#main-content section.speed-hero.speed-hero {
+      padding: 100px 0 60px !important;
+    }
+  }
+
+  .speed-hero-content h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin: 1rem 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trust-badges .badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .speed-test-section {
+    padding: 80px 0;
+    background: #f9fafb;
+  }
+
+  .test-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+  }
+
+  .form-group-large label {
+    display: block;
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #1e293b;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .form-group-large label i {
+    color: #667eea;
+    font-size: 1.5rem;
+  }
+
+  .input-with-button {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .input-with-button input {
+    flex: 1;
+    padding: 1.25rem 1.5rem;
+    border: 3px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1.125rem;
+    transition: all 0.3s ease;
+  }
+
+  .input-with-button input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  }
+
+  .input-with-button button {
+    white-space: nowrap;
+  }
+
+  /* Loading State */
+  .loading-state {
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .loading-animation {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 2rem;
+  }
+
+  .lighthouse-beam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #667eea;
+    border-top-color: transparent;
+    animation: lighthouse-spin 1s linear infinite;
+  }
+
+  @keyframes lighthouse-spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  .lighthouse-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #667eea;
+  }
+
+  .loading-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .loading-subtext {
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  .loading-progress {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+  }
+
+  .progress-step.active {
+    opacity: 1;
+  }
+
+  .progress-step i {
+    font-size: 2rem;
+    color: #667eea;
+  }
+
+  .progress-step span {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
+  /* Error State */
+  .error-state {
+    text-align: center;
+    padding: 3rem;
+  }
+
+  .error-state i {
+    font-size: 4rem;
+    color: #ef4444;
+    margin-bottom: 1rem;
+  }
+
+  .error-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .error-state p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+
+  .error-help {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-top: 1rem;
+  }
+
+  .phone-link {
+    color: #667eea;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .phone-link:hover {
+    text-decoration: underline;
+  }
+
+  /* Results */
+  .results-section {
+    padding-top: 2rem;
+    background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 100%);
+  }
+
+  @media (min-width: 1024px) {
+    .results-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 4rem 5rem;
+      background: linear-gradient(to bottom, #f9fafb 0%, #ffffff 50%, #f9fafb 100%);
+    }
+
+    .result-header h2 {
+      font-size: 2.25rem;
+    }
+
+    .result-header {
+      margin-bottom: 3rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px solid #667eea;
+      position: relative;
+    }
+
+    .result-header::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+    }
+  }
+
+  .result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e5e7eb;
+  }
+
+  .result-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
+
+  /* Score Cards */
+  .score-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .score-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .score-cards {
+      grid-template-columns: 1fr 1fr;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 4rem;
+      gap: 2rem;
+    }
+
+    .score-card.main-score {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .score-card {
+    background: #f9fafb;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .score-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .score-card.main-score {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid rgba(102, 126, 234, 0.2);
+  }
+
+  @media (min-width: 1024px) {
+    .score-card.main-score {
+      padding: 3rem;
+      gap: 3rem;
+    }
+
+    .score-circle {
+      width: 150px;
+      height: 150px;
+    }
+
+    .score-value {
+      font-size: 3rem;
+    }
+
+    .score-info h3 {
+      font-size: 2rem;
+    }
+
+    .grade-letter {
+      font-size: 4rem;
+    }
+
+    .grade-label {
+      font-size: 1.5rem;
+    }
+  }
+
+  .score-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+
+  .score-circle svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .score-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+  }
+
+  .score-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .score-grade {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .grade-letter {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #667eea;
+  }
+
+  .grade-label {
+    font-size: 1.25rem;
+    color: #64748b;
+  }
+
+  .score-mini {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .score-label {
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 1024px) {
+    .score-card:not(.main-score) {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 150px;
+    }
+
+    .score-mini {
+      font-size: 3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .score-label {
+      font-size: 1rem;
+    }
+  }
+
+  /* Metrics */
+  .metrics-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .metrics-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .metrics-section h3 i {
+    color: #667eea;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .metrics-section {
+      margin: 4rem 0;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .metrics-section h3 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .metrics-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .metric-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid #10b981;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .metric-card.metric-fair {
+    border-left-color: #f59e0b;
+  }
+
+  .metric-card.metric-poor {
+    border-left-color: #ef4444;
+  }
+
+  .metric-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-label {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .metric-abbr {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  @media (min-width: 1024px) {
+    .metric-card {
+      padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .metric-value {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .metric-label {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-abbr {
+      font-size: 0.875rem;
+    }
+  }
+
+  /* Opportunities */
+  .opportunities-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .opportunities-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .opportunities-section h3 i {
+    color: #f59e0b;
+  }
+
+  .section-subtitle {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .opportunities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    .opportunities-section {
+      max-width: 1400px;
+      margin: 4rem auto;
+    }
+
+    .opportunities-section h3 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+
+    .opportunities-list {
+      gap: 1.5rem;
+    }
+  }
+
+  .opportunity-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #667eea;
+  }
+
+  .opportunity-header {
+    display: flex;
+    align-items: start;
+    gap: 1.5rem;
+  }
+
+  .opportunity-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .opportunity-icon i {
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .opportunity-info {
+    flex: 1;
+  }
+
+  .opportunity-info h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .opportunity-info p {
+    color: #64748b;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .opportunity-savings {
+    text-align: right;
+  }
+
+  .savings-value {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #10b981;
+  }
+
+  .savings-label {
+    font-size: 0.75rem;
+    color: #64748b;
+  }
+
+  @media (min-width: 1024px) {
+    .opportunity-item {
+      padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .opportunity-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .opportunity-icon {
+      width: 60px;
+      height: 60px;
+    }
+
+    .opportunity-icon i {
+      font-size: 1.75rem;
+    }
+
+    .opportunity-info h4 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .opportunity-info p {
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .savings-value {
+      font-size: 2rem;
+    }
+
+    .savings-label {
+      font-size: 0.875rem;
+    }
+  }
+
+  /* Result CTA */
+  .result-cta {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    color: white;
+    text-align: center;
+  }
+
+  @media (min-width: 1024px) {
+    .result-cta {
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 4rem;
+      padding: 4rem;
+    }
+
+    .result-cta h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .result-cta p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-buttons {
+      gap: 1.5rem;
+    }
+
+    .cta-buttons .btn {
+      font-size: 1.125rem;
+      padding: 1rem 2.5rem;
+    }
+  }
+
+  .result-cta h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-cta p {
+    font-size: 1.125rem;
+    opacity: 0.95;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Info Cards */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .info-grid {
+      grid-template-columns: repeat(3, 1fr);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .info-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+
+  .info-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .info-icon i {
+    font-size: 1.75rem;
+    color: white;
+  }
+
+  .info-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #1e293b;
+  }
+
+  .info-card p {
+    color: #475569;
+    line-height: 1.6;
+  }
+
+  /* Revenue Impact Section */
+  .revenue-impact-section {
+    margin: 3rem 0;
+  }
+
+  @media (min-width: 1024px) {
+    .revenue-impact-section {
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .impact-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid #10b981;
+  }
+
+  .impact-card.impact-warning {
+    border-left-color: #f59e0b;
+  }
+
+  .impact-card.impact-critical {
+    border-left-color: #ef4444;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+  }
+
+  .impact-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .impact-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .impact-card.impact-warning .impact-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  .impact-card.impact-critical .impact-icon {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    animation: pulse-urgent 2s infinite;
+  }
+
+  @keyframes pulse-urgent {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  .impact-header h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .impact-header h3 {
+      font-size: 2rem;
+    }
+
+    .impact-icon {
+      width: 80px;
+      height: 80px;
+      font-size: 2.5rem;
+    }
+  }
+
+  .impact-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: rgba(102, 126, 234, 0.05);
+    border-radius: 12px;
+  }
+
+  .impact-stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+  }
+
+  .impact-card.impact-critical .stat-value {
+    color: #ef4444;
+  }
+
+  .impact-card.impact-warning .stat-value {
+    color: #f59e0b;
+  }
+
+  @media (min-width: 1024px) {
+    .stat-value {
+      font-size: 2.5rem;
+    }
+  }
+
+  .stat-label {
+    color: #64748b;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  @media (min-width: 1024px) {
+    .stat-label {
+      font-size: 1rem;
+    }
+  }
+
+  .impact-message {
+    color: #1e293b;
+    line-height: 1.7;
+    font-size: 1.125rem;
+  }
+
+  .impact-message strong {
+    color: #667eea;
+  }
+
+  .impact-card.impact-critical .impact-message strong {
+    color: #ef4444;
+  }
+
+  @media (min-width: 1024px) {
+    .impact-message {
+      font-size: 1.25rem;
+      line-height: 1.8;
+    }
+  }
+
+  /* CTA Badge */
+  .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+  }
+
+  .cta-badge i {
+    font-size: 1rem;
+  }
+
+  /* CTA Benefits */
+  .cta-benefits {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  @media (min-width: 768px) {
+    .cta-benefits {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .benefit {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .benefit i {
+    font-size: 1.25rem;
+  }
+
+  /* Emergency CTA */
+  .cta-emergency {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+    animation: pulse-cta 3s infinite;
+  }
+
+  @keyframes pulse-cta {
+    0%, 100% { box-shadow: 0 8px 32px rgba(220, 38, 38, 0.3); }
+    50% { box-shadow: 0 12px 48px rgba(220, 38, 38, 0.5); }
+  }
+
+  .cta-emergency .cta-buttons {
+    gap: 1.5rem;
+  }
+
+  /* Warning CTA */
+  .cta-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  }
+
+  /* Success CTA */
+  .cta-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    margin-top: 2rem;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+
+  /* Result Actions */
+  .result-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* Device Comparison */
+  .device-comparison-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .device-comparison-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .device-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .device-score {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #f9fafb;
+  }
+
+  .device-score.good {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  }
+
+  .device-score.fair {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+  }
+
+  .device-score.poor {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+  }
+
+  .device-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #667eea;
+  }
+
+  .device-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+  }
+
+  .device-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+  }
+
+  .comparison-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 2rem;
+    color: #667eea;
+  }
+
+  .difference {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #64748b;
+  }
+
+  .difference.significant {
+    color: #ef4444;
+  }
+
+  .comparison-note {
+    text-align: center;
+    color: #64748b;
+    margin-top: 1rem;
+  }
+
+  /* Benchmarks */
+  .benchmarks-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .benchmarks-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .benchmark-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .benchmark-stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 12px;
+  }
+
+  .benchmark-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+  }
+
+  .benchmark-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #1e293b;
+  }
+
+  .benchmark-value.your-score {
+    color: #667eea;
+  }
+
+  .percentile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+  }
+
+  .percentile-badge.competitive {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #059669;
+  }
+
+  .percentile-badge.non-competitive {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #dc2626;
+  }
+
+  /* Core Web Vitals Enhanced */
+  .cwv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .cwv-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: white;
+    border-left: 4px solid #10b981;
+  }
+
+  .cwv-card.cwv-needs-improvement {
+    border-left-color: #f59e0b;
+  }
+
+  .cwv-card.cwv-poor {
+    border-left-color: #ef4444;
+  }
+
+  .cwv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+  }
+
+  .cwv-header h4 {
+    font-size: 1rem;
+    color: #1e293b;
+    font-weight: 700;
+  }
+
+  .cwv-rating {
+    text-transform: capitalize;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    background: #f9fafb;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .cwv-value {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .cwv-benchmark {
+    font-size: 0.875rem;
+    color: #64748b;
+  }
+
+  /* Code Examples */
+  .code-example-section {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .toggle-code {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .toggle-code:hover {
+    transform: translateY(-2px);
+  }
+
+  .code-example {
+    margin-top: 1rem;
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+  }
+
+  .code-example pre {
+    margin: 0;
+  }
+
+  .code-example code {
+    color: #a5b4fc;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  /* Priority Badges */
+  .opportunity-badge {
+    margin-bottom: 1rem;
+  }
+
+  .priority-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .priority-high {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+
+  .priority-medium {
+    background: #fef3c7;
+    color: #d97706;
+  }
+
+  .priority-low {
+    background: #e0f2fe;
+    color: #0284c7;
+  }
+
+  /* Recommendations */
+  .recommendations-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .recommendations-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    font-weight: 800;
+  }
+
+  .recommendations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .recommendation-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: #f9fafb;
+    border-radius: 12px;
+    transition: transform 0.2s;
+  }
+
+  .recommendation-card:hover {
+    transform: translateX(4px);
+  }
+
+  .rec-number {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .rec-content h4 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+  }
+
+  .rec-content p {
+    color: #64748b;
+    margin-bottom: 0.75rem;
+  }
+
+  .rec-link {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .rec-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-content h1 {
+      font-size: 2rem;
+    }
+
+    .test-card {
+      padding: 1.5rem;
+    }
+
+    .input-with-button {
+      flex-direction: column;
+    }
+
+    .score-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .score-card.main-score {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .opportunity-header {
+      flex-direction: column;
+    }
+
+    .opportunity-savings {
+      text-align: left;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .loading-progress {
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .impact-header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .impact-card {
+      padding: 1.5rem;
+    }
+
+    .cta-benefits {
+      grid-template-columns: 1fr;
+    }
+
+    .result-actions {
+      flex-direction: column;
+    }
+
+    .device-comparison-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .comparison-arrow {
+      transform: rotate(90deg);
+    }
+
+    .benchmark-card {
+      grid-template-columns: 1fr;
+    }
+
+    .cwv-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media print {
+    .result-header,
+    .result-actions,
+    .toggle-code,
+    header,
+    footer,
+    .info-grid,
+    .btn {
+      display: none !important;
+    }
+
+    .results-section {
+      background: white !important;
+    }
+  }
+
+  /* Enhanced Hero Section Styles */
+  .speed-hero-enhanced {
+    position: relative;
+    padding: 180px 0 100px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-enhanced {
+      padding: 120px 0 80px;
+    }
+  }
+
+  .speed-hero-enhanced .hero-background-effects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .speed-hero-enhanced .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0);
+    }
+    33% {
+      transform: translate(30px, -30px);
+    }
+    66% {
+      transform: translate(-20px, 20px);
+    }
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .speed-hero-enhanced .gradient-orb:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #fff 0%, transparent 70%);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+  }
+
+  .speed-hero-enhanced .gradient-orb:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #60a5fa 0%, transparent 70%);
+    bottom: -50px;
+    right: -50px;
+    animation-delay: 7s;
+  }
+
+  .speed-hero-enhanced .gradient-orb:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, #10b981 0%, transparent 70%);
+    top: 50%;
+    right: 10%;
+    animation-delay: 14s;
+  }
+
+  .speed-hero-enhanced .grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+  }
+
+  .speed-hero-content-new {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .speed-hero-enhanced .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: pulse-badge 2s ease-in-out infinite;
+  }
+
+  .speed-hero-enhanced .hero-badge i,
+  .speed-hero-enhanced .badge-icon,
+  .speed-hero-enhanced .badge-text {
+    color: white;
+    font-size: 1.125rem;
+  }
+
+  .speed-hero-enhanced .hero-title-new {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-enhanced .hero-title-new {
+      font-size: 2.5rem;
+    }
+  }
+
+  .speed-hero-enhanced .title-accent {
+    background: linear-gradient(to right, #10b981, #059669);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+  }
+
+  .speed-hero-enhanced .hero-description-new,
+  .speed-hero-enhanced .hero-subtitle-new {
+    font-size: 1.375rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-enhanced .hero-description-new,
+    .speed-hero-enhanced .hero-subtitle-new {
+      font-size: 1.125rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  .speed-hero-enhanced .feature-pills-new {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .speed-hero-enhanced .pill,
+  .speed-hero-enhanced .feature-pill {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 0.875rem 1.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .speed-hero-enhanced .pill:hover,
+  .speed-hero-enhanced .feature-pill:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .speed-hero-enhanced .pill i,
+  .speed-hero-enhanced .feature-pill i {
+    font-size: 1.125rem;
+    color: white;
+  }
+
+  .speed-hero-enhanced .trust-indicators-new {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .speed-hero-enhanced .trust-indicators-new {
+      gap: 1.5rem;
+    }
+  }
+
+  .speed-hero-enhanced .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .speed-hero-enhanced .trust-item i {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.25rem;
+  }
+
+  .speed-hero-enhanced .trust-item span {
+    font-weight: 600;
+    font-size: 1rem;
+    color: white;
+  }
+
+  .speed-hero-enhanced .scroll-indicator {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .speed-hero-enhanced .scroll-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .speed-hero-enhanced .scroll-arrow {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .speed-hero-enhanced .scroll-arrow i,
+  .speed-hero-enhanced .scroll-indicator i {
+    font-size: 2rem;
+    color: white;
+    opacity: 0.8;
+  }
+</style>

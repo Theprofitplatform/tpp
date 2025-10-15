@@ -1,0 +1,521 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+
+const pageTitle = "Web Design | The Profit Platform - Sydney Digital Marketing";
+const pageDescription = "Modern, high-converting websites built for Sydney businesses. Mobile-responsive design, lightning-fast performance, SEO-optimized, and conversion-focused. Get a quote today.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <Header />
+
+  <!-- Link to extracted CSS files -->
+  <link rel="stylesheet" href="/css/web-design-page-styles.css">
+  <link rel="stylesheet" href="/css/web-design-enhanced.css">
+  <link rel="stylesheet" href="/css/animations-grid-enhanced.css">
+  <link rel="stylesheet" href="/css/web-design-alignment-fix.css">
+  <link rel="stylesheet" href="/css/web-design-cta-simple.css">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Main Content -->
+  <main role="main">
+    <!-- Hero Section -->
+    <section class="web-design-hero" role="banner" aria-labelledby="web-design-hero-heading">
+      <!-- Background Elements Layer -->
+      <div class="hero-background-elements">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+      </div>
+
+      <!-- Main Content Container -->
+      <div class="container">
+        <div class="web-design-hero-content">
+          <!-- Hero Badge -->
+          <div class="hero-badge">
+            <i class="fas fa-palette"></i>
+            <span>Beautiful Sites That Sell</span>
+          </div>
+
+          <!-- Main Heading -->
+          <h1 id="web-design-hero-heading">
+            <span class="highlight-text">Premium Design</span><br>
+            Web Development <span class="location-text">Sydney</span>
+            <div class="title-underline"></div>
+          </h1>
+
+          <!-- Hero Subtitle -->
+          <p class="hero-subtitle">
+            Transform your business with custom web design that drives results. Responsive, conversion-focused websites that engage your audience and grow your revenue.
+          </p>
+
+          <!-- Statistics Section -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">200+</div>
+              <div class="stat-label">Websites Designed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">95%</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">150%</div>
+              <div class="stat-label">Conversion Increase</div>
+            </div>
+          </div>
+
+          <!-- Call-to-Action Section -->
+          <div class="hero-cta-section">
+            <div class="hero-buttons">
+              <a href="#web-design-contact" class="hero-primary-btn enhanced-cta">
+                <div class="btn-text">
+                  Get Free Design Consultation
+                  <i class="fas fa-palette btn-arrow"></i>
+                </div>
+                <div class="btn-subtext">Worth $500 - Limited Time</div>
+              </a>
+              <a href="tel:0487286451" class="hero-call-btn">
+                <i class="fas fa-phone"></i>
+                <span>Call (04) 8728 6451</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Web Design Services Section -->
+    <section class="services-section animate-on-scroll">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Complete Web Design Solutions</h2>
+          <p class="section-subtitle">
+            From concept to launch, we create websites that not only look stunning but drive real business results
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="web-design-service-card">
+            <div class="web-design-service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Custom Website Design</h3>
+            <p>Unique, brand-focused designs tailored to your business goals. No templates - every element is crafted specifically for your brand and audience.</p>
+            <ul class="service-features">
+              <li>Custom UI/UX design</li>
+              <li>Brand identity integration</li>
+              <li>Mobile-first responsive design</li>
+              <li>Conversion optimization</li>
+            </ul>
+          </div>
+          <div class="web-design-service-card">
+            <div class="web-design-service-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h3>E-commerce Development</h3>
+            <p>Powerful online stores that drive sales. Seamless shopping experiences with secure payment processing and inventory management.</p>
+            <ul class="service-features">
+              <li>Shopping cart & checkout</li>
+              <li>Payment gateway integration</li>
+              <li>Product catalog management</li>
+              <li>Order tracking system</li>
+            </ul>
+          </div>
+          <div class="web-design-service-card">
+            <div class="web-design-service-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Performance Optimization</h3>
+            <p>Lightning-fast loading websites that rank higher in Google and provide superior user experience across all devices.</p>
+            <ul class="service-features">
+              <li>Speed optimization</li>
+              <li>SEO-friendly structure</li>
+              <li>Core Web Vitals optimization</li>
+              <li>Progressive web app features</li>
+            </ul>
+          </div>
+          <div class="web-design-service-card">
+            <div class="web-design-service-icon">
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3>Responsive Design</h3>
+            <p>Perfect user experience across all devices. Your website will look and function flawlessly on desktop, tablet, and mobile.</p>
+            <ul class="service-features">
+              <li>Mobile-first approach</li>
+              <li>Cross-browser compatibility</li>
+              <li>Touch-friendly interfaces</li>
+              <li>Adaptive content layout</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section animate-on-scroll">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Why Choose Our Web Design Services?</h2>
+          <p class="section-subtitle">
+            Award-winning design team with proven track record of creating websites that drive business growth
+          </p>
+        </div>
+        <div class="benefits-grid">
+          <div class="web-design-benefit-item">
+            <div class="web-design-benefit-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <div>
+              <h3>Conversion-Focused</h3>
+              <p>Every design element is strategically placed to guide visitors towards taking action, increasing your conversion rates and revenue.</p>
+            </div>
+          </div>
+          <div class="web-design-benefit-item">
+            <div class="web-design-benefit-icon">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div>
+              <h3>Fast Delivery</h3>
+              <p>Professional websites delivered in 2-3 weeks, not months. Our streamlined process ensures quick turnaround without compromising quality.</p>
+            </div>
+          </div>
+          <div class="web-design-benefit-item">
+            <div class="web-design-benefit-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+              <h3>Future-Proof Technology</h3>
+              <p>Built with modern, scalable technology stack that ensures your website remains fast, secure, and maintainable for years to come.</p>
+            </div>
+          </div>
+          <div class="web-design-benefit-item">
+            <div class="web-design-benefit-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <div>
+              <h3>Unique Design</h3>
+              <p>No templates or cookie-cutter designs. Every website is custom-crafted to reflect your brand personality and stand out from competitors.</p>
+            </div>
+          </div>
+          <div class="web-design-benefit-item">
+            <div class="web-design-benefit-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div>
+              <h3>Analytics Ready</h3>
+              <p>Built-in analytics tracking and conversion monitoring so you can measure your website's performance and ROI from day one.</p>
+            </div>
+          </div>
+          <div class="web-design-benefit-item">
+            <div class="web-design-benefit-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div>
+              <h3>Ongoing Support</h3>
+              <p>Comprehensive support and maintenance packages to keep your website secure, updated, and performing at its best.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section animate-on-scroll">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Our Web Design Process</h2>
+          <p class="section-subtitle">
+            A proven 6-step process that delivers exceptional websites on time and on budget
+          </p>
+        </div>
+        <div class="process-grid">
+          <div class="web-design-process-step">
+            <div class="web-design-process-number">1</div>
+            <h3>Discovery & Strategy</h3>
+            <p>Deep dive into your business goals, target audience, and competitive landscape to create a strategic foundation for your website.</p>
+          </div>
+          <div class="web-design-process-step">
+            <div class="web-design-process-number">2</div>
+            <h3>Wireframing & Planning</h3>
+            <p>Create detailed wireframes and site architecture to map out user journeys and optimize the overall user experience.</p>
+          </div>
+          <div class="web-design-process-step">
+            <div class="web-design-process-number">3</div>
+            <h3>Visual Design</h3>
+            <p>Craft stunning visual designs that align with your brand identity and engage your target audience effectively.</p>
+          </div>
+          <div class="web-design-process-step">
+            <div class="web-design-process-number">4</div>
+            <h3>Development</h3>
+            <p>Build your website with clean, efficient code ensuring fast loading times, security, and optimal performance across all devices.</p>
+          </div>
+          <div class="web-design-process-step">
+            <div class="web-design-process-number">5</div>
+            <h3>Testing & Optimization</h3>
+            <p>Comprehensive testing across devices and browsers, performance optimization, and conversion rate optimization before launch.</p>
+          </div>
+          <div class="web-design-process-step">
+            <div class="web-design-process-number">6</div>
+            <h3>Launch & Support</h3>
+            <p>Seamless website launch with analytics setup, training for your team, and ongoing support to ensure continued success.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Frequently Asked Questions</h2>
+          <p>Get answers to common questions about our web design services</p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              How long does it take to design and build a website?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Typically, a custom website takes 4-8 weeks from initial consultation to launch. This includes design mockups, development, content integration, testing, and optimization. E-commerce sites or complex functionality may require 8-12 weeks. We provide detailed timelines during our initial consultation.
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              What's included in your web design service?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Our comprehensive service includes custom design, responsive development, SEO optimization, content management system, contact forms, Google Analytics setup, SSL certificate, mobile optimization, speed optimization, and 3 months of support and maintenance.
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              Will my website be mobile-friendly and responsive?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Absolutely! All our websites are built mobile-first and fully responsive. We ensure your site looks perfect and functions flawlessly on all devices - desktop, tablet, and mobile. We test on multiple devices and browsers before launch.
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              Can I update my website content myself?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              Yes! We build all websites with user-friendly content management systems. You'll be able to easily update text, images, blog posts, and more. We provide training and documentation to help you manage your site confidently.
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              Do you provide ongoing support and maintenance?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              We include 3 months of free support and maintenance with every website. After that, we offer affordable monthly maintenance plans that include security updates, backups, performance monitoring, and priority support.
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="faq-item">
+            <button class="faq-question">
+              What if I'm not happy with the design?
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              We work closely with you throughout the design process with multiple revision rounds included. We don't move forward without your approval. Plus, we offer a 30-day satisfaction guarantee - if you're not completely happy, we'll work to make it right or provide a refund.
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <p>Still have questions? We're here to help!</p>
+          <a href="/contact">
+            <i class="fas fa-comments"></i>
+            Get Free Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2>Web Design Packages</h2>
+          <p>Transparent pricing for professional websites that convert visitors into customers</p>
+        </div>
+
+        <div>
+          <!-- Starter Package -->
+          <div class="pricing-card">
+            <div>
+              <h3>Starter Website</h3>
+              <p>Perfect for small businesses & startups</p>
+              <div>
+                <span>$2,995</span>
+                <span>one-time</span>
+              </div>
+              <p class="popular-badge">Most Popular Choice</p>
+            </div>
+
+            <ul>
+              <li><i class="fas fa-check"></i><span>Up to 5 custom pages</span></li>
+              <li><i class="fas fa-check"></i><span>Mobile-responsive design</span></li>
+              <li><i class="fas fa-check"></i><span>SEO optimization</span></li>
+              <li><i class="fas fa-check"></i><span>Contact form integration</span></li>
+              <li><i class="fas fa-check"></i><span>Google Analytics setup</span></li>
+              <li><i class="fas fa-check"></i><span>1 month free hosting</span></li>
+            </ul>
+
+            <a href="/contact">Get Started</a>
+          </div>
+
+          <!-- Professional Package -->
+          <div class="pricing-card featured">
+            <div>
+              <h3>Professional Website</h3>
+              <p>Ideal for established businesses</p>
+              <div>
+                <span>$4,995</span>
+                <span>one-time</span>
+              </div>
+            </div>
+
+            <ul>
+              <li><i class="fas fa-check"></i><span>Up to 10 custom pages</span></li>
+              <li><i class="fas fa-check"></i><span>Premium mobile-responsive design</span></li>
+              <li><i class="fas fa-check"></i><span>Advanced SEO optimization</span></li>
+              <li><i class="fas fa-check"></i><span>CMS integration (WordPress)</span></li>
+              <li><i class="fas fa-check"></i><span>Blog setup & training</span></li>
+              <li><i class="fas fa-check"></i><span>Social media integration</span></li>
+              <li><i class="fas fa-check"></i><span>3 months free hosting</span></li>
+              <li><i class="fas fa-check"></i><span>Performance optimization</span></li>
+            </ul>
+
+            <a href="/contact">Get Started</a>
+          </div>
+
+          <!-- E-commerce Package -->
+          <div class="pricing-card">
+            <div>
+              <h3>E-commerce Store</h3>
+              <p>Complete online store solution</p>
+              <div>
+                <span>$7,995</span>
+                <span>one-time</span>
+              </div>
+            </div>
+
+            <ul>
+              <li><i class="fas fa-check"></i><span>Unlimited pages</span></li>
+              <li><i class="fas fa-check"></i><span>Full e-commerce functionality</span></li>
+              <li><i class="fas fa-check"></i><span>Payment gateway integration</span></li>
+              <li><i class="fas fa-check"></i><span>Product catalog setup</span></li>
+              <li><i class="fas fa-check"></i><span>Inventory management</span></li>
+              <li><i class="fas fa-check"></i><span>Order management system</span></li>
+              <li><i class="fas fa-check"></i><span>6 months free hosting</span></li>
+              <li><i class="fas fa-check"></i><span>Training & support</span></li>
+            </ul>
+
+            <a href="/contact">Get Started</a>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <p>All packages include a 30-day money-back guarantee and lifetime support</p>
+          <div>
+            <div>
+              <i class="fas fa-shield-alt"></i>
+              <span>100% Money Back Guarantee</span>
+            </div>
+            <div>
+              <i class="fas fa-clock"></i>
+              <span>2-3 Week Delivery</span>
+            </div>
+            <div>
+              <i class="fas fa-tools"></i>
+              <span>Lifetime Support</span>
+            </div>
+          </div>
+          <p>Need something custom? <a href="/contact">Contact us</a> for a personalized quote.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simple & Elegant CTA Section -->
+    <section class="cta-section web-design-cta simple-cta">
+      <div class="container">
+        <div class="cta-content">
+          <!-- Main Heading -->
+          <h2 class="cta-title">
+            Ready to Transform Your Online Presence?
+          </h2>
+
+          <!-- Simple Subtitle -->
+          <p class="cta-subtitle">
+            Join 300+ businesses that grew their revenue with our stunning web designs
+          </p>
+
+          <!-- Trust Indicators -->
+          <div class="trust-indicators">
+            <div class="trust-item">
+              <i class="fas fa-star"></i>
+              <span>4.9 Star Rating</span>
+            </div>
+            <div class="trust-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>30-Day Guarantee</span>
+            </div>
+          </div>
+
+          <!-- CTA Actions -->
+          <div class="cta-actions">
+            <a href="/contact" class="btn-primary">
+              Get Free Design Consultation
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="tel:0487286451" class="btn-secondary">
+              <i class="fas fa-phone"></i>
+              Call 0487 286 451
+            </a>
+          </div>
+
+          <!-- Simple Benefits -->
+          <div class="cta-benefits">
+            <div class="benefit-check">
+              <i class="fas fa-check"></i>
+              <span>Free Consultation</span>
+            </div>
+            <div class="benefit-check">
+              <i class="fas fa-check"></i>
+              <span>Custom Design</span>
+            </div>
+            <div class="benefit-check">
+              <i class="fas fa-check"></i>
+              <span>No Lock-in Contracts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- Scripts -->
+  <script src="/js/web-design-enhanced.js" defer is:inline></script>
+  <script src="/js/faq-accordion.js" defer is:inline></script>
+</BaseLayout>

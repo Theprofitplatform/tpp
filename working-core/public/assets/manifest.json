@@ -1,0 +1,21 @@
+{
+  "name": "The Profit Platform",
+  "short_name": "TPP",
+  "description": "Sydney Digital Marketing Expert - Fresh Approach, Proven Results",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "https://theprofitplatform.com.au/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "https://theprofitplatform.com.au/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

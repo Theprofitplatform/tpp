@@ -1,0 +1,461 @@
+---
+// Enhanced Contact Page with improved UX, accessibility, and conversion optimization
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ExitIntentPopup from '../components/ExitIntentPopup.astro';
+import SocialProofWidget from '../components/SocialProofWidget.astro';
+import '../../public/css/contact-page-styles.css';
+---
+
+<BaseLayout
+  title="Contact The Profit Platform — Sydney Digital Marketing Experts"
+  description="Contact The Profit Platform for digital marketing, web design, and SEO services in Sydney. Call 0487 286 451 or email avi@theprofitplatform.com.au today."
+>
+  <!-- Enhanced SEO Meta Tags -->
+  <Fragment slot="head">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
+    <meta name="description" content="Contact The Profit Platform for digital marketing, web design, and SEO services in Sydney. Call 0487 286 451 or email avi@theprofitplatform.com.au today.">
+    <meta name="keywords" content="contact, digital marketing sydney, seo sydney, web design sydney, google ads sydney">
+    <meta name="author" content="The Profit Platform">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="English">
+    <meta name="geo.region" content="AU-NSW">
+    <meta name="geo.placename" content="Sydney">
+    <meta name="geo.position" content="-33.8688;151.2093">
+    <meta name="ICBM" content="-33.8688, 151.2093">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://theprofitplatform.com.au/contact">
+    <meta property="og:title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
+    <meta property="og:description" content="Get in touch with Sydney's digital marketing experts. Free consultation available. Call 0487 286 451 or email us today.">
+    <meta property="og:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Contact The Profit Platform - Sydney Digital Marketing">
+    <meta property="og:site_name" content="The Profit Platform">
+    <meta property="og:locale" content="en_AU">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://theprofitplatform.com.au/contact">
+    <meta property="twitter:title" content="Contact The Profit Platform — Sydney Digital Marketing Experts">
+    <meta property="twitter:description" content="Get in touch with Sydney's digital marketing experts. Free consultation available. Call 0487 286 451 or email us today.">
+    <meta property="twitter:image" content="https://theprofitplatform.com.au/wp-content/uploads/2025/08/The-Profit-Platform-Growth-Dashboard-1.png">
+    <meta property="twitter:image:alt" content="Contact The Profit Platform - Sydney Digital Marketing">
+    <meta property="twitter:creator" content="@profitplatform">
+    <meta property="twitter:site" content="@profitplatform">
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#4F46E5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="The Profit Platform">
+    <meta name="format-detection" content="telephone=yes">
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://theprofitplatform.com.au/contact">
+
+    <!-- Alternate Language -->
+    <link rel="alternate" hreflang="en-au" href="https://theprofitplatform.com.au/contact">
+    <link rel="alternate" hreflang="x-default" href="https://theprofitplatform.com.au/contact">
+
+    <!-- Enhanced JSON-LD Schema - ContactPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "url": "https://theprofitplatform.com.au/contact",
+      "name": "Contact The Profit Platform",
+      "description": "Contact The Profit Platform for digital marketing, web design, and SEO services in Sydney. Free consultation available.",
+      "mainEntity": {
+        "@type": "Organization",
+        "@id": "https://theprofitplatform.com.au/#organization",
+        "name": "The Profit Platform",
+        "url": "https://theprofitplatform.com.au/",
+        "telephone": "+61487286451",
+        "email": "avi@theprofitplatform.com.au",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Sydney",
+          "addressRegion": "NSW",
+          "addressCountry": "AU"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+61487286451",
+          "contactType": "customer service",
+          "areaServed": "AU-NSW",
+          "availableLanguage": "en"
+        },
+        "areaServed": "Greater Sydney",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61574707582255",
+          "https://www.linkedin.com/company/theprofitplatform",
+          "https://www.instagram.com/theprofitplatformau"
+        ]
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://theprofitplatform.com.au/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Contact",
+            "item": "https://theprofitplatform.com.au/contact"
+          }
+        ]
+      }
+    }
+    </script>
+  </Fragment>
+
+  <Header />
+
+  <!-- Main Content -->
+  <main id="main-content" role="main">
+    <!-- Premium Contact Hero Section -->
+    <section class="contact-hero-premium premium-hero" role="banner" aria-labelledby="contactHeroHeading">
+      <!-- Hero Background Elements -->
+      <div class="contact-hero-background">
+        <div class="contact-hero-orb contact-hero-orb-1"></div>
+        <div class="contact-hero-orb contact-hero-orb-2"></div>
+        <div class="contact-hero-orb contact-hero-orb-3"></div>
+      </div>
+
+      <div class="container contact-hero-container">
+        <div class="contact-hero-content">
+          <!-- Response Time Guarantee Badge -->
+          <div class="contact-hero-badge">
+            <i class="fas fa-clock" style="margin-right: 8px;"></i>
+            <span style="color: #FFD700;">24-Hour Response Guarantee</span> • Free Marketing Audit Worth $997
+          </div>
+
+          <h1 id="contactHeroHeading" class="contact-hero-title">
+            Let's Grow Your Business Together
+          </h1>
+          <p class="contact-hero-description">
+            Ready to dominate your market? Get personalized strategies, expert guidance, and guaranteed results. Sydney's #1 digital marketing specialist is just one click away.
+          </p>
+
+          <!-- Premium Quick Contact Options -->
+          <div class="contact-cta-container">
+            <!-- Primary CTA: WhatsApp -->
+            <a href="https://wa.me/61487286451?text=Hi%20Avi%2C%20I%27d%20like%20to%20book%20my%20free%20marketing%20audit%20for%20my%20Sydney%20business.%20When%20can%20we%20chat%3F" target="_blank" rel="noopener" class="hero-cta-btn-primary" style="display: inline-flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #25D366, #128C7E); color: white; padding: 24px 48px; border-radius: 16px; text-decoration: none; font-weight: 700; font-size: 1.25rem; transition: all 0.4s; box-shadow: 0 10px 35px rgba(37,211,102,0.5); position: relative; overflow: hidden;">
+              <i class="fab fa-whatsapp" style="font-size: 28px;"></i>
+              <span>Start Free WhatsApp Audit</span>
+            </a>
+
+            <!-- Secondary CTAs: Phone & Email -->
+            <div class="contact-cta-secondary-group">
+              <a href="tel:+61487286451" class="hero-cta-btn-secondary" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; position: relative;">
+                <i class="fas fa-phone-alt" style="font-size: 16px;"></i>
+                <span>Call: 0487 286 451</span>
+              </a>
+              <a href="mailto:avi@theprofitplatform.com.au" class="hero-cta-btn-secondary" style="display: inline-flex; align-items: center; gap: 10px; background: transparent; color: white; padding: 12px 24px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1rem; border: 2px solid rgba(255,255,255,0.4); transition: all 0.3s; position: relative;">
+                <i class="fas fa-envelope" style="font-size: 16px;"></i>
+                <span>Email Us</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Trust Indicators -->
+          <div class="contact-trust-box">
+            <div class="contact-trust-item">
+              <div class="contact-trust-value">⭐ 4.9/5</div>
+              <div class="contact-trust-label">Google Reviews</div>
+            </div>
+            <div class="contact-trust-divider"></div>
+            <div class="contact-trust-item">
+              <div class="contact-trust-value">24hr</div>
+              <div class="contact-trust-label">Response Time</div>
+            </div>
+            <div class="contact-trust-divider"></div>
+            <div class="contact-trust-item">
+              <div class="contact-trust-value">15+</div>
+              <div class="contact-trust-label">Sydney Businesses</div>
+            </div>
+            <div class="contact-trust-divider"></div>
+            <div class="contact-trust-item">
+              <div class="contact-trust-value">$997</div>
+              <div class="contact-trust-label">Free Audit Value</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Form and Sidebar Section -->
+    <section class="contact-section" style="padding: 80px 0;">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Main Contact Form -->
+          <div class="contact-form-container">
+            <div class="success-message" id="successMessage" style="display: none;">
+              <i class="fas fa-check-circle"></i>
+              Thank you! Your message has been sent successfully. I'll get back to you within 24 hours.
+            </div>
+
+            <ContactForm />
+          </div>
+
+          <!-- Contact Information Sidebar -->
+          <div class="contact-sidebar">
+            <h3 style="font-size: 1.5rem; margin-bottom: 32px; color: var(--pp-gray-800);">
+              <i class="fas fa-handshake" style="color: var(--pp-primary); margin-right: 8px;"></i>
+              Let's Connect
+            </h3>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 4px; color: var(--pp-gray-800);">Call Direct</h4>
+                <a href="tel:+61487286451" style="color: var(--pp-primary); text-decoration: none; font-weight: 600; font-size: 18px;">
+                  0487 286 451
+                </a>
+                <p style="color: var(--pp-gray-600); font-size: 14px; margin: 4px 0 0 0;">
+                  Available 9 AM - 6 PM (AEDT)
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 4px; color: var(--pp-gray-800);">Email</h4>
+                <a href="mailto:avi@theprofitplatform.com.au" style="color: var(--pp-primary); text-decoration: none;">
+                  avi@theprofitplatform.com.au
+                </a>
+                <p style="color: var(--pp-gray-600); font-size: 14px; margin: 4px 0 0 0;">
+                  I respond within 24 hours
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 4px; color: var(--pp-gray-800);">Location</h4>
+                <p style="color: var(--pp-gray-600); line-height: 1.4; margin: 0;">
+                  Sydney, NSW<br>
+                  Serving all of Greater Sydney<br>
+                  <span style="font-size: 14px;">Bondi • Parramatta • Penrith • CBD</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <h4 style="font-size: 18px; font-weight: 600; margin-bottom: 12px; color: var(--pp-gray-800);">Business Hours</h4>
+                <div class="business-hours-grid">
+                  <span class="day">Monday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Tuesday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Wednesday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Thursday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Friday</span><span class="hours">9:00 AM - 6:00 PM</span>
+                  <span class="day">Saturday</span><span class="hours closed">By Appointment</span>
+                  <span class="day">Sunday</span><span class="hours closed">Closed</span>
+                </div>
+                <p style="color: var(--pp-gray-500); font-size: 14px; margin: 12px 0 0 0;">
+                  <i class="fas fa-info-circle"></i>
+                  All times in Australian Eastern Time
+                </p>
+              </div>
+            </div>
+
+            <!-- Interactive Office Map -->
+            <div class="map-container premium-map" style="position: relative;">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106441.99929454103!2d151.074982375!3d-33.868820225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae401e8b983f%3A0x5017d681632a850!2sSydney%20NSW%2C%20Australia!5e0!3m2!1sen!2s!4v1692180000000!5m2!1sen!2s"
+                allowfullscreen
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="The Profit Platform Service Areas - Sydney, NSW"
+                aria-label="Interactive map showing The Profit Platform service areas across Sydney"
+                style="width: 100%; height: 350px; border: none; border-radius: 16px;">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" style="padding: 80px 0; background: var(--pp-gray-50);">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; color: var(--pp-gray-800);">
+            Frequently Asked Questions
+          </h2>
+          <p style="font-size: 1.125rem; color: var(--pp-gray-600); max-width: 600px; margin: 0 auto;">
+            Got questions? I've got answers. Here are the most common questions Sydney business owners ask.
+          </p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>How quickly will I see results from your marketing services?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Most clients start seeing increased website traffic within 30 days and new leads within 60 days. SEO is a longer-term strategy that builds momentum over 3-6 months, while Google Ads can generate leads within days of launch. I provide monthly reports so you can track your progress every step of the way.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>Do you work with businesses outside of Sydney?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
+            </div>
+            <div class="faq-answer">
+              <p>While I'm based in Sydney and specialize in local Sydney businesses, I work with clients across Australia. My local SEO expertise is particularly valuable for Sydney businesses looking to dominate their local market, but my digital marketing strategies work anywhere.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>What's included in the free marketing audit?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Your comprehensive audit includes: website performance analysis, SEO audit, competitor research, Google My Business optimization review, social media assessment, and a custom growth strategy with actionable recommendations. This usually costs $997 but it's completely free for new clients.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>Do you require long-term contracts?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
+            </div>
+            <div class="faq-answer">
+              <p>No lock-in contracts, ever. I believe in earning your business every month through results, not contracts. You can pause or cancel services with 30 days notice. This gives you complete flexibility and peace of mind.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>How much should I budget for digital marketing?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Investment varies based on your goals and business size. Most Sydney small businesses see great results with $1,500-$3,500/month. This includes my management fees plus advertising spend. During our consultation, I'll recommend a budget that aligns with your goals and expected ROI.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question" onclick="toggleFAQ(this)">
+              <span>What makes you different from other marketing agencies?</span>
+              <i class="fas fa-plus faq-icon" style="transition: var(--pp-transition);"></i>
+            </div>
+            <div class="faq-answer">
+              <p>I'm a solo expert, not a big agency. You get personal attention, direct communication, and strategies tailored to your specific business. I focus on Sydney businesses exclusively, so I understand the local market intimately. Plus, no contracts means I have to deliver results to keep your business.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" style="padding: 80px 0;">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+          <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 16px; color: var(--pp-gray-800);">
+            What Sydney Business Owners Say
+          </h2>
+          <p style="font-size: 1.125rem; color: var(--pp-gray-600); max-width: 600px; margin: 0 auto;">
+            Real results from real Sydney businesses. See why local business owners choose The Profit Platform.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              "Avi transformed our online presence completely. Within 3 months, our Google rankings improved dramatically and we're getting 3x more enquiries. His local SEO knowledge for Sydney businesses is exceptional."
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">SM</div>
+              <div class="author-info">
+                <h4>Sarah Mitchell</h4>
+                <p>Bondi Dental Practice</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              "Finally found a marketing expert who understands small business. No corporate BS, just real strategies that work. Our leads have doubled and the ROI is incredible."
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">MR</div>
+              <div class="author-info">
+                <h4>Mike Rodriguez</h4>
+                <p>Parramatta Plumbing Services</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="testimonial-quote">
+              "The personal service is amazing. Avi actually answers the phone and explains everything in plain English. Our Google Ads are now profitable for the first time ever."
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">LT</div>
+              <div class="author-info">
+                <h4>Lisa Thompson</h4>
+                <p>Penrith Fitness Studio</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/61487286451?text=Hi%20Avi,%20I'm%20interested%20in%20learning%20more%20about%20your%20digital%20marketing%20services" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script is:inline>
+    // FAQ toggle functionality
+    function toggleFAQ(element) {
+      const faqItem = element.parentElement;
+      const isActive = faqItem.classList.contains('active');
+
+      // Close all FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Open clicked item if it wasn't active
+      if (!isActive) {
+        faqItem.classList.add('active');
+      }
+    }
+  </script>
+
+  <!-- Exit Intent Popup -->
+  <ExitIntentPopup />
+
+  <!-- Social Proof Notifications -->
+  <SocialProofWidget />
+</BaseLayout>

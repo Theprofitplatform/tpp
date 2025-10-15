@@ -1,0 +1,580 @@
+---
+// Step 2 form with optional fields and enhanced UX
+---
+
+<div class="form-step" id="step2" data-step="2">
+  <div class="step-header">
+    <h3 class="step-title" id="step2-title">Project details</h3>
+    <p class="step-subtitle" id="step2-subtitle">Help us understand your specific needs (all optional)</p>
+  </div>
+
+  <div class="form-fields" role="group" aria-labelledby="step2-title" aria-describedby="step2-subtitle">
+    <!-- Phone and Business Name Row -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="phone" class="form-label">
+          Phone Number
+          <span class="optional-label">(Optional)</span>
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          class="form-input phone-input"
+          aria-describedby="phone-error phone-hint"
+          placeholder="+61 400 000 000"
+          autocomplete="tel"
+          data-validate="phone"
+        />
+        <div id="phone-hint" class="field-hint">We'll call during business hours only</div>
+        <div id="phone-error" class="field-error" role="alert" aria-live="polite"></div>
+      </div>
+
+      <div class="form-group">
+        <label for="business" class="form-label">
+          Business Name
+          <span class="optional-label">(Optional)</span>
+        </label>
+        <input
+          type="text"
+          id="business"
+          name="business"
+          class="form-input"
+          aria-describedby="business-hint"
+          placeholder="Your Business Name"
+          autocomplete="organization"
+        />
+        <div id="business-hint" class="field-hint">Helps us personalize your strategy</div>
+      </div>
+    </div>
+
+    <!-- Goals Selection -->
+    <div class="form-group">
+      <fieldset class="goals-fieldset">
+        <legend class="form-label">What's your primary goal? <span class="optional-label">(Select all that apply)</span></legend>
+        <div class="goal-chips" role="group" aria-describedby="goals-hint">
+          <label class="goal-chip" tabindex="0">
+            <input type="checkbox" name="goals[]" value="more-calls" />
+            <span class="chip-content">
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              More phone calls
+            </span>
+          </label>
+          <label class="goal-chip" tabindex="0">
+            <input type="checkbox" name="goals[]" value="rank-higher" />
+            <span class="chip-content">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
+              Rank #1 locally
+            </span>
+          </label>
+          <label class="goal-chip" tabindex="0">
+            <input type="checkbox" name="goals[]" value="lower-costs" />
+            <span class="chip-content">
+              <i class="fas fa-dollar-sign" aria-hidden="true"></i>
+              Lower cost per lead
+            </span>
+          </label>
+          <label class="goal-chip" tabindex="0">
+            <input type="checkbox" name="goals[]" value="more-traffic" />
+            <span class="chip-content">
+              <i class="fas fa-users" aria-hidden="true"></i>
+              More website traffic
+            </span>
+          </label>
+        </div>
+        <div id="goals-hint" class="field-hint">Helps us focus your growth strategy</div>
+      </fieldset>
+    </div>
+
+    <!-- Website Field with Preview -->
+    <div class="form-group">
+      <label for="website" class="form-label">
+        Current Website
+        <span class="optional-label">(Optional)</span>
+      </label>
+      <div class="website-input-wrapper">
+        <input
+          type="url"
+          id="website"
+          name="website"
+          class="form-input website-input"
+          aria-describedby="website-error website-hint"
+          placeholder="www.yourbusiness.com.au"
+          autocomplete="url"
+          data-validate="url"
+        />
+        <div class="website-preview" id="website-preview" style="display: none;">
+          <img class="favicon-preview" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%234F46E5'/%3E%3C/svg%3E" alt="Website favicon" aria-hidden="true" />
+          <span class="domain-preview"></span>
+        </div>
+      </div>
+      <div id="website-hint" class="field-hint">We'll analyze your current digital presence</div>
+      <div id="website-error" class="field-error" role="alert" aria-live="polite"></div>
+    </div>
+
+    <!-- Privacy Consent (Required) -->
+    <div class="form-group privacy-group">
+      <div class="privacy-wrapper">
+        <input
+          type="checkbox"
+          id="privacy-consent"
+          name="privacy_consent"
+          class="privacy-checkbox"
+          required
+          aria-required="true"
+          aria-describedby="privacy-error privacy-help"
+        />
+        <label for="privacy-consent" class="privacy-label">
+          <span class="checkmark" aria-hidden="true"></span>
+          <span class="privacy-text">
+            I agree to the <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+            and consent to being contacted about my business growth needs.
+            <span class="required" aria-label="required">*</span>
+          </span>
+        </label>
+      </div>
+      <div id="privacy-help" class="field-hint">Required to send your custom growth plan</div>
+      <div id="privacy-error" class="field-error" role="alert" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- Micro-testimonial -->
+  <div class="step-testimonial" role="region" aria-label="Customer testimonial">
+    <div class="testimonial-content">
+      <div class="stars" aria-label="5 out of 5 stars">
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+      </div>
+      <blockquote>
+        "They helped us 3x leads in 60 days. Best investment we made."
+      </blockquote>
+      <cite>— Sarah M., Sydney Client</cite>
+    </div>
+  </div>
+
+  <!-- Step Actions -->
+  <div class="step-actions">
+    <button type="button" class="btn-back" id="back-step2">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span>Back to Step 1</span>
+    </button>
+    <button type="submit" class="btn-submit" id="submit-form">
+      <span>🚀 Get My Free Growth Plan</span>
+      <div class="submit-spinner" style="display: none;">
+        <i class="fas fa-spinner fa-spin" aria-hidden="true"></i>
+      </div>
+    </button>
+  </div>
+</div>
+
+<style>
+.form-step {
+  display: none;
+  animation: fadeInUp 0.4s ease;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.step-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.step-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 0.5rem 0;
+}
+
+.step-subtitle {
+  color: #64748b;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.form-fields {
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.optional-label {
+  font-weight: 400;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.required {
+  color: #ef4444;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-input[aria-invalid="true"] {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.field-hint {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.field-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  display: none;
+  font-weight: 500;
+  min-height: 1.2em;
+}
+
+.field-error.active {
+  display: block;
+}
+
+/* Goals Selection */
+.goals-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.goal-chips {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.goal-chip {
+  cursor: pointer;
+  display: block;
+}
+
+.goal-chip input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.chip-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 25px;
+  background: white;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  color: #374151;
+}
+
+.goal-chip:hover .chip-content {
+  border-color: #3b82f6;
+  background: #f8fafc;
+}
+
+.goal-chip input:checked + .chip-content {
+  border-color: #3b82f6;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.goal-chip input:focus + .chip-content {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Website Input */
+.website-input-wrapper {
+  position: relative;
+}
+
+.website-preview {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f8fafc;
+  padding: 0.375rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: #6b7280;
+  border: 1px solid #e5e7eb;
+}
+
+.favicon-preview {
+  width: 16px;
+  height: 16px;
+}
+
+/* Privacy Consent */
+.privacy-group {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.privacy-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.privacy-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.privacy-label {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.privacy-checkbox:checked + .privacy-label .checkmark {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.privacy-checkbox:checked + .privacy-label .checkmark::after {
+  content: '✓';
+  position: absolute;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  top: -1px;
+  left: 3px;
+}
+
+.privacy-checkbox:focus + .privacy-label .checkmark {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.privacy-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.privacy-text a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.privacy-text a:hover,
+.privacy-text a:focus {
+  text-decoration: underline;
+}
+
+/* Testimonial */
+.step-testimonial {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid #3b82f6;
+}
+
+.testimonial-content {
+  text-align: center;
+}
+
+.stars {
+  color: #fbbf24;
+  margin-bottom: 0.75rem;
+  font-size: 1.125rem;
+}
+
+.testimonial-content blockquote {
+  font-style: italic;
+  color: #374151;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.testimonial-content cite {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-style: normal;
+}
+
+/* Step Actions */
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: #f8fafc;
+  color: #64748b;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-back:hover {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.btn-back:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.1);
+}
+
+.btn-submit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  overflow: hidden;
+}
+
+.btn-submit:hover:not(:disabled) {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-submit:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.submit-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .goal-chips {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .step-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+
+  .btn-back,
+  .btn-submit {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .website-preview {
+    position: static;
+    transform: none;
+    margin-top: 0.5rem;
+    justify-content: flex-start;
+  }
+
+  .website-input-wrapper .website-preview {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 0;
+  }
+}
+</style>

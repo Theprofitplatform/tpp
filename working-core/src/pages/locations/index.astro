@@ -1,0 +1,937 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const pageTitle = "Locations | The Profit Platform";
+const pageDescription = "Digital marketing services across Australia. Find The Profit Platform in Sydney, Melbourne, Brisbane, Perth, and more major cities.";
+
+// Get all locations
+const allLocations = await getCollection('locations', ({ data }) => {
+  return !data.draft;
+});
+
+// Sort locations - featured first, then alphabetically
+const locations = allLocations.sort((a, b) => {
+  if (a.data.featured && !b.data.featured) return -1;
+  if (!a.data.featured && b.data.featured) return 1;
+  return a.data.city.localeCompare(b.data.city);
+});
+
+const featuredLocations = locations.filter(loc => loc.data.featured);
+const otherLocations = locations.filter(loc => !loc.data.featured);
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="locations-page">
+
+    <!-- Hero Section with Animated Background -->
+    <section class="hero-locations">
+      <div class="hero-bg-pattern"></div>
+      <div class="hero-glow"></div>
+
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Serving Australia Nationwide</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="title-line">Local SEO & Digital Marketing</span>
+            <span class="title-gradient">In Your City</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Rank #1 on Google in your local market. We specialize in <strong>local SEO, Google Ads, and web design</strong> for Australian businesses who want to dominate their city's search results.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">{locations.length}</div>
+              <div class="stat-label">Australian Cities</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-number">SEO</div>
+              <div class="stat-label">Specialist Focus</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Australian Based</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Locations -->
+    {featuredLocations.length > 0 && (
+      <section class="featured-locations">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Featured Locations</h2>
+            <p class="section-subtitle">Our primary service hubs with dedicated local teams</p>
+          </div>
+
+          <div class="featured-grid">
+            {featuredLocations.map((location) => (
+              <a href={`/locations/${location.slug}`} class="featured-card">
+                <div class="card-glow"></div>
+
+                <div class="card-icon">
+                  <i class="fas fa-map-pin"></i>
+                </div>
+
+                <div class="card-content">
+                  <div class="card-header">
+                    <h3 class="card-city">{location.data.city}</h3>
+                    <span class="card-badge">Featured</span>
+                  </div>
+
+                  <p class="card-location">{location.data.state}, {location.data.country}</p>
+                  <p class="card-description">
+                    Local SEO, Google Ads & Web Design for {location.data.city} businesses
+                  </p>
+
+                  <div class="card-footer">
+                    <div class="card-arrow">
+                      <span>View Services</span>
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- All Locations -->
+    <section class="all-locations">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">All Service Locations</h2>
+          <p class="section-subtitle">Choose your city to learn about our local services</p>
+        </div>
+
+        <div class="locations-grid">
+          {otherLocations.map((location) => (
+            <a href={`/locations/${location.slug}`} class="location-card">
+              <div class="card-inner">
+                <div class="location-icon">
+                  <i class="fas fa-building"></i>
+                </div>
+
+                <div class="location-info">
+                  <h3 class="location-name">{location.data.city}</h3>
+                  <p class="location-region">{location.data.state}</p>
+                </div>
+
+                <div class="location-arrow">
+                  <i class="fas fa-chevron-right"></i>
+                </div>
+              </div>
+
+              {location.data.serviceAreas.length > 0 && (
+                <div class="location-areas">
+                  <p class="areas-count">
+                    <i class="fas fa-map-marked-alt"></i>
+                    {location.data.serviceAreas.length} service areas
+                  </p>
+                </div>
+              )}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Local SEO -->
+    <section class="benefits-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Why Choose Local Digital Marketing?</h2>
+          <p class="section-subtitle">Target customers who are ready to buy in your city</p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-location-dot"></i>
+            </div>
+            <h3>Local Search Dominance</h3>
+            <p>Appear when customers search "[your service] near me" or "[your service] [your city]". Capture high-intent local searches.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Targeted Traffic</h3>
+            <p>Stop wasting money on visitors who will never buy. Local SEO brings customers from your actual service area.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Measurable Results</h3>
+            <p>Track rankings, traffic, and leads. Know exactly what's working and what ROI you're getting.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <h3>Lower Cost Per Lead</h3>
+            <p>Local SEO costs less than paid ads long-term. Build sustainable organic visibility in your market.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Beat Local Competitors</h3>
+            <p>Outrank competitors in your city. Customers see your business first when searching for your services.</p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">
+              <i class="fas fa-mobile-screen"></i>
+            </div>
+            <h3>Mobile-First Approach</h3>
+            <p>75% of local searches happen on mobile. We optimize for the devices your customers actually use.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Not Listed CTA -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-icon">
+            <i class="fas fa-location-crosshairs"></i>
+          </div>
+
+          <div class="cta-content">
+            <h2 class="cta-title">Don't See Your City?</h2>
+            <p class="cta-description">
+              We work with businesses across <strong>all of Australia</strong>. Distance is no barrier to delivering exceptional digital marketing results.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <a href="/contact" class="cta-button primary">
+              <span>Get In Touch</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="tel:+61487286451" class="cta-button secondary">
+              <i class="fas fa-phone"></i>
+              <span>Call Now</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Trust Signals -->
+        <div class="trust-signals">
+          <div class="trust-item">
+            <i class="fas fa-shield-check"></i>
+            <span>100% Australian Owned</span>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-headset"></i>
+            <span>Local Support Team</span>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Proven Track Record</span>
+          </div>
+          <div class="trust-item">
+            <i class="fas fa-award"></i>
+            <span>Award-Winning Service</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero-locations {
+    position: relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    overflow: hidden;
+    padding: 100px 0 80px;
+  }
+
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: patternFloat 20s ease-in-out infinite;
+  }
+
+  @keyframes patternFloat {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-20px, 20px); }
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+
+  @keyframes glowPulse {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #ffffff;
+    opacity: 0.9;
+  }
+
+  .hero-title {
+    margin-bottom: 24px;
+  }
+
+  .title-line {
+    display: block;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    opacity: 1;
+    color: #ffffff;
+  }
+
+  .title-gradient {
+    display: block;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.1;
+    opacity: 1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+    color: #ffffff;
+  }
+
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .stat-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+    color: #ffffff;
+    opacity: 1;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    opacity: 0.85;
+    color: #ffffff;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(255,255,255,0.3);
+  }
+
+  /* Featured Locations */
+  .featured-locations {
+    padding: 80px 0;
+    background: #f8fafc;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 12px;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: #64748b;
+  }
+
+  .featured-grid {
+    display: grid;
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .featured-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .featured-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .featured-card {
+    position: relative;
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    display: block;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    overflow: hidden;
+  }
+
+  .featured-card:hover {
+    transform: translateY(-8px);
+    border-color: #2563eb;
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3);
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .featured-card:hover .card-glow {
+    opacity: 1;
+  }
+
+  .card-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: white;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .card-city {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .card-badge {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 12px;
+  }
+
+  .card-location {
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+
+  .card-description {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .service-areas {
+    background: #f1f5f9;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .area-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #475569;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .area-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .area-tag {
+    background: white;
+    color: #475569;
+    font-size: 0.8125rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+
+  .area-tag-more {
+    background: #2563eb;
+    color: white;
+    font-size: 0.8125rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+
+  .contact-item i {
+    color: white;
+  }
+
+  .card-arrow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 600;
+    transition: gap 0.3s ease;
+  }
+
+  .featured-card:hover .card-arrow {
+    gap: 12px;
+  }
+
+  /* All Locations */
+  .all-locations {
+    padding: 80px 0;
+  }
+
+  .locations-grid {
+    display: grid;
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 640px) {
+    .locations-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .locations-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .location-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  .location-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(37, 99, 235, 0.15);
+  }
+
+  .card-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  .location-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .location-card:hover .location-icon {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    color: white;
+  }
+
+  .location-info {
+    flex: 1;
+  }
+
+  .location-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+  }
+
+  .location-region {
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+
+  .location-arrow {
+    color: #cbd5e1;
+    transition: all 0.3s ease;
+  }
+
+  .location-card:hover .location-arrow {
+    color: white;
+    transform: translateX(4px);
+  }
+
+  .location-areas {
+    padding-top: 12px;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .areas-count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    font-size: 0.8125rem;
+  }
+
+  .areas-count i {
+    color: white;
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    padding: 80px 0;
+    background: #f8fafc;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+  }
+
+  .benefit-card {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-4px);
+    border-color: #2563eb;
+    box-shadow: 0 12px 40px rgba(37, 99, 235, 0.15);
+  }
+
+  .benefit-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .benefit-icon i {
+    font-size: 1.5rem;
+    color: white;
+  }
+
+  .benefit-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+  }
+
+  .benefit-card p {
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 80px 0;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    border-radius: 32px;
+    padding: 60px 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotateBg 20s linear infinite;
+  }
+
+  @keyframes rotateBg {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .cta-icon {
+    position: relative;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    font-size: 32px;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    margin: 0 auto 40px;
+  }
+
+  .cta-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .cta-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    opacity: 0.95;
+  }
+
+  .cta-actions {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+
+  .cta-button.primary {
+    background: white;
+    color: white;
+  }
+
+  .cta-button.primary:hover {
+    background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+  }
+
+  .cta-button.secondary {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  .cta-button.secondary:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  /* Trust Signals */
+  .trust-signals {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #475569;
+    font-weight: 600;
+  }
+
+  .trust-item i {
+    color: white;
+    font-size: 1.25rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-locations {
+      padding: 80px 0 60px;
+    }
+
+    .featured-locations,
+    .all-locations,
+    .cta-section {
+      padding: 60px 0;
+    }
+
+    .stat-divider {
+      display: none;
+    }
+
+    .hero-stats {
+      gap: 24px;
+    }
+
+    .cta-card {
+      padding: 40px 24px;
+    }
+
+    .trust-signals {
+      gap: 24px;
+    }
+
+    .trust-item {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+</style>

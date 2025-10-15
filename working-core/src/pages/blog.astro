@@ -1,0 +1,1752 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+
+const pageTitle = "Blog | The Profit Platform";
+const pageDescription = "Digital marketing tips, strategies, and insights for Sydney businesses.";
+
+// Helper function to strip date prefix from slug
+const getCleanSlug = (slug) => slug.replace(/^\d{4}-\d{2}-\d{2}-/, '');
+
+// Fetch all published blog posts
+const allPosts = await getCollection('blog', ({ data }) => {
+  return !data.draft;
+});
+
+// Sort by date (newest first) - handle both pubDate and publishDate
+const sortedPosts = allPosts.sort((a, b) => {
+  const dateA = a.data.publishDate || a.data.pubDate;
+  const dateB = b.data.publishDate || b.data.pubDate;
+  return dateB.valueOf() - dateA.valueOf();
+});
+
+// Featured post (if marked, otherwise use newest)
+const featuredPost = sortedPosts.find(p => p.data.featured) || sortedPosts[0];
+
+// Recent posts for grid (exclude featured if it exists)
+const recentPosts = featuredPost && sortedPosts.find(p => p.data.featured)
+  ? sortedPosts.filter(p => p !== featuredPost)
+  : sortedPosts.slice(1);
+
+// Initial display count
+const INITIAL_POSTS = 6;
+
+// Calculate category counts
+const categoryCount = {};
+sortedPosts.forEach(post => {
+  const cat = post.data.category;
+  categoryCount[cat] = (categoryCount[cat] || 0) + 1;
+});
+
+// Get unique categories
+const categories = Object.keys(categoryCount).sort();
+
+// Helper function to get gradient color for category
+function getCategoryGradient(category) {
+  const gradients = {
+    'SEO': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    'Google Ads': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    'Web Design': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    'Content Marketing': 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+    'Digital Marketing': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+    'Analytics': 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'
+  };
+  return gradients[category] || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+}
+
+// Helper function to format date (handles both pubDate and publishDate)
+function formatDate(post) {
+  const date = post.data.publishDate || post.data.pubDate;
+  return new Date(date).toLocaleDateString('en-AU', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
+
+// Helper function to calculate read time
+function getReadTime(post) {
+  return post.data.readTime || '5 min read';
+}
+
+// Extract all unique tags from all posts
+const allTags = [...new Set(
+  sortedPosts
+    .filter(post => post.data.tags && Array.isArray(post.data.tags))
+    .flatMap(post => post.data.tags)
+)].sort();
+
+// Calculate tag counts for sizing
+const tagCount = {};
+allTags.forEach(tag => {
+  tagCount[tag] = sortedPosts.filter(post =>
+    post.data.tags && post.data.tags.includes(tag)
+  ).length;
+});
+
+// Get min and max counts for tag cloud sizing
+const tagCounts = Object.values(tagCount);
+const minCount = Math.min(...tagCounts);
+const maxCount = Math.max(...tagCounts);
+
+// Helper function to calculate tag font size based on usage
+function getTagSize(tag) {
+  const count = tagCount[tag];
+  if (maxCount === minCount) return 1;
+  return 0.75 + (count - minCount) / (maxCount - minCount) * 0.75; // Range: 0.75em to 1.5em
+}
+
+// Calculate related tags (tags that appear together on posts)
+function getRelatedTags(targetTag, limit = 8) {
+  // Find all posts with the target tag
+  const postsWithTag = sortedPosts.filter(post =>
+    post.data.tags && post.data.tags.includes(targetTag)
+  );
+
+  // Count co-occurrences of other tags
+  const coOccurrence = {};
+  postsWithTag.forEach(post => {
+    if (post.data.tags) {
+      post.data.tags.forEach(tag => {
+        if (tag !== targetTag) {
+          coOccurrence[tag] = (coOccurrence[tag] || 0) + 1;
+        }
+      });
+    }
+  });
+
+  // Sort by co-occurrence count and return top N
+  return Object.entries(coOccurrence)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([tag]) => tag);
+}
+
+// Create related tags map for all tags (for client-side use)
+const relatedTagsMap = {};
+allTags.forEach(tag => {
+  relatedTagsMap[tag] = getRelatedTags(tag, 8);
+});
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <link rel="stylesheet" href="/css/blog.css">
+  <style>
+    /* Clean, modern blog listing design - WCAG AA Compliant */
+    html, body {
+      background: #ffffff !important;
+      background-image: none !important;
+    }
+
+    body::before, body::after,
+    html::before, html::after,
+    main::before, main::after {
+      display: none !important;
+    }
+
+    /* Hero Section - Simplified, Clean Design */
+    .blog-hero {
+      background: linear-gradient(135deg, #5568d3 0%, #6941a8 100%) !important;
+      padding: 5rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-background,
+    .hero-floating-elements,
+    .floating-orb {
+      display: none !important;
+    }
+
+    .hero-gradient-mesh {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-grid-overlay {
+      display: none !important;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 968px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: flex-start;
+      }
+
+      .hero-illustration {
+        order: -1;
+        max-width: 280px;
+        margin: 0 auto 1rem;
+        animation: none; /* Disable floating on mobile */
+      }
+
+      .hero-content {
+        z-index: 10;
+        position: relative;
+      }
+    }
+
+    .hero-badge {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      padding: 0.625rem 1.125rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .hero-title {
+      color: #ffffff;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin: 1.25rem 0 1rem;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .gradient-text {
+      color: #ffffff;
+      display: inline;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .hero-description {
+      color: rgba(255, 255, 255, 0.95);
+      font-size: 1.125rem;
+      max-width: 550px;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    .hero-illustration {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .hero-illustration svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(4px);
+    }
+
+    .stat-icon-wrapper {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+
+    .stat-number {
+      display: block;
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .stat-label {
+      display: block;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Featured Article - Simplified */
+    .featured-section {
+      background: #ffffff;
+      padding: 3rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .featured-article {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 0;
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+    }
+
+    .featured-article:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .featured-visual {
+      background: linear-gradient(135deg, #5568d3 0%, #6941a8 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 350px;
+    }
+
+    .visual-gradient,
+    .visual-icon {
+      position: absolute;
+    }
+
+    .visual-icon {
+      color: rgba(255, 255, 255, 0.12);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      background: #ffffff;
+      color: #1f2937;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .featured-content {
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .featured-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #111827;
+      margin: 0.75rem 0;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .featured-excerpt {
+      color: #4b5563;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .featured-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #1f2937;
+      color: #ffffff;
+      padding: 0.875rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      transition: all 0.2s ease;
+      width: fit-content;
+    }
+
+    .featured-cta:hover {
+      background: #111827;
+      transform: translateX(4px);
+    }
+
+    .featured-cta:focus {
+      outline: 2px solid #1f2937;
+      outline-offset: 2px;
+    }
+
+    /* Newsletter - Simplified & Accessible */
+    .newsletter-section {
+      background: #f9fafb;
+      padding: 4rem 0;
+      position: relative;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .newsletter-background {
+      display: none;
+    }
+
+    .newsletter-gradient {
+      display: none;
+    }
+
+    .newsletter-pattern {
+      display: none;
+    }
+
+    .newsletter-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #1f2937;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .newsletter-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #111827;
+      margin: 1rem 0;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .newsletter-description {
+      color: #4b5563;
+      font-size: 1rem;
+      max-width: 540px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    .newsletter-input {
+      background: white;
+      border: 2px solid #d1d5db;
+      padding: 0.875rem 1.25rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 400px;
+      color: #111827;
+      transition: border-color 0.2s ease;
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: #1f2937;
+      box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.1);
+    }
+
+    .newsletter-submit {
+      background: #1f2937;
+      color: #ffffff;
+      border: none;
+      padding: 0.875rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-left: 0.75rem;
+      transition: all 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .newsletter-submit:hover {
+      background: #111827;
+      transform: translateY(-1px);
+    }
+
+    .newsletter-submit:focus {
+      outline: 2px solid #1f2937;
+      outline-offset: 2px;
+    }
+
+    /* Article Cards - Improved Design */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 1024px) {
+      .articles-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .articles-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .article-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e5e7eb;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+      border-color: #d1d5db;
+    }
+
+    .article-link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .article-image {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+      transition: all 0.3s ease;
+    }
+
+    .article-card:hover .image-overlay {
+      background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+    }
+
+    .category-badge-img {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      color: #1f2937;
+      padding: 0.375rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .article-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .article-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0 0 0.75rem;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      transition: color 0.2s ease;
+    }
+
+    .article-card:hover .article-title {
+      color: #1f2937;
+    }
+
+    .article-excerpt {
+      font-size: 0.9375rem;
+      color: #4b5563;
+      line-height: 1.6;
+      margin: 0 0 1rem;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .article-footer {
+      padding-top: 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+    }
+
+    .meta-divider {
+      color: #d1d5db;
+    }
+
+    .article-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      padding: 0.25rem 0.625rem;
+      background: #f3f4f6;
+      color: #4b5563;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .article-card:hover .tag {
+      background: #e5e7eb;
+    }
+
+    .load-more-container {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .load-more-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      background: white;
+      color: #1f2937;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .load-more-btn:hover {
+      background: #1f2937;
+      color: white;
+      border-color: #1f2937;
+      transform: translateY(-2px);
+    }
+
+    .load-more-btn:focus {
+      outline: 2px solid #1f2937;
+      outline-offset: 2px;
+    }
+
+    /* Articles Section Header */
+    .articles-section {
+      padding: 3rem 0 4rem;
+      background: white;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #111827;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 0.25rem;
+      background: #f3f4f6;
+      border-radius: 8px;
+      padding: 0.25rem;
+    }
+
+    .view-btn {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: #4b5563;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .view-btn:hover {
+      color: #1f2937;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .view-btn.active {
+      background: white;
+      color: #1f2937;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .view-btn:focus {
+      outline: 2px solid #1f2937;
+      outline-offset: 2px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    /* Tag Cloud Section */
+    .tag-cloud-section {
+      background: #f9fafb;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .tag-cloud-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag-cloud-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #111827;
+      margin: 0;
+    }
+
+    .tag-cloud-icon {
+      color: #6b7280;
+    }
+
+    .tag-cloud-description {
+      color: #6b7280;
+      font-size: 0.9375rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .tag-cloud-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.5rem 1rem;
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      color: #374151;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      line-height: 1;
+    }
+
+    .tag-cloud-item:hover {
+      background: #5568d3;
+      border-color: #5568d3;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(85, 104, 211, 0.25);
+    }
+
+    .tag-cloud-item:focus {
+      outline: 2px solid #5568d3;
+      outline-offset: 2px;
+    }
+
+    .tag-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 0.375rem;
+      background: #f3f4f6;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #6b7280;
+      transition: all 0.2s ease;
+    }
+
+    .tag-cloud-item:hover .tag-count {
+      background: rgba(255, 255, 255, 0.25);
+      color: white;
+    }
+
+    /* Related Tags Section */
+    .related-tags-section {
+      background: linear-gradient(135deg, #ede9fe 0%, #e0e7ff 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      border: 2px solid #c4b5fd;
+      display: none; /* Hidden by default, shown via JavaScript */
+    }
+
+    .related-tags-section.active {
+      display: block;
+      animation: slideDown 0.3s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .related-tags-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .related-tags-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .related-tags-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #5b21b6;
+      margin: 0;
+    }
+
+    .current-tag-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.625rem;
+      background: white;
+      border: 2px solid #8b5cf6;
+      border-radius: 6px;
+      color: #5b21b6;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+
+    .clear-tag-btn {
+      padding: 0.375rem 0.875rem;
+      background: white;
+      border: 2px solid #d1d5db;
+      border-radius: 6px;
+      color: #374151;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    .clear-tag-btn:hover {
+      background: #f3f4f6;
+      border-color: #9ca3af;
+    }
+
+    .related-tags-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .related-tag-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.375rem 0.75rem;
+      background: white;
+      border: 2px solid #c4b5fd;
+      border-radius: 6px;
+      color: #5b21b6;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .related-tag-item:hover {
+      background: #8b5cf6;
+      border-color: #8b5cf6;
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+    }
+
+    .related-tag-item:focus {
+      outline: 2px solid #8b5cf6;
+      outline-offset: 2px;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+      .blog-hero {
+        padding: 2rem 0 2rem;
+      }
+
+      .hero-grid {
+        gap: 1.5rem;
+      }
+
+      .hero-illustration {
+        max-width: 240px;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-title {
+        font-size: 1.75rem;
+        margin: 0.75rem 0 0.75rem;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 0.75rem;
+        width: 100%;
+        margin-top: 1.5rem;
+      }
+
+      .stat-item {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0.75rem 1rem;
+      }
+
+      .featured-article {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-visual {
+        min-height: 220px;
+      }
+
+      .featured-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .featured-title {
+        font-size: 1.5rem;
+      }
+
+      .newsletter-form .form-group {
+        flex-direction: column;
+      }
+
+      .newsletter-submit {
+        margin-left: 0;
+        margin-top: 0.75rem;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .newsletter-input {
+        max-width: 100%;
+      }
+    }
+  </style>
+
+  <Header />
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.style.backgroundColor = '#ffffff';
+      document.documentElement.style.backgroundColor = '#ffffff';
+    });
+  </script>
+
+  <main id="main-content" role="main">
+    <!-- Hero Section -->
+    <section class="blog-hero">
+      <div class="hero-background">
+        <div class="hero-gradient-mesh"></div>
+        <div class="hero-floating-elements">
+          <div class="floating-orb orb-1"></div>
+          <div class="floating-orb orb-2"></div>
+          <div class="floating-orb orb-3"></div>
+        </div>
+        <div class="hero-grid-overlay"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <span class="hero-badge">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"/>
+              </svg>
+              Digital Marketing Insights
+            </span>
+
+            <h1 class="hero-title">
+              Master Digital Marketing.<br/>
+              <span class="gradient-text">Grow Your Business.</span>
+            </h1>
+
+            <p class="hero-description">
+              Actionable strategies, proven tactics, and real-world case studies from Sydney's top digital marketing experts.
+            </p>
+
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                  </svg>
+                </div>
+                <div class="stat-content">
+                  <span class="stat-number">{sortedPosts.length}+</span>
+                  <span class="stat-label">Articles</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                  </svg>
+                </div>
+                <div class="stat-content">
+                  <span class="stat-number">{categories.length}</span>
+                  <span class="stat-label">Topics</span>
+                </div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon-wrapper">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div class="stat-content">
+                  <span class="stat-number">Weekly</span>
+                  <span class="stat-label">Updates</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-illustration">
+            <svg viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Laptop/Screen -->
+              <rect x="100" y="80" width="300" height="200" rx="8" fill="white" opacity="0.95"/>
+              <rect x="100" y="80" width="300" height="160" rx="8" fill="#1f2937"/>
+              <rect x="115" y="95" width="270" height="130" rx="4" fill="white"/>
+
+              <!-- Content Lines (representing blog post) -->
+              <rect x="130" y="110" width="80" height="8" rx="4" fill="#5568d3"/>
+              <rect x="130" y="130" width="200" height="6" rx="3" fill="#e5e7eb"/>
+              <rect x="130" y="145" width="220" height="6" rx="3" fill="#e5e7eb"/>
+              <rect x="130" y="160" width="180" height="6" rx="3" fill="#e5e7eb"/>
+
+              <!-- Decorative elements -->
+              <circle cx="350" cy="120" r="6" fill="#6941a8"/>
+              <circle cx="370" cy="130" r="4" fill="#5568d3" opacity="0.6"/>
+
+              <!-- Laptop base -->
+              <path d="M80 280 L85 285 L415 285 L420 280 Z" fill="white" opacity="0.9"/>
+
+              <!-- Floating elements around screen -->
+              <circle cx="60" cy="150" r="20" fill="white" opacity="0.2"/>
+              <circle cx="450" cy="180" r="30" fill="white" opacity="0.15"/>
+              <circle cx="70" cy="250" r="15" fill="white" opacity="0.25"/>
+
+              <!-- Icons -->
+              <g transform="translate(330, 190)">
+                <circle cx="15" cy="15" r="15" fill="white" opacity="0.3"/>
+                <path d="M15 10 L15 20 M10 15 L20 15" stroke="#5568d3" stroke-width="2" stroke-linecap="round"/>
+              </g>
+
+              <g transform="translate(130, 180)">
+                <rect x="0" y="0" width="30" height="30" rx="4" fill="#f3f4f6"/>
+                <path d="M8 12 L14 18 L22 10" stroke="#5568d3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="filter-section" aria-label="Blog post filters">
+      <div class="container">
+        <div class="filter-container">
+          <div class="filter-search">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM18 18l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input
+              type="search"
+              placeholder="Search articles..."
+              class="search-input"
+              aria-label="Search blog posts"
+              autocomplete="off"
+            >
+          </div>
+
+          <div class="filter-pills" role="group" aria-label="Category filters">
+            <button class="filter-pill active" data-category="all" aria-pressed="true">
+              All Posts <span class="pill-count" aria-label="{sortedPosts.length} posts">{sortedPosts.length}</span>
+            </button>
+            {categories.map(category => (
+              <button class="filter-pill" data-category={category.toLowerCase().replace(/\s+/g, '-')} aria-pressed="false">
+                {category} <span class="pill-count" aria-label="{categoryCount[category]} posts">{categoryCount[category]}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tag Cloud Section -->
+    {allTags.length > 0 && (
+      <section class="tag-cloud-section" aria-label="Browse articles by topic">
+        <div class="container">
+          <div class="tag-cloud-header">
+            <svg class="tag-cloud-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+              <path fill-rule="evenodd" d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 0v14h14V5H5z" clip-rule="evenodd"/>
+            </svg>
+            <h2 class="tag-cloud-title">Browse by Topic</h2>
+          </div>
+
+          <p class="tag-cloud-description">
+            Explore our {allTags.length} topics covering digital marketing, SEO, Google Ads, web design, and more.
+          </p>
+
+          <nav class="tag-cloud" aria-label="Article topics">
+            {allTags.map(tag => (
+              <a
+                href={`/blog/?tag=${encodeURIComponent(tag)}`}
+                class="tag-cloud-item"
+                style={`font-size: ${getTagSize(tag)}em;`}
+                aria-label={`View ${tagCount[tag]} articles tagged with ${tag}`}
+              >
+                <span>{tag}</span>
+                <span class="tag-count" aria-hidden="true">{tagCount[tag]}</span>
+              </a>
+            ))}
+          </nav>
+        </div>
+      </section>
+    )}
+
+    <!-- Related Tags Section (shown when tag filter is active) -->
+    <section class="articles-section" style="padding-top: 2rem;">
+      <div class="container">
+        <div id="related-tags-section" class="related-tags-section" role="region" aria-label="Related topics">
+          <div class="related-tags-header">
+            <div class="related-tags-title-wrapper">
+              <h3 class="related-tags-title">Related Topics for</h3>
+              <span id="current-tag-display" class="current-tag-badge"></span>
+            </div>
+            <button id="clear-tag-filter" class="clear-tag-btn" aria-label="Clear tag filter">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M4 4l8 8m0-8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Show All Posts
+            </button>
+          </div>
+          <nav id="related-tags-list" class="related-tags-list" aria-label="Related topics"></nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="featured-section">
+      <div class="container">
+        <div class="section-label">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1l2.163 4.382L15 6.09l-3.5 3.409.826 4.817L8 12.09l-4.326 2.227.826-4.817L1 6.09l4.837-.708z"/>
+          </svg>
+          Featured Article
+        </div>
+
+        {featuredPost && (
+          <article class="featured-article">
+            <div class="featured-visual">
+              <div class="visual-gradient"></div>
+              <div class="featured-badge">Must Read</div>
+              <div class="visual-icon">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="currentColor">
+                  <path d="M32 8l4 8h10l-8 8 4 10-10-6-10 6 4-10-8-8h10l4-8zm0 24c-8.837 0-16 7.163-16 16s7.163 16 16 16 16-7.163 16-16-7.163-16-16-16z"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="featured-content">
+              <div class="article-meta-top">
+                <span class="category-badge seo">{featuredPost.data.category}</span>
+                <span class="read-time">{getReadTime(featuredPost)}</span>
+              </div>
+
+              <h2 class="featured-title">
+                {featuredPost.data.title}
+              </h2>
+
+              <p class="featured-excerpt">
+                {featuredPost.data.description}
+              </p>
+
+              <div class="article-meta-bottom">
+                <div class="author-info">
+                  <div class="author-avatar">{featuredPost.data.author === 'Avi' ? 'A' : 'TPP'}</div>
+                  <div class="author-details">
+                    <span class="author-name">{featuredPost.data.author}</span>
+                    <span class="publish-date">{formatDate(featuredPost)}</span>
+                  </div>
+                </div>
+
+                <a href={`/blog/${getCleanSlug(featuredPost.slug)}`} class="featured-cta">
+                  Read Article
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        )}
+      </div>
+    </section>
+
+    <!-- Latest Articles Grid -->
+    <section class="articles-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Latest Articles</h2>
+          <div class="view-toggle" role="tablist" aria-label="Article view toggle">
+            <button class="view-btn active" data-view="latest" role="tab" aria-selected="true">Latest</button>
+            <button class="view-btn" data-view="popular" role="tab" aria-selected="false">Popular</button>
+          </div>
+        </div>
+
+        <div class="articles-grid">
+          {recentPosts.map((post, index) => (
+            <article class="article-card" data-index={index} data-slug={getCleanSlug(post.slug)} data-original-index={index} style={index >= INITIAL_POSTS ? 'display: none;' : ''}>
+              <a href={`/blog/${getCleanSlug(post.slug)}`} class="article-link">
+                <div class="article-image" style={`background: ${getCategoryGradient(post.data.category)};`}>
+                  <div class="image-overlay"></div>
+                  <span class="category-badge-img">{post.data.category}</span>
+                </div>
+
+                <div class="article-body">
+                  <h3 class="article-title">
+                    {post.data.title}
+                  </h3>
+
+                  <p class="article-excerpt">
+                    {post.data.description}
+                  </p>
+
+                  <div class="article-footer">
+                    <div class="article-meta">
+                      <span class="meta-date">{formatDate(post)}</span>
+                      <span class="meta-divider">•</span>
+                      <span class="meta-time">{getReadTime(post)}</span>
+                    </div>
+                    {post.data.tags && post.data.tags.length > 0 && (
+                      <div class="article-tags">
+                        {post.data.tags.slice(0, 2).map(tag => (
+                          <span class="tag">{tag}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <div class="load-more-container">
+          <button class="load-more-btn" aria-label="Load more blog articles">
+            Load More Articles
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <path d="M10 4v12m0 0l-4-4m4 4l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+      <div class="newsletter-background">
+        <div class="newsletter-gradient"></div>
+        <div class="newsletter-pattern"></div>
+      </div>
+
+      <div class="container">
+        <div class="newsletter-content">
+          <div class="newsletter-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="currentColor">
+              <path d="M40 8H8c-2.21 0-3.98 1.79-3.98 4L4 36c0 2.21 1.79 4 4 4h32c2.21 0 4-1.79 4-4V12c0-2.21-1.79-4-4-4zm0 8L24 26 8 16v-4l16 10 16-10v4z"/>
+            </svg>
+          </div>
+
+          <h2 class="newsletter-title">
+            Get Weekly Marketing Insights
+          </h2>
+
+          <p class="newsletter-description">
+            Join Sydney business owners who receive actionable digital marketing tips every Tuesday. No fluff, just strategies that work.
+          </p>
+
+          <form class="newsletter-form" id="newsletter-form">
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email address"
+                required
+                class="newsletter-input"
+                id="newsletter-email"
+              >
+              <button type="submit" class="newsletter-submit" id="newsletter-submit">
+                <span id="submit-text">Subscribe Free</span>
+                <svg id="submit-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+            <p class="newsletter-privacy">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 1l6 3v4c0 4-3 8-6 9-3-1-6-5-6-9V4l6-3z"/>
+              </svg>
+              No spam, ever. Unsubscribe with one click.
+            </p>
+            <p id="newsletter-message" style="display: none; margin-top: 1rem; padding: 0.75rem; border-radius: 8px; font-size: 0.875rem;"></p>
+          </form>
+
+          <div class="newsletter-proof">
+            <div class="proof-item">
+              <span class="proof-number">{sortedPosts.length}+</span>
+              <span class="proof-label">Articles</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-number">{categories.length}</span>
+              <span class="proof-label">Topics</span>
+            </div>
+            <div class="proof-item">
+              <span class="proof-number">Weekly</span>
+              <span class="proof-label">Delivery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script define:vars={{ INITIAL_POSTS, relatedTagsMap, tagCount }}>
+    // Optimized Load More Pagination
+    const POSTS_PER_LOAD = 6;
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    const articleCards = document.querySelectorAll('.article-card');
+    const searchInput = document.querySelector('.search-input');
+
+    // Debounce utility for search
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    function updateLoadMoreButton() {
+      const visiblePosts = Array.from(articleCards).filter(card =>
+        card.style.display !== 'none'
+      ).length;
+
+      loadMoreBtn.style.display = visiblePosts >= articleCards.length ? 'none' : 'flex';
+    }
+
+    loadMoreBtn?.addEventListener('click', () => {
+      const hiddenCards = Array.from(articleCards).filter(card =>
+        card.style.display === 'none'
+      ).slice(0, POSTS_PER_LOAD);
+
+      hiddenCards.forEach(card => {
+        card.style.display = '';
+        card.classList.add('fade-in');
+      });
+
+      updateLoadMoreButton();
+    });
+
+    // Category filtering
+    const filterPills = document.querySelectorAll('.filter-pill');
+    let activeCategory = 'all';
+    let activeTag = null;
+
+    // Get category and tag from URL on page load
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    const tagParam = urlParams.get('tag');
+
+    if (categoryParam) {
+      activeCategory = categoryParam;
+      filterPills.forEach(pill => {
+        if (pill.dataset.category === categoryParam) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+    }
+
+    // Related Tags functionality
+    const relatedTagsSection = document.getElementById('related-tags-section');
+    const relatedTagsList = document.getElementById('related-tags-list');
+    const currentTagDisplay = document.getElementById('current-tag-display');
+    const clearTagBtn = document.getElementById('clear-tag-filter');
+
+    function showRelatedTags(tag) {
+      const relatedTags = relatedTagsMap[tag] || [];
+
+      if (relatedTags.length > 0) {
+        // Update current tag display
+        currentTagDisplay.textContent = tag;
+
+        // Clear and populate related tags list
+        relatedTagsList.innerHTML = '';
+        relatedTags.forEach(relatedTag => {
+          const count = tagCount[relatedTag] || 0;
+          const link = document.createElement('a');
+          link.href = `/blog/?tag=${encodeURIComponent(relatedTag)}`;
+          link.className = 'related-tag-item';
+          link.setAttribute('aria-label', `View ${count} articles tagged with ${relatedTag}`);
+          link.innerHTML = `
+            <span>${relatedTag}</span>
+            <span class="tag-count" style="background: #e0e7ff; color: #5b21b6;">${count}</span>
+          `;
+          relatedTagsList.appendChild(link);
+        });
+
+        // Show the section
+        relatedTagsSection.classList.add('active');
+      }
+    }
+
+    function hideRelatedTags() {
+      relatedTagsSection.classList.remove('active');
+    }
+
+    // Clear tag filter button
+    clearTagBtn?.addEventListener('click', () => {
+      window.location.href = '/blog/';
+    });
+
+    if (tagParam) {
+      activeTag = tagParam.toLowerCase();
+
+      // Show related tags for this tag
+      showRelatedTags(tagParam);
+
+      // Show tag filter indicator (kept for backwards compatibility)
+      const filterContainer = document.querySelector('.filter-container');
+      const tagIndicator = document.createElement('div');
+      tagIndicator.className = 'active-tag-filter';
+      tagIndicator.innerHTML = `
+        <span>Filtering by tag: <strong>${tagParam}</strong></span>
+        <button onclick="window.location.href='/blog/'" class="clear-tag">×</button>
+      `;
+      tagIndicator.style.cssText = 'display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: #ede9fe; color: #6d28d9; border-radius: 8px; font-size: 0.875rem; margin-top: 1rem;';
+      filterContainer.appendChild(tagIndicator);
+    } else {
+      hideRelatedTags();
+    }
+
+    function applyFilters() {
+      const searchTerm = searchInput?.value.toLowerCase().trim() || '';
+
+      articleCards.forEach((card, index) => {
+        const title = card.querySelector('.article-title')?.textContent.toLowerCase() || '';
+        const excerpt = card.querySelector('.article-excerpt')?.textContent.toLowerCase() || '';
+        const category = card.querySelector('.category-badge')?.textContent.toLowerCase() || '';
+        const tags = Array.from(card.querySelectorAll('.tag')).map(t => t.textContent.toLowerCase());
+
+        const searchMatches = searchTerm === '' ||
+                             title.includes(searchTerm) ||
+                             excerpt.includes(searchTerm) ||
+                             category.includes(searchTerm);
+
+        const categoryMatches = activeCategory === 'all' ||
+                               category === activeCategory.replace(/-/g, ' ');
+
+        const tagMatches = !activeTag || tags.some(tag => tag.includes(activeTag));
+
+        if (searchMatches && categoryMatches && tagMatches) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      updateLoadMoreButton();
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const category = pill.dataset.category;
+
+        // Update active states and ARIA
+        filterPills.forEach(p => {
+          p.classList.remove('active');
+          p.setAttribute('aria-pressed', 'false');
+        });
+        pill.classList.add('active');
+        pill.setAttribute('aria-pressed', 'true');
+
+        activeCategory = category;
+
+        // Update URL without reload
+        const url = new URL(window.location);
+        if (category === 'all') {
+          url.searchParams.delete('category');
+        } else {
+          url.searchParams.set('category', category);
+        }
+        window.history.pushState({}, '', url);
+
+        applyFilters();
+      });
+    });
+
+    // Debounced Search functionality (300ms delay)
+    const debouncedApplyFilters = debounce(applyFilters, 300);
+    searchInput?.addEventListener('input', debouncedApplyFilters);
+
+    // Apply filters on load if category or tag is set
+    if (categoryParam || tagParam) {
+      applyFilters();
+    }
+
+    // Newsletter form submission
+    const newsletterForm = document.getElementById('newsletter-form');
+    const newsletterMessage = document.getElementById('newsletter-message');
+    const submitBtn = document.getElementById('newsletter-submit');
+    const submitText = document.getElementById('submit-text');
+
+    newsletterForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(newsletterForm);
+      submitBtn.disabled = true;
+      submitText.textContent = 'Subscribing...';
+
+      try {
+        const response = await fetch('/api/newsletter', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          newsletterMessage.style.display = 'block';
+          newsletterMessage.style.background = 'rgba(76, 175, 80, 0.2)';
+          newsletterMessage.style.color = '#2e7d32';
+          newsletterMessage.textContent = data.message;
+          newsletterForm.reset();
+          submitText.textContent = 'Subscribed!';
+
+          setTimeout(() => {
+            submitText.textContent = 'Subscribe Free';
+            newsletterMessage.style.display = 'none';
+          }, 3000);
+        } else {
+          newsletterMessage.style.display = 'block';
+          newsletterMessage.style.background = 'rgba(244, 67, 54, 0.2)';
+          newsletterMessage.style.color = '#c62828';
+          newsletterMessage.textContent = data.error || 'Subscription failed. Please try again.';
+          submitText.textContent = 'Subscribe Free';
+        }
+      } catch (error) {
+        newsletterMessage.style.display = 'block';
+        newsletterMessage.style.background = 'rgba(244, 67, 54, 0.2)';
+        newsletterMessage.style.color = '#c62828';
+        newsletterMessage.textContent = 'An error occurred. Please try again later.';
+        submitText.textContent = 'Subscribe Free';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    // Popular posts functionality
+    const viewButtons = document.querySelectorAll('.view-btn');
+    let currentView = 'latest';
+
+    // Get view counts from localStorage
+    function getViewCounts() {
+      const counts = localStorage.getItem('blogViewCounts');
+      return counts ? JSON.parse(counts) : {};
+    }
+
+    // Sort articles by popularity
+    function sortByPopularity() {
+      const viewCounts = getViewCounts();
+      const articlesGrid = document.querySelector('.articles-grid');
+      const cards = Array.from(articleCards);
+
+      cards.sort((a, b) => {
+        const slugA = a.dataset.slug;
+        const slugB = b.dataset.slug;
+        const viewsA = viewCounts[slugA] || 0;
+        const viewsB = viewCounts[slugB] || 0;
+        return viewsB - viewsA;
+      });
+
+      // Reorder in DOM
+      cards.forEach(card => articlesGrid.appendChild(card));
+
+      // Show first INITIAL_POSTS cards
+      cards.forEach((card, index) => {
+        card.dataset.index = index;
+        card.style.display = index < INITIAL_POSTS ? '' : 'none';
+      });
+    }
+
+    // Sort by latest (original order)
+    function sortByLatest() {
+      const articlesGrid = document.querySelector('.articles-grid');
+      const cards = Array.from(articleCards);
+
+      cards.sort((a, b) => {
+        return parseInt(a.dataset.originalIndex) - parseInt(b.dataset.originalIndex);
+      });
+
+      // Reorder in DOM
+      cards.forEach(card => articlesGrid.appendChild(card));
+
+      // Reset display
+      cards.forEach((card, index) => {
+        card.dataset.index = index;
+        card.style.display = index < INITIAL_POSTS ? '' : 'none';
+      });
+    }
+
+    viewButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.dataset.view;
+
+        // Update active states and ARIA
+        viewButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        currentView = view;
+
+        if (view === 'popular') {
+          sortByPopularity();
+        } else {
+          sortByLatest();
+        }
+
+        updateLoadMoreButton();
+      });
+    });
+
+    // Initial check
+    updateLoadMoreButton();
+  </script>
+</BaseLayout>

@@ -1,0 +1,447 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import TeamGrid from '../components/sections/TeamGrid.astro';
+import CompanyTimeline from '../components/sections/CompanyTimeline.astro';
+import MissionVision from '../components/sections/MissionVision.astro';
+import ClientLogoWall from '../components/sections/ClientLogoWall.astro';
+import TestimonialsGrid from '../components/sections/TestimonialsGrid.astro';
+import InlineCTA from '../components/ui/InlineCTA.astro';
+
+const pageTitle = "About Us | The Profit Platform";
+const pageDescription = "Founded in 2024, The Profit Platform delivers fresh digital marketing strategies to Sydney businesses. Meet our team and discover our values.";
+
+// Structured Data for Organization with Person entities
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "The Profit Platform",
+  "description": "Digital marketing agency specializing in SEO, content marketing, and lead generation for Sydney businesses",
+  "foundingDate": "2024",
+  "url": "https://theprofitplatform.com.au",
+  "telephone": "+61-xxx-xxx-xxx",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sydney",
+    "addressRegion": "NSW",
+    "addressCountry": "AU"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -33.8688,
+    "longitude": 151.2093
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Sydney",
+      "sameAs": "https://en.wikipedia.org/wiki/Sydney"
+    },
+    {
+      "@type": "City",
+      "name": "Bondi"
+    },
+    {
+      "@type": "City",
+      "name": "Parramatta"
+    },
+    {
+      "@type": "City",
+      "name": "Penrith"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "127"
+  },
+  "priceRange": "$$",
+  "founder": {
+    "@type": "Person",
+    "name": "Avi Cohen",
+    "jobTitle": "Founder & Digital Strategist",
+    "email": "avi@theprofitplatform.com.au"
+  },
+  "employee": [
+    {
+      "@type": "Person",
+      "name": "Avi Cohen",
+      "jobTitle": "Founder & Digital Strategist"
+    }
+  ]
+};
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <!-- Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+  <Header />
+
+  <main id="main-content" role="main" class="min-h-screen">
+    <!-- Hero with Background Image -->
+    <section class="relative py-32 md:py-40 overflow-hidden">
+      <!-- Background with Gradient Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900" aria-hidden="true">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/50"></div>
+        <!-- Optional: Replace with actual hero image -->
+        <!-- <img src="/images/about/hero.jpg" alt="" class="w-full h-full object-cover mix-blend-overlay opacity-40" loading="eager" /> -->
+      </div>
+
+      <!-- Hero Content -->
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center text-white">
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-black mb-6 animate-fade-in-up">
+            About The Profit Platform
+          </h1>
+          <p class="text-xl md:text-2xl leading-relaxed mb-8 text-white/95 animate-fade-in-up" style="animation-delay: 150ms;">
+            Sydney's most innovative digital marketing agency. We transform how local businesses grow online with data-driven strategies and personalized service.
+          </p>
+          <div class="flex flex-wrap justify-center gap-6 text-white/90 animate-fade-in-up" style="animation-delay: 300ms;">
+            <div class="flex items-center gap-2">
+              <span class="text-2xl" aria-hidden="true">📍</span>
+              <span class="font-semibold">Sydney Based</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-2xl" aria-hidden="true">⭐</span>
+              <span class="font-semibold">127+ 5-Star Reviews</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-2xl" aria-hidden="true">🚀</span>
+              <span class="font-semibold">Founded 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce" aria-hidden="true">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Metrics Counter Strip -->
+    <section class="py-12 md:py-16 bg-white border-b border-gray-100" aria-label="Key metrics">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-5xl md:text-6xl font-black text-indigo-600 mb-2">15+</div>
+            <div class="text-gray-700 font-semibold">Active Clients</div>
+          </div>
+          <div class="text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-5xl md:text-6xl font-black text-purple-600 mb-2">2x</div>
+            <div class="text-gray-700 font-semibold">Average Lead Growth</div>
+          </div>
+          <div class="text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-5xl md:text-6xl font-black text-pink-600 mb-2">127+</div>
+            <div class="text-gray-700 font-semibold">5-Star Reviews</div>
+          </div>
+          <div class="text-center transform hover:scale-105 transition-transform duration-300">
+            <div class="text-5xl md:text-6xl font-black text-indigo-600 mb-2">100%</div>
+            <div class="text-gray-700 font-semibold">Satisfaction Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-20 md:py-32 relative">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div class="space-y-6">
+              <h2 class="text-4xl md:text-5xl font-black mb-8 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Our Story</h2>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                Founded in 2024, The Profit Platform was born from a simple vision: Sydney businesses deserve better <a href="/services/" class="text-indigo-600 hover:text-indigo-800 font-semibold underline decoration-2 underline-offset-2">digital marketing services</a>.
+              </p>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                No fluff, no vanity metrics—just proven strategies that deliver real results. We specialize in <a href="/services/seo-optimization/" class="text-indigo-600 hover:text-indigo-800 font-semibold">SEO</a>, <a href="/services/google-ads-management/" class="text-indigo-600 hover:text-indigo-800 font-semibold">Google Ads</a>, and <a href="/services/web-development/" class="text-indigo-600 hover:text-indigo-800 font-semibold">web development</a> that transforms how businesses grow online.
+              </p>
+              <p class="text-lg text-gray-700 leading-relaxed">
+                From <a href="/locations/bondi/" class="text-indigo-600 hover:text-indigo-800 font-semibold">Bondi's</a> coastal businesses to <a href="/locations/parramatta/" class="text-indigo-600 hover:text-indigo-800 font-semibold">Parramatta's</a> corporate hub and <a href="/locations/penrith/" class="text-indigo-600 hover:text-indigo-800 font-semibold">Penrith's</a> growing market, we're proud to help 15+ <a href="/locations/sydney/" class="text-indigo-600 hover:text-indigo-800 font-semibold">Sydney businesses</a> achieve 2x more qualified leads and sustainable growth. See our <a href="/portfolio/" class="text-indigo-600 hover:text-indigo-800 font-semibold underline decoration-2 underline-offset-2">case studies</a> for real results.
+              </p>
+
+              <!-- Inline CTA -->
+              <div class="pt-6">
+                <InlineCTA
+                  text="Start Your Growth Journey"
+                  link="/contact"
+                  variant="gradient"
+                  size="lg"
+                />
+              </div>
+            </div>
+
+            <!-- Story Image/Photo - Replace with actual team photo -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+              <div class="aspect-square bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 flex items-center justify-center">
+                <!-- PLACEHOLDER - Replace with actual hero/team photo -->
+                <div class="text-center p-8">
+                  <div class="text-8xl mb-4" aria-hidden="true">📸</div>
+                  <p class="text-xl font-semibold text-gray-700">Team Photo</p>
+                  <p class="text-sm text-gray-500 mt-2">Replace with /images/about/team-hero.jpg</p>
+                </div>
+                <!-- Uncomment when image is available:
+                <img
+                  src="/images/about/team-hero.jpg"
+                  alt="The Profit Platform team in Sydney office"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                -->
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-indigo-900/40 to-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" aria-hidden="true"></div>
+
+    <!-- Mission & Vision -->
+    <MissionVision />
+
+    <!-- Section Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" aria-hidden="true"></div>
+
+    <!-- Company Timeline -->
+    <CompanyTimeline />
+
+    <!-- Section Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" aria-hidden="true"></div>
+
+    <!-- Our Values Section -->
+    <section class="py-20 md:py-32 relative bg-gradient-to-br from-gray-50 via-purple-50/30 to-pink-50/30" aria-labelledby="values-heading">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <h2 id="values-heading" class="text-4xl md:text-5xl font-black text-center mb-16 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">Our Core Values</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <article class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-indigo-100">
+              <div class="text-5xl mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">🎯</div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Results-Driven</h3>
+              <p class="text-gray-600 leading-relaxed">
+                We focus on delivering measurable results that impact your bottom line—2x more leads, higher <a href="/services/conversion-optimization/" class="text-indigo-600 hover:text-indigo-800 font-semibold">conversion rates</a>, and sustainable growth. No vanity metrics, just real business outcomes tracked through <a href="/tools/analytics-dashboard/" class="text-indigo-600 hover:text-indigo-800 font-semibold">our analytics dashboard</a>.
+              </p>
+            </article>
+            <article class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-100">
+              <div class="text-5xl mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">🤝</div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Transparent</h3>
+              <p class="text-gray-600 leading-relaxed">
+                Clear communication, honest reporting, and no hidden fees. You'll always know exactly what we're doing, why we're doing it, and what results to expect.
+              </p>
+            </article>
+            <article class="group bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-pink-100">
+              <div class="text-5xl mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300" aria-hidden="true">⚡</div>
+              <h3 class="text-2xl font-bold mb-4 text-gray-900">Innovative</h3>
+              <p class="text-gray-600 leading-relaxed">
+                We stay ahead of the curve with fresh strategies, <a href="/tools/" class="text-indigo-600 hover:text-indigo-800 font-semibold">cutting-edge tools</a>, and data-driven insights that keep your Sydney business competitive. Check out our <a href="/blog/" class="text-indigo-600 hover:text-indigo-800 font-semibold">latest digital marketing insights</a> on the blog.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <TeamGrid />
+
+    <!-- Inline CTA after Team -->
+    <section class="py-12 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
+          Ready to Work with Sydney's Best Digital Marketing Team?
+        </h3>
+        <p class="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
+          Join 15+ businesses already seeing 2x more qualified leads
+        </p>
+        <InlineCTA
+          text="Get Your Free Strategy Call"
+          link="/contact"
+          variant="secondary"
+          size="lg"
+        />
+      </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" aria-hidden="true"></div>
+
+    <!-- Client Logo Wall -->
+    <ClientLogoWall />
+
+    <!-- Section Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" aria-hidden="true"></div>
+
+    <!-- Testimonials -->
+    <TestimonialsGrid />
+
+    <!-- Section Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" aria-hidden="true"></div>
+
+    <!-- Local Business Highlight -->
+    <section class="py-20 md:py-32 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="inline-flex items-center justify-center gap-3 mb-8">
+            <span class="text-5xl" aria-hidden="true">📍</span>
+            <h2 class="text-3xl md:text-4xl font-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Proudly Serving Sydney
+            </h2>
+          </div>
+          <p class="text-xl text-gray-700 leading-relaxed mb-8">
+            From the eastern beaches of Bondi to the business hubs of Parramatta and the growing markets of Penrith, we're committed to helping Sydney businesses thrive in the digital age. Explore our <a href="/services/" class="text-indigo-600 hover:text-indigo-800 font-semibold underline decoration-2 underline-offset-2">full range of services</a> available across all Sydney locations.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="/locations/bondi/" class="px-6 py-3 bg-white rounded-full shadow-md text-gray-700 font-semibold hover:bg-indigo-50 hover:text-indigo-700 transition-colors">Bondi</a>
+            <a href="/locations/sydney/" class="px-6 py-3 bg-white rounded-full shadow-md text-gray-700 font-semibold hover:bg-indigo-50 hover:text-indigo-700 transition-colors">Sydney CBD</a>
+            <a href="/locations/parramatta/" class="px-6 py-3 bg-white rounded-full shadow-md text-gray-700 font-semibold hover:bg-indigo-50 hover:text-indigo-700 transition-colors">Parramatta</a>
+            <a href="/locations/penrith/" class="px-6 py-3 bg-white rounded-full shadow-md text-gray-700 font-semibold hover:bg-indigo-50 hover:text-indigo-700 transition-colors">Penrith</a>
+            <a href="/locations/" class="px-6 py-3 bg-white rounded-full shadow-md text-gray-700 font-semibold hover:bg-indigo-50 hover:text-indigo-700 transition-colors">Greater Sydney</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Helpful Resources Section -->
+    <section class="py-20 md:py-32 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-black text-center mb-4 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            Helpful Resources
+          </h2>
+          <p class="text-center text-gray-600 text-lg mb-12 max-w-2xl mx-auto">
+            Learn more about digital marketing strategies that drive real results for Sydney businesses
+          </p>
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <article class="bg-gradient-to-br from-indigo-50 to-purple-50 p-6 rounded-xl border-2 border-indigo-100 hover:border-indigo-300 hover:shadow-lg transition-all duration-300">
+              <div class="text-3xl mb-3" aria-hidden="true">🎯</div>
+              <h3 class="text-xl font-bold mb-3 text-gray-900">
+                <a href="/blog/how-sydney-businesses-rank-number-1-google-2025/" class="hover:text-indigo-600 transition-colors">
+                  How Sydney Businesses Rank #1 on Google
+                </a>
+              </h3>
+              <p class="text-gray-600 mb-4">Complete guide to ranking on Google's first page in 2025</p>
+              <a href="/blog/how-sydney-businesses-rank-number-1-google-2025/" class="text-indigo-600 hover:text-indigo-800 font-semibold inline-flex items-center gap-2">
+                Read more →
+              </a>
+            </article>
+
+            <article class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border-2 border-purple-100 hover:border-purple-300 hover:shadow-lg transition-all duration-300">
+              <div class="text-3xl mb-3" aria-hidden="true">💰</div>
+              <h3 class="text-xl font-bold mb-3 text-gray-900">
+                <a href="/blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/" class="hover:text-purple-600 transition-colors">
+                  7 Google Ads Mistakes Costing You Thousands
+                </a>
+              </h3>
+              <p class="text-gray-600 mb-4">Avoid these common mistakes and maximize your ad ROI</p>
+              <a href="/blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/" class="text-purple-600 hover:text-purple-800 font-semibold inline-flex items-center gap-2">
+                Read more →
+              </a>
+            </article>
+
+            <article class="bg-gradient-to-br from-pink-50 to-indigo-50 p-6 rounded-xl border-2 border-pink-100 hover:border-pink-300 hover:shadow-lg transition-all duration-300">
+              <div class="text-3xl mb-3" aria-hidden="true">📈</div>
+              <h3 class="text-xl font-bold mb-3 text-gray-900">
+                <a href="/blog/conversion-rate-optimization-9-quick-wins-for-sydney-service-businesses/" class="hover:text-pink-600 transition-colors">
+                  9 Quick Wins for Conversion Optimization
+                </a>
+              </h3>
+              <p class="text-gray-600 mb-4">Increase your conversion rates with these proven tactics</p>
+              <a href="/blog/conversion-rate-optimization-9-quick-wins-for-sydney-service-businesses/" class="text-pink-600 hover:text-pink-800 font-semibold inline-flex items-center gap-2">
+                Read more →
+              </a>
+            </article>
+          </div>
+          <div class="text-center mt-12">
+            <a href="/blog/" class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              View All Articles
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" aria-hidden="true"></div>
+
+    <CTASection
+      title="Ready to Grow Your Business?"
+      subtitle="Join 15+ Sydney businesses already seeing 2x more leads with our proven strategies"
+    />
+  </main>
+
+</BaseLayout>
+
+<style>
+  /* Prevent horizontal overflow */
+  :global(html) {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    50% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+  }
+
+  .animate-bounce {
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  /* Enhanced focus states for accessibility */
+  article:focus-within,
+  div[role="group"]:focus-within {
+    outline: 3px solid #6366f1;
+    outline-offset: 4px;
+    border-radius: 1rem;
+  }
+
+  /* Performance optimization for transforms */
+  [class*="transform"] {
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Ensure images load with fade-in */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  /* Fix container overflow on mobile */
+  section {
+    overflow-x: hidden;
+  }
+</style>

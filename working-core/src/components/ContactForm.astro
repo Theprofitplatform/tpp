@@ -1,0 +1,608 @@
+---
+interface Props {
+  variant?: 'default' | 'inline';
+}
+
+const { variant = 'default' } = Astro.props;
+---
+
+<form
+  id="contact-form"
+  class="space-y-6"
+  data-variant={variant}
+  action=""
+  method="POST"
+>
+  <!-- Honeypot for spam protection -->
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+  <!-- FormSubmit configuration -->
+  <input type="hidden" name="_subject" value="New contact form submission">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+
+  <!-- UTM Tracking Parameters -->
+  <input type="hidden" name="utm_source" id="utm_source">
+  <input type="hidden" name="utm_medium" id="utm_medium">
+  <input type="hidden" name="utm_campaign" id="utm_campaign">
+  <input type="hidden" name="utm_term" id="utm_term">
+  <input type="hidden" name="utm_content" id="utm_content">
+  <input type="hidden" name="referrer" id="referrer">
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="name" class="form-label-modern">
+        Full Name <span class="text-red-500">*</span>
+      </label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          autocomplete="name"
+          class="form-input-modern"
+          placeholder="John Smith"
+          aria-describedby="name-error"
+        />
+        <span class="validation-icon"></span>
+      </div>
+      <div id="name-error" class="error-message" role="alert" aria-live="polite"></div>
+    </div>
+
+    <div>
+      <label for="email" class="form-label-modern">
+        Email Address <span class="text-red-500">*</span>
+      </label>
+      <div class="input-wrapper">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          autocomplete="email"
+          class="form-input-modern"
+          placeholder="john@company.com"
+          aria-describedby="email-error"
+        />
+        <span class="validation-icon"></span>
+      </div>
+      <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <label for="phone" class="form-label-modern">
+        Phone Number
+      </label>
+      <div class="input-wrapper">
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          autocomplete="tel"
+          class="form-input-modern"
+          placeholder="0400 000 000"
+          aria-describedby="phone-error"
+        />
+        <span class="validation-icon"></span>
+      </div>
+      <div id="phone-error" class="error-message" role="alert" aria-live="polite"></div>
+    </div>
+
+    <div>
+      <label for="company" class="form-label-modern">
+        Company Name
+      </label>
+      <div class="input-wrapper">
+        <input
+          type="text"
+          id="company"
+          name="company"
+          autocomplete="organization"
+          class="form-input-modern"
+          placeholder="Your Company Pty Ltd"
+          aria-describedby="company-error"
+        />
+        <span class="validation-icon"></span>
+      </div>
+      <div id="company-error" class="error-message" role="alert" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div>
+    <label for="service" class="form-label-modern">
+      Service Interested In <span class="text-red-500">*</span>
+    </label>
+    <div class="input-wrapper">
+      <select
+        id="service"
+        name="service"
+        required
+        class="form-select-modern"
+        aria-describedby="service-error"
+      >
+        <option value="">Select a service...</option>
+        <option value="Digital Marketing">Digital Marketing Strategy</option>
+        <option value="SEO">Search Engine Optimization</option>
+        <option value="Web Design">Web Design & Development</option>
+        <option value="Google Ads">Google Ads Management</option>
+        <option value="Social Media">Social Media Marketing</option>
+        <option value="Content Marketing">Content Marketing</option>
+        <option value="Other">Other / Not Sure</option>
+      </select>
+      <span class="validation-icon"></span>
+    </div>
+    <div id="service-error" class="error-message" role="alert" aria-live="polite"></div>
+  </div>
+
+  <div>
+    <label for="budget" class="form-label-modern">
+      Monthly Budget Range
+    </label>
+    <div class="input-wrapper">
+      <select
+        id="budget"
+        name="budget"
+        class="form-select-modern"
+        aria-describedby="budget-error"
+      >
+        <option value="">Select budget range...</option>
+        <option value="Under $2000">Under $2,000/month</option>
+        <option value="$2000-$5000">$2,000 - $5,000/month</option>
+        <option value="$5000-$10000">$5,000 - $10,000/month</option>
+        <option value="$10000+">$10,000+/month</option>
+        <option value="Not sure">Not sure yet</option>
+      </select>
+      <span class="validation-icon"></span>
+    </div>
+    <div id="budget-error" class="error-message" role="alert" aria-live="polite"></div>
+  </div>
+
+  <div>
+    <label for="message" class="form-label-modern">
+      What's your biggest marketing challenge right now? <span class="text-red-500">*</span>
+    </label>
+    <div class="input-wrapper">
+      <textarea
+        id="message"
+        name="message"
+        required
+        rows="6"
+        class="form-textarea-modern"
+        placeholder="Example: 'We're not ranking on Google for our main services' or 'Our ads aren't converting into actual customers'..."
+        aria-describedby="message-error"
+      ></textarea>
+      <span class="validation-icon"></span>
+    </div>
+    <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
+  </div>
+
+  <div class="flex items-start gap-3">
+    <input
+      type="checkbox"
+      id="consent"
+      name="consent"
+      required
+      class="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-600"
+    />
+    <label for="consent" class="text-sm text-gray-600">
+      I agree to receive communications from The Profit Platform and understand that I can unsubscribe at any time. By submitting this form, I agree to the <a href="/privacy" class="text-blue-600 hover:text-blue-700 underline">Privacy Policy</a>.
+    </label>
+  </div>
+
+  <div>
+    <button
+      type="submit"
+      class="form-submit-button-modern"
+      id="submit-btn"
+    >
+      <span id="submit-text">Send Message</span>
+      <span id="submit-loading" class="hidden">Sending...</span>
+      <div class="submit-button-glow"></div>
+    </button>
+  </div>
+
+  <!-- Success/Error Messages -->
+  <div id="form-message" class="hidden p-4 rounded-lg" role="alert"></div>
+</form>
+
+<style>
+  .form-label-modern {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.625rem;
+    letter-spacing: 0.3px;
+  }
+
+  .input-wrapper {
+    position: relative;
+  }
+
+  .form-input-modern,
+  .form-select-modern,
+  .form-textarea-modern {
+    width: 100%;
+    padding: 0.875rem 1.125rem;
+    padding-right: 3rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #1e293b;
+    background: white;
+    transition: all 0.3s ease;
+  }
+
+  .form-input-modern:focus,
+  .form-select-modern:focus,
+  .form-textarea-modern:focus {
+    outline: none;
+    border-color: #3B82F6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+
+  .form-input-modern.valid,
+  .form-select-modern.valid,
+  .form-textarea-modern.valid {
+    border-color: #10b981;
+    padding-right: 3rem;
+  }
+
+  .form-input-modern.invalid,
+  .form-select-modern.invalid,
+  .form-textarea-modern.invalid {
+    border-color: #ef4444;
+    padding-right: 3rem;
+  }
+
+  .validation-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .form-textarea-modern + .validation-icon {
+    top: 1rem;
+    transform: none;
+  }
+
+  .input-wrapper.valid .validation-icon::before {
+    content: '✓';
+    color: #10b981;
+    opacity: 1;
+  }
+
+  .input-wrapper.invalid .validation-icon::before {
+    content: '✕';
+    color: #ef4444;
+    opacity: 1;
+  }
+
+  .input-wrapper.valid .validation-icon,
+  .input-wrapper.invalid .validation-icon {
+    opacity: 1;
+  }
+
+  .error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    min-height: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-weight: 500;
+  }
+
+  .error-message:empty {
+    display: none;
+  }
+
+  .error-message::before {
+    content: '⚠';
+    font-size: 1rem;
+  }
+
+  .form-input-modern::placeholder,
+  .form-textarea-modern::placeholder {
+    color: #94a3b8;
+  }
+
+  .form-select-modern {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5rem 1.5rem;
+    padding-right: 3rem;
+  }
+
+  .form-textarea-modern {
+    resize: vertical;
+    min-height: 150px;
+  }
+
+  .form-submit-button-modern {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(135deg, #3B82F6, #2c86f9);
+    color: white;
+    font-weight: 700;
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+  }
+
+  .form-submit-button-modern:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+  }
+
+  .form-submit-button-modern:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .submit-button-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    pointer-events: none;
+  }
+
+  .form-submit-button-modern:hover:not(:disabled) .submit-button-glow {
+    transform: translate(-50%, -50%) scale(2.5);
+  }
+
+  @media (max-width: 768px) {
+    .form-submit-button-modern {
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const submitText = document.getElementById('submit-text') as HTMLElement;
+  const submitLoading = document.getElementById('submit-loading') as HTMLElement;
+  const formMessage = document.getElementById('form-message') as HTMLElement;
+
+  // Capture UTM parameters and referrer on page load
+  (function captureUTMParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+    utmFields.forEach(field => {
+      const value = urlParams.get(field);
+      if (value) {
+        const input = document.getElementById(field) as HTMLInputElement;
+        if (input) {
+          input.value = value;
+          // Also store in sessionStorage for persistence across pages
+          sessionStorage.setItem(field, value);
+        }
+      } else {
+        // Try to get from sessionStorage if not in URL
+        const storedValue = sessionStorage.getItem(field);
+        if (storedValue) {
+          const input = document.getElementById(field) as HTMLInputElement;
+          if (input) input.value = storedValue;
+        }
+      }
+    });
+
+    // Capture referrer
+    const referrerInput = document.getElementById('referrer') as HTMLInputElement;
+    if (referrerInput && document.referrer) {
+      referrerInput.value = document.referrer;
+    }
+  })();
+
+  // Validation functions
+  const validators = {
+    name: (value: string) => {
+      if (!value || value.trim().length < 2) {
+        return 'Name must be at least 2 characters';
+      }
+      return '';
+    },
+    email: (value: string) => {
+      if (!value) return 'Email is required';
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        return 'Please enter a valid email address';
+      }
+      return '';
+    },
+    phone: (value: string) => {
+      if (!value) return ''; // Phone is optional
+      const phoneRegex = /^(\+?61|0)[2-478]( ?\d){8}$/;
+      if (!phoneRegex.test(value.replace(/\s/g, ''))) {
+        return 'Please enter a valid Australian phone number';
+      }
+      return '';
+    },
+    service: (value: string) => {
+      if (!value) return 'Please select a service';
+      return '';
+    },
+    message: (value: string) => {
+      if (!value || value.trim().length < 10) {
+        return 'Please provide at least 10 characters';
+      }
+      return '';
+    }
+  };
+
+  // Validate a single field
+  function validateField(field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) {
+    const fieldName = field.name as keyof typeof validators;
+    const validator = validators[fieldName];
+
+    if (!validator) return true;
+
+    const error = validator(field.value);
+    const wrapper = field.closest('.input-wrapper') as HTMLElement;
+    const errorElement = document.getElementById(`${fieldName}-error`) as HTMLElement;
+
+    if (error) {
+      // Show error
+      field.classList.remove('valid');
+      field.classList.add('invalid');
+      field.setAttribute('aria-invalid', 'true');
+      wrapper?.classList.remove('valid');
+      wrapper?.classList.add('invalid');
+      if (errorElement) {
+        errorElement.textContent = error;
+      }
+      return false;
+    } else {
+      // Show success
+      field.classList.remove('invalid');
+      field.classList.add('valid');
+      field.setAttribute('aria-invalid', 'false');
+      wrapper?.classList.remove('invalid');
+      wrapper?.classList.add('valid');
+      if (errorElement) {
+        errorElement.textContent = '';
+      }
+      return true;
+    }
+  }
+
+  // Clear error on input
+  function clearError(field: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) {
+    const wrapper = field.closest('.input-wrapper') as HTMLElement;
+    const errorElement = document.getElementById(`${field.name}-error`) as HTMLElement;
+
+    field.classList.remove('invalid');
+    field.removeAttribute('aria-invalid');
+    wrapper?.classList.remove('invalid');
+    if (errorElement) {
+      errorElement.textContent = '';
+    }
+  }
+
+  // Attach event listeners to all form fields
+  const fields = form?.querySelectorAll('input, select, textarea') as NodeListOf<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>;
+  fields?.forEach(field => {
+    // Skip hidden fields and honeypot
+    if (field.type === 'hidden' || field.name === '_gotcha' || field.type === 'checkbox') return;
+
+    // Validate on blur
+    field.addEventListener('blur', () => validateField(field));
+
+    // Clear error on input
+    field.addEventListener('input', () => {
+      if (field.classList.contains('invalid')) {
+        validateField(field);
+      }
+    });
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Validate all fields before submission
+    let isValid = true;
+    fields?.forEach(field => {
+      if (field.type === 'hidden' || field.name === '_gotcha' || field.type === 'checkbox') return;
+      if (!validateField(field)) {
+        isValid = false;
+      }
+    });
+
+    if (!isValid) {
+      // Focus first invalid field
+      const firstInvalid = form.querySelector('.invalid') as HTMLElement;
+      firstInvalid?.focus();
+      return;
+    }
+
+    // Disable submit button
+    submitBtn.disabled = true;
+    submitText.classList.add('hidden');
+    submitLoading.classList.remove('hidden');
+
+    const formData = new FormData(form);
+
+    // Convert FormData to JSON
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const apiUrl = import.meta.env.PUBLIC_API_URL || '';
+      const contactEndpoint = apiUrl ? `${apiUrl}/api/contact` : '/api/contact';
+
+      const response = await fetch(contactEndpoint, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        // Track conversion in Google Analytics
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'contact_form_submission', {
+            event_category: 'conversion',
+            event_label: 'Contact Form',
+            value: 997 // Free audit value
+          });
+
+          // Track as conversion for Google Ads (if configured)
+          gtag('event', 'conversion', {
+            send_to: 'AW-CONVERSION_ID/CONVERSION_LABEL', // Replace with actual conversion ID
+            value: 997.0,
+            currency: 'AUD'
+          });
+        }
+
+        // Brief delay to ensure tracking fires before redirect
+        setTimeout(() => {
+          window.location.href = '/contact/thank-you';
+        }, 300);
+      } else {
+        // Error from API
+        const errorMsg = result.error || result.errors?.join(', ') || 'Form submission failed';
+        formMessage.textContent = errorMsg;
+        formMessage.className = 'p-4 rounded-lg bg-red-100 text-red-800 border border-red-200';
+        formMessage.classList.remove('hidden');
+      }
+    } catch (error) {
+      // Network or other error
+      formMessage.textContent = 'Oops! Something went wrong. Please try again or email us directly at avi@theprofitplatform.com.au';
+      formMessage.className = 'p-4 rounded-lg bg-red-100 text-red-800 border border-red-200';
+      formMessage.classList.remove('hidden');
+    } finally {
+      // Re-enable submit button
+      submitBtn.disabled = false;
+      submitText.classList.remove('hidden');
+      submitLoading.classList.add('hidden');
+    }
+  });
+</script>

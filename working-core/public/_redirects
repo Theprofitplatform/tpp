@@ -1,0 +1,24 @@
+# Cloudflare Pages Redirects
+# Remove date prefixes from blog URLs (301 permanent redirects)
+
+# Blog posts with date prefixes -> clean URLs (with and without trailing slash)
+/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025 /blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/ 301!
+/blog/2025-10-04-how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/ /blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/ 301!
+/blog/2025-10-05-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month /blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/ 301!
+/blog/2025-10-05-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/ /blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/ 301!
+/blog/2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results /blog/local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/ 301!
+/blog/2025-10-05-local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/ /blog/local-seo-checklist-47-steps-to-dominate-sydney-suburb-search-results/ 301!
+/blog/2025-10-06-how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses /blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/ 301!
+/blog/2025-10-06-how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/ /blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/ 301!
+
+# Legacy redirects for deleted/renamed posts
+/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST /blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/ 301!
+/blog/2025-10-04-7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month-TEST/ /blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/ 301!
+/blog/2025-10-06-complete-guide-to-multi-location-seo-for-sydney-business-owners /blog/how-to-scale-local-seo/ 301!
+/blog/2025-10-06-complete-guide-to-multi-location-seo-for-sydney-business-owners/ /blog/how-to-scale-local-seo/ 301!
+/blog/complete-guide-to-multi-location-seo-for-sydney-business-owners /blog/how-to-scale-local-seo/ 301!
+/blog/complete-guide-to-multi-location-seo-for-sydney-business-owners/ /blog/how-to-scale-local-seo/ 301!
+/blog/2025-10-06-negative-keywords-how-to-stop-wasting-money-on-google-ads /blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/ 301!
+/blog/2025-10-06-negative-keywords-how-to-stop-wasting-money-on-google-ads/ /blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/ 301!
+/blog/negative-keywords-how-to-stop-wasting-money-on-google-ads /blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/ 301!
+/blog/negative-keywords-how-to-stop-wasting-money-on-google-ads/ /blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/ 301!

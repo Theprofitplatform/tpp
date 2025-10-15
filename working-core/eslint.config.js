@@ -1,0 +1,66 @@
+import js from '@eslint/js';
+import prettier from 'eslint-config-prettier';
+import astro from 'eslint-plugin-astro';
+
+export default [
+  js.configs.recommended,
+  ...astro.configs.recommended,
+  prettier,
+  {
+    files: ['**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        // Node.js globals
+        console: 'readonly',
+        process: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        Buffer: 'readonly',
+        global: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        exports: 'readonly',
+        setTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearTimeout: 'readonly',
+        clearInterval: 'readonly',
+        // Browser globals (for client-side scripts)
+        window: 'readonly',
+        document: 'readonly',
+        navigator: 'readonly',
+        fetch: 'readonly',
+        URL: 'readonly',
+        URLSearchParams: 'readonly',
+        HTMLElement: 'readonly',
+        HTMLAnchorElement: 'readonly',
+        DOMParser: 'readonly',
+        IntersectionObserver: 'readonly',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      'no-console': 'off',
+      'no-empty': 'warn',
+      'no-constant-binary-expression': 'warn',
+    },
+  },
+  {
+    ignores: [
+      'dist/**',
+      '.astro/**',
+      'node_modules/**',
+      'archive/**',
+      '.wrangler/**',
+      'playwright-report/**',
+      'test-results/**',
+      'assets/**',
+      '**/*.min.js',
+      '~partytown/**',
+      'sw.js',
+      'sw-optimized.js',
+      '.cache/**',
+    ],
+  },
+];

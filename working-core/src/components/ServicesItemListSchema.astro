@@ -1,0 +1,63 @@
+---
+// ServicesItemListSchema.astro - ItemList schema for services offered
+// Helps Google understand and display the list of services in search results
+---
+
+<script type="application/ld+json" is:inline>
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Digital Marketing Services",
+  "description": "Complete digital marketing services offered by The Profit Platform in Sydney",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "Service",
+        "@id": "https://theprofitplatform.com.au/seo",
+        "name": "Local SEO & Search Domination",
+        "description": "Own page 1 of Google for your most profitable keywords. We don't just get you ranked—we get you the customers that matter.",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Profit Platform"
+        },
+        "areaServed": "Greater Sydney",
+        "serviceType": "Search Engine Optimization"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "Service",
+        "@id": "https://theprofitplatform.com.au/google-ads",
+        "name": "Google & Meta Ads Management",
+        "description": "Get instant customers while your SEO builds momentum. Our certified experts maximize every ad dollar for maximum ROI.",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Profit Platform"
+        },
+        "areaServed": "Greater Sydney",
+        "serviceType": "Pay Per Click Advertising"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Service",
+        "@id": "https://theprofitplatform.com.au/web-design",
+        "name": "High-Converting Web Design",
+        "description": "Your website should be a 24/7 sales machine. We design conversion-focused sites that turn visitors into paying customers.",
+        "provider": {
+          "@type": "Organization",
+          "name": "The Profit Platform"
+        },
+        "areaServed": "Greater Sydney",
+        "serviceType": "Web Design and Development"
+      }
+    }
+  ]
+}
+</script>

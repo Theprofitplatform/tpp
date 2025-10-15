@@ -1,0 +1,89 @@
+/* Contact Section Text Visibility Fix - HIGHEST PRIORITY */
+
+/* Force all contact text to be visible with highest specificity */
+.contact-info-card[data-astro-cid-joh4gybl] h3[data-astro-cid-joh4gybl] {
+    color: #0f172a !important;
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.contact-item[data-astro-cid-joh4gybl] {
+    display: flex !important;
+    align-items: start !important;
+    gap: 1rem !important;
+    margin-bottom: 1.5rem !important;
+    color: #1e293b !important;
+}
+
+.contact-item[data-astro-cid-joh4gybl] i[data-astro-cid-joh4gybl] {
+    color: #2563eb !important;
+    font-size: 1.2rem !important;
+    margin-top: .25rem !important;
+}
+
+.contact-item[data-astro-cid-joh4gybl] strong[data-astro-cid-joh4gybl] {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+}
+
+.contact-item[data-astro-cid-joh4gybl] a[data-astro-cid-joh4gybl] {
+    color: #2563eb !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+}
+
+.contact-item[data-astro-cid-joh4gybl] a[data-astro-cid-joh4gybl]:hover {
+    text-decoration: underline !important;
+}
+
+.contact-item[data-astro-cid-joh4gybl] span[data-astro-cid-joh4gybl] {
+    color: #475569 !important;
+}
+
+.contact-item[data-astro-cid-joh4gybl] div[data-astro-cid-joh4gybl] {
+    color: #1e293b !important;
+}
+
+/* Response Time Section */
+.response-time[data-astro-cid-joh4gybl] {
+    padding: 1rem !important;
+    background: #fef3c7 !important;
+    border-radius: 5px !important;
+    margin: 1.5rem 0 !important;
+    color: #0f172a !important;
+}
+
+.response-time[data-astro-cid-joh4gybl] strong[data-astro-cid-joh4gybl] {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+}
+
+/* Contact Benefits */
+.contact-benefits[data-astro-cid-joh4gybl] h4[data-astro-cid-joh4gybl] {
+    color: #0f172a !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+}
+
+.contact-benefits[data-astro-cid-joh4gybl] li[data-astro-cid-joh4gybl] {
+    padding: .5rem 0 !important;
+    color: #1e293b !important;
+}
+
+.contact-benefits[data-astro-cid-joh4gybl] i[data-astro-cid-joh4gybl] {
+    color: #10b981 !important;
+    margin-right: .5rem !important;
+}
+
+/* Ensure all text content is visible */
+.contact-info-wrapper[data-astro-cid-joh4gybl] * {
+    color: inherit !important;
+}
+
+/* Override any hidden or transparent text */
+.contact-info-card[data-astro-cid-joh4gybl] * {
+    opacity: 1 !important;
+    visibility: visible !important;
+}

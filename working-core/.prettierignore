@@ -1,0 +1,20 @@
+# Build output
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Archives
+archive/
+
+# Cache
+.cache/
+.wrangler/
+
+# Reports
+playwright-report/
+test-results/
+
+# Package locks
+package-lock.json

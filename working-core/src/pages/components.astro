@@ -1,0 +1,464 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavigationSection from '../components/sections/NavigationSection.astro';
+import HeroSection from '../components/HeroSection.astro';
+import Section from '../components/Section.astro';
+import CTA_Banner from '../components/CTA_Banner.astro';
+import ContactForm from '../components/ContactForm.astro';
+import FAQSection from '../components/sections/FAQSection.astro';
+// New components from new.theprofitplatform.com.au
+import TypingHero from '../components/TypingHero.astro';
+import SuccessMetricsCard from '../components/SuccessMetricsCard.astro';
+import ServiceIconCard from '../components/ServiceIconCard.astro';
+import AnimatedStatsCounter from '../components/AnimatedStatsCounter.astro';
+---
+
+<BaseLayout
+  title="Components Showcase | Production-Ready Astro Components"
+  description="Modern, accessible, and responsive Astro components with gradient styling"
+  noindex={true}
+>
+  <Fragment slot="head">
+    <style>
+      .showcase-page {
+        background: #f8fafc;
+        min-height: 100vh;
+      }
+
+      .showcase-header {
+        background: linear-gradient(135deg, #3B82F6 0%, #2c86f9 50%, #1e6ee8 100%);
+        color: white;
+        padding: 100px 20px 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .showcase-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.3) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.4) 0%, transparent 50%);
+        pointer-events: none;
+      }
+
+      .showcase-title {
+        font-size: 3rem;
+        font-weight: 900;
+        margin: 0 0 16px;
+        text-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        letter-spacing: -0.02em;
+        position: relative;
+      }
+
+      .showcase-subtitle {
+        font-size: 1.25rem;
+        opacity: 0.95;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+        position: relative;
+      }
+
+      .category-header {
+        max-width: 1200px;
+        margin: 100px auto 60px;
+        padding: 0 20px;
+      }
+
+      .category-title {
+        font-size: 2.75rem;
+        font-weight: 900;
+        color: #1e293b;
+        margin: 0 0 12px;
+        letter-spacing: -0.02em;
+      }
+
+      .category-description {
+        font-size: 1.25rem;
+        color: #64748b;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .component-showcase {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 20px;
+      }
+
+      .component-header {
+        margin-bottom: 24px;
+      }
+
+      .component-label {
+        display: inline-block;
+        background: linear-gradient(135deg, #3B82F6, #2c86f9);
+        color: white;
+        padding: 8px 18px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        box-shadow: 0 4px 12px rgba(44, 134, 249, 0.3);
+      }
+
+      .component-title {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #1e293b;
+        margin: 0 0 8px;
+        letter-spacing: -0.02em;
+      }
+
+      .component-description {
+        font-size: 1.125rem;
+        color: #64748b;
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .component-wrapper {
+        background: white;
+        border: 2px solid #e2e8f0;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+        transition: all 0.3s ease;
+      }
+
+      .component-wrapper:hover {
+        box-shadow: 0 20px 40px -10px rgb(0 0 0 / 0.12), 0 10px 15px -8px rgb(0 0 0 / 0.08);
+        transform: translateY(-2px);
+      }
+
+      .divider {
+        height: 80px;
+        background: linear-gradient(to bottom, #f8fafc 0%, rgba(248, 250, 252, 0.5) 50%, #f8fafc 100%);
+      }
+
+      .back-to-top {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 28px;
+        background: linear-gradient(135deg, #3B82F6, #2c86f9);
+        color: white;
+        text-decoration: none;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(44, 134, 249, 0.3);
+      }
+
+      .back-to-top:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(44, 134, 249, 0.4);
+      }
+
+      .back-to-top svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .showcase-header {
+          padding: 80px 20px 60px;
+        }
+
+        .showcase-title {
+          font-size: 2.25rem;
+        }
+
+        .showcase-subtitle {
+          font-size: 1.125rem;
+        }
+
+        .category-header {
+          margin: 60px auto 40px;
+        }
+
+        .category-title {
+          font-size: 2.25rem;
+        }
+
+        .component-title {
+          font-size: 1.625rem;
+        }
+
+        .component-showcase {
+          margin: 40px auto;
+        }
+      }
+    </style>
+  </Fragment>
+
+  <div class="showcase-page">
+    <!-- Showcase Header -->
+    <div class="showcase-header">
+      <h2 class="showcase-title">Modern Component Library</h2>
+      <p class="showcase-subtitle">
+        Production-ready Astro components with modern gradient styling and glass morphism effects
+      </p>
+    </div>
+
+    <!-- NEW.THEPROFITPLATFORM.COM.AU COMPONENTS -->
+    <div class="category-header">
+      <h2 class="category-title">Modern Dynamic Components</h2>
+      <p class="category-description">Inspired by new.theprofitplatform.com.au - typing effects, animated stats, and success metrics</p>
+    </div>
+
+    <!-- 1. Typing Hero -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Hero</span>
+        <h3 class="component-title">Typing Hero</h3>
+        <p class="component-description">
+          Dynamic hero with typing animation effect and gradient text
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <TypingHero
+          staticText="We Help You Grow"
+          typingWords={["Sales", "Traffic", "Revenue", "Leads", "Conversions"]}
+          subtitle="Professional digital marketing that delivers real, measurable results for your business"
+          cta={{ label: "Get Started", href: "/book" }}
+          secondaryCta={{ label: "View Plans", href: "/pricing" }}
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 2. Animated Stats Counter -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Stats</span>
+        <h3 class="component-title">Animated Stats Counter</h3>
+        <p class="component-description">
+          Scroll-triggered counter animation with gradient text effects
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <AnimatedStatsCounter
+          stats={[
+            { value: "500", suffix: "+", label: "Clients Served" },
+            { value: "2", suffix: "M+", label: "Revenue Generated" },
+            { value: "150", suffix: "%", label: "Average Growth" },
+            { value: "98", suffix: "%", label: "Client Satisfaction" }
+          ]}
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 3. Success Metrics Card -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Case Study</span>
+        <h3 class="component-title">Success Metrics Card</h3>
+        <p class="component-description">
+          Before/after comparison card with client testimonial and metrics
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 40px; background: #f8fafc;">
+        <div style="max-width: 600px; margin: 0 auto;">
+          <SuccessMetricsCard
+            clientName="Sydney Boutique Cafe"
+            industry="Hospitality"
+            beforeMetric="$8K"
+            afterMetric="$32K"
+            improvement="+300% Revenue"
+            testimonial="The Profit Platform transformed our online presence. We went from struggling to get customers to having a waitlist every weekend!"
+            timeline="6 months"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 4. Service Icon Card -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Services</span>
+        <h3 class="component-title">Service Icon Card</h3>
+        <p class="component-description">
+          Service offering card with gradient icon, features list, and CTA
+        </p>
+      </div>
+      <div class="component-wrapper" style="padding: 40px; background: #f8fafc;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;">
+          <ServiceIconCard
+            icon="🎯"
+            title="SEO Optimization"
+            description="Get found by customers searching for your services on Google"
+            features={[
+              "Keyword research & strategy",
+              "On-page optimization",
+              "Technical SEO audit",
+              "Monthly reporting"
+            ]}
+            link={{ label: "Learn More", href: "/seo" }}
+          />
+          <ServiceIconCard
+            icon="📱"
+            title="Social Media"
+            description="Build a loyal audience and drive engagement across platforms"
+            features={[
+              "Content creation",
+              "Community management",
+              "Paid advertising",
+              "Analytics & insights"
+            ]}
+            link={{ label: "Learn More", href: "/social" }}
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO & CTA COMPONENTS -->
+    <div class="category-header">
+      <h2 class="category-title">Hero & CTA Components</h2>
+      <p class="category-description">Eye-catching sections for conversions with modern gradients</p>
+    </div>
+
+    <!-- 5. Standard Hero Section -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Hero</span>
+        <h3 class="component-title">Standard Hero Section</h3>
+        <p class="component-description">
+          Modern hero section with gradient background and glow effects
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <HeroSection
+          title="Grow Your Business Online"
+          subtitle="Professional digital marketing services that deliver measurable results"
+          cta={{ label: "Start Free Trial", href: "/book" }}
+          secondaryCta={{ label: "Learn More", href: "/services" }}
+          variant="center"
+        />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 2. CTA Banner -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">CTA</span>
+        <h3 class="component-title">CTA Banner</h3>
+        <p class="component-description">
+          Full-width call-to-action with gradient overlay and modern button styling
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <CTA_Banner
+          title="Ready to Transform Your Business?"
+          subtitle="Join hundreds of businesses already growing with our proven strategies"
+          cta={{ label: "Get Started Today", href: "/book" }}
+          secondaryCta={{ label: "View Case Studies", href: "/case-studies" }}
+        />
+      </div>
+    </div>
+
+    <!-- LAYOUT COMPONENTS -->
+    <div class="category-header">
+      <h2 class="category-title">Layout Components</h2>
+      <p class="category-description">Flexible section wrappers with gradient backgrounds</p>
+    </div>
+
+    <!-- 3. Section -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Layout</span>
+        <h3 class="component-title">Section Wrapper</h3>
+        <p class="component-description">
+          Reusable section wrapper with gradient backgrounds (white, gray, blue)
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <Section background="blue" id="example-section">
+          <h2 style="text-align: center; font-size: 2rem; color: white;">Example Section Content</h2>
+          <p style="text-align: center; color: rgba(255,255,255,0.9); margin-top: 1rem;">
+            This is a reusable section wrapper with gradient backgrounds and consistent padding.
+          </p>
+        </Section>
+      </div>
+    </div>
+
+    <!-- FORMS -->
+    <div class="category-header">
+      <h2 class="category-title">Forms & Conversion</h2>
+      <p class="category-description">Contact forms with gradient styling and modern effects</p>
+    </div>
+
+    <!-- 8. Contact Form -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Forms</span>
+        <h3 class="component-title">Contact Form</h3>
+        <p class="component-description">
+          Modern contact form with gradient buttons, glow effects, and validation
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <Section background="white">
+          <ContactForm />
+        </Section>
+      </div>
+    </div>
+
+    <!-- INFORMATIONAL SECTIONS -->
+    <div class="category-header">
+      <h2 class="category-title">Informational Sections</h2>
+      <p class="category-description">FAQ and footer components for better user experience</p>
+    </div>
+
+    <!-- 9. FAQ Section -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Support</span>
+        <h3 class="component-title">FAQ Section</h3>
+        <p class="component-description">
+          Accordion-style FAQ with smooth animations and modern styling
+        </p>
+      </div>
+      <div class="component-wrapper">
+        <FAQSection />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 10. Footer -->
+    <div class="component-showcase">
+      <div class="component-header">
+        <span class="component-label">Navigation</span>
+        <h3 class="component-title">Footer</h3>
+        <p class="component-description">
+          Multi-column footer with social links, navigation, and company info (see page footer below)
+        </p>
+      </div>
+    </div>
+
+    <!-- Back to Top -->
+    <div class="component-showcase" style="text-align: center; margin-top: 100px; padding-bottom: 60px;">
+      <a href="#" class="back-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+        Back to Top
+      </a>
+    </div>
+  </div>
+</BaseLayout>

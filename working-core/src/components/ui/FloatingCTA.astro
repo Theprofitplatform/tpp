@@ -1,0 +1,115 @@
+---
+/**
+ * FloatingCTA Component
+ * Sticky action rail with multiple CTAs
+ *
+ * @prop {Array} buttons - CTA buttons config
+ * @prop {string} [position="bottom-right"] - Position on screen
+ *
+ * Example:
+ * <FloatingCTA
+ *   buttons={[
+ *     { label: "Call Us", icon: "📞", href: "tel:+61487286451", color: "green" },
+ *     { label: "WhatsApp", icon: "💬", href: "https://wa.me/61487286451", color: "green" },
+ *     { label: "Book Call", icon: "📅", href: "/book", color: "blue" }
+ *   ]}
+ *   position="bottom-right"
+ * />
+ */
+
+interface Button {
+  label: string;
+  icon: string;
+  href: string;
+  color?: 'blue' | 'green' | 'purple';
+}
+
+interface Props {
+  buttons: Button[];
+  position?: 'bottom-right' | 'bottom-left';
+}
+
+const { buttons, position = 'bottom-right' } = Astro.props;
+
+const colorClasses = {
+  blue: 'bg-blue-600 hover:bg-blue-700',
+  green: 'bg-green-600 hover:bg-green-700',
+  purple: 'bg-purple-600 hover:bg-purple-700'
+};
+
+const positionClasses = {
+  'bottom-right': 'bottom-6 right-6',
+  'bottom-left': 'bottom-6 left-6'
+};
+---
+
+<div
+  class:list={['fixed z-50 transition-all', positionClasses[position]]}
+  data-floating-cta
+>
+  <!-- Mobile: Collapsible FAB -->
+  <div class="md:hidden">
+    <button
+      class="w-14 h-14 bg-blue-600 text-white rounded-full shadow-2xl flex items-center justify-center text-2xl hover:scale-110 transition-transform"
+      data-fab-toggle
+      aria-label="Open actions menu"
+      aria-expanded="false"
+    >
+      ✨
+    </button>
+
+    <div
+      class="hidden absolute bottom-16 right-0 flex flex-col gap-3"
+      data-fab-menu
+    >
+      {buttons.map((button) => (
+        <a
+          href={button.href}
+          class:list={[
+            'flex items-center gap-3 px-4 py-3 rounded-full text-white shadow-lg transition-all hover:scale-105',
+            colorClasses[button.color || 'blue']
+          ]}
+        >
+          <span class="text-xl" aria-hidden="true">{button.icon}</span>
+          <span class="font-semibold">{button.label}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <!-- Desktop: Always visible rail -->
+  <div class="hidden md:flex flex-col gap-3">
+    {buttons.map((button) => (
+      <a
+        href={button.href}
+        class:list={[
+          'flex items-center gap-3 px-5 py-3 rounded-full text-white shadow-lg transition-all hover:scale-105',
+          colorClasses[button.color || 'blue']
+        ]}
+      >
+        <span class="text-xl" aria-hidden="true">{button.icon}</span>
+        <span class="font-semibold">{button.label}</span>
+      </a>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('[data-floating-cta]').forEach((cta) => {
+    const toggle = cta.querySelector('[data-fab-toggle]');
+    const menu = cta.querySelector('[data-fab-menu]');
+    let isOpen = false;
+
+    toggle?.addEventListener('click', () => {
+      isOpen = !isOpen;
+      toggle.setAttribute('aria-expanded', isOpen.toString());
+      toggle.textContent = isOpen ? '✕' : '✨';
+
+      if (isOpen) {
+        menu?.classList.remove('hidden');
+      } else {
+        menu?.classList.add('hidden');
+      }
+    });
+  });
+</script>
