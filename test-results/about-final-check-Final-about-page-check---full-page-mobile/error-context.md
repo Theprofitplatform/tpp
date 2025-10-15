@@ -1,0 +1,637 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2]:
+    - /url: "#main-content"
+  - link "Skip to navigation" [ref=e3]:
+    - /url: "#primary-navigation"
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "The Profit Platform - Home" [ref=e7]:
+        - /url: /
+        - img "The Profit Platform Logo" [ref=e9]
+      - navigation "Main navigation" [ref=e10]
+      - button "Open mobile menu" [ref=e11] [cursor=pointer]
+  - dialog [ref=e15]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - img [ref=e18]
+        - generic [ref=e20]: Sydney Digital Marketing
+      - button [ref=e21] [cursor=pointer]:
+        - generic [ref=e22] [cursor=pointer]: ×
+    - navigation [ref=e23]:
+      - heading [level=2] [ref=e24]: Navigation Menu
+      - list [ref=e25]:
+        - listitem [ref=e26]:
+          - generic [ref=e28]: 
+          - generic [ref=e29]: Home
+        - listitem [ref=e30]:
+          - generic [ref=e32]: 
+          - generic [ref=e33]: Services
+        - generic [ref=e34]:
+          - listitem [ref=e35]:
+            - generic [ref=e37]: 
+            - generic [ref=e38]: SEO & Local Search
+          - listitem [ref=e39]:
+            - generic [ref=e41]: 
+            - generic [ref=e42]: Website Design
+          - listitem [ref=e43]:
+            - generic [ref=e45]: 
+            - generic [ref=e46]: Google & Meta Ads
+        - listitem [ref=e47]:
+          - generic [ref=e49]: $
+          - generic [ref=e50]: Pricing
+        - listitem [ref=e51]:
+          - generic [ref=e53]: 
+          - generic [ref=e54]: Tools
+        - generic [ref=e55]:
+          - listitem [ref=e56]:
+            - generic [ref=e58]: 
+            - generic [ref=e59]: Keyword Gap Analyzer 🔥
+          - listitem [ref=e60]:
+            - generic [ref=e62]: 
+            - generic [ref=e63]: SEO Opportunity Calculator
+          - listitem [ref=e64]:
+            - generic [ref=e66]: 
+            - generic [ref=e67]: Speed Test
+          - listitem [ref=e68]:
+            - generic [ref=e70]: 
+            - generic [ref=e71]: SEO Audit
+          - listitem [ref=e72]:
+            - generic [ref=e74]: 
+            - generic [ref=e75]: Competitor Analysis
+          - listitem [ref=e76]:
+            - generic [ref=e78]: 
+            - generic [ref=e79]: Keyword Research
+          - listitem [ref=e80]:
+            - generic [ref=e82]: 
+            - generic [ref=e83]: Rank Tracker
+          - listitem [ref=e84]:
+            - generic [ref=e86]: 
+            - generic [ref=e87]: Content Generator
+          - listitem [ref=e88]:
+            - generic [ref=e90]: 
+            - generic [ref=e91]: Meta Tag Generator
+          - listitem [ref=e92]:
+            - generic [ref=e94]: 
+            - generic [ref=e95]: Blog
+        - listitem [ref=e96]:
+          - generic [ref=e98]: 
+          - generic [ref=e99]: Contact
+      - link [ref=e101]:
+        - /url: /contact/
+        - generic [ref=e102]: 
+        - text: Get Free Consultation
+  - main [ref=e103]:
+    - generic [ref=e104]:
+      - generic [ref=e106]:
+        - heading "About The Profit Platform" [level=1] [ref=e107]
+        - paragraph [ref=e108]: Sydney's most innovative digital marketing agency. We transform how local businesses grow online with data-driven strategies and personalized service.
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - generic [ref=e111]: 📍
+            - generic [ref=e112]: Sydney Based
+          - generic [ref=e113]:
+            - generic [ref=e114]: ⭐
+            - generic [ref=e115]: 127+ 5-Star Reviews
+          - generic [ref=e116]:
+            - generic [ref=e117]: 🚀
+            - generic [ref=e118]: Founded 2024
+      - img [ref=e120]
+    - region "Key metrics" [ref=e122]:
+      - generic [ref=e124]:
+        - generic [ref=e125]:
+          - generic [ref=e126]: 15+
+          - generic [ref=e127]: Active Clients
+        - generic [ref=e128]:
+          - generic [ref=e129]: 2x
+          - generic [ref=e130]: Average Lead Growth
+        - generic [ref=e131]:
+          - generic [ref=e132]: 127+
+          - generic [ref=e133]: 5-Star Reviews
+        - generic [ref=e134]:
+          - generic [ref=e135]: 100%
+          - generic [ref=e136]: Satisfaction Rate
+    - generic [ref=e140]:
+      - generic [ref=e141]:
+        - heading "Our Story" [level=2] [ref=e142]
+        - paragraph [ref=e143]:
+          - text: "Founded in 2024, The Profit Platform was born from a simple vision: Sydney businesses deserve better"
+          - link "digital marketing services" [ref=e144]:
+            - /url: /services/
+          - text: .
+        - paragraph [ref=e145]:
+          - text: No fluff, no vanity metrics—just proven strategies that deliver real results. We specialize in
+          - link "SEO" [ref=e146]:
+            - /url: /services/seo-optimization/
+          - text: ","
+          - link "Google Ads" [ref=e147]:
+            - /url: /services/google-ads-management/
+          - text: ", and"
+          - link "web development" [ref=e148]:
+            - /url: /services/web-development/
+          - text: that transforms how businesses grow online.
+        - paragraph [ref=e149]:
+          - text: From
+          - link "Bondi's" [ref=e150]:
+            - /url: /locations/bondi/
+          - text: coastal businesses to
+          - link "Parramatta's" [ref=e151]:
+            - /url: /locations/parramatta/
+          - text: corporate hub and
+          - link "Penrith's" [ref=e152]:
+            - /url: /locations/penrith/
+          - text: growing market, we're proud to help 15+
+          - link "Sydney businesses" [ref=e153]:
+            - /url: /locations/sydney/
+          - text: achieve 2x more qualified leads and sustainable growth. See our
+          - link "case studies" [ref=e154]:
+            - /url: /portfolio/
+          - text: for real results.
+        - link "Start Your Growth Journey" [ref=e157]:
+          - /url: /contact/
+          - generic [ref=e158]: Start Your Growth Journey
+          - img [ref=e159]
+      - generic [ref=e163]:
+        - generic [ref=e164]: 📸
+        - paragraph [ref=e165]: Team Photo
+        - paragraph [ref=e166]: Replace with /images/about/team-hero.jpg
+    - region "What Drives Us" [ref=e167]:
+      - generic [ref=e169]:
+        - heading "What Drives Us" [level=2] [ref=e171]
+        - generic [ref=e172]:
+          - article "Our Mission" [ref=e173]:
+            - generic [ref=e174]:
+              - generic [ref=e175]: 🎯
+              - heading "Our Mission" [level=3] [ref=e176]
+              - paragraph [ref=e177]: To empower Sydney businesses with innovative, results-driven digital marketing strategies that deliver measurable growth. We believe in transparent communication, personalised service, and building long-term partnerships based on trust and proven results.
+          - article "Our Vision" [ref=e178]:
+            - generic [ref=e179]:
+              - generic [ref=e180]: 🚀
+              - heading "Our Vision" [level=3] [ref=e181]
+              - paragraph [ref=e182]: To become Sydney's most trusted digital marketing partner, known for transforming businesses through cutting-edge strategies, exceptional service, and unwavering commitment to client success. We envision a future where every Sydney business has access to world-class digital marketing expertise.
+        - paragraph [ref=e186]: Serving Sydney businesses with integrity, innovation, and results
+    - region "Our Journey" [ref=e187]:
+      - generic [ref=e189]:
+        - generic [ref=e190]:
+          - heading "Our Journey" [level=2] [ref=e191]
+          - paragraph [ref=e192]: Building trust and delivering results since 2024
+        - list [ref=e193]:
+          - listitem [ref=e194]:
+            - generic [ref=e195]:
+              - article [ref=e197]:
+                - generic [ref=e199]:
+                  - text: "2024"
+                  - generic [ref=e200]: Q1
+                - heading "The Profit Platform Founded" [level=3] [ref=e201]
+                - paragraph [ref=e202]: Launched with a mission to revolutionise digital marketing for Sydney businesses with fresh, innovative strategies and personalised service.
+              - generic [ref=e205]: 🚀
+          - listitem [ref=e206]:
+            - generic [ref=e207]:
+              - article [ref=e209]:
+                - generic [ref=e210]:
+                  - generic [ref=e211]:
+                    - text: "2024"
+                    - generic [ref=e212]: Q2
+                  - generic [ref=e213]: 2x Lead Growth
+                - heading "First 10 Clients Onboarded" [level=3] [ref=e214]
+                - paragraph [ref=e215]: Helped Sydney businesses across Bondi, Parramatta, and Penrith achieve an average 2x increase in qualified leads through targeted SEO and content strategies.
+              - generic [ref=e218]: 📈
+          - listitem [ref=e219]:
+            - generic [ref=e220]:
+              - article [ref=e222]:
+                - generic [ref=e224]:
+                  - text: "2024"
+                  - generic [ref=e225]: Q3
+                - heading "Expanded Service Offerings" [level=3] [ref=e226]
+                - paragraph [ref=e227]: Introduced comprehensive digital marketing packages including advanced analytics, conversion optimisation, and social media management.
+              - generic [ref=e230]: ⚡
+          - listitem [ref=e231]:
+            - generic [ref=e232]:
+              - article [ref=e234]:
+                - generic [ref=e235]:
+                  - generic [ref=e236]:
+                    - text: "2024"
+                    - generic [ref=e237]: Q4
+                  - generic [ref=e238]: 127+ Reviews
+                - heading "15+ Active Clients & Growing" [level=3] [ref=e239]
+                - paragraph [ref=e240]: Built a strong portfolio serving diverse industries from professional services to e-commerce, with 127+ five-star reviews and counting.
+              - generic [ref=e243]: ⭐
+          - listitem [ref=e244]:
+            - generic [ref=e245]:
+              - article [ref=e247]:
+                - generic [ref=e248]:
+                  - generic [ref=e249]:
+                    - text: "2025"
+                    - generic [ref=e250]: Q1
+                  - generic [ref=e251]: 50+ Goal
+                - heading "Scaling Success Across Sydney" [level=3] [ref=e252]
+                - paragraph [ref=e253]: "Expanding team and capabilities to serve more businesses. Goal: Help 50+ Sydney businesses achieve transformational growth."
+              - generic [ref=e256]: 🎯
+          - listitem [ref=e257]:
+            - generic [ref=e258]:
+              - article [ref=e260]:
+                - generic [ref=e262]:
+                  - text: "2025"
+                  - generic [ref=e263]: Q4
+                - heading "Your Success Story Starts Here" [level=3] [ref=e264]
+                - paragraph [ref=e265]: Join The Profit Platform and let's write the next chapter together. We're ready to help your Sydney business thrive in the digital landscape.
+              - generic [ref=e268]: ✨
+        - generic [ref=e271]:
+          - paragraph [ref=e272]: Ready to be part of our story?
+          - paragraph [ref=e273]: Let's achieve great things together
+    - region "Our Core Values" [ref=e274]:
+      - generic [ref=e276]:
+        - heading "Our Core Values" [level=2] [ref=e277]
+        - generic [ref=e278]:
+          - article [ref=e279]:
+            - generic [ref=e280]: 🎯
+            - heading "Results-Driven" [level=3] [ref=e281]
+            - paragraph [ref=e282]:
+              - text: We focus on delivering measurable results that impact your bottom line—2x more leads, higher
+              - link "conversion rates" [ref=e283]:
+                - /url: /services/conversion-optimization/
+              - text: ", and sustainable growth. No vanity metrics, just real business outcomes tracked through"
+              - link "our analytics dashboard" [ref=e284]:
+                - /url: /tools/analytics-dashboard/
+              - text: .
+          - article [ref=e285]:
+            - generic [ref=e286]: 🤝
+            - heading "Transparent" [level=3] [ref=e287]
+            - paragraph [ref=e288]: Clear communication, honest reporting, and no hidden fees. You'll always know exactly what we're doing, why we're doing it, and what results to expect.
+          - article [ref=e289]:
+            - generic [ref=e290]: ⚡
+            - heading "Innovative" [level=3] [ref=e291]
+            - paragraph [ref=e292]:
+              - text: We stay ahead of the curve with fresh strategies,
+              - link "cutting-edge tools" [ref=e293]:
+                - /url: /tools/
+              - text: ", and data-driven insights that keep your Sydney business competitive. Check out our"
+              - link "latest digital marketing insights" [ref=e294]:
+                - /url: /blog/
+              - text: on the blog.
+    - region "Meet The Team" [ref=e295]:
+      - generic [ref=e297]:
+        - generic [ref=e298]:
+          - heading "Meet The Team" [level=2] [ref=e299]
+          - paragraph [ref=e300]: Experienced professionals dedicated to your success
+        - list [ref=e301]:
+          - listitem [ref=e302]:
+            - generic [ref=e303]:
+              - generic [ref=e308]: A
+              - generic [ref=e309]:
+                - link "Avi Cohen's LinkedIn profile" [ref=e310]:
+                  - /url: https://linkedin.com/in/avicohen
+                  - img [ref=e311]
+                - link "Email Avi Cohen" [ref=e313]:
+                  - /url: mailto:avi@theprofitplatform.com.au
+                  - img [ref=e314]
+            - generic [ref=e316]:
+              - heading "Avi Cohen" [level=3] [ref=e317]
+              - paragraph [ref=e318]: Founder & Digital Strategist
+              - paragraph [ref=e319]: 15+ years driving digital growth for Sydney businesses. Specializes in SEO, conversion optimization, and data-driven marketing strategies.
+              - generic [ref=e320]:
+                - paragraph [ref=e321]: Expertise
+                - generic [ref=e322]:
+                  - generic [ref=e323]: SEO Strategy
+                  - generic [ref=e324]: Conversion Optimization
+                  - generic [ref=e325]: Digital Analytics
+              - paragraph [ref=e327]:
+                - generic [ref=e328]: "Fun fact:"
+                - text: Has helped over 100 Sydney businesses achieve 2x+ growth
+          - listitem [ref=e329]:
+            - generic [ref=e330]:
+              - generic [ref=e335]: M
+              - link "Marketing Team Lead's LinkedIn profile" [ref=e337]:
+                - /url: "#"
+                - img [ref=e338]
+            - generic [ref=e340]:
+              - heading "Marketing Team Lead" [level=3] [ref=e341]
+              - paragraph [ref=e342]: Senior SEO Specialist
+              - paragraph [ref=e343]: Technical SEO expert with a track record of ranking Sydney businesses on page 1. Passionate about turning organic search into qualified leads.
+              - generic [ref=e344]:
+                - paragraph [ref=e345]: Expertise
+                - generic [ref=e346]:
+                  - generic [ref=e347]: Technical SEO
+                  - generic [ref=e348]: Local SEO
+                  - generic [ref=e349]: Link Building
+              - paragraph [ref=e351]:
+                - generic [ref=e352]: "Fun fact:"
+                - text: "Achieved #1 rankings for 50+ competitive Sydney keywords"
+          - listitem [ref=e353]:
+            - generic [ref=e354]:
+              - generic [ref=e359]: C
+              - link "Content Director's LinkedIn profile" [ref=e361]:
+                - /url: "#"
+                - img [ref=e362]
+            - generic [ref=e364]:
+              - heading "Content Director" [level=3] [ref=e365]
+              - paragraph [ref=e366]: Content & Strategy Lead
+              - paragraph [ref=e367]: Award-winning content strategist creating campaigns that resonate with Sydney audiences and drive real business results.
+              - generic [ref=e368]:
+                - paragraph [ref=e369]: Expertise
+                - generic [ref=e370]:
+                  - generic [ref=e371]: Content Marketing
+                  - generic [ref=e372]: Copywriting
+                  - generic [ref=e373]: Brand Strategy
+              - paragraph [ref=e375]:
+                - generic [ref=e376]: "Fun fact:"
+                - text: Content has generated over 1M+ qualified leads
+    - generic [ref=e378]:
+      - heading "Ready to Work with Sydney's Best Digital Marketing Team?" [level=3] [ref=e379]
+      - paragraph [ref=e380]: Join 15+ businesses already seeing 2x more qualified leads
+      - link "Get Your Free Strategy Call" [ref=e382]:
+        - /url: /contact/
+        - generic [ref=e383]: Get Your Free Strategy Call
+        - img [ref=e384]
+    - region "Trusted by Sydney Businesses" [ref=e386]:
+      - generic [ref=e388]:
+        - generic [ref=e389]:
+          - heading "Trusted by Sydney Businesses" [level=2] [ref=e390]
+          - paragraph [ref=e391]: Delivering results for leading brands across Greater Sydney
+        - list [ref=e392]:
+          - listitem [ref=e393]:
+            - link "Visit Client 1 website" [ref=e394]:
+              - /url: "#"
+              - generic [ref=e395]: Client 1
+          - listitem [ref=e396]:
+            - link "Visit Client 2 website" [ref=e397]:
+              - /url: "#"
+              - generic [ref=e398]: Client 2
+          - listitem [ref=e399]:
+            - link "Visit Client 3 website" [ref=e400]:
+              - /url: "#"
+              - generic [ref=e401]: Client 3
+          - listitem [ref=e402]:
+            - link "Visit Client 4 website" [ref=e403]:
+              - /url: "#"
+              - generic [ref=e404]: Client 4
+          - listitem [ref=e405]:
+            - link "Visit Client 5 website" [ref=e406]:
+              - /url: "#"
+              - generic [ref=e407]: Client 5
+          - listitem [ref=e408]:
+            - link "Visit Client 6 website" [ref=e409]:
+              - /url: "#"
+              - generic [ref=e410]: Client 6
+        - generic [ref=e412]:
+          - generic [ref=e413]: ✓
+          - generic [ref=e414]: 15+ Active Partnerships
+          - generic [ref=e415]: ⭐
+          - generic [ref=e416]: 127+ Five-Star Reviews
+    - region "What Our Clients Say" [ref=e417]:
+      - generic [ref=e419]:
+        - generic [ref=e420]:
+          - heading "What Our Clients Say" [level=2] [ref=e421]
+          - paragraph [ref=e422]: Real results from real Sydney businesses
+        - list [ref=e423]:
+          - listitem [ref=e424]:
+            - generic [ref=e425]: "\""
+            - img "5 out of 5 stars" [ref=e426]:
+              - img [ref=e427]
+              - img [ref=e429]
+              - img [ref=e431]
+              - img [ref=e433]
+              - img [ref=e435]
+            - blockquote [ref=e437]:
+              - paragraph [ref=e438]: "\"The Profit Platform transformed our digital presence. We've seen a 150% increase in qualified leads within just 3 months. Their team is responsive, knowledgeable, and truly invested in our success.\""
+            - generic [ref=e439]:
+              - generic [ref=e440]: S
+              - generic [ref=e441]:
+                - generic [ref=e442]: Sarah Mitchell
+                - generic [ref=e443]: Marketing Director
+                - generic [ref=e444]: Sydney Property Group
+          - listitem [ref=e445]:
+            - generic [ref=e446]: "\""
+            - img "5 out of 5 stars" [ref=e447]:
+              - img [ref=e448]
+              - img [ref=e450]
+              - img [ref=e452]
+              - img [ref=e454]
+              - img [ref=e456]
+            - blockquote [ref=e458]:
+              - paragraph [ref=e459]: "\"Working with The Profit Platform has been game-changing. Their SEO strategies helped us rank #1 for our key terms in Sydney. The ROI speaks for itself - 3x growth in organic traffic!\""
+            - generic [ref=e460]:
+              - generic [ref=e461]: D
+              - generic [ref=e462]:
+                - generic [ref=e463]: David Chen
+                - generic [ref=e464]: Managing Partner
+                - generic [ref=e465]: Parramatta Legal Services
+          - listitem [ref=e466]:
+            - generic [ref=e467]: "\""
+            - img "5 out of 5 stars" [ref=e468]:
+              - img [ref=e469]
+              - img [ref=e471]
+              - img [ref=e473]
+              - img [ref=e475]
+              - img [ref=e477]
+            - blockquote [ref=e479]:
+              - paragraph [ref=e480]: "\"Finally, a marketing agency that delivers on promises! Clear communication, transparent reporting, and real results. Our conversion rate doubled in the first quarter.\""
+            - generic [ref=e481]:
+              - generic [ref=e482]: E
+              - generic [ref=e483]:
+                - generic [ref=e484]: Emma Rodriguez
+                - generic [ref=e485]: Owner & Founder
+                - generic [ref=e486]: Bondi Fitness Studio
+        - generic [ref=e488]:
+          - generic [ref=e489]: ⭐
+          - generic [ref=e490]: 127+ Five-Star Reviews
+          - generic [ref=e491]: "| Average rating: 5.0/5.0"
+    - generic [ref=e494]:
+      - generic [ref=e495]:
+        - generic [ref=e496]: 📍
+        - heading "Proudly Serving Sydney" [level=2] [ref=e497]
+      - paragraph [ref=e498]:
+        - text: From the eastern beaches of Bondi to the business hubs of Parramatta and the growing markets of Penrith, we're committed to helping Sydney businesses thrive in the digital age. Explore our
+        - link "full range of services" [ref=e499]:
+          - /url: /services/
+        - text: available across all Sydney locations.
+      - generic [ref=e500]:
+        - link "Bondi" [ref=e501]:
+          - /url: /locations/bondi/
+        - link "Sydney CBD" [ref=e502]:
+          - /url: /locations/sydney/
+        - link "Parramatta" [ref=e503]:
+          - /url: /locations/parramatta/
+        - link "Penrith" [ref=e504]:
+          - /url: /locations/penrith/
+        - link "Greater Sydney" [ref=e505]:
+          - /url: /locations/
+    - generic [ref=e508]:
+      - heading "Helpful Resources" [level=2] [ref=e509]
+      - paragraph [ref=e510]: Learn more about digital marketing strategies that drive real results for Sydney businesses
+      - generic [ref=e511]:
+        - article [ref=e512]:
+          - generic [ref=e513]: 🎯
+          - 'heading "How Sydney Businesses Rank #1 on Google" [level=3] [ref=e514]':
+            - 'link "How Sydney Businesses Rank #1 on Google" [ref=e515]':
+              - /url: /blog/how-sydney-businesses-rank-number-1-google-2025/
+          - paragraph [ref=e516]: Complete guide to ranking on Google's first page in 2025
+          - link "Read more →" [ref=e517]:
+            - /url: /blog/how-sydney-businesses-rank-number-1-google-2025/
+        - article [ref=e518]:
+          - generic [ref=e519]: 💰
+          - heading "7 Google Ads Mistakes Costing You Thousands" [level=3] [ref=e520]:
+            - link "7 Google Ads Mistakes Costing You Thousands" [ref=e521]:
+              - /url: /blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/
+          - paragraph [ref=e522]: Avoid these common mistakes and maximize your ad ROI
+          - link "Read more →" [ref=e523]:
+            - /url: /blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/
+        - article [ref=e524]:
+          - generic [ref=e525]: 📈
+          - heading "9 Quick Wins for Conversion Optimization" [level=3] [ref=e526]:
+            - link "9 Quick Wins for Conversion Optimization" [ref=e527]:
+              - /url: /blog/conversion-rate-optimization-9-quick-wins-for-sydney-service-businesses/
+          - paragraph [ref=e528]: Increase your conversion rates with these proven tactics
+          - link "Read more →" [ref=e529]:
+            - /url: /blog/conversion-rate-optimization-9-quick-wins-for-sydney-service-businesses/
+      - link "View All Articles" [ref=e531]:
+        - /url: /blog/
+        - text: View All Articles
+        - img [ref=e532]
+    - generic [ref=e535]:
+      - heading "Ready to Grow Your Business?" [level=2] [ref=e536]
+      - paragraph [ref=e537]: Join 15+ Sydney businesses already seeing 2x more leads with our proven strategies
+      - link "Get Your Free Consultation" [ref=e538]:
+        - /url: /contact/
+  - contentinfo [ref=e539]:
+    - generic [ref=e540]:
+      - generic [ref=e541]:
+        - generic [ref=e542]:
+          - heading "The Profit Platform" [level=3] [ref=e543]
+          - paragraph [ref=e544]: We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.
+          - list "Social media links" [ref=e545]:
+            - listitem "Follow us on Facebook" [ref=e546]:
+              - generic [ref=e547]: 
+            - listitem "Follow us on Instagram" [ref=e548]:
+              - generic [ref=e549]: 
+            - listitem "Connect with us on LinkedIn" [ref=e550]:
+              - generic [ref=e551]: 
+            - listitem "Follow us on Twitter" [ref=e552]:
+              - generic [ref=e553]: 
+            - listitem "Subscribe to our YouTube channel" [ref=e554]:
+              - generic [ref=e555]: 
+          - generic [ref=e556]:
+            - generic [ref=e557]:
+              - generic [ref=e558]: 
+              - link "0487 286 451" [ref=e559]:
+                - /url: tel:+61487286451
+            - generic [ref=e560]:
+              - generic [ref=e561]: 
+              - link "avi@theprofitplatform.com.au" [ref=e562]:
+                - /url: mailto:avi@theprofitplatform.com.au
+            - generic [ref=e563]:
+              - generic [ref=e564]: 
+              - generic [ref=e565]: Sydney, NSW, Australia
+        - generic [ref=e566]:
+          - heading "Services" [level=3] [ref=e567]
+          - list [ref=e568]:
+            - listitem [ref=e569]:
+              - link " SEO & Local Search" [ref=e570]:
+                - /url: /seo/
+                - generic [ref=e571]: 
+                - text: SEO & Local Search
+            - listitem [ref=e572]:
+              - link " Google Ads Management" [ref=e573]:
+                - /url: /google-ads/
+                - generic [ref=e574]: 
+                - text: Google Ads Management
+            - listitem [ref=e575]:
+              - link " Social Media Advertising" [ref=e576]:
+                - /url: /google-ads/
+                - generic [ref=e577]: 
+                - text: Social Media Advertising
+            - listitem [ref=e578]:
+              - link " Website Design" [ref=e579]:
+                - /url: /web-design/
+                - generic [ref=e580]: 
+                - text: Website Design
+            - listitem [ref=e581]:
+              - link " Conversion Optimization" [ref=e582]:
+                - /url: /services#conversion
+                - generic [ref=e583]: 
+                - text: Conversion Optimization
+            - listitem [ref=e584]:
+              - link "Analytics & Reporting" [ref=e585]:
+                - /url: /services#analytics
+                - text: Analytics & Reporting
+        - generic [ref=e586]:
+          - heading "Company" [level=3] [ref=e587]
+          - list [ref=e588]:
+            - listitem [ref=e589]:
+              - link " About Us" [ref=e590]:
+                - /url: /about/
+                - generic [ref=e591]: 
+                - text: About Us
+            - listitem [ref=e592]:
+              - link " Case Studies" [ref=e593]:
+                - /url: /portfolio/
+                - generic [ref=e594]: 
+                - text: Case Studies
+            - listitem [ref=e595]:
+              - link " Blog" [ref=e596]:
+                - /url: /blog/
+                - generic [ref=e597]: 
+                - text: Blog
+            - listitem [ref=e598]:
+              - link " Careers" [ref=e599]:
+                - /url: /about#careers
+                - generic [ref=e600]: 
+                - text: Careers
+            - listitem [ref=e601]:
+              - link " Partners" [ref=e602]:
+                - /url: /about#partners
+                - generic [ref=e603]: 
+                - text: Partners
+            - listitem [ref=e604]:
+              - link " Contact" [ref=e605]:
+                - /url: /contact/
+                - generic [ref=e606]: 
+                - text: Contact
+        - generic [ref=e607]:
+          - heading "Resources" [level=3] [ref=e608]
+          - list [ref=e609]:
+            - listitem [ref=e610]:
+              - link " Free Marketing Audit" [ref=e611]:
+                - /url: /contact/
+                - generic [ref=e612]: 
+                - text: Free Marketing Audit
+            - listitem [ref=e613]:
+              - link " Free SEO Guide" [ref=e614]:
+                - /url: /blog/seo-guide/
+                - generic [ref=e615]: 
+                - text: Free SEO Guide
+            - listitem [ref=e616]:
+              - link " Google Ads Guide" [ref=e617]:
+                - /url: /blog/google-ads-guide/
+                - generic [ref=e618]: 
+                - text: Google Ads Guide
+            - listitem [ref=e619]:
+              - link " Local SEO Checklist" [ref=e620]:
+                - /url: /local-seo-checklist/
+                - generic [ref=e621]: 
+                - text: Local SEO Checklist
+            - listitem [ref=e622]:
+              - link " Free Webinars" [ref=e623]:
+                - /url: /webinars/
+                - generic [ref=e624]: 
+                - text: Free Webinars
+            - listitem [ref=e625]:
+              - link " Free Tools" [ref=e626]:
+                - /url: /tools/
+                - generic [ref=e627]: 
+                - text: Free Tools
+      - generic [ref=e628]:
+        - paragraph [ref=e629]: © 2024 The Profit Platform. All rights reserved.
+        - list [ref=e630]:
+          - listitem [ref=e631]:
+            - link "Privacy Policy" [ref=e632]:
+              - /url: /privacy-policy/
+          - listitem [ref=e633]:
+            - link "Terms of Service" [ref=e634]:
+              - /url: /terms-of-service/
+          - listitem [ref=e635]:
+            - link "Sitemap" [ref=e636]:
+              - /url: /sitemap/
+```
