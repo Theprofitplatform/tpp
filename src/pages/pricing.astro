@@ -16,7 +16,7 @@ const pageDescription = "Transparent digital marketing pricing for Sydney busine
   <!-- AOS Animation Library -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
-  <!-- Fallback styles to ensure hero is visible -->
+  <!-- Fallback styles to ensure hero and pricing section are visible -->
   <style>
     /* Ensure hero content is visible by default (fallback) */
     .hero-content-enhanced,
@@ -27,6 +27,99 @@ const pageDescription = "Transparent digital marketing pricing for Sydney busine
     .trust-indicators {
       opacity: 1 !important;
       transform: none !important;
+    }
+
+    /* Ensure pricing section is visible */
+    .pricing-section {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      padding: 100px 0 !important;
+      background: #ffffff !important;
+    }
+
+    .pricing-grid-enhanced {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+      gap: 30px !important;
+      margin: 50px 0 !important;
+    }
+
+    .pricing-card-enhanced {
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      background: white !important;
+      border: 1px solid #e5e7eb !important;
+      border-radius: 16px !important;
+      padding: 40px 30px !important;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+      transition: transform 0.3s ease box-shadow 0.3s ease !important;
+    }
+
+    .pricing-card-enhanced:hover {
+      transform: translateY(-8px) !important;
+      box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.25) !important;
+    }
+
+    .pricing-card-enhanced.featured {
+      border-color: #3b82f6 !important;
+      box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.25) !important;
+    }
+
+    .section-title {
+      opacity: 1 !important;
+      color: #1f2937 !important;
+      font-size: 2.5rem !important;
+      font-weight: 800 !important;
+      text-align: center !important;
+      margin: 0 0 1rem 0 !important;
+    }
+
+    .section-subtitle {
+      opacity: 1 !important;
+      color: #6b7280 !important;
+      font-size: 1.2rem !important;
+      text-align: center !important;
+      margin: 0 0 3rem 0 !important;
+    }
+
+    /* Ensure pricing card content is visible */
+    .pricing-header-enhanced,
+    .pricing-title-enhanced,
+    .pricing-subtitle-enhanced,
+    .pricing-price-enhanced,
+    .pricing-period-enhanced,
+    .pricing-features-enhanced {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .pricing-features-enhanced li {
+      display: flex !important;
+      align-items: center !important;
+      margin-bottom: 12px !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .pricing-features-enhanced li.excluded {
+      opacity: 0.6 !important;
+      color: #9ca3af !important;
+    }
+
+    .btn-pricing-enhanced {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      padding: 16px 32px !important;
+      background: #3b82f6 !important;
+      color: white !important;
+      text-decoration: none !important;
+      border-radius: 12px !important;
+      font-weight: 600 !important;
+      opacity: 1 !important;
+      visibility: visible !important;
     }
 
     /* AOS will override these when it loads */
