@@ -28,6 +28,7 @@ pnpm-debug.log*
 releases/
 current
 test-reports/
+test-results/
 
 # Backend specific (keep .env.example)
 backend/.env
