@@ -1140,12 +1140,50 @@ const schema = {
       font-size: 0.8125rem;
     }
 
+    /* Reorder blog post layout for mobile: breadcrumbs -> hero image -> title/description */
+    .blog-post {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .breadcrumbs {
+      order: 1;
+    }
+
+    .featured-image-container {
+      order: 2;
+      margin-bottom: 1.5rem;
+    }
+
     .post-header {
-      padding: 1.5rem 0 1rem;
+      order: 3;
+      padding: 0 0 1rem;
+      border-bottom: none;
+      border-top: none;
+    }
+
+    .blog-layout {
+      order: 4;
+    }
+
+    .post-footer {
+      order: 5;
+    }
+
+    .author-bio-card {
+      order: 6;
+    }
+
+    .post-cta {
+      order: 7;
+    }
+
+    .related-posts {
+      order: 8;
     }
 
     .post-title {
-      margin: 1rem 0 0.75rem;
+      margin: 0 0 0.75rem;
       font-size: 1.75rem;
     }
 
@@ -1208,7 +1246,7 @@ const schema = {
 
     .featured-image-container {
       padding: 0;
-      margin: 0 0 2rem 0;
+      margin: 0;
       background: transparent;
     }
 
@@ -1220,10 +1258,13 @@ const schema = {
     .featured-image img {
       border-radius: 0;
       width: 100%;
+      display: block;
     }
 
     .featured-image.default-hero svg {
       border-radius: 0;
+      display: block;
+      max-height: 250px;
     }
 
     .author-bio-card {
