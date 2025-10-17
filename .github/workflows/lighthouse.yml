@@ -1,0 +1,64 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    name: Performance Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://theprofitplatform.com.au/
+            https://theprofitplatform.com.au/services/
+            https://theprofitplatform.com.au/pricing/
+            https://theprofitplatform.com.au/blog/
+            https://theprofitplatform.com.au/contact/
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          budgetPath: ./lighthouserc.json
+
+      - name: Comment Lighthouse Results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const results = JSON.parse(process.env.LIGHTHOUSE_RESULT || '{}');
+            const body = `## 📊 Lighthouse Performance Report
+
+            ### Scores
+            - **Performance**: ${results.performance || 'N/A'}
+            - **Accessibility**: ${results.accessibility || 'N/A'}
+            - **Best Practices**: ${results['best-practices'] || 'N/A'}
+            - **SEO**: ${results.seo || 'N/A'}
+
+            [View Full Report](${results.reportUrl || '#'})`;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
