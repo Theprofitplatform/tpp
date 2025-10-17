@@ -1,0 +1,124 @@
+# TPP Automation Configuration
+# Centralized workflow management
+
+version: "1.0"
+environment: "production"
+
+# Core workflows - replacing scattered cron jobs
+workflows:
+  content-pipeline:
+    name: "Content Pipeline Automation"
+    description: "Blog generation → SEO → Publishing → GitOps"
+    schedule: "0 9 * * 1-5"  # Weekdays 9 AM AEST
+    timeout: 3600  # 1 hour
+    retries: 3
+    dependencies: []
+    enabled: true
+    script: "./automation/scripts/vps-blog-automation.sh"
+    env:
+      force: "false"
+      enableGitCommit: "true"
+      enableDeployment: "true"
+    
+  social-media-syndication:
+    name: "Social Media Automation"
+    description: "Instagram posting with Discord notifications"
+    schedule: "0 7,12,18 * * *"  # 3x daily
+    timeout: 1800  # 30 minutes
+    retries: 2
+    dependencies: []
+    enabled: true
+    script: "~/projects/instagram-bot/build/automation/monitored-routine.sh"
+    
+  seo-monitoring:
+    name: "SEO Monitoring & Reports"
+    description: "Ranking checks and performance reports"
+    schedule: "0 9 * * *"  # Daily 9 AM
+    timeout: 1800
+    retries: 1
+    dependencies: []
+    enabled: true
+    script: "~/projects/seo-automation"
+    
+  topic-generation:
+    name: "Blog Topic Generation"
+    description: "Generate 30 new topics monthly"
+    schedule: "0 2 1 * *"  # Monthly 1st at 2 AM
+    timeout: 1800
+    retries: 2
+    dependencies: []
+    enabled: true
+    script: "npm run topics:generate"
+    
+  topic-health-check:
+    name: "Topic Queue Health Check"
+    description: "Alert if topic queue is low"
+    schedule: "0 8 * * 1"  # Mondays 8 AM
+    timeout: 300
+    retries: 1
+    dependencies: []
+    enabled: true
+    script: "npm run topics:check"
+    
+  system-health:
+    name: "System Health Monitor"
+    description: "Monitor disk, memory, services"
+    schedule: "*/15 * * * *"  # Every 15 minutes
+    timeout: 300
+    retries: 1
+    dependencies: []
+    enabled: true
+    script: "./automation/scripts/monitor.js"
+    
+  backup-automation:
+    name: "Backup Management"
+    description: "Database and file backups" 
+    schedule: "0 2 * * *"  # Daily 2 AM
+    timeout: 1800
+    retries: 2
+    dependencies: []
+    enabled: true
+    script: "~/supabase-migration/scripts/backup-all-databases-improved.sh"
+    
+  performance-optimization:
+    name: "Performance Optimization"
+    description: "Resource cleanup and optimization"
+    schedule: "0 3 * * 0"  # Sundays 3 AM
+    timeout: 1800
+    retries: 1
+    dependencies: []
+    enabled: true
+    script: "./automation/scripts/cleanup.js"
+
+# Notification channels
+notifications:
+  discord:
+    enabled: true
+    webhook_url: "${DISCORD_WEBHOOK}"
+    channels:
+      - "automation-alerts"
+      - "daily-reports"
+    
+  email:
+    enabled: true
+    smtp_host: "${SMTP_HOST}"
+    smtp_port: "${SMTP_PORT}"
+    smtp_user: "${SMTP_USER}"
+    smtp_pass: "${SMTP_PASS}"
+    
+  slack:
+    enabled: false
+    webhook_url: "${SLACK_WEBHOOK}"
+
+# Monitoring thresholds
+thresholds:
+  disk_usage: 85  # Alert when disk > 85%
+  memory_usage: 90  # Alert when memory > 90%
+  cpu_usage: 95    # Alert when CPU > 95%
+  workflow_failure_rate: 3  # Alert after 3 failures
+
+# Resource limits
+limits:
+  max_concurrent_workflows: 5
+  max_log_retention_days: 30
+  max_backup_retention_days: 90
