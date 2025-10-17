@@ -246,9 +246,9 @@
 
       <!-- CTA Button -->
       <div class="nav-cta">
-        <a href="/contact" class="btn btn-primary premium-cta-btn" aria-label="Get Free Chat - Contact us">
+        <a href="/contact" class="btn btn-primary premium-cta-btn" aria-label="Get Proposal - Contact us">
           <i class="fas fa-comments premium-cta-icon" aria-hidden="true"></i>
-          <span>Let's Chat</span>
+          <span>Get Proposal</span>
           <div class="premium-cta-glow"></div>
         </a>
       </div>
@@ -428,6 +428,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileOverlay.setAttribute('aria-hidden', 'false');
         mobileOverlay.classList.add('active');
         mobileToggle.setAttribute('aria-expanded', 'true');
+        // Simple body scroll lock
         document.body.style.overflow = 'hidden';
       } else {
         mobileNav.setAttribute('aria-hidden', 'true');
@@ -435,6 +436,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileOverlay.setAttribute('aria-hidden', 'true');
         mobileOverlay.classList.remove('active');
         mobileToggle.setAttribute('aria-expanded', 'false');
+        // Restore body scroll
         document.body.style.overflow = '';
       }
     }

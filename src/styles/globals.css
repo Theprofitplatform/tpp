@@ -48,6 +48,25 @@ html {
   position: relative;
 }
 
+/* CRITICAL: Fix body scroll when mobile nav is open */
+body.mobile-nav-open {
+  overflow: hidden !important;
+  position: fixed !important;
+  width: 100% !important;
+  height: 100vh !important;
+}
+
+/* Ensure mobile nav is always on top */
+@media (max-width: 1024px) {
+  .mobile-nav {
+    z-index: 999999 !important;
+  }
+  
+  .mobile-nav-overlay {
+    z-index: 999998 !important;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--pp-black);
   font-weight: 700;
@@ -376,7 +395,7 @@ footer {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 9998;
+  z-index: 99998;
   opacity: 0;
   visibility: hidden;
   transition: var(--pp-transition);
@@ -388,20 +407,24 @@ footer {
 }
 
 .mobile-nav {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 320px;
-  height: 100vh;
+  position: fixed !important;
+  top: 0 !important;
+  right: -100vw !important; /* CRITICAL: Hide completely off viewport */
+  width: 320px !important;
+  height: 100vh !important;
   background: white;
-  z-index: 9999;
-  transform: translateX(100%);
-  transition: var(--pp-transition);
+  z-index: 999999 !important;
+  transition: var(--pp-transition) !important;
   overflow-y: auto;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  visibility: hidden !important;
+  transform: none !important;
 }
 
 .mobile-nav.active {
-  transform: translateX(0);
+  right: 0 !important;
+  visibility: visible !important;
+  transform: none !important;
 }
 
 .mobile-nav-header {
@@ -430,17 +453,24 @@ footer {
 }
 
 .mobile-nav-close {
-  background: none;
+  background: rgba(0, 0, 0, 0.05);
   border: none;
   font-size: 24px;
   cursor: pointer;
   color: var(--pp-gray-700);
-  padding: 0;
-  width: 32px;
-  height: 32px;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 8px;
+  transition: var(--pp-transition);
+}
+
+.mobile-nav-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
 }
 
 .mobile-nav-links {
@@ -451,11 +481,13 @@ footer {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 15px 0;
+  padding: 18px 0;
   color: var(--pp-gray-700);
   text-decoration: none;
   border-bottom: 1px solid var(--pp-gray-100);
   transition: var(--pp-transition);
+  font-size: 1rem;
+  min-height: 44px; /* iOS touch target minimum */
 }
 
 .mobile-nav-link:hover {
