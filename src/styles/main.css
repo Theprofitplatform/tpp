@@ -21,6 +21,7 @@
 @import url('/css/dropdown-fix.css');
 @import url('/css/layout.css');
 @import url('/css/navigation-glass-enhanced.css');
+@import url('/css/fix-navigation-cta-overflow.css');
 
 /* Hero section */
 @import url('/css/hero-content-spacing.css');
@@ -44,6 +45,12 @@
 
 /* Mobile nav flex fix - MUST be last to override bundled CSS */
 @import url('/css/mobile-nav-fix.css');
+
+/* CTA Wireframe Styles - Elementor-inspired design */
+@import url('/css/cta-wireframe.css');
+
+/* Mobile navigation fixes - MUST load after other navigation styles */
+@import url('/css/mobile-navigation-fix.css');
 
 /* CRITICAL: globals.css MUST load LAST to override old CSS files */
 @import './globals.css';
