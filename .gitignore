@@ -118,3 +118,10 @@ speed-test
 # Blog testing artifacts (historical)
 archive/blog-testing-*/
 .env.vps
+
+# Debug artifacts (mobile testing, navigation debugging)
+debug-*.html
+*-debug.png
+*-debug.jpg
+dev.log
+debug.log
