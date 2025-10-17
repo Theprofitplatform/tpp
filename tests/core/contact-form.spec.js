@@ -16,11 +16,14 @@ test.describe('Homepage Contact Form', () => {
     // Navigate to homepage before each test
     await page.goto('/');
 
-    // Wait for page to load
-    await page.waitForLoadState('networkidle');
+    // Wait for DOM to be ready (more reliable than networkidle)
+    await page.waitForLoadState('domcontentloaded');
 
-    // Scroll to contact form section
+    // Scroll to contact form section first (form is at bottom of page)
     await page.locator('#contact').scrollIntoViewIfNeeded();
+
+    // Now wait for contact form to be visible (after scrolling)
+    await page.waitForSelector('#contactForm', { state: 'visible', timeout: 5000 });
   });
 
   test('should render contact form correctly', async ({ page }) => {

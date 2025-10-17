@@ -14,7 +14,7 @@ export default defineConfig({
   ],
 
   use: {
-    baseURL: 'http://localhost:3002',
+    baseURL: process.env.CI ? 'http://localhost:4321' : 'http://localhost:4321',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
