@@ -126,4 +126,4 @@ debug-*.html
 *-debug.jpg
 dev.log
 debug.log
-playwright-report/data/
+playwright-report/

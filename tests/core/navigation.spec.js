@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('Tools menu item appears in navigation', async ({ page }) => {
-  await page.goto('http://localhost:4322/');
+  await page.goto('/');
 
   // Check for Tools link in desktop navigation
   const toolsLink = page.locator('nav[aria-label="Main navigation"] a[data-page="tools"]');
@@ -17,7 +17,7 @@ test('Tools menu item appears in navigation', async ({ page }) => {
 });
 
 test('Tools menu item appears in mobile navigation', async ({ page }) => {
-  await page.goto('http://localhost:4322/');
+  await page.goto('/');
 
   // Open mobile menu
   const menuToggle = page.locator('#menuToggle');
@@ -33,7 +33,7 @@ test('Tools menu item appears in mobile navigation', async ({ page }) => {
 });
 
 test('Navigation menu order is correct', async ({ page }) => {
-  await page.goto('http://localhost:4322/');
+  await page.goto('/');
 
   // Get all nav items
   const navItems = page.locator('nav[aria-label="Main navigation"] a.nav-item');
