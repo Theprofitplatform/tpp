@@ -1,21 +1,6 @@
 {
   "queue": [
     {
-      "id": 38,
-      "title": "Why We Show Our Prices (And Our Competitors Don't)",
-      "category": "Digital Marketing",
-      "tags": [
-        "Pricing Transparency",
-        "Business Strategy",
-        "Trust",
-        "Sydney"
-      ],
-      "targetKeyword": "seo pricing transparency",
-      "searchIntent": "commercial",
-      "priority": 1,
-      "status": "pending"
-    },
-    {
       "id": 39,
       "title": "In-House SEO vs SEO Agency: Pros and Cons for Sydney Businesses",
       "category": "SEO",
@@ -953,6 +938,25 @@
       "publishedSlug": "how-much-does-seo-cost-in-sydney-2025-pricing-guide",
       "wordCount": 3052,
       "author": "Avi"
+    },
+    {
+      "id": 38,
+      "title": "Why We Show Our Prices (And Our Competitors Don't)",
+      "category": "Digital Marketing",
+      "tags": [
+        "Pricing Transparency",
+        "Business Strategy",
+        "Trust",
+        "Sydney"
+      ],
+      "targetKeyword": "seo pricing transparency",
+      "searchIntent": "commercial",
+      "priority": 1,
+      "status": "published",
+      "publishedDate": "2025-10-17",
+      "publishedSlug": "why-we-show-our-prices-and-our-competitors-don-t",
+      "wordCount": 3788,
+      "author": "TPP Team"
     }
   ],
   "config": {
