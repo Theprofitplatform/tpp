@@ -25,14 +25,14 @@
 .web-design-hero .container,
 .google-ads-hero .container,
 .seo-hero .container {
-    padding-top: 120px !important;
+    padding-top: 200px !important;
 }
 
 .hero-content,
 .hero-text,
 .hero-left,
 .hero-section-content {
-    padding-top: 120px !important;
+    padding-top: 200px !important;
 }
 
 .hero + section,
