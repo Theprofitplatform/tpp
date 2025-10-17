@@ -1,0 +1,849 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2]:
+    - /url: "#main-content"
+  - link "Skip to navigation" [ref=e3]:
+    - /url: "#primary-navigation"
+  - banner [ref=e4]:
+    - generic [ref=e6]:
+      - link "The Profit Platform - Home" [ref=e7]:
+        - /url: /
+        - img "The Profit Platform Logo" [ref=e9]
+      - navigation "Main navigation" [ref=e10]
+      - button "Open mobile menu" [ref=e11] [cursor=pointer]
+  - article [ref=e16]:
+    - navigation "Breadcrumb" [ref=e17]:
+      - list [ref=e19]:
+        - listitem [ref=e20]:
+          - link "Home" [ref=e21]:
+            - /url: /
+            - generic [ref=e22]: Home
+          - text: ›
+        - listitem [ref=e23]:
+          - link "Blog" [ref=e24]:
+            - /url: /blog
+            - generic [ref=e25]: Blog
+          - text: ›
+        - listitem [ref=e26]:
+          - generic [ref=e27]: Remarketing Campaigns That Actually Convert for Sydney eCommerce
+    - generic [ref=e29]:
+      - generic [ref=e31]: Google Ads
+      - heading "Remarketing Campaigns That Actually Convert for Sydney eCommerce" [level=1] [ref=e32]
+      - paragraph [ref=e33]: Discover why 90% of Sydney remarketing campaigns fail and learn proven strategies that actually convert browsers into buyers for your eCommerce business.
+      - generic [ref=e34]:
+        - generic [ref=e35]:
+          - img [ref=e37]
+          - generic [ref=e39]:
+            - generic [ref=e40]: Aayush Shrestha
+            - generic [ref=e41]:
+              - time [ref=e42]: 11 Oct 2025
+              - generic [ref=e43]: •
+              - generic [ref=e44]: 19 min read
+              - generic [ref=e45]: •
+              - generic [ref=e46]: 3,699 words
+        - generic [ref=e47]:
+          - button "Share on Twitter" [ref=e48] [cursor=pointer]:
+            - img [ref=e49] [cursor=pointer]
+          - button "Share on LinkedIn" [ref=e51] [cursor=pointer]:
+            - img [ref=e52] [cursor=pointer]
+          - button "Share on Facebook" [ref=e54] [cursor=pointer]:
+            - img [ref=e55] [cursor=pointer]
+          - button "Copy link" [ref=e57] [cursor=pointer]:
+            - img [ref=e58] [cursor=pointer]
+      - generic [ref=e60]:
+        - link "#Remarketing" [ref=e61]:
+          - /url: /blog?tag=Remarketing
+        - link "#Retargeting" [ref=e62]:
+          - /url: /blog?tag=Retargeting
+        - link "#eCommerce" [ref=e63]:
+          - /url: /blog?tag=eCommerce
+        - link "#Conversions" [ref=e64]:
+          - /url: /blog?tag=Conversions
+    - figure "Photo by SEO Galaxy on Unsplash" [ref=e66]:
+      - img "a man is typing on a computer keyboard" [ref=e67]
+      - generic [ref=e68]:
+        - text: Photo by
+        - link "SEO Galaxy" [ref=e69]:
+          - /url: https://unsplash.com/@seogalaxy?utm_source=theprofitplatform&utm_medium=referral
+        - text: "on"
+        - link "Unsplash" [ref=e70]:
+          - /url: https://unsplash.com?utm_source=theprofitplatform&utm_medium=referral
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - heading "Why 90% of Sydney Remarketing Campaigns Fail (And How Yours Can Actually Work)" [level=2] [ref=e74]
+          - paragraph [ref=e75]: "Here’s what happens to most Sydney online stores: A customer visits your Bondi Junction store’s website. They look at your products. They leave without buying. You set up a remarketing campaign. You expect to win them back. After spending $2,000 over three months, you get maybe two sales."
+          - paragraph [ref=e78]: Sound familiar? You’re not alone. Most businesses can’t make money from remarketing campaigns. Why? They treat them like regular display ads.
+          - paragraph [ref=e79]: The problem isn’t remarketing itself. It’s that Sydney businesses use old methods. These methods ignore how people actually shop online today. When someone leaves your Parramatta warehouse’s product page, they’re not ready for the same “20% off” banner they see everywhere.
+          - paragraph [ref=e82]: In this guide, you’ll learn the TPP Remarketing Conversion Framework. This is a step-by-step approach we made for Sydney online stores. It turns window shoppers into paying customers. We’ll cover everything from audience groups to creative strategies that work in Sydney’s tough market.
+          - heading "Understanding Remarketing Campaigns in Today’s Sydney Market" [level=2] [ref=e83]
+          - paragraph [ref=e84]: "Remarketing campaigns target people who already visited your website. This gives you a second chance to convert them. A third chance. A fourth chance. But here’s where most Sydney businesses mess up: they send the same message to everyone who visited their site."
+          - paragraph [ref=e85]: A person who spent five minutes on your product pages in Chatswood has different reasons for buying. Compare this to someone who left after ten seconds from Manly. Yet most remarketing campaigns treat them the same. This explains why the average remarketing conversion rate across Australian online stores sits at just 2.3%.
+          - heading "The Sydney Online Store Challenge" [level=3] [ref=e86]
+          - paragraph [ref=e87]: Sydney’s online store world is very competitive. Major retailers own search results. International players use aggressive pricing. Local businesses need remarketing strategies that do more than just remind people you exist.
+          - paragraph [ref=e88]: The old “spray and pray” approach shows the same ad to everyone who visited your site. This wastes budget on people who were never serious buyers. It also under-spends on high-intent prospects who just needed the right push.
+          - heading "The Real Problem with Most Remarketing Campaigns" [level=2] [ref=e89]
+          - paragraph [ref=e90]:
+            - text: After reviewing dozens of Sydney online store
+            - link "Google Ads" [ref=e91]:
+              - /url: /google-ads
+            - text: "accounts, we found three big mistakes that kill campaign performance:"
+          - paragraph [ref=e92]:
+            - strong [ref=e93]: First, poor audience groups.
+            - text: Most businesses create one or two broad audiences. Like “website visitors” and “cart abandoners.” This ignores the huge difference between someone who viewed your homepage and someone who compared three products for twenty minutes.
+          - paragraph [ref=e94]:
+            - strong [ref=e95]: Second, creative mismatch.
+            - text: Showing product-focused ads to someone who spent time on your About page doesn’t work. Neither does showing discount offers to someone already price-shopping. This shows you don’t understand where they are in the buying journey.
+          - paragraph [ref=e96]:
+            - strong [ref=e97]: Third, timing failures.
+            - text: Hitting someone with aggressive sales messages right after they leave kills conversion potential. So does waiting too long and letting competitors capture their attention.
+          - heading "Why Old Approaches Don’t Work in Sydney" [level=3] [ref=e98]
+          - paragraph [ref=e99]: 53% of Australian online shoppers prefer a more personalised shopping experience from retailers, indicating that generic marketing like “Come back and save 10%” banners may feel impersonal or spammy to well-researched consumers. Additionally, 19.5% of Australian customers consulted price comparison websites before making a purchase, showing that Sydney consumers actively research and compare options. [1]
+          - paragraph [ref=e100]: The solution isn’t more aggressive remarketing. It’s smarter remarketing that matches message to mindset.
+          - heading "The TPP Remarketing Conversion Framework" [level=2] [ref=e101]
+          - paragraph [ref=e102]: Our framework divides remarketing campaigns into five phases. Each targets specific user behaviors and intent levels. Instead of one broad campaign, you create multiple focused campaigns. These speak directly to where someone is in their buying journey.
+          - 'heading "Phase 1: Awareness Retargeting (Days 1-3)" [level=3] [ref=e103]'
+          - paragraph [ref=e104]: Target people who visited your site but showed low engagement. This includes quick homepage visits. Single page views. High bounce rates. These visitors need education, not sales pressure.
+          - paragraph [ref=e105]:
+            - strong [ref=e106]: "Creative Strategy:"
+            - text: Focus on brand awareness and value propositions. Show videos explaining your unique selling points. Include customer testimonials. Add educational content about your product category.
+          - paragraph [ref=e107]:
+            - strong [ref=e108]: "Audience Setup:"
+            - text: Website visitors who spent less than 30 seconds on site. Also include those who visited only your homepage.
+          - paragraph [ref=e109]:
+            - strong [ref=e110]: "Bidding:"
+            - text: Start with Target CPA bidding 40% higher than your standard display campaigns. These are cold audiences requiring more touches.
+          - 'heading "Phase 2: Interest Building (Days 1-7)" [level=3] [ref=e111]'
+          - paragraph [ref=e112]: Target engaged visitors who explored multiple pages. Include those who spent significant time on site. Or visited specific product categories. They’re interested but not yet convinced.
+          - paragraph [ref=e113]:
+            - strong [ref=e114]: "Creative Strategy:"
+            - text: Use product-focused ads highlighting features and benefits. Add social proof. Include customer reviews and detailed product information.
+          - paragraph [ref=e115]:
+            - strong [ref=e116]: "Audience Setup:"
+            - text: Visitors who viewed 3+ pages. Also include those who spent 2+ minutes on site. Or visited specific product categories.
+          - paragraph [ref=e117]:
+            - strong [ref=e118]: "Bidding:"
+            - text: Use Maximize [[[
+            - link "Conversions" [ref=e119]:
+              - /url: /blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/
+            - text: "](/blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/)](/blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/)](/blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/) with a target ROAS 20% below your profitable threshold."
+          - 'heading "Phase 3: Consideration Support (Days 1-14)" [level=3] [ref=e120]'
+          - paragraph [ref=e121]: Target high-intent visitors who viewed specific products. Include those who used comparison tools. Or visited your pricing/shipping pages. They’re actively evaluating whether to buy.
+          - paragraph [ref=e122]:
+            - strong [ref=e123]: "Creative Strategy:"
+            - text: Address common objections with shipping guarantees and return policies. Include comparison charts. Add urgency elements like stock levels or time-sensitive offers.
+          - paragraph [ref=e124]:
+            - strong [ref=e125]: "Audience Setup:"
+            - text: Product page visitors and those who used site search. Also include visitors to checkout pages without completing purchase.
+          - paragraph [ref=e126]:
+            - strong [ref=e127]: "Bidding:"
+            - text: Use aggressive Target CPA bidding with your standard profitable CPA target.
+          - 'heading "Phase 4: Conversion Recovery (Days 1-30)" [level=3] [ref=e128]'
+          - paragraph [ref=e129]: Target cart abandoners and checkout drop-offs. These are your highest-value audiences who showed clear purchase intent.
+          - paragraph [ref=e130]:
+            - strong [ref=e131]: "Creative Strategy:"
+            - text: Use direct product retargeting with the specific items they viewed. Add incentives like free shipping or limited-time discounts.
+          - paragraph [ref=e132]:
+            - strong [ref=e133]: "Audience Setup:"
+            - text: Cart abandoners and checkout initiators. Include users who spent 5+ minutes on product pages.
+          - paragraph [ref=e134]:
+            - strong [ref=e135]: "Bidding:"
+            - text: Use Target ROAS bidding with your most aggressive targets. These audiences typically convert at 5-10x higher rates.
+          - 'heading "Phase 5: Loyalty Building (Days 30+)" [level=3] [ref=e136]'
+          - paragraph [ref=e137]: Target previous customers and long-term site visitors. The goal is to encourage repeat purchases. Increase customer lifetime value.
+          - paragraph [ref=e138]:
+            - strong [ref=e139]: "Creative Strategy:"
+            - text: Show new product announcements. Add exclusive offers for returning customers. Include cross-sell opportunities.
+          - paragraph [ref=e140]:
+            - strong [ref=e141]: "Audience Setup:"
+            - text: Previous purchasers and highly engaged visitors from 30+ days ago.
+          - paragraph [ref=e142]:
+            - strong [ref=e143]: "Bidding:"
+            - text: Use Target ROAS with higher targets since you’re building long-term value, not just immediate [
+            - link "Conversions" [ref=e144]:
+              - /url: /blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/
+            - text: "](/blog/how-to-write-google-ads-copy-that-converts-for-sydney-service-businesses/)."
+          - heading "Advanced Audience Grouping Strategies" [level=2] [ref=e145]
+          - paragraph [ref=e146]: Creating effective remarketing campaigns starts with proper audience grouping. Most Sydney businesses group too broadly. This misses opportunities to deliver personal experiences that convert.
+          - heading "Geographic Micro-Targeting" [level=3] [ref=e147]
+          - paragraph [ref=e148]: Sydney’s geography creates unique shopping behaviors. Someone browsing from Manly (postcode 2095) might want express delivery. A Penrith visitor (2750) could be more price-sensitive. Create location-based audiences to adjust messaging accordingly.
+          - paragraph [ref=e149]: "Set up separate audiences for:"
+          - list [ref=e150]:
+            - listitem [ref=e151]: CBD workers (2000) - emphasize lunch-hour delivery
+            - listitem [ref=e152]: Eastern Suburbs (2027, 2030) - highlight premium options
+            - listitem [ref=e153]: Western Sydney (2145, 2148) - focus on value and convenience
+            - listitem [ref=e154]: Northern Beaches (2097, 2099) - emphasize weekend delivery options
+          - heading "Behavioral Intent Mapping" [level=3] [ref=e155]
+          - paragraph [ref=e156]: "Go beyond page views to understand actual intent. Create audiences based on specific behaviors that indicate purchase readiness:"
+          - paragraph [ref=e157]:
+            - strong [ref=e158]: "Research-Stage Visitors:"
+          - list [ref=e159]:
+            - listitem [ref=e160]: Viewed FAQ pages
+            - listitem [ref=e161]: Used site search
+            - listitem [ref=e162]: Spent time on category pages
+            - listitem [ref=e163]: Read multiple product descriptions
+          - paragraph [ref=e164]:
+            - strong [ref=e165]: "Comparison-Stage Visitors:"
+          - list [ref=e166]:
+            - listitem [ref=e167]: Viewed competitor comparison pages
+            - listitem [ref=e168]: Added items to wishlist
+            - listitem [ref=e169]: Used product comparison tools
+            - listitem [ref=e170]: Visited reviews/testimonials sections
+          - paragraph [ref=e171]:
+            - strong [ref=e172]: "Decision-Stage Visitors:"
+          - list [ref=e173]:
+            - listitem [ref=e174]: Checked shipping information
+            - listitem [ref=e175]: Visited return policy pages
+            - listitem [ref=e176]: Added to cart but didn’t purchase
+            - listitem [ref=e177]: Started checkout process
+          - heading "Device-Specific Strategies" [level=3] [ref=e178]
+          - paragraph [ref=e179]: "Sydney commuters behave differently on mobile versus desktop. Mobile users often browse during commutes but purchase later on desktop. Create device-specific remarketing flows:"
+          - paragraph [ref=e180]:
+            - strong [ref=e181]: "Mobile-First Campaigns:"
+            - text: Use quick loading creative and tap-friendly CTAs. Include mobile-optimized landing pages.
+          - paragraph [ref=e182]:
+            - strong [ref=e183]: "Desktop Follow-Up:"
+            - text: Show detailed product information and comparison charts. Use comprehensive checkout processes.
+          - paragraph [ref=e184]: This approach prevents the common mistake of showing desktop-optimized ads to mobile users. This kills conversion rates.
+          - heading "Creative Strategies That Convert Sydney Shoppers" [level=2] [ref=e185]
+          - paragraph [ref=e186]: Generic remarketing creative kills campaigns before they start. Sydney consumers expect personal, relevant advertising. Your ads should acknowledge their previous interactions with your brand.
+          - heading "Dynamic Product Ads That Actually Work" [level=3] [ref=e187]
+          - paragraph [ref=e188]: Most businesses set up dynamic ads and wonder why they underperform. The secret is customizing your product feed and creative templates for different audience segments.
+          - paragraph [ref=e189]:
+            - strong [ref=e190]: "For Research-Stage Audiences:"
+            - text: Show product collections with educational overlays. Instead of just showing a product image, add text explaining key features or benefits.
+          - paragraph [ref=e191]:
+            - strong [ref=e192]: "For Comparison-Stage Audiences:"
+            - text: Include competitive advantages directly in the creative. “Free shipping Australia-wide” or “30-day returns guaranteed” text overlays can tip the scales.
+          - paragraph [ref=e193]:
+            - strong [ref=e194]: "For Decision-Stage Audiences:"
+            - text: Add urgency elements like stock levels (“Only 3 left”) or time-sensitive offers (“24-hour flash sale”).
+          - heading "Video Creative for Different Journey Stages" [level=3] [ref=e195]
+          - paragraph [ref=e196]: Video remarketing often outperforms static ads. But only when matched to the right audience. A product demo video shown to someone who just discovered your brand feels premature. Brand awareness video shown to cart abandoners wastes opportunity.
+          - paragraph [ref=e197]:
+            - strong [ref=e198]: "Awareness Stage Videos (15-30 seconds):"
+          - list [ref=e199]:
+            - listitem [ref=e200]: Brand story and values
+            - listitem [ref=e201]: Problem identification
+            - listitem [ref=e202]: Social proof from Sydney customers
+          - paragraph [ref=e203]:
+            - strong [ref=e204]: "Consideration Stage Videos (30-60 seconds):"
+          - list [ref=e205]:
+            - listitem [ref=e206]: Product demonstrations
+            - listitem [ref=e207]: Feature explanations
+            - listitem [ref=e208]: Customer testimonials
+          - paragraph [ref=e209]:
+            - strong [ref=e210]: "Conversion Stage Videos (6-15 seconds):"
+          - list [ref=e211]:
+            - listitem [ref=e212]: Direct product showcase
+            - listitem [ref=e213]: Clear call-to-action
+            - listitem [ref=e214]: Urgency or incentive messaging
+          - heading "Seasonal and Local Creative Optimization" [level=3] [ref=e215]
+          - paragraph [ref=e216]: "Sydney’s seasons and events create remarketing opportunities most businesses miss. Adjust your creative to match local context:"
+          - paragraph [ref=e217]:
+            - strong [ref=e218]: "Summer (December-February):"
+            - text: Highlight products perfect for beach culture, outdoor dining, and summer festivals.
+          - paragraph [ref=e219]:
+            - strong [ref=e220]: "Winter (June-August):"
+            - text: Focus on indoor entertainment, comfort products, and cozy lifestyle benefits.
+          - paragraph [ref=e221]:
+            - strong [ref=e222]: "Festival Seasons:"
+            - text: Align with major Sydney events like Vivid (May-June) or New Year celebrations.
+          - paragraph [ref=e223]: This local relevance makes your ads feel timely and connected to customers’ immediate needs.
+          - heading "Technical Setup and Optimization" [level=2] [ref=e224]
+          - paragraph [ref=e225]: Proper technical setup determines whether your remarketing campaigns succeed or fail. Most Sydney businesses make critical errors in audience setup and tracking. These mistakes undermine their entire strategy.
+          - heading "Audience List Quality Control" [level=3] [ref=e226]
+          - paragraph [ref=e227]: "Your remarketing audiences are only as good as your website tracking. Set up these technical requirements:"
+          - paragraph [ref=e228]:
+            - strong [ref=e229]: "Enhanced Ecommerce Tracking:"
+            - text: Set up detailed product tracking. This creates audiences based on specific product categories, price ranges, and engagement levels.
+          - paragraph [ref=e230]:
+            - strong [ref=e231]: "Custom Event Tracking:"
+            - text: Track more than pageviews. Include meaningful actions like video plays, PDF downloads, product comparisons, and time spent in specific sections.
+          - paragraph [ref=e232]:
+            - strong [ref=e233]: "Cross-Device Tracking:"
+            - text: Enable Google’s cross-device reporting. This follows users from mobile research to desktop purchase.
+          - paragraph [ref=e234]:
+            - text: Many
+            - link "web design" [ref=e235]:
+              - /url: /web-design
+            - text: setups miss these tracking elements. This creates incomplete audience data that limits campaign effectiveness.
+          - heading "Conversion Tracking Beyond Sales" [level=3] [ref=e236]
+          - paragraph [ref=e237]: "Most Sydney online stores only track final sales. This misses valuable micro-conversions that indicate campaign success. Set up tracking for:"
+          - list [ref=e238]:
+            - listitem [ref=e239]: Email signups from remarketing traffic
+            - listitem [ref=e240]: Product page re-engagement (returning visitors spending more time)
+            - listitem [ref=e241]: Cart value increases (upgrading or adding items)
+            - listitem [ref=e242]: Customer service interactions (indicating serious purchase intent)
+          - paragraph [ref=e243]: These metrics help optimize campaigns for full customer journey value, not just immediate sales.
+          - heading "Landing Page Alignment" [level=3] [ref=e244]
+          - paragraph [ref=e245]: "Your remarketing traffic shouldn’t land on generic pages. Create dedicated landing experiences that acknowledge previous visits:"
+          - paragraph [ref=e246]:
+            - strong [ref=e247]: "For Product Page Visitors:"
+            - text: Show related products or expanded information about items they viewed.
+          - paragraph [ref=e248]:
+            - strong [ref=e249]: "For Cart Abandoners:"
+            - text: Use streamlined checkout process with their previously selected items pre-populated.
+          - paragraph [ref=e250]:
+            - strong [ref=e251]: "For Category Browsers:"
+            - text: Show curated product selections based on their browsing history.
+          - paragraph [ref=e252]:
+            - text: This level of personalization requires
+            - link "website design" [ref=e253]:
+              - /url: /web-design
+            - text: work. But it dramatically improves conversion rates by reducing friction.
+          - heading "Campaign Structure and Bidding Strategies" [level=2] [ref=e254]
+          - paragraph [ref=e255]: How you structure and bid on remarketing campaigns determines profitability. Most Sydney businesses use overly simple structures that waste budget and miss opportunities.
+          - heading "Campaign Architecture" [level=3] [ref=e256]
+          - paragraph [ref=e257]: "Instead of one remarketing campaign, create multiple campaigns targeting different audience segments and objectives:"
+          - paragraph [ref=e258]:
+            - strong [ref=e259]: "Brand Awareness Campaign:"
+          - list [ref=e260]:
+            - listitem [ref=e261]: "Target: Low-engagement visitors"
+            - listitem [ref=e262]: "Objective: Build familiarity and trust"
+            - listitem [ref=e263]: "Bidding: Target Impressions with frequency capping"
+          - paragraph [ref=e264]:
+            - strong [ref=e265]: "Product Interest Campaign:"
+          - list [ref=e266]:
+            - listitem [ref=e267]: "Target: Category and product page visitors"
+            - listitem [ref=e268]: "Objective: Drive product consideration"
+            - listitem [ref=e269]: "Bidding: Maximize Conversions with conservative targets"
+          - paragraph [ref=e270]:
+            - strong [ref=e271]: "High-Intent Campaign:"
+          - list [ref=e272]:
+            - listitem [ref=e273]: "Target: Cart abandoners and checkout drop-offs"
+            - listitem [ref=e274]: "Objective: Recover abandoned purchases"
+            - listitem [ref=e275]: "Bidding: Target CPA with aggressive targets"
+          - paragraph [ref=e276]:
+            - strong [ref=e277]: "Customer Retention Campaign:"
+          - list [ref=e278]:
+            - listitem [ref=e279]: "Target: Previous purchasers"
+            - listitem [ref=e280]: "Objective: Drive repeat purchases"
+            - listitem [ref=e281]: "Bidding: Target ROAS optimized for customer lifetime value"
+          - heading "Advanced Bidding Strategies" [level=3] [ref=e282]
+          - paragraph [ref=e283]: "Google’s Smart Bidding works well for remarketing. But it requires proper setup and realistic expectations:"
+          - paragraph [ref=e284]:
+            - strong [ref=e285]: "Target CPA Bidding:"
+            - text: Start with your current profitable CPA. Then gradually lower targets as the algorithm learns. Expect 2-3 weeks of learning phase.
+          - paragraph [ref=e286]:
+            - strong [ref=e287]: "Target ROAS Bidding:"
+            - text: Use for campaigns with sufficient conversion volume (50+ conversions per month). Start with conservative ROAS targets.
+          - paragraph [ref=e288]:
+            - strong [ref=e289]: "Maximize Conversions:"
+            - text: Best for new campaigns or audiences without historical performance data. Monitor closely and add constraints once patterns emerge.
+          - heading "Budget Allocation" [level=3] [ref=e290]
+          - paragraph [ref=e291]: "Most businesses allocate remarketing budgets evenly across campaigns. But high-intent audiences deserve larger budget shares:"
+          - list [ref=e292]:
+            - listitem [ref=e293]: "Cart Abandoners: 40% of remarketing budget"
+            - listitem [ref=e294]: "Product Page Visitors: 30% of remarketing budget"
+            - listitem [ref=e295]: "Category Browsers: 20% of remarketing budget"
+            - listitem [ref=e296]: "General Website Visitors: 10% of remarketing budget"
+          - paragraph [ref=e297]: This allocation prioritizes audiences most likely to convert while maintaining top-of-funnel awareness.
+          - heading "Measuring Success and Optimizing Performance" [level=2] [ref=e298]
+          - paragraph [ref=e299]: Measuring remarketing campaign success requires looking beyond standard Google Ads metrics. Most Sydney businesses focus on clicks and conversions while missing broader campaign impact.
+          - heading "Attribution and Multi-Touch Analysis" [level=3] [ref=e300]
+          - paragraph [ref=e301]: "Remarketing campaigns often assist conversions without getting credit in last-click attribution. Use Google Analytics’ attribution modeling to understand true campaign value:"
+          - paragraph [ref=e302]:
+            - strong [ref=e303]: "First-Click Attribution:"
+            - text: Shows how remarketing introduces customers to your brand
+            - strong [ref=e304]: "Linear Attribution:"
+            - text: Distributes credit across all touchpoints
+            - strong [ref=e305]: "Time-Decay Attribution:"
+            - text: Gives more credit to recent interactions
+          - paragraph [ref=e306]: Many conversions attributed to organic search or direct traffic actually start with remarketing campaign exposure.
+          - heading "Advanced Performance Metrics" [level=3] [ref=e307]
+          - paragraph [ref=e308]: "Track these metrics to understand full campaign impact:"
+          - paragraph [ref=e309]:
+            - strong [ref=e310]: "View-Through Conversions:"
+            - text: Purchases influenced by ad exposure without clicks
+            - strong [ref=e311]: "Assisted Conversions:"
+            - text: Sales where remarketing played a supporting role
+            - strong [ref=e312]: "Customer Lifetime Value:"
+            - text: Revenue from customers acquired through remarketing
+            - strong [ref=e313]: "Brand Search Lift:"
+            - text: Increase in branded search volume during campaign periods
+          - paragraph [ref=e314]: These metrics often reveal remarketing campaigns generating 2-3x more value than click-based metrics suggest.
+          - heading "Common Optimization Mistakes to Avoid" [level=3] [ref=e315]
+          - paragraph [ref=e316]:
+            - strong [ref=e317]: "Over-Optimizing Too Quickly:"
+            - text: Remarketing campaigns need time to gather data. Avoid major changes during the first two weeks unless performance is dramatically poor.
+          - paragraph [ref=e318]:
+            - strong [ref=e319]: "Ignoring Frequency Capping:"
+            - text: Showing ads too frequently creates negative brand perception. Cap frequency at 3-5 impressions per week for most campaigns.
+          - paragraph [ref=e320]:
+            - strong [ref=e321]: "Neglecting Creative Rotation:"
+            - text: Even high-performing ads lose effectiveness over time. Rotate creative every 2-3 weeks to maintain engagement.
+          - paragraph [ref=e322]:
+            - strong [ref=e323]: "Bidding Too Aggressively:"
+            - text: Start with conservative bids and gradually optimize. Aggressive initial bidding often leads to poor audience quality and wasted spend.
+          - heading "Real-World Implementation Example" [level=2] [ref=e324]
+          - paragraph [ref=e325]: Let’s walk through setting up the TPP Remarketing Conversion Framework for a hypothetical Sydney furniture retailer. They have locations in Alexandria (2015) and Artarmon (2064).
+          - heading "Initial Audience Setup" [level=3] [ref=e326]
+          - paragraph [ref=e327]:
+            - strong [ref=e328]: "Week 1:"
+            - text: "Create basic audiences:"
+          - list [ref=e329]:
+            - listitem [ref=e330]: All website visitors (1-180 days)
+            - listitem [ref=e331]: Product page visitors (1-30 days)
+            - listitem [ref=e332]: Cart abandoners (1-7 days)
+          - paragraph [ref=e333]:
+            - strong [ref=e334]: "Week 2:"
+            - text: "Add behavioral audiences:"
+          - list [ref=e335]:
+            - listitem [ref=e336]: Visitors who viewed delivery information
+            - listitem [ref=e337]: Users who browsed for 5+ minutes
+            - listitem [ref=e338]: Mobile vs desktop visitors
+          - paragraph [ref=e339]:
+            - strong [ref=e340]: "Week 3:"
+            - text: "Layer geographic data:"
+          - list [ref=e341]:
+            - listitem [ref=e342]: Inner Sydney visitors (premium messaging)
+            - listitem [ref=e343]: Outer Sydney visitors (value-focused messaging)
+            - listitem [ref=e344]: Interstate visitors (shipping emphasis)
+          - heading "Campaign Launch Sequence" [level=3] [ref=e345]
+          - paragraph [ref=e346]:
+            - strong [ref=e347]: "Phase 1 (Days 1-7):"
+            - text: Launch awareness campaign targeting low-engagement visitors with brand story videos and customer testimonials.
+          - paragraph [ref=e348]:
+            - strong [ref=e349]: "Phase 2 (Days 8-14):"
+            - text: Add product interest campaigns targeting category browsers with dynamic product ads.
+          - paragraph [ref=e350]:
+            - strong [ref=e351]: "Phase 3 (Days 15-21):"
+            - text: Launch high-intent campaigns targeting cart abandoners with direct product retargeting.
+          - paragraph [ref=e352]:
+            - strong [ref=e353]: "Phase 4 (Days 22-30):"
+            - text: Add customer retention campaigns targeting previous purchasers with new arrivals and complementary products.
+          - paragraph [ref=e354]: This staged approach allows proper data collection and optimization at each level.
+          - heading "Expected Performance Timeline" [level=3] [ref=e355]
+          - paragraph [ref=e356]:
+            - strong [ref=e357]: "Weeks 1-2:"
+            - text: Focus on data collection. Expect higher CPAs as algorithms learn.
+            - strong [ref=e358]: "Weeks 3-4:"
+            - text: Begin seeing performance improvements. Optimize based on early data.
+            - strong [ref=e359]: "Weeks 5-8:"
+            - text: Campaigns reach stable performance. Fine-tune audiences and creative.
+            - strong [ref=e360]: "Weeks 9-12:"
+            - text: Focus on scaling successful elements and testing new strategies.
+          - paragraph [ref=e361]: Most Sydney businesses expect immediate results and abandon campaigns too early. Remarketing requires patience for optimal performance.
+          - heading "Frequently Asked Questions" [level=2] [ref=e362]
+          - paragraph [ref=e363]:
+            - strong [ref=e364]: "Q: How much should I budget for remarketing campaigns compared to regular Google Ads?"
+            - text: "A: Start with 20-30% of your total"
+            - link "Google Ads" [ref=e365]:
+              - /url: /google-ads
+            - text: budget for remarketing. High-intent audiences often justify larger budget allocations. But ensure you maintain adequate prospecting spend for new customer acquisition.
+          - paragraph [ref=e366]:
+            - strong [ref=e367]: "Q: How long should I keep someone in my remarketing audiences?"
+            - text: "A: It depends on your purchase cycle. For most Sydney online stores, 30 days works well for high-intent audiences (cart abandoners). Brand awareness audiences can extend to 180 days. Fashion and seasonal products need shorter windows."
+          - paragraph [ref=e368]:
+            - strong [ref=e369]: "Q: Can I use remarketing campaigns to target competitors’ website visitors?"
+            - text: "A: No, you can only remarket to people who visited your website. However, you can use similar audiences based on your website visitors. This reaches people with similar interests who haven’t visited your site yet."
+          - paragraph [ref=e370]:
+            - strong [ref=e371]: "Q: Why are my remarketing campaigns showing low conversion rates despite targeting engaged visitors?"
+            - text: "A: Check your landing page alignment, creative relevance, and audience quality. Often, campaigns target too broadly. They also send traffic to generic pages instead of personalized experiences that acknowledge previous visits."
+          - paragraph [ref=e372]:
+            - strong [ref=e373]: "Q: Should I exclude recent purchasers from my remarketing campaigns?"
+            - text: "A: Not entirely. Exclude them from campaigns promoting the same products they just bought. But include them in campaigns for complementary products or new arrivals. Recent customers often have higher lifetime value potential."
+          - heading "What to Do Next" [level=2] [ref=e374]
+          - paragraph [ref=e375]: "Ready to set up remarketing campaigns that actually convert? Start with these immediate actions:"
+          - list [ref=e376]:
+            - listitem [ref=e377]:
+              - strong [ref=e378]: Audit your current tracking setup
+              - text: "- Ensure you have proper Google Analytics and Google Ads tracking for all key user actions"
+            - listitem [ref=e379]:
+              - strong [ref=e380]: Create basic audience segments
+              - text: "- Start with the three core audiences: website visitors, product viewers, and cart abandoners"
+            - listitem [ref=e381]:
+              - strong [ref=e382]: Set up one pilot campaign
+              - text: "- Begin with cart abandoners since they typically show the fastest results"
+            - listitem [ref=e383]:
+              - strong [ref=e384]: Plan your creative strategy
+              - text: "- Develop ad creative that matches each audience segment’s intent level"
+            - listitem [ref=e385]:
+              - strong [ref=e386]: Schedule regular optimization reviews
+              - text: "- Plan weekly reviews for the first month, then bi-weekly ongoing"
+          - paragraph [ref=e387]: The key to successful remarketing is starting simple and building complexity as you gather data. Many Sydney businesses fail by trying to set up everything at once instead of taking a systematic approach.
+          - paragraph [ref=e388]: For businesses ready to move beyond basic remarketing into advanced strategies, our team specializes in setting up the complete TPP Remarketing Conversion Framework. We handle everything from technical setup to creative development and ongoing optimization.
+          - heading "Key Takeaways" [level=2] [ref=e389]
+          - list [ref=e390]:
+            - listitem [ref=e391]:
+              - strong [ref=e392]: Segment ruthlessly
+              - text: ": Different visitors need different messages based on their behavior and intent level"
+            - listitem [ref=e393]:
+              - strong [ref=e394]: Match creative to mindset
+              - text: ": Show brand awareness content to new visitors, product-specific ads to engaged browsers, and conversion-focused creative to cart abandoners"
+            - listitem [ref=e395]:
+              - strong [ref=e396]: Set up proper tracking
+              - text: ": Your remarketing success depends on quality audience data from comprehensive website tracking"
+            - listitem [ref=e397]:
+              - strong [ref=e398]: Be patient with optimization
+              - text: ": Remarketing campaigns need 2-3 weeks to gather sufficient data for meaningful optimization decisions"
+            - listitem [ref=e399]:
+              - strong [ref=e400]: Focus on full-journey value
+              - text: ": Track assisted conversions and brand impact, not just last-click conversions"
+          - paragraph [ref=e401]: Most Sydney online stores have the technical capability to run remarketing campaigns. But few set them up strategically. The difference between campaigns that waste money and those that drive profitable growth lies in systematic audience development, creative alignment, and patient optimization.
+          - paragraph [ref=e402]:
+            - text: Ready to stop losing potential customers after their first visit? Our
+            - link "digital marketing services" [ref=e403]:
+              - /url: /services
+            - text: include complete remarketing campaign setup and management specifically designed for Sydney online stores. Book a consultation to discuss how the TPP Remarketing Conversion Framework can work for your business. Or review our recent case studies on
+            - link "how to avoid common Google Ads mistakes" [ref=e404]:
+              - /url: /blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month/
+            - text: that often undermine remarketing campaign success.
+          - separator [ref=e405]
+          - heading "References" [level=2] [ref=e406]
+          - paragraph [ref=e407]:
+            - text: "[1]"
+            - link "https://www.sparkinteract.com.au/web/australian-ecommerce-statistics/" [ref=e408]:
+              - /url: https://www.sparkinteract.com.au/web/australian-ecommerce-statistics/
+            - text: "[2]"
+            - link "https://www.redsearch.com.au/resources/australian-ecommerce-statistics/" [ref=e409]:
+              - /url: https://www.redsearch.com.au/resources/australian-ecommerce-statistics/
+            - text: "[3]"
+            - link "https://www.ibisworld.com/australia/industry/online-shopping/1837/" [ref=e410]:
+              - /url: https://www.ibisworld.com/australia/industry/online-shopping/1837/
+            - text: "[4]"
+            - link "https://ecommerce-report.auspost.com.au/know-your-shoppers/" [ref=e411]:
+              - /url: https://ecommerce-report.auspost.com.au/know-your-shoppers/
+            - text: "[5]"
+            - link "https://blog.commissionfactory.com/ecommerce-marketing/australia-ecommerce-statistics" [ref=e412]:
+              - /url: https://blog.commissionfactory.com/ecommerce-marketing/australia-ecommerce-statistics
+            - text: "[6]"
+            - link "https://eloquent.com.au/marketing-statistics-australia/" [ref=e413]:
+              - /url: https://eloquent.com.au/marketing-statistics-australia/
+            - text: "[7]"
+            - link "https://assets.kpmg.com/content/dam/kpmgsites/au/pdf/2025/australian-retail-outlook-2025.pdf" [ref=e414]:
+              - /url: https://assets.kpmg.com/content/dam/kpmgsites/au/pdf/2025/australian-retail-outlook-2025.pdf
+            - text: "[8]"
+            - link "https://sonary.com/content/online-e-commerce-statistics-insights-and-predictions/" [ref=e415]:
+              - /url: https://sonary.com/content/online-e-commerce-statistics-insights-and-predictions/
+            - text: "[9]"
+            - link "https://www.statista.com/topics/7683/e-commerce-in-australia/" [ref=e416]:
+              - /url: https://www.statista.com/topics/7683/e-commerce-in-australia/
+          - separator [ref=e417]
+          - heading "About the Author" [level=2] [ref=e418]
+          - paragraph [ref=e419]:
+            - strong [ref=e420]: Aayush Shrestha
+            - text: is a Google Ads Specialist at The Profit Platform. Aayush manages Google Ads campaigns for Sydney businesses, optimizing for maximum ROI. His expertise in bid strategies and ad copy has helped clients reduce costs by up to 40%.
+          - paragraph [ref=e421]:
+            - strong [ref=e422]: "Areas of Expertise:"
+            - text: Google Ads, PPC, Conversion Optimization
+        - complementary [ref=e423]:
+          - generic [ref=e424]:
+            - heading "📑 Table of Contents" [level=3] [ref=e425]
+            - navigation [ref=e426]:
+              - list [ref=e427]:
+                - listitem [ref=e428]:
+                  - link "Why 90% of Sydney Remarketing Campaigns Fail (And How Yours Can Actually Work)" [ref=e429]:
+                    - /url: "#heading-0"
+                - listitem [ref=e430]:
+                  - link "Understanding Remarketing Campaigns in Today’s Sydney Market" [ref=e431]:
+                    - /url: "#heading-1"
+                - listitem [ref=e432]:
+                  - link "The Sydney Online Store Challenge" [ref=e433]:
+                    - /url: "#heading-2"
+                - listitem [ref=e434]:
+                  - link "The Real Problem with Most Remarketing Campaigns" [ref=e435]:
+                    - /url: "#heading-3"
+                - listitem [ref=e436]:
+                  - link "Why Old Approaches Don’t Work in Sydney" [ref=e437]:
+                    - /url: "#heading-4"
+                - listitem [ref=e438]:
+                  - link "The TPP Remarketing Conversion Framework" [ref=e439]:
+                    - /url: "#heading-5"
+                - listitem [ref=e440]:
+                  - 'link "Phase 1: Awareness Retargeting (Days 1-3)" [ref=e441]':
+                    - /url: "#heading-6"
+                - listitem [ref=e442]:
+                  - 'link "Phase 2: Interest Building (Days 1-7)" [ref=e443]':
+                    - /url: "#heading-7"
+                - listitem [ref=e444]:
+                  - 'link "Phase 3: Consideration Support (Days 1-14)" [ref=e445]':
+                    - /url: "#heading-8"
+                - listitem [ref=e446]:
+                  - 'link "Phase 4: Conversion Recovery (Days 1-30)" [ref=e447]':
+                    - /url: "#heading-9"
+                - listitem [ref=e448]:
+                  - 'link "Phase 5: Loyalty Building (Days 30+)" [ref=e449]':
+                    - /url: "#heading-10"
+                - listitem [ref=e450]:
+                  - link "Advanced Audience Grouping Strategies" [ref=e451]:
+                    - /url: "#heading-11"
+                - listitem [ref=e452]:
+                  - link "Geographic Micro-Targeting" [ref=e453]:
+                    - /url: "#heading-12"
+                - listitem [ref=e454]:
+                  - link "Behavioral Intent Mapping" [ref=e455]:
+                    - /url: "#heading-13"
+                - listitem [ref=e456]:
+                  - link "Device-Specific Strategies" [ref=e457]:
+                    - /url: "#heading-14"
+                - listitem [ref=e458]:
+                  - link "Creative Strategies That Convert Sydney Shoppers" [ref=e459]:
+                    - /url: "#heading-15"
+                - listitem [ref=e460]:
+                  - link "Dynamic Product Ads That Actually Work" [ref=e461]:
+                    - /url: "#heading-16"
+                - listitem [ref=e462]:
+                  - link "Video Creative for Different Journey Stages" [ref=e463]:
+                    - /url: "#heading-17"
+                - listitem [ref=e464]:
+                  - link "Seasonal and Local Creative Optimization" [ref=e465]:
+                    - /url: "#heading-18"
+                - listitem [ref=e466]:
+                  - link "Technical Setup and Optimization" [ref=e467]:
+                    - /url: "#heading-19"
+                - listitem [ref=e468]:
+                  - link "Audience List Quality Control" [ref=e469]:
+                    - /url: "#heading-20"
+                - listitem [ref=e470]:
+                  - link "Conversion Tracking Beyond Sales" [ref=e471]:
+                    - /url: "#heading-21"
+                - listitem [ref=e472]:
+                  - link "Landing Page Alignment" [ref=e473]:
+                    - /url: "#heading-22"
+                - listitem [ref=e474]:
+                  - link "Campaign Structure and Bidding Strategies" [ref=e475]:
+                    - /url: "#heading-23"
+                - listitem [ref=e476]:
+                  - link "Campaign Architecture" [ref=e477]:
+                    - /url: "#heading-24"
+                - listitem [ref=e478]:
+                  - link "Advanced Bidding Strategies" [ref=e479]:
+                    - /url: "#heading-25"
+                - listitem [ref=e480]:
+                  - link "Budget Allocation" [ref=e481]:
+                    - /url: "#heading-26"
+                - listitem [ref=e482]:
+                  - link "Measuring Success and Optimizing Performance" [ref=e483]:
+                    - /url: "#heading-27"
+                - listitem [ref=e484]:
+                  - link "Attribution and Multi-Touch Analysis" [ref=e485]:
+                    - /url: "#heading-28"
+                - listitem [ref=e486]:
+                  - link "Advanced Performance Metrics" [ref=e487]:
+                    - /url: "#heading-29"
+                - listitem [ref=e488]:
+                  - link "Common Optimization Mistakes to Avoid" [ref=e489]:
+                    - /url: "#heading-30"
+                - listitem [ref=e490]:
+                  - link "Real-World Implementation Example" [ref=e491]:
+                    - /url: "#heading-31"
+                - listitem [ref=e492]:
+                  - link "Initial Audience Setup" [ref=e493]:
+                    - /url: "#heading-32"
+                - listitem [ref=e494]:
+                  - link "Campaign Launch Sequence" [ref=e495]:
+                    - /url: "#heading-33"
+                - listitem [ref=e496]:
+                  - link "Expected Performance Timeline" [ref=e497]:
+                    - /url: "#heading-34"
+                - listitem [ref=e498]:
+                  - link "Frequently Asked Questions" [ref=e499]:
+                    - /url: "#heading-35"
+                - listitem [ref=e500]:
+                  - link "What to Do Next" [ref=e501]:
+                    - /url: "#heading-36"
+                - listitem [ref=e502]:
+                  - link "Key Takeaways" [ref=e503]:
+                    - /url: "#heading-37"
+                - listitem [ref=e504]:
+                  - link "References" [ref=e505]:
+                    - /url: "#heading-38"
+                - listitem [ref=e506]:
+                  - link "About the Author" [ref=e507]:
+                    - /url: "#heading-39"
+      - complementary [ref=e509]:
+        - img [ref=e511]
+        - generic [ref=e513]:
+          - heading "About The Profit Platform" [level=4] [ref=e514]
+          - paragraph [ref=e515]: Digital Marketing Agency
+          - paragraph [ref=e516]: We're a digital marketing agency specializing in scalable SEO and growth strategies for Australian businesses. Based in Sydney, we've helped hundreds of companies dominate local search results.
+          - link "Learn more about The Profit Platform →" [ref=e517]:
+            - /url: https://theprofitplatform.com.au/about
+      - complementary [ref=e518]:
+        - heading "Ready to grow your business?" [level=3] [ref=e519]
+        - paragraph [ref=e520]: Let's talk about how we can help you achieve results like these.
+        - link "Schedule a Free Consultation" [ref=e521]:
+          - /url: /contact
+    - generic [ref=e523]:
+      - heading "Continue Reading" [level=3] [ref=e524]
+      - generic [ref=e525]:
+        - article [ref=e526]:
+          - link "Google Ads 7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month Discover the 7 costly Google Ads mistakes Sydney businesses make that waste thousands monthly. Learn how to fix these profit-killers and boost ROI. 5 Oct 2025" [ref=e527]:
+            - /url: /blog/7-google-ads-mistakes-costing-sydney-businesses-thousands-every-month
+            - generic [ref=e528]: Google Ads
+            - heading "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month" [level=4] [ref=e529]
+            - paragraph [ref=e530]: Discover the 7 costly Google Ads mistakes Sydney businesses make that waste thousands monthly. Learn how to fix these profit-killers and boost ROI.
+            - time [ref=e532]: 5 Oct 2025
+        - article [ref=e533]:
+          - 'link "Web Design Conversion Rate Optimization: 9 Quick Wins for Sydney Service Businesses Boost your Sydney service business revenue with proven conversion rate optimization strategies. 9 quick wins that increase enquiries by 300-400% instantly. 6 Oct 2025" [ref=e534]':
+            - /url: /blog/conversion-rate-optimization-9-quick-wins-for-sydney-service-businesses
+            - generic [ref=e535]: Web Design
+            - 'heading "Conversion Rate Optimization: 9 Quick Wins for Sydney Service Businesses" [level=4] [ref=e536]'
+            - paragraph [ref=e537]: Boost your Sydney service business revenue with proven conversion rate optimization strategies. 9 quick wins that increase enquiries by 300-400% instantly.
+            - time [ref=e539]: 6 Oct 2025
+        - article [ref=e540]:
+          - 'link "Google Ads Google Ads Bidding Strategies: Which One is Right for Your Sydney Business? Discover which Google Ads bidding strategies work best for Sydney businesses. Stop wasting budget and start generating more qualified leads today. 6 Oct 2025" [ref=e541]':
+            - /url: /blog/google-ads-bidding-strategies-which-one-is-right-for-your-sydney-business
+            - generic [ref=e542]: Google Ads
+            - 'heading "Google Ads Bidding Strategies: Which One is Right for Your Sydney Business?" [level=4] [ref=e543]'
+            - paragraph [ref=e544]: Discover which Google Ads bidding strategies work best for Sydney businesses. Stop wasting budget and start generating more qualified leads today.
+            - time [ref=e546]: 6 Oct 2025
+  - contentinfo [ref=e547]:
+    - generic [ref=e548]:
+      - generic [ref=e549]:
+        - generic [ref=e550]:
+          - heading "The Profit Platform" [level=3] [ref=e551]
+          - paragraph [ref=e552]: We help Sydney businesses dominate Google and get more customers through proven digital marketing strategies. No lock-ins, just results.
+          - list "Social media links" [ref=e553]:
+            - listitem "Follow us on Facebook" [ref=e554]:
+              - generic [ref=e555]: 
+            - listitem "Follow us on Instagram" [ref=e556]:
+              - generic [ref=e557]: 
+            - listitem "Connect with us on LinkedIn" [ref=e558]:
+              - generic [ref=e559]: 
+            - listitem "Follow us on Twitter" [ref=e560]:
+              - generic [ref=e561]: 
+            - listitem "Subscribe to our YouTube channel" [ref=e562]:
+              - generic [ref=e563]: 
+          - generic [ref=e564]:
+            - generic [ref=e565]:
+              - generic [ref=e566]: 
+              - link "0487 286 451" [ref=e567]:
+                - /url: tel:+61487286451
+            - generic [ref=e568]:
+              - generic [ref=e569]: 
+              - link "avi@theprofitplatform.com.au" [ref=e570]:
+                - /url: mailto:avi@theprofitplatform.com.au
+            - generic [ref=e571]:
+              - generic [ref=e572]: 
+              - generic [ref=e573]: Sydney, NSW, Australia
+        - generic [ref=e574]:
+          - heading "Services" [level=3] [ref=e575]
+          - list [ref=e576]:
+            - listitem [ref=e577]:
+              - link " SEO & Local Search" [ref=e578]:
+                - /url: /seo
+                - generic [ref=e579]: 
+                - text: SEO & Local Search
+            - listitem [ref=e580]:
+              - link " Google Ads Management" [ref=e581]:
+                - /url: /google-ads
+                - generic [ref=e582]: 
+                - text: Google Ads Management
+            - listitem [ref=e583]:
+              - link " Social Media Advertising" [ref=e584]:
+                - /url: /google-ads
+                - generic [ref=e585]: 
+                - text: Social Media Advertising
+            - listitem [ref=e586]:
+              - link " Website Design" [ref=e587]:
+                - /url: /web-design
+                - generic [ref=e588]: 
+                - text: Website Design
+            - listitem [ref=e589]:
+              - link " Conversion Optimization" [ref=e590]:
+                - /url: /services#conversion
+                - generic [ref=e591]: 
+                - text: Conversion Optimization
+            - listitem [ref=e592]:
+              - link "Analytics & Reporting" [ref=e593]:
+                - /url: /services#analytics
+                - text: Analytics & Reporting
+        - generic [ref=e594]:
+          - heading "Company" [level=3] [ref=e595]
+          - list [ref=e596]:
+            - listitem [ref=e597]:
+              - link " About Us" [ref=e598]:
+                - /url: /about
+                - generic [ref=e599]: 
+                - text: About Us
+            - listitem [ref=e600]:
+              - link " Case Studies" [ref=e601]:
+                - /url: /portfolio
+                - generic [ref=e602]: 
+                - text: Case Studies
+            - listitem [ref=e603]:
+              - link " Blog" [ref=e604]:
+                - /url: /blog
+                - generic [ref=e605]: 
+                - text: Blog
+            - listitem [ref=e606]:
+              - link " Careers" [ref=e607]:
+                - /url: /about#careers
+                - generic [ref=e608]: 
+                - text: Careers
+            - listitem [ref=e609]:
+              - link " Partners" [ref=e610]:
+                - /url: /about#partners
+                - generic [ref=e611]: 
+                - text: Partners
+            - listitem [ref=e612]:
+              - link " Contact" [ref=e613]:
+                - /url: /contact
+                - generic [ref=e614]: 
+                - text: Contact
+        - generic [ref=e615]:
+          - heading "Resources" [level=3] [ref=e616]
+          - list [ref=e617]:
+            - listitem [ref=e618]:
+              - link " Free Marketing Audit" [ref=e619]:
+                - /url: /contact
+                - generic [ref=e620]: 
+                - text: Free Marketing Audit
+            - listitem [ref=e621]:
+              - link " Free SEO Guide" [ref=e622]:
+                - /url: /blog/seo-guide
+                - generic [ref=e623]: 
+                - text: Free SEO Guide
+            - listitem [ref=e624]:
+              - link " Google Ads Guide" [ref=e625]:
+                - /url: /blog/google-ads-guide
+                - generic [ref=e626]: 
+                - text: Google Ads Guide
+            - listitem [ref=e627]:
+              - link " Local SEO Checklist" [ref=e628]:
+                - /url: /local-seo-checklist
+                - generic [ref=e629]: 
+                - text: Local SEO Checklist
+            - listitem [ref=e630]:
+              - link " Free Webinars" [ref=e631]:
+                - /url: /webinars
+                - generic [ref=e632]: 
+                - text: Free Webinars
+            - listitem [ref=e633]:
+              - link " Free Tools" [ref=e634]:
+                - /url: /tools
+                - generic [ref=e635]: 
+                - text: Free Tools
+      - generic [ref=e636]:
+        - paragraph [ref=e637]: © 2024 The Profit Platform. All rights reserved.
+        - list [ref=e638]:
+          - listitem [ref=e639]:
+            - link "Privacy Policy" [ref=e640]:
+              - /url: /privacy-policy
+          - listitem [ref=e641]:
+            - link "Terms of Service" [ref=e642]:
+              - /url: /terms-of-service
+          - listitem [ref=e643]:
+            - link "Sitemap" [ref=e644]:
+              - /url: /sitemap
+  - generic [ref=e647]:
+    - button "Menu" [ref=e648]:
+      - img [ref=e650]
+      - generic: Menu
+    - button "Inspect" [ref=e654]:
+      - img [ref=e656]
+      - generic: Inspect
+    - button "Audit" [ref=e658]:
+      - generic [ref=e659]:
+        - img [ref=e660]
+        - img [ref=e663]
+      - generic: Audit
+    - button "Settings" [ref=e666]:
+      - img [ref=e668]
+      - generic: Settings
+```
