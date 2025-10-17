@@ -1,0 +1,137 @@
+/* Fix CTA Button Overflow in Navigation */
+.nav-floating-container .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  padding: 0 25px !important;
+}
+
+.premium-nav .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  padding: 15px 25px !important;
+}
+
+/* Increase floating navbar width to fit all elements - Override navigation.css */
+.premium-nav,
+header.premium-nav,
+div.premium-nav,
+nav.premium-nav,
+section.premium-nav {
+  width: calc(100% - 20px) !important;
+  max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.premium-nav.scrolled,
+header.premium-nav.scrolled,
+div.premium-nav.scrolled,
+nav.premium-nav.scrolled,
+section.premium-nav.scrolled {
+  width: calc(100% - 40px) !important;
+  max-width: 1360px !important;
+}
+
+/* Reduce CTA button size to fit within existing navigation constraints */
+.nav-cta {
+  flex-shrink: 0 !important;
+  margin-left: 10px !important;
+  min-width: fit-content !important;
+}
+
+.nav-cta .premium-cta-btn,
+.nav-cta .btn-primary {
+  padding: 8px 12px !important;
+  font-size: 0.75rem !important;
+  white-space: nowrap !important;
+  min-width: fit-content !important;
+  width: auto !important;
+  max-width: 160px !important;
+  text-align: center !important;
+}
+
+/* CTA icon should be smaller too */
+.nav-cta .premium-cta-btn i,
+.nav-cta .btn-primary i {
+  font-size: 0.8rem !important;
+  margin-right: 4px !important;
+}
+
+/* Adjust navigation links to make more space */
+#primary-navigation {
+  flex: 1 !important;
+  max-width: calc(100% - 250px) !important;
+  overflow: hidden !important;
+}
+
+.nav-links.premium-nav-links {
+  gap: 4px !important;
+  justify-content: center !important;
+}
+
+.nav-item.premium-nav-item {
+  padding: 8px 10px !important;
+  font-size: 0.8rem !important;
+  white-space: nowrap !important;
+}
+
+.nav-item.premium-nav-item i.nav-icon {
+  font-size: 0.75rem !important;
+  margin-right: 3px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .nav-cta .premium-cta-btn,
+  .nav-cta .btn-primary {
+    padding: 8px 14px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .nav-item.premium-nav-item {
+    padding: 8px 12px !important;
+    font-size: 0.85rem !important;
+  }
+  
+  .nav-floating-container .container,
+  .premium-nav .container {
+    gap: 15px !important;
+    padding: 0 20px !important;
+  }
+  
+  .premium-nav {
+    width: calc(100% - 30px) !important;
+    max-width: 1300px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  #primary-navigation {
+    max-width: calc(100% - 280px) !important;
+  }
+  
+  .premium-nav {
+    width: calc(100% - 40px) !important;
+    max-width: 1200px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .premium-nav {
+    max-width: 1600px !important;
+  }
+  
+  .premium-nav.scrolled {
+    max-width: 1560px !important;
+  }
+}
