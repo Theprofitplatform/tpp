@@ -19,6 +19,7 @@ const pageDescription = "Leading digital marketing agency in Sydney. 247% averag
 
 <!-- Typing Animation CSS & Trust Section Fix -->
 <style>
+
   /* Fix for trust section visibility */
   .trust-title {
     opacity: 1 !important;
@@ -317,7 +318,7 @@ $3,990 </span> <span class="price-period">/month</span> </div> <ul class="pricin
   </div>
 </section>
 
-<!-- Mobile Sticky Bar -->
+<!-- Mobile Sticky Bar - Hidden on desktop via JS -->
 <div class="tpp-sticky-bar" role="region" aria-label="Quick actions">
   <a href="#contact" class="btn btn-primary" aria-label="Get your free strategy session">
     Free session
@@ -325,7 +326,27 @@ $3,990 </span> <span class="price-period">/month</span> </div> <ul class="pricin
   <a href="tel:0487286451" class="tpp-sticky-call" aria-label="Call us now">
     Call
   </a>
-</div>  <section class="contact section animate-on-scroll" id="contact" data-astro-cid-joh4gybl> <div class="container" data-astro-cid-joh4gybl> <div class="section-header" data-astro-cid-joh4gybl> <h2 class="section-title" data-astro-cid-joh4gybl>Let&#39;s Start Your Growth Journey</h2> <p class="section-subtitle" data-astro-cid-joh4gybl>Get your free consultation and custom growth strategy within 24 hours</p> </div> <div class="contact-container" data-astro-cid-joh4gybl> <!-- Contact Form --> <div class="contact-form-wrapper" data-astro-cid-joh4gybl> <form id="contactForm" class="contact-form" method="POST" data-astro-cid-joh4gybl> <div class="form-row" data-astro-cid-joh4gybl> <div class="form-group" data-astro-cid-joh4gybl> <label for="name" data-astro-cid-joh4gybl>Your Name *</label> <input type="text" id="name" name="name" required placeholder="John Smith" data-astro-cid-joh4gybl> </div> <div class="form-group" data-astro-cid-joh4gybl> <label for="business" data-astro-cid-joh4gybl>Business Name</label> <input type="text" id="business" name="business" placeholder="Your Business" data-astro-cid-joh4gybl> </div> </div> <div class="form-row" data-astro-cid-joh4gybl> <div class="form-group" data-astro-cid-joh4gybl> <label for="email" data-astro-cid-joh4gybl>Email Address *</label> <input type="email" id="email" name="email" required placeholder="john@business.com.au" data-astro-cid-joh4gybl> </div> <div class="form-group" data-astro-cid-joh4gybl> <label for="phone" data-astro-cid-joh4gybl>Phone Number *</label> <input type="tel" id="phone" name="phone" required placeholder="0400 000 000" data-astro-cid-joh4gybl> </div> </div> <div class="form-group" data-astro-cid-joh4gybl> <label for="service" data-astro-cid-joh4gybl>Service Interested In</label> <select id="service" name="service" data-astro-cid-joh4gybl> <option value="" data-astro-cid-joh4gybl>Select a service</option> <option value="seo" data-astro-cid-joh4gybl>Local SEO</option> <option value="google-ads" data-astro-cid-joh4gybl>Google Ads</option> <option value="web-design" data-astro-cid-joh4gybl>Web Design</option> <option value="full-service" data-astro-cid-joh4gybl>Full Service Marketing</option> </select> </div> <div class="form-group" data-astro-cid-joh4gybl> <label for="message" data-astro-cid-joh4gybl>Tell us about your goals</label> <textarea id="message" name="message" rows="5" placeholder="What are you hoping to achieve with digital marketing?" data-astro-cid-joh4gybl></textarea> </div> <!-- Honeypot for spam prevention --> <div style="position: absolute; left: -9999px;" aria-hidden="true" data-astro-cid-joh4gybl> <label for="website" data-astro-cid-joh4gybl>Website</label> <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" data-astro-cid-joh4gybl> </div> <button type="submit" class="btn btn-primary btn-lg btn-block" data-astro-cid-joh4gybl>
+</div>
+
+<script>
+// Hide sticky bar on desktop (768px and above) - runs immediately
+const hideStickyBarOnDesktop = () => {
+  const stickyBar = document.querySelector('.tpp-sticky-bar');
+  if (stickyBar && window.innerWidth >= 768) {
+    stickyBar.style.display = 'none';
+  } else if (stickyBar && window.innerWidth < 768) {
+    stickyBar.style.display = '';
+  }
+};
+
+// Run immediately
+hideStickyBarOnDesktop();
+
+// Run on resize
+window.addEventListener('resize', hideStickyBarOnDesktop);
+</script>
+
+<section class="contact section animate-on-scroll" id="contact" data-astro-cid-joh4gybl> <div class="container" data-astro-cid-joh4gybl> <div class="section-header" data-astro-cid-joh4gybl> <h2 class="section-title" data-astro-cid-joh4gybl>Let&#39;s Start Your Growth Journey</h2> <p class="section-subtitle" data-astro-cid-joh4gybl>Get your free consultation and custom growth strategy within 24 hours</p> </div> <div class="contact-container" data-astro-cid-joh4gybl> <!-- Contact Form --> <div class="contact-form-wrapper" data-astro-cid-joh4gybl> <form id="contactForm" class="contact-form" method="POST" data-astro-cid-joh4gybl> <div class="form-row" data-astro-cid-joh4gybl> <div class="form-group" data-astro-cid-joh4gybl> <label for="name" data-astro-cid-joh4gybl>Your Name *</label> <input type="text" id="name" name="name" required placeholder="John Smith" data-astro-cid-joh4gybl> </div> <div class="form-group" data-astro-cid-joh4gybl> <label for="business" data-astro-cid-joh4gybl>Business Name</label> <input type="text" id="business" name="business" placeholder="Your Business" data-astro-cid-joh4gybl> </div> </div> <div class="form-row" data-astro-cid-joh4gybl> <div class="form-group" data-astro-cid-joh4gybl> <label for="email" data-astro-cid-joh4gybl>Email Address *</label> <input type="email" id="email" name="email" required placeholder="john@business.com.au" data-astro-cid-joh4gybl> </div> <div class="form-group" data-astro-cid-joh4gybl> <label for="phone" data-astro-cid-joh4gybl>Phone Number *</label> <input type="tel" id="phone" name="phone" required placeholder="0400 000 000" data-astro-cid-joh4gybl> </div> </div> <div class="form-group" data-astro-cid-joh4gybl> <label for="service" data-astro-cid-joh4gybl>Service Interested In</label> <select id="service" name="service" data-astro-cid-joh4gybl> <option value="" data-astro-cid-joh4gybl>Select a service</option> <option value="seo" data-astro-cid-joh4gybl>Local SEO</option> <option value="google-ads" data-astro-cid-joh4gybl>Google Ads</option> <option value="web-design" data-astro-cid-joh4gybl>Web Design</option> <option value="full-service" data-astro-cid-joh4gybl>Full Service Marketing</option> </select> </div> <div class="form-group" data-astro-cid-joh4gybl> <label for="message" data-astro-cid-joh4gybl>Tell us about your goals</label> <textarea id="message" name="message" rows="5" placeholder="What are you hoping to achieve with digital marketing?" data-astro-cid-joh4gybl></textarea> </div> <!-- Honeypot for spam prevention --> <div style="position: absolute; left: -9999px;" aria-hidden="true" data-astro-cid-joh4gybl> <label for="website" data-astro-cid-joh4gybl>Website</label> <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" data-astro-cid-joh4gybl> </div> <button type="submit" class="btn btn-primary btn-lg btn-block" data-astro-cid-joh4gybl>
 Get My Free Strategy Session →
 </button> <p class="form-disclaimer" data-astro-cid-joh4gybl> <i class="fas fa-lock" data-astro-cid-joh4gybl></i> Your information is 100% secure and will never be shared
 </p> </form> </div> <!-- Contact Info --> <div class="contact-info-wrapper" data-astro-cid-joh4gybl> <div class="contact-info-card" data-astro-cid-joh4gybl> <h3 data-astro-cid-joh4gybl>Get in Touch</h3> <div class="contact-item" data-astro-cid-joh4gybl> <i class="fas fa-phone" data-astro-cid-joh4gybl></i> <div data-astro-cid-joh4gybl> <strong data-astro-cid-joh4gybl>Call Avi Directly:</strong> <a href="tel:+61487286451" data-astro-cid-joh4gybl> 0487 286 451 </a> </div> </div> <div class="contact-item" data-astro-cid-joh4gybl> <i class="fas fa-envelope" data-astro-cid-joh4gybl></i> <div data-astro-cid-joh4gybl> <strong data-astro-cid-joh4gybl>Email Us:</strong> <a href="mailto:avi@theprofitplatform.com.au" data-astro-cid-joh4gybl> avi@theprofitplatform.com.au </a> </div> </div> <div class="contact-item" data-astro-cid-joh4gybl> <i class="fas fa-map-marker-alt" data-astro-cid-joh4gybl></i> <div data-astro-cid-joh4gybl> <strong data-astro-cid-joh4gybl>Service Area:</strong> <span data-astro-cid-joh4gybl>Sydney, NSW</span> </div> </div> <div class="contact-item" data-astro-cid-joh4gybl> <i class="fas fa-clock" data-astro-cid-joh4gybl></i> <div data-astro-cid-joh4gybl> <strong data-astro-cid-joh4gybl>Business Hours:</strong> <span data-astro-cid-joh4gybl>Mon-Fri 9am-6pm, Sat 10am-2pm</span> </div> </div> <div class="response-time" data-astro-cid-joh4gybl> <i class="fas fa-bolt" data-astro-cid-joh4gybl></i> <strong data-astro-cid-joh4gybl>Average Response Time:</strong> 15 minutes during business hours
