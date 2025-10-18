@@ -179,6 +179,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile navigation is handled by Header.astro component
     // Removed duplicate code to prevent conflicts
 });
+
+// Lightweight scroll animation using Intersection Observer
+document.addEventListener('DOMContentLoaded', function() {
+    // Only run on desktop (matches existing mobile-disable rules)
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) return;
+
+    // Respect user's motion preferences
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    if (animatedElements.length === 0) return;
+
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                observer.unobserve(entry.target); // Animate once only
+            }
+        });
+    }, observerOptions);
+
+    animatedElements.forEach(el => observer.observe(el));
+});
 </script>
 
 <!-- Structured Data - LocalBusiness with AggregateRating -->

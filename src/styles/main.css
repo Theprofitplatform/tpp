@@ -37,9 +37,6 @@
 /* Bundled CSS */
 @import url('/css/bundled.min.css');
 
-/* Animation fixes - MUST load after bundled CSS */
-@import url('/css/fix-animations.css');
-
 /* Contact text visibility - HIGHEST PRIORITY fix */
 @import url('/css/contact-text-fix.css');
 
@@ -51,6 +48,9 @@
 
 /* Mobile navigation fixes - MUST load after other navigation styles */
 @import url('/css/mobile-navigation-fix.css');
+
+/* Animation fixes - MUST load AFTER cta-wireframe to override specificity */
+@import url('/css/fix-animations.css');
 
 /* CRITICAL: globals.css MUST load LAST to override old CSS files */
 @import './globals.css';
