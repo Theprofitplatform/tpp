@@ -113,6 +113,8 @@ npm run automation:list            # List all automations
 npm run automation:help            # Show help
 npm run automation:test            # Verify system
 npm run automation:setup           # Run setup script
+npm run automation:health          # Generate health dashboard
+npm run automation:monitor         # Run health checks
 ```
 
 ---

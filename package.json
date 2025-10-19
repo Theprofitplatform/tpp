@@ -52,7 +52,9 @@
     "automation:status": "node automation/scripts/automation-orchestrator.mjs status",
     "automation:help": "node automation/scripts/automation-orchestrator.mjs help",
     "automation:setup": "bash automation/scripts/setup-automation.sh",
-    "automation:test": "node automation/scripts/test-automation.mjs"
+    "automation:test": "node automation/scripts/test-automation.mjs",
+    "automation:health": "node automation/scripts/health-dashboard.mjs",
+    "automation:monitor": "bash automation/scripts/vps-monitor.sh"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.65.0",

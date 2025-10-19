@@ -47,6 +47,7 @@
 | File | Purpose | Reading Time |
 |------|---------|--------------|
 | `automation/AUTOMATION-SETUP-GUIDE.md` | Full setup | 15 min |
+| `automation/MONITORING-GUIDE.md` | Health monitoring | 10 min |
 | `LOCAL-SEO-AUTOMATION-COMPLETE.md` | Delivery overview | 10 min |
 | `AUTOMATION-FINAL-SUMMARY.md` | Final summary | 5 min |
 
@@ -88,6 +89,10 @@
 → Read: `automation/AUTOMATION-SETUP-GUIDE.md` → "Set Up Automation"
 → Command: `npm run automation:scheduled`
 
+### "I want to monitor automation health"
+→ Read: `automation/MONITORING-GUIDE.md`
+→ Commands: `npm run automation:health` + `npm run automation:monitor`
+
 ---
 
 ## 🗂️ File Structure Reference
@@ -104,6 +109,7 @@
     ├── INDEX.md                           # This file
     ├── README.md                          # System overview
     ├── AUTOMATION-SETUP-GUIDE.md          # Complete guide
+    ├── MONITORING-GUIDE.md                # Health monitoring guide
     │
     ├── scripts/                           # Automation scripts
     │   ├── generate-suburb-pages.mjs      # Suburb page generator
@@ -112,6 +118,8 @@
     │   ├── rank-tracker.mjs               # Keyword rank tracker
     │   ├── link-outreach.mjs              # Link outreach generator
     │   ├── automation-orchestrator.mjs    # Master scheduler
+    │   ├── vps-monitor.sh                 # System health monitor
+    │   ├── health-dashboard.mjs           # Health dashboard generator
     │   ├── setup-automation.sh            # Setup script
     │   └── test-automation.mjs            # Test/verification
     │
