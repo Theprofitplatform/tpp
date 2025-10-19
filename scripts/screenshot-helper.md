@@ -18,17 +18,12 @@ take_screenshot({
   quality: 80
 })
 
-// ✅ CORRECT - Full page screenshot
-resize_page({ width: 1280, height: 800 })
-take_screenshot({
-  fullPage: true,
-  format: "jpeg",
-  quality: 60
-})
-
 // ❌ WRONG - Never use defaults (creates oversized PNG)
 take_screenshot()
+
+// ❌ BANNED - Full-page screenshots ALWAYS fail on long pages
 take_screenshot({ fullPage: true })
+take_screenshot({ fullPage: true, format: "jpeg", quality: 60 })
 ```
 
 ## Required Pre-Flight Checklist
@@ -37,18 +32,17 @@ Before ANY screenshot:
 
 1. **Resize browser first** (prevents dimension errors):
    ```javascript
-   resize_page({ width: 1920, height: 1080 })  // Standard
-   resize_page({ width: 1280, height: 800 })   // Safe for full-page
+   resize_page({ width: 1920, height: 1080 })  // Standard viewport
    ```
 
 2. **Always specify format and quality**:
    - Format: `"jpeg"` (not PNG - too large!)
-   - Quality: 60-80 (lower for full-page screenshots)
+   - Quality: 75-85 (standard range)
 
-3. **Full-page screenshots need extra care**:
-   - Resize to 1280x800 FIRST
-   - Use quality 60-70 (not 75+)
-   - Consider if you really need full page vs just element screenshot
+3. **NEVER use fullPage: true**:
+   - Long pages exceed 8000px height even with compression
+   - Use `take_snapshot()` for full page content instead
+   - Or take multiple element screenshots
 
 ## Quick Decision Tree
 
@@ -58,15 +52,22 @@ Before ANY screenshot:
 
 **"I need to debug a specific element"** → `take_screenshot({ uid: "...", format: "jpeg", quality: 80 })`
 
-**"I need full page"** → Resize to 1280x800, then `take_screenshot({ fullPage: true, format: "jpeg", quality: 60 })`
+**"I need to see the whole page"** → `take_snapshot()` for text, or multiple element screenshots
+
+**"I need full page screenshot"** → ❌ **IMPOSSIBLE** - Use `take_snapshot()` instead
 
 ## What Went Wrong?
 
 The dimension error happens when:
 - ❌ Using default PNG format (uncompressed, huge dimensions)
-- ❌ Taking full-page screenshots on long pages without resizing
-- ❌ Not specifying quality parameter
+- ❌ Using `fullPage: true` on ANY page (long pages exceed 8000px height)
+- ❌ Not specifying format and quality parameters
 - ❌ Browser window too large (> 1920px width)
+
+**Why fullPage always fails:**
+- Blog posts and long pages are often 10,000+ pixels tall
+- Compression doesn't fix height - only reduces file size
+- There is **NO safe way** to use `fullPage: true`
 
 ## File Reading Safety
 

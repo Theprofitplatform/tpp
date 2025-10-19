@@ -117,18 +117,38 @@ take_screenshot({ format: "jpeg", quality: 75 })
 take_screenshot({ uid: "element-id", format: "jpeg", quality: 80 })
 ```
 
-**Full-page screenshot (DANGER ZONE - use sparingly):**
+**❌ FULL-PAGE SCREENSHOTS ARE BANNED ❌**
 ```javascript
-resize_page({ width: 1280, height: 800 })  // MUST resize smaller
-take_screenshot({ fullPage: true, format: "jpeg", quality: 60 })  // MUST use lower quality
+// ❌ NEVER DO THIS - Even with compression, long pages exceed 8000px height
+take_screenshot({ fullPage: true, format: "jpeg", quality: 60 })
+```
+
+**Why fullPage fails:**
+- Long pages (like blog posts) can be 10,000+ pixels tall
+- No amount of JPEG compression fixes height > 8000px
+- **There is no safe way to use fullPage: true**
+
+**Safe alternatives instead:**
+```javascript
+// ✅ Take viewport screenshot (what user sees)
+resize_page({ width: 1920, height: 1080 })
+take_screenshot({ format: "jpeg", quality: 75 })
+
+// ✅ Screenshot specific sections
+take_snapshot()  // Find UIDs
+take_screenshot({ uid: "header-section", format: "jpeg", quality: 80 })
+take_screenshot({ uid: "footer-section", format: "jpeg", quality: 80 })
+
+// ✅ For page structure/content analysis
+take_snapshot()  // Get full text representation
 ```
 
 **NEVER:**
 - ❌ `take_screenshot()` without parameters
-- ❌ `take_screenshot({ fullPage: true })` without format/quality
+- ❌ `take_screenshot({ fullPage: true })` - **BANNED: ALWAYS FAILS ON LONG PAGES**
 - ❌ PNG format (default) - creates oversized images
-- ❌ Quality > 75 for full-page screenshots
-- ❌ Browser width > 1920px for full-page screenshots
+- ❌ Quality > 85 for any screenshot
+- ❌ Browser width > 1920px before screenshots
 
 ### Choosing Between Text Snapshots and Screenshots
 
@@ -186,9 +206,8 @@ take_snapshot()  // Get UIDs, then use click/fill/etc.
 // Safe element screenshot (specific UI component)
 take_screenshot({ uid: "element-123", format: "jpeg", quality: 80 })
 
-// Safe full-page screenshot (if absolutely needed)
-resize_page({ width: 1280, height: 800 })
-take_screenshot({ fullPage: true, format: "jpeg", quality: 60 })
+// For "seeing" the whole page - use snapshots, NOT fullPage screenshots
+take_snapshot()  // Gets full page content as text, never fails
 
 // Real-world examples:
 // ❌ BAD: "Why is my header overlapping?" → take_snapshot() // Can't see overlap!
@@ -196,6 +215,9 @@ take_screenshot({ fullPage: true, format: "jpeg", quality: 60 })
 
 // ✅ GOOD: "Click the submit button" → take_snapshot() // Get UID for clicking
 // ❌ BAD: "Click the submit button" → take_screenshot() // Unnecessary image
+
+// ❌ BANNED: "Show me the whole page" → take_screenshot({ fullPage: true })
+// ✅ GOOD: "Show me the whole page" → take_snapshot() // or multiple element screenshots
 ```
 
 ### Available Validation Tools
