@@ -14,6 +14,7 @@
     "parity:scan": "node scripts/parity-scan.mjs",
     "blog:create": "echo 'Copy src/content/blog/TEMPLATE.md to new file - see MANUAL-CONTENT-PROCESS.md'",
     "blog:check": "./scripts/core-test.sh",
+    "blog:link-map": "node automation/scripts/build-internal-link-map.mjs",
     "topics:generate": "node automation/scripts/generate-topics.mjs",
     "topics:check": "node automation/scripts/check-topic-queue.mjs",
     "test:essential": "./scripts/essential-tests.sh",
@@ -30,7 +31,9 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"**/*.{js,mjs,cjs,astro,md,json}\"",
-    "format:check": "prettier --check \"**/*.{js,mjs,cjs,astro,md,json}\""
+    "format:check": "prettier --check \"**/*.{js,mjs,cjs,astro,md,json}\"",
+    "image:check": "node scripts/check-image-dimensions.mjs",
+    "image:check-all": "node scripts/check-image-dimensions.mjs *.png *.jpg *.jpeg *.webp 2>/dev/null || echo 'No images found'"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.65.0",

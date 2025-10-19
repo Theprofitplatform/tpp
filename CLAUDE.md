@@ -70,6 +70,167 @@ When making changes:
 4. Run `npm run parity:scan` to verify no regressions
 5. Use `npm run deploy:auto` for production deployment with verification
 
+## Image Handling Guidelines - MANDATORY ENFORCEMENT
+
+**⚠️ BREAKING THESE RULES CAUSES CONVERSATION-ENDING API ERRORS ⚠️**
+
+Claude API limits (non-negotiable):
+- **Max file size**: 5 MB
+- **Max dimensions**: 8000 pixels (width or height)
+
+**If an oversized image enters the conversation, the ENTIRE conversation dies. There is NO recovery except starting over.**
+
+### REQUIRED Pre-Flight Checks
+
+**Before EVERY screenshot or image read, you MUST:**
+
+1. **For Chrome DevTools screenshots** - See `scripts/screenshot-helper.md` for complete guide:
+   ```javascript
+   // Step 1: ALWAYS resize browser first
+   resize_page({ width: 1920, height: 1080 })  // Standard
+
+   // Step 2: ALWAYS specify JPEG with quality
+   take_screenshot({ format: "jpeg", quality: 75 })
+
+   // ❌ NEVER use defaults: take_screenshot() ← THIS WILL BREAK!
+   ```
+
+2. **For reading image files** - MUST validate first:
+   ```bash
+   # REQUIRED: Check image before reading
+   npm run image:check filename.png
+
+   # If this fails, DO NOT READ THE FILE
+   # Start a new conversation instead
+   ```
+
+### Screenshot Rules (MANDATORY)
+
+**Standard screenshot:**
+```javascript
+resize_page({ width: 1920, height: 1080 })
+take_screenshot({ format: "jpeg", quality: 75 })
+```
+
+**Element screenshot:**
+```javascript
+take_screenshot({ uid: "element-id", format: "jpeg", quality: 80 })
+```
+
+**Full-page screenshot (DANGER ZONE - use sparingly):**
+```javascript
+resize_page({ width: 1280, height: 800 })  // MUST resize smaller
+take_screenshot({ fullPage: true, format: "jpeg", quality: 60 })  // MUST use lower quality
+```
+
+**NEVER:**
+- ❌ `take_screenshot()` without parameters
+- ❌ `take_screenshot({ fullPage: true })` without format/quality
+- ❌ PNG format (default) - creates oversized images
+- ❌ Quality > 75 for full-page screenshots
+- ❌ Browser width > 1920px for full-page screenshots
+
+### Choosing Between Text Snapshots and Screenshots
+
+**Use text snapshots (`take_snapshot`) when:**
+- Analyzing DOM structure or finding element UIDs for interaction
+- Reading page content or checking if elements exist
+- Automating interactions (clicks, filling forms)
+- Functional testing (not visual/design testing)
+- You need to interact with specific elements
+
+**Use screenshots (`take_screenshot`) when:**
+- Debugging visual/CSS issues (layout, alignment, spacing, colors)
+- Verifying design implementation or responsive layouts
+- User asks "how does it look?" or to see the page
+- Visual QA, design reviews, or checking visual regressions
+- Need proof of visual bugs (overlapping, broken styling, etc.)
+- Analyzing what users actually see (UX verification)
+
+**Key principle:** Text snapshots can't show visual bugs. If it's visual, screenshot it (with proper compression).
+
+### Reading Image Files - REQUIRED VALIDATION
+
+**MANDATORY: Validate BEFORE reading any image file:**
+
+```bash
+# Check single file
+npm run image:check path/to/image.png
+
+# Check all images in directory
+npm run image:check-all
+```
+
+**What the validator checks:**
+- File size (must be < 5MB)
+- Image dimensions (must be < 8000px width/height)
+- Warns if > 7000px (safe threshold)
+
+**If validation fails:**
+1. ❌ DO NOT READ THE FILE with Read tool
+2. 🔄 Start a new conversation
+3. 🛠️ Install ImageMagick to fix: `sudo apt-get install imagemagick`
+4. 🔧 Then resize: `convert image.png -resize 7000x7000\> -quality 80 safe.jpg`
+
+**Safe formats:** JPEG (quality 75-85) or WebP (quality 75-85)
+
+### Example Safe Usage
+```javascript
+// For visual debugging (CSS, layout, design)
+resize_page({ width: 1920, height: 1080 })
+take_screenshot({ format: "jpeg", quality: 75 })
+
+// For finding elements to interact with
+take_snapshot()  // Get UIDs, then use click/fill/etc.
+
+// Safe element screenshot (specific UI component)
+take_screenshot({ uid: "element-123", format: "jpeg", quality: 80 })
+
+// Safe full-page screenshot (if absolutely needed)
+resize_page({ width: 1280, height: 800 })
+take_screenshot({ fullPage: true, format: "jpeg", quality: 60 })
+
+// Real-world examples:
+// ❌ BAD: "Why is my header overlapping?" → take_snapshot() // Can't see overlap!
+// ✅ GOOD: "Why is my header overlapping?" → take_screenshot() // See visual bug
+
+// ✅ GOOD: "Click the submit button" → take_snapshot() // Get UID for clicking
+// ❌ BAD: "Click the submit button" → take_screenshot() // Unnecessary image
+```
+
+### Available Validation Tools
+
+This project has built-in image validation:
+
+```bash
+# Check specific images
+npm run image:check image1.png image2.jpg
+
+# Check all images in project root
+npm run image:check-all
+
+# Validation script location
+node scripts/check-image-dimensions.mjs <files...>
+```
+
+### Recovery from Dimension Error
+
+**If you see the dimension error:**
+
+1. **STOP immediately** - The conversation is compromised
+2. **Start a new conversation** - Oversized image is stuck in context
+3. **In new conversation, validate first:**
+   ```bash
+   npm run image:check suspicious-file.png
+   ```
+4. **If validation fails:**
+   - Install ImageMagick: `sudo apt-get install imagemagick`
+   - Resize: `convert file.png -resize 7000x7000\> -quality 80 safe.jpg`
+   - Validate again: `npm run image:check safe.jpg`
+   - Only then read with Read tool
+
+**Prevention is the only cure. Once the error occurs, the conversation cannot be saved.**
+
 ## Key Features Implemented
 
 ### Accessibility & UX
