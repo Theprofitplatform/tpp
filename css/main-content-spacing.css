@@ -15,16 +15,17 @@ main,
 .services-hero,
 .web-design-hero,
 .google-ads-hero,
-.seo-hero {
+.seo-hero,
+.blog-hero {
     padding-top: 0 !important;
     margin-top: 0 !important;
     min-height: 100vh;
 }
 
-body > main > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero),
-body > #main-content > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero),
-main > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero),
-#main-content > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero) {
+body > main > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero):not(.blog-hero),
+body > #main-content > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero):not(.blog-hero),
+main > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero):not(.blog-hero),
+#main-content > section:first-child:not(.tools-hero-modern):not(.competitor-hero):not(.content-hero):not(.keyword-hero):not(.meta-hero):not(.rank-hero):not(.seo-audit-hero):not(.speed-hero):not(.blog-hero) {
     padding-top: 10px !important;
     margin-top: 0 !important;
 }
@@ -51,14 +52,15 @@ main > .container:first-child,
     .services-hero,
     .web-design-hero,
     .google-ads-hero,
-    .seo-hero {
+    .seo-hero,
+    .blog-hero {
         padding-top: 0 !important;
     }
 
-    body > main > section:first-child:not(.tools-hero-modern),
-    body > #main-content > section:first-child:not(.tools-hero-modern),
-    main > section:first-child:not(.tools-hero-modern),
-    #main-content > section:first-child:not(.tools-hero-modern) {
+    body > main > section:first-child:not(.tools-hero-modern):not(.blog-hero),
+    body > #main-content > section:first-child:not(.tools-hero-modern):not(.blog-hero),
+    main > section:first-child:not(.tools-hero-modern):not(.blog-hero),
+    #main-content > section:first-child:not(.tools-hero-modern):not(.blog-hero) {
         padding-top: 0 !important;
     }
 }

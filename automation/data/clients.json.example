@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Johnson",
+    "email": "sarah@example.com",
+    "projectType": "SEO services",
+    "projectCompletionDate": "2025-01-15",
+    "status": "active",
+    "suburb": "Bondi"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "email": "michael@example.com",
+    "projectType": "Google Ads campaign",
+    "projectCompletionDate": "2025-01-20",
+    "status": "active",
+    "suburb": "Parramatta"
+  },
+  {
+    "id": 3,
+    "name": "Emma Williams",
+    "email": "emma@example.com",
+    "projectType": "Web design",
+    "projectCompletionDate": "2025-01-25",
+    "status": "active",
+    "suburb": "North Sydney"
+  }
+]

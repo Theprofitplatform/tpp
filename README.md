@@ -34,6 +34,40 @@ npm run deploy:auto  # Parity check + deploy
 - **[`START_HERE.md`](START_HERE.md)** ⭐ - Quick-start guide (read this first)
 - **[`NEXT_STEPS.md`](NEXT_STEPS.md)** - Immediate actions (10 minutes)
 - **[`CLAUDE.md`](CLAUDE.md)** - Development commands & architecture
+- **[`AUTOMATED-SETUP.md`](AUTOMATED-SETUP.md)** 🤖 - Automation system setup (2 minutes)
+
+### **Automation System** 🤖
+
+**Set up automated monitoring in 2 minutes**:
+```bash
+npm run health:quick-setup
+```
+
+#### **What Gets Automated**
+- 13 active automations (blog posts, deployment, monitoring)
+- Weekly health checks (email notifications)
+- Topic queue management (auto-refill)
+- Performance monitoring (Lighthouse CI)
+- VPS health monitoring (optional)
+
+#### **Documentation**
+- **[`AUTOMATED-SETUP.md`](AUTOMATED-SETUP.md)** ⭐ - **Start here** (2-min setup)
+- **[`README-AUTOMATION.md`](README-AUTOMATION.md)** - Complete automation guide
+- **[`AUTOMATION-MAP.md`](AUTOMATION-MAP.md)** - Visual map of all 13 automations
+- **[`QUICK-REFERENCE.md`](QUICK-REFERENCE.md)** - Command reference
+- **[`HEALTH-CHECK-SETUP.md`](HEALTH-CHECK-SETUP.md)** - Detailed setup guide
+
+#### **Quick Commands**
+```bash
+npm run health                 # Check all 13 automations
+npm run health:quick-setup     # 2-minute automated setup ⭐
+npm run topics:check           # Check topic queue
+npm run automation:status      # Check automation status
+```
+
+See [AUTOMATION-COMPLETE.md](AUTOMATION-COMPLETE.md) for full details.
+
+---
 
 ### **Local SEO System**
 

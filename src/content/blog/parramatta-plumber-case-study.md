@@ -35,6 +35,24 @@ schema:
     url: "https://theprofitplatform.com.au/blog/"
 ---
 
+## Table of Contents
+
+- [Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days](#case-study-how-we-got-a-parramatta-plumber-2-6x-more-calls-in-30-days)
+- [The Challenge](#the-challenge)
+- [The Strategy](#the-strategy)
+- [Part 1: Google My Business Optimization (Week 1)](#part-1-google-my-business-optimization-week-1)
+- [Part 2: Google Ads Overhaul (Week 1-2)](#part-2-google-ads-overhaul-week-1-2)
+- [Part 3: Review Generation System (Week 2-4)](#part-3-review-generation-system-week-2-4)
+- [Part 4: Website Quick Wins (Week 3)](#part-4-website-quick-wins-week-3)
+- [Part 5: Local SEO Foundation (Week 3-4)](#part-5-local-seo-foundation-week-3-4)
+- [The Results: 30-Day Summary](#the-results-30-day-summary)
+- [Why This Worked: The Key Insights](#why-this-worked-the-key-insights)
+- [What Happened Next (Months 2-6)](#what-happened-next-months-2-6)
+- [Can This Be Replicated?](#can-this-be-replicated)
+- [Your Turn: Free Strategy Call](#your-turn-free-strategy-call)
+- [Key Takeaways](#key-takeaways)
+- [Resources](#resources)
+
 ## Case Study: How We Got a Parramatta Plumber 2.6x More Calls in 30 Days
 
 **Client:** Local plumbing business (name withheld for privacy)

@@ -1,0 +1,241 @@
+#!/usr/bin/env node
+
+/**
+ * Simple Blog Post Generator
+ * Generates a blog post from the topic queue using Claude AI
+ */
+
+import dotenv from 'dotenv';
+import Anthropic from '@anthropic-ai/sdk';
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectRoot = path.resolve(__dirname, '../..');
+
+// Load environment variables
+dotenv.config({ path: path.join(projectRoot, '.env.local') });
+
+const anthropic = new Anthropic({
+  apiKey: process.env.CLAUDE_API_KEY || process.env.ANTHROPIC_API_KEY
+});
+
+const TOPIC_QUEUE_PATH = path.join(projectRoot, 'automation/topic-queue.json');
+const BLOG_DIR = path.join(projectRoot, 'src/content/blog');
+
+/**
+ * Assign author based on category
+ */
+function assignAuthor(category) {
+  const authors = {
+    'SEO': 'Abhishek Maharjan',
+    'Google Ads': 'Aayush Shrestha',
+    'Web Design': 'Finjo Sherpa',
+    'Digital Marketing': 'Abhilekh Maharjan',
+    'Content Marketing': 'Abhishek Maharjan',
+    'Marketing Strategy': 'Avi'
+  };
+
+  return authors[category] || 'TPP Team';
+}
+
+/**
+ * Get next topic from queue
+ */
+async function getNextTopic(topicId = null) {
+  const queueData = JSON.parse(await fs.readFile(TOPIC_QUEUE_PATH, 'utf-8'));
+
+  let topic;
+  if (topicId) {
+    topic = queueData.queue.find(t => t.id === parseInt(topicId) && t.status === 'pending');
+  } else {
+    // Get highest priority pending topic
+    const pending = queueData.queue.filter(t => t.status === 'pending');
+    pending.sort((a, b) => a.priority - b.priority || a.id - b.id);
+    topic = pending[0];
+  }
+
+  if (!topic) {
+    throw new Error(topicId ? `Topic ID ${topicId} not found or not pending` : 'No pending topics in queue');
+  }
+
+  return { topic, queueData };
+}
+
+/**
+ * Mark topic as completed
+ */
+async function markTopicCompleted(topicId) {
+  const queueData = JSON.parse(await fs.readFile(TOPIC_QUEUE_PATH, 'utf-8'));
+  const topic = queueData.queue.find(t => t.id === topicId);
+
+  if (topic) {
+    topic.status = 'completed';
+    topic.publishedDate = new Date().toISOString().split('T')[0];
+    await fs.writeFile(TOPIC_QUEUE_PATH, JSON.stringify(queueData, null, 2));
+  }
+}
+
+/**
+ * Generate blog post using Claude
+ */
+async function generateBlogContent(topic) {
+  console.log('🤖 Generating blog post with Claude AI...\n');
+
+  const prompt = `You are an expert content writer for The Profit Platform, a Sydney-based digital marketing agency.
+
+Write a comprehensive, SEO-optimized blog post with the following specifications:
+
+**Topic**: ${topic.title}
+**Category**: ${topic.category}
+**Target Keyword**: ${topic.targetKeyword}
+**Search Intent**: ${topic.searchIntent}
+**Tags**: ${topic.tags.join(', ')}
+
+**Requirements**:
+1. **Length**: 2,500-3,500 words
+2. **Tone**: Professional but conversational, helpful
+3. **Location**: Sydney-specific examples and context where relevant
+4. **Target Audience**: Sydney small business owners (10-50 employees)
+5. **Structure**: Clear H2 and H3 headings, short paragraphs (3-4 sentences max)
+6. **SEO**: Naturally include target keyword in first paragraph, headings, and throughout
+7. **Value**: Actionable advice, real examples, practical tips
+8. **CTA**: End with clear call-to-action to contact The Profit Platform
+
+**Important**:
+- Write in markdown format
+- Use ## for H2 headings, ### for H3 headings
+- Include bullet points and numbered lists where appropriate
+- Add a brief meta description (150-160 chars) at the start
+- Do NOT include title (will be added from frontmatter)
+- Do NOT include author or date (handled separately)
+- Focus on quality and depth over keyword stuffing
+
+Generate the complete blog post now:`;
+
+  const response = await anthropic.messages.create({
+    model: 'claude-sonnet-4-20250514',
+    max_tokens: 8000,
+    temperature: 0.9,
+    messages: [{
+      role: 'user',
+      content: prompt
+    }]
+  });
+
+  return response.content[0].text;
+}
+
+/**
+ * Create blog post file
+ */
+async function saveBlogPost(topic, content) {
+  const date = new Date().toISOString().split('T')[0];
+  const slug = topic.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+  const filename = `${date}-${slug}.md`;
+  const filepath = path.join(BLOG_DIR, filename);
+
+  // Extract meta description from content if present
+  let metaDescription = '';
+  const descMatch = content.match(/meta description[:\s]+(.+)/i);
+  if (descMatch) {
+    metaDescription = descMatch[1].trim().replace(/[\"\']/g, '');
+    content = content.replace(/meta description[:\s]+.+/i, '').trim();
+  }
+
+  // Generate meta description if not found
+  if (!metaDescription) {
+    // Take first paragraph as description
+    const firstPara = content.split('\n\n')[0].replace(/[#*]/g, '').trim();
+    metaDescription = firstPara.substring(0, 157) + '...';
+  }
+
+  const author = assignAuthor(topic.category);
+
+  const frontmatter = `---
+title: "${topic.title}"
+description: "${metaDescription}"
+pubDate: ${date}
+author: "${author}"
+category: "${topic.category}"
+tags: ${JSON.stringify(topic.tags)}
+featured: false
+draft: false
+---
+
+`;
+
+  const fullContent = frontmatter + content;
+
+  await fs.writeFile(filepath, fullContent, 'utf-8');
+
+  return {
+    filename,
+    filepath,
+    slug,
+    wordCount: content.split(/\s+/).length
+  };
+}
+
+/**
+ * Main execution
+ */
+async function main() {
+  try {
+    console.log('🚀 Blog Post Generator Starting...\n');
+
+    // Check API key
+    if (!process.env.CLAUDE_API_KEY && !process.env.ANTHROPIC_API_KEY) {
+      throw new Error('CLAUDE_API_KEY or ANTHROPIC_API_KEY not found in environment');
+    }
+
+    // Get topic ID from environment or CLI
+    const topicId = process.env.TOPIC_ID || process.argv[2];
+
+    // Get next topic
+    const { topic } = await getNextTopic(topicId);
+    console.log('📝 Selected Topic:');
+    console.log(`   ID: ${topic.id}`);
+    console.log(`   Title: ${topic.title}`);
+    console.log(`   Category: ${topic.category}`);
+    console.log(`   Keyword: ${topic.targetKeyword}\n`);
+
+    // Generate content
+    const content = await generateBlogContent(topic);
+
+    // Save blog post
+    const result = await saveBlogPost(topic, content);
+    console.log('✅ Blog post generated successfully!');
+    console.log(`   File: ${result.filename}`);
+    console.log(`   Words: ${result.wordCount}`);
+    console.log(`   Slug: ${result.slug}\n`);
+
+    // Mark topic as completed
+    await markTopicCompleted(topic.id);
+    console.log('✅ Topic marked as completed in queue\n');
+
+    // Output for GitHub Actions
+    if (process.env.GITHUB_OUTPUT) {
+      const output = `title=${topic.title}
+slug=${result.slug}
+url=https://theprofitplatform.com.au/blog/${result.slug}/
+wordcount=${result.wordCount}`;
+      await fs.appendFile(process.env.GITHUB_OUTPUT, output + '\n');
+    }
+
+    process.exit(0);
+
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    console.error(error.stack);
+    process.exit(1);
+  }
+}
+
+main();

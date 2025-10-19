@@ -3,6 +3,7 @@ name: Daily Blog Post Generator
 on:
   # Schedule: Monday and Thursday at 09:00 UTC (Month 1: 2 posts/week)
   # Adjust schedule based on rollout plan
+  # RE-ENABLED 2025-10-19: Simplified automation scripts now available
   schedule:
     - cron: '0 9 * * 1,4'  # Monday, Thursday 9am UTC (8pm Sydney)
 

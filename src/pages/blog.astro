@@ -184,15 +184,12 @@ allTags.forEach(tag => {
     @media (max-width: 968px) {
       .hero-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 1.5rem;
         align-items: flex-start;
       }
 
       .hero-illustration {
-        order: -1;
-        max-width: 280px;
-        margin: 0 auto 1rem;
-        animation: none; /* Disable floating on mobile */
+        display: none; /* Hidden on tablet and mobile to prevent layout issues */
       }
 
       .hero-content {
@@ -218,9 +215,10 @@ allTags.forEach(tag => {
       color: #ffffff;
       font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 800;
-      margin: 1.25rem 0 1rem;
+      margin: 0.5rem 0 1rem;
       line-height: 1.15;
       letter-spacing: -0.02em;
+      text-align: center;
     }
 
     .gradient-text {
@@ -229,9 +227,8 @@ allTags.forEach(tag => {
     }
 
     .hero-content {
-      display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
     }
 
     .hero-description {
@@ -240,6 +237,7 @@ allTags.forEach(tag => {
       max-width: 550px;
       line-height: 1.65;
       margin: 0;
+      text-align: center;
     }
 
     .hero-stats {
@@ -320,7 +318,7 @@ allTags.forEach(tag => {
     /* Featured Article - Simplified */
     .featured-section {
       background: #ffffff;
-      padding: 3rem 0;
+      padding: 1rem 0 3rem;
       border-bottom: 1px solid #e5e7eb;
     }
 
@@ -527,8 +525,11 @@ allTags.forEach(tag => {
 
     @media (max-width: 768px) {
       .articles-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto 3rem auto !important;
       }
     }
 
@@ -547,6 +548,15 @@ allTags.forEach(tag => {
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
       transform: translateY(-4px);
       border-color: #d1d5db;
+    }
+
+    /* Mobile tap states */
+    @media (max-width: 768px) {
+      .article-card:active {
+        transform: scale(0.98);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: all 0.1s ease;
+      }
     }
 
     .article-link {
@@ -752,6 +762,15 @@ allTags.forEach(tag => {
     .view-btn:focus {
       outline: 2px solid #1f2937;
       outline-offset: 2px;
+    }
+
+    /* Mobile touch target improvements */
+    @media (max-width: 768px) {
+      .view-btn {
+        padding: 0.75rem 1.25rem !important;
+        min-height: 44px !important;
+        font-size: 0.875rem !important;
+      }
     }
 
     /* Animations */
@@ -968,29 +987,47 @@ allTags.forEach(tag => {
       outline-offset: 2px;
     }
 
+    /* Override global spacing rules for blog hero */
+    main > .blog-hero,
+    #main-content > .blog-hero,
+    body > main > .blog-hero,
+    body > #main-content > .blog-hero {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+
     /* Mobile Responsive */
     @media (max-width: 768px) {
-      .blog-hero {
-        padding: 2rem 0 2rem;
+      main > .blog-hero,
+      #main-content > .blog-hero,
+      body > main > .blog-hero,
+      body > #main-content > .blog-hero {
+        padding: 6.5rem 0 2.5rem !important; /* 6.5rem (104px) accounts for fixed header (88px) + spacing */
+        min-height: auto !important;
       }
 
       .hero-grid {
-        gap: 1.5rem;
+        gap: 1rem;
       }
 
       .hero-illustration {
-        max-width: 240px;
-        margin-bottom: 0.5rem;
+        display: none; /* Hide broken illustration on mobile */
+      }
+
+      .hero-badge {
+        margin-top: 0; /* Ensure badge appears immediately after padding */
       }
 
       .hero-title {
         font-size: 1.75rem;
-        margin: 0.75rem 0 0.75rem;
+        margin: 0.5rem 0 0.75rem;
+        text-align: center;
       }
 
       .hero-description {
         font-size: 1rem;
         line-height: 1.5;
+        text-align: center;
       }
 
       .hero-stats {
@@ -1162,8 +1199,9 @@ allTags.forEach(tag => {
       }
 
       .filter-pill {
-        padding: 0.375rem 0.75rem !important;
+        padding: 0.625rem 0.75rem !important;
         font-size: 0.8125rem !important;
+        min-height: 44px !important;
       }
     }
 
@@ -1189,7 +1227,7 @@ allTags.forEach(tag => {
 
   <main id="main-content" role="main">
     <!-- Hero Section -->
-    <section class="blog-hero">
+    <section class="blog-hero" style="padding: 6.5rem 0 2.5rem !important; margin-top: 0 !important;">
       <div class="hero-background">
         <div class="hero-gradient-mesh"></div>
         <div class="hero-floating-elements">
@@ -1362,26 +1400,6 @@ allTags.forEach(tag => {
     )}
 
     <!-- Related Tags Section (shown when tag filter is active) -->
-    <section class="articles-section" style="padding-top: 2rem;">
-      <div class="container">
-        <div id="related-tags-section" class="related-tags-section" role="region" aria-label="Related topics">
-          <div class="related-tags-header">
-            <div class="related-tags-title-wrapper">
-              <h3 class="related-tags-title">Related Topics for</h3>
-              <span id="current-tag-display" class="current-tag-badge"></span>
-            </div>
-            <button id="clear-tag-filter" class="clear-tag-btn" aria-label="Clear tag filter">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M4 4l8 8m0-8l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              Show All Posts
-            </button>
-          </div>
-          <nav id="related-tags-list" class="related-tags-list" aria-label="Related topics"></nav>
-        </div>
-      </div>
-    </section>
-
     <!-- Featured Article -->
     <section class="featured-section">
       <div class="container">

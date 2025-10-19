@@ -1,0 +1,28 @@
+# Automation Generated Files & Sensitive Data
+
+# Generated content (review before committing)
+generated/
+
+# Reports (can be regenerated)
+reports/
+
+# Logs
+logs/
+*.log
+
+# Sensitive configuration
+config/.env
+config/gsc-credentials.json
+
+# Data files (may contain client info)
+data/clients.json
+data/automation-status.json
+data/rankings/
+
+# Temporary files
+*.tmp
+.DS_Store
+
+# Keep example files
+!config/.env.example
+!data/clients.json.example

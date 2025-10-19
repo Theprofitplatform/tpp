@@ -1,0 +1,200 @@
+name: Weekly Health Check
+
+on:
+  schedule:
+    # Run every Monday at 9:00 AM UTC (8:00 PM Sydney time)
+    - cron: '0 9 * * 1'
+
+  # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      send_notification:
+        description: 'Send notification regardless of status'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          # Install jq for JSON parsing
+          sudo apt-get update
+          sudo apt-get install -y jq curl
+
+          # Install GitHub CLI
+          type -p gh &>/dev/null || {
+            curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+            sudo apt-get update
+            sudo apt-get install -y gh
+          }
+
+      - name: Make script executable
+        run: chmod +x scripts/simple-health-check.sh
+
+      - name: Run health check
+        id: health
+        run: |
+          # Capture output and exit code
+          set +e
+          OUTPUT=$(./scripts/simple-health-check.sh 2>&1)
+          EXIT_CODE=$?
+          set -e
+
+          # Save output for later steps
+          echo "$OUTPUT" > health-report.txt
+          echo "exit_code=$EXIT_CODE" >> $GITHUB_OUTPUT
+
+          # Display output
+          cat health-report.txt
+
+          # Return exit code
+          exit $EXIT_CODE
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Upload health report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-report-${{ github.run_number }}
+          path: health-report.txt
+          retention-days: 30
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('health-report.txt', 'utf8');
+
+            const issueTitle = `🚨 Health Check Failed - ${new Date().toISOString().split('T')[0]}`;
+            const issueBody = `## Health Check Failure
+
+            The automated health check detected issues with the TPP automation systems.
+
+            ### Report
+            \`\`\`
+            ${report}
+            \`\`\`
+
+            ### Action Required
+            1. Review the errors above
+            2. Check the [workflow run](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            3. Fix any critical issues
+            4. Close this issue once resolved
+
+            **Workflow:** ${{ github.workflow }}
+            **Run:** ${{ github.run_number }}
+            **Time:** ${new Date().toISOString()}
+            `;
+
+            // Check if there's already an open health check issue
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'health-check',
+              per_page: 1
+            });
+
+            if (issues.data.length === 0) {
+              // Create new issue
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: issueTitle,
+                body: issueBody,
+                labels: ['health-check', 'automation', 'bug']
+              });
+            } else {
+              // Update existing issue
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issues.data[0].number,
+                body: `### New Failure Detected\n\n${issueBody}`
+              });
+            }
+
+      - name: Ping Healthchecks.io
+        if: always()
+        run: |
+          # Ping Healthchecks.io if URL is configured
+          if [ -n "${{ secrets.HEALTHCHECK_PING_URL }}" ]; then
+            if [ "${{ steps.health.outputs.exit_code }}" == "0" ]; then
+              curl -fsS --retry 3 "${{ secrets.HEALTHCHECK_PING_URL }}" || true
+            else
+              curl -fsS --retry 3 "${{ secrets.HEALTHCHECK_PING_URL }}/fail" || true
+            fi
+          fi
+
+      - name: Send Slack notification on failure
+        if: failure() && secrets.SLACK_WEBHOOK_URL != ''
+        run: |
+          REPORT=$(cat health-report.txt | head -20)
+          curl -X POST "${{ secrets.SLACK_WEBHOOK_URL }}" \
+            -H 'Content-Type: application/json' \
+            -d "{
+              \"text\": \"🚨 TPP Health Check Failed\",
+              \"blocks\": [
+                {
+                  \"type\": \"header\",
+                  \"text\": {
+                    \"type\": \"plain_text\",
+                    \"text\": \"🚨 Health Check Alert\"
+                  }
+                },
+                {
+                  \"type\": \"section\",
+                  \"text\": {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"The automated health check detected issues with TPP automations.\"
+                  }
+                },
+                {
+                  \"type\": \"section\",
+                  \"text\": {
+                    \"type\": \"mrkdwn\",
+                    \"text\": \"\`\`\`${REPORT}\`\`\`\"
+                  }
+                },
+                {
+                  \"type\": \"actions\",
+                  \"elements\": [
+                    {
+                      \"type\": \"button\",
+                      \"text\": {
+                        \"type\": \"plain_text\",
+                        \"text\": \"View Workflow Run\"
+                      },
+                      \"url\": \"https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\"
+                    }
+                  ]
+                }
+              ]
+            }"
+
+      - name: Generate summary
+        if: always()
+        run: |
+          echo "## 🏥 TPP Health Check Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Time:** $(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "**Status:** ${{ steps.health.outputs.exit_code == '0' && '✅ Healthy' || '❌ Issues Detected' }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Full Report" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat health-report.txt >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Next Check" >> $GITHUB_STEP_SUMMARY
+          echo "Next scheduled check: **Monday, $(date -u -d '+1 week' +'%Y-%m-%d %H:%M UTC')**" >> $GITHUB_STEP_SUMMARY

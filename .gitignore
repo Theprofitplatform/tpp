@@ -17,6 +17,7 @@ pnpm-debug.log*
 .env.local
 .env.*.local
 .env.tool-agent
+.env.health
 
 # macOS
 .DS_Store
@@ -34,6 +35,9 @@ test-results/
 backend/.env
 logs/
 !logs/.gitkeep
+
+# VPS-only automation configs (not portable across environments)
+.automation/
 
 # Legacy files
 SETUP_STEPS.md
