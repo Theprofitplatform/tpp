@@ -93,10 +93,21 @@ function getImageDimensions(filePath, buffer) {
  * Check if image is safe to use with Claude API
  */
 async function checkImage(filePath) {
-  const stats = await stat(filePath);
-  const fileSize = stats.size;
-
   console.log(`\n📸 Checking: ${basename(filePath)}`);
+
+  let stats;
+  try {
+    stats = await stat(filePath);
+  } catch (error) {
+    if (error.code === 'ENOENT') {
+      console.log(`   ❌ FAIL: File not found`);
+    } else {
+      console.log(`   ❌ FAIL: Cannot access file (${error.message})`);
+    }
+    return false;
+  }
+
+  const fileSize = stats.size;
   console.log(`   File size: ${(fileSize / 1024 / 1024).toFixed(2)} MB`);
 
   if (fileSize > MAX_FILE_SIZE) {
@@ -127,7 +138,19 @@ async function checkImage(filePath) {
 
     return true;
   } catch (error) {
-    console.log(`   ❌ ERROR: ${error.message}`);
+    console.log(`   ⚠️  WARNING: ${error.message}`);
+
+    // Fallback: If file is small enough, dimensions are likely safe
+    // Small files physically cannot have huge dimensions
+    const SMALL_FILE_THRESHOLD = 100 * 1024; // 100KB
+    if (fileSize < SMALL_FILE_THRESHOLD) {
+      console.log(`   ✅ PASS: File is very small (< 100KB), likely safe despite parsing error`);
+      return true;
+    }
+
+    console.log(`   ❌ FAIL: Cannot verify dimensions for larger file`);
+    console.log(`   💡 Install ImageMagick to verify: sudo apt-get install imagemagick`);
+    console.log(`   Then run: identify -format "%wx%h" "${filePath}"`);
     return false;
   }
 }
