@@ -84,7 +84,7 @@ async function markTopicCompleted(topicId) {
 async function generateBlogContent(topic) {
   console.log('🤖 Generating blog post with Claude AI...\n');
 
-  const prompt = `You are an expert content writer for The Profit Platform, a Sydney-based digital marketing agency.
+  const prompt = `You are an expert SEO content writer for The Profit Platform, a Sydney-based digital marketing agency.
 
 Write a comprehensive, SEO-optimized blog post with the following specifications:
 
@@ -94,24 +94,48 @@ Write a comprehensive, SEO-optimized blog post with the following specifications
 **Search Intent**: ${topic.searchIntent}
 **Tags**: ${topic.tags.join(', ')}
 
-**Requirements**:
-1. **Length**: 2,500-3,500 words
-2. **Tone**: Professional but conversational, helpful
-3. **Location**: Sydney-specific examples and context where relevant
-4. **Target Audience**: Sydney small business owners (10-50 employees)
-5. **Structure**: Clear H2 and H3 headings, short paragraphs (3-4 sentences max)
-6. **SEO**: Naturally include target keyword in first paragraph, headings, and throughout
-7. **Value**: Actionable advice, real examples, practical tips
-8. **CTA**: End with clear call-to-action to contact The Profit Platform
+**SEO Requirements** (CRITICAL):
+1. **Meta Description**: Write a 140-160 character meta description. DO NOT use markdown formatting (**, *, etc.) in the meta description.
+2. **Keyword Density**: Target keyword should appear 0.5-1.0% of content (15-30 times for 3,000 words). Use naturally in:
+   - First paragraph (2-3 times)
+   - H2/H3 headings (5-8 times)
+   - Throughout body naturally
+   - Conclusion (2-3 times)
+3. **LSI Keywords**: Include semantic variations (e.g., "local search optimization", "Google Maps SEO" for local SEO topics)
+4. **FAQ Section**: Include an "FAQ" or "Frequently Asked Questions" section with 6-8 Q&A pairs using H3 headings
 
-**Important**:
+**Content Requirements**:
+1. **Length**: 2,500-3,500 words (comprehensive and in-depth)
+2. **Tone**: Professional but conversational, helpful, authoritative
+3. **Location**: Sydney-specific examples, suburbs, landmarks, and context throughout
+4. **Target Audience**: Sydney small business owners (10-50 employees), tech-savvy
+5. **Structure**:
+   - Clear H2 sections (10-15 major sections)
+   - H3 subsections within each H2
+   - Short paragraphs (3-4 sentences max)
+   - Bullet points and numbered lists for scannability
+6. **Value**:
+   - Actionable advice with step-by-step instructions
+   - Real Sydney examples (suburbs, businesses, scenarios)
+   - Practical tips that can be implemented immediately
+   - Data and statistics where relevant
+7. **Conclusion**: Strong conclusion with summary and clear next steps
+
+**Important Format Rules**:
 - Write in markdown format
 - Use ## for H2 headings, ### for H3 headings
 - Include bullet points and numbered lists where appropriate
-- Add a brief meta description (150-160 chars) at the start
-- Do NOT include title (will be added from frontmatter)
-- Do NOT include author or date (handled separately)
-- Focus on quality and depth over keyword stuffing
+- DO NOT include title in body (will be added from frontmatter)
+- DO NOT include author or date (handled separately)
+- Focus on quality, depth, and natural language
+- Avoid keyword stuffing - prioritize readability
+
+**Post-processing will add**:
+- Internal links to related TPP content
+- External links to authority sources
+- 3 strategic CTAs
+- Image placeholders
+- Table of Contents
 
 Generate the complete blog post now:`;
 

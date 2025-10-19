@@ -56,7 +56,21 @@ jobs:
 
       - name: ⚡ Auto-optimize SEO (A+ grade)
         run: node automation/scripts/post-process-blog.js
-        continue-on-error: true  # Don't fail if post-processing has issues
+        continue-on-error: false  # Fail if post-processing has critical issues
+
+      - name: 📊 Run SEO quality check
+        id: seo_check
+        run: |
+          # Get the latest blog post
+          LATEST_POST=$(ls -t src/content/blog/*.md | grep -v TEMPLATE | head -1)
+          echo "Checking SEO quality for: $LATEST_POST"
+          node automation/scripts/seo-enhance-blog.mjs "$LATEST_POST" > seo-report.txt
+          cat seo-report.txt
+
+          # Extract score from report
+          SCORE=$(grep "FINAL SCORE" seo-report.txt | grep -oP '\d+(?=/)')
+          echo "score=$SCORE" >> $GITHUB_OUTPUT
+        continue-on-error: true  # Don't fail workflow, just report
 
       - name: ✅ Validate generated content
         run: node automation/scripts/validate-content.js
@@ -119,6 +133,9 @@ jobs:
             echo "📄 **Title:** ${{ steps.generate.outputs.title }}" >> $GITHUB_STEP_SUMMARY
             echo "🔗 **URL:** ${{ steps.generate.outputs.url }}" >> $GITHUB_STEP_SUMMARY
             echo "📊 **Word Count:** ${{ steps.generate.outputs.wordcount }}" >> $GITHUB_STEP_SUMMARY
+            if [ -n "${{ steps.seo_check.outputs.score }}" ]; then
+              echo "🎯 **SEO Score:** ${{ steps.seo_check.outputs.score }}/110" >> $GITHUB_STEP_SUMMARY
+            fi
             echo "" >> $GITHUB_STEP_SUMMARY
             echo "⏱️ **Cloudflare Pages Build:** Check deployment status at https://dash.cloudflare.com" >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
