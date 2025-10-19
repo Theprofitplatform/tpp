@@ -146,6 +146,12 @@ function addInternalLinks(body, relatedPosts, targetCount = 10) {
     return body;
   }
 
+  // Check if internal links already added
+  if (body.includes('Learn more in our guide on')) {
+    console.log('✅ Internal links already present (skipped)');
+    return body;
+  }
+
   let modified = body;
   let linksAdded = 0;
   const targetLinks = Math.min(targetCount, relatedPosts.length);
@@ -228,24 +234,53 @@ function addExternalLinks(body, category) {
       url: EXTERNAL_LINKS['searchenginejournal'],
       context: 'as reported by'
     });
+    linksToAdd.push({
+      text: 'Google Search Console',
+      url: EXTERNAL_LINKS['google search console'],
+      context: 'monitor in'
+    });
+    linksToAdd.push({
+      text: 'Moz Local',
+      url: EXTERNAL_LINKS['moz'],
+      context: 'according to'
+    });
+    linksToAdd.push({
+      text: 'Google PageSpeed Insights',
+      url: EXTERNAL_LINKS['google pagespeed'],
+      context: 'test performance with'
+    });
   }
 
-  // Insert links naturally
-  const paragraphs = modified.split('\n\n');
-  const linkInterval = Math.floor(paragraphs.length / Math.max(linksToAdd.length, 1));
+  // First try to replace existing mentions of tool names
+  let linksAdded = 0;
+  linksToAdd.forEach((link) => {
+    if (!modified.includes(`[${link.text}](${link.url})`)) {
+      const regex = new RegExp(`(?<!\\[)\\b${link.text}\\b(?!\\]\\()`, 'i');
+      const beforeLength = modified.length;
+      modified = modified.replace(regex, `[${link.text}](${link.url})`);
+      if (modified.length > beforeLength) {
+        linksAdded++;
+      }
+    }
+  });
 
-  linksToAdd.forEach((link, i) => {
+  // If we didn't find enough matches, inject contextual links
+  const paragraphs = modified.split('\n\n');
+  const targetLinks = Math.min(6, linksToAdd.length); // Target 6 external links
+  const linksToInject = linksToAdd.slice(0, targetLinks - linksAdded);
+  const linkInterval = Math.floor(paragraphs.length / Math.max(linksToInject.length, 1));
+
+  linksToInject.forEach((link, i) => {
     const position = (i + 1) * linkInterval;
-    if (position < paragraphs.length && !paragraphs[position].includes(link.url)) {
-      paragraphs[position] = paragraphs[position].replace(
-        new RegExp(`\\b${link.text}\\b`, 'i'),
-        `[${link.text}](${link.url})`
-      );
+    if (position < paragraphs.length && !modified.includes(`[${link.text}](${link.url})`)) {
+      const contextualLink = `For more information, see [${link.text}](${link.url}).`;
+      paragraphs[position] += `\n\n${contextualLink}`;
+      linksAdded++;
     }
   });
 
   modified = paragraphs.join('\n\n');
-  console.log(`✅ Added ${linksToAdd.length} external authority links`);
+  console.log(`✅ Added ${linksAdded} external authority links`);
   return modified;
 }
 
@@ -278,6 +313,12 @@ function addTableOfContents(body) {
  * Add CTAs (3 strategic placements)
  */
 function addCTAs(body) {
+  // Check if CTAs already exist
+  if (body.includes('Ready to grow your Sydney business?')) {
+    console.log('✅ CTAs already present (skipped)');
+    return body;
+  }
+
   const paragraphs = body.split('\n\n');
 
   // Soft CTA after TOC (position 2-3)
@@ -304,6 +345,12 @@ function addCTAs(body) {
  * Add image placeholders
  */
 function addImagePlaceholders(body, slug) {
+  // Check if image placeholders already exist
+  if (body.includes('<!-- IMAGE 1:')) {
+    console.log('✅ Image placeholders already present (skipped)');
+    return body;
+  }
+
   const paragraphs = body.split('\n\n');
   const imageCount = 6; // Target 6-8 images
   const imageInterval = Math.floor(paragraphs.length / imageCount);
@@ -328,7 +375,7 @@ Alt: [Descriptive alt text for ${slug} - to be customized]
  */
 function generateFAQSchema(body) {
   // Look for Q&A patterns or FAQ sections
-  const faqSection = body.match(/##+ (FAQ|Frequently Asked Questions|Common Questions)([\s\S]+?)(?=##+ [^#]|$)/i);
+  const faqSection = body.match(/##+ (FAQ|Frequently Asked Questions|Common Questions)([\s\S]+)/i);
 
   if (!faqSection) {
     return null;
