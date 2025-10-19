@@ -170,6 +170,8 @@ async function saveBlogPost(topic, content) {
   const descMatch = content.match(/meta description[:\s]+(.+)/i);
   if (descMatch) {
     metaDescription = descMatch[1].trim().replace(/[\"\']/g, '');
+    // Remove "Meta Description:" prefix if present
+    metaDescription = metaDescription.replace(/^meta description:?\s*/i, '');
     content = content.replace(/meta description[:\s]+.+/i, '').trim();
   }
 
@@ -178,6 +180,14 @@ async function saveBlogPost(topic, content) {
     // Take first paragraph as description
     const firstPara = content.split('\n\n')[0].replace(/[#*]/g, '').trim();
     metaDescription = firstPara.substring(0, 157) + '...';
+  }
+
+  // Ensure no markdown formatting in meta description
+  metaDescription = metaDescription.replace(/\*\*|\*|__|_/g, '');
+
+  // Trim to max 160 chars
+  if (metaDescription.length > 160) {
+    metaDescription = metaDescription.substring(0, 157) + '...';
   }
 
   const author = assignAuthor(topic.category);

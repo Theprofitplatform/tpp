@@ -211,6 +211,25 @@ function addExternalLinks(body, category) {
     });
   }
 
+  // Add links for Marketing and Content Marketing categories
+  if (category.toLowerCase().includes('marketing') || category.toLowerCase().includes('digital')) {
+    linksToAdd.push({
+      text: 'Google Analytics',
+      url: EXTERNAL_LINKS['google analytics'],
+      context: 'track performance with'
+    });
+    linksToAdd.push({
+      text: 'SEMrush',
+      url: EXTERNAL_LINKS['semrush'],
+      context: 'according to research from'
+    });
+    linksToAdd.push({
+      text: 'Search Engine Journal',
+      url: EXTERNAL_LINKS['searchenginejournal'],
+      context: 'as reported by'
+    });
+  }
+
   // Insert links naturally
   const paragraphs = modified.split('\n\n');
   const linkInterval = Math.floor(paragraphs.length / Math.max(linksToAdd.length, 1));
@@ -309,21 +328,32 @@ Alt: [Descriptive alt text for ${slug} - to be customized]
  */
 function generateFAQSchema(body) {
   // Look for Q&A patterns or FAQ sections
-  const faqSection = body.match(/##+ (FAQ|Frequently Asked Questions|Common Questions)([\s\S]+?)(?=##|$)/i);
+  const faqSection = body.match(/##+ (FAQ|Frequently Asked Questions|Common Questions)([\s\S]+?)(?=##+ [^#]|$)/i);
 
   if (!faqSection) {
     return null;
   }
 
   const questions = [];
-  const qaPattern = /###+ (.+?)\n\n(.+?)(?=\n###|$)/gs;
+  const faqContent = faqSection[2];
+
+  // Match H3 questions followed by content until next H3 or section end
+  const qaPattern = /###\s+(.+?)\n\n([\s\S]+?)(?=\n###\s+|$)/g;
   let match;
 
-  while ((match = qaPattern.exec(faqSection[2])) !== null) {
-    questions.push({
-      question: match[1].replace(/[*_]/g, '').trim(),
-      answer: match[2].replace(/[*_]/g, '').trim().substring(0, 300)
-    });
+  while ((match = qaPattern.exec(faqContent)) !== null) {
+    const question = match[1].replace(/[*_]/g, '').trim();
+    let answer = match[2].replace(/[*_]/g, '').trim();
+
+    // Remove any internal links that might interfere with schema
+    answer = answer.replace(/Learn more in our guide on \[.*?\]\(.*?\)\.\n*/g, '');
+
+    // Limit answer length and clean up
+    answer = answer.substring(0, 250).replace(/\n+/g, ' ').trim();
+
+    if (question && answer) {
+      questions.push({ question, answer });
+    }
   }
 
   if (questions.length === 0) {
