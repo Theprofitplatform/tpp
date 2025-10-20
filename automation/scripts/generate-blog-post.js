@@ -10,6 +10,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { getUniqueImage, formatImageForFrontmatter } from './unsplash-fetcher.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -192,13 +193,32 @@ async function saveBlogPost(topic, content) {
 
   const author = assignAuthor(topic.category);
 
-  const frontmatter = `---
+  // Fetch unique hero image from Unsplash
+  console.log('🖼️  Fetching unique hero image...');
+  const unsplashKey = process.env.UNSPLASH_ACCESS_KEY;
+  const imageData = await getUniqueImage(topic.category, topic.title, unsplashKey);
+  const imageFields = formatImageForFrontmatter(imageData);
+
+  // Build frontmatter with conditional image fields
+  let frontmatter = `---
 title: "${topic.title}"
 description: "${metaDescription}"
 pubDate: ${date}
 author: "${author}"
 category: "${topic.category}"
-tags: ${JSON.stringify(topic.tags)}
+tags: ${JSON.stringify(topic.tags)}`;
+
+  // Add image fields if available
+  if (imageFields) {
+    frontmatter += `
+coverImage: "${imageFields.coverImage}"
+coverImageAlt: "${imageFields.coverImageAlt}"
+coverImageCredit:
+  name: "${imageFields.coverImageCredit.name}"
+  link: "${imageFields.coverImageCredit.link}"`;
+  }
+
+  frontmatter += `
 featured: false
 draft: false
 ---
@@ -213,7 +233,8 @@ draft: false
     filename,
     filepath,
     slug,
-    wordCount: content.split(/\s+/).length
+    wordCount: content.split(/\s+/).length,
+    hasImage: !!imageFields
   };
 }
 
@@ -248,7 +269,8 @@ async function main() {
     console.log('✅ Blog post generated successfully!');
     console.log(`   File: ${result.filename}`);
     console.log(`   Words: ${result.wordCount}`);
-    console.log(`   Slug: ${result.slug}\n`);
+    console.log(`   Slug: ${result.slug}`);
+    console.log(`   Hero Image: ${result.hasImage ? '✅ Unique Unsplash image' : '⚠️  Using default SVG'}\n`);
 
     // Mark topic as completed
     await markTopicCompleted(topic.id);

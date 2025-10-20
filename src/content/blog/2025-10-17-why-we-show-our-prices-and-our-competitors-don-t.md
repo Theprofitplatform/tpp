@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-17
 category: "Digital Marketing"
 tags: ["Pricing Transparency","Business Strategy","Trust","Sydney"]
+coverImage: "https://images.unsplash.com/photo-1623248940804-d76892859e9e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTh8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a sidewalk with a blue umbrella next to a building"
+coverImageCredit:
+  name: "Francais a Londres"
+  link: "https://unsplash.com/@francaisalondres"
 featured: false
 draft: false
 readTime: "19 min"
-coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw1fHxsYXB0b3AlMjBhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXwwfHx8MTc2MDYzMzIwNnww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "graphs of performance analytics on a laptop screen"
-coverImageCredit:
-  name: "Luke Chesser"
-  link: "https://unsplash.com/@lukechesser"
 seo:
   title: "Why We Show Our Prices (And Our Competitors Don't) | The Profit Platform"
   description: "Discover why 73% of Sydney agencies hide their prices while we embrace SEO pricing transparency. Learn how transparent rates build trust and boost results."

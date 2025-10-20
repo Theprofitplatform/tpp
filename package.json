@@ -34,6 +34,9 @@
     "format:check": "prettier --check \"**/*.{js,mjs,cjs,astro,md,json}\"",
     "image:check": "node scripts/check-image-dimensions.mjs",
     "image:check-all": "node scripts/check-image-dimensions.mjs *.png *.jpg *.jpeg *.webp 2>/dev/null || echo 'No images found'",
+    "image:check-duplicates": "node automation/scripts/check-duplicate-images.mjs",
+    "image:fix-duplicates": "node automation/scripts/fix-duplicate-images.mjs",
+    "image:update-all": "node automation/scripts/update-blog-images.mjs",
     "health": "./scripts/simple-health-check.sh",
     "health:check": "./scripts/simple-health-check.sh",
     "health:setup": "./scripts/setup-health-monitoring.sh",
@@ -54,7 +57,13 @@
     "automation:setup": "bash automation/scripts/setup-automation.sh",
     "automation:test": "node automation/scripts/test-automation.mjs",
     "automation:health": "node automation/scripts/health-dashboard.mjs",
-    "automation:monitor": "bash automation/scripts/vps-monitor.sh"
+    "automation:monitor": "bash automation/scripts/vps-monitor.sh",
+    "automation:wizard": "node automation/scripts/setup-wizard.mjs",
+    "automation:status:quick": "node automation/scripts/quick-status.mjs",
+    "automation:cost-estimate": "node automation/scripts/cost-calculator.mjs",
+    "automation:backup": "bash automation/scripts/backup-system.sh",
+    "automation:verify-env": "node automation/scripts/verify-environment.mjs",
+    "automation:analyze-content": "node automation/scripts/analyze-content-quality.mjs"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.65.0",

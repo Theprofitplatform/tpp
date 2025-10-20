@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Google Search Console","SEO Tools","Analytics","Tracking"]
+coverImage: "https://images.unsplash.com/photo-1553895501-af9e282e7fc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTF8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "Google logo screengrab"
+coverImageCredit:
+  name: "Christian Wiediger"
+  link: "https://unsplash.com/@christianw"
 featured: false
 draft: false
 readTime: "10 min"
-coverImage: "https://images.unsplash.com/photo-1553268169-8232852a2377?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBhbmFseXRpY3MlMjB3b3Jrc3BhY2V8ZW58MXwwfHx8MTc1OTczNTY5Mnww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "person using MacBook Air"
-coverImageCredit:
-  name: "Jonathan Francisca"
-  link: "https://unsplash.com/@jonathan_francisca"
 seo:
   title: "Google Search Console: The Complete Guide for Sydney Business Owners | The Profit Platform"
   description: "Master Google Search Console with our complete guide for Sydney businesses. Stop losing customers to invisible errors and unlock free traffic insights today."

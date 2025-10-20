@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "Analytics"
 tags: ["Google Analytics","GA4","Setup","Tracking"]
+coverImage: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxODJ8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "man holding incandescent bulb"
+coverImageCredit:
+  name: "Riccardo Annandale"
+  link: "https://unsplash.com/@pavement_special"
 featured: false
 draft: false
 readTime: "12 min"
-coverImage: "https://images.unsplash.com/photo-1553268100-4c2734aacf7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvcmtzcGFjZXxlbnwxfDB8fHwxNzU5NzQxMzU4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man sitting beside table holding silver iPhone 7 Plus"
-coverImageCredit:
-  name: "Jonathan Francisca"
-  link: "https://unsplash.com/@jonathan_francisca"
 seo:
   title: "Google Analytics 4: Complete Setup Guide for Sydney Business Owners | The Profit Platform"
   description: "Master Google Analytics 4 setup in 30 minutes with our complete guide for Sydney businesses. Stop missing crucial customer data and boost your revenue today."

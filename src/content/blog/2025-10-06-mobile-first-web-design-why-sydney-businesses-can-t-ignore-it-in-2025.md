@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Web Design"
 tags: ["Mobile Design","Responsive Design","User Experience","SEO"]
+coverImage: "https://images.unsplash.com/photo-1483794344563-d27a8d18014e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxODR8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "green plant"
+coverImageCredit:
+  name: "Scott Webb"
+  link: "https://unsplash.com/@scottwebb"
 featured: false
 draft: false
 readTime: "16 min"
-coverImage: "https://images.unsplash.com/photo-1553268100-4c2734aacf7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvcmtzcGFjZXxlbnwxfDB8fHwxNzU5NzQxMzU4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man sitting beside table holding silver iPhone 7 Plus"
-coverImageCredit:
-  name: "Jonathan Francisca"
-  link: "https://unsplash.com/@jonathan_francisca"
 seo:
   title: "Mobile-First Web Design: Why Sydney Businesses Can't Ignore It in 2025 | The Profit Platform"
   description: "Discover why mobile first web design is critical for Sydney businesses in 2025. Learn the framework that's driving local success and boosting conversions."

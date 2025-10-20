@@ -8,53 +8,95 @@
 
 **New to the automation system? Follow this path:**
 
-1. **`GETTING-STARTED-AUTOMATION.md`** (in project root)
-   - 2-minute quick start
-   - First commands to run
-   - Where files go
-   - Troubleshooting basics
+1. **`🚀-START-AUTOMATION.md`** (in project root) ⭐ **START HERE!**
+   - 3-step quick start (10 minutes)
+   - Setup wizard
+   - First content generation
+   - Health dashboard
 
-2. **`AUTOMATION-QUICK-REFERENCE.md`** (in project root)
-   - Daily use commands
-   - Common workflows
+2. **`automation/README-START-HERE.md`** (this folder)
+   - Complete system overview
+   - All documentation links
+   - Learning path (week by week)
+   - Pro tips and best practices
+
+3. **`AUTOMATION-QUICK-START.md`** (in project root)
+   - 10-minute hands-on tutorial
+   - Step-by-step walkthrough
+   - Real examples
+   - Troubleshooting guide
+
+4. **`automation/QUICK-REFERENCE.md`** ⚡ **Print this!**
+   - Daily/weekly/monthly commands
+   - All 17 npm scripts
+   - Cost reference
    - Quick troubleshooting
-   - Pro tips
+   - Cheat sheet format
 
-3. **`automation/README.md`** (this folder)
-   - System overview
-   - Available commands
-   - Integration options
-
-4. **`automation/AUTOMATION-SETUP-GUIDE.md`** (this folder)
-   - Complete setup instructions (3,000+ words)
-   - Google Search Console API setup
-   - Email automation integration
-   - Cron job configuration
-   - Advanced customization
+5. **`AUTOMATION-COMMANDS.md`** (in project root)
+   - Complete command reference
+   - Usage examples
+   - Best practices
+   - Combination workflows
 
 ---
 
-## 📖 Documentation Files
+## 📖 Documentation Files (32 Total)
 
 ### Quick Start Guides:
 | File | Purpose | Reading Time |
 |------|---------|--------------|
-| `GETTING-STARTED-AUTOMATION.md` | Quick start | 5 min |
-| `AUTOMATION-QUICK-REFERENCE.md` | Daily reference | 3 min |
-| `automation/README.md` | System overview | 5 min |
+| `🚀-START-AUTOMATION.md` | **⭐ START HERE! 3 steps** | 5 min |
+| `automation/README-START-HERE.md` | Complete overview | 15 min |
+| `AUTOMATION-QUICK-START.md` | 10-min tutorial | 10 min |
+| `automation/QUICK-REFERENCE.md` | **⚡ Cheat sheet** | 3 min |
+| `AUTOMATION-COMMANDS.md` | Command reference | 10 min |
 
-### Complete Guides:
+### Daily Workflows:
 | File | Purpose | Reading Time |
 |------|---------|--------------|
-| `automation/AUTOMATION-SETUP-GUIDE.md` | Full setup | 15 min |
+| `automation/WORKFLOW-GUIDE.md` | Daily/weekly/monthly workflows | 15 min |
+| `automation/EXAMPLES.md` | Real sample outputs | 10 min |
 | `automation/MONITORING-GUIDE.md` | Health monitoring | 10 min |
-| `LOCAL-SEO-AUTOMATION-COMPLETE.md` | Delivery overview | 10 min |
-| `AUTOMATION-FINAL-SUMMARY.md` | Final summary | 5 min |
+| `automation/MAINTENANCE-GUIDE.md` | Maintenance schedules | 15 min |
+
+### Optimization & Customization:
+| File | Purpose | Reading Time |
+|------|---------|--------------|
+| `automation/PERFORMANCE-BENCHMARKS.md` | Real performance data | 15 min |
+| `automation/CUSTOMIZATION-TEMPLATES.md` | Industry templates | 20 min |
+| `automation/AUTOMATION-SETUP-GUIDE.md` | Advanced setup | 15 min |
+
+### Deployment & Production: ⭐ NEW
+| File | Purpose | Reading Time |
+|------|---------|--------------|
+| `automation/DEPLOYMENT-GUIDE.md` | **VPS/Cloud deployment** | 20 min |
+| `automation/DEPLOYMENT-CHECKLIST.md` | **Printable deployment checklist** ⚡ | 5 min |
+| `automation/CRON-EXAMPLES.md` | **Cron schedule templates** ⚡ | 10 min |
+| `automation/TROUBLESHOOTING-FLOWCHART.md` | **Problem solving** | 15 min |
+| `automation/SYSTEM-OVERVIEW.md` | Complete system reference | 10 min |
+| `automation/TEAM-ONBOARDING-GUIDE.md` | 3-week training program | 15 min |
+
+### Project Documentation:
+| File | Purpose | Reading Time |
+|------|---------|--------------|
+| `CHANGELOG.md` | Version history | 10 min |
+| `FINAL-SESSION-SUMMARY.md` | Executive summary | 5 min |
+| `SESSION-SUMMARY-OCT-19-2025.md` | Development notes | 15 min |
+| `MONITORING-SYSTEM-SUMMARY.md` | Technical details | 10 min |
+
+### Legacy Documentation:
+| File | Purpose |
+|------|---------|
+| `GETTING-STARTED-AUTOMATION.md` | Original quick start |
+| `AUTOMATION-QUICK-REFERENCE.md` | Original reference |
+| `LOCAL-SEO-AUTOMATION-COMPLETE.md` | Delivery overview |
+| `AUTOMATION-FINAL-SUMMARY.md` | Original summary |
 
 ### Templates:
 | File | Purpose |
 |------|---------|
-| `SUBURB-PAGE-TEMPLATE.md` | Suburb page structure guide |
+| `SUBURB-PAGE-TEMPLATE.md` | Suburb page structure |
 | `automation/config/.env.example` | Environment variables |
 | `automation/data/clients.json.example` | Client data format |
 
@@ -118,10 +160,13 @@
     │   ├── rank-tracker.mjs               # Keyword rank tracker
     │   ├── link-outreach.mjs              # Link outreach generator
     │   ├── automation-orchestrator.mjs    # Master scheduler
-    │   ├── vps-monitor.sh                 # System health monitor
-    │   ├── health-dashboard.mjs           # Health dashboard generator
-    │   ├── setup-automation.sh            # Setup script
-    │   └── test-automation.mjs            # Test/verification
+    │   ├── vps-monitor.sh                 # System health monitor (bash)
+    │   ├── health-dashboard.mjs           # Health dashboard generator (HTML/JSON)
+    │   ├── quick-status.mjs               # Quick status checker ⭐ NEW
+    │   ├── cost-calculator.mjs            # API cost calculator ⭐ NEW
+    │   ├── setup-wizard.mjs               # Interactive setup wizard ⭐ NEW
+    │   ├── setup-automation.sh            # Setup script (bash)
+    │   └── test-automation.mjs            # Test/verification suite
     │
     ├── config/                            # Configuration
     │   └── .env.example                   # Environment template
@@ -169,20 +214,38 @@
 
 ---
 
-## 💻 Available Commands
+## 💻 Available Commands (20 Total)
 
 ### Content Generation:
 ```bash
-npm run automation:suburb-pages    # Generate 10 suburb pages
-npm run automation:gbp-posts       # Generate 12 GBP posts
-npm run automation:reviews         # Generate review requests
-npm run automation:link-outreach   # Generate link outreach
+npm run automation:suburb-pages    # Generate 10 suburb pages (~45 sec)
+npm run automation:gbp-posts       # Generate 12 GBP posts (~30 sec)
+npm run automation:reviews         # Generate review requests (~10 sec)
+npm run automation:link-outreach   # Generate link outreach (~40 sec)
+```
+
+### Health & Monitoring:
+```bash
+npm run automation:monitor         # Full health check (~5 sec)
+npm run automation:health          # Generate HTML dashboard (~10 sec)
+npm run automation:status:quick    # Quick status check (~3 sec) ⭐ NEW
 ```
 
 ### Tracking & Reporting:
 ```bash
-npm run automation:rank-track      # Track keyword rankings
-npm run automation:status          # Show automation status
+npm run automation:rank-track      # Track keyword rankings (~20 sec)
+npm run automation:status          # Show automation run history
+```
+
+### Setup & Utilities:
+```bash
+npm run automation:wizard          # Interactive setup wizard (5-10 min) ⭐ NEW
+npm run automation:test            # Run test suite (10/10 passing)
+npm run automation:setup           # Run setup script
+npm run automation:verify-env      # Verify environment (11 checks) ⭐ NEW
+npm run automation:cost-estimate   # Calculate API costs ⭐ NEW
+npm run automation:analyze-content # Analyze content quality (8 metrics) ⭐ NEW
+npm run automation:backup          # Create system backup ⭐ NEW
 ```
 
 ### System Management:
@@ -191,8 +254,6 @@ npm run automation:scheduled       # Run all scheduled tasks
 npm run automation:run <script>    # Run specific automation
 npm run automation:list            # List all automations
 npm run automation:help            # Show help
-npm run automation:test            # Verify system
-npm run automation:setup           # Run setup script
 ```
 
 ---

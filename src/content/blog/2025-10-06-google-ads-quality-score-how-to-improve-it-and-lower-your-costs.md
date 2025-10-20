@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Quality Score","PPC Optimization","Cost Reduction"]
+coverImage: "https://images.unsplash.com/photo-1607703703520-bb638e84caf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxODh8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "person writing on white paper"
+coverImageCredit:
+  name: "Melanie Deziel"
+  link: "https://unsplash.com/@storyfuel"
 featured: false
 draft: false
 readTime: "14 min"
-coverImage: "https://images.unsplash.com/photo-1569347345215-ed9792fc35e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwYWR2ZXJ0aXNpbmclMjBsYXB0b3B8ZW58MXwwfHx8MTc1OTY2MjExOHww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man sitting at the table while using laptop computer"
-coverImageCredit:
-  name: "Brian Jones"
-  link: "https://unsplash.com/@briannjoness"
 seo:
   title: "Google Ads Quality Score: How to Improve It and Lower Your Costs | The Profit Platform"
   description: "Boost your Google Ads Quality Score from 4 to 8+ and slash costs by 30-50%. Learn proven strategies Sydney businesses use to outrank competitors and pay less."

@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["ROI","Analytics","Google Ads","Tracking"]
+coverImage: "https://images.unsplash.com/photo-1701673965119-b543ea45d426?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxODl8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a paper with a red and white gnome on top of it"
+coverImageCredit:
+  name: "Walls.io"
+  link: "https://unsplash.com/@walls_io"
 featured: false
 draft: false
 readTime: "12 min"
-coverImage: "https://images.unsplash.com/photo-1569347345215-ed9792fc35e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwYWR2ZXJ0aXNpbmclMjBsYXB0b3B8ZW58MXwwfHx8MTc1OTY2MjExOHww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man sitting at the table while using laptop computer"
-coverImageCredit:
-  name: "Brian Jones"
-  link: "https://unsplash.com/@briannjoness"
 seo:
   title: "How to Track Google Ads ROI: A Sydney Business Owner's Guide | The Profit Platform"
   description: "Master Google Ads ROI tracking for your Sydney business. Learn why 67% can't tell if ads are profitable & discover proven methods to maximize returns."

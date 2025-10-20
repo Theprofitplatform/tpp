@@ -5,6 +5,11 @@ publishDate: 2025-02-05
 author: "Avi"
 category: "tools-resources"
 tags: ["Marketing Tools", "Free Resources", "Productivity", "Sydney Business", "2025"]
+coverImage: "https://images.unsplash.com/photo-1527443195645-1133f7f28990?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjU2OTd8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "silver iMac with Apple Magic Keyboard on white sufrace"
+coverImageCredit:
+  name: "Quaritsch Photography"
+  link: "https://unsplash.com/@quaritsch"
 featured: true
 image: "/images/blog/free-marketing-tools-2025.jpg"
 readTime: "11 min"

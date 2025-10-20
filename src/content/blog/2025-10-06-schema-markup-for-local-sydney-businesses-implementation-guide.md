@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Schema Markup","Structured Data","Local SEO","Rich Results"]
+coverImage: "https://images.unsplash.com/photo-1545987796-200677ee1011?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTd8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "low-angle photography of metal structure"
+coverImageCredit:
+  name: "Alina Grubnyak"
+  link: "https://unsplash.com/@alinnnaaaa"
 featured: false
 draft: false
 readTime: "14 min"
-coverImage: "https://images.unsplash.com/photo-1553268169-8232852a2377?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBhbmFseXRpY3MlMjB3b3Jrc3BhY2V8ZW58MXwwfHx8MTc1OTczNTY5Mnww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "person using MacBook Air"
-coverImageCredit:
-  name: "Jonathan Francisca"
-  link: "https://unsplash.com/@jonathan_francisca"
 seo:
   title: "Schema Markup for Local Sydney Businesses: Implementation Guide | The Profit Platform"
   description: "Boost your Sydney business visibility with schema markup for local business. Get rich results, higher click-through rates, and dominate local search competition"

@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Link Building","SEO","Backlinks","Authority"]
+coverImage: "https://images.unsplash.com/photo-1509018877337-3af7dd307ea9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTN8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "gray and blue concrete tunnel at daytime"
+coverImageCredit:
+  name: "Brent De Ranter"
+  link: "https://unsplash.com/@brentderanter"
 featured: false
 draft: false
 readTime: "12 min"
-coverImage: "https://images.unsplash.com/photo-1553268169-8232852a2377?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBhbmFseXRpY3MlMjB3b3Jrc3BhY2V8ZW58MXwwfHx8MTc1OTczNTY5Mnww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "person using MacBook Air"
-coverImageCredit:
-  name: "Jonathan Francisca"
-  link: "https://unsplash.com/@jonathan_francisca"
 seo:
   title: "Link Building Strategies That Actually Work for Sydney Businesses | The Profit Platform"
   description: "Discover proven link building Sydney strategies that helped local businesses gain 127+ quality backlinks and boost revenue by $73,000 annually. Get results now."

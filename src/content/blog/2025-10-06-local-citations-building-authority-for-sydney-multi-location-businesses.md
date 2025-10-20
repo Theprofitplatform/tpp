@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Citations","Local SEO","NAP","Directory Listings"]
+coverImage: "https://images.unsplash.com/photo-1700463250145-662bade955d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTV8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a close up of an open book with words on it"
+coverImageCredit:
+  name: "Brett Jordan"
+  link: "https://unsplash.com/@brett_jordan"
 featured: false
 draft: false
 readTime: "13 min"
-coverImage: "https://images.unsplash.com/photo-1553268169-8232852a2377?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBhbmFseXRpY3MlMjB3b3Jrc3BhY2V8ZW58MXwwfHx8MTc1OTczNTY5Mnww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "person using MacBook Air"
-coverImageCredit:
-  name: "Jonathan Francisca"
-  link: "https://unsplash.com/@jonathan_francisca"
 seo:
   title: "Local Citations: Building Authority for Sydney Multi-Location Businesses | The Profit Platform"
   description: "Discover how local citations Sydney businesses need to dominate search rankings. 67% are sabotaging results with inconsistent listings across directories."

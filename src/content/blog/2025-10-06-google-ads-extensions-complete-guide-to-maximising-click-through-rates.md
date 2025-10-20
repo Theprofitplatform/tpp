@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Ad Extensions","CTR","PPC","Optimization"]
+coverImage: "https://images.unsplash.com/photo-1674049406467-824ea37c7184?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxODZ8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a woman getting her eyelashes done by a professional makeup artist"
+coverImageCredit:
+  name: "Bermix Studio"
+  link: "https://unsplash.com/@bermixstudio"
 featured: false
 draft: false
 readTime: "16 min"
-coverImage: "https://images.unsplash.com/photo-1569347345215-ed9792fc35e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwYWR2ZXJ0aXNpbmclMjBsYXB0b3B8ZW58MXwwfHx8MTc1OTY2MjExOHww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man sitting at the table while using laptop computer"
-coverImageCredit:
-  name: "Brian Jones"
-  link: "https://unsplash.com/@briannjoness"
 seo:
   title: "Google Ads Extensions: Complete Guide to Maximising Click-Through Rates | The Profit Platform"
   description: "Discover how Google Ads extensions can boost your click-through rates by 224%. Complete guide with proven strategies Sydney businesses use to dominate search re"
