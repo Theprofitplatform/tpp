@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Digital Marketing"
 tags: ["Lead Generation","Funnels","Professional Services","Conversion"]
+coverImage: "https://images.unsplash.com/photo-1674027392838-d85710a5121d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNTh8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a basket with a target and a target in it"
+coverImageCredit:
+  name: "Growtika"
+  link: "https://unsplash.com/@growtika"
 featured: false
 draft: false
 readTime: "16 min"
-coverImage: "https://images.unsplash.com/photo-1693159682618-074078ed271e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMHdvcmtzcGFjZSUyMG9mZmljZXxlbnwxfDB8fHwxNzU5NzU4MzQ5fDA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a desk with two computer monitors and a chair"
-coverImageCredit:
-  name: "Annie Spratt"
-  link: "https://unsplash.com/@anniespratt"
 seo:
   title: "Lead Generation Funnels for Sydney Professional Services Firms | The Profit Platform"
   description: "Discover how Sydney professional services firms can build lead generation funnels that convert 68% more prospects into paying clients. Get the blueprint now."

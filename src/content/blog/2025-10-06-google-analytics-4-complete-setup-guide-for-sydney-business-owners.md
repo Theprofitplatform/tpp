@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "Analytics"
 tags: ["Google Analytics","GA4","Setup","Tracking"]
-coverImage: "https://images.unsplash.com/photo-1474631245212-32dc3c8310c6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxODJ8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man holding incandescent bulb"
+coverImage: "https://images.unsplash.com/photo-1511376777868-611b54f68947?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNDZ8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "person facing computer desktop"
 coverImageCredit:
-  name: "Riccardo Annandale"
-  link: "https://unsplash.com/@pavement_special"
+  name: "charlesdeluvio"
+  link: "https://unsplash.com/@charlesdeluvio"
 featured: false
 draft: false
 readTime: "12 min"

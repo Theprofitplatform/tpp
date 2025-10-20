@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-16
 category: "SEO"
 tags: ["SEO Pricing","Cost","Sydney","Budget"]
+coverImage: "https://images.unsplash.com/photo-1659968180732-0f3bb348ccf5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyOTB8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "background pattern"
+coverImageCredit:
+  name: "Bishwajit Ghose"
+  link: "https://unsplash.com/@ghose_bishwajit"
 featured: false
 draft: false
 readTime: "16 min"
-coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw1fHxsYXB0b3AlMjBhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXwwfHx8MTc2MDYzMzIwNnww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "graphs of performance analytics on a laptop screen"
-coverImageCredit:
-  name: "Luke Chesser"
-  link: "https://unsplash.com/@lukechesser"
 seo:
   title: "How Much Does SEO Cost in Sydney? 2025 Pricing Guide | The Profit Platform"
   description: "Discover how much SEO costs in Sydney with our 2025 pricing guide. Compare rates, avoid overpriced agencies, and get real results for your business."

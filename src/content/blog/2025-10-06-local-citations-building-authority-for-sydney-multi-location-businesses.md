@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Citations","Local SEO","NAP","Directory Listings"]
-coverImage: "https://images.unsplash.com/photo-1700463250145-662bade955d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTV8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a close up of an open book with words on it"
+coverImage: "https://images.unsplash.com/photo-1619374369968-5277d1f393cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNjR8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "brown brick building with glass windows"
 coverImageCredit:
-  name: "Brett Jordan"
-  link: "https://unsplash.com/@brett_jordan"
+  name: "Addy Mae"
+  link: "https://unsplash.com/@addymae"
 featured: false
 draft: false
 readTime: "13 min"

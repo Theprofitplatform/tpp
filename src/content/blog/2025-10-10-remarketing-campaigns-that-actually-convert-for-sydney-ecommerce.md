@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-10
 category: "Google Ads"
 tags: ["Remarketing","Retargeting","eCommerce","Conversions"]
+coverImage: "https://images.unsplash.com/photo-1706515562701-0d0fc1b38a86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNzh8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a laptop computer sitting on top of a white table"
+coverImageCredit:
+  name: "Walls.io"
+  link: "https://unsplash.com/@walls_io"
 featured: false
 draft: false
 readTime: "19 min"
-coverImage: "https://images.unsplash.com/photo-1532617202163-3b60202ec869?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwb2ZmaWNlfGVufDF8MHx8fDE3NjAwMTkzMTl8MA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "green leafed plant"
-coverImageCredit:
-  name: "Kaleidico"
-  link: "https://unsplash.com/@kaleidico"
 seo:
   title: "Remarketing Campaigns That Actually Convert for Sydney eCommerce | The Profit Platform"
   description: "Discover how 89% of Sydney eCommerce stores waste remarketing campaigns. Learn proven strategies to convert your 47,000+ missed visitors into sales."

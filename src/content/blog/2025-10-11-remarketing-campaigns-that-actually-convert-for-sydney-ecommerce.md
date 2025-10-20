@@ -5,14 +5,14 @@ author: "Aayush Shrestha"
 publishDate: 2025-10-11
 category: "Google Ads"
 tags: ["Remarketing","Retargeting","eCommerce","Conversions"]
+coverImage: "https://images.unsplash.com/photo-1636565446766-229176259c04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyODR8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "an open laptop computer sitting on top of a bed"
+coverImageCredit:
+  name: "Aleksander Vlad"
+  link: "https://unsplash.com/@aleksowlade"
 featured: false
 draft: false
 readTime: "19 min"
-coverImage: "https://images.unsplash.com/photo-1709715357535-1c32eea32e03?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwb2ZmaWNlfGVufDF8MHx8fDE3NjAyMDI5Mzd8MA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a man is typing on a computer keyboard"
-coverImageCredit:
-  name: "SEO Galaxy"
-  link: "https://unsplash.com/@seogalaxy"
 seo:
   title: "Remarketing Campaigns That Actually Convert for Sydney eCommerce | The Profit Platform"
   description: "Discover why 90% of Sydney remarketing campaigns fail and learn proven strategies that actually convert browsers into buyers for your eCommerce business."

@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-04
 category: "SEO"
 tags: ["Local SEO","Google Business Profile","Sydney","Local Search"]
-coverImage: "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NjF8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "Google sign"
+coverImage: "https://images.unsplash.com/photo-1551808525-51a94da548ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyMjN8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "google logo beside building near painted walls at daytime"
 coverImageCredit:
-  name: "Pawel Czerwinski"
-  link: "https://unsplash.com/@pawel_czerwinski"
+  name: "Rajeshwar Bachu"
+  link: "https://unsplash.com/@rajeshwerbatchu7"
 featured: false
 draft: false
 readTime: "16 min"

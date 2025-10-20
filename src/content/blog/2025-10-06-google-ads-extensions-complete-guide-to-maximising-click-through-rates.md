@@ -5,8 +5,8 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Ad Extensions","CTR","PPC","Optimization"]
-coverImage: "https://images.unsplash.com/photo-1678483789887-e7a72d6b872f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5Nzd8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a close up of a computer keyboard with the word google on it"
+coverImage: "https://images.unsplash.com/photo-1662947203398-a2a8d2aa8b21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyMzl8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a black digital watch"
 coverImageCredit:
   name: "BoliviaInteligente"
   link: "https://unsplash.com/@boliviainteligente"

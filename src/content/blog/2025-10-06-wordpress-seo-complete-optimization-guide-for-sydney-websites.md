@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["WordPress","SEO","CMS","Optimization"]
+coverImage: "https://images.unsplash.com/photo-1642132652803-01f9738d0446?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNzN8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "the best way to build web apps without code"
+coverImageCredit:
+  name: "Team Nocoloco"
+  link: "https://unsplash.com/@teamnocoloco"
 featured: false
 draft: false
 readTime: "15 min"
-coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw0fHxsYXB0b3AlMjBhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXwwfHx8MTc1OTY2MjExNnww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "graphs of performance analytics on a laptop screen"
-coverImageCredit:
-  name: "Luke Chesser"
-  link: "https://unsplash.com/@lukechesser"
 seo:
   title: "WordPress SEO: Complete Optimization Guide for Sydney Websites | The Profit Platform"
   description: "Master WordPress SEO with our complete guide for Sydney businesses. Learn proven strategies to boost rankings and get found on page 1 of Google results."

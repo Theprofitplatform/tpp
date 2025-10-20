@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Google Search Console","SEO Tools","Analytics","Tracking"]
-coverImage: "https://images.unsplash.com/photo-1553895501-af9e282e7fc1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTF8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "Google logo screengrab"
+coverImage: "https://images.unsplash.com/photo-1736572784183-0c1d97223d58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNTN8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "A computer screen with the google logo on it"
 coverImageCredit:
-  name: "Christian Wiediger"
-  link: "https://unsplash.com/@christianw"
+  name: "OpenClassActions"
+  link: "https://unsplash.com/@openclassactions_com"
 featured: false
 draft: false
 readTime: "10 min"

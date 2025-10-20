@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["ROI","Analytics","Google Ads","Tracking"]
-coverImage: "https://images.unsplash.com/photo-1701673965119-b543ea45d426?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxODl8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a paper with a red and white gnome on top of it"
+coverImage: "https://images.unsplash.com/photo-1592096304832-62463bfdc822?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNTV8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a google sign in front of some bushes and trees"
 coverImageCredit:
-  name: "Walls.io"
-  link: "https://unsplash.com/@walls_io"
+  name: "Greg Bulla"
+  link: "https://unsplash.com/@gregbulla"
 featured: false
 draft: false
 readTime: "12 min"

@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Google Business Profile","Local SEO","Posts","Engagement"]
+coverImage: "https://images.unsplash.com/photo-1674027326347-37509301f286?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNTB8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a small robot looking at a book with a magnifying glass"
+coverImageCredit:
+  name: "Growtika"
+  link: "https://unsplash.com/@growtika"
 featured: false
 draft: false
 readTime: "13 min"
-coverImage: "https://images.unsplash.com/photo-1553268169-8232852a2377?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBhbmFseXRpY3MlMjB3b3Jrc3BhY2V8ZW58MXwwfHx8MTc1OTczNTY5Mnww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "person using MacBook Air"
-coverImageCredit:
-  name: "Jonathan Francisca"
-  link: "https://unsplash.com/@jonathan_francisca"
 seo:
   title: "Google My Business Posts: How to Use Them to Increase Local Visibility | The Profit Platform"
   description: "Learn how Google My Business posts can boost your local visibility by 67%. Discover proven strategies to outrank competitors and drive more foot traffic for fre"

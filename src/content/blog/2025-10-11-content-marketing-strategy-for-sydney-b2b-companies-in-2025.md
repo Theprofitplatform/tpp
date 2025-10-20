@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-11
 category: "Content Marketing"
 tags: ["Content Strategy","B2B","Marketing","Sydney"]
+coverImage: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyODJ8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "macbook pro displaying group of people"
+coverImageCredit:
+  name: "Chris Montgomery"
+  link: "https://unsplash.com/@cwmonty"
 featured: false
 draft: false
 readTime: "16 min"
-coverImage: "https://images.unsplash.com/photo-1590402494811-8ffd29f17543?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHBsYW5uaW5nJTIwd2hpdGVib2FyZHxlbnwxfDB8fHwxNzYwMTk2MDAwfDA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "woman in blue long sleeve shirt holding mans hand"
-coverImageCredit:
-  name: "airfocus"
-  link: "https://unsplash.com/@airfocus"
 seo:
   title: "Content Marketing Strategy for Sydney B2B Companies in 2025 | The Profit Platform"
   description: "Discover the exact content marketing strategy B2B framework helping Sydney companies generate $500K+ revenue. Stop wasting money on content that doesn't convert"

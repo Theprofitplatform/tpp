@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-05
 category: "Google Ads"
 tags: ["PPC","Google Ads","Cost Optimization","Sydney"]
-coverImage: "https://images.unsplash.com/photo-1602619593719-83654b67b94c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NjR8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "white and black glass building"
+coverImage: "https://images.unsplash.com/photo-1603791452906-af1740e171bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyMjZ8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "black iphone 5 with black case"
 coverImageCredit:
-  name: "Dylan Carr"
-  link: "https://unsplash.com/@dyl_carr"
+  name: "Solen Feyissa"
+  link: "https://unsplash.com/@solenfeyissa"
 featured: false
 draft: false
 readTime: "14 min"

@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-08
 category: "SEO"
 tags: ["SEO Tools","Free Tools","Small Business","Resources"]
+coverImage: "https://images.unsplash.com/photo-1669024401193-1728ef303e8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNzV8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a wall full of tools"
+coverImageCredit:
+  name: "Anton Savinov"
+  link: "https://unsplash.com/@tonchik"
 featured: false
 draft: false
 readTime: "11 min"
-coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw0fHxsYXB0b3AlMjBhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXwwfHx8MTc1OTkxNDAwNXww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "graphs of performance analytics on a laptop screen"
-coverImageCredit:
-  name: "Luke Chesser"
-  link: "https://unsplash.com/@lukechesser"
 seo:
   title: "15 Free SEO Tools Every Sydney Small Business Should Use in 2025 | The Profit Platform"
   description: "A practical guide to free SEO tools that actually work for Sydney small businesses. Learn which tools to use, when to use them, and how to get results."

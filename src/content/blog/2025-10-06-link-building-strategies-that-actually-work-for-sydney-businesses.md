@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Link Building","SEO","Backlinks","Authority"]
-coverImage: "https://images.unsplash.com/photo-1509018877337-3af7dd307ea9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTN8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "gray and blue concrete tunnel at daytime"
+coverImage: "https://images.unsplash.com/photo-1710340552882-96fcd392a126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNjF8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a rusty chain is attached to a pipe"
 coverImageCredit:
-  name: "Brent De Ranter"
-  link: "https://unsplash.com/@brentderanter"
+  name: "Bozhin Karaivanov"
+  link: "https://unsplash.com/@bkaraivanov"
 featured: false
 draft: false
 readTime: "12 min"

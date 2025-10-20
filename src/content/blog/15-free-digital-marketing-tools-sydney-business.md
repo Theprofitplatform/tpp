@@ -5,11 +5,11 @@ publishDate: 2025-02-05
 author: "Avi"
 category: "tools-resources"
 tags: ["Marketing Tools", "Free Resources", "Productivity", "Sydney Business", "2025"]
-coverImage: "https://images.unsplash.com/photo-1562577309-2ca9a61ab410?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NTh8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "assorted-color digital nomad letter decor"
+coverImage: "https://images.unsplash.com/photo-1696041754237-e0c1ffd10138?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyMjB8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "the words digital marketing written in white type on a black background"
 coverImageCredit:
-  name: "Merakist"
-  link: "https://unsplash.com/@merakist"
+  name: "Hakim Menikh"
+  link: "https://unsplash.com/@grafiklink"
 featured: true
 image: "/images/blog/free-marketing-tools-2025.jpg"
 readTime: "11 min"
