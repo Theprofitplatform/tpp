@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Bidding Strategies","PPC","Automation","ROI"]
+coverImage: "https://images.unsplash.com/photo-1603539240352-8f2cce3257c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NzR8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "person holding black iphone 5"
+coverImageCredit:
+  name: "Solen Feyissa"
+  link: "https://unsplash.com/@solenfeyissa"
 featured: false
 draft: false
 readTime: "20 min"
-coverImage: "https://images.unsplash.com/photo-1569347345215-ed9792fc35e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwYWR2ZXJ0aXNpbmclMjBsYXB0b3B8ZW58MXwwfHx8MTc1OTY2MjExOHww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man sitting at the table while using laptop computer"
-coverImageCredit:
-  name: "Brian Jones"
-  link: "https://unsplash.com/@briannjoness"
 seo:
   title: "Google Ads Bidding Strategies: Which One is Right for Your Sydney Business? | The Profit Platform"
   description: "Discover which Google Ads bidding strategies work best for Sydney businesses. Stop wasting budget and start generating more qualified leads today."

@@ -16,36 +16,128 @@ const projectRoot = path.resolve(__dirname, '../..');
 const USED_IMAGES_PATH = path.join(projectRoot, 'automation/used-images.json');
 
 /**
- * Keywords mapping for different blog categories/topics
+ * Industry/profession-specific keywords for visual relevance
+ * These create more contextually appropriate images
  */
-const CATEGORY_KEYWORDS = {
-  'SEO': ['seo', 'search engine', 'analytics', 'website optimization', 'digital marketing'],
-  'Google Ads': ['google ads', 'ppc', 'advertising', 'marketing campaign', 'digital advertising'],
-  'Web Design': ['web design', 'website', 'ui design', 'user interface', 'digital design'],
-  'Digital Marketing': ['digital marketing', 'social media', 'marketing strategy', 'online marketing'],
-  'Content Marketing': ['content marketing', 'blogging', 'writing', 'content creation'],
-  'Marketing Strategy': ['business strategy', 'marketing plan', 'business growth', 'planning'],
-  'Local SEO': ['local business', 'small business', 'shop', 'local store'],
-  'default': ['business', 'technology', 'office', 'laptop', 'workspace']
+const INDUSTRY_KEYWORDS = {
+  // Professions
+  'plumber': 'plumber working on pipes',
+  'plumbers': 'plumber working on pipes',
+  'plumbing': 'plumbing tools and pipes',
+  'lawyer': 'lawyer in office',
+  'lawyers': 'lawyer in office',
+  'legal': 'legal office courthouse',
+  'attorney': 'lawyer in courtroom',
+  'dentist': 'dental clinic',
+  'dentists': 'dental office',
+  'doctor': 'medical professional',
+  'doctors': 'medical office',
+  'accountant': 'accountant with calculator',
+  'accountants': 'accounting office',
+  'electrician': 'electrician working',
+  'electricians': 'electrical work',
+  'builder': 'construction site',
+  'builders': 'construction workers',
+  'real estate': 'real estate agent showing house',
+  'realtor': 'real estate property',
+  'photographer': 'professional photographer',
+  'restaurant': 'restaurant dining',
+  'cafe': 'coffee shop cafe',
+  'bakery': 'bakery bread',
+  'gym': 'fitness gym',
+  'fitness': 'fitness training',
+
+  // Services
+  'ecommerce': 'online shopping website',
+  'shopping': 'online shopping',
+  'retail': 'retail store',
+  'hospitality': 'hotel service',
+  'automotive': 'car mechanic',
+  'mechanic': 'auto repair',
+  'landscaping': 'garden landscaping',
+  'cleaning': 'professional cleaning',
+  'moving': 'moving boxes truck',
+  'storage': 'warehouse storage',
+  'roofing': 'roofing construction',
+  'painting': 'house painting',
+  'flooring': 'floor installation',
+
+  // Business types
+  'startup': 'startup office team',
+  'enterprise': 'corporate office',
+  'b2b': 'business meeting',
+  'saas': 'software dashboard',
+  'agency': 'creative agency team',
+  'consulting': 'business consultant',
+  'coaching': 'business coaching',
+  'training': 'professional training',
+
+  // Marketing concepts
+  'analytics': 'data analytics dashboard',
+  'reporting': 'business report charts',
+  'conversion': 'sales conversion funnel',
+  'optimization': 'website optimization',
+  'strategy': 'business strategy planning',
+  'campaign': 'marketing campaign',
+  'advertising': 'digital advertising',
+  'branding': 'brand design',
+  'content': 'content creation writing',
+  'social media': 'social media phone',
+  'email': 'email marketing laptop',
+  'mobile': 'mobile phone apps',
+  'website': 'website design laptop',
+  'landing': 'landing page design',
+  'funnel': 'sales funnel diagram',
 };
 
 /**
- * Get search keywords based on category and title
+ * Fallback keywords by category (only used if no specific industry found)
+ */
+const CATEGORY_FALLBACKS = {
+  'SEO': 'search engine results analytics',
+  'Google Ads': 'digital advertising dashboard',
+  'Web Design': 'web design laptop',
+  'Digital Marketing': 'digital marketing strategy',
+  'Content Marketing': 'content writing',
+  'Marketing Strategy': 'business strategy meeting',
+  'Local SEO': 'local business storefront',
+  'default': 'professional business office'
+};
+
+/**
+ * Get search keywords based on title content (prioritizes specific topics)
  */
 function getSearchKeywords(category, title) {
-  const categoryKeys = CATEGORY_KEYWORDS[category] || CATEGORY_KEYWORDS['default'];
+  const titleLower = title.toLowerCase();
 
-  // Extract potential keywords from title
-  const titleWords = title.toLowerCase()
-    .replace(/[^\w\s]/g, '')
+  // Step 1: Check for industry/profession-specific keywords in title
+  for (const [keyword, searchTerm] of Object.entries(INDUSTRY_KEYWORDS)) {
+    if (titleLower.includes(keyword)) {
+      console.log(`   📌 Found specific topic: "${keyword}" → searching for "${searchTerm}"`);
+      return searchTerm;
+    }
+  }
+
+  // Step 2: Extract meaningful words from title (excluding common words)
+  const excludeWords = ['guide', 'complete', 'sydney', 'australia', '2025', 'best',
+    'how', 'why', 'what', 'when', 'your', 'the', 'for', 'and', 'with'];
+
+  const titleWords = titleLower
+    .replace(/[^\w\s]/g, ' ')
     .split(/\s+/)
-    .filter(word => word.length > 4 && !['guide', 'complete', 'sydney', '2025'].includes(word));
+    .filter(word => word.length > 3 && !excludeWords.includes(word))
+    .slice(0, 3);
 
-  // Combine and prioritize
-  const allKeywords = [...categoryKeys, ...titleWords.slice(0, 2)];
+  if (titleWords.length > 0) {
+    const searchTerm = titleWords.join(' ');
+    console.log(`   📌 Using title keywords: "${searchTerm}"`);
+    return searchTerm;
+  }
 
-  // Return random selection to get variety
-  return allKeywords[Math.floor(Math.random() * allKeywords.length)];
+  // Step 3: Fallback to category
+  const fallback = CATEGORY_FALLBACKS[category] || CATEGORY_FALLBACKS['default'];
+  console.log(`   📌 Using category fallback: "${fallback}"`);
+  return fallback;
 }
 
 /**

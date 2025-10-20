@@ -246,8 +246,112 @@
       },
       "downloadLocation": "https://api.unsplash.com/photos/m-6QX_EX980/download?ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTh8",
       "usedAt": "2025-10-20T13:16:38.952Z"
+    },
+    {
+      "id": "zY7b8rTra3A",
+      "url": "https://images.unsplash.com/photo-1562577309-2ca9a61ab410?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NTh8&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumb": "https://images.unsplash.com/photo-1562577309-2ca9a61ab410?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NTh8&ixlib=rb-4.1.0&q=80&w=400",
+      "alt": "assorted-color digital nomad letter decor",
+      "photographer": {
+        "name": "Merakist",
+        "link": "https://unsplash.com/@merakist",
+        "username": "merakist"
+      },
+      "downloadLocation": "https://api.unsplash.com/photos/zY7b8rTra3A/download?ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NTh8",
+      "usedAt": "2025-10-20T13:45:58.645Z"
+    },
+    {
+      "id": "fpZZEV0uQwA",
+      "url": "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NjF8&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumb": "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NjF8&ixlib=rb-4.1.0&q=80&w=400",
+      "alt": "Google sign",
+      "photographer": {
+        "name": "Pawel Czerwinski",
+        "link": "https://unsplash.com/@pawel_czerwinski",
+        "username": "pawel_czerwinski"
+      },
+      "downloadLocation": "https://api.unsplash.com/photos/fpZZEV0uQwA/download?ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NjF8",
+      "usedAt": "2025-10-20T13:46:02.216Z"
+    },
+    {
+      "id": "YFgRGXYmFTI",
+      "url": "https://images.unsplash.com/photo-1602619593719-83654b67b94c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NjR8&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumb": "https://images.unsplash.com/photo-1602619593719-83654b67b94c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NjR8&ixlib=rb-4.1.0&q=80&w=400",
+      "alt": "white and black glass building",
+      "photographer": {
+        "name": "Dylan Carr",
+        "link": "https://unsplash.com/@dyl_carr",
+        "username": "dyl_carr"
+      },
+      "downloadLocation": "https://api.unsplash.com/photos/YFgRGXYmFTI/download?ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NjR8",
+      "usedAt": "2025-10-20T13:46:04.970Z"
+    },
+    {
+      "id": "RLw-UC03Gwc",
+      "url": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5Njd8&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumb": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5Njd8&ixlib=rb-4.1.0&q=80&w=400",
+      "alt": "person writing bucket list on book",
+      "photographer": {
+        "name": "Glenn Carstens-Peters",
+        "link": "https://unsplash.com/@glenncarstenspeters",
+        "username": "glenncarstenspeters"
+      },
+      "downloadLocation": "https://api.unsplash.com/photos/RLw-UC03Gwc/download?ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5Njd8",
+      "usedAt": "2025-10-20T13:46:08.376Z"
+    },
+    {
+      "id": "Imc-IoZDMXc",
+      "url": "https://images.unsplash.com/photo-1555421689-491a97ff2040?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NzF8&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumb": "https://images.unsplash.com/photo-1555421689-491a97ff2040?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NzF8&ixlib=rb-4.1.0&q=80&w=400",
+      "alt": "person using iMac",
+      "photographer": {
+        "name": "Austin Distel",
+        "link": "https://unsplash.com/@austindistel",
+        "username": "austindistel"
+      },
+      "downloadLocation": "https://api.unsplash.com/photos/Imc-IoZDMXc/download?ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NzF8",
+      "usedAt": "2025-10-20T13:46:11.140Z"
+    },
+    {
+      "id": "HQSEvyN56K0",
+      "url": "https://images.unsplash.com/photo-1603539240352-8f2cce3257c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NzR8&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumb": "https://images.unsplash.com/photo-1603539240352-8f2cce3257c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NzR8&ixlib=rb-4.1.0&q=80&w=400",
+      "alt": "person holding black iphone 5",
+      "photographer": {
+        "name": "Solen Feyissa",
+        "link": "https://unsplash.com/@solenfeyissa",
+        "username": "solenfeyissa"
+      },
+      "downloadLocation": "https://api.unsplash.com/photos/HQSEvyN56K0/download?ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NzR8",
+      "usedAt": "2025-10-20T13:46:13.963Z"
+    },
+    {
+      "id": "5PcsCr47zec",
+      "url": "https://images.unsplash.com/photo-1678483789887-e7a72d6b872f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5Nzd8&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumb": "https://images.unsplash.com/photo-1678483789887-e7a72d6b872f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5Nzd8&ixlib=rb-4.1.0&q=80&w=400",
+      "alt": "a close up of a computer keyboard with the word google on it",
+      "photographer": {
+        "name": "BoliviaInteligente",
+        "link": "https://unsplash.com/@boliviainteligente",
+        "username": "boliviainteligente"
+      },
+      "downloadLocation": "https://api.unsplash.com/photos/5PcsCr47zec/download?ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5Nzd8",
+      "usedAt": "2025-10-20T13:46:17.338Z"
+    },
+    {
+      "id": "z7ICBEMUJfw",
+      "url": "https://images.unsplash.com/photo-1662947190722-5d272f82a526?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5ODB8&ixlib=rb-4.1.0&q=80&w=1080",
+      "thumb": "https://images.unsplash.com/photo-1662947190722-5d272f82a526?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5ODB8&ixlib=rb-4.1.0&q=80&w=400",
+      "alt": "logo",
+      "photographer": {
+        "name": "BoliviaInteligente",
+        "link": "https://unsplash.com/@boliviainteligente",
+        "username": "boliviainteligente"
+      },
+      "downloadLocation": "https://api.unsplash.com/photos/z7ICBEMUJfw/download?ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5ODB8",
+      "usedAt": "2025-10-20T13:46:20.077Z"
     }
   ],
-  "lastUpdated": "2025-10-20T13:16:38.952Z",
+  "lastUpdated": "2025-10-20T13:46:20.077Z",
   "note": "This file tracks Unsplash images used in blog posts to prevent duplicates"
 }

@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Ad Extensions","CTR","PPC","Optimization"]
-coverImage: "https://images.unsplash.com/photo-1674049406467-824ea37c7184?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxODZ8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a woman getting her eyelashes done by a professional makeup artist"
+coverImage: "https://images.unsplash.com/photo-1678483789887-e7a72d6b872f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5Nzd8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a close up of a computer keyboard with the word google on it"
 coverImageCredit:
-  name: "Bermix Studio"
-  link: "https://unsplash.com/@bermixstudio"
+  name: "BoliviaInteligente"
+  link: "https://unsplash.com/@boliviainteligente"
 featured: false
 draft: false
 readTime: "16 min"

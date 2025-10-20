@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-05
 category: "Google Ads"
 tags: ["PPC","Google Ads","Cost Optimization","Sydney"]
+coverImage: "https://images.unsplash.com/photo-1602619593719-83654b67b94c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NjR8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "white and black glass building"
+coverImageCredit:
+  name: "Dylan Carr"
+  link: "https://unsplash.com/@dyl_carr"
 featured: false
 draft: false
 readTime: "14 min"
-coverImage: "https://images.unsplash.com/photo-1569347345215-ed9792fc35e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwYWR2ZXJ0aXNpbmclMjBsYXB0b3B8ZW58MXwwfHx8MTc1OTY2NjE1OXww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man sitting at the table while using laptop computer"
-coverImageCredit:
-  name: "Brian Jones"
-  link: "https://unsplash.com/@briannjoness"
 seo:
   title: "7 Google Ads Mistakes Costing Sydney Businesses Thousands Every Month | The Profit Platform"
   description: "Discover the 7 costly Google Ads mistakes Sydney businesses make that waste thousands monthly. Learn how to fix these profit-killers and boost ROI."

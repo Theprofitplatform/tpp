@@ -5,14 +5,14 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Web Design"
 tags: ["CRO","Conversions","Optimization","Service Business"]
+coverImage: "https://images.unsplash.com/photo-1555421689-491a97ff2040?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5NzF8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "person using iMac"
+coverImageCredit:
+  name: "Austin Distel"
+  link: "https://unsplash.com/@austindistel"
 featured: false
 draft: false
 readTime: "14 min"
-coverImage: "https://images.unsplash.com/photo-1553268100-4c2734aacf7c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHdvcmtzcGFjZXxlbnwxfDB8fHwxNzU5NzQxMzU4fDA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man sitting beside table holding silver iPhone 7 Plus"
-coverImageCredit:
-  name: "Jonathan Francisca"
-  link: "https://unsplash.com/@jonathan_francisca"
 seo:
   title: "Conversion Rate Optimization: 9 Quick Wins for Sydney Service Businesses | The Profit Platform"
   description: "Boost your Sydney service business revenue with proven conversion rate optimization strategies. 9 quick wins that increase enquiries by 300-400% instantly."

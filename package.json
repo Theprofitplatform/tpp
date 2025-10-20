@@ -37,6 +37,7 @@
     "image:check-duplicates": "node automation/scripts/check-duplicate-images.mjs",
     "image:fix-duplicates": "node automation/scripts/fix-duplicate-images.mjs",
     "image:update-all": "node automation/scripts/update-blog-images.mjs",
+    "image:refresh-all": "node automation/scripts/refresh-all-images.mjs",
     "health": "./scripts/simple-health-check.sh",
     "health:check": "./scripts/simple-health-check.sh",
     "health:setup": "./scripts/setup-health-monitoring.sh",

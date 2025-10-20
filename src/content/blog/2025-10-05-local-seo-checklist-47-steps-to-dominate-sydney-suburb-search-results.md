@@ -5,14 +5,14 @@ author: "Avi"
 publishDate: 2025-10-05
 category: "SEO"
 tags: ["Local SEO","Checklist","Sydney","Rankings"]
+coverImage: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5Njd8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "person writing bucket list on book"
+coverImageCredit:
+  name: "Glenn Carstens-Peters"
+  link: "https://unsplash.com/@glenncarstenspeters"
 featured: false
 draft: false
 readTime: "12 min"
-coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHw0fHxsYXB0b3AlMjBhbmFseXRpY3MlMjBkYXNoYm9hcmR8ZW58MXwwfHx8MTc1OTY2ODIwNHww&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "graphs of performance analytics on a laptop screen"
-coverImageCredit:
-  name: "Luke Chesser"
-  link: "https://unsplash.com/@lukechesser"
 seo:
   title: "Local SEO Checklist: 47 Steps to Dominate Sydney Suburb Search Results | The Profit Platform"
   description: "Boost your Sydney business with our 47-step local SEO checklist. Dominate suburb search results and outrank competitors using proven local SEO Sydney strategies"

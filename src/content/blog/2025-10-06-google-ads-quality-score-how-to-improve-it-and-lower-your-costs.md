@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Quality Score","PPC Optimization","Cost Reduction"]
-coverImage: "https://images.unsplash.com/photo-1607703703520-bb638e84caf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxODh8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "person writing on white paper"
+coverImage: "https://images.unsplash.com/photo-1662947190722-5d272f82a526?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5Njc5ODB8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "logo"
 coverImageCredit:
-  name: "Melanie Deziel"
-  link: "https://unsplash.com/@storyfuel"
+  name: "BoliviaInteligente"
+  link: "https://unsplash.com/@boliviainteligente"
 featured: false
 draft: false
 readTime: "14 min"
