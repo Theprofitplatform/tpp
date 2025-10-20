@@ -5,11 +5,11 @@ pubDate: 2025-10-19
 author: "Abhishek Maharjan"
 category: "SEO"
 tags: ["Industry-Specific","Plumbers","Local SEO","Case Study"]
-coverImage: "https://images.unsplash.com/photo-1529007196863-d07650a3f0ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjQyNzV8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "Professional business workspace showing SEO strategy planning and case study analysis"
+coverImage: "https://images.unsplash.com/photo-1567230539989-f339f986cc3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA2MTJ8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a bunch of cups are stacked on a wall"
 coverImageCredit:
-  name: "Eliabe Costa"
-  link: "https://unsplash.com/@eliabevces"
+  name: "arpan chatterjee"
+  link: "https://unsplash.com/@arpan_chatterjee_"
 featured: false
 draft: false
 faq:

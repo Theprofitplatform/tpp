@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Digital Marketing"
 tags: ["Lead Generation","Funnels","Professional Services","Conversion"]
-coverImage: "https://images.unsplash.com/photo-1674027392838-d85710a5121d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNTh8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a basket with a target and a target in it"
+coverImage: "https://images.unsplash.com/photo-1610690909553-49802d92b737?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NzN8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a flock of birds sitting on top of a wire"
 coverImageCredit:
-  name: "Growtika"
-  link: "https://unsplash.com/@growtika"
+  name: "K V S T"
+  link: "https://unsplash.com/@kvst"
 featured: false
 draft: false
 readTime: "16 min"

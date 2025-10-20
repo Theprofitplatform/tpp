@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-10
 category: "Google Ads"
 tags: ["Remarketing","Retargeting","eCommerce","Conversions"]
-coverImage: "https://images.unsplash.com/photo-1706515562701-0d0fc1b38a86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNzh8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a laptop computer sitting on top of a white table"
+coverImage: "https://images.unsplash.com/photo-1566476927456-446189d7b1ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1OTN8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "turned on MacBook Pro on table"
 coverImageCredit:
-  name: "Walls.io"
-  link: "https://unsplash.com/@walls_io"
+  name: "NordWood Themes"
+  link: "https://unsplash.com/@nordwood"
 featured: false
 draft: false
 readTime: "19 min"

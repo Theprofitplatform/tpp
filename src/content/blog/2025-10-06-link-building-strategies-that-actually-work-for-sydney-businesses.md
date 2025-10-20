@@ -5,8 +5,8 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Link Building","SEO","Backlinks","Authority"]
-coverImage: "https://images.unsplash.com/photo-1710340552882-96fcd392a126?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNjF8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a rusty chain is attached to a pipe"
+coverImage: "https://images.unsplash.com/photo-1654432048400-5afbb54a28ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NzZ8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a black chain is attached to a rock"
 coverImageCredit:
   name: "Bozhin Karaivanov"
   link: "https://unsplash.com/@bkaraivanov"

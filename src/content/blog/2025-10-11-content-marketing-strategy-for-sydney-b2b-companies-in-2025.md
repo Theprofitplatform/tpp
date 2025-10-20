@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-11
 category: "Content Marketing"
 tags: ["Content Strategy","B2B","Marketing","Sydney"]
-coverImage: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyODJ8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "macbook pro displaying group of people"
+coverImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1OTZ8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "people sitting near table with laptop computer"
 coverImageCredit:
-  name: "Chris Montgomery"
-  link: "https://unsplash.com/@cwmonty"
+  name: "Campaign Creators"
+  link: "https://unsplash.com/@campaign_creators"
 featured: false
 draft: false
 readTime: "16 min"

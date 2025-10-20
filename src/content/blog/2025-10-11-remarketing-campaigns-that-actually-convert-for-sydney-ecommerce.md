@@ -5,11 +5,11 @@ author: "Aayush Shrestha"
 publishDate: 2025-10-11
 category: "Google Ads"
 tags: ["Remarketing","Retargeting","eCommerce","Conversions"]
-coverImage: "https://images.unsplash.com/photo-1636565446766-229176259c04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyODR8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "an open laptop computer sitting on top of a bed"
+coverImage: "https://images.unsplash.com/photo-1623051502031-90323a1d03a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1OTl8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "macbook pro on brown wooden table"
 coverImageCredit:
-  name: "Aleksander Vlad"
-  link: "https://unsplash.com/@aleksowlade"
+  name: "Michał Parzuchowski"
+  link: "https://unsplash.com/@mparzuchowski"
 featured: false
 draft: false
 readTime: "19 min"

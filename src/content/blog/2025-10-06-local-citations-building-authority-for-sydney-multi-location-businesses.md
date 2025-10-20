@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Citations","Local SEO","NAP","Directory Listings"]
-coverImage: "https://images.unsplash.com/photo-1619374369968-5277d1f393cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNjR8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "brown brick building with glass windows"
+coverImage: "https://images.unsplash.com/photo-1696136571549-14573338b950?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1Nzl8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a small white building with a flag on top of it"
 coverImageCredit:
-  name: "Addy Mae"
-  link: "https://unsplash.com/@addymae"
+  name: "Denisse Leon"
+  link: "https://unsplash.com/@denisseleon"
 featured: false
 draft: false
 readTime: "13 min"

@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Bidding Strategies","PPC","Automation","ROI"]
-coverImage: "https://images.unsplash.com/photo-1614091473310-072faa6a091c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyMzV8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "black laptop computer turned on displaying google search"
+coverImage: "https://images.unsplash.com/photo-1730818874925-85a171547e46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NTR8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "A close up of a cell phone on a table"
 coverImageCredit:
-  name: "Lucia Macedo"
-  link: "https://unsplash.com/@sample_in_photography"
+  name: "appshunter.io"
+  link: "https://unsplash.com/@appshunter"
 featured: false
 draft: false
 readTime: "20 min"

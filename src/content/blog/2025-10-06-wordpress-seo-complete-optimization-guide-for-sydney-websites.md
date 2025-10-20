@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["WordPress","SEO","CMS","Optimization"]
-coverImage: "https://images.unsplash.com/photo-1642132652803-01f9738d0446?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNzN8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "the best way to build web apps without code"
+coverImage: "https://images.unsplash.com/photo-1740477959010-c2e99bf4a5ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1ODd8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "A wooden block spelling the word website on a table"
 coverImageCredit:
-  name: "Team Nocoloco"
-  link: "https://unsplash.com/@teamnocoloco"
+  name: "Markus Winkler"
+  link: "https://unsplash.com/@markuswinkler"
 featured: false
 draft: false
 readTime: "15 min"

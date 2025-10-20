@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Google Business Profile","Local SEO","Posts","Engagement"]
-coverImage: "https://images.unsplash.com/photo-1674027326347-37509301f286?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNTB8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a small robot looking at a book with a magnifying glass"
+coverImage: "https://images.unsplash.com/photo-1727132527153-683df2c70cd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NjV8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "Two cell phones sitting next to each other"
 coverImageCredit:
-  name: "Growtika"
-  link: "https://unsplash.com/@growtika"
+  name: "Triyansh Gill"
+  link: "https://unsplash.com/@triyansh"
 featured: false
 draft: false
 readTime: "13 min"

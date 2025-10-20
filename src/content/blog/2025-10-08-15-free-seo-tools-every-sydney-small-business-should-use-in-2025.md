@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-08
 category: "SEO"
 tags: ["SEO Tools","Free Tools","Small Business","Resources"]
-coverImage: "https://images.unsplash.com/photo-1669024401193-1728ef303e8e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNzV8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a wall full of tools"
+coverImage: "https://images.unsplash.com/photo-1662830973312-d4360eecce9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1OTB8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a knife with a red handle"
 coverImageCredit:
-  name: "Anton Savinov"
-  link: "https://unsplash.com/@tonchik"
+  name: "Andrey Matveev"
+  link: "https://unsplash.com/@zelebb"
 featured: false
 draft: false
 readTime: "11 min"

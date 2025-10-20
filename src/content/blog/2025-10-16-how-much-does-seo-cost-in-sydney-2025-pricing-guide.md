@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-16
 category: "SEO"
 tags: ["SEO Pricing","Cost","Sydney","Budget"]
-coverImage: "https://images.unsplash.com/photo-1659968180732-0f3bb348ccf5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyOTB8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "background pattern"
+coverImage: "https://images.unsplash.com/photo-1671552566969-6c31a589b293?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA2MDR8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "a white background with green leaves on it"
 coverImageCredit:
-  name: "Bishwajit Ghose"
-  link: "https://unsplash.com/@ghose_bishwajit"
+  name: "Pramod Tiwari"
+  link: "https://unsplash.com/@pramodtiwari"
 featured: false
 draft: false
 readTime: "16 min"

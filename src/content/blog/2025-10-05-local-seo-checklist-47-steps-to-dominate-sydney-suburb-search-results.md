@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-05
 category: "SEO"
 tags: ["Local SEO","Checklist","Sydney","Rankings"]
-coverImage: "https://images.unsplash.com/photo-1598791318878-10e76d178023?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyMjl8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a notepad with a pen on top of it"
+coverImage: "https://images.unsplash.com/photo-1553968464-754bb963ea49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NDl8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "white printer paper"
 coverImageCredit:
-  name: "Thomas Bormans"
-  link: "https://unsplash.com/@thomasbormans"
+  name: "Erik Mclean"
+  link: "https://unsplash.com/@introspectivedsgn"
 featured: false
 draft: false
 readTime: "12 min"

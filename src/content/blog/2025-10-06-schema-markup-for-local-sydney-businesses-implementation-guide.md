@@ -5,7 +5,7 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Schema Markup","Structured Data","Local SEO","Rich Results"]
-coverImage: "https://images.unsplash.com/photo-1559741746-24caedc5cd2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNzB8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImage: "https://images.unsplash.com/photo-1559741746-24caedc5cd2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1ODV8&ixlib=rb-4.1.0&q=80&w=1080"
 coverImageAlt: "food mart signage"
 coverImageCredit:
   name: "Jason Dent"

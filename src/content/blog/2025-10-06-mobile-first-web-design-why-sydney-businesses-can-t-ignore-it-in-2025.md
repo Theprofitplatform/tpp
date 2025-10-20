@@ -5,7 +5,7 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Web Design"
 tags: ["Mobile Design","Responsive Design","User Experience","SEO"]
-coverImage: "https://images.unsplash.com/photo-1730818027625-969cd17c6b37?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyNjd8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImage: "https://images.unsplash.com/photo-1730817403166-36f03bec781a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1ODJ8&ixlib=rb-4.1.0&q=80&w=1080"
 coverImageAlt: "A cell phone sitting on top of a wooden table"
 coverImageCredit:
   name: "appshunter.io"

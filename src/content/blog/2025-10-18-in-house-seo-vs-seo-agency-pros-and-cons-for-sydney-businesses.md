@@ -5,11 +5,11 @@ pubDate: 2025-10-18
 author: "Abhishek Maharjan"
 category: "SEO"
 tags: ["Comparison","In-House","Agency","Decision Making"]
-coverImage: "https://images.unsplash.com/photo-1758873268663-5a362616b5a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAzMDd8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "Four diverse colleagues standing together in an office."
+coverImage: "https://images.unsplash.com/photo-1581740014295-766a2a452198?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA2MDl8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "4 women sitting on white sofa"
 coverImageCredit:
-  name: "Vitaly Gariev"
-  link: "https://unsplash.com/@silverkblack"
+  name: "Febrian Zakaria"
+  link: "https://unsplash.com/@febrianzakaria"
 featured: false
 draft: false
 ---

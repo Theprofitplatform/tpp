@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Web Design"
 tags: ["CRO","Conversions","Optimization","Service Business"]
-coverImage: "https://images.unsplash.com/photo-1676395379251-784239d3bc29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzAyMzJ8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a white and orange object on a yellow and black surface"
+coverImage: "https://images.unsplash.com/photo-1553830591-d8632a99e6ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NTJ8&ixlib=rb-4.1.0&q=80&w=1080"
+coverImageAlt: "unknown person in red plaid shirt talking on phone at terrace"
 coverImageCredit:
-  name: "Nik"
-  link: "https://unsplash.com/@helloimnik"
+  name: "Austin Distel"
+  link: "https://unsplash.com/@austindistel"
 featured: false
 draft: false
 readTime: "14 min"
