@@ -5,11 +5,11 @@ pubDate: 2025-10-19
 author: "Abhishek Maharjan"
 category: "SEO"
 tags: ["Local SEO","Educational","Sydney","Beginner"]
-coverImage: "https://images.unsplash.com/photo-1696948907299-7959482ed538?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjU3Mjl8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a view of a foggy forest from a bird's eye view"
+coverImage: "https://images.pexels.com/photos/2119903/pexels-photo-2119903.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Colorful street scene in Kolkata with glowing shop signs and wet pavement at night."
 coverImageCredit:
-  name: "Pascal Debrunner"
-  link: "https://unsplash.com/@debrupas"
+  name: "Rahul Pandit"
+  link: "https://www.pexels.com/@rahulp9800"
 featured: false
 draft: false
 faq:

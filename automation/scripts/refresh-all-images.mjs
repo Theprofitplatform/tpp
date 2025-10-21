@@ -78,7 +78,7 @@ coverImageCredit:
 /**
  * Update single blog post with new contextually relevant image
  */
-async function updateBlogPostImage(filepath, unsplashKey) {
+async function updateBlogPostImage(filepath, unsplashKey, pexelsKey) {
   const filename = path.basename(filepath);
   const content = await fs.readFile(filepath, 'utf-8');
 
@@ -91,8 +91,8 @@ async function updateBlogPostImage(filepath, unsplashKey) {
   console.log(`\n  🔄 ${filename}`);
   console.log(`     Title: "${parsed.title}"`);
 
-  // Fetch new contextually relevant image
-  const imageData = await getUniqueImage(parsed.category, parsed.title, unsplashKey);
+  // Fetch new contextually relevant image (tries Unsplash first, then Pexels)
+  const imageData = await getUniqueImage(parsed.category, parsed.title, unsplashKey, pexelsKey);
   if (!imageData) {
     console.log(`  ⚠️  No image found`);
     return { updated: false, reason: 'no-image' };
@@ -113,7 +113,8 @@ async function updateBlogPostImage(filepath, unsplashKey) {
     updated: true,
     photographer: imageData.photographer.name,
     filename,
-    title: parsed.title
+    title: parsed.title,
+    source: imageData.source
   };
 }
 
@@ -123,12 +124,19 @@ async function updateBlogPostImage(filepath, unsplashKey) {
 async function main() {
   try {
     console.log('🎨 Refreshing ALL Blog Post Hero Images with Contextual Relevance\n');
+    console.log('📡 Using dual-source strategy: Unsplash + Pexels fallback\n');
 
-    // Check API key
+    // Check API keys
     const unsplashKey = process.env.UNSPLASH_ACCESS_KEY;
-    if (!unsplashKey) {
-      throw new Error('UNSPLASH_ACCESS_KEY not found in environment');
+    const pexelsKey = process.env.PEXELS_API_KEY;
+
+    if (!unsplashKey && !pexelsKey) {
+      throw new Error('At least one API key required: UNSPLASH_ACCESS_KEY or PEXELS_API_KEY');
     }
+
+    if (unsplashKey) console.log('✅ Unsplash API key found');
+    if (pexelsKey) console.log('✅ Pexels API key found');
+    console.log('');
 
     // Get all blog post files
     const files = await fs.readdir(BLOG_DIR);
@@ -148,14 +156,13 @@ async function main() {
 
     for (const filepath of mdFiles) {
       try {
-        const result = await updateBlogPostImage(filepath, unsplashKey);
+        const result = await updateBlogPostImage(filepath, unsplashKey, pexelsKey);
 
         if (result.updated) {
           results.updated.push(result);
         }
 
-        // Delay to respect API rate limits (50 requests/hour = ~72 seconds between requests)
-        // Using 2 seconds for demo keys, increase to 75+ for large batches
+        // Delay to respect API rate limits
         await new Promise(resolve => setTimeout(resolve, 2000));
       } catch (error) {
         console.error(`  ❌ Error: ${error.message}\n`);
@@ -172,10 +179,23 @@ async function main() {
 
     if (results.updated.length > 0) {
       console.log('\n✅ Updated Posts:');
+
+      // Count by source
+      const bySources = results.updated.reduce((acc, r) => {
+        acc[r.source] = (acc[r.source] || 0) + 1;
+        return acc;
+      }, {});
+
+      console.log(`\n   📊 Image Sources:`);
+      Object.entries(bySources).forEach(([source, count]) => {
+        console.log(`      ${source}: ${count} posts`);
+      });
+
+      console.log('\n   📝 Details:');
       results.updated.forEach(r => {
         console.log(`   - ${r.filename}`);
         console.log(`     "${r.title}"`);
-        console.log(`     Photographer: ${r.photographer}`);
+        console.log(`     Photographer: ${r.photographer} (${r.source})`);
       });
     }
 

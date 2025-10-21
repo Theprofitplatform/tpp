@@ -5,11 +5,11 @@ pubDate: 2025-10-19
 author: "Abhishek Maharjan"
 category: "SEO"
 tags: ["Industry-Specific","Plumbers","Local SEO","Case Study"]
-coverImage: "https://images.unsplash.com/photo-1567230539989-f339f986cc3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA2MTJ8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a bunch of cups are stacked on a wall"
+coverImage: "https://images.pexels.com/photos/4489771/pexels-photo-4489771.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "A male mechanic checks under the hood of a car in a dimly lit garage, focusing on vehicle repair."
 coverImageCredit:
-  name: "arpan chatterjee"
-  link: "https://unsplash.com/@arpan_chatterjee_"
+  name: "cottonbro studio"
+  link: "https://www.pexels.com/@cottonbro"
 featured: false
 draft: false
 faq:

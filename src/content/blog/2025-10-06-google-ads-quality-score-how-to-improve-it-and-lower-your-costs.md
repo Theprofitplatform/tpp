@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Quality Score","PPC Optimization","Cost Reduction"]
-coverImage: "https://images.unsplash.com/photo-1646627927952-c022e715bafb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NjB8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a gold google logo on a black background"
+coverImage: "https://images.pexels.com/photos/1293265/pexels-photo-1293265.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "A colorful indoor arcade game showcasing basketball hoops in a vibrant setting, perfect for entertainment venues."
 coverImageCredit:
-  name: "Rubaitul Azad"
-  link: "https://unsplash.com/@rubaitulazad"
+  name: "Element5 Digital"
+  link: "https://www.pexels.com/@element5"
 featured: false
 draft: false
 readTime: "14 min"

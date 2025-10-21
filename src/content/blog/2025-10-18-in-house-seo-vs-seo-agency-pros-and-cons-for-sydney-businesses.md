@@ -5,11 +5,11 @@ pubDate: 2025-10-18
 author: "Abhishek Maharjan"
 category: "SEO"
 tags: ["Comparison","In-House","Agency","Decision Making"]
-coverImage: "https://images.unsplash.com/photo-1581740014295-766a2a452198?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA2MDl8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "4 women sitting on white sofa"
+coverImage: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Diverse professionals unite for teamwork around a wooden table with laptops and documents."
 coverImageCredit:
-  name: "Febrian Zakaria"
-  link: "https://unsplash.com/@febrianzakaria"
+  name: "fauxels"
+  link: "https://www.pexels.com/@fauxels"
 featured: false
 draft: false
 ---

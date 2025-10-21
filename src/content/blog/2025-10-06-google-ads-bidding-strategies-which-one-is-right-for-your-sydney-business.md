@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Bidding Strategies","PPC","Automation","ROI"]
-coverImage: "https://images.unsplash.com/photo-1730818874925-85a171547e46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NTR8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "A close up of a cell phone on a table"
+coverImage: "https://images.pexels.com/photos/30839678/pexels-photo-30839678.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Close-up of Scrabble tiles forming the words 'API' and 'GEMINI' on a wooden surface."
 coverImageCredit:
-  name: "appshunter.io"
-  link: "https://unsplash.com/@appshunter"
+  name: "Markus Winkler"
+  link: "https://www.pexels.com/@markus-winkler-1430818"
 featured: false
 draft: false
 readTime: "20 min"

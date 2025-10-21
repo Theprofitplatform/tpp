@@ -5,11 +5,11 @@ pubDate: 2025-10-19
 author: "Abhilekh Maharjan"
 category: "Digital Marketing"
 tags: ["Small Business","Marketing Strategy","Sydney","Comprehensive"]
-coverImage: "https://images.unsplash.com/photo-1543269664-76bc3997d9ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjU3Mjd8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "woman wearing white dress shirt using holding black leather case on brown wooden table"
+coverImage: "https://images.pexels.com/photos/34325644/pexels-photo-34325644.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Businesswoman explaining a concept during a meeting with a presentation displayed on screen."
 coverImageCredit:
-  name: "Brooke Cagle"
-  link: "https://unsplash.com/@brookecagle"
+  name: "Julio Lopez"
+  link: "https://www.pexels.com/@julio-lopez-75309646"
 featured: false
 draft: false
 faq:

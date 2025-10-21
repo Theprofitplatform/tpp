@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["WordPress","SEO","CMS","Optimization"]
-coverImage: "https://images.unsplash.com/photo-1740477959010-c2e99bf4a5ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1ODd8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "A wooden block spelling the word website on a table"
+coverImage: "https://images.pexels.com/photos/34326374/pexels-photo-34326374.png?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Close-up of a hand holding a coffee cup beside a laptop on a desk, indoors."
 coverImageCredit:
-  name: "Markus Winkler"
-  link: "https://unsplash.com/@markuswinkler"
+  name: "Luis Sevilla"
+  link: "https://www.pexels.com/@luis-sevilla-252657"
 featured: false
 draft: false
 readTime: "15 min"

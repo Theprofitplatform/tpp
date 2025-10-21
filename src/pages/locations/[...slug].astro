@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
 
 export async function getStaticPaths() {
   const locations = await getCollection('locations', ({ data }) => {
@@ -39,8 +40,10 @@ const schema = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
+  <Header />
+
   <article class="location-page">
-    <header class="location-header">
+    <header class="location-header" style={location.data.heroImage ? `background-image: linear-gradient(135deg, rgba(0, 119, 190, 0.85) 0%, rgba(0, 153, 204, 0.8) 50%, rgba(102, 126, 234, 0.75) 100%), url(${location.data.heroImage});` : ''}>
       <div class="container">
         <h1>{location.data.title}</h1>
         <div class="location-meta">
@@ -102,15 +105,61 @@ const schema = {
 </BaseLayout>
 
 <style>
+  /* Sticky Navigation for Location Pages */
+  :global(#header.premium-nav) {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Bondi Beach Color Palette */
+  :root {
+    --ocean-blue: #0077BE;
+    --ocean-blue-hover: #005A8F;
+    --sand: #F4B942;
+    --sand-light: #FDF5E6;
+    --purple-accent: #667eea;
+    --text-dark: #2C3E50;
+    --text-mid: #555;
+    --bg-light: #F9F9F9;
+    --white: #FFFFFF;
+  }
+
   .location-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--ocean-blue) 0%, #0099CC 50%, var(--purple-accent) 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
-    padding: 4rem 0 3rem;
+    padding: 5rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Hero overlay for beach aesthetic */
+  .location-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 119, 190, 0.1), rgba(0, 119, 190, 0.3));
+    pointer-events: none;
+  }
+
+  .location-header .container {
+    position: relative;
+    z-index: 1;
   }
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 1.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
 
   .location-meta {
@@ -124,11 +173,15 @@ const schema = {
     color: white;
     text-decoration: none;
     opacity: 0.95;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
   }
 
   .location-meta a:hover {
     opacity: 1;
     text-decoration: underline;
+    text-decoration-color: var(--sand);
+    text-decoration-thickness: 2px;
   }
 
   .container {
@@ -138,15 +191,18 @@ const schema = {
   }
 
   .service-areas {
-    margin: 3rem 0;
-    padding: 2rem;
-    background: #f8f9fa;
-    border-radius: 8px;
+    margin: 4rem 0;
+    padding: 2.5rem;
+    background: var(--sand-light);
+    border-radius: 12px;
+    border: 2px solid var(--sand);
   }
 
   .service-areas h2 {
-    margin-bottom: 1rem;
-    color: #333;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 2rem;
+    font-weight: 600;
   }
 
   .areas-grid {
@@ -157,98 +213,258 @@ const schema = {
 
   .area-badge {
     background: white;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    border: 1px solid #e9ecef;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--sand);
     display: block;
     text-align: center;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .area-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 119, 190, 0.1);
+    border-color: var(--ocean-blue);
   }
 
   .location-content {
-    max-width: 800px;
-    margin: 3rem auto;
+    max-width: 900px;
+    margin: 4rem auto;
     line-height: 1.8;
   }
 
   .location-content :global(h2) {
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    color: #333;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 2.25rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--sand);
   }
 
   .location-content :global(h3) {
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: #555;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--ocean-blue);
+    font-size: 1.75rem;
+    font-weight: 600;
   }
 
   .location-content :global(ul) {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
     padding-left: 1.5rem;
   }
 
   .location-content :global(li) {
-    margin: 0.5rem 0;
+    margin: 0.75rem 0;
+  }
+
+  .location-content :global(strong) {
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  /* Style markdown links as buttons */
+  .location-content :global(a[href*="/contact"]),
+  .location-content :global(a[href*="→"]) {
+    display: inline-block;
+    background: var(--ocean-blue);
+    color: white !important;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none !important;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 119, 190, 0.2);
+  }
+
+  .location-content :global(a[href*="/contact"]:hover),
+  .location-content :global(a[href*="→"]:hover) {
+    background: var(--ocean-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 119, 190, 0.3);
+  }
+
+  /* Regular content links */
+  .location-content :global(a:not([href*="/contact"]):not([href*="→"])) {
+    color: var(--ocean-blue);
+    text-decoration: underline;
+    text-decoration-color: var(--sand);
+    text-decoration-thickness: 2px;
+  }
+
+  .location-content :global(a:not([href*="/contact"]):not([href*="→"]):hover) {
+    color: var(--ocean-blue-hover);
+  }
+
+  /* Enhanced Spacing for Major Sections */
+  .location-content :global(section) {
+    margin: 4rem 0;
+  }
+
+  /* Pricing Section Enhancements - Using simpler selectors */
+  /* Create visual separation for pricing lists */
+  .location-content :global(p strong) {
+    color: var(--ocean-blue);
+    font-weight: 700;
+  }
+
+  /* Style for pricing amounts */
+  .location-content :global(p:has(strong) + ul) {
+    background: var(--sand-light);
+    padding: 1.5rem 2rem;
+    border-left: 4px solid var(--sand);
+    border-radius: 8px;
+    margin: 1rem 0 2rem 0;
+  }
+
+  /* Alternative: Style checkmark lists as feature cards */
+  .location-content :global(li) {
+    position: relative;
+    padding-left: 0.5rem;
+  }
+
+  .location-content :global(li:before) {
+    color: var(--ocean-blue);
   }
 
   .map-section {
-    margin: 3rem 0;
+    margin: 4rem 0;
   }
 
   .map-section h2 {
-    margin-bottom: 1rem;
-    color: #333;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    font-size: 2rem;
+    font-weight: 600;
   }
 
   .map-embed {
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--sand);
   }
 
   .location-cta {
-    background: #f8f9fa;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    padding: 2rem;
+    background: linear-gradient(135deg, var(--ocean-blue) 0%, #0099CC 100%);
+    color: white;
+    border-radius: 12px;
+    padding: 3rem 2rem;
     text-align: center;
-    margin: 3rem auto;
-    max-width: 600px;
+    margin: 4rem auto;
+    max-width: 700px;
+    box-shadow: 0 8px 24px rgba(0, 119, 190, 0.2);
   }
 
   .location-cta h3 {
-    margin-bottom: 0.5rem;
-    color: #333;
+    margin-bottom: 1rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .location-cta p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    margin-bottom: 0;
   }
 
   .cta-button {
     display: inline-block;
-    background: #667eea;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 6px;
+    background: var(--sand);
+    color: var(--text-dark);
+    padding: 1.25rem 2.5rem;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: 600;
-    margin-top: 1rem;
-    transition: background 0.3s;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(244, 185, 66, 0.3);
   }
 
   .cta-button:hover {
-    background: #5568d3;
+    background: #E5A832;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(244, 185, 66, 0.4);
   }
 
   @media (max-width: 768px) {
+    .location-header {
+      padding: 3rem 0 2.5rem;
+    }
+
     h1 {
-      font-size: 2rem;
+      font-size: 1.75rem;
+      line-height: 1.3;
     }
 
     .location-meta {
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 1rem;
+      font-size: 1rem;
+    }
+
+    .service-areas {
+      margin: 3rem 0;
+      padding: 1.5rem;
+    }
+
+    .service-areas h2 {
+      font-size: 1.5rem;
     }
 
     .areas-grid {
       grid-template-columns: 1fr;
+    }
+
+    .location-content {
+      margin: 3rem auto;
+    }
+
+    .location-content :global(h2) {
+      margin-top: 3rem;
+      font-size: 1.75rem;
+    }
+
+    .location-content :global(h3) {
+      margin-top: 2rem;
+      font-size: 1.4rem;
+    }
+
+    .location-content :global(a[href*="/contact"]),
+    .location-content :global(a[href*="→"]) {
+      display: block;
+      text-align: center;
+    }
+
+    .location-cta {
+      padding: 2rem 1.5rem;
+      margin: 3rem auto;
+    }
+
+    .location-cta h3 {
+      font-size: 1.5rem;
+    }
+
+    .cta-button {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    .location-header {
+      padding: 2rem 0 2rem;
     }
   }
 </style>

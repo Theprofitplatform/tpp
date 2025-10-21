@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Web Design"
 tags: ["CRO","Conversions","Optimization","Service Business"]
-coverImage: "https://images.unsplash.com/photo-1553830591-d8632a99e6ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NTJ8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "unknown person in red plaid shirt talking on phone at terrace"
+coverImage: "https://images.pexels.com/photos/6476797/pexels-photo-6476797.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Person holding a notebook with planning details and graph for business strategy indoors."
 coverImageCredit:
-  name: "Austin Distel"
-  link: "https://unsplash.com/@austindistel"
+  name: "Mikael Blomkvist"
+  link: "https://www.pexels.com/@mikael-blomkvist"
 featured: false
 draft: false
 readTime: "14 min"

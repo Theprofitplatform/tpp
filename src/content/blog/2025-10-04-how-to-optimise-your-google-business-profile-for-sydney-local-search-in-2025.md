@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-04
 category: "SEO"
 tags: ["Local SEO","Google Business Profile","Sydney","Local Search"]
-coverImage: "https://images.unsplash.com/photo-1573141597928-403fcee0e056?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NDR8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "Google logo"
+coverImage: "https://images.pexels.com/photos/38547/office-freelancer-computer-business-38547.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Hands typing on MacBook Air with Google search open, coffee nearby."
 coverImageCredit:
-  name: "Kai Wenzel"
-  link: "https://unsplash.com/@kai_wenzel"
+  name: "Pixabay"
+  link: "https://www.pexels.com/@pixabay"
 featured: false
 draft: false
 readTime: "16 min"

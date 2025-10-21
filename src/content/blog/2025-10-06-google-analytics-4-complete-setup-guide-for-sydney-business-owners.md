@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "Analytics"
 tags: ["Google Analytics","GA4","Setup","Tracking"]
-coverImage: "https://images.unsplash.com/photo-1610913721979-b20ede600e63?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NjJ8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "black and white car instrument panel cluster"
+coverImage: "https://images.pexels.com/photos/6779716/pexels-photo-6779716.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Two professionals collaborating on financial documents in a modern office setting."
 coverImageCredit:
-  name: "Nick Fewings"
-  link: "https://unsplash.com/@jannerboy62"
+  name: "Artem Podrez"
+  link: "https://www.pexels.com/@artempodrez"
 featured: false
 draft: false
 readTime: "12 min"

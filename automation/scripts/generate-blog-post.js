@@ -193,10 +193,11 @@ async function saveBlogPost(topic, content) {
 
   const author = assignAuthor(topic.category);
 
-  // Fetch unique hero image from Unsplash
+  // Fetch unique hero image (tries Unsplash first, then Pexels)
   console.log('🖼️  Fetching unique hero image...');
   const unsplashKey = process.env.UNSPLASH_ACCESS_KEY;
-  const imageData = await getUniqueImage(topic.category, topic.title, unsplashKey);
+  const pexelsKey = process.env.PEXELS_API_KEY;
+  const imageData = await getUniqueImage(topic.category, topic.title, unsplashKey, pexelsKey);
   const imageFields = formatImageForFrontmatter(imageData);
 
   // Build frontmatter with conditional image fields

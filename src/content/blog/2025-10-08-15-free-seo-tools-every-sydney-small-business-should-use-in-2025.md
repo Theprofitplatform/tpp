@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-08
 category: "SEO"
 tags: ["SEO Tools","Free Tools","Small Business","Resources"]
-coverImage: "https://images.unsplash.com/photo-1662830973312-d4360eecce9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1OTB8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a knife with a red handle"
+coverImage: "https://images.pexels.com/photos/6627785/pexels-photo-6627785.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Doctor using a hand towel dispenser in a clinical setting, emphasizing hygiene."
 coverImageCredit:
-  name: "Andrey Matveev"
-  link: "https://unsplash.com/@zelebb"
+  name: "Karola G"
+  link: "https://www.pexels.com/@karola-g"
 featured: false
 draft: false
 readTime: "11 min"

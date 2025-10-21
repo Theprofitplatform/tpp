@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Google Ads"
 tags: ["Ad Extensions","CTR","PPC","Optimization"]
-coverImage: "https://images.unsplash.com/photo-1729860648568-e36e42a5fce3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NTd8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "A close up of a cell phone on a table"
+coverImage: "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "A smartphone displaying various social media icons held in a hand, showcasing modern communication apps."
 coverImageCredit:
-  name: "appshunter.io"
-  link: "https://unsplash.com/@appshunter"
+  name: "Tracy Le Blanc"
+  link: "https://www.pexels.com/@tracy-le-blanc-67789"
 featured: false
 draft: false
 readTime: "16 min"

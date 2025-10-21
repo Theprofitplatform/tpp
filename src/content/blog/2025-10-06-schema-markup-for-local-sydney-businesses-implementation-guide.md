@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Schema Markup","Structured Data","Local SEO","Rich Results"]
-coverImage: "https://images.unsplash.com/photo-1559741746-24caedc5cd2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1ODV8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "food mart signage"
+coverImage: "https://images.pexels.com/photos/34363750/pexels-photo-34363750.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "İndian girl"
 coverImageCredit:
-  name: "Jason Dent"
-  link: "https://unsplash.com/@jdent"
+  name: "SUNA ADAK BULUT"
+  link: "https://www.pexels.com/@suna-adak-bulut-2156705628"
 featured: false
 draft: false
 readTime: "14 min"

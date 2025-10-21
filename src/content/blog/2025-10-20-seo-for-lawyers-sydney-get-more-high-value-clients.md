@@ -5,6 +5,11 @@ pubDate: 2025-10-20
 author: "Abhishek Maharjan"
 category: "SEO"
 tags: ["Industry-Specific","Lawyers","Legal","Lead Generation"]
+coverImage: "https://images.pexels.com/photos/34369598/pexels-photo-34369598.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "professional office desk"
+coverImageCredit:
+  name: "El Jundi"
+  link: "https://www.pexels.com/@talal"
 featured: false
 draft: false
 faq:

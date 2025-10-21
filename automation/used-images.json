@@ -987,8 +987,400 @@
       },
       "downloadLocation": "https://api.unsplash.com/photos/WWY_Hwn3NzM/download?ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA2MTJ8",
       "usedAt": "2025-10-20T14:30:12.912Z"
+    },
+    {
+      "id": "7563687",
+      "url": "https://images.pexels.com/photos/7563687/pexels-photo-7563687.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/7563687/pexels-photo-7563687.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A wooden frame sign with 'Free Wi-Fi' text displayed on a stool in a dark room.",
+      "photographer": {
+        "name": "RDNE Stock project",
+        "link": "https://www.pexels.com/@rdne",
+        "username": "RDNE Stock project"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/wood-marketing-sign-internet-7563687/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:54:53.943Z"
+    },
+    {
+      "id": "38547",
+      "url": "https://images.pexels.com/photos/38547/office-freelancer-computer-business-38547.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/38547/office-freelancer-computer-business-38547.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Hands typing on MacBook Air with Google search open, coffee nearby.",
+      "photographer": {
+        "name": "Pixabay",
+        "link": "https://www.pexels.com/@pixabay",
+        "username": "Pixabay"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/person-using-macbook-air-38547/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:54:57.392Z"
+    },
+    {
+      "id": "19157995",
+      "url": "https://images.pexels.com/photos/19157995/pexels-photo-19157995.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/19157995/pexels-photo-19157995.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Vibrant cityscape capturing the modern architecture of Reston, Virginia on a sunny day.",
+      "photographer": {
+        "name": "Andreas Leindecker",
+        "link": "https://www.pexels.com/@andreas-leindecker-730264322",
+        "username": "Andreas Leindecker"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/reston-19157995/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:01.382Z"
+    },
+    {
+      "id": "2861280",
+      "url": "https://images.pexels.com/photos/2861280/pexels-photo-2861280.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/2861280/pexels-photo-2861280.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A man washing clothes by the river in Varanasi at sunset, showcasing traditional lifestyle.",
+      "photographer": {
+        "name": "Ashish Kumar Pandey",
+        "link": "https://www.pexels.com/@clickerpandey",
+        "username": "Ashish Kumar Pandey"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/man-on-body-of-water-2861280/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:05.516Z"
+    },
+    {
+      "id": "6476797",
+      "url": "https://images.pexels.com/photos/6476797/pexels-photo-6476797.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/6476797/pexels-photo-6476797.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Person holding a notebook with planning details and graph for business strategy indoors.",
+      "photographer": {
+        "name": "Mikael Blomkvist",
+        "link": "https://www.pexels.com/@mikael-blomkvist",
+        "username": "Mikael Blomkvist"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/a-person-holding-a-pen-6476797/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:09.478Z"
+    },
+    {
+      "id": "30839678",
+      "url": "https://images.pexels.com/photos/30839678/pexels-photo-30839678.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/30839678/pexels-photo-30839678.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Close-up of Scrabble tiles forming the words 'API' and 'GEMINI' on a wooden surface.",
+      "photographer": {
+        "name": "Markus Winkler",
+        "link": "https://www.pexels.com/@markus-winkler-1430818",
+        "username": "Markus Winkler"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/scrabble-tiles-displaying-api-and-gemini-30839678/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:13.064Z"
+    },
+    {
+      "id": "607812",
+      "url": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A smartphone displaying various social media icons held in a hand, showcasing modern communication apps.",
+      "photographer": {
+        "name": "Tracy Le Blanc",
+        "link": "https://www.pexels.com/@tracy-le-blanc-67789",
+        "username": "Tracy Le Blanc"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/person-holding-iphone-showing-social-networks-folder-607812/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:16.285Z"
+    },
+    {
+      "id": "1293265",
+      "url": "https://images.pexels.com/photos/1293265/pexels-photo-1293265.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/1293265/pexels-photo-1293265.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A colorful indoor arcade game showcasing basketball hoops in a vibrant setting, perfect for entertainment venues.",
+      "photographer": {
+        "name": "Element5 Digital",
+        "link": "https://www.pexels.com/@element5",
+        "username": "Element5 Digital"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/closeup-photo-of-basketball-arcade-1293265/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:19.477Z"
+    },
+    {
+      "id": "6779716",
+      "url": "https://images.pexels.com/photos/6779716/pexels-photo-6779716.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/6779716/pexels-photo-6779716.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Two professionals collaborating on financial documents in a modern office setting.",
+      "photographer": {
+        "name": "Artem Podrez",
+        "link": "https://www.pexels.com/@artempodrez",
+        "username": "Artem Podrez"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/businessman-person-woman-space-6779716/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:23.866Z"
+    },
+    {
+      "id": "40185",
+      "url": "https://images.pexels.com/photos/40185/mac-freelancer-macintosh-macbook-40185.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/40185/mac-freelancer-macintosh-macbook-40185.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A MacBook Pro displaying Google Search on a wooden table outdoors, next to a smartphone.",
+      "photographer": {
+        "name": "Pixabay",
+        "link": "https://www.pexels.com/@pixabay",
+        "username": "Pixabay"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/google-search-engine-on-macbook-pro-40185/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:31.225Z"
+    },
+    {
+      "id": "590022",
+      "url": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A close-up of a hand with a pen analyzing data on colorful bar and line charts on paper.",
+      "photographer": {
+        "name": "Lukas",
+        "link": "https://www.pexels.com/@goumbik",
+        "username": "Lukas"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/close-up-photo-of-survey-spreadsheet-590022/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:40.560Z"
+    },
+    {
+      "id": "4107049",
+      "url": "https://images.pexels.com/photos/4107049/pexels-photo-4107049.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/4107049/pexels-photo-4107049.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Modern indoor scene with a waterfall and blurred trains at Jewel Changi Airport, Singapore.",
+      "photographer": {
+        "name": "Soulful Pizza",
+        "link": "https://www.pexels.com/@soulful-pizza-2080276",
+        "username": "Soulful Pizza"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/modern-train-riding-under-indoors-waterfall-in-modern-airport-4107049/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:43.841Z"
+    },
+    {
+      "id": "34328179",
+      "url": "https://images.pexels.com/photos/34328179/pexels-photo-34328179.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/34328179/pexels-photo-34328179.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "among the forgotten,2025.",
+      "photographer": {
+        "name": "Usman Umar",
+        "link": "https://www.pexels.com/@usman-umar-340351639",
+        "username": "Usman Umar"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/young-man-standing-next-to-abandoned-car-in-nigeria-34328179/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:46.675Z"
+    },
+    {
+      "id": "533446",
+      "url": "https://images.pexels.com/photos/533446/pexels-photo-533446.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/533446/pexels-photo-533446.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A person's hand holding a smartphone displaying social media and communication apps.",
+      "photographer": {
+        "name": "Pixabay",
+        "link": "https://www.pexels.com/@pixabay",
+        "username": "Pixabay"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/person-holding-turned-on-android-smartphone-533446/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:49.899Z"
+    },
+    {
+      "id": "34363750",
+      "url": "https://images.pexels.com/photos/34363750/pexels-photo-34363750.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/34363750/pexels-photo-34363750.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "İndian girl",
+      "photographer": {
+        "name": "SUNA ADAK BULUT",
+        "link": "https://www.pexels.com/@suna-adak-bulut-2156705628",
+        "username": "SUNA ADAK BULUT"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/portrait-of-a-woman-in-traditional-indian-attire-34363750/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:53.064Z"
+    },
+    {
+      "id": "34326374",
+      "url": "https://images.pexels.com/photos/34326374/pexels-photo-34326374.png?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/34326374/pexels-photo-34326374.png?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Close-up of a hand holding a coffee cup beside a laptop on a desk, indoors.",
+      "photographer": {
+        "name": "Luis Sevilla",
+        "link": "https://www.pexels.com/@luis-sevilla-252657",
+        "username": "Luis Sevilla"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/person-holding-coffee-cup-near-laptop-at-desk-34326374/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:55.879Z"
+    },
+    {
+      "id": "6627785",
+      "url": "https://images.pexels.com/photos/6627785/pexels-photo-6627785.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/6627785/pexels-photo-6627785.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Doctor using a hand towel dispenser in a clinical setting, emphasizing hygiene.",
+      "photographer": {
+        "name": "Karola G",
+        "link": "https://www.pexels.com/@karola-g",
+        "username": "Karola G"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/a-doctor-wiping-his-hands-6627785/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:55:58.786Z"
+    },
+    {
+      "id": "230544",
+      "url": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Woman using smartphone for online shopping with credit card in hand, festive background lighting.",
+      "photographer": {
+        "name": "AS Photography",
+        "link": "https://www.pexels.com/@asphotography",
+        "username": "AS Photography"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/person-using-black-and-white-smartphone-and-holding-blue-card-230544/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:01.621Z"
+    },
+    {
+      "id": "3183150",
+      "url": "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Overhead view of a diverse team in a business meeting using laptops and tablets.",
+      "photographer": {
+        "name": "fauxels",
+        "link": "https://www.pexels.com/@fauxels",
+        "username": "fauxels"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/top-view-photo-of-people-near-wooden-table-3183150/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:04.824Z"
+    },
+    {
+      "id": "128867",
+      "url": "https://images.pexels.com/photos/128867/coins-currency-investment-insurance-128867.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/128867/coins-currency-investment-insurance-128867.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A close-up image of stacked coins with a blurred clock, symbolizing time and money relationship.",
+      "photographer": {
+        "name": "Pixabay",
+        "link": "https://www.pexels.com/@pixabay",
+        "username": "Pixabay"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/selective-focus-photo-of-stacked-coins-128867/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:14.595Z"
+    },
+    {
+      "id": "5926239",
+      "url": "https://images.pexels.com/photos/5926239/pexels-photo-5926239.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/5926239/pexels-photo-5926239.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A hand holding a 'SALE' tag on a brown background, perfect for retail promotion.",
+      "photographer": {
+        "name": "Sora Shimazaki",
+        "link": "https://www.pexels.com/@sora-shimazaki",
+        "username": "Sora Shimazaki"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/crop-faceless-person-demonstrating-sign-sale-5926239/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:17.193Z"
+    },
+    {
+      "id": "3184418",
+      "url": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Diverse professionals unite for teamwork around a wooden table with laptops and documents.",
+      "photographer": {
+        "name": "fauxels",
+        "link": "https://www.pexels.com/@fauxels",
+        "username": "fauxels"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/photo-of-people-near-wooden-table-3184418/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:20.138Z"
+    },
+    {
+      "id": "4489771",
+      "url": "https://images.pexels.com/photos/4489771/pexels-photo-4489771.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/4489771/pexels-photo-4489771.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "A male mechanic checks under the hood of a car in a dimly lit garage, focusing on vehicle repair.",
+      "photographer": {
+        "name": "cottonbro studio",
+        "link": "https://www.pexels.com/@cottonbro",
+        "username": "cottonbro studio"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/man-in-black-jacket-and-black-pants-sitting-on-green-car-4489771/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:22.945Z"
+    },
+    {
+      "id": "34325644",
+      "url": "https://images.pexels.com/photos/34325644/pexels-photo-34325644.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/34325644/pexels-photo-34325644.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Businesswoman explaining a concept during a meeting with a presentation displayed on screen.",
+      "photographer": {
+        "name": "Julio Lopez",
+        "link": "https://www.pexels.com/@julio-lopez-75309646",
+        "username": "Julio Lopez"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/businesswoman-in-modern-meeting-room-discussing-presentation-34325644/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:25.878Z"
+    },
+    {
+      "id": "2119903",
+      "url": "https://images.pexels.com/photos/2119903/pexels-photo-2119903.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/2119903/pexels-photo-2119903.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Colorful street scene in Kolkata with glowing shop signs and wet pavement at night.",
+      "photographer": {
+        "name": "Rahul Pandit",
+        "link": "https://www.pexels.com/@rahulp9800",
+        "username": "Rahul Pandit"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/photo-of-store-fronts-2119903/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:29.167Z"
+    },
+    {
+      "id": "34369598",
+      "url": "https://images.pexels.com/photos/34369598/pexels-photo-34369598.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/34369598/pexels-photo-34369598.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "professional office desk",
+      "photographer": {
+        "name": "El Jundi",
+        "link": "https://www.pexels.com/@talal",
+        "username": "El Jundi"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/monochrome-office-desk-with-documents-and-computer-34369598/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:32.096Z"
+    },
+    {
+      "id": "270637",
+      "url": "https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Scrabble tiles spelling 'SEO' on a wooden surface. Ideal for digital marketing themes.",
+      "photographer": {
+        "name": "Pixabay",
+        "link": "https://www.pexels.com/@pixabay",
+        "username": "Pixabay"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/three-white-and-black-scrabble-tiles-on-brown-wooden-surface-270637/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:40.045Z"
+    },
+    {
+      "id": "33528995",
+      "url": "https://images.pexels.com/photos/33528995/pexels-photo-33528995.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "thumb": "https://images.pexels.com/photos/33528995/pexels-photo-33528995.jpeg?auto=compress&cs=tinysrgb&h=130",
+      "alt": "Explore the bustling life of a Vietnamese street market in Ho Chi Minh City, capturing vendors and vibrant produce.",
+      "photographer": {
+        "name": "Loriz E",
+        "link": "https://www.pexels.com/@lorize",
+        "username": "Loriz E"
+      },
+      "downloadLocation": "https://www.pexels.com/photo/vibrant-street-market-in-ho-chi-minh-city-33528995/",
+      "source": "pexels",
+      "usedAt": "2025-10-20T14:56:42.818Z"
     }
   ],
-  "lastUpdated": "2025-10-20T14:30:12.912Z",
+  "lastUpdated": "2025-10-20T14:56:42.818Z",
   "note": "This file tracks Unsplash images used in blog posts to prevent duplicates"
 }

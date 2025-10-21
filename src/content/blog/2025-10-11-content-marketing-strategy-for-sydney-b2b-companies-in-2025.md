@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-11
 category: "Content Marketing"
 tags: ["Content Strategy","B2B","Marketing","Sydney"]
-coverImage: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1OTZ8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "people sitting near table with laptop computer"
+coverImage: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Overhead view of a diverse team in a business meeting using laptops and tablets."
 coverImageCredit:
-  name: "Campaign Creators"
-  link: "https://unsplash.com/@campaign_creators"
+  name: "fauxels"
+  link: "https://www.pexels.com/@fauxels"
 featured: false
 draft: false
 readTime: "16 min"

@@ -5,13 +5,13 @@ author: "The Profit Platform"
 publishDate: 2025-10-01
 category: "marketing"
 tags: ["Local SEO", "Multi-Location", "Google Business Profile", "Growth Strategy"]
+coverImage: "https://images.pexels.com/photos/33528995/pexels-photo-33528995.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Explore the bustling life of a Vietnamese street market in Ho Chi Minh City, capturing vendors and vibrant produce."
+coverImageCredit:
+  name: "Loriz E"
+  link: "https://www.pexels.com/@lorize"
 featured: true
 draft: false
-coverImage: "https://images.unsplash.com/photo-1594935975218-a3596da034a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHNlYXJjaHwxfHxmcmFuY2hpc2UlMjBidXNpbmVzcyUyMG1hcHxlbnwxfDB8fHwxNzU5NjYyMTAyfDA&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "person holding white printer paper"
-coverImageCredit:
-  name: "José Martín Ramírez Carrasco"
-  link: "https://unsplash.com/@martinirc"
 seo:
   title: "Scale Local SEO: Multi-Location Business Growth Strategy 2025"
   description: "Step-by-step guide to scaling local SEO for multi-location businesses. Rank in every city you serve."

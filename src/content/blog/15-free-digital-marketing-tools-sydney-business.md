@@ -5,11 +5,11 @@ publishDate: 2025-02-05
 author: "Avi"
 category: "tools-resources"
 tags: ["Marketing Tools", "Free Resources", "Productivity", "Sydney Business", "2025"]
-coverImage: "https://images.unsplash.com/photo-1565072893002-44e28792e174?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NDF8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "brown and black bag"
+coverImage: "https://images.pexels.com/photos/7563687/pexels-photo-7563687.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "A wooden frame sign with 'Free Wi-Fi' text displayed on a stool in a dark room."
 coverImageCredit:
-  name: "Yue Iris"
-  link: "https://unsplash.com/@irisyue"
+  name: "RDNE Stock project"
+  link: "https://www.pexels.com/@rdne"
 featured: true
 image: "/images/blog/free-marketing-tools-2025.jpg"
 readTime: "11 min"

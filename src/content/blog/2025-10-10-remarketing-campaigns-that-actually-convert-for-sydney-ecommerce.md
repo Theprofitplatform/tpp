@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-10
 category: "Google Ads"
 tags: ["Remarketing","Retargeting","eCommerce","Conversions"]
-coverImage: "https://images.unsplash.com/photo-1566476927456-446189d7b1ca?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1OTN8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "turned on MacBook Pro on table"
+coverImage: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Woman using smartphone for online shopping with credit card in hand, festive background lighting."
 coverImageCredit:
-  name: "NordWood Themes"
-  link: "https://unsplash.com/@nordwood"
+  name: "AS Photography"
+  link: "https://www.pexels.com/@asphotography"
 featured: false
 draft: false
 readTime: "19 min"

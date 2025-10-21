@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-05
 category: "SEO"
 tags: ["Local SEO","Checklist","Sydney","Rankings"]
-coverImage: "https://images.unsplash.com/photo-1553968464-754bb963ea49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NDl8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "white printer paper"
+coverImage: "https://images.pexels.com/photos/2861280/pexels-photo-2861280.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "A man washing clothes by the river in Varanasi at sunset, showcasing traditional lifestyle."
 coverImageCredit:
-  name: "Erik Mclean"
-  link: "https://unsplash.com/@introspectivedsgn"
+  name: "Ashish Kumar Pandey"
+  link: "https://www.pexels.com/@clickerpandey"
 featured: false
 draft: false
 readTime: "12 min"

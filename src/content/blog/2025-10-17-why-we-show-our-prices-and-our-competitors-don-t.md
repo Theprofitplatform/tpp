@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-17
 category: "Digital Marketing"
 tags: ["Pricing Transparency","Business Strategy","Trust","Sydney"]
-coverImage: "https://images.unsplash.com/photo-1623248940804-d76892859e9e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjYxOTh8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a sidewalk with a blue umbrella next to a building"
+coverImage: "https://images.pexels.com/photos/5926239/pexels-photo-5926239.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "A hand holding a 'SALE' tag on a brown background, perfect for retail promotion."
 coverImageCredit:
-  name: "Francais a Londres"
-  link: "https://unsplash.com/@francaisalondres"
+  name: "Sora Shimazaki"
+  link: "https://www.pexels.com/@sora-shimazaki"
 featured: false
 draft: false
 readTime: "19 min"

@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-06
 category: "SEO"
 tags: ["Google Search Console","SEO Tools","Analytics","Tracking"]
-coverImage: "https://images.unsplash.com/photo-1667543239971-7d8a0393b4ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1Njd8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a planet in space"
+coverImage: "https://images.pexels.com/photos/40185/mac-freelancer-macintosh-macbook-40185.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "A MacBook Pro displaying Google Search on a wooden table outdoors, next to a smartphone."
 coverImageCredit:
-  name: "Jonathan Borba"
-  link: "https://unsplash.com/@jonathanborba"
+  name: "Pixabay"
+  link: "https://www.pexels.com/@pixabay"
 featured: false
 draft: false
 readTime: "10 min"

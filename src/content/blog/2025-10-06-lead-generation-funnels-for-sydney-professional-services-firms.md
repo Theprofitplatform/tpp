@@ -5,11 +5,11 @@ author: "TPP Team"
 publishDate: 2025-10-06
 category: "Digital Marketing"
 tags: ["Lead Generation","Funnels","Professional Services","Conversion"]
-coverImage: "https://images.unsplash.com/photo-1610690909553-49802d92b737?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NzN8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a flock of birds sitting on top of a wire"
+coverImage: "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "A close-up of a hand with a pen analyzing data on colorful bar and line charts on paper."
 coverImageCredit:
-  name: "K V S T"
-  link: "https://unsplash.com/@kvst"
+  name: "Lukas"
+  link: "https://www.pexels.com/@goumbik"
 featured: false
 draft: false
 readTime: "16 min"

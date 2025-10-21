@@ -5,11 +5,11 @@ author: "Avi"
 publishDate: 2025-10-05
 category: "Google Ads"
 tags: ["PPC","Google Ads","Cost Optimization","Sydney"]
-coverImage: "https://images.unsplash.com/photo-1678483790096-26cc771a9dc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTkwMTJ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NzA1NDZ8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "a colorful google logo on a black background"
+coverImage: "https://images.pexels.com/photos/19157995/pexels-photo-19157995.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Vibrant cityscape capturing the modern architecture of Reston, Virginia on a sunny day."
 coverImageCredit:
-  name: "BoliviaInteligente"
-  link: "https://unsplash.com/@boliviainteligente"
+  name: "Andreas Leindecker"
+  link: "https://www.pexels.com/@andreas-leindecker-730264322"
 featured: false
 draft: false
 readTime: "14 min"

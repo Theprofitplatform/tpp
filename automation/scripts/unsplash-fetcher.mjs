@@ -17,77 +17,77 @@ const USED_IMAGES_PATH = path.join(projectRoot, 'automation/used-images.json');
 
 /**
  * Industry/profession-specific keywords for visual relevance
- * These create more contextually appropriate images
+ * Using PROVEN Unsplash terms that actually return relevant business images
  */
 const INDUSTRY_KEYWORDS = {
-  // Professions
-  'plumber': 'plumber working on pipes',
-  'plumbers': 'plumber working on pipes',
-  'plumbing': 'plumbing tools and pipes',
-  'lawyer': 'lawyer in office',
-  'lawyers': 'lawyer in office',
-  'legal': 'legal office courthouse',
-  'attorney': 'lawyer in courtroom',
-  'dentist': 'dental clinic',
-  'dentists': 'dental office',
+  // Professions - using broader professional service terms
+  'plumber': 'professional tradesman tools',
+  'plumbers': 'service professional working',
+  'plumbing': 'home repair service',
+  'lawyer': 'professional office desk',
+  'lawyers': 'business professional meeting',
+  'legal': 'professional consultation office',
+  'attorney': 'lawyer documents office',
+  'dentist': 'medical professional clinic',
+  'dentists': 'healthcare professional',
   'doctor': 'medical professional',
-  'doctors': 'medical office',
-  'accountant': 'accountant with calculator',
-  'accountants': 'accounting office',
-  'electrician': 'electrician working',
-  'electricians': 'electrical work',
-  'builder': 'construction site',
-  'builders': 'construction workers',
-  'real estate': 'real estate agent showing house',
-  'realtor': 'real estate property',
-  'photographer': 'professional photographer',
-  'restaurant': 'restaurant dining',
-  'cafe': 'coffee shop cafe',
-  'bakery': 'bakery bread',
-  'gym': 'fitness gym',
-  'fitness': 'fitness training',
+  'doctors': 'healthcare clinic',
+  'accountant': 'finance professional calculator',
+  'accountants': 'business finance office',
+  'electrician': 'professional technician',
+  'electricians': 'service technician working',
+  'builder': 'construction professional',
+  'builders': 'construction team',
+  'real estate': 'house property agent',
+  'realtor': 'real estate professional',
+  'photographer': 'camera professional',
+  'restaurant': 'restaurant business',
+  'cafe': 'coffee shop business',
+  'bakery': 'bakery business',
+  'gym': 'fitness center',
+  'fitness': 'gym training',
 
-  // Services
-  'ecommerce': 'online shopping website',
-  'shopping': 'online shopping',
-  'retail': 'retail store',
-  'hospitality': 'hotel service',
-  'automotive': 'car mechanic',
-  'mechanic': 'auto repair',
-  'landscaping': 'garden landscaping',
-  'cleaning': 'professional cleaning',
-  'moving': 'moving boxes truck',
-  'storage': 'warehouse storage',
-  'roofing': 'roofing construction',
-  'painting': 'house painting',
-  'flooring': 'floor installation',
+  // Services - using proven Unsplash terms
+  'ecommerce': 'online shopping',
+  'shopping': 'retail shopping',
+  'retail': 'store business',
+  'hospitality': 'hotel business',
+  'automotive': 'car service',
+  'mechanic': 'car repair',
+  'landscaping': 'garden outdoor',
+  'cleaning': 'clean professional',
+  'moving': 'moving boxes',
+  'storage': 'warehouse business',
+  'roofing': 'construction building',
+  'painting': 'home improvement',
+  'flooring': 'interior design',
 
-  // Business types
-  'startup': 'startup office team',
-  'enterprise': 'corporate office',
+  // Business types - proven terms
+  'startup': 'startup team office',
+  'enterprise': 'corporate business',
   'b2b': 'business meeting',
-  'saas': 'software dashboard',
-  'agency': 'creative agency team',
-  'consulting': 'business consultant',
-  'coaching': 'business coaching',
-  'training': 'professional training',
+  'saas': 'software computer',
+  'agency': 'creative team office',
+  'consulting': 'business meeting professional',
+  'coaching': 'mentor meeting',
+  'training': 'workshop training',
 
-  // Marketing concepts
-  'analytics': 'data analytics dashboard',
-  'reporting': 'business report charts',
-  'conversion': 'sales conversion funnel',
-  'optimization': 'website optimization',
-  'strategy': 'business strategy planning',
-  'campaign': 'marketing campaign',
-  'advertising': 'digital advertising',
-  'branding': 'brand design',
-  'content': 'content creation writing',
-  'social media': 'social media phone',
-  'email': 'email marketing laptop',
-  'mobile': 'mobile phone apps',
-  'website': 'website design laptop',
-  'landing': 'landing page design',
-  'funnel': 'sales funnel diagram',
+  // Marketing concepts - using visual terms that exist on Unsplash
+  'analytics': 'data analysis chart',
+  'reporting': 'business charts graph',
+  'conversion': 'business growth chart',
+  'optimization': 'laptop business work',
+  'strategy': 'business planning strategy',
+  'campaign': 'marketing team',
+  'advertising': 'advertising creative',
+  'branding': 'design creative',
+  'content': 'content writing',
+  'social media': 'social media marketing',
+  'email': 'email marketing',
+  'mobile': 'smartphone apps',
+  'website': 'web design development',
+  'landing': 'website design',
+  'funnel': 'business growth',
 };
 
 /**
@@ -191,6 +191,10 @@ async function fetchFromUnsplash(query, accessKey) {
     });
 
     if (!response.ok) {
+      // Return null for rate limits (403) so we can try Pexels
+      if (response.status === 403) {
+        return null;
+      }
       throw new Error(`Unsplash API error: ${response.status}`);
     }
 
@@ -206,10 +210,62 @@ async function fetchFromUnsplash(query, accessKey) {
         link: data.user.links.html,
         username: data.user.username
       },
-      downloadLocation: data.links.download_location
+      downloadLocation: data.links.download_location,
+      source: 'unsplash'
     };
   } catch (error) {
     console.error('Failed to fetch from Unsplash:', error.message);
+    return null;
+  }
+}
+
+/**
+ * Fetch image from Pexels API (fallback source)
+ */
+async function fetchFromPexels(query, apiKey) {
+  if (!apiKey) {
+    return null;
+  }
+
+  try {
+    const url = new URL('https://api.pexels.com/v1/search');
+    url.searchParams.append('query', query);
+    url.searchParams.append('orientation', 'landscape');
+    url.searchParams.append('per_page', '1');
+
+    const response = await fetch(url.toString(), {
+      headers: {
+        'Authorization': apiKey
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`Pexels API error: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (!data.photos || data.photos.length === 0) {
+      return null;
+    }
+
+    const photo = data.photos[0];
+
+    return {
+      id: photo.id.toString(),
+      url: photo.src.large,
+      thumb: photo.src.small,
+      alt: photo.alt || query,
+      photographer: {
+        name: photo.photographer,
+        link: photo.photographer_url,
+        username: photo.photographer
+      },
+      downloadLocation: photo.url, // Pexels requires visiting photo page
+      source: 'pexels'
+    };
+  } catch (error) {
+    console.error('Failed to fetch from Pexels:', error.message);
     return null;
   }
 }
@@ -230,43 +286,69 @@ async function triggerDownload(downloadLocation, accessKey) {
 }
 
 /**
- * Main function to get unique image for blog post
+ * Main function to get unique image for blog post (dual-source with fallback)
  */
-export async function getUniqueImage(category, title, accessKey) {
-  if (!accessKey) {
-    console.warn('⚠️  No Unsplash access key provided - using default image');
-    return null;
-  }
-
+export async function getUniqueImage(category, title, unsplashKey, pexelsKey) {
   const usedImages = await loadUsedImages();
   const query = getSearchKeywords(category, title);
 
-  console.log(`🔍 Searching Unsplash for: "${query}"`);
+  // Try Unsplash first (if key provided)
+  if (unsplashKey) {
+    console.log(`🔍 Searching Unsplash for: "${query}"`);
 
-  // Try up to 3 times to get a unique image
-  for (let attempt = 0; attempt < 3; attempt++) {
-    const imageData = await fetchFromUnsplash(query, accessKey);
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const imageData = await fetchFromUnsplash(query, unsplashKey);
 
-    if (!imageData) {
-      continue;
+      if (!imageData) {
+        // If rate limited on first attempt, break to try Pexels
+        if (attempt === 0) {
+          console.log('⚠️  Unsplash rate limited, trying Pexels...');
+          break;
+        }
+        continue;
+      }
+
+      // Check if image was used recently
+      if (!isImageRecentlyUsed(imageData.id, usedImages)) {
+        // Trigger download as per Unsplash guidelines
+        await triggerDownload(imageData.downloadLocation, unsplashKey);
+
+        // Save to used images
+        await saveUsedImage(imageData);
+
+        console.log(`✅ Found unique image by ${imageData.photographer.name} (Unsplash)`);
+        return imageData;
+      }
+
+      console.log(`⏭️  Image already used recently, retrying... (${attempt + 1}/3)`);
     }
-
-    // Check if image was used recently
-    if (!isImageRecentlyUsed(imageData.id, usedImages)) {
-      // Trigger download as per Unsplash guidelines
-      await triggerDownload(imageData.downloadLocation, accessKey);
-
-      // Save to used images
-      await saveUsedImage(imageData);
-
-      console.log(`✅ Found unique image by ${imageData.photographer.name}`);
-      return imageData;
-    }
-
-    console.log(`⏭️  Image already used recently, retrying... (${attempt + 1}/3)`);
   }
 
-  console.warn('⚠️  Could not find unique image after 3 attempts - using default');
+  // Fallback to Pexels if Unsplash failed or rate limited
+  if (pexelsKey) {
+    console.log(`🔍 Searching Pexels for: "${query}"`);
+
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const imageData = await fetchFromPexels(query, pexelsKey);
+
+      if (!imageData) {
+        continue;
+      }
+
+      // Check if image was used recently
+      if (!isImageRecentlyUsed(imageData.id, usedImages)) {
+        // Save to used images
+        await saveUsedImage(imageData);
+
+        console.log(`✅ Found unique image by ${imageData.photographer.name} (Pexels)`);
+        return imageData;
+      }
+
+      console.log(`⏭️  Image already used recently, retrying... (${attempt + 1}/3)`);
+    }
+  }
+
+  console.warn('⚠️  Could not find unique image from any source - using default');
   return null;
 }
 
@@ -292,9 +374,10 @@ export function formatImageForFrontmatter(imageData) {
 if (import.meta.url === `file://${process.argv[1]}`) {
   const category = process.argv[2] || 'SEO';
   const title = process.argv[3] || 'Test Blog Post';
-  const accessKey = process.env.UNSPLASH_ACCESS_KEY;
+  const unsplashKey = process.env.UNSPLASH_ACCESS_KEY;
+  const pexelsKey = process.env.PEXELS_API_KEY;
 
-  const imageData = await getUniqueImage(category, title, accessKey);
+  const imageData = await getUniqueImage(category, title, unsplashKey, pexelsKey);
   if (imageData) {
     console.log(JSON.stringify(formatImageForFrontmatter(imageData), null, 2));
   }

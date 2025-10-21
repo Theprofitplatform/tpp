@@ -5,11 +5,11 @@ publishDate: 2025-01-15
 author: "Avi"
 category: "marketing"
 tags: ["SEO", "Google Ranking", "Sydney Business", "Local SEO", "2025"]
-coverImage: "https://images.unsplash.com/photo-1611095780122-d692cee29291?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTIzMTB8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NjA5NjU3MzN8&ixlib=rb-4.1.0&q=80&w=1080"
-coverImageAlt: "man working remotely signing contract on DocuSign "
+coverImage: "https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+coverImageAlt: "Scrabble tiles spelling 'SEO' on a wooden surface. Ideal for digital marketing themes."
 coverImageCredit:
-  name: "Docusign"
-  link: "https://unsplash.com/@docusign"
+  name: "Pixabay"
+  link: "https://www.pexels.com/@pixabay"
 featured: true
 image: "/images/blog/google-ranking-2025.jpg"
 readTime: "12 min"
