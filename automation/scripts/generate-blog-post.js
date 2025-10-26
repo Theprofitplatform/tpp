@@ -220,7 +220,14 @@ Generate the complete blog post now:`;
 
   const result = await model.generateContent(prompt);
   const response = await result.response;
-  return response.text();
+  let content = response.text();
+
+  // Clean up any markdown code fences that Gemini might add
+  content = content.replace(/^```markdown\s*/gm, '');
+  content = content.replace(/^```\s*$/gm, '');
+  content = content.trim();
+
+  return content;
 }
 
 /**
