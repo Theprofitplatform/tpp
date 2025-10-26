@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
 /**
- * Simple Blog Post Generator
- * Generates a blog post from the topic queue using Claude AI
+ * Hybrid Blog Post Generator
+ * Primary: Perplexity (research) + Gemini (generation)
+ * Fallback: Gemini only
  */
 
 import dotenv from 'dotenv';
-import Anthropic from '@anthropic-ai/sdk';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+import Perplexity from '@perplexity-ai/perplexity_ai';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -19,9 +21,12 @@ const projectRoot = path.resolve(__dirname, '../..');
 // Load environment variables
 dotenv.config({ path: path.join(projectRoot, '.env.local') });
 
-const anthropic = new Anthropic({
-  apiKey: process.env.CLAUDE_API_KEY || process.env.ANTHROPIC_API_KEY
-});
+// Initialize APIs
+const geminiApiKey = process.env.GEMINI_API_KEY;
+const perplexityApiKey = process.env.PERPLEXITY_API_KEY;
+
+const genAI = geminiApiKey ? new GoogleGenerativeAI(geminiApiKey) : null;
+const perplexity = perplexityApiKey ? new Perplexity({ apiKey: perplexityApiKey }) : null;
 
 const TOPIC_QUEUE_PATH = path.join(projectRoot, 'automation/topic-queue.json');
 const BLOG_DIR = path.join(projectRoot, 'src/content/blog');
@@ -80,12 +85,71 @@ async function markTopicCompleted(topicId) {
 }
 
 /**
- * Generate blog post using Claude
+ * Research topic using Perplexity
  */
-async function generateBlogContent(topic) {
-  console.log('🤖 Generating blog post with Claude AI...\n');
+async function researchWithPerplexity(topic) {
+  if (!perplexity) {
+    console.log('⚠️  Perplexity API key not found, skipping research phase\n');
+    return null;
+  }
 
-  const prompt = `You are an expert SEO content writer for The Profit Platform, a Sydney-based digital marketing agency.
+  try {
+    console.log('🔍 Researching with Perplexity AI...\n');
+
+    const researchQuery = `Research comprehensive information about "${topic.targetKeyword}" for Sydney businesses. Include:
+- Latest trends and statistics for 2025
+- Common challenges Sydney businesses face
+- Best practices and actionable strategies
+- Local Sydney examples and case studies
+- Industry data and expert insights
+
+Focus on practical, actionable information for small business owners in Sydney.`;
+
+    const response = await perplexity.chat.completions.create({
+      model: 'llama-3.1-sonar-large-128k-online',
+      messages: [{
+        role: 'user',
+        content: researchQuery
+      }],
+      max_tokens: 2000,
+      temperature: 0.7,
+      return_related_questions: true
+    });
+
+    const research = response.choices[0].message.content;
+    const relatedQuestions = response.related_questions || [];
+
+    console.log('✅ Research completed successfully');
+    console.log(`   Gathered ${research.length} characters of research`);
+    console.log(`   Related questions: ${relatedQuestions.length}\n`);
+
+    return {
+      research,
+      relatedQuestions,
+      citations: response.citations || []
+    };
+
+  } catch (error) {
+    console.log(`⚠️  Perplexity research failed: ${error.message}`);
+    console.log('   Falling back to Gemini-only mode\n');
+    return null;
+  }
+}
+
+/**
+ * Generate blog post using Gemini
+ */
+async function generateWithGemini(topic, researchData = null) {
+  if (!genAI) {
+    throw new Error('GEMINI_API_KEY not found in environment');
+  }
+
+  console.log('🤖 Generating blog post with Google Gemini...\n');
+
+  const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
+
+  // Build prompt with or without research
+  let prompt = `You are an expert SEO content writer for The Profit Platform, a Sydney-based digital marketing agency.
 
 Write a comprehensive, SEO-optimized blog post with the following specifications:
 
@@ -93,7 +157,21 @@ Write a comprehensive, SEO-optimized blog post with the following specifications
 **Category**: ${topic.category}
 **Target Keyword**: ${topic.targetKeyword}
 **Search Intent**: ${topic.searchIntent}
-**Tags**: ${topic.tags.join(', ')}
+**Tags**: ${topic.tags.join(', ')}`;
+
+  // Add research insights if available
+  if (researchData) {
+    prompt += `
+
+**RESEARCH INSIGHTS** (use this to make the content more accurate and up-to-date):
+${researchData.research}
+
+**Related Questions** (consider incorporating these):
+${researchData.relatedQuestions.map((q, i) => `${i + 1}. ${q}`).join('\n')}
+`;
+  }
+
+  prompt += `
 
 **SEO Requirements** (CRITICAL):
 1. **Meta Description**: Write a 140-160 character meta description. DO NOT use markdown formatting (**, *, etc.) in the meta description.
@@ -102,7 +180,7 @@ Write a comprehensive, SEO-optimized blog post with the following specifications
    - H2/H3 headings (5-8 times)
    - Throughout body naturally
    - Conclusion (2-3 times)
-3. **LSI Keywords**: Include semantic variations (e.g., "local search optimization", "Google Maps SEO" for local SEO topics)
+3. **LSI Keywords**: Include semantic variations naturally
 4. **FAQ Section**: Include an "FAQ" or "Frequently Asked Questions" section with 6-8 Q&A pairs using H3 headings
 
 **Content Requirements**:
@@ -119,7 +197,7 @@ Write a comprehensive, SEO-optimized blog post with the following specifications
    - Actionable advice with step-by-step instructions
    - Real Sydney examples (suburbs, businesses, scenarios)
    - Practical tips that can be implemented immediately
-   - Data and statistics where relevant
+   - Data and statistics where relevant (especially from research insights if provided)
 7. **Conclusion**: Strong conclusion with summary and clear next steps
 
 **Important Format Rules**:
@@ -140,17 +218,9 @@ Write a comprehensive, SEO-optimized blog post with the following specifications
 
 Generate the complete blog post now:`;
 
-  const response = await anthropic.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 8000,
-    temperature: 0.9,
-    messages: [{
-      role: 'user',
-      content: prompt
-    }]
-  });
-
-  return response.content[0].text;
+  const result = await model.generateContent(prompt);
+  const response = await result.response;
+  return response.text();
 }
 
 /**
@@ -244,11 +314,17 @@ draft: false
  */
 async function main() {
   try {
-    console.log('🚀 Blog Post Generator Starting...\n');
+    console.log('🚀 Hybrid Blog Post Generator Starting...\n');
+    console.log('   Mode: Perplexity Research → Gemini Generation');
+    console.log('   Fallback: Gemini Only\n');
 
-    // Check API key
-    if (!process.env.CLAUDE_API_KEY && !process.env.ANTHROPIC_API_KEY) {
-      throw new Error('CLAUDE_API_KEY or ANTHROPIC_API_KEY not found in environment');
+    // Check API keys
+    if (!geminiApiKey) {
+      throw new Error('GEMINI_API_KEY not found in environment (required)');
+    }
+
+    if (!perplexityApiKey) {
+      console.log('⚠️  PERPLEXITY_API_KEY not found (optional, will use Gemini-only mode)\n');
     }
 
     // Get topic ID from environment or CLI
@@ -262,16 +338,21 @@ async function main() {
     console.log(`   Category: ${topic.category}`);
     console.log(`   Keyword: ${topic.targetKeyword}\n`);
 
-    // Generate content
-    const content = await generateBlogContent(topic);
+    // Research phase (with Perplexity if available)
+    const researchData = await researchWithPerplexity(topic);
+
+    // Generation phase (with Gemini)
+    const content = await generateWithGemini(topic, researchData);
 
     // Save blog post
     const result = await saveBlogPost(topic, content);
-    console.log('✅ Blog post generated successfully!');
+
+    console.log('\n✅ Blog post generated successfully!');
     console.log(`   File: ${result.filename}`);
     console.log(`   Words: ${result.wordCount}`);
     console.log(`   Slug: ${result.slug}`);
-    console.log(`   Hero Image: ${result.hasImage ? '✅ Unique Unsplash image' : '⚠️  Using default SVG'}\n`);
+    console.log(`   Hero Image: ${result.hasImage ? '✅ Unique Unsplash image' : '⚠️  Using default SVG'}`);
+    console.log(`   Research: ${researchData ? '✅ Enhanced with Perplexity insights' : '⚠️  Gemini-only mode'}\n`);
 
     // Mark topic as completed
     await markTopicCompleted(topic.id);
@@ -282,7 +363,8 @@ async function main() {
       const output = `title=${topic.title}
 slug=${result.slug}
 url=https://theprofitplatform.com.au/blog/${result.slug}/
-wordcount=${result.wordCount}`;
+wordcount=${result.wordCount}
+mode=${researchData ? 'perplexity+gemini' : 'gemini-only'}`;
       await fs.appendFile(process.env.GITHUB_OUTPUT, output + '\n');
     }
 

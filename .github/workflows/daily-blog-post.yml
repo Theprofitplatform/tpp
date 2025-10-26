@@ -49,8 +49,8 @@ jobs:
         id: generate
         run: node automation/scripts/generate-blog-post.js
         env:
-          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
           TOPIC_ID: ${{ github.event.inputs.topic_id }}
           GITHUB_OUTPUT: ${{ github.output }}
 
