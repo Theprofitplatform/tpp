@@ -5,6 +5,11 @@ pubDate: 2025-10-26
 author: "Abhishek Maharjan"
 category: "SEO"
 tags: ["Industry-Specific","Real Estate","Property","Local SEO"]
+coverImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&auto=format&fit=crop"
+coverImageAlt: "Sydney real estate agent showing modern property to potential buyers"
+coverImageCredit:
+  name: "Breno Assis"
+  link: "https://unsplash.com/@brenoassis"
 featured: false
 draft: false
 faq:
