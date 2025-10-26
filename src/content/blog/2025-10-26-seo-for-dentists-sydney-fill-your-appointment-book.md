@@ -5,11 +5,11 @@ pubDate: 2025-10-26
 author: "Abhishek Maharjan"
 category: "SEO"
 tags: ["Industry-Specific","Dentists","Healthcare","Local SEO"]
-coverImage: "https://images.unsplash.com/photo-1629909615957-be38a5a3a047?w=1200&auto=format&fit=crop"
+coverImage: "https://images.unsplash.com/photo-1588776814546-daab30f310ce?w=1200&auto=format&fit=crop"
 coverImageAlt: "Professional dentist examining patient in modern Sydney dental clinic"
 coverImageCredit:
-  name: "Cedric Fauntleroy"
-  link: "https://unsplash.com/@cfauntleroy"
+  name: "Quang Tri NGUYEN"
+  link: "https://unsplash.com/@quangtri"
 featured: false
 draft: false
 faq:
