@@ -106,7 +106,7 @@ async function researchWithPerplexity(topic) {
 Focus on practical, actionable information for small business owners in Sydney.`;
 
     const response = await perplexity.chat.completions.create({
-      model: 'llama-3.1-sonar-large-128k-online',
+      model: 'sonar',
       messages: [{
         role: 'user',
         content: researchQuery
