@@ -781,6 +781,19 @@ const schema = {
     display: none;
   }
 
+  /* Hide Table of Contents section at top of content (keep sidebar TOC only) */
+  .post-content :global(h2:first-of-type) {
+    display: none;
+  }
+
+  .post-content :global(h2:first-of-type + ul) {
+    display: none;
+  }
+
+  .post-content :global(h2:first-of-type + ul + hr) {
+    display: none;
+  }
+
   .post-content :global(h2) {
     font-size: 2rem;
     margin-top: 3rem;
