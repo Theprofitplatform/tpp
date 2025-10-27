@@ -138,10 +138,16 @@ jobs:
           fi
 
       - name: Send Slack notification on failure
-        if: failure() && secrets.SLACK_WEBHOOK_URL != ''
+        if: failure()
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
+          if [ -z "$SLACK_WEBHOOK_URL" ]; then
+            echo "Slack webhook not configured, skipping notification"
+            exit 0
+          fi
           REPORT=$(cat health-report.txt | head -20)
-          curl -X POST "${{ secrets.SLACK_WEBHOOK_URL }}" \
+          curl -X POST "$SLACK_WEBHOOK_URL" \
             -H 'Content-Type: application/json' \
             -d "{
               \"text\": \"🚨 TPP Health Check Failed\",
