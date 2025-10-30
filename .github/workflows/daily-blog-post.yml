@@ -25,6 +25,11 @@ jobs:
     permissions:
       contents: write  # Needed for git-auto-commit-action
 
+    outputs:
+      changes_detected: ${{ steps.commit.outputs.changes_detected }}
+      slug: ${{ steps.generate.outputs.slug }}
+      title: ${{ steps.generate.outputs.title }}
+
     steps:
       - name: 📥 Checkout repository
         uses: actions/checkout@v4
@@ -137,9 +142,54 @@ jobs:
               echo "🎯 **SEO Score:** ${{ steps.seo_check.outputs.score }}/110" >> $GITHUB_STEP_SUMMARY
             fi
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "⏱️ **Cloudflare Pages Build:** Check deployment status at https://dash.cloudflare.com" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "Post will be live in ~5 minutes after build completes." >> $GITHUB_STEP_SUMMARY
+            echo "⏱️ **Cloudflare Pages Build:** Starting deployment now..." >> $GITHUB_STEP_SUMMARY
           else
             echo "⚠️ **Status:** No changes detected" >> $GITHUB_STEP_SUMMARY
           fi
+
+  # Deploy to Cloudflare Pages automatically after blog post is published
+  deploy:
+    name: Deploy to Cloudflare Pages
+    needs: generate-blog-post
+    if: needs.generate-blog-post.outputs.changes_detected == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main  # Ensure we get the latest commit with blog post
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 🏗️ Build website
+        run: npm run build
+
+      - name: 🚀 Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: tpp
+          directory: dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          deploymentName: Auto-Deploy Blog Post
+
+      - name: 📊 Deployment summary
+        run: |
+          echo "## 🚀 Deployment Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Status:** Blog post deployed to Cloudflare Pages" >> $GITHUB_STEP_SUMMARY
+          echo "🌐 **Live URL:** https://theprofitplatform.com.au/blog/${{ needs.generate-blog-post.outputs.slug }}/" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Post is now live! 🎉" >> $GITHUB_STEP_SUMMARY
