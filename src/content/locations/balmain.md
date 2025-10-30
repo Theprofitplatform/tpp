@@ -72,7 +72,7 @@ We understand the unique characteristics of doing business in Balmain and across
 
 **Local SEO**
 
-Local SEO ensures your Balmain business appears when people search for services in your area. We optimize your Google Business Profile, build local citations, and create content that helps Google understand exactly where you operate and what services you provide. This means when someone searches for your type of business in Balmain or nearby areas, you'll appear prominently in the map results and local listings.
+Local SEO ensures your Balmain business appears when people search for services in your area. We optimize your [Google Business Profile](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/), build local citations, and create content that helps Google understand exactly where you operate and what services you provide. This means when someone searches for your type of business in Balmain or nearby areas, you'll appear prominently in the map results and local listings.
 
 **Google Ads Management**
 
@@ -95,6 +95,48 @@ Having visitors reach your website is only half the battle. We continuously test
 • **Proven Track Record**: We've helped dozens of Inner West businesses increase their online visibility and grow their customer base through strategic digital marketing.
 
 • **Ongoing Support**: Digital marketing isn't a set-and-forget solution. We continuously monitor and optimize your campaigns to ensure you're getting the best possible results as the market evolves.
+
+
+## Areas We Serve Around Balmain
+
+While based in Balmain, we proudly serve businesses throughout the surrounding areas including Balmain, Leichhardt, Rozelle, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Balmain itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Balmain?
+
+Most Balmain businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Balmain businesses?
+
+We specialize in local Balmain market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Balmain and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Balmain?
+
+Most Balmain small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Balmain?
+
+Yes! While we specialize in Balmain and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Balmain businesses?
+
+We've helped numerous Balmain area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Balmain businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Balmain clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Balmain business.
 
 ## Ready to Grow Your Balmain Business?
 

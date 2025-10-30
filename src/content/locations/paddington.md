@@ -72,7 +72,7 @@ We understand the unique market dynamics of the Eastern Suburbs and create targe
 
 **Local SEO**
 
-We optimize your online presence so when people search for your services in Paddington or the broader Eastern Suburbs area, your business appears prominently in Google results. This includes optimizing your Google My Business listing, building local citations, and ensuring your website ranks well for location-based searches that matter to your business.
+We optimize your online presence so when people search for your services in Paddington or the broader Eastern Suburbs area, your business appears prominently in Google results. This includes optimizing your [Google My Business](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) listing, building local citations, and ensuring your website ranks well for location-based searches that matter to your business.
 
 **Google Ads Management**
 
@@ -95,6 +95,48 @@ Having a beautiful website isn't enough - it needs to convert visitors into cust
 - **Integrated Approach**: Rather than just focusing on one area, we create comprehensive strategies that combine SEO, Google Ads, and website optimization to maximize your online visibility and customer acquisition.
 
 - **Proven Track Record**: We've helped dozens of Eastern Suburbs businesses increase their online visibility, generate more leads, and grow their revenue through strategic digital marketing.
+
+
+## Areas We Serve Around Paddington
+
+While based in Paddington, we proudly serve businesses throughout the surrounding areas including Paddington, Bondi Junction, Surry Hills, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Paddington itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Paddington?
+
+Most Paddington businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Paddington businesses?
+
+We specialize in local Paddington market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Paddington and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Paddington?
+
+Most Paddington small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Paddington?
+
+Yes! While we specialize in Paddington and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Paddington businesses?
+
+We've helped numerous Paddington area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Paddington businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Paddington clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Paddington business.
 
 ## Ready to Grow Your Paddington Business?
 

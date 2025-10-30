@@ -60,7 +60,7 @@ Running a business near Castle Towers or along Old Northern Road, you know Castl
 
 The Hills District is experiencing rapid growth, with new businesses opening regularly across Castle Hill and neighboring areas like Baulkham Hills and Kellyville. This growth brings opportunities, but also intensifies competition for local customers who increasingly rely on online searches to find services.
 
-Most Castle Hill businesses face the same frustrating cycle: they invest in a website, maybe try some social media posts, but still struggle to attract new customers online. They watch their Google My Business listing get overlooked while competitors with stronger digital strategies capture the local market share.
+Most Castle Hill businesses face the same frustrating cycle: they invest in a website, maybe try some social media posts, but still struggle to attract new customers online. They watch their [Google My Business](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) listing get overlooked while competitors with stronger digital strategies capture the local market share.
 
 The challenge becomes even more complex when you consider that your potential customers might be searching from Baulkham Hills, Kellyville, or throughout the broader Hills District. Without a strategic approach to digital marketing, your business remains invisible to these nearby prospects who could become your best customers.
 
@@ -72,7 +72,7 @@ We specialize in helping Hills District businesses transform their online presen
 
 **Local SEO**
 
-We optimize your online presence so Castle Hill residents find you first when searching for your services. This includes managing your Google My Business profile, building local citations, and ensuring your website ranks prominently for searches like "near Castle Hill" or "Hills District." Our local SEO strategies help you capture customers not just in Castle Hill, but throughout the surrounding areas where your ideal clients are searching.
+We optimize your online presence so Castle Hill residents find you first when searching for your services. This includes managing your Google My Business profile, building local citations, and ensuring your website ranks prominently for searches like "near Castle Hill" or "Hills District." Our [local SEO](/blog/what-is-local-seo-complete-guide-for-sydney-businesses/) strategies help you capture customers not just in Castle Hill, but throughout the surrounding areas where your ideal clients are searching.
 
 **Google Ads Management**
 
@@ -95,6 +95,48 @@ Having a beautiful website means nothing if visitors don't take action. We analy
 - **Proven Results Focus**: Rather than vanity metrics, we focus on outcomes that matter to your business - more qualified leads, increased sales, and measurable return on investment.
 
 - **Comprehensive Strategy**: Instead of piecemeal solutions, we provide integrated digital marketing that works together to maximize your online presence and customer acquisition.
+
+
+## Areas We Serve Around Castle Hill
+
+While based in Castle Hill, we proudly serve businesses throughout the surrounding areas including Castle Hill, Baulkham Hills, Kellyville, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Castle Hill itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Castle Hill?
+
+Most Castle Hill businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Castle Hill businesses?
+
+We specialize in local Castle Hill market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Castle Hill and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Castle Hill?
+
+Most Castle Hill small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Castle Hill?
+
+Yes! While we specialize in Castle Hill and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Castle Hill businesses?
+
+We've helped numerous Castle Hill area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Castle Hill businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Castle Hill clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Castle Hill business.
 
 ## Ready to Grow Your Castle Hill Business?
 

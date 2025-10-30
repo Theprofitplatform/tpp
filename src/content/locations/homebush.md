@@ -71,7 +71,7 @@ Many business owners try to handle their own online marketing, but quickly becom
 We specialize in helping Inner West businesses like yours build a strong online presence that consistently attracts new customers. Our comprehensive approach covers every aspect of digital marketing that matters for local businesses.
 
 **Local SEO**
-We optimize your online presence so when someone in Homebush searches for your services, your business appears at the top of the results. This includes optimizing your Google Business Profile, building local citations, and ensuring your website ranks well for searches specific to your area. Local SEO is particularly powerful for Homebush businesses because we can target customers in your immediate vicinity who are most likely to visit your physical location.
+We optimize your online presence so when someone in Homebush searches for your services, your business appears at the top of the results. This includes optimizing your [Google Business Profile](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/), building local citations, and ensuring your website ranks well for searches specific to your area. Local SEO is particularly powerful for Homebush businesses because we can target customers in your immediate vicinity who are most likely to visit your physical location.
 
 **Google Ads Management**
 Our targeted Google Ads campaigns put your business in front of potential customers throughout the Inner West at the exact moment they're searching for what you offer. We create and manage campaigns that focus on high-intent keywords and geographic targeting around Homebush, ensuring your advertising budget generates qualified leads rather than just clicks from people who will never become customers.
@@ -91,6 +91,48 @@ Having visitors come to your website is only half the battle. We analyze how peo
 • **Results-Focused Approach**: We don't just drive traffic to your website – we focus on generating qualified leads and actual customers for your business, measuring success by your business growth rather than vanity metrics.
 
 • **Ongoing Optimization**: Digital marketing isn't a set-and-forget activity. We continuously monitor and improve your campaigns, staying ahead of algorithm changes and adjusting strategies based on performance data.
+
+
+## Areas We Serve Around Homebush
+
+While based in Homebush, we proudly serve businesses throughout the surrounding areas including Homebush, Strathfield, Flemington, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Homebush itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Homebush?
+
+Most Homebush businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Homebush businesses?
+
+We specialize in local Homebush market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Homebush and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Homebush?
+
+Most Homebush small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Homebush?
+
+Yes! While we specialize in Homebush and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Homebush businesses?
+
+We've helped numerous Homebush area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Homebush businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Homebush clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Homebush business.
 
 ## Ready to Grow Your Homebush Business?
 

@@ -82,13 +82,55 @@ Want faster results? We'll set up and manage Google Ads campaigns that put your 
 Your website isn't just a digital brochure – it's your best salesperson working 24/7. We build websites that look professional, load fast, and most importantly, turn visitors into customers.
 
 **Local SEO**
-This is crucial for Sutherland businesses. We'll make sure you show up when people search for services "near me" or specifically in Sutherland Shire. Think Google My Business optimisation, local directory listings, and getting found by people in your immediate area.
+This is crucial for Sutherland businesses. We'll make sure you show up when people search for services "near me" or specifically in Sutherland Shire. Think [Google My Business](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) optimisation, local directory listings, and getting found by people in your immediate area.
 
 ## Real Results, Not Just Pretty Reports
 
 We're not interested in sending you confusing reports full of numbers that don't mean anything to your business. We focus on what matters: more phone calls, more enquiries, more customers walking through your door.
 
 Whether you're a cafe hoping to attract more foot traffic near Sutherland Station, a professional service wanting to dominate searches across the Sutherland Shire, or a retailer competing with the big shopping centres in Miranda, we've got the expertise to help.
+
+
+## Areas We Serve Around Sutherland
+
+While based in Sutherland, we proudly serve businesses throughout the surrounding areas including Sutherland, Miranda, Cronulla, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Sutherland itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Sutherland?
+
+Most Sutherland businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Sutherland businesses?
+
+We specialize in local Sutherland market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Sutherland and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Sutherland?
+
+Most Sutherland small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Sutherland?
+
+Yes! While we specialize in Sutherland and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Sutherland businesses?
+
+We've helped numerous Sutherland area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Sutherland businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Sutherland clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Sutherland business.
 
 ## Ready to Get Found Online?
 

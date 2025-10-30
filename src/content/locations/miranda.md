@@ -72,11 +72,11 @@ At The Profit Platform, we understand the specific challenges facing businesses 
 
 **Local SEO**
 
-Our local SEO strategies ensure your Miranda business appears when potential customers search for your services in the area. We optimize your online presence so you show up prominently in Google searches for terms like "near Miranda" or "Sutherland Shire," helping you capture customers who are actively looking for what you offer. This includes optimizing your Google Business Profile, managing online reviews, and ensuring your website ranks well for location-specific searches.
+Our [local SEO](/blog/what-is-local-seo-complete-guide-for-sydney-businesses/) strategies ensure your Miranda business appears when potential customers search for your services in the area. We optimize your online presence so you show up prominently in Google searches for terms like "near Miranda" or "Sutherland Shire," helping you capture customers who are actively looking for what you offer. This includes optimizing your [Google Business Profile](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/), managing online reviews, and ensuring your website ranks well for location-specific searches.
 
 **Google Ads Management**
 
-We create and manage targeted Google Ads campaigns that put your business in front of potential customers throughout the Sutherland Shire at the exact moment they're searching for your products or services. Our campaigns are specifically designed to target local customers while managing your budget efficiently, ensuring you get the best return on your advertising investment without wasting money on irrelevant clicks.
+We create and manage targeted [Google Ads campaigns](/blog/google-ads-vs-seo-sydney-businesses/) that put your business in front of potential customers throughout the Sutherland Shire at the exact moment they're searching for your products or services. Our campaigns are specifically designed to target local customers while managing your budget efficiently, ensuring you get the best return on your advertising investment without wasting money on irrelevant clicks.
 
 **Web Design & Development**
 
@@ -95,6 +95,48 @@ Having a website that attracts visitors is only half the battle – we also focu
 • **Proven Results**: Our strategies are based on what actually works for local businesses, not theoretical approaches, and we focus on delivering measurable improvements to your bottom line.
 
 • **Ongoing Support**: Digital marketing isn't a set-and-forget solution, which is why we provide continuous optimization and support to ensure your online presence keeps generating results as the market evolves.
+
+
+## Areas We Serve Around Miranda
+
+While based in Miranda, we proudly serve businesses throughout the surrounding areas including Miranda, Cronulla, Caringbah, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Miranda itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Miranda?
+
+Most Miranda businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Miranda businesses?
+
+We specialize in local Miranda market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Miranda and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Miranda?
+
+Most Miranda small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Miranda?
+
+Yes! While we specialize in Miranda and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Miranda businesses?
+
+We've helped numerous Miranda area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Miranda businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Miranda clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Miranda business.
 
 ## Ready to Grow Your Miranda Business?
 

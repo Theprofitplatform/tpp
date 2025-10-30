@@ -72,7 +72,7 @@ The Profit Platform specializes in helping Inner West businesses overcome these 
 
 **Local SEO**
 
-We optimize your business for local searches so when people look for services in Glebe, your business appears at the top of search results. This includes optimizing your Google My Business listing, building local citations, and ensuring your website ranks well for location-based keywords. Local SEO is particularly powerful in the Inner West because people frequently search for nearby services while they're out and about in the area.
+We optimize your business for local searches so when people look for services in Glebe, your business appears at the top of search results. This includes optimizing your [Google My Business](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) listing, building local citations, and ensuring your website ranks well for location-based keywords. Local SEO is particularly powerful in the Inner West because people frequently search for nearby services while they're out and about in the area.
 
 **Google Ads Management**
 
@@ -95,6 +95,48 @@ Beyond driving traffic to your website, we focus on converting that traffic into
 • **Proven Track Record**: We've helped numerous Sydney businesses increase their online visibility and customer acquisition, with measurable results you can see in your bottom line.
 
 • **Comprehensive Approach**: Instead of piecemeal solutions, we provide integrated digital marketing strategies that work together to maximize your online presence and business growth.
+
+
+## Areas We Serve Around Glebe
+
+While based in Glebe, we proudly serve businesses throughout the surrounding areas including Glebe, Newtown, Ultimo, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Glebe itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Glebe?
+
+Most Glebe businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Glebe businesses?
+
+We specialize in local Glebe market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Glebe and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Glebe?
+
+Most Glebe small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Glebe?
+
+Yes! While we specialize in Glebe and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Glebe businesses?
+
+We've helped numerous Glebe area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Glebe businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Glebe clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Glebe business.
 
 ## Ready to Grow Your Glebe Business?
 

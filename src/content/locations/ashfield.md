@@ -72,7 +72,7 @@ We understand the specific challenges facing Inner West businesses and provide t
 
 **Local SEO**
 
-We optimize your online presence so Ashfield residents find your business first when searching for your services. Our local SEO strategies ensure your business appears prominently in Google Maps, local search results, and voice searches. We claim and optimize your Google Business Profile, build local citations, and create location-specific content that helps you dominate search results in the Inner West area.
+We optimize your online presence so Ashfield residents find your business first when searching for your services. Our [local SEO](/blog/what-is-local-seo-complete-guide-for-sydney-businesses/) strategies ensure your business appears prominently in Google Maps, local search results, and voice searches. We claim and optimize your [Google Business Profile](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/), build local citations, and create location-specific content that helps you dominate search results in the Inner West area.
 
 **Google Ads Management**
 
@@ -95,6 +95,48 @@ Having a great website means nothing if it doesn't convert visitors into custome
 • **Proven Results Focus**: We're measured by the customers we bring you, not just vanity metrics like website visits or social media likes.
 
 • **Integrated Approach**: Instead of offering disconnected services, we create cohesive digital marketing strategies where your website, local SEO, and advertising work together to maximize results.
+
+
+## Areas We Serve Around Ashfield
+
+While based in Ashfield, we proudly serve businesses throughout the surrounding areas including Ashfield, Burwood, Croydon, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Ashfield itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Ashfield?
+
+Most Ashfield businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Ashfield businesses?
+
+We specialize in local Ashfield market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Ashfield and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Ashfield?
+
+Most Ashfield small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Ashfield?
+
+Yes! While we specialize in Ashfield and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Ashfield businesses?
+
+We've helped numerous Ashfield area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Ashfield businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Ashfield clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Ashfield business.
 
 ## Ready to Grow Your Ashfield Business?
 

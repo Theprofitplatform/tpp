@@ -64,7 +64,7 @@ Many Mascot business owners excel at what they do but lack the time and expertis
 
 The Eastern Suburbs market is particularly competitive, with customers having numerous options within a short drive. Without a strong digital presence, even the best local businesses struggle to communicate their value proposition before customers make their choice. Word-of-mouth referrals alone aren't enough to sustain growth in today's digital marketplace.
 
-The technical aspects of digital marketing - from Google My Business optimization to conversion tracking - overwhelm busy business owners who just want more customers walking through their doors. They know they need help but aren't sure where to start or who to trust with their marketing budget.
+The technical aspects of digital marketing - from [Google My Business](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) optimization to conversion tracking - overwhelm busy business owners who just want more customers walking through their doors. They know they need help but aren't sure where to start or who to trust with their marketing budget.
 
 ## How We Help Mascot Businesses Grow
 
@@ -72,7 +72,7 @@ We understand the unique challenges facing Mascot businesses and provide compreh
 
 **Local SEO**
 
-Our local SEO strategies ensure your Mascot business appears prominently when customers search for your services nearby. We optimize your Google My Business profile, build local citations, and create location-specific content that helps you outrank competitors in local search results. Your business becomes the obvious choice for customers in Mascot and surrounding Eastern Suburbs areas.
+Our [local SEO](/blog/what-is-local-seo-complete-guide-for-sydney-businesses/) strategies ensure your Mascot business appears prominently when customers search for your services nearby. We optimize your Google My Business profile, build local citations, and create location-specific content that helps you outrank competitors in local search results. Your business becomes the obvious choice for customers in Mascot and surrounding Eastern Suburbs areas.
 
 **Google Ads Management**
 
@@ -95,6 +95,48 @@ We analyze your website's performance and identify exactly where potential custo
 • **Proven Results**: Our strategies consistently help local businesses achieve first-page Google rankings and measurable increases in customer inquiries and sales.
 
 • **Ongoing Support**: Digital marketing requires continuous attention and adjustment - we provide ongoing optimization and support to ensure your results keep improving over time.
+
+
+## Areas We Serve Around Mascot
+
+While based in Mascot, we proudly serve businesses throughout the surrounding areas including Mascot, Alexandria, Rosebery, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Mascot itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Mascot?
+
+Most Mascot businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Mascot businesses?
+
+We specialize in local Mascot market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Mascot and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Mascot?
+
+Most Mascot small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Mascot?
+
+Yes! While we specialize in Mascot and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Mascot businesses?
+
+We've helped numerous Mascot area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Mascot businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Mascot clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Mascot business.
 
 ## Ready to Grow Your Mascot Business?
 

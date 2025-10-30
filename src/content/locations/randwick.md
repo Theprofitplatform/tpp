@@ -82,7 +82,49 @@ Sometimes you can't wait months for SEO to kick in. Our Google Ads campaigns put
 Your website might be your first impression with new customers. We build sites that look professional, load fast, and actually convert visitors into customers. No point driving traffic to a site that sends people running to your competitors.
 
 **Local SEO**  
-This is the secret weapon for Randwick businesses. We optimise your Google My Business profile, get you showing up in local map searches, and make sure your business details are consistent across the web. When someone searches for services "near me" in Randwick or surrounding suburbs, you'll be there.
+This is the secret weapon for Randwick businesses. We optimise your [Google My Business](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/) profile, get you showing up in local map searches, and make sure your business details are consistent across the web. When someone searches for services "near me" in Randwick or surrounding suburbs, you'll be there.
+
+
+## Areas We Serve Around Randwick
+
+While based in Randwick, we proudly serve businesses throughout the surrounding areas including Randwick, Coogee, Kensington, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Randwick itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Randwick?
+
+Most Randwick businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Randwick businesses?
+
+We specialize in local Randwick market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Randwick and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Randwick?
+
+Most Randwick small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Randwick?
+
+Yes! While we specialize in Randwick and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Randwick businesses?
+
+We've helped numerous Randwick area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Randwick businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Randwick clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Randwick business.
 
 ## Ready to Stop Being Sydney's Best-Kept Secret?
 

@@ -92,6 +92,48 @@ We get it – you've probably been burned by marketing agencies before. Maybe th
 
 We do things differently. You'll work directly with our team, not get passed around between account managers. We explain everything in plain English. And most importantly, we focus on results that matter to your business – more inquiries, more sales, more profit.
 
+
+## Areas We Serve Around St Leonards
+
+While based in St Leonards, we proudly serve businesses throughout the surrounding areas including St Leonards, Crows Nest, North Sydney, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond St Leonards itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in St Leonards?
+
+Most St Leonards businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for St Leonards businesses?
+
+We specialize in local St Leonards market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in St Leonards and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in St Leonards?
+
+Most St Leonards small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of St Leonards?
+
+Yes! While we specialize in St Leonards and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for St Leonards businesses?
+
+We've helped numerous St Leonards area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many St Leonards businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our St Leonards clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your St Leonards business.
+
 ## Ready to Get Found Online?
 
 If you're tired of watching potential customers slip away to competitors who simply show up better online, let's have a conversation. We're helping businesses throughout St Leonards, Crows Nest, Artarmon, and Greenwich get the online visibility they deserve.

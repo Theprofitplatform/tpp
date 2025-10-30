@@ -72,7 +72,7 @@ We specialize in helping South Western Sydney businesses dominate their local on
 
 **Local SEO**
 
-We optimize your online presence so when people in Bankstown, Yagoona, or Punchbowl search for your services, your business appears at the top of Google results. This includes optimizing your Google Business Profile, building local citations, and ensuring your website targets the right local keywords. Local SEO puts your business in front of customers at the exact moment they're ready to buy.
+We optimize your online presence so when people in Bankstown, Yagoona, or Punchbowl search for your services, your business appears at the top of Google results. This includes optimizing your [Google Business Profile](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/), building local citations, and ensuring your website targets the right local keywords. Local SEO puts your business in front of customers at the exact moment they're ready to buy.
 
 **Google Ads Management**
 
@@ -95,6 +95,48 @@ Getting traffic to your website is only half the battle - converting those visit
 - **Proven Results**: Our strategies are based on what actually works for local businesses, not theoretical marketing concepts that sound good but don't deliver real customers.
 
 - **Ongoing Support**: Digital marketing isn't a set-and-forget solution - we continuously monitor and optimize your campaigns to ensure you're getting the best possible return on investment.
+
+
+## Areas We Serve Around Bankstown
+
+While based in Bankstown, we proudly serve businesses throughout the surrounding areas including Bankstown, Liverpool, Yagoona, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Bankstown itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Bankstown?
+
+Most Bankstown businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Bankstown businesses?
+
+We specialize in local Bankstown market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Bankstown and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Bankstown?
+
+Most Bankstown small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Bankstown?
+
+Yes! While we specialize in Bankstown and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Bankstown businesses?
+
+We've helped numerous Bankstown area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Bankstown businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Bankstown clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Bankstown business.
 
 ## Ready to Grow Your Bankstown Business?
 

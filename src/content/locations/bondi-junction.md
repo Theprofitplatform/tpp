@@ -72,7 +72,7 @@ The Profit Platform specializes in creating digital marketing strategies specifi
 
 **Local SEO**
 
-We optimize your business to dominate local search results when customers in Bondi Junction and surrounding areas search for your services. This means ensuring your business appears prominently in Google Maps, local directory listings, and organic search results. Our local SEO strategies help you capture customers who are actively searching for businesses like yours in the Eastern Suburbs, turning online searches into foot traffic and phone calls.
+We optimize your business to dominate local search results when customers in Bondi Junction and surrounding areas search for your services. This means ensuring your business appears prominently in Google Maps, local directory listings, and organic search results. Our [local SEO](/blog/what-is-local-seo-complete-guide-for-sydney-businesses/) strategies help you capture customers who are actively searching for businesses like yours in the Eastern Suburbs, turning online searches into foot traffic and phone calls.
 
 **Google Ads Management**
 
@@ -95,6 +95,48 @@ Having a website that attracts visitors is only half the battle – converting t
 • **Results-Focused Approach**: We're not interested in vanity metrics or impressive-sounding statistics that don't impact your bottom line – our strategies are designed to generate more leads, customers, and revenue for your business.
 
 • **Ongoing Optimization**: Digital marketing isn't a set-and-forget activity. We continuously monitor and refine your campaigns to ensure you're getting the best possible results as market conditions and customer behavior evolve.
+
+
+## Areas We Serve Around Bondi Junction
+
+While based in Bondi Junction, we proudly serve businesses throughout the surrounding areas including Bondi Junction, Bondi, Bondi Beach, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Bondi Junction itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Bondi Junction?
+
+Most Bondi Junction businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Bondi Junction businesses?
+
+We specialize in local Bondi Junction market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Bondi Junction and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Bondi Junction?
+
+Most Bondi Junction small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Bondi Junction?
+
+Yes! While we specialize in Bondi Junction and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Bondi Junction businesses?
+
+We've helped numerous Bondi Junction area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Bondi Junction businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Bondi Junction clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Bondi Junction business.
 
 ## Ready to Grow Your Bondi Junction Business?
 

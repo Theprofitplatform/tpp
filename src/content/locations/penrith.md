@@ -72,7 +72,7 @@ The Profit Platform specializes in solving these digital marketing challenges fo
 
 **Local SEO**
 
-We optimize your business to dominate local search results when customers search for your services in Penrith and surrounding areas. This means updating your Google Business Profile, building local citations, and ensuring your website appears when people search for businesses like yours. Local SEO puts you in front of customers at the exact moment they're looking for what you offer.
+We optimize your business to dominate local search results when customers search for your services in Penrith and surrounding areas. This means updating your [Google Business Profile](/blog/how-to-optimise-your-google-business-profile-for-sydney-local-search-in-2025/), building local citations, and ensuring your website appears when people search for businesses like yours. Local SEO puts you in front of customers at the exact moment they're looking for what you offer.
 
 **Google Ads Management**
 
@@ -95,6 +95,48 @@ Having a great website means nothing if visitors don't take action. We analyze h
 • **Results-Focused Approach**: We measure success by your business growth, not vanity metrics. Our strategies focus on generating qualified leads and increasing revenue, ensuring your marketing investment pays for itself.
 
 • **Ongoing Optimization**: Digital marketing isn't set-and-forget. We continuously monitor, test, and refine your campaigns to improve performance and adapt to market changes.
+
+
+## Areas We Serve Around Penrith
+
+While based in Penrith, we proudly serve businesses throughout the surrounding areas including Penrith, St Marys, Kingswood, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Penrith itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Penrith?
+
+Most Penrith businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Penrith businesses?
+
+We specialize in local Penrith market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Penrith and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Penrith?
+
+Most Penrith small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Penrith?
+
+Yes! While we specialize in Penrith and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Penrith businesses?
+
+We've helped numerous Penrith area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Penrith businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Penrith clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Penrith business.
 
 ## Ready to Grow Your Penrith Business?
 

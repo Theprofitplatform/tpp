@@ -99,3 +99,44 @@ If you're tired of watching potential customers find your competitors instead of
 Give us a call on **0487 286 451** or shoot an email to **avi@theprofitplatform.com.au**. We'll have a no-pressure conversation about your business goals and how we can help you reach them.
 
 Your competitors are already investing in their online presence. The question is: how much longer can you afford to wait?
+
+## Areas We Serve Around Ryde
+
+While based in Ryde, we proudly serve businesses throughout the surrounding areas including Ryde, Macquarie Park, North Ryde, and more. Whether you're looking for local SEO, Google Ads management, or web design services, we help businesses across the region succeed online.
+
+Our understanding of the local market extends beyond Ryde itself. We know the competitive landscape, customer behaviors, and specific challenges businesses face in this part of Sydney.
+
+
+## Frequently Asked Questions
+
+### How long does it take to see results from digital marketing in Ryde?
+
+Most Ryde businesses start seeing initial results within 30-60 days. SEO improvements typically take 3-6 months for significant ranking changes, while Google Ads can generate leads within days. The timeline depends on your industry competition, current online presence, and the strategies implemented.
+
+### What makes your digital marketing different for Ryde businesses?
+
+We specialize in local Ryde market dynamics and understand the unique challenges businesses face in this area. Our strategies are tailored to attract customers specifically searching for services in Ryde and surrounding areas, not generic national approaches.
+
+### How much should I budget for digital marketing in Ryde?
+
+Most Ryde small businesses invest $1,500-$5,000 per month depending on their goals and competition level. We offer flexible packages starting at lower investment levels, with the ability to scale as you see results. We'll recommend a budget based on your specific situation and goals.
+
+### Do you work with businesses outside of Ryde?
+
+Yes! While we specialize in Ryde and surrounding Sydney areas, we work with businesses throughout Greater Sydney and Australia. Our local expertise translates well to other markets, and we adjust strategies based on each location's unique characteristics.
+
+### Can I see examples of results you've achieved for Ryde businesses?
+
+We've helped numerous Ryde area businesses increase their online visibility and customer acquisition. While we respect client confidentiality, we can share relevant case studies and discuss expected outcomes for your specific industry during a consultation.
+
+### What if I already have a website and some marketing in place?
+
+Perfect! We'll audit your current setup and identify opportunities for improvement. Many Ryde businesses come to us with existing websites and marketing efforts. We'll build on what's working and fix what isn't, rather than starting from scratch.
+
+### Do you require long-term contracts?
+
+No. We believe in earning your business every month through results, not locking you into lengthy contracts. Our Ryde clients stay with us because our strategies work and deliver measurable ROI, not because they're contractually obligated.
+
+### How do you measure success?
+
+We track metrics that matter to your business: website traffic, leads generated, phone calls, form submissions, and ultimately revenue. You'll receive regular reports showing exactly what we're doing and the results we're achieving for your Ryde business.
