@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/glebe/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Glebe. Expert SEO, Google Ads & web design for Inner West businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/glebe/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Glebe",
+    "addressRegion": "NSW",
+    "postalCode": "2037",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Glebe"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Glebe - Get More Customers Online
 
 Running a business near Glebe Point Road or around the historic University of Sydney campus means you're in one of Sydney's most vibrant inner-city areas. Yet many excellent local businesses find themselves invisible online, watching potential customers walk past their door because they can't be found in Google searches or don't have a strong digital presence.

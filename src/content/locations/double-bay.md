@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/double-bay/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Double Bay. Expert SEO, Google Ads & web design for Eastern Suburbs businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/double-bay/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Double Bay",
+    "addressRegion": "NSW",
+    "postalCode": "2028",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Double Bay"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Double Bay - Get More Customers Online
 
 You run a successful business near Double Bay's bustling Cross Street shopping precinct or along the scenic harbour foreshore, but potential customers can't find you online. While your local reputation speaks for itself, your digital presence isn't bringing in the steady stream of new customers your business deserves. This disconnect between offline success and online visibility is costing Double Bay businesses thousands in lost revenue every month.

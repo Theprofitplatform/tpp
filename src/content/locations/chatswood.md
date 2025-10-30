@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/chatswood/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Chatswood. Expert SEO, Google Ads & web design for North Shore businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/chatswood/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chatswood",
+    "addressRegion": "NSW",
+    "postalCode": "2067",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Chatswood"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Chatswood - Get More Customers Online
 
 Whether you're running a boutique near Chatswood Chase or a professional service firm along the Pacific Highway, you know you provide exceptional value to your clients. But if potential customers can't find you online when they're searching for your services, even the best Chatswood business can struggle to reach its full potential.

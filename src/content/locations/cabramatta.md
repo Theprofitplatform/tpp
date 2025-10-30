@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/cabramatta/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Cabramatta. Expert SEO, Google Ads & web design for Western Sydney businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/cabramatta/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cabramatta",
+    "addressRegion": "NSW",
+    "postalCode": "2166",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Cabramatta"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Cabramatta - Get More Customers Online
 
 You've got a solid business in Cabramatta, maybe serving the bustling community around Cabramatta Plaza or catering to the diverse local market that makes this area so unique. But when potential customers search online for what you offer, they're finding your competitors instead of you. It's frustrating to watch your business get overlooked online when you know you provide excellent service to your local community.

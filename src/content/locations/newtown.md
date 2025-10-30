@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/newtown/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Newtown. Expert SEO, Google Ads & web design for Inner West businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/newtown/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Newtown",
+    "addressRegion": "NSW",
+    "postalCode": "2042",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Newtown"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Newtown - Get More Customers Online
 
 You've built a great business on King Street or one of Newtown's vibrant side streets, serving the eclectic mix of students, creatives, and young professionals that call this Inner West hub home. But despite having loyal local customers and being part of Newtown's thriving community, you're struggling to attract new customers online and compete with businesses that seem to dominate Google searches.

@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/mascot/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Mascot. Expert SEO, Google Ads & web design for Eastern Suburbs businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/mascot/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mascot",
+    "addressRegion": "NSW",
+    "postalCode": "2020",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Mascot"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Mascot - Get More Customers Online
 
 Your Mascot business might be perfectly positioned near Sydney Airport with great foot traffic, but when potential customers search online for your services, you're nowhere to be found. Despite being part of the thriving Eastern Suburbs community, many local businesses struggle to translate their offline success into digital visibility and online leads.

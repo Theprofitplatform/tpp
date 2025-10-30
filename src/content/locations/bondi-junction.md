@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/bondi-junction/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Bondi Junction. Expert SEO, Google Ads & web design for Eastern Suburbs businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/bondi-junction/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bondi Junction",
+    "addressRegion": "NSW",
+    "postalCode": "2022",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Bondi Junction"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Bondi Junction - Get More Customers Online
 
 You've built a successful business in the heart of Bondi Junction, perhaps near the bustling Westfield shopping centre or along the busy Oxford Street strip. Your local customers love what you do, but when potential clients search online for your services, your competitors are showing up first while your business remains invisible.

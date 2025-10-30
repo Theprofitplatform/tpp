@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/homebush/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Homebush. Expert SEO, Google Ads & web design for Inner West businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/homebush/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Homebush",
+    "addressRegion": "NSW",
+    "postalCode": "2140",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Homebush"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Homebush - Get More Customers Online
 
 Running a business near Homebush's Olympic Park precinct or along Parramatta Road, you know there's plenty of foot traffic and local activity. But when potential customers search online for what you offer, your business might not even appear on the first page of Google results, sending valuable customers straight to your competitors instead.

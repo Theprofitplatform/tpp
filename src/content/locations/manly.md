@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/manly/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Manly. Expert SEO, Google Ads & web design for Northern Beaches businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/manly/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Manly",
+    "addressRegion": "NSW",
+    "postalCode": "2095",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Manly"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Manly - Get More Customers Online
 
 You run a fantastic business near the iconic Manly Beach, but despite your prime Northern Beaches location, potential customers are finding your competitors instead of you online. Whether you're a beachside cafe on The Corso or a fitness studio serving the local community, having an invisible online presence means missing out on customers who are actively searching for your services. The digital gap between your excellent service and online visibility is costing you revenue every day.

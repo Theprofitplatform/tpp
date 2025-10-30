@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/pyrmont/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Pyrmont. Local SEO, Google Ads, and web design helping Pyrmont businesses grow. Free consultation available.",
+  "url": "https://theprofitplatform.com.au/locations/pyrmont/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pyrmont",
+    "addressRegion": "NSW",
+    "postalCode": "2009",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Pyrmont"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Pyrmont: Helping Local Businesses Thrive in Sydney's Tech Hub
 
 In the shadow of the Anzac Bridge, where heritage warehouses have transformed into sleek office spaces and luxury apartments, Pyrmont has evolved into one of Sydney's most dynamic business districts. This compact peninsula, once dominated by wool stores and shipping terminals, now pulses with the energy of tech startups, creative agencies, and innovative companies choosing to call this harbourside suburb home.

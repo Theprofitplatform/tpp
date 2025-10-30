@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/surry-hills/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Surry Hills. Local SEO, Google Ads, and web design helping Surry Hills businesses grow. Free consultation available.",
+  "url": "https://theprofitplatform.com.au/locations/surry-hills/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Surry Hills",
+    "addressRegion": "NSW",
+    "postalCode": "2010",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Surry Hills"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Surry Hills: Where Creative Vision Meets Commercial Success
 
 In the heart of Sydney's most dynamic creative quarter, Surry Hills businesses face a unique challenge. You're competing not just with neighbouring cafés, boutiques, and agencies, but with some of Australia's most innovative brands – all within walking distance of Crown Street's bustling strip. Standing out in postcode 2010 requires more than just great coffee or cutting-edge design; it demands strategic digital marketing that captures the sophisticated, culturally-aware audience that calls this inner-city enclave home.

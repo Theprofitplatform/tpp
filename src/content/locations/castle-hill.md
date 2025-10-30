@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/castle-hill/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Castle Hill. Expert SEO, Google Ads & web design for Hills District businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/castle-hill/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Castle Hill",
+    "addressRegion": "NSW",
+    "postalCode": "2154",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Castle Hill"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Castle Hill - Get More Customers Online
 
 Running a business near Castle Towers or along Old Northern Road, you know Castle Hill has incredible potential for local businesses. But having a great product or service doesn't guarantee customers will find you online when they're searching for what you offer. Many Castle Hill business owners find themselves watching competitors rank higher on Google while their own websites sit invisible to potential customers.

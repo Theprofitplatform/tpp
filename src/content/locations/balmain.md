@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/balmain/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Balmain. Expert SEO, Google Ads & web design for Inner West businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/balmain/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Balmain",
+    "addressRegion": "NSW",
+    "postalCode": "2041",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Balmain"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Balmain - Get More Customers Online
 
 Your Balmain business has everything going for it – you're in one of Sydney's most vibrant inner west suburbs, with the harbour at your doorstep and a community that values quality local services. Yet despite being perfectly positioned between the bustling Saturday markets and the iconic pubs along Darling Street, you're finding it increasingly difficult to attract new customers online. The truth is, having a great local business isn't enough anymore when your potential customers can't find you in Google searches.

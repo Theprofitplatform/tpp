@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/mosman/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Mosman. Expert SEO, Google Ads & web design for North Shore businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/mosman/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Mosman",
+    "addressRegion": "NSW",
+    "postalCode": "2088",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Mosman"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Mosman - Get More Customers Online
 
 You run a fantastic business in beautiful Mosman, whether you're serving locals near Balmoral Beach or catching the corporate crowd heading to the city. Your service is excellent, your customers love you, but somehow you're not showing up online when potential customers are searching for what you offer. It's frustrating watching inferior competitors rank higher on Google while your phone stays quiet.

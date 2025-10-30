@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/crows-nest/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Crows Nest. Expert SEO, Google Ads & web design for North Shore businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/crows-nest/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Crows Nest",
+    "addressRegion": "NSW",
+    "postalCode": "2065",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Crows Nest"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Crows Nest - Get More Customers Online
 
 Running a business near the bustling Crows Nest Plaza and the North Shore's vibrant commercial hub should mean steady foot traffic and local recognition. However, many excellent local businesses find themselves invisible online, watching potential customers drive past to competitors who show up first in Google searches. The reality is that even the best service or product can't reach its full potential without a strong digital presence.

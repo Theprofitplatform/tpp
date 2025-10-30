@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/ryde/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Ryde. Expert SEO, Google Ads & web design for North Shore businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/ryde/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ryde",
+    "addressRegion": "NSW",
+    "postalCode": "2112",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Ryde"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 ## Digital Marketing Services in Ryde: Getting North Shore Businesses Found Online
 
 Picture this: you're running a great business near Top Ryde City or along Victoria Road, but potential customers in Ryde can't find you when they're searching online. Maybe you're a trades business, local retailer, or professional service – you know your work is top-notch, but your phone just isn't ringing like it should.

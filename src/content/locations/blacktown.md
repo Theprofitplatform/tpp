@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/blacktown/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Blacktown. Expert SEO, Google Ads & web design for Western Sydney businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/blacktown/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Blacktown",
+    "addressRegion": "NSW",
+    "postalCode": "2148",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Blacktown"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Blacktown - Get More Customers Online
 
 You've built a solid business in Blacktown, serving customers from the bustling Westpoint Shopping Centre to the growing residential areas around Blacktown Park. But when potential customers search online for your services, they're finding your competitors instead of you. It's frustrating to know you provide excellent service while watching less capable businesses get more customers simply because they show up first online.

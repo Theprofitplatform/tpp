@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/north-sydney/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in North Sydney. Expert SEO, Google Ads & web design for North Shore businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/north-sydney/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "North Sydney",
+    "addressRegion": "NSW",
+    "postalCode": "2060",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "North Sydney"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in North Sydney - Get More Customers Online
 
 You've built a solid business in North Sydney, maybe tucked between the corporate towers near the Harbour Bridge or along Miller Street's bustling strip. But while foot traffic flows past your doors and the local community knows your name, your online presence isn't bringing in the customers you need to truly thrive in this competitive North Shore market.

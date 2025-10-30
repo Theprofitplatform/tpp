@@ -14,6 +14,38 @@ featured: true
 draft: false
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/sydney/",
+  "name": "The Profit Platform",
+  "description": "Digital marketing services in Sydney",
+  "url": "https://theprofitplatform.com.au/locations/sydney/",
+  "telephone": "+61487286451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sydney",
+    "addressRegion": "NSW",
+    "postalCode": "2000",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Sydney"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ]
+}
+</script>
+
+
 ## Digital Marketing Services in Sydney, NSW
 
 Looking for a **digital marketing agency in Sydney** that actually delivers results? You've found us.

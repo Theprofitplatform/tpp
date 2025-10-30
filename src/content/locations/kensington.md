@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/kensington/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Kensington. Expert SEO, Google Ads & web design for Eastern Suburbs businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/kensington/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kensington",
+    "addressRegion": "NSW",
+    "postalCode": "2033",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Kensington"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Kensington - Get More Customers Online
 
 Your Kensington business is perfectly positioned near the University of New South Wales and the vibrant Anzac Parade strip, but potential customers are finding your competitors online instead of you. Despite offering excellent products or services to the local community, your website isn't showing up when people search for what you offer. You know there's huge potential in this thriving Eastern Suburbs location, but your digital presence isn't reflecting the quality of your business.

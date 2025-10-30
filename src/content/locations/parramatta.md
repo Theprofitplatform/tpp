@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/parramatta/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Parramatta. Expert SEO, Google Ads & web design for Western Sydney businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/parramatta/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Parramatta",
+    "addressRegion": "NSW",
+    "postalCode": "2150",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Parramatta"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Parramatta - Get More Customers Online
 
 You've built a solid business in the heart of Western Sydney, maybe just a stone's throw from Parramatta Park or the bustling Westfield shopping center. But while foot traffic might be steady and locals know your name, potential customers searching online are finding your competitors instead. It's frustrating to watch your business get overlooked in the digital space when you know you offer something special.

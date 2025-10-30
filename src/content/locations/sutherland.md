@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/sutherland/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Sutherland. Expert SEO, Google Ads & web design for Sutherland Shire businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/sutherland/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Sutherland",
+    "addressRegion": "NSW",
+    "postalCode": "2232",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Sutherland"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Sutherland - Get Found Online
 
 Picture this: you're running a great business in Sutherland, just a stone's throw from the beautiful Royal National Park and the bustling Sutherland Station precinct. Your customers love what you do, but here's the frustrating part – when people in Sutherland Shire search online for your services, they're finding your competitors instead of you.

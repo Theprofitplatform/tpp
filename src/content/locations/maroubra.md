@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/maroubra/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Maroubra. Expert SEO, Google Ads & web design for Eastern Suburbs businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/maroubra/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Maroubra",
+    "addressRegion": "NSW",
+    "postalCode": "2035",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Maroubra"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Maroubra - Get More Customers Online
 
 You've built a fantastic business in Maroubra, maybe serving the morning coffee crowd heading to the beach or the families exploring Mahon Pool on weekends. But when potential customers search online for what you offer, they're finding your competitors instead of you. It's frustrating when you know you provide excellent service, yet your online presence isn't bringing in the customers your business deserves.

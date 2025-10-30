@@ -1,0 +1,926 @@
+{
+  "suburbs": [
+    {
+      "name": "Ashfield",
+      "slug": "ashfield",
+      "postcode": "2131",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Inner West",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Ashfield area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Auburn",
+      "slug": "auburn",
+      "postcode": "2144",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Western Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Auburn area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Balmain",
+      "slug": "balmain",
+      "postcode": "2041",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Inner West",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Balmain area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Bankstown",
+      "slug": "bankstown",
+      "postcode": "2200",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "South Western Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Bankstown area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Blacktown",
+      "slug": "blacktown",
+      "postcode": "2148",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Western Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Blacktown area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Bondi",
+      "postcode": "2026",
+      "coordinates": {
+        "lat": "-33.8915",
+        "lng": "151.2767"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 1,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Bondi Junction",
+        "Bronte",
+        "Tamarama",
+        "Waverley"
+      ],
+      "demographics": {
+        "description": "Iconic beach suburb with high tourism and local business activity"
+      },
+      "slug": "bondi",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Bondi Junction",
+      "slug": "bondi-junction",
+      "postcode": "2022",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Bondi Junction area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Brisbane",
+      "slug": "brisbane",
+      "postcode": "4000",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Queensland",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Brisbane area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Burwood",
+      "slug": "burwood",
+      "postcode": "2134",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Inner West",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Burwood area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Cabramatta",
+      "slug": "cabramatta",
+      "postcode": "2166",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Western Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Cabramatta area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Campbelltown",
+      "slug": "campbelltown",
+      "postcode": "2560",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "South Western Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Campbelltown area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Castle Hill",
+      "slug": "castle-hill",
+      "postcode": "2154",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Hills District",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Castle Hill area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Chatswood",
+      "postcode": "2067",
+      "coordinates": {
+        "lat": "-33.7969",
+        "lng": "151.1810"
+      },
+      "region": "North Shore",
+      "priority": 1,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Willoughby",
+        "Artarmon",
+        "Lane Cove",
+        "Roseville"
+      ],
+      "demographics": {
+        "description": "Major retail and commercial center"
+      },
+      "slug": "chatswood",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Cronulla",
+      "slug": "cronulla",
+      "postcode": "2230",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Sutherland Shire",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Cronulla area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Crows Nest",
+      "slug": "crows-nest",
+      "postcode": "2065",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "North Shore",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Crows Nest area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Double Bay",
+      "postcode": "2028",
+      "coordinates": {
+        "lat": "-33.8777",
+        "lng": "151.2425"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Rose Bay",
+        "Bellevue Hill",
+        "Point Piper",
+        "Darling Point"
+      ],
+      "demographics": {
+        "description": "Upmarket shopping and dining precinct"
+      },
+      "slug": "double-bay",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Eastgardens",
+      "slug": "eastgardens",
+      "postcode": "2036",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Eastgardens area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Epping",
+      "slug": "epping",
+      "postcode": "2121",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "North Shore",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Epping area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Fairfield",
+      "slug": "fairfield",
+      "postcode": "2165",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Western Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Fairfield area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Glebe",
+      "slug": "glebe",
+      "postcode": "2037",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Inner West",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Glebe area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Homebush",
+      "slug": "homebush",
+      "postcode": "2140",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Inner West",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Homebush area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Hornsby",
+      "slug": "hornsby",
+      "postcode": "2077",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "North Shore",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Hornsby area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Hurstville",
+      "slug": "hurstville",
+      "postcode": "2220",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "St George",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Hurstville area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Kensington",
+      "slug": "kensington",
+      "postcode": "2033",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Kensington area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Kogarah",
+      "slug": "kogarah",
+      "postcode": "2217",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "St George",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Kogarah area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Lane Cove",
+      "slug": "lane-cove",
+      "postcode": "2066",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "North Shore",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Lane Cove area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Leichhardt",
+      "slug": "leichhardt",
+      "postcode": "2040",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Inner West",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Leichhardt area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Liverpool",
+      "slug": "liverpool",
+      "postcode": "2170",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "South Western Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Liverpool area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Manly",
+      "postcode": "2095",
+      "coordinates": {
+        "lat": "-33.7969",
+        "lng": "151.2840"
+      },
+      "region": "Northern Beaches",
+      "priority": 1,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Freshwater",
+        "Curl Curl",
+        "Dee Why",
+        "Fairlight"
+      ],
+      "demographics": {
+        "description": "Beachside suburb with tourism and hospitality focus"
+      },
+      "slug": "manly",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Maroubra",
+      "slug": "maroubra",
+      "postcode": "2035",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Maroubra area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Mascot",
+      "slug": "mascot",
+      "postcode": "2020",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Mascot area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Matraville",
+      "slug": "matraville",
+      "postcode": "2036",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Matraville area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Melbourne",
+      "slug": "melbourne",
+      "postcode": "3000",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Victoria",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Melbourne area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Miranda",
+      "slug": "miranda",
+      "postcode": "2228",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Sutherland Shire",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Miranda area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Mosman",
+      "postcode": "2088",
+      "coordinates": {
+        "lat": "-33.8286",
+        "lng": "151.2439"
+      },
+      "region": "North Shore",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Cremorne",
+        "Neutral Bay",
+        "Balmoral",
+        "Beauty Point"
+      ],
+      "demographics": {
+        "description": "Affluent residential area with professional services"
+      },
+      "slug": "mosman",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Neutral Bay",
+      "slug": "neutral-bay",
+      "postcode": "2089",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "North Shore",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Neutral Bay area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Newtown",
+      "postcode": "2042",
+      "coordinates": {
+        "lat": "-33.8961",
+        "lng": "151.1789"
+      },
+      "region": "Inner West",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Enmore",
+        "Stanmore",
+        "Erskineville",
+        "Marrickville"
+      ],
+      "demographics": {
+        "description": "Vibrant cultural hub with independent businesses"
+      },
+      "slug": "newtown",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "North Sydney",
+      "postcode": "2060",
+      "coordinates": {
+        "lat": "-33.8403",
+        "lng": "151.2070"
+      },
+      "region": "North Shore",
+      "priority": 1,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Milsons Point",
+        "Cremorne",
+        "Neutral Bay",
+        "Kirribilli"
+      ],
+      "demographics": {
+        "description": "Corporate center with high-density business district"
+      },
+      "slug": "north-sydney",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Paddington",
+      "slug": "paddington",
+      "postcode": "2021",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Paddington area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Parramatta",
+      "postcode": "2150",
+      "coordinates": {
+        "lat": "-33.8151",
+        "lng": "151.0010"
+      },
+      "region": "Western Sydney",
+      "priority": 1,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Harris Park",
+        "Westmead",
+        "Rosehill",
+        "North Parramatta"
+      ],
+      "demographics": {
+        "description": "Major business hub with diverse commercial sectors"
+      },
+      "slug": "parramatta",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Penrith",
+      "slug": "penrith",
+      "postcode": "2750",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Western Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Penrith area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Pyrmont",
+      "postcode": "2009",
+      "coordinates": {
+        "lat": "-33.8717",
+        "lng": "151.1957"
+      },
+      "region": "Inner Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Ultimo",
+        "Glebe",
+        "Darling Harbour",
+        "Barangaroo"
+      ],
+      "demographics": {
+        "description": "Tech and media hub near CBD"
+      },
+      "slug": "pyrmont",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Randwick",
+      "slug": "randwick",
+      "postcode": "2031",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Eastern Suburbs",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Randwick area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Ryde",
+      "slug": "ryde",
+      "postcode": "2112",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "North Shore",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Ryde area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "St Leonards",
+      "slug": "st-leonards",
+      "postcode": "2065",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "North Shore",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "St Leonards area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Strathfield",
+      "slug": "strathfield",
+      "postcode": "2135",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Inner West",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Strathfield area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Surry Hills",
+      "postcode": "2010",
+      "coordinates": {
+        "lat": "-33.8862",
+        "lng": "151.2131"
+      },
+      "region": "Inner Sydney",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [
+        "Darlinghurst",
+        "Redfern",
+        "Paddington",
+        "Chippendale"
+      ],
+      "demographics": {
+        "description": "Creative quarter with startups and hospitality"
+      },
+      "slug": "surry-hills",
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    },
+    {
+      "name": "Sutherland",
+      "slug": "sutherland",
+      "postcode": "2232",
+      "coordinates": {
+        "lat": "0",
+        "lng": "0"
+      },
+      "region": "Sutherland Shire",
+      "priority": 2,
+      "status": "generated",
+      "nearbySuburbs": [],
+      "demographics": {
+        "description": "Sutherland area"
+      },
+      "dateGenerated": "2025-10-21",
+      "lastUpdated": "2025-10-21"
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2025-10-30",
+    "totalSuburbs": 48,
+    "generated": 48,
+    "pendingGeneration": 0,
+    "version": "1.1",
+    "syncedAt": "2025-10-30T12:45:39.842Z"
+  }
+}

@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/bondi/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Bondi. Expert SEO, Google Ads & web design for Eastern Suburbs businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/bondi/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bondi",
+    "addressRegion": "NSW",
+    "postalCode": "2026",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Bondi"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Bondi - Get More Customers Online
 
 Running a quality business near Campbell Parade or the iconic Bondi Pavilion should mean customers are lining up at your door. But if your website isn't showing up when locals search for your services, even the best Bondi businesses can struggle to attract the steady stream of customers they deserve. You're not alone in feeling frustrated when your online presence doesn't match the quality of what you offer.

@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/burwood/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Burwood. Expert SEO, Google Ads & web design for Inner West businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/burwood/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Burwood",
+    "addressRegion": "NSW",
+    "postalCode": "2134",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Burwood"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Burwood - Get More Customers Online
 
 You've built a great business near Burwood Station or in one of the vibrant precincts around Westfield Burwood, but potential customers are finding your competitors online instead of you. Despite offering excellent products or services to the Inner West community, your website isn't bringing in the leads and sales your business deserves.

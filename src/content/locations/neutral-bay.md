@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/neutral-bay/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Neutral Bay. Expert SEO, Google Ads & web design for North Shore businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/neutral-bay/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Neutral Bay",
+    "addressRegion": "NSW",
+    "postalCode": "2089",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Neutral Bay"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Neutral Bay - Get More Customers Online
 
 You've built a fantastic business in Neutral Bay, maybe just minutes from Military Road or the vibrant strip near the Oaks Hotel, but potential customers can't find you online. Despite offering excellent products or services to the North Shore community, your website sits buried on page three of Google while competitors capture the customers you deserve. It's frustrating to watch your business struggle for online visibility when you know you could serve so many more local residents.

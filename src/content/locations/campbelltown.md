@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/campbelltown/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Campbelltown. Expert SEO, Google Ads & web design for South Western Sydney businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/campbelltown/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Campbelltown",
+    "addressRegion": "NSW",
+    "postalCode": "2560",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Campbelltown"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Campbelltown - Get More Customers Online
 
 You've built a solid business in Campbelltown, maybe serving the community near Queen Street or around the bustling Macarthur Square area, but when potential customers search online, your competitors show up first. Despite offering quality products or services, your phone isn't ringing as much as it should, and your website feels more like a ghost town than a customer magnet.

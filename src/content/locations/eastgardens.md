@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/eastgardens/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Eastgardens. Expert SEO, Google Ads & web design for Eastern Suburbs businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/eastgardens/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Eastgardens",
+    "addressRegion": "NSW",
+    "postalCode": "2036",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Eastgardens"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Eastgardens - Get More Customers Online
 
 Running a business near Eastgardens Shopping Centre puts you in one of Sydney's busiest retail hubs, but that doesn't guarantee online success. Many local business owners find themselves with a great product or service, solid foot traffic, yet their website barely ranks on Google and their digital presence fails to capture the steady stream of potential customers in the area.

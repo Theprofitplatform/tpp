@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/liverpool/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Liverpool. Expert SEO, Google Ads & web design for South Western Sydney businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/liverpool/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Liverpool",
+    "addressRegion": "NSW",
+    "postalCode": "2170",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Liverpool"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Liverpool - Get More Customers Online
 
 You run a solid business in Liverpool - maybe you're near the bustling Westfield or close to Liverpool Hospital - but potential customers can't find you online. While your competitors are capturing new leads through Google and social media, you're watching opportunities slip away because your digital presence isn't working hard enough for your business.

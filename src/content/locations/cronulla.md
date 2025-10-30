@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/cronulla/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Cronulla. Expert SEO, Google Ads & web design for Sutherland Shire businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/cronulla/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cronulla",
+    "addressRegion": "NSW",
+    "postalCode": "2230",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Cronulla"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Cronulla - Get More Customers Online
 
 You run a fantastic business in Cronulla, maybe just steps from the beach or nestled in the heart of the shopping precinct, but potential customers searching online can't seem to find you. While your competitors are capturing customers through Google searches and social media, you're watching opportunities slip away because your digital presence isn't working hard enough for your business.

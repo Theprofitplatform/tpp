@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/hornsby/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Hornsby. Expert SEO, Google Ads & web design for North Shore businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/hornsby/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Hornsby",
+    "addressRegion": "NSW",
+    "postalCode": "2077",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Hornsby"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Hornsby - Get More Customers Online
 
 Running a quality business near Hornsby Plaza or along the Pacific Highway doesn't guarantee customers will find you online. Many excellent local businesses in this thriving North Shore hub struggle with digital visibility despite offering exceptional products and services. You're not alone if you feel like your online presence isn't bringing in the customers your business deserves.

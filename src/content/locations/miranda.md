@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/miranda/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Miranda. Expert SEO, Google Ads & web design for Sutherland Shire businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/miranda/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miranda",
+    "addressRegion": "NSW",
+    "postalCode": "2228",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Miranda"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Miranda - Get More Customers Online
 
 Running a successful business near Westfield Miranda or along the Kingsway means you're already proving you can deliver quality products and services to locals. But if potential customers in the Sutherland Shire can't find you online when they're searching for what you offer, you're missing out on significant growth opportunities. The frustration of watching competitors rank higher on Google while you know you provide better service is all too common for Miranda business owners.

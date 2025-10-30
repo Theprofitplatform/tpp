@@ -17,6 +17,41 @@ dateCreated: 2025-10-21
 lastUpdated: 2025-10-21
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://theprofitplatform.com.au/locations/kogarah/",
+  "name": "The Profit Platform",
+  "description": "Leading digital marketing services in Kogarah. Expert SEO, Google Ads & web design for St George businesses. Call 0487 286 451 for a free consultation.",
+  "url": "https://theprofitplatform.com.au/locations/kogarah/",
+  "telephone": "0487 286 451",
+  "email": "avi@theprofitplatform.com.au",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kogarah",
+    "addressRegion": "NSW",
+    "postalCode": "2217",
+    "addressCountry": "AU"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Kogarah"
+  },
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.facebook.com/theprofitplatform",
+    "https://www.linkedin.com/company/theprofitplatform",
+    "https://twitter.com/profitplatform"
+  ],
+  "geo": {
+    "@type": "GeoCoordinates"
+  }
+}
+</script>
+
+
 # Digital Marketing Services in Kogarah - Get More Customers Online
 
 You run a solid business near Kogarah Station or along the Railway Parade strip, your customers love what you do, but when people search online for your services, they're finding your competitors instead. It's frustrating to know you're offering great value to the St George community, yet struggling to attract new customers through digital channels.
