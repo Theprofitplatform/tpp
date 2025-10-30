@@ -83,7 +83,7 @@ const schema = {
           <h2>Find Us</h2>
           <div class="map-embed">
             <iframe
-              src={`https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=${location.data.coordinates.lat},${location.data.coordinates.lng}`}
+              src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY || 'AIzaSyB6owbUSgPnlkZrXKcmlWvB4atgJW6zUjQ'}&q=${location.data.coordinates.lat},${location.data.coordinates.lng}`}
               width="100%"
               height="400"
               style="border:0;"

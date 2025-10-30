@@ -1,15 +1,56 @@
 # 🤖 SEO Automation System
 
-**Full local SEO automation for The Profit Platform**
+**Enterprise-grade local SEO automation for The Profit Platform**
 
-Automates 80% of repetitive SEO tasks:
-- ✅ Content generation (suburb pages, GBP posts)
+Automates 80% of repetitive SEO tasks with production-ready infrastructure:
+- ✅ Content generation (suburb pages, GBP posts, topic ideas)
 - ✅ Outreach (reviews, link building)
 - ✅ Tracking & reporting (rankings, analytics)
+- 🆕 **Rate limiting** (prevents API errors)
+- 🆕 **Cost tracking** (stay within budget)
+- 🆕 **Content validation** (quality assurance)
+- 🆕 **Error handling** (automatic retry with alerts)
+- 🆕 **Dry-run mode** (test without API costs)
 
 **Time saved:** 15-20 hours/month
-**Cost:** $30-100/month
+**Cost:** $30-100/month (with budget alerts)
 **Setup time:** 15 minutes
+**Reliability:** Production-ready with automatic error recovery
+
+---
+
+## 🆕 What's New (v2.0)
+
+### Enterprise Infrastructure
+- ✅ **Rate Limiting** - Automatic API rate limit handling with exponential backoff
+- ✅ **Cost Tracking** - Real-time API usage monitoring with budget alerts (80% warning)
+- ✅ **Error Classification** - Intelligent error handling with Slack alerts for critical issues
+- ✅ **Structured Logging** - JSON logs with file rotation for debugging
+- ✅ **Content Validation** - Automatic quality checks (readability, word count, structure)
+- ✅ **Duplicate Detection** - Prevents creating similar content (70% similarity threshold)
+- ✅ **Environment Validation** - Clear error messages if configuration is missing
+
+### New Features
+- 🎯 **Dry-Run Mode** - Test scripts without making API calls or writing files (`--dry-run`)
+- 📊 **Usage Dashboard** - View API costs and token usage with visual reports
+- 🔄 **Checkpoint System** - Resume long-running jobs if interrupted
+- 📝 **External Config** - Suburb data in JSON files for easy updates
+- ⚡ **Parallel Processing** - Faster execution with smart batching
+
+### Example Output
+```bash
+# After any script run, see your costs:
+💰 API Usage:
+  Total Cost: $0.1234
+  Total Tokens: 45,678
+  Requests: 12
+
+# Monthly budget tracking:
+📈 Monthly Budget:
+[████████████████████████░░░░░░░░░░░░] 62.5%
+Spent: $62.50 / $100.00
+Remaining: $37.50
+```
 
 ---
 
@@ -76,6 +117,111 @@ npm run automation:scheduled
 
 ---
 
+## 🛠️ Infrastructure Libraries
+
+All automation scripts now use enterprise-grade infrastructure:
+
+### Core Libraries (`automation/lib/`)
+
+**rate-limiter.mjs** - Prevents API errors
+- Sliding window rate limiting (50 req/min default)
+- Exponential backoff on 429 errors
+- Automatic retry (up to 3 attempts)
+- Zero manual intervention required
+
+**usage-tracker.mjs** - Cost monitoring
+- Tracks every API call with costs
+- Monthly budget alerts at 80%
+- Generate reports: `node -e "import('./automation/lib/usage-tracker.mjs').then(m => new m.UsageTracker().generateReport())"`
+- Saves to `automation/data/api-usage.json`
+
+**logger.mjs** - Structured logging
+- JSON logs with timestamps
+- Color-coded console output
+- File rotation (daily/weekly/monthly)
+- Logs saved to `automation/logs/`
+
+**error-handler.mjs** - Intelligent error management
+- Classifies errors (critical/warning/error)
+- Provides recovery suggestions
+- Slack alerts for critical errors (optional)
+- Graceful degradation
+
+**content-validator.mjs** - Quality assurance
+- Word count validation (600-3000)
+- Readability scoring (Flesch Reading Ease)
+- Keyword density checks (max 3%)
+- Structure validation (headings, paragraphs)
+- Detects AI patterns
+
+**duplicate-detector.mjs** - Content uniqueness
+- Jaccard similarity (70% threshold)
+- N-gram overlap detection
+- Prevents duplicate suburb pages
+- Content fingerprinting
+
+**env-validator.mjs** - Configuration checks
+- Validates required environment variables
+- Clear error messages with examples
+- Runs automatically at script startup
+- Prevents cryptic errors
+
+**cache.mjs** - Performance optimization
+- TTL-based file caching (1 hour default)
+- Reduces redundant API calls
+- Automatic cleanup of expired entries
+- Simple wrap() interface
+
+### Usage Examples
+
+```javascript
+// Rate limiting (automatic in all scripts)
+const result = await rateLimiter.withRetry(async () => {
+  return await anthropic.messages.create({...});
+});
+
+// Usage tracking (automatic in all scripts)
+await usageTracker.track('script-name', response.usage);
+
+// Content validation
+const validator = new ContentValidator();
+const result = await validator.validate(content, { keyword: 'sydney seo' });
+console.log(validator.generateReport(result));
+
+// Duplicate detection
+const detector = new DuplicateDetector();
+const result = await detector.check(newContent, existingContents);
+```
+
+---
+
+## 🧪 Testing & Dry-Run Mode
+
+Test scripts safely without making API calls or writing files:
+
+```bash
+# Test suburb page generation (no API calls)
+node automation/scripts/generate-suburb-pages.mjs --dry-run
+
+# Test GBP post generation (no API calls)
+node automation/scripts/gbp-auto-poster.mjs --dry-run
+
+# Test topic generation (no API calls)
+node automation/scripts/generate-topics.mjs 25 --dry-run
+
+# Test link outreach (no API calls)
+node automation/scripts/link-outreach.mjs --dry-run
+```
+
+### Dry-Run Benefits
+- ✅ Test configuration without costs
+- ✅ Validate environment variables
+- ✅ Check file paths and permissions
+- ✅ See what would be generated
+- ✅ Perfect for CI/CD pipelines
+
+---
+
 ## 🎯 NPM Scripts
 
 ### Run Individual Automations:
@@ -85,6 +231,19 @@ npm run automation:gbp-posts       # Generate GBP posts
 npm run automation:reviews         # Generate review requests
 npm run automation:rank-track      # Track keyword rankings
 npm run automation:link-outreach   # Generate link outreach emails
+npm run automation:generate-topics # Generate blog topic ideas
+```
+
+### Direct Script Execution (more options):
+```bash
+# Generate topics with auto-approve
+node automation/scripts/generate-topics.mjs 25 --auto
+
+# Generate topics in dry-run mode
+node automation/scripts/generate-topics.mjs 25 --dry-run
+
+# Generate suburb pages with dry-run
+node automation/scripts/generate-suburb-pages.mjs --dry-run
 ```
 
 ### Master Orchestrator:

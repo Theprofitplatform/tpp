@@ -20,6 +20,10 @@
     "test:essential": "./scripts/essential-tests.sh",
     "test:core": "./scripts/core-test.sh",
     "test": "playwright test",
+    "test:unit": "vitest",
+    "test:unit:ui": "vitest --ui",
+    "test:unit:run": "vitest run",
+    "test:unit:watch": "vitest watch",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
@@ -50,6 +54,9 @@
     "automation:reviews": "node automation/scripts/review-automation.mjs",
     "automation:rank-track": "node automation/scripts/rank-tracker.mjs",
     "automation:link-outreach": "node automation/scripts/link-outreach.mjs",
+    "automation:generate-topics": "node automation/scripts/generate-topics.mjs",
+    "automation:dashboard": "node automation/scripts/dashboard.mjs",
+    "automation:dashboard:watch": "node automation/scripts/dashboard.mjs --watch",
     "automation:scheduled": "node automation/scripts/automation-orchestrator.mjs scheduled",
     "automation:run": "node automation/scripts/automation-orchestrator.mjs run",
     "automation:list": "node automation/scripts/automation-orchestrator.mjs list",
@@ -83,16 +90,19 @@
     "googleapis": "^161.0.0",
     "gray-matter": "^4.0.3",
     "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^2.7.0",
     "nodemailer": "^7.0.6",
     "undici": "^7.16.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.1",
+    "@vitest/ui": "^2.1.8",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.3.1",
     "playwright": "^1.55.1",
     "prettier": "^3.6.2",
-    "terser": "^5.44.0"
+    "terser": "^5.44.0",
+    "vitest": "^2.1.8"
   }
 }

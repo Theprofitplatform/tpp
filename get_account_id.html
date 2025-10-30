@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Get GMB Account ID</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+        .code { background: #f4f4f4; padding: 15px; border-radius: 5px; font-family: monospace; }
+        .highlight { background: yellow; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Find Your GMB Account ID</h1>
+    
+    <h2>Method 1: From Current Page</h2>
+    <ol>
+        <li>Stay on <code>https://business.google.com/locations</code></li>
+        <li>Press <kbd>F12</kbd> to open Developer Console</li>
+        <li>Click the <strong>Console</strong> tab</li>
+        <li>Copy and paste this code:</li>
+    </ol>
+    
+    <div class="code">
+        <pre>fetch('https://business.google.com/v2/accounts')
+    .then(r => r.json())
+    .then(d => console.log('Account ID:', d.accounts[0].name.split('/')[1]))
+    .catch(e => console.log('Try Method 2'))</pre>
+    </div>
+    
+    <h2>Method 2: Check Network Tab</h2>
+    <ol>
+        <li>Press <kbd>F12</kbd> (if not already open)</li>
+        <li>Click the <strong>Network</strong> tab</li>
+        <li>Click on your business "The Profit Platform" again</li>
+        <li>Look for requests in the Network tab</li>
+        <li>Find one that contains "accounts" in the URL</li>
+        <li>The account ID will be in format: <code>accounts/XXXXXXXXX</code></li>
+    </ol>
+    
+    <h2>Method 3: Inspect Page Source</h2>
+    <ol>
+        <li>Right-click anywhere on the page</li>
+        <li>Select "View Page Source" or press <kbd>Ctrl+U</kbd></li>
+        <li>Press <kbd>Ctrl+F</kbd> to search</li>
+        <li>Search for: <span class="highlight">"accounts/"</span></li>
+        <li>You'll find your Account ID after "accounts/"</li>
+    </ol>
+    
+    <p><strong>Once you find a number that looks like: 12345678901234567890</strong></p>
+    <p>That's your Account ID!</p>
+</body>
+</html>

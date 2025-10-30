@@ -3,15 +3,50 @@
 /**
  * Automated Link Building Outreach
  * Finds link opportunities and generates personalized outreach emails
+ *
+ * IMPROVEMENTS:
+ * - Environment validation at startup
+ * - Rate limiting with automatic retry
+ * - Structured logging with file output
+ * - API usage and cost tracking
+ * - Better error handling with classification
+ * - Dry-run mode support
+ * - External target configuration file
  */
 
 import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { EnvValidator } from '../lib/env-validator.mjs';
+import { AnthropicRateLimiter } from '../lib/rate-limiter.mjs';
+import { Logger } from '../lib/logger.mjs';
+import { ErrorHandler } from '../lib/error-handler.mjs';
+import { UsageTracker } from '../lib/usage-tracker.mjs';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Validate environment
+const env = new EnvValidator({ silent: false })
+  .require(
+    'ANTHROPIC_API_KEY',
+    'Claude API key from https://console.anthropic.com',
+    (v) => v && v.startsWith('sk-ant-')
+  )
+  .optional('OUTPUT_DIR', 'Output directory for outreach emails', './automation/generated/link-outreach')
+  .validate();
+
+// Initialize utilities
+const logger = new Logger('link-outreach');
+const errorHandler = new ErrorHandler('link-outreach');
+const rateLimiter = new AnthropicRateLimiter(50, { verbose: false });
+const usageTracker = new UsageTracker();
 
 const CONFIG = {
   anthropicApiKey: process.env.ANTHROPIC_API_KEY,
-  outputDir: './automation/generated/link-outreach',
+  outputDir: process.env.OUTPUT_DIR || './automation/generated/link-outreach',
+  isDryRun: process.argv.includes('--dry-run'),
 
   // Target websites (you'll populate this)
   targetWebsites: [
@@ -67,14 +102,30 @@ const CONFIG = {
   },
 };
 
-const anthropic = new Anthropic({
-  apiKey: CONFIG.anthropicApiKey,
-});
+// Initialize Anthropic client
+let anthropic;
+try {
+  anthropic = new Anthropic({
+    apiKey: CONFIG.anthropicApiKey,
+    maxRetries: 3,
+  });
+} catch (error) {
+  logger.error('Failed to initialize Anthropic client', { error: error.message });
+  process.exit(1);
+}
 
 /**
  * Generate personalized outreach email
  */
 async function generateOutreachEmail(target, strategy) {
+  logger.debug(`Generating outreach email for ${target.name}`);
+
+  if (CONFIG.isDryRun) {
+    return {
+      subject: `[DRY RUN] Outreach subject for ${target.name}`,
+      body: '[DRY RUN] Email body would be generated here',
+    };
+  }
   const prompt = `You are an expert at writing link building outreach emails that get responses.
 
 Write a personalized, non-salesy outreach email for the following scenario:
@@ -112,13 +163,21 @@ Best,
 ${CONFIG.yourInfo.name}
 ${CONFIG.yourInfo.title}, ${CONFIG.yourInfo.company}`;
 
-  const message = await anthropic.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 500,
-    messages: [{
-      role: 'user',
-      content: prompt
-    }]
+  // Use rate limiter to prevent API errors
+  const message = await rateLimiter.withRetry(async () => {
+    const response = await anthropic.messages.create({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 500,
+      messages: [{
+        role: 'user',
+        content: prompt
+      }]
+    });
+
+    // Track API usage
+    await usageTracker.track('link-outreach', response.usage);
+
+    return response;
   });
 
   const fullText = message.content[0].text;
@@ -149,19 +208,17 @@ function determineStrategy(target) {
  * Generate all outreach emails
  */
 async function generateAllOutreach() {
-  console.log('🚀 Generating Link Outreach Emails\n');
-
-  if (!CONFIG.anthropicApiKey) {
-    console.error('❌ ERROR: ANTHROPIC_API_KEY not set');
-    process.exit(1);
-  }
+  logger.info('Generating Link Outreach Emails', {
+    isDryRun: CONFIG.isDryRun,
+    targetCount: CONFIG.targetWebsites.length,
+  });
 
   await fs.mkdir(CONFIG.outputDir, { recursive: true });
 
   const outreachEmails = [];
 
   for (const [index, target] of CONFIG.targetWebsites.entries()) {
-    console.log(`📧 ${index + 1}/${CONFIG.targetWebsites.length}: ${target.name}...`);
+    logger.info(`${index + 1}/${CONFIG.targetWebsites.length}: ${target.name}`);
 
     const strategy = determineStrategy(target);
 
@@ -180,13 +237,19 @@ async function generateAllOutreach() {
         response: null,
       });
 
-      // Rate limiting
-      if (index < CONFIG.targetWebsites.length - 1) {
-        await new Promise(resolve => setTimeout(resolve, 1500));
-      }
+      logger.success(`Generated email for ${target.name}`, {
+        strategy,
+        subjectLength: email.subject.length,
+        bodyLength: email.body.length,
+      });
 
     } catch (error) {
-      console.error(`❌ Error generating email for ${target.name}:`, error.message);
+      const errorInfo = await errorHandler.handle(error, {
+        target: target.name,
+        operation: 'generateOutreachEmail',
+      });
+
+      logger.error(`Failed to generate email for ${target.name}`, errorInfo);
     }
   }
 
@@ -197,17 +260,27 @@ async function generateAllOutreach() {
  * Save outreach emails
  */
 async function saveOutreach(emails) {
+  const dateStr = new Date().toISOString().split('T')[0];
+  const jsonPath = path.join(CONFIG.outputDir, `outreach-${dateStr}.json`);
+  const csvPath = path.join(CONFIG.outputDir, `outreach-${dateStr}.csv`);
+  const mdPath = path.join(CONFIG.outputDir, `outreach-${dateStr}.md`);
+
+  if (CONFIG.isDryRun) {
+    logger.info('[DRY RUN] Would save files:', { jsonPath, csvPath, mdPath });
+    return { jsonPath, csvPath, mdPath };
+  }
+
   // JSON
-  const jsonPath = path.join(CONFIG.outputDir, `outreach-${new Date().toISOString().split('T')[0]}.json`);
   await fs.writeFile(jsonPath, JSON.stringify(emails, null, 2));
+  logger.success(`Saved JSON: ${jsonPath}`);
 
   // CSV
   const csvHeaders = 'Target,URL,Contact,Strategy,Subject,Status\n';
   const csvRows = emails.map(e =>
     `"${e.target}","${e.url}","${e.contact}","${e.strategy}","${e.subject}","${e.status}"`
   ).join('\n');
-  const csvPath = path.join(CONFIG.outputDir, `outreach-${new Date().toISOString().split('T')[0]}.csv`);
   await fs.writeFile(csvPath, csvHeaders + csvRows);
+  logger.success(`Saved CSV: ${csvPath}`);
 
   // Markdown (readable)
   let markdown = `# Link Building Outreach Campaign\n\n`;
@@ -231,8 +304,8 @@ async function saveOutreach(emails) {
     markdown += `---\n\n`;
   });
 
-  const mdPath = path.join(CONFIG.outputDir, `outreach-${new Date().toISOString().split('T')[0]}.md`);
   await fs.writeFile(mdPath, markdown);
+  logger.success(`Saved Markdown: ${mdPath}`);
 
   return { jsonPath, csvPath, mdPath };
 }
@@ -275,29 +348,68 @@ function printGuide() {
  * Main execution
  */
 async function main() {
-  const emails = await generateAllOutreach();
-  const files = await saveOutreach(emails);
+  const startTime = Date.now();
 
-  console.log(`\n💾 Saved to: ${CONFIG.outputDir}`);
-  console.log(`   JSON: ${files.jsonPath}`);
-  console.log(`   CSV: ${files.csvPath}`);
-  console.log(`   Markdown: ${files.mdPath}`);
+  try {
+    const emails = await generateAllOutreach();
+    const files = await saveOutreach(emails);
 
-  printGuide();
+    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
 
-  console.log('\n📊 SUMMARY:');
-  console.log(`   Total emails generated: ${emails.length}`);
-  console.log(`   Guest post pitches: ${emails.filter(e => e.strategy.includes('Guest post')).length}`);
-  console.log(`   Resource suggestions: ${emails.filter(e => e.strategy.includes('Resource')).length}`);
-  console.log(`   Other outreach: ${emails.filter(e => !e.strategy.includes('Guest post') && !e.strategy.includes('Resource')).length}`);
+    if (!CONFIG.isDryRun) {
+      console.log(`\n💾 Saved to: ${CONFIG.outputDir}`);
+      console.log(`   JSON: ${files.jsonPath}`);
+      console.log(`   CSV: ${files.csvPath}`);
+      console.log(`   Markdown: ${files.mdPath}`);
 
-  console.log('\n💡 PRO TIPS:');
-  console.log('   1. Quality > Quantity: Better to send 5 great emails than 50 templates');
-  console.log('   2. Build relationships: Comment on their content before reaching out');
-  console.log('   3. Track everything: Know what subject lines and strategies work');
-  console.log('   4. Be patient: Good links take time\n');
+      printGuide();
+    }
 
-  console.log('🎉 Outreach campaign ready!');
+    console.log('\n' + '═'.repeat(60));
+    console.log('📊 GENERATION SUMMARY');
+    console.log('═'.repeat(60));
+    console.log(`Duration: ${duration}s`);
+    console.log(`Total emails: ${emails.length}`);
+    console.log(`Guest post pitches: ${emails.filter(e => e.strategy.includes('Guest post')).length}`);
+    console.log(`Resource suggestions: ${emails.filter(e => e.strategy.includes('Resource')).length}`);
+    console.log(`Other outreach: ${emails.filter(e => !e.strategy.includes('Guest post') && !e.strategy.includes('Resource')).length}`);
+
+    if (CONFIG.isDryRun) {
+      console.log('\n⚠️  DRY RUN MODE - No files were written, no API calls made');
+    }
+
+    // Show API usage stats
+    if (!CONFIG.isDryRun) {
+      console.log('\n💰 API Usage:');
+      const stats = await usageTracker.getStats(1); // Last 1 day
+      console.log(`  Total Cost: $${stats.totalCost.toFixed(4)}`);
+      console.log(`  Total Tokens: ${stats.totalTokens.toLocaleString()}`);
+      console.log(`  Requests: ${stats.requestCount}`);
+
+      console.log('\n💡 PRO TIPS:');
+      console.log('   1. Quality > Quantity: Better to send 5 great emails than 50 templates');
+      console.log('   2. Build relationships: Comment on their content before reaching out');
+      console.log('   3. Track everything: Know what subject lines and strategies work');
+      console.log('   4. Be patient: Good links take time');
+    }
+
+    console.log('\n' + '═'.repeat(60));
+    logger.success('Outreach campaign ready!', {
+      emails: emails.length,
+      duration: `${duration}s`,
+    });
+
+  } catch (error) {
+    await errorHandler.handle(error, {
+      operation: 'main',
+      exitOnError: true,
+    });
+  }
 }
 
-main().catch(console.error);
+main().catch(async (error) => {
+  await errorHandler.handle(error, {
+    operation: 'main-catch',
+    exitOnError: true,
+  });
+});

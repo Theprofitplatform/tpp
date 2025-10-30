@@ -4,53 +4,111 @@
  * Automated Suburb Page Generator
  * Generates unique, SEO-optimized suburb landing pages
  * Uses Claude API for content generation
+ *
+ * IMPROVEMENTS:
+ * - Now loads suburbs from JSON file
+ * - Uses rate limiter to prevent API errors
+ * - Tracks API usage and costs
+ * - Has dry-run mode
+ * - Better error handling
+ * - Environment validation
  */
 
 import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { EnvValidator } from '../lib/env-validator.mjs';
+import { AnthropicRateLimiter } from '../lib/rate-limiter.mjs';
+import { Logger } from '../lib/logger.mjs';
+import { ErrorHandler } from '../lib/error-handler.mjs';
+import { UsageTracker } from '../lib/usage-tracker.mjs';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Validate environment
+const env = new EnvValidator({ silent: false })
+  .require(
+    'ANTHROPIC_API_KEY',
+    'Claude API key from https://console.anthropic.com',
+    (v) => v && v.startsWith('sk-ant-')
+  )
+  .optional('OUTPUT_DIR', 'Output directory for suburb pages', './src/content/locations')
+  .validate();
 
 // Configuration
 const CONFIG = {
   anthropicApiKey: process.env.ANTHROPIC_API_KEY,
-  outputDir: './src/content/locations',
-  targetSuburbs: [
-    // Priority suburbs (start with these)
-    { name: 'Bondi', postcode: '2026', lat: '-33.8915', lng: '151.2767', region: 'Eastern Suburbs' },
-    { name: 'Parramatta', postcode: '2150', lat: '-33.8151', lng: '151.0010', region: 'Western Sydney' },
-    { name: 'North Sydney', postcode: '2060', lat: '-33.8403', lng: '151.2070', region: 'North Shore' },
-    { name: 'Manly', postcode: '2095', lat: '-33.7969', lng: '151.2840', region: 'Northern Beaches' },
-    { name: 'Chatswood', postcode: '2067', lat: '-33.7969', lng: '151.1810', region: 'North Shore' },
-    { name: 'Newtown', postcode: '2042', lat: '-33.8961', lng: '151.1789', region: 'Inner West' },
-    { name: 'Surry Hills', postcode: '2010', lat: '-33.8862', lng: '151.2131', region: 'Inner Sydney' },
-    { name: 'Pyrmont', postcode: '2009', lat: '-33.8717', lng: '151.1957', region: 'Inner Sydney' },
-    { name: 'Mosman', postcode: '2088', lat: '-33.8286', lng: '151.2439', region: 'North Shore' },
-    { name: 'Double Bay', postcode: '2028', lat: '-33.8777', lng: '151.2425', region: 'Eastern Suburbs' },
-  ],
-  nearbySuburbsMap: {
-    'Bondi': ['Bondi Junction', 'Bronte', 'Tamarama', 'Waverley'],
-    'Parramatta': ['Harris Park', 'Westmead', 'Rosehill', 'North Parramatta'],
-    'North Sydney': ['Milsons Point', 'Cremorne', 'Neutral Bay', 'Kirribilli'],
-    'Manly': ['Freshwater', 'Curl Curl', 'Dee Why', 'Fairlight'],
-    'Chatswood': ['Willoughby', 'Artarmon', 'Lane Cove', 'Roseville'],
-    'Newtown': ['Enmore', 'Stanmore', 'Erskineville', 'Marrickville'],
-    'Surry Hills': ['Darlinghurst', 'Redfern', 'Paddington', 'Chippendale'],
-    'Pyrmont': ['Ultimo', 'Glebe', 'Darling Harbour', 'Barangaroo'],
-    'Mosman': ['Cremorne', 'Neutral Bay', 'Balmoral', 'Beauty Point'],
-    'Double Bay': ['Rose Bay', 'Bellevue Hill', 'Point Piper', 'Darling Point'],
-  }
+  outputDir: process.env.OUTPUT_DIR || './src/content/locations',
+  suburbsFile: './automation/data/suburbs.json',
+  isDryRun: process.argv.includes('--dry-run'),
 };
 
+// Initialize utilities
+const logger = new Logger('suburb-pages');
+const errorHandler = new ErrorHandler('suburb-pages');
+const rateLimiter = new AnthropicRateLimiter(50, { verbose: true });
+const usageTracker = new UsageTracker();
+
 // Initialize Anthropic client
-const anthropic = new Anthropic({
-  apiKey: CONFIG.anthropicApiKey,
-});
+let anthropic;
+try {
+  anthropic = new Anthropic({
+    apiKey: CONFIG.anthropicApiKey,
+    maxRetries: 3,
+  });
+} catch (error) {
+  logger.error('Failed to initialize Anthropic client', { error: error.message });
+  process.exit(1);
+}
+
+/**
+ * Load suburbs from JSON file
+ */
+async function loadSuburbs() {
+  try {
+    const content = await fs.readFile(CONFIG.suburbsFile, 'utf-8');
+    const data = JSON.parse(content);
+    return data.suburbs.filter(s => s.status === 'pending');
+  } catch (error) {
+    logger.error('Failed to load suburbs file', { error: error.message });
+    throw new Error(`Could not load ${CONFIG.suburbsFile}. Make sure the file exists.`);
+  }
+}
+
+/**
+ * Save updated suburbs data
+ */
+async function saveSuburbs(suburbs) {
+  try {
+    const content = await fs.readFile(CONFIG.suburbsFile, 'utf-8');
+    const data = JSON.parse(content);
+
+    // Update suburbs in data
+    suburbs.forEach(updatedSuburb => {
+      const index = data.suburbs.findIndex(s => s.name === updatedSuburb.name);
+      if (index !== -1) {
+        data.suburbs[index] = updatedSuburb;
+      }
+    });
+
+    // Update metadata
+    data.metadata.lastUpdated = new Date().toISOString().split('T')[0];
+    data.metadata.generated = data.suburbs.filter(s => s.status === 'generated').length;
+    data.metadata.pendingGeneration = data.suburbs.filter(s => s.status === 'pending').length;
+
+    await fs.writeFile(CONFIG.suburbsFile, JSON.stringify(data, null, 2));
+  } catch (error) {
+    logger.error('Failed to save suburbs file', { error: error.message });
+  }
+}
 
 /**
  * Generate unique suburb page content using Claude
  */
 async function generateSuburbContent(suburb) {
-  console.log(`🤖 Generating content for ${suburb.name}...`);
+  logger.info(`Generating content for ${suburb.name}`);
 
   const prompt = `You are an expert local SEO content writer creating a suburb landing page for a digital marketing agency in Sydney.
 
@@ -58,7 +116,7 @@ SUBURB: ${suburb.name}, ${suburb.region}
 POSTCODE: ${suburb.postcode}
 COMPANY: The Profit Platform (digital marketing agency - SEO, Google Ads, web design)
 
-Write a unique, high-quality suburb landing page (600-800 words) that:
+Write a unique, high-quality suburb landing page (EXACTLY 600-800 words) that:
 1. Opens with a compelling hook specific to ${suburb.name}'s business landscape
 2. Addresses local business challenges unique to ${suburb.name}
 3. Explains our services in context of ${suburb.name} market
@@ -75,19 +133,28 @@ IMPORTANT:
 - Include the suburb name naturally 5-7 times throughout
 - NO generic templates or obvious AI patterns
 - Make it sound like a local expert wrote it
+- Word count MUST be between 600-800 words
 
 Return ONLY the markdown content, starting with the H1 heading. No frontmatter, no metadata.`;
 
-  const message = await anthropic.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 2000,
-    messages: [{
-      role: 'user',
-      content: prompt
-    }]
+  // Use rate limiter to prevent API errors
+  const result = await rateLimiter.withRetry(async () => {
+    const message = await anthropic.messages.create({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 2000,
+      messages: [{
+        role: 'user',
+        content: prompt
+      }]
+    });
+
+    // Track API usage
+    await usageTracker.track('suburb-pages', message.usage);
+
+    return message;
   });
 
-  return message.content[0].text;
+  return result.content[0].text;
 }
 
 /**
@@ -95,11 +162,13 @@ Return ONLY the markdown content, starting with the H1 heading. No frontmatter, 
  */
 async function createSuburbPage(suburb) {
   try {
+    logger.info(`Creating suburb page for ${suburb.name}`);
+
     // Generate unique content
     const content = await generateSuburbContent(suburb);
 
-    // Build nearby suburbs list
-    const nearbySuburbs = CONFIG.nearbySuburbsMap[suburb.name] || [];
+    // Build nearby suburbs list from suburb data
+    const nearbySuburbs = suburb.nearbySuburbs || [];
 
     // Create frontmatter
     const frontmatter = `---
@@ -114,8 +183,8 @@ phone: "0487 286 451"
 email: "avi@theprofitplatform.com.au"
 serviceAreas: ${JSON.stringify([suburb.name, ...nearbySuburbs])}
 coordinates:
-  lat: ${suburb.lat}
-  lng: ${suburb.lng}
+  lat: ${suburb.coordinates.lat}
+  lng: ${suburb.coordinates.lng}
 draft: false
 dateCreated: ${new Date().toISOString().split('T')[0]}
 lastUpdated: ${new Date().toISOString().split('T')[0]}
@@ -130,15 +199,32 @@ lastUpdated: ${new Date().toISOString().split('T')[0]}
     const filename = `${suburb.name.toLowerCase().replace(/\s+/g, '-')}.md`;
     const filepath = path.join(CONFIG.outputDir, filename);
 
+    // Dry-run mode: don't write file
+    if (CONFIG.isDryRun) {
+      logger.info(`[DRY RUN] Would create: ${filepath}`, {
+        wordCount: content.split(/\s+/).length,
+        size: fullContent.length
+      });
+      return { success: true, filepath, suburb: suburb.name, dryRun: true };
+    }
+
     // Write file
     await fs.writeFile(filepath, fullContent, 'utf-8');
 
-    console.log(`✅ Created: ${filepath}`);
+    logger.success(`Created: ${filepath}`, {
+      wordCount: content.split(/\s+/).length,
+      size: fullContent.length
+    });
+
     return { success: true, filepath, suburb: suburb.name };
 
   } catch (error) {
-    console.error(`❌ Error generating ${suburb.name}:`, error.message);
-    return { success: false, suburb: suburb.name, error: error.message };
+    const errorInfo = await errorHandler.handle(error, {
+      suburb: suburb.name,
+      operation: 'createSuburbPage',
+    });
+
+    return { success: false, suburb: suburb.name, error: errorInfo.message };
   }
 }
 
@@ -146,47 +232,112 @@ lastUpdated: ${new Date().toISOString().split('T')[0]}
  * Main execution
  */
 async function main() {
-  console.log('🚀 Starting Automated Suburb Page Generation\n');
+  const startTime = Date.now();
 
-  // Check API key
-  if (!CONFIG.anthropicApiKey) {
-    console.error('❌ ERROR: ANTHROPIC_API_KEY not set');
-    console.error('Set it with: export ANTHROPIC_API_KEY=your_key_here');
-    process.exit(1);
-  }
+  logger.info('Starting Automated Suburb Page Generation', {
+    isDryRun: CONFIG.isDryRun,
+    outputDir: CONFIG.outputDir,
+  });
 
-  // Ensure output directory exists
-  await fs.mkdir(CONFIG.outputDir, { recursive: true });
+  try {
+    // Ensure output directory exists
+    await fs.mkdir(CONFIG.outputDir, { recursive: true });
 
-  // Process each suburb
-  const results = [];
+    // Load suburbs from JSON file
+    const suburbs = await loadSuburbs();
 
-  for (const suburb of CONFIG.targetSuburbs) {
-    const result = await createSuburbPage(suburb);
-    results.push(result);
-
-    // Rate limiting (avoid hitting API too fast)
-    if (CONFIG.targetSuburbs.indexOf(suburb) < CONFIG.targetSuburbs.length - 1) {
-      console.log('⏳ Waiting 2 seconds before next generation...\n');
-      await new Promise(resolve => setTimeout(resolve, 2000));
+    if (suburbs.length === 0) {
+      logger.warn('No pending suburbs found to generate');
+      return;
     }
-  }
 
-  // Summary
-  console.log('\n📊 GENERATION SUMMARY:');
-  console.log(`✅ Successful: ${results.filter(r => r.success).length}`);
-  console.log(`❌ Failed: ${results.filter(r => !r.success).length}`);
+    logger.info(`Found ${suburbs.length} suburb(s) to generate`);
 
-  if (results.filter(r => !r.success).length > 0) {
-    console.log('\nFailed suburbs:');
-    results.filter(r => !r.success).forEach(r => {
-      console.log(`  - ${r.suburb}: ${r.error}`);
+    // Process each suburb
+    const results = [];
+    const updatedSuburbs = [];
+
+    for (const suburb of suburbs) {
+      logger.info(`Processing ${suburb.name} (${suburbs.indexOf(suburb) + 1}/${suburbs.length})`);
+
+      const result = await createSuburbPage(suburb);
+      results.push(result);
+
+      // Update suburb status
+      if (result.success && !CONFIG.isDryRun) {
+        suburb.status = 'generated';
+        suburb.generatedDate = new Date().toISOString().split('T')[0];
+        suburb.filepath = result.filepath;
+        updatedSuburbs.push(suburb);
+      }
+
+      // Save progress after each suburb (checkpoint)
+      if (updatedSuburbs.length > 0 && !CONFIG.isDryRun) {
+        await saveSuburbs(updatedSuburbs);
+      }
+
+      // Rate limiting - no need to wait, rateLimiter handles this automatically
+      // Just a small delay to show progress
+      if (suburbs.indexOf(suburb) < suburbs.length - 1) {
+        logger.debug('Moving to next suburb...');
+      }
+    }
+
+    // Final summary
+    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+    const successful = results.filter(r => r.success).length;
+    const failed = results.filter(r => !r.success).length;
+
+    console.log('\n' + '═'.repeat(60));
+    console.log('📊 GENERATION SUMMARY');
+    console.log('═'.repeat(60));
+    console.log(`Duration: ${duration}s`);
+    console.log(`✅ Successful: ${successful}`);
+    console.log(`❌ Failed: ${failed}`);
+
+    if (CONFIG.isDryRun) {
+      console.log('\n⚠️  DRY RUN MODE - No files were written');
+    }
+
+    if (failed > 0) {
+      console.log('\n❌ Failed suburbs:');
+      results.filter(r => !r.success).forEach(r => {
+        console.log(`  - ${r.suburb}: ${r.error}`);
+      });
+    }
+
+    // Show API usage stats
+    console.log('\n💰 API Usage:');
+    const stats = await usageTracker.getStats(1); // Last 1 day
+    console.log(`  Total Cost: $${stats.totalCost.toFixed(4)}`);
+    console.log(`  Total Tokens: ${stats.totalTokens.toLocaleString()}`);
+    console.log(`  Requests: ${stats.requestCount}`);
+
+    console.log('\n' + '═'.repeat(60));
+    logger.success('Automation complete!', {
+      successful,
+      failed,
+      duration: `${duration}s`,
+    });
+
+    console.log(`\n📁 Pages saved to: ${CONFIG.outputDir}`);
+
+    if (!CONFIG.isDryRun) {
+      console.log(`📊 Updated: ${CONFIG.suburbsFile}`);
+    }
+
+  } catch (error) {
+    await errorHandler.handle(error, {
+      operation: 'main',
+      exitOnError: true,
     });
   }
-
-  console.log('\n🎉 Automation complete!');
-  console.log(`📁 Pages saved to: ${CONFIG.outputDir}`);
 }
 
 // Run
-main().catch(console.error);
+main().catch(async (error) => {
+  await errorHandler.handle(error, {
+    operation: 'main-catch',
+    exitOnError: true,
+  });
+});

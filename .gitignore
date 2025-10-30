@@ -131,3 +131,4 @@ debug-*.html
 dev.log
 debug.log
 playwright-report/
+automation/data/gmb-tokens.json

@@ -7,6 +7,14 @@
  * - SEO trends
  * - Sydney B2B/local business focus
  * - Content gaps
+ *
+ * IMPROVEMENTS:
+ * - Environment validation at startup
+ * - Rate limiting with automatic retry
+ * - Structured logging with file output
+ * - API usage and cost tracking
+ * - Better error handling with classification
+ * - Dry-run mode support
  */
 
 import fs from 'fs';
@@ -14,6 +22,11 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import Anthropic from '@anthropic-ai/sdk';
 import dotenv from 'dotenv';
+import { EnvValidator } from '../lib/env-validator.mjs';
+import { AnthropicRateLimiter } from '../lib/rate-limiter.mjs';
+import { Logger } from '../lib/logger.mjs';
+import { ErrorHandler } from '../lib/error-handler.mjs';
+import { UsageTracker } from '../lib/usage-tracker.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,15 +39,39 @@ const BLOG_DIR = path.join(PROJECT_ROOT, 'src/content/blog');
 // Load environment variables
 dotenv.config({ path: path.join(PROJECT_ROOT, '.env.local') });
 
+// Validate environment
+const env = new EnvValidator({ silent: false })
+  .require(
+    'ANTHROPIC_API_KEY',
+    'Claude API key from https://console.anthropic.com',
+    (v) => v && v.startsWith('sk-ant-')
+  )
+  .validate();
+
+// Initialize utilities
+const logger = new Logger('topic-generator');
+const errorHandler = new ErrorHandler('topic-generator');
+const rateLimiter = new AnthropicRateLimiter(50, { verbose: false });
+const usageTracker = new UsageTracker();
+
 // Initialize Claude
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY || process.env.CLAUDE_API_KEY,
-});
+let anthropic;
+try {
+  anthropic = new Anthropic({
+    apiKey: process.env.ANTHROPIC_API_KEY,
+    maxRetries: 3,
+  });
+} catch (error) {
+  logger.error('Failed to initialize Anthropic client', { error: error.message });
+  process.exit(1);
+}
 
 /**
  * Analyze existing blog posts to understand patterns
  */
 function analyzeExistingTopics() {
+  logger.info('Analyzing existing topics and blog posts');
+
   const queueData = JSON.parse(fs.readFileSync(TOPIC_QUEUE_PATH, 'utf-8'));
 
   // Get all existing topics
@@ -55,26 +92,48 @@ function analyzeExistingTopics() {
     categories[t.category] = (categories[t.category] || 0) + 1;
   });
 
-  return {
+  const analysis = {
     totalTopics: allTopics.length,
     publishedCount: blogFiles.length,
     categories,
     recentTopics: allTopics.slice(-10),
   };
+
+  logger.debug('Topic analysis complete', {
+    totalTopics: analysis.totalTopics,
+    publishedCount: analysis.publishedCount,
+    categoryCount: Object.keys(categories).length,
+  });
+
+  return analysis;
 }
 
 /**
  * Generate new topics using Claude AI
  */
-async function generateTopics(count = 25) {
+async function generateTopics(count = 25, isDryRun = false) {
   const analysis = analyzeExistingTopics();
 
-  console.log('📊 Current Topic Analysis:');
-  console.log(`   Total topics: ${analysis.totalTopics}`);
-  console.log(`   Published posts: ${analysis.publishedCount}`);
-  console.log(`   Categories:`, analysis.categories);
-  console.log('');
-  console.log(`🤖 Generating ${count} new blog topics using Claude AI...\n`);
+  logger.info('Current Topic Analysis', {
+    totalTopics: analysis.totalTopics,
+    publishedPosts: analysis.publishedCount,
+    categories: analysis.categories,
+  });
+
+  logger.info(`Generating ${count} new blog topics using Claude AI`);
+
+  if (isDryRun) {
+    logger.info('[DRY RUN] Would generate topics here');
+    // Return mock topics for dry run
+    return Array.from({ length: count }, (_, i) => ({
+      title: `[DRY RUN] Topic ${i + 1}`,
+      category: 'SEO',
+      targetKeyword: 'test keyword',
+      searchIntent: 'commercial',
+      tags: ['test'],
+      priority: 3,
+    }));
+  }
 
   const prompt = `You are an expert SEO content strategist for a Sydney-based digital marketing agency called "The Profit Platform" (TPP).
 
@@ -122,14 +181,22 @@ RULES:
 Generate ${count} topics now:`;
 
   try {
-    const response = await anthropic.messages.create({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 4096,
-      temperature: 1,
-      messages: [{
-        role: 'user',
-        content: prompt,
-      }],
+    // Use rate limiter to prevent API errors
+    const response = await rateLimiter.withRetry(async () => {
+      const message = await anthropic.messages.create({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 4096,
+        temperature: 1,
+        messages: [{
+          role: 'user',
+          content: prompt,
+        }],
+      });
+
+      // Track API usage
+      await usageTracker.track('topic-generator', message.usage);
+
+      return message;
     });
 
     const content = response.content[0].text;
@@ -144,11 +211,14 @@ Generate ${count} topics now:`;
 
     const topics = JSON.parse(jsonText);
 
-    console.log(`✅ Generated ${topics.length} topics successfully!\n`);
+    logger.success(`Generated ${topics.length} topics successfully`);
 
     return topics;
   } catch (error) {
-    console.error('❌ Error generating topics:', error.message);
+    await errorHandler.handle(error, {
+      operation: 'generateTopics',
+      count,
+    });
     throw error;
   }
 }
@@ -156,7 +226,7 @@ Generate ${count} topics now:`;
 /**
  * Add topics to queue
  */
-function addTopicsToQueue(newTopics) {
+function addTopicsToQueue(newTopics, isDryRun = false) {
   const queueData = JSON.parse(fs.readFileSync(TOPIC_QUEUE_PATH, 'utf-8'));
 
   // Get next ID
@@ -175,6 +245,15 @@ function addTopicsToQueue(newTopics) {
     status: 'pending',
   }));
 
+  if (isDryRun) {
+    logger.info('[DRY RUN] Would add topics to queue', {
+      count: formattedTopics.length,
+      firstId: formattedTopics[0]?.id,
+      lastId: formattedTopics[formattedTopics.length - 1]?.id,
+    });
+    return formattedTopics;
+  }
+
   // Add to queue
   queueData.queue.push(...formattedTopics);
 
@@ -185,8 +264,12 @@ function addTopicsToQueue(newTopics) {
     'utf-8'
   );
 
-  console.log(`📝 Added ${formattedTopics.length} topics to queue`);
-  console.log(`📊 Total pending topics: ${queueData.queue.filter(t => t.status === 'pending').length}`);
+  const pendingCount = queueData.queue.filter(t => t.status === 'pending').length;
+
+  logger.success(`Added ${formattedTopics.length} topics to queue`, {
+    added: formattedTopics.length,
+    totalPending: pendingCount,
+  });
 
   return formattedTopics;
 }
@@ -224,60 +307,100 @@ function displaySummary(topics) {
  * Main execution
  */
 async function main() {
+  const startTime = Date.now();
   const args = process.argv.slice(2);
   const count = parseInt(args[0]) || 25;
+  const isDryRun = args.includes('--dry-run');
+  const isAuto = args.includes('--auto');
 
-  console.log('🚀 AI Topic Generator Starting...\n');
+  logger.info('AI Topic Generator Starting', {
+    count,
+    isDryRun,
+    isAuto,
+  });
 
   try {
-    // Check API key
-    if (!process.env.ANTHROPIC_API_KEY && !process.env.CLAUDE_API_KEY) {
-      throw new Error('ANTHROPIC_API_KEY or CLAUDE_API_KEY not found in environment');
-    }
-
     // Generate topics
-    const topics = await generateTopics(count);
+    const topics = await generateTopics(count, isDryRun);
 
     // Display summary
     displaySummary(topics);
 
-    // Ask for confirmation
-    console.log('\n⚠️  Review the topics above.');
-    console.log('Do you want to add these to the queue? (y/n)');
+    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
+
+    if (isDryRun) {
+      console.log('\n⚠️  DRY RUN MODE - No topics were added to queue, no API calls made');
+      logger.info('Dry run complete', { duration: `${duration}s` });
+      return;
+    }
 
     // In automated mode, auto-approve
-    if (args.includes('--auto')) {
-      console.log('🤖 Auto-approve mode enabled');
-      const added = addTopicsToQueue(topics);
-      console.log('\n✅ Topic generation complete!');
+    if (isAuto) {
+      logger.info('Auto-approve mode enabled');
+      const added = addTopicsToQueue(topics, isDryRun);
+
+      // Show API usage stats
+      console.log('\n💰 API Usage:');
+      const stats = await usageTracker.getStats(1); // Last 1 day
+      console.log(`  Total Cost: $${stats.totalCost.toFixed(4)}`);
+      console.log(`  Total Tokens: ${stats.totalTokens.toLocaleString()}`);
+      console.log(`  Requests: ${stats.requestCount}`);
+
+      console.log('\n' + '═'.repeat(60));
+      logger.success('Topic generation complete!', {
+        generated: topics.length,
+        added: added.length,
+        duration: `${duration}s`,
+      });
       return;
     }
 
     // Manual approval
+    console.log('\n⚠️  Review the topics above.');
+    console.log('Do you want to add these to the queue? (y/n)');
+
     const readline = require('readline').createInterface({
       input: process.stdin,
       output: process.stdout,
     });
 
-    readline.question('', (answer) => {
+    readline.question('', async (answer) => {
       if (answer.toLowerCase() === 'y' || answer.toLowerCase() === 'yes') {
-        addTopicsToQueue(topics);
-        console.log('\n✅ Topics added to queue successfully!');
+        addTopicsToQueue(topics, isDryRun);
+
+        // Show API usage stats
+        console.log('\n💰 API Usage:');
+        const stats = await usageTracker.getStats(1);
+        console.log(`  Total Cost: $${stats.totalCost.toFixed(4)}`);
+        console.log(`  Total Tokens: ${stats.totalTokens.toLocaleString()}`);
+        console.log(`  Requests: ${stats.requestCount}`);
+
+        logger.success('Topics added to queue successfully!', {
+          count: topics.length,
+          duration: `${duration}s`,
+        });
       } else {
-        console.log('\n❌ Cancelled. Topics not added.');
+        logger.warn('Cancelled. Topics not added.');
       }
       readline.close();
     });
 
   } catch (error) {
-    console.error('\n❌ Error:', error.message);
-    process.exit(1);
+    await errorHandler.handle(error, {
+      operation: 'main',
+      exitOnError: true,
+    });
   }
 }
 
 // Run if called directly
 if (import.meta.url === `file://${process.argv[1]}`) {
-  main();
+  main().catch(async (error) => {
+    await errorHandler.handle(error, {
+      operation: 'main-catch',
+      exitOnError: true,
+    });
+  });
 }
 
 export { generateTopics, addTopicsToQueue };

@@ -4,17 +4,47 @@
  * Automated Google Business Profile Post Generator
  * Generates and schedules GBP posts using Claude AI
  * Can integrate with GBP API or output for manual posting
+ *
+ * IMPROVEMENTS:
+ * - Environment validation at startup
+ * - Rate limiting with automatic retry
+ * - Structured logging with file output
+ * - API usage and cost tracking
+ * - Better error handling with classification
+ * - Dry-run mode support
  */
 
 import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { EnvValidator } from '../lib/env-validator.mjs';
+import { AnthropicRateLimiter } from '../lib/rate-limiter.mjs';
+import { Logger } from '../lib/logger.mjs';
+import { ErrorHandler } from '../lib/error-handler.mjs';
+import { UsageTracker } from '../lib/usage-tracker.mjs';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Validate environment
+const env = new EnvValidator({ silent: false })
+  .require(
+    'ANTHROPIC_API_KEY',
+    'Claude API key from https://console.anthropic.com',
+    (v) => v && v.startsWith('sk-ant-')
+  )
+  .optional('OUTPUT_DIR', 'Output directory for GBP posts', './automation/generated/gbp-posts')
+  .optional('POSTS_PER_WEEK', 'Number of posts per week', '3')
+  .optional('WEEKS_TO_GENERATE', 'Weeks to generate posts for', '4')
+  .validate();
 
 const CONFIG = {
   anthropicApiKey: process.env.ANTHROPIC_API_KEY,
-  outputDir: './automation/generated/gbp-posts',
-  postsPerWeek: 3,
-  weeksToGenerate: 4, // Generate 1 month at a time
+  outputDir: process.env.OUTPUT_DIR || './automation/generated/gbp-posts',
+  postsPerWeek: parseInt(process.env.POSTS_PER_WEEK || '3'),
+  weeksToGenerate: parseInt(process.env.WEEKS_TO_GENERATE || '4'),
+  isDryRun: process.argv.includes('--dry-run'),
 
   // Post types rotation
   postTypes: [
@@ -36,15 +66,31 @@ const CONFIG = {
   }
 };
 
-const anthropic = new Anthropic({
-  apiKey: CONFIG.anthropicApiKey,
-});
+// Initialize utilities
+const logger = new Logger('gbp-poster');
+const errorHandler = new ErrorHandler('gbp-poster');
+const rateLimiter = new AnthropicRateLimiter(50, { verbose: false });
+const usageTracker = new UsageTracker();
+
+// Initialize Anthropic client
+let anthropic;
+try {
+  anthropic = new Anthropic({
+    apiKey: CONFIG.anthropicApiKey,
+    maxRetries: 3,
+  });
+} catch (error) {
+  logger.error('Failed to initialize Anthropic client', { error: error.message });
+  process.exit(1);
+}
 
 /**
  * Generate a single GBP post using Claude
  */
 async function generatePost(postConfig, weekNumber, postNumber) {
   const { type, topic, cta } = postConfig;
+
+  logger.debug(`Generating ${type} post for week ${weekNumber}`);
 
   const prompt = `Create a Google Business Profile post for a digital marketing agency in Sydney.
 
@@ -75,16 +121,24 @@ AVOID:
 
 Return ONLY the post text, no quotes, no explanation.`;
 
-  const message = await anthropic.messages.create({
-    model: 'claude-sonnet-4-20250514',
-    max_tokens: 300,
-    messages: [{
-      role: 'user',
-      content: prompt
-    }]
+  // Use rate limiter to prevent API errors
+  const result = await rateLimiter.withRetry(async () => {
+    const message = await anthropic.messages.create({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 300,
+      messages: [{
+        role: 'user',
+        content: prompt
+      }]
+    });
+
+    // Track API usage
+    await usageTracker.track('gbp-poster', message.usage);
+
+    return message;
   });
 
-  return message.content[0].text.trim();
+  return result.content[0].text.trim();
 }
 
 /**
@@ -137,12 +191,11 @@ function generateSchedule(totalPosts) {
  * Generate all posts
  */
 async function generateAllPosts() {
-  console.log('🚀 Starting GBP Post Generation\n');
-
-  if (!CONFIG.anthropicApiKey) {
-    console.error('❌ ERROR: ANTHROPIC_API_KEY not set');
-    process.exit(1);
-  }
+  logger.info('Starting GBP Post Generation', {
+    isDryRun: CONFIG.isDryRun,
+    postsPerWeek: CONFIG.postsPerWeek,
+    weeksToGenerate: CONFIG.weeksToGenerate,
+  });
 
   await fs.mkdir(CONFIG.outputDir, { recursive: true });
 
@@ -150,17 +203,20 @@ async function generateAllPosts() {
   const schedule = generateSchedule(totalPosts);
   const posts = [];
 
-  console.log(`📅 Generating ${totalPosts} posts for ${CONFIG.weeksToGenerate} weeks\n`);
+  logger.info(`Generating ${totalPosts} posts for ${CONFIG.weeksToGenerate} weeks`);
 
   for (let i = 0; i < totalPosts; i++) {
     const weekNumber = Math.floor(i / CONFIG.postsPerWeek) + 1;
     const postNumber = (i % CONFIG.postsPerWeek) + 1;
     const postType = CONFIG.postTypes[i % CONFIG.postTypes.length];
 
-    console.log(`📝 Generating Post ${i + 1}/${totalPosts} (Week ${weekNumber}, ${postType.type})...`);
+    logger.info(`Generating Post ${i + 1}/${totalPosts} (Week ${weekNumber}, ${postType.type})`);
 
     try {
-      const content = await generatePost(postType, weekNumber, postNumber);
+      const content = CONFIG.isDryRun
+        ? `[DRY RUN] ${postType.type} post content would be generated here`
+        : await generatePost(postType, weekNumber, postNumber);
+
       const imageSuggestion = suggestImage(postType.type);
 
       posts.push({
@@ -177,13 +233,18 @@ async function generateAllPosts() {
         status: 'draft'
       });
 
-      // Rate limiting
-      if (i < totalPosts - 1) {
-        await new Promise(resolve => setTimeout(resolve, 1500));
-      }
+      logger.success(`Post ${i + 1} generated successfully`, {
+        type: postType.type,
+        length: content.length,
+      });
 
     } catch (error) {
-      console.error(`❌ Error generating post ${i + 1}:`, error.message);
+      const errorInfo = await errorHandler.handle(error, {
+        postNumber: i + 1,
+        postType: postType.type,
+      });
+
+      logger.error(`Failed to generate post ${i + 1}`, errorInfo);
     }
   }
 
@@ -194,10 +255,21 @@ async function generateAllPosts() {
  * Save posts in multiple formats
  */
 async function savePosts(posts) {
+  const dateStr = new Date().toISOString().split('T')[0];
+
   // Save as JSON
-  const jsonPath = path.join(CONFIG.outputDir, `gbp-posts-${new Date().toISOString().split('T')[0]}.json`);
+  const jsonPath = path.join(CONFIG.outputDir, `gbp-posts-${dateStr}.json`);
+  const csvPath = path.join(CONFIG.outputDir, `gbp-posts-${dateStr}.csv`);
+  const mdPath = path.join(CONFIG.outputDir, `gbp-posts-${dateStr}.md`);
+
+  if (CONFIG.isDryRun) {
+    logger.info('[DRY RUN] Would save files:', { jsonPath, csvPath, mdPath });
+    return { jsonPath, csvPath, mdPath };
+  }
+
+  // Save as JSON
   await fs.writeFile(jsonPath, JSON.stringify(posts, null, 2));
-  console.log(`\n💾 Saved JSON: ${jsonPath}`);
+  logger.success(`Saved JSON: ${jsonPath}`, { posts: posts.length });
 
   // Save as CSV for easy import
   const csvHeaders = 'Post #,Week,Type,Date,Day,Time,Content,Image Suggestion,CTA,URL,Status\n';
@@ -205,9 +277,8 @@ async function savePosts(posts) {
     `${p.postNumber},${p.week},"${p.type}","${p.scheduledDate}","${p.scheduledDay}","${p.scheduledTime}","${p.content.replace(/"/g, '""')}","${p.imageSuggestion}","${p.actionButton}","${p.actionUrl}","${p.status}"`
   ).join('\n');
 
-  const csvPath = path.join(CONFIG.outputDir, `gbp-posts-${new Date().toISOString().split('T')[0]}.csv`);
   await fs.writeFile(csvPath, csvHeaders + csvRows);
-  console.log(`💾 Saved CSV: ${csvPath}`);
+  logger.success(`Saved CSV: ${csvPath}`);
 
   // Save as readable Markdown checklist
   let markdown = `# Google Business Profile Posts - ${new Date().toLocaleDateString()}\n\n`;
@@ -227,9 +298,8 @@ async function savePosts(posts) {
     markdown += `---\n\n`;
   });
 
-  const mdPath = path.join(CONFIG.outputDir, `gbp-posts-${new Date().toISOString().split('T')[0]}.md`);
   await fs.writeFile(mdPath, markdown);
-  console.log(`💾 Saved Markdown: ${mdPath}`);
+  logger.success(`Saved Markdown: ${mdPath}`);
 
   return { jsonPath, csvPath, mdPath };
 }
@@ -268,26 +338,66 @@ function printInstructions(files) {
  * Main execution
  */
 async function main() {
-  const posts = await generateAllPosts();
-  const files = await savePosts(posts);
-  printInstructions(files);
+  const startTime = Date.now();
 
-  console.log('\n📊 SUMMARY:');
-  console.log(`✅ Generated ${posts.length} posts`);
-  console.log(`📅 Covering ${CONFIG.weeksToGenerate} weeks`);
-  console.log(`📝 Posting frequency: ${CONFIG.postsPerWeek}x per week`);
+  try {
+    const posts = await generateAllPosts();
+    const files = await savePosts(posts);
 
-  const typeBreakdown = posts.reduce((acc, p) => {
-    acc[p.type] = (acc[p.type] || 0) + 1;
-    return acc;
-  }, {});
+    if (!CONFIG.isDryRun) {
+      printInstructions(files);
+    }
 
-  console.log('\n📊 Post Types:');
-  Object.entries(typeBreakdown).forEach(([type, count]) => {
-    console.log(`   ${type}: ${count} posts`);
-  });
+    const duration = ((Date.now() - startTime) / 1000).toFixed(1);
 
-  console.log('\n🎉 Automation complete!');
+    console.log('\n' + '═'.repeat(60));
+    console.log('📊 GENERATION SUMMARY');
+    console.log('═'.repeat(60));
+    console.log(`Duration: ${duration}s`);
+    console.log(`✅ Generated: ${posts.length} posts`);
+    console.log(`📅 Covering: ${CONFIG.weeksToGenerate} weeks`);
+    console.log(`📝 Frequency: ${CONFIG.postsPerWeek}x per week`);
+
+    if (CONFIG.isDryRun) {
+      console.log('\n⚠️  DRY RUN MODE - No files were written, no API calls made');
+    }
+
+    const typeBreakdown = posts.reduce((acc, p) => {
+      acc[p.type] = (acc[p.type] || 0) + 1;
+      return acc;
+    }, {});
+
+    console.log('\n📊 Post Types:');
+    Object.entries(typeBreakdown).forEach(([type, count]) => {
+      console.log(`   ${type}: ${count} posts`);
+    });
+
+    // Show API usage stats
+    if (!CONFIG.isDryRun) {
+      console.log('\n💰 API Usage:');
+      const stats = await usageTracker.getStats(1); // Last 1 day
+      console.log(`  Total Cost: $${stats.totalCost.toFixed(4)}`);
+      console.log(`  Total Tokens: ${stats.totalTokens.toLocaleString()}`);
+      console.log(`  Requests: ${stats.requestCount}`);
+    }
+
+    console.log('\n' + '═'.repeat(60));
+    logger.success('Automation complete!', {
+      posts: posts.length,
+      duration: `${duration}s`,
+    });
+
+  } catch (error) {
+    await errorHandler.handle(error, {
+      operation: 'main',
+      exitOnError: true,
+    });
+  }
 }
 
-main().catch(console.error);
+main().catch(async (error) => {
+  await errorHandler.handle(error, {
+    operation: 'main-catch',
+    exitOnError: true,
+  });
+});

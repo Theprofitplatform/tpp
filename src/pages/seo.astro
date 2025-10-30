@@ -8,12 +8,122 @@ const pageDescription = "Dominate Google search results with our proven SEO stra
 
 <BaseLayout title={pageTitle} description={pageDescription}>
   <Header />
-  
+
   <link rel="stylesheet" href="/css/seo-page-styles.css">
   <link rel="stylesheet" href="/css/seo-ultra.css">
-  
+
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Service Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "SEO Services",
+    "name": "Sydney SEO Services",
+    "description": "Professional SEO services in Sydney including keyword research, technical SEO, content optimization, and link building to improve your website's Google rankings and drive organic traffic.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "@id": "https://theprofitplatform.com.au/#organization"
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Sydney",
+        "containedInPlace": {
+          "@type": "State",
+          "name": "New South Wales"
+        }
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "SEO Service Packages",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Local SEO Package",
+            "description": "Google My Business optimization, local citation building, 10 target keywords, monthly SEO report, basic technical SEO, and review management setup."
+          },
+          "price": "1500",
+          "priceCurrency": "AUD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "1500",
+            "priceCurrency": "AUD",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": "1",
+              "unitCode": "MON"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Growth SEO Package",
+            "description": "Everything in Local SEO plus 25 target keywords, content creation (4 articles/month), link building (10 quality links/month), advanced technical SEO, competitor analysis, and weekly progress updates."
+          },
+          "price": "2500",
+          "priceCurrency": "AUD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "2500",
+            "priceCurrency": "AUD",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": "1",
+              "unitCode": "MON"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Enterprise SEO Package",
+            "description": "Everything in Growth SEO plus 50+ target keywords, premium content strategy, advanced link building (25 links/month), e-commerce SEO optimization, dedicated SEO specialist, and priority support."
+          },
+          "price": "4500",
+          "priceCurrency": "AUD",
+          "priceSpecification": {
+            "@type": "UnitPriceSpecification",
+            "price": "4500",
+            "priceCurrency": "AUD",
+            "referenceQuantity": {
+              "@type": "QuantitativeValue",
+              "value": "1",
+              "unitCode": "MON"
+            }
+          }
+        }
+      ]
+    },
+    "offers": {
+      "@type": "AggregateOffer",
+      "lowPrice": "1500",
+      "highPrice": "4500",
+      "priceCurrency": "AUD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "referenceQuantity": {
+          "@type": "QuantitativeValue",
+          "value": "1",
+          "unitCode": "MON"
+        }
+      }
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "127"
+    }
+  }
+  </script>
   
     <main id="main-content" role="main">
         <!-- SEO Hero Section -->
