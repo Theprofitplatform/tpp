@@ -1,0 +1,242 @@
+name: Weekly GMB Post Generation
+
+on:
+  schedule:
+    # Generate 4 weeks of posts every Sunday at 6pm Sydney time
+    - cron: '0 8 * * 0'  # 8:00 AM UTC = 6:00 PM Sydney (during DST)
+  
+  workflow_dispatch:
+    inputs:
+      weeks:
+        description: 'Number of weeks to generate'
+        required: false
+        default: '4'
+      posts_per_week:
+        description: 'Posts per week'
+        required: false
+        default: '3'
+
+# Set timezone for all jobs
+env:
+  TZ: Australia/Sydney
+
+jobs:
+  generate-gmb-posts:
+    runs-on: ubuntu-latest
+    
+    outputs:
+      posts_generated: ${{ steps.generate.outputs.count }}
+      file_created: ${{ steps.generate.outputs.filename }}
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Generate GMB posts
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OUTPUT_DIR: ./automation/generated/gbp-posts
+          POSTS_PER_WEEK: ${{ github.event.inputs.posts_per_week || '3' }}
+          WEEKS_TO_GENERATE: ${{ github.event.inputs.weeks || '4' }}
+        run: |
+          echo "🚀 Generating GMB posts..."
+          node automation/scripts/gbp-auto-poster.mjs
+          
+          # Get the latest generated file
+          LATEST_FILE=$(ls -t automation/generated/gbp-posts/gbp-posts-*.json | head -1)
+          FILENAME=$(basename "$LATEST_FILE")
+          COUNT=$(jq 'length' "$LATEST_FILE")
+          
+          echo "count=$COUNT" >> $GITHUB_OUTPUT
+          echo "filename=$FILENAME" >> $GITHUB_OUTPUT
+          echo "✅ Generated $COUNT posts"
+      
+      - name: Commit generated posts
+        run: |
+          git config --local user.email "138933559+factory-droid[bot]@users.noreply.github.com"
+          git config --local user.name "factory-droid[bot]"
+          
+          git add automation/generated/gbp-posts/
+          
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git commit -m "feat: Generate GMB posts for next ${{ github.event.inputs.weeks || '4' }} weeks
+
+Generated ${{ steps.generate.outputs.count }} posts using AI automation
+
+📅 Schedule: ${{ github.event.inputs.posts_per_week || '3' }} posts per week
+📁 Files: JSON, CSV, and Markdown formats
+🤖 Auto-generated with Claude AI
+
+Co-authored-by: factory-droid[bot] <138933559+factory-droid[bot]@users.noreply.github.com>"
+          
+          git push
+      
+      - name: Create posting schedule issue
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const postsFile = `automation/generated/gbp-posts/${{ steps.generate.outputs.filename }}`;
+            const posts = JSON.parse(fs.readFileSync(postsFile, 'utf8'));
+            
+            // Group posts by week
+            const weeks = {};
+            posts.forEach(post => {
+              if (!weeks[post.week]) weeks[post.week] = [];
+              weeks[post.week].push(post);
+            });
+            
+            // Create issue body with checklist
+            let body = `# 📅 GMB Posting Schedule\n\n`;
+            body += `**Generated:** ${new Date().toLocaleDateString()}\n`;
+            body += `**Total Posts:** ${posts.length}\n`;
+            body += `**Duration:** ${{ github.event.inputs.weeks || '4' }} weeks\n\n`;
+            body += `---\n\n`;
+            
+            Object.keys(weeks).sort().forEach(week => {
+              body += `## Week ${week}\n\n`;
+              weeks[week].forEach(post => {
+                body += `### [ ] ${post.scheduledDay}, ${post.scheduledDate} @ ${post.scheduledTime}\n`;
+                body += `**Type:** ${post.type}\n\n`;
+                body += `**Content:**\n\`\`\`\n${post.content}\n\`\`\`\n\n`;
+                body += `**Image:** ${post.imageSuggestion}\n`;
+                body += `**Action:** "${post.actionButton}" → ${post.actionUrl}\n\n`;
+                body += `---\n\n`;
+              });
+            });
+            
+            body += `\n## 📂 Files\n`;
+            body += `- JSON: \`automation/generated/gbp-posts/${{ steps.generate.outputs.filename }}\`\n`;
+            body += `- CSV: \`automation/generated/gbp-posts/${postsFile.replace('.json', '.csv')}\`\n`;
+            body += `- Markdown: \`automation/generated/gbp-posts/${postsFile.replace('.json', '.md')}\`\n\n`;
+            body += `## 📋 Posting Instructions\n\n`;
+            body += `1. Open your Google Business Profile dashboard\n`;
+            body += `2. Create a post on the scheduled date/time\n`;
+            body += `3. Copy the content above\n`;
+            body += `4. Add the suggested image (create in Canva if needed)\n`;
+            body += `5. Add the action button with URL\n`;
+            body += `6. Check off the box above once posted\n`;
+            body += `7. Close this issue when all posts are complete\n\n`;
+            body += `💡 **Tip:** Consider using a scheduling tool like Buffer or Hootsuite for automatic posting!\n`;
+            
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📅 GMB Posts Schedule - Next ${{ github.event.inputs.weeks || '4' }} Weeks`,
+              body: body,
+              labels: ['gmb-automation', 'content', 'scheduled']
+            });
+      
+      - name: Send Discord notification
+        if: always()
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "No Discord webhook configured, skipping notification"
+            exit 0
+          fi
+          
+          STATUS="${{ job.status }}"
+          COLOR="3066993"
+          
+          if [ "$STATUS" = "success" ]; then
+            COLOR="3066993"
+            EMOJI="✅"
+          else
+            COLOR="15158332"
+            EMOJI="❌"
+          fi
+          
+          curl -X POST "$DISCORD_WEBHOOK" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"embeds\": [{
+                \"title\": \"$EMOJI GMB Post Generation - $STATUS\",
+                \"description\": \"Generated ${{ steps.generate.outputs.count }} GMB posts for the next ${{ github.event.inputs.weeks || '4' }} weeks\",
+                \"color\": $COLOR,
+                \"fields\": [
+                  {
+                    \"name\": \"Posts Generated\",
+                    \"value\": \"${{ steps.generate.outputs.count }}\",
+                    \"inline\": true
+                  },
+                  {
+                    \"name\": \"Duration\",
+                    \"value\": \"${{ github.event.inputs.weeks || '4' }} weeks\",
+                    \"inline\": true
+                  },
+                  {
+                    \"name\": \"Frequency\",
+                    \"value\": \"${{ github.event.inputs.posts_per_week || '3' }}x per week\",
+                    \"inline\": true
+                  }
+                ],
+                \"footer\": {
+                  \"text\": \"Check GitHub Issues for posting schedule\"
+                },
+                \"timestamp\": \"$(date -u +%Y-%m-%dT%H:%M:%S.000Z)\"
+              }]
+            }"
+
+  notify-email:
+    needs: generate-gmb-posts
+    runs-on: ubuntu-latest
+    if: success()
+    
+    steps:
+      - name: Send email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: "✅ GMB Posts Generated - Next ${{ github.event.inputs.weeks || '4' }} Weeks"
+          to: ${{ secrets.NOTIFICATION_EMAIL || 'avi@theprofitplatform.com.au' }}
+          from: "TPP Automation <${{ secrets.GMAIL_USERNAME }}>"
+          html_body: |
+            <h2>✅ GMB Posts Successfully Generated</h2>
+            
+            <p><strong>Posts Generated:</strong> ${{ needs.generate-gmb-posts.outputs.posts_generated }}</p>
+            <p><strong>Duration:</strong> ${{ github.event.inputs.weeks || '4' }} weeks</p>
+            <p><strong>Frequency:</strong> ${{ github.event.inputs.posts_per_week || '3' }} posts per week</p>
+            
+            <h3>📂 Files Created</h3>
+            <ul>
+              <li>JSON: <code>automation/generated/gbp-posts/${{ needs.generate-gmb-posts.outputs.file_created }}</code></li>
+              <li>CSV: <code>automation/generated/gbp-posts/${{ needs.generate-gmb-posts.outputs.file_created }}</code> (replace .json with .csv)</li>
+              <li>Markdown: <code>automation/generated/gbp-posts/${{ needs.generate-gmb-posts.outputs.file_created }}</code> (replace .json with .md)</li>
+            </ul>
+            
+            <h3>📋 Next Steps</h3>
+            <ol>
+              <li>Check the GitHub Issue created with your posting schedule</li>
+              <li>Download the Markdown file for easy reference</li>
+              <li>Set reminders for posting dates</li>
+              <li>Consider setting up Buffer/Hootsuite for auto-posting</li>
+            </ol>
+            
+            <p><strong>View on GitHub:</strong> <a href="https://github.com/${{ github.repository }}/issues">Check Issues Tab</a></p>
+            
+            <hr>
+            <p style="color: #666; font-size: 12px;">
+              This is an automated message from The Profit Platform's content generation system.
+            </p>
