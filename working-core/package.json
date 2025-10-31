@@ -48,7 +48,7 @@
     "@astrojs/cloudflare": "12.6.9",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.6.0",
-    "astro": "^5.14.1",
+    "astro": "^5.14.3",
     "cheerio": "1.1.2",
     "commander": "^14.0.1",
     "dataforseo-client": "^2.0.7",
@@ -58,7 +58,7 @@
     "googleapis": "^161.0.0",
     "gray-matter": "^4.0.3",
     "jsonwebtoken": "^9.0.2",
-    "nodemailer": "^7.0.6",
+    "nodemailer": "^7.0.7",
     "undici": "^7.16.0"
   },
   "devDependencies": {
