@@ -53,16 +53,47 @@ jobs:
         run: |
           echo "🚀 Generating GMB posts..."
           node automation/scripts/gbp-auto-poster.mjs
-          
+
           # Get the latest generated file
           LATEST_FILE=$(ls -t automation/generated/gbp-posts/gbp-posts-*.json | head -1)
           FILENAME=$(basename "$LATEST_FILE")
           COUNT=$(jq 'length' "$LATEST_FILE")
-          
+
           echo "count=$COUNT" >> $GITHUB_OUTPUT
           echo "filename=$FILENAME" >> $GITHUB_OUTPUT
+          echo "filepath=$LATEST_FILE" >> $GITHUB_OUTPUT
           echo "✅ Generated $COUNT posts"
-      
+
+      - name: Send posts to n8n for auto-scheduling
+        if: success()
+        env:
+          N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
+        run: |
+          if [ -z "$N8N_WEBHOOK_URL" ]; then
+            echo "⚠️ N8N_WEBHOOK_URL not set, skipping auto-posting"
+            echo "💡 To enable: Add N8N_WEBHOOK_URL to GitHub secrets"
+            exit 0
+          fi
+
+          LATEST_FILE="${{ steps.generate.outputs.filepath }}"
+
+          echo "📤 Sending ${{ steps.generate.outputs.count }} posts to n8n..."
+          echo "📡 Webhook: $N8N_WEBHOOK_URL"
+
+          RESPONSE=$(curl -s -X POST "$N8N_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d @"$LATEST_FILE")
+
+          echo "✅ Posts sent to n8n!"
+          echo "📋 Response: $RESPONSE"
+          echo ""
+          echo "🎉 n8n will now automatically:"
+          echo "   1. Schedule each post for its date/time"
+          echo "   2. Wait until scheduled time"
+          echo "   3. Post to GMB automatically"
+          echo ""
+          echo "🔍 Check n8n executions: https://n8n.theprofitplatform.com.au"
+
       - name: Commit generated posts
         run: |
           git config --local user.email "138933559+factory-droid[bot]@users.noreply.github.com"

@@ -31,8 +31,8 @@ function colorize(text, color) {
 
 export class EnvValidator {
   constructor(options = {}) {
-    this.required = [];
-    this.optional = [];
+    this.requiredVars = [];
+    this.optionalVars = [];
     this.validated = false;
     this.silent = options.silent || false;
   }
@@ -46,7 +46,7 @@ export class EnvValidator {
    * @returns {EnvValidator} - For chaining
    */
   require(key, description, validator = null) {
-    this.required.push({
+    this.requiredVars.push({
       key,
       description,
       validator,
@@ -64,7 +64,7 @@ export class EnvValidator {
    * @returns {EnvValidator} - For chaining
    */
   optional(key, description, defaultValue) {
-    this.optional.push({
+    this.optionalVars.push({
       key,
       description,
       defaultValue,
@@ -112,7 +112,7 @@ export class EnvValidator {
     const info = [];
 
     // Check required variables
-    for (const { key, description, validator, example } of this.required) {
+    for (const { key, description, validator, example } of this.requiredVars) {
       const value = process.env[key];
 
       if (!value) {
@@ -139,7 +139,7 @@ export class EnvValidator {
     }
 
     // Check optional variables
-    for (const { key, description, defaultValue, example } of this.optional) {
+    for (const { key, description, defaultValue, example } of this.optionalVars) {
       if (!process.env[key]) {
         warnings.push({
           key,
@@ -227,7 +227,7 @@ export class EnvValidator {
    * Get validation status
    */
   isValid() {
-    return this.validated && this.required.every(r => !!process.env[r.key]);
+    return this.validated && this.requiredVars.every(r => !!process.env[r.key]);
   }
 
   /**
@@ -235,8 +235,8 @@ export class EnvValidator {
    */
   getVariables() {
     return {
-      required: this.required.map(r => r.key),
-      optional: this.optional.map(o => o.key),
+      required: this.requiredVars.map(r => r.key),
+      optional: this.optionalVars.map(o => o.key),
     };
   }
 }

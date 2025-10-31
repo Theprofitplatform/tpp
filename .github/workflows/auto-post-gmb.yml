@@ -1,0 +1,79 @@
+name: Auto-Post to GMB
+
+on:
+  # Run after GMB posts are generated
+  workflow_run:
+    workflows: ["Weekly GMB Post Generation", "Daily Blog Post Generator"]
+    types:
+      - completed
+  
+  # Manual trigger
+  workflow_dispatch:
+
+  # Or schedule: Every Sunday at 7pm Sydney (1 hour after generation)
+  schedule:
+    - cron: '0 9 * * 0'  # 9:00 AM UTC = 7:00 PM Sydney
+
+env:
+  TZ: Australia/Sydney
+
+jobs:
+  auto-post-gmb:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: |
+          npm ci
+          npx playwright install chromium
+          npx playwright install-deps
+      
+      - name: Restore GMB session
+        uses: actions/cache@v3
+        with:
+          path: automation/data/gmb-session.json
+          key: gmb-session-${{ github.run_id }}
+          restore-keys: |
+            gmb-session-
+      
+      - name: Auto-post to GMB
+        run: node automation/scripts/gmb-auto-post-browser.mjs --post --headless
+        timeout-minutes: 10
+        continue-on-error: true
+      
+      - name: Save GMB session
+        uses: actions/cache@v3
+        if: always()
+        with:
+          path: automation/data/gmb-session.json
+          key: gmb-session-${{ github.run_id }}
+      
+      - name: Commit updated post status
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Auto-posted GMB content"
+          file_pattern: 'automation/generated/gbp-posts/**/*.json'
+          commit_user_name: "GMB Automation Bot"
+          commit_user_email: "automation@theprofitplatform.com.au"
+        continue-on-error: true
+      
+      - name: Send notification
+        if: always()
+        run: |
+          echo "GMB Auto-Posting: ${{ job.status }}"
+          # Add email notification here if desired
+
+# Note: This workflow requires manual session setup first
+# Run locally: node automation/scripts/gmb-auto-post-browser.mjs --setup
+# This saves your login session for automated posting
